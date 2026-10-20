@@ -1,0 +1,441 @@
+"""Maintain the frozen benchmark statements. No proof solutions or tactic hints."""
+
+import json
+from pathlib import Path
+
+ROWS = {
+    "logic": [
+        (
+            "imp_chain",
+            "Implication chain",
+            "(P Q R : Prop) (hpq : P → Q) (hqr : Q → R) (hp : P)",
+            "R",
+            "P → Q, Q → R, P ⊢ R",
+        ),
+        ("and_swap", "Conjunction symmetry", "(P Q : Prop) (h : P ∧ Q)", "Q ∧ P", "P ∧ Q ⊢ Q ∧ P"),
+        ("imp_intro", "Identity implication", "(P : Prop)", "P → P", "P → P"),
+        (
+            "and_build",
+            "Conjunction introduction",
+            "(P Q : Prop) (hp : P) (hq : Q)",
+            "P ∧ Q",
+            "P, Q ⊢ P ∧ Q",
+        ),
+        ("or_right", "Right disjunction", "(P Q : Prop) (hq : Q)", "P ∨ Q", "Q ⊢ P ∨ Q"),
+        ("or_left", "Left disjunction", "(P Q : Prop) (hp : P)", "P ∨ Q", "P ⊢ P ∨ Q"),
+        (
+            "and_project",
+            "Nested conjunction",
+            "(P Q R : Prop) (h : P ∧ Q ∧ R)",
+            "R",
+            "P ∧ (Q ∧ R) ⊢ R",
+        ),
+        (
+            "compose",
+            "Compose two implications",
+            "(P Q R : Prop) (hpq : P → Q) (hqr : Q → R)",
+            "P → R",
+            "(P → Q) → (Q → R) → P → R",
+        ),
+        (
+            "curry",
+            "Curry a premise",
+            "(P Q R : Prop) (h : P ∧ Q → R)",
+            "P → Q → R",
+            "(P ∧ Q → R) ⊢ P → Q → R",
+        ),
+        (
+            "uncurry",
+            "Uncurry a premise",
+            "(P Q R : Prop) (h : P → Q → R)",
+            "P ∧ Q → R",
+            "(P → Q → R) ⊢ P ∧ Q → R",
+        ),
+        (
+            "contrapositive",
+            "Contraposition",
+            "(P Q : Prop) (hpq : P → Q) (hnq : ¬ Q)",
+            "¬ P",
+            "P → Q, ¬Q ⊢ ¬P",
+        ),
+        (
+            "iff_intro",
+            "Logical equivalence",
+            "(P Q : Prop) (hpq : P → Q) (hqp : Q → P)",
+            "P ↔ Q",
+            "P → Q, Q → P ⊢ P ↔ Q",
+        ),
+        (
+            "or_elim",
+            "Disjunction elimination",
+            "(P Q R : Prop) (h : P ∨ Q) (hp : P → R) (hq : Q → R)",
+            "R",
+            "P ∨ Q, P → R, Q → R ⊢ R",
+        ),
+        (
+            "forall_use",
+            "Universal specialization",
+            "(α : Type) (P : α → Prop) (h : ∀ x, P x) (a : α)",
+            "P a",
+            "(∀ x, P(x)) ⊢ P(a)",
+        ),
+        (
+            "forall_intro",
+            "Universal construction",
+            "(α : Type) (P Q : α → Prop) (h : ∀ x, P x → Q x) (hp : ∀ x, P x)",
+            "∀ x, Q x",
+            "(∀ x, P(x) → Q(x)), (∀ x, P(x)) ⊢ ∀ x, Q(x)",
+        ),
+        (
+            "distribute",
+            "Distribute conjunction",
+            "(P Q R : Prop) (h : P ∧ (Q ∨ R))",
+            "(P ∧ Q) ∨ (P ∧ R)",
+            "P ∧ (Q ∨ R) ⊢ (P ∧ Q) ∨ (P ∧ R)",
+        ),
+    ],
+    "order": [
+        (
+            "order_refl",
+            "Order reflexivity",
+            "(α : Type) [PartialOrder α] (a : α)",
+            "a ≤ a",
+            "a ≤ a",
+        ),
+        (
+            "order_chain",
+            "Two-step inequality",
+            "(α : Type) [PartialOrder α] (a b c : α) (hab : a ≤ b) (hbc : b ≤ c)",
+            "a ≤ c",
+            "a ≤ b ≤ c ⊢ a ≤ c",
+        ),
+        (
+            "order_antisymm",
+            "Antisymmetry",
+            "(α : Type) [PartialOrder α] (a b : α) (hab : a ≤ b) (hba : b ≤ a)",
+            "a = b",
+            "a ≤ b, b ≤ a ⊢ a = b",
+        ),
+        (
+            "lt_chain",
+            "Strict transitivity",
+            "(α : Type) [PartialOrder α] (a b c : α) (hab : a < b) (hbc : b < c)",
+            "a < c",
+            "a < b < c ⊢ a < c",
+        ),
+        (
+            "mixed_left",
+            "Strict then weak",
+            "(α : Type) [PartialOrder α] (a b c : α) (hab : a < b) (hbc : b ≤ c)",
+            "a < c",
+            "a < b ≤ c ⊢ a < c",
+        ),
+        (
+            "mixed_right",
+            "Weak then strict",
+            "(α : Type) [PartialOrder α] (a b c : α) (hab : a ≤ b) (hbc : b < c)",
+            "a < c",
+            "a ≤ b < c ⊢ a < c",
+        ),
+        (
+            "order_pair",
+            "Construct an order pair",
+            "(α : Type) [PartialOrder α] (a b : α) (h : a ≤ b)",
+            "a ≤ b ∧ b ≤ b",
+            "a ≤ b ⊢ (a ≤ b) ∧ (b ≤ b)",
+        ),
+        (
+            "order_intro",
+            "Reflexive implication",
+            "(α : Type) [PartialOrder α] (a b : α)",
+            "a ≤ b → a ≤ b",
+            "(a ≤ b) → (a ≤ b)",
+        ),
+        (
+            "chain_three",
+            "Three-step inequality",
+            "(α : Type) [PartialOrder α] (a b c d : α) (hab : a ≤ b) (hbc : b ≤ c) (hcd : c ≤ d)",
+            "a ≤ d",
+            "a ≤ b ≤ c ≤ d ⊢ a ≤ d",
+        ),
+        (
+            "symmetric_chain",
+            "Inequalities give equality",
+            "(α : Type) [PartialOrder α] (a b c : α) (hab : a ≤ b) (hbc : b ≤ c) (hca : c ≤ a)",
+            "a = c",
+            "a ≤ b ≤ c ≤ a ⊢ a = c",
+        ),
+        (
+            "chain_conjunction",
+            "Parallel order conclusions",
+            "(α : Type) [PartialOrder α] (a b c : α) (hab : a ≤ b) (hbc : b ≤ c)",
+            "a ≤ c ∧ a ≤ b",
+            "a ≤ b ≤ c ⊢ (a ≤ c) ∧ (a ≤ b)",
+        ),
+        ("nat_successor", "Natural successor", "(n : Nat)", "n ≤ n + 1", "n ≤ n + 1"),
+        (
+            "nat_bound",
+            "Arithmetic upper bound",
+            "(n m : Nat) (h : n ≤ m)",
+            "n ≤ m + 2",
+            "n ≤ m ⊢ n ≤ m + 2",
+        ),
+        ("nat_interval", "Natural interval", "(n : Nat) (h : n < 4)", "n ≤ 3", "n < 4 ⊢ n ≤ 3"),
+        (
+            "nat_shift",
+            "Shift an inequality",
+            "(n m : Nat) (h : n + 3 ≤ m)",
+            "n ≤ m",
+            "n + 3 ≤ m ⊢ n ≤ m",
+        ),
+        (
+            "order_quantified",
+            "Quantified transitivity",
+            "(α : Type) [PartialOrder α] (a b : α) (hab : a ≤ b)",
+            "∀ c, b ≤ c → a ≤ c",
+            "a ≤ b ⊢ ∀ c, b ≤ c → a ≤ c",
+        ),
+    ],
+    "algebra": [
+        (
+            "eq_symmetry",
+            "Equality symmetry",
+            "(α : Type) (a b : α) (h : a = b)",
+            "b = a",
+            "a = b ⊢ b = a",
+        ),
+        (
+            "eq_chain",
+            "Equality transitivity",
+            "(α : Type) (a b c : α) (hab : a = b) (hbc : b = c)",
+            "a = c",
+            "a = b = c ⊢ a = c",
+        ),
+        (
+            "monoid_right",
+            "Right identity",
+            "(M : Type) [Monoid M] (a : M)",
+            "a * 1 = a",
+            "a · 1 = a",
+        ),
+        ("monoid_left", "Left identity", "(M : Type) [Monoid M] (a : M)", "1 * a = a", "1 · a = a"),
+        (
+            "monoid_assoc",
+            "Associativity",
+            "(M : Type) [Monoid M] (a b c : M)",
+            "(a * b) * c = a * (b * c)",
+            "(a · b) · c = a · (b · c)",
+        ),
+        (
+            "monoid_comm",
+            "Commutative multiplication",
+            "(M : Type) [CommMonoid M] (a b : M)",
+            "a * b = b * a",
+            "a · b = b · a",
+        ),
+        (
+            "additive_zero",
+            "Additive identity",
+            "(R : Type) [Ring R] (a : R)",
+            "a + 0 = a",
+            "a + 0 = a",
+        ),
+        (
+            "zero_additive",
+            "Left additive identity",
+            "(R : Type) [Ring R] (a : R)",
+            "0 + a = a",
+            "0 + a = a",
+        ),
+        (
+            "ring_expand",
+            "Binomial expansion",
+            "(R : Type) [CommRing R] (a b : R)",
+            "(a + b)^2 = a^2 + 2*a*b + b^2",
+            "(a + b)² = a² + 2ab + b²",
+        ),
+        (
+            "ring_distribute",
+            "Distributivity",
+            "(R : Type) [Ring R] (a b c : R)",
+            "a * (b + c) = a*b + a*c",
+            "a(b + c) = ab + ac",
+        ),
+        (
+            "rewrite_product",
+            "Rewrite inside a product",
+            "(M : Type) [Monoid M] (a b c : M) (h : a = b)",
+            "a * c = b * c",
+            "a = b ⊢ a · c = b · c",
+        ),
+        (
+            "rewrite_sum",
+            "Rewrite inside a sum",
+            "(R : Type) [Ring R] (a b c : R) (h : a = b)",
+            "c + a = c + b",
+            "a = b ⊢ c + a = c + b",
+        ),
+        (
+            "ring_cube",
+            "Cube identity",
+            "(R : Type) [CommRing R] (a b : R)",
+            "(a+b)^3 = a^3 + 3*a^2*b + 3*a*b^2 + b^3",
+            "(a + b)³ = a³ + 3a²b + 3ab² + b³",
+        ),
+        (
+            "ring_difference",
+            "Difference of squares",
+            "(R : Type) [CommRing R] (a b : R)",
+            "(a-b)*(a+b) = a^2-b^2",
+            "(a − b)(a + b) = a² − b²",
+        ),
+        (
+            "eq_pair",
+            "Two equality conclusions",
+            "(α : Type) (a b c : α) (h : a = b) (k : b = c)",
+            "a = c ∧ c = a",
+            "a = b = c ⊢ (a = c) ∧ (c = a)",
+        ),
+        (
+            "rewrite_identity",
+            "Rewrite then use identity",
+            "(M : Type) [Monoid M] (a b : M) (h : a = b)",
+            "a * 1 = b",
+            "a = b ⊢ a · 1 = b",
+        ),
+    ],
+    "sets": [
+        (
+            "set_inter_left",
+            "Intersection projection",
+            "(α : Type) (A B : Set α)",
+            "A ∩ B ⊆ A",
+            "A ∩ B ⊆ A",
+        ),
+        (
+            "set_inter_right",
+            "Other intersection projection",
+            "(α : Type) (A B : Set α)",
+            "A ∩ B ⊆ B",
+            "A ∩ B ⊆ B",
+        ),
+        ("set_union_left", "Union inclusion", "(α : Type) (A B : Set α)", "A ⊆ A ∪ B", "A ⊆ A ∪ B"),
+        (
+            "set_union_right",
+            "Other union inclusion",
+            "(α : Type) (A B : Set α)",
+            "B ⊆ A ∪ B",
+            "B ⊆ A ∪ B",
+        ),
+        ("set_refl", "Subset reflexivity", "(α : Type) (A : Set α)", "A ⊆ A", "A ⊆ A"),
+        (
+            "set_chain",
+            "Subset transitivity",
+            "(α : Type) (A B C : Set α) (hab : A ⊆ B) (hbc : B ⊆ C)",
+            "A ⊆ C",
+            "A ⊆ B ⊆ C ⊢ A ⊆ C",
+        ),
+        (
+            "set_antisymm",
+            "Set extensional equality",
+            "(α : Type) (A B : Set α) (hab : A ⊆ B) (hba : B ⊆ A)",
+            "A = B",
+            "A ⊆ B, B ⊆ A ⊢ A = B",
+        ),
+        (
+            "set_membership",
+            "Membership transport",
+            "(α : Type) (A B : Set α) (x : α) (h : A ⊆ B) (hx : x ∈ A)",
+            "x ∈ B",
+            "A ⊆ B, x ∈ A ⊢ x ∈ B",
+        ),
+        (
+            "set_inter_member",
+            "Construct intersection membership",
+            "(α : Type) (A B : Set α) (x : α) (ha : x ∈ A) (hb : x ∈ B)",
+            "x ∈ A ∩ B",
+            "x ∈ A, x ∈ B ⊢ x ∈ A ∩ B",
+        ),
+        (
+            "set_inter_comm",
+            "Intersection commutativity",
+            "(α : Type) (A B : Set α)",
+            "A ∩ B = B ∩ A",
+            "A ∩ B = B ∩ A",
+        ),
+        (
+            "set_union_member",
+            "Construct union membership",
+            "(α : Type) (A B : Set α) (x : α) (hb : x ∈ B)",
+            "x ∈ A ∪ B",
+            "x ∈ B ⊢ x ∈ A ∪ B",
+        ),
+        (
+            "set_inter_monotone",
+            "Intersection monotonicity",
+            "(α : Type) (A B C : Set α) (h : A ⊆ B)",
+            "A ∩ C ⊆ B ∩ C",
+            "A ⊆ B ⊢ A ∩ C ⊆ B ∩ C",
+        ),
+        (
+            "set_union_elim",
+            "Union elimination",
+            "(α : Type) (A B C : Set α) (ha : A ⊆ C) (hb : B ⊆ C)",
+            "A ∪ B ⊆ C",
+            "A ⊆ C, B ⊆ C ⊢ A ∪ B ⊆ C",
+        ),
+        (
+            "set_nested",
+            "Nested intersection",
+            "(α : Type) (A B C : Set α)",
+            "A ∩ (B ∩ C) ⊆ C",
+            "A ∩ (B ∩ C) ⊆ C",
+        ),
+        (
+            "set_distribute",
+            "Distribute intersection over union",
+            "(α : Type) (A B C : Set α)",
+            "A ∩ (B ∪ C) ⊆ (A ∩ B) ∪ (A ∩ C)",
+            "A ∩ (B ∪ C) ⊆ (A ∩ B) ∪ (A ∩ C)",
+        ),
+        (
+            "set_chain_three",
+            "Three-step subset chain",
+            "(α : Type) (A B C D : Set α) (hab : A ⊆ B) (hbc : B ⊆ C) (hcd : C ⊆ D)",
+            "A ⊆ D",
+            "A ⊆ B ⊆ C ⊆ D ⊢ A ⊆ D",
+        ),
+    ],
+}
+
+
+def main() -> None:
+    tasks = []
+    for domain, rows in ROWS.items():
+        for i, (ident, title, binders, target, display) in enumerate(rows):
+            tasks.append(
+                {
+                    "id": ident,
+                    "title": title,
+                    "domain": domain,
+                    "difficulty": "easy" if i < 6 else "moderate" if i < 12 else "challenge",
+                    "split": "held_out" if i >= 12 else "development",
+                    "binders": binders,
+                    "target": target,
+                    "display": display,
+                    "description": (
+                        f"{title}. Search uses the same candidate generator as all other tasks."
+                    ),
+                    "origin": (
+                        "Original benchmark statement; mathematical result is not claimed novel."
+                    ),
+                    "forbidden_lemmas": ["prooflab_result"],
+                }
+            )
+    destination = Path(__file__).resolve().parents[1] / "benchmarks/tasks.json"
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    destination.write_text(json.dumps(tasks, indent=2, ensure_ascii=False) + "\n")
+
+
+if __name__ == "__main__":
+    main()
