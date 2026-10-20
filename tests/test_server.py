@@ -52,3 +52,12 @@ def test_large_budget_and_unknown_job_are_rejected() -> None:
     )
     assert client.get("/api/jobs/unknown").status_code == 404
     assert client.delete("/api/jobs/unknown").status_code == 404
+
+
+def test_phase2_dataset_and_real_model_metadata() -> None:
+    rows = client.get("/api/tasks?dataset=phase2").json()
+    assert len(rows) == 24 and all(t["id"].startswith("p2_") for t in rows)
+    model = client.get("/api/model").json()
+    assert model["weights"] and len(model["sha256"]) == 64
+    assert not model["provenance"]["evaluation_accessed_during_selection"]
+    assert client.get("/api/tasks?dataset=unknown").status_code == 422

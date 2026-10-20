@@ -1,0 +1,2692 @@
+{
+  "provenance": {
+    "code_commit": "1b9262dd32c23fa2ac95c47a5f9a9d2172d63da2",
+    "lean_version": "leanprover/lean4:v4.24.0",
+    "mathlib_revision": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7",
+    "python": "3.12.14",
+    "platform": "Linux-6.18.55-x86_64-with-glibc2.41",
+    "machine": "x86_64",
+    "processor": "",
+    "seed": "0 (deterministic)",
+    "state_identity": "Exact tactic prefix within one native session; no semantic merging",
+    "started_at": "2026-10-20T09:42:54.493275+00:00",
+    "model_sha256": "99633c7039471cceb0292b4634df2b7c4d60218a0882f156e9cc70b5bd75730e",
+    "evaluation_sha256": "bc1f9f4a7627f41aded20befb333a04faa3139a36c7bb892e9a9f5c00fe0d8e3",
+    "protocol_sha256": "1ef77e69004a598bc73955b8ca0611694394e89062999e19700b954e571007f3",
+    "frozen_sha256": "e2ba37724701f13df8367114b76b0609663611f01ad101f60d1e5ccef3560b12",
+    "source_sha256": {
+      "src/prooflab/__init__.py": "2326cf4f2511a531a7e66dc19bad068eb3a9cc811ceb17ca7130af8eaceef25a",
+      "src/prooflab/benchmark.py": "47584fef596c2165d4f607bd0cdd8f1cb40675c5b4bfa1be064b1199b1c48027",
+      "src/prooflab/candidates.py": "cec84585f6891e832d3e7f9d65ffae6f12d2e5eb59e4f138f08c2754a5eba1d7",
+      "src/prooflab/cli.py": "deda3514c87d29c427e05b75e8c9da63467fa2cf05838616c7cd12d801b95947",
+      "src/prooflab/dataset.py": "c1e024553931a2ecdebcc494a0f8921a9a88ebfa1457be94a67e84e14cb49226",
+      "src/prooflab/evaluation.py": "ceeac3030ec748d02ee207ab7055436f0ded19e864cff04f6e44f13452bf76ed",
+      "src/prooflab/features.py": "69437762d7279a3306f2f0fa4c7bfa22274c3f49b2c679f7308cf587e3c812b8",
+      "src/prooflab/lean.py": "319a310bfdf78ffd7033b0f8f1efc5e3b705623031fa6201e27657c628d4c4c4",
+      "src/prooflab/learning.py": "164226ab21dbfafde195b0697a68bc73ce926ad2ba557ed2ae1b2b6c13061d09",
+      "src/prooflab/models.py": "6936952569091bea3c985326574327a9e922622d752e0ba6cf49c979e00347f1",
+      "src/prooflab/search.py": "8adfc9cd751b0b496641dceee80185874590993996bf0963bf3ec049a9341ea4",
+      "src/prooflab/server.py": "e85d32194a50e2d4e023ed465b8f671e70db68f47dda2ce9643cf48dda02bfc6",
+      "src/prooflab/splits.py": "be56f32886566a8771b8e4c7eb62777b17b9fde9c6f5e2c9cbdaeadc9f8a21b3",
+      "src/prooflab/training.py": "6bd55383ce49a37cbaa1c3140f754fd9a0a0c5e6911c0c1dd7aa77e9f667d686"
+    },
+    "budget": {
+      "max_depth": 8,
+      "max_expansions": 60,
+      "max_candidates": 24,
+      "max_attempts": 400,
+      "timeout_s": 12.0,
+      "tactic_timeout_s": 3.0
+    },
+    "workers": 2,
+    "repetitions": 3,
+    "algorithms": [
+      "bfs",
+      "best_first",
+      "learned",
+      "automation"
+    ],
+    "cpu_count": 5,
+    "affinity_cpu_count": 5,
+    "timing_note": "Two workers share host; wall time includes startup and fresh proof audit. All three ProofLab policies record both score explanations. Native Aesop is a separate reference with its own internal tactics, not candidate-matched.",
+    "ordering": "rotate policy order by theorem and repeat; collect repeats sequentially",
+    "uncertainty": {
+      "bootstrap_samples": 10000,
+      "seed": 1729,
+      "unit": "theorem cluster, all repetitions kept together",
+      "interval": 0.95
+    }
+  },
+  "results": {
+    "bfs": {
+      "attempted": 72,
+      "verified": 72,
+      "success_rate": 1.0,
+      "mean_wall_s": 3.9401744231668596,
+      "median_wall_s": 3.9459288855032355,
+      "resource_limits": 0,
+      "execution_errors": 0,
+      "mean_expansions": 3.5,
+      "mean_candidates": 14.666666666666666,
+      "mean_lean_execution_s": 0.03283297158355304,
+      "proof_origins": {
+        "native_automation": 0,
+        "retrieved_lemma": 0,
+        "specialized_tactic": 0,
+        "constructed_derivation": 72
+      },
+      "domains": {
+        "logic": {
+          "attempted": 36,
+          "verified": 36
+        },
+        "order": {
+          "attempted": 0,
+          "verified": 0
+        },
+        "algebra": {
+          "attempted": 12,
+          "verified": 12
+        },
+        "sets": {
+          "attempted": 24,
+          "verified": 24
+        }
+      },
+      "splits": {
+        "development": {
+          "attempted": 0,
+          "verified": 0
+        },
+        "held_out": {
+          "attempted": 72,
+          "verified": 72
+        }
+      },
+      "difficulties": {
+        "easy": {
+          "attempted": 18,
+          "verified": 18
+        },
+        "moderate": {
+          "attempted": 36,
+          "verified": 36
+        },
+        "challenge": {
+          "attempted": 18,
+          "verified": 18
+        }
+      },
+      "metrics": {
+        "elapsed_s": {
+          "mean": 3.9401744231668596,
+          "median": 3.9459288855032355,
+          "min": 3.337982142002147,
+          "max": 4.729555994003022
+        },
+        "lean_execution_s": {
+          "mean": 0.03283297158355304,
+          "median": 0.017364708008244634,
+          "min": 0.0010323630049242638,
+          "max": 0.35482815099385334
+        },
+        "initialization_s": {
+          "mean": 1.919100742666564,
+          "median": 1.917179762502201,
+          "min": 1.6389243439989514,
+          "max": 2.414014848000079
+        },
+        "verification_s": {
+          "mean": 1.958247942791382,
+          "median": 1.9531594084983226,
+          "min": 1.6135575959997368,
+          "max": 2.4332785489968956
+        },
+        "planning_s": {
+          "mean": 0.0022983652373416894,
+          "median": 0.0014738079989911057,
+          "min": 0.0003895959962392226,
+          "max": 0.018159170023864135
+        },
+        "model_inference_s": {
+          "mean": 0.0009435829167867067,
+          "median": 0.0005682369992427994,
+          "min": 7.860800542403013e-05,
+          "max": 0.007744381007796619
+        },
+        "expanded_states": {
+          "mean": 3.5,
+          "median": 2.0,
+          "min": 1,
+          "max": 25
+        },
+        "attempted_candidates": {
+          "mean": 14.666666666666666,
+          "median": 7.5,
+          "min": 1,
+          "max": 121
+        },
+        "proof_length": {
+          "mean": 2.4166666666666665,
+          "median": 2.0,
+          "min": 1,
+          "max": 6
+        }
+      },
+      "success_interval": {
+        "estimate": 1.0,
+        "lower": 1.0,
+        "upper": 1.0
+      },
+      "termination_counts": {
+        "verified": 72
+      },
+      "families": {
+        "existential_elimination": {
+          "runs": 12,
+          "verified": 12
+        },
+        "function_congruence": {
+          "runs": 12,
+          "verified": 12
+        },
+        "predicate_transport": {
+          "runs": 12,
+          "verified": 12
+        },
+        "set_differences": {
+          "runs": 12,
+          "verified": 12
+        },
+        "set_preimages": {
+          "runs": 12,
+          "verified": 12
+        },
+        "witness_construction": {
+          "runs": 12,
+          "verified": 12
+        }
+      }
+    },
+    "best_first": {
+      "attempted": 72,
+      "verified": 72,
+      "success_rate": 1.0,
+      "mean_wall_s": 3.934486550569798,
+      "median_wall_s": 3.912359520498285,
+      "resource_limits": 0,
+      "execution_errors": 0,
+      "mean_expansions": 2.6666666666666665,
+      "mean_candidates": 10.625,
+      "mean_lean_execution_s": 0.023360705483456614,
+      "proof_origins": {
+        "native_automation": 0,
+        "retrieved_lemma": 0,
+        "specialized_tactic": 0,
+        "constructed_derivation": 72
+      },
+      "domains": {
+        "logic": {
+          "attempted": 36,
+          "verified": 36
+        },
+        "order": {
+          "attempted": 0,
+          "verified": 0
+        },
+        "algebra": {
+          "attempted": 12,
+          "verified": 12
+        },
+        "sets": {
+          "attempted": 24,
+          "verified": 24
+        }
+      },
+      "splits": {
+        "development": {
+          "attempted": 0,
+          "verified": 0
+        },
+        "held_out": {
+          "attempted": 72,
+          "verified": 72
+        }
+      },
+      "difficulties": {
+        "easy": {
+          "attempted": 18,
+          "verified": 18
+        },
+        "moderate": {
+          "attempted": 36,
+          "verified": 36
+        },
+        "challenge": {
+          "attempted": 18,
+          "verified": 18
+        }
+      },
+      "metrics": {
+        "elapsed_s": {
+          "mean": 3.934486550569798,
+          "median": 3.912359520498285,
+          "min": 3.3274718600005144,
+          "max": 4.652537800997379
+        },
+        "lean_execution_s": {
+          "mean": 0.023360705483456614,
+          "median": 0.017042627496266505,
+          "min": 0.0008303700014948845,
+          "max": 0.09246961498865858
+        },
+        "initialization_s": {
+          "mean": 1.9354986898611566,
+          "median": 1.929284160501993,
+          "min": 1.619859844999155,
+          "max": 2.281865447999735
+        },
+        "verification_s": {
+          "mean": 1.9409430541119137,
+          "median": 1.9354941230012628,
+          "min": 1.589543351001339,
+          "max": 2.301540827000281
+        },
+        "planning_s": {
+          "mean": 0.003088379763337596,
+          "median": 0.001395824998326134,
+          "min": 0.00036919600097462535,
+          "max": 0.09557591098564444
+        },
+        "model_inference_s": {
+          "mean": 0.0007621689434624083,
+          "median": 0.0004723905003629625,
+          "min": 7.86989985499531e-05,
+          "max": 0.0042830660022445954
+        },
+        "expanded_states": {
+          "mean": 2.6666666666666665,
+          "median": 2.0,
+          "min": 1,
+          "max": 8
+        },
+        "attempted_candidates": {
+          "mean": 10.625,
+          "median": 6.5,
+          "min": 1,
+          "max": 40
+        },
+        "proof_length": {
+          "mean": 2.4166666666666665,
+          "median": 2.0,
+          "min": 1,
+          "max": 6
+        }
+      },
+      "success_interval": {
+        "estimate": 1.0,
+        "lower": 1.0,
+        "upper": 1.0
+      },
+      "termination_counts": {
+        "verified": 72
+      },
+      "families": {
+        "existential_elimination": {
+          "runs": 12,
+          "verified": 12
+        },
+        "function_congruence": {
+          "runs": 12,
+          "verified": 12
+        },
+        "predicate_transport": {
+          "runs": 12,
+          "verified": 12
+        },
+        "set_differences": {
+          "runs": 12,
+          "verified": 12
+        },
+        "set_preimages": {
+          "runs": 12,
+          "verified": 12
+        },
+        "witness_construction": {
+          "runs": 12,
+          "verified": 12
+        }
+      }
+    },
+    "learned": {
+      "attempted": 72,
+      "verified": 72,
+      "success_rate": 1.0,
+      "mean_wall_s": 3.9231816748608455,
+      "median_wall_s": 3.8916702424976393,
+      "resource_limits": 0,
+      "execution_errors": 0,
+      "mean_expansions": 2.7083333333333335,
+      "mean_candidates": 10.791666666666666,
+      "mean_lean_execution_s": 0.023744832597104606,
+      "proof_origins": {
+        "native_automation": 0,
+        "retrieved_lemma": 0,
+        "specialized_tactic": 0,
+        "constructed_derivation": 72
+      },
+      "domains": {
+        "logic": {
+          "attempted": 36,
+          "verified": 36
+        },
+        "order": {
+          "attempted": 0,
+          "verified": 0
+        },
+        "algebra": {
+          "attempted": 12,
+          "verified": 12
+        },
+        "sets": {
+          "attempted": 24,
+          "verified": 24
+        }
+      },
+      "splits": {
+        "development": {
+          "attempted": 0,
+          "verified": 0
+        },
+        "held_out": {
+          "attempted": 72,
+          "verified": 72
+        }
+      },
+      "difficulties": {
+        "easy": {
+          "attempted": 18,
+          "verified": 18
+        },
+        "moderate": {
+          "attempted": 36,
+          "verified": 36
+        },
+        "challenge": {
+          "attempted": 18,
+          "verified": 18
+        }
+      },
+      "metrics": {
+        "elapsed_s": {
+          "mean": 3.9231816748608455,
+          "median": 3.8916702424976393,
+          "min": 3.4409379369972157,
+          "max": 4.528170734003652
+        },
+        "lean_execution_s": {
+          "mean": 0.023744832597104606,
+          "median": 0.015857973008678528,
+          "min": 0.0008288380049634725,
+          "max": 0.08328297801199369
+        },
+        "initialization_s": {
+          "mean": 1.937004385958264,
+          "median": 1.9415755565023574,
+          "min": 1.6867450729987468,
+          "max": 2.3149020970013225
+        },
+        "verification_s": {
+          "mean": 1.9292091623051926,
+          "median": 1.8920640649994311,
+          "min": 1.6545459469998605,
+          "max": 2.363055847999931
+        },
+        "planning_s": {
+          "mean": 0.002139242444476016,
+          "median": 0.0015764445015520323,
+          "min": 0.00036211500264471397,
+          "max": 0.007628656007000245
+        },
+        "model_inference_s": {
+          "mean": 0.0010739578888711145,
+          "median": 0.0006766424994566478,
+          "min": 9.121600305661559e-05,
+          "max": 0.0038999559910735115
+        },
+        "expanded_states": {
+          "mean": 2.7083333333333335,
+          "median": 2.0,
+          "min": 1,
+          "max": 9
+        },
+        "attempted_candidates": {
+          "mean": 10.791666666666666,
+          "median": 7.0,
+          "min": 1,
+          "max": 43
+        },
+        "proof_length": {
+          "mean": 2.4166666666666665,
+          "median": 2.0,
+          "min": 1,
+          "max": 6
+        }
+      },
+      "success_interval": {
+        "estimate": 1.0,
+        "lower": 1.0,
+        "upper": 1.0
+      },
+      "termination_counts": {
+        "verified": 72
+      },
+      "families": {
+        "existential_elimination": {
+          "runs": 12,
+          "verified": 12
+        },
+        "function_congruence": {
+          "runs": 12,
+          "verified": 12
+        },
+        "predicate_transport": {
+          "runs": 12,
+          "verified": 12
+        },
+        "set_differences": {
+          "runs": 12,
+          "verified": 12
+        },
+        "set_preimages": {
+          "runs": 12,
+          "verified": 12
+        },
+        "witness_construction": {
+          "runs": 12,
+          "verified": 12
+        }
+      }
+    },
+    "automation": {
+      "attempted": 72,
+      "verified": 63,
+      "success_rate": 0.875,
+      "mean_wall_s": 3.785184997875149,
+      "median_wall_s": 3.9867606200023147,
+      "resource_limits": 0,
+      "execution_errors": 0,
+      "mean_expansions": 1,
+      "mean_candidates": 1,
+      "mean_lean_execution_s": 0.05003653645851753,
+      "proof_origins": {
+        "native_automation": 63,
+        "retrieved_lemma": 0,
+        "specialized_tactic": 0,
+        "constructed_derivation": 0
+      },
+      "domains": {
+        "logic": {
+          "attempted": 36,
+          "verified": 36
+        },
+        "order": {
+          "attempted": 0,
+          "verified": 0
+        },
+        "algebra": {
+          "attempted": 12,
+          "verified": 12
+        },
+        "sets": {
+          "attempted": 24,
+          "verified": 15
+        }
+      },
+      "splits": {
+        "development": {
+          "attempted": 0,
+          "verified": 0
+        },
+        "held_out": {
+          "attempted": 72,
+          "verified": 63
+        }
+      },
+      "difficulties": {
+        "easy": {
+          "attempted": 18,
+          "verified": 18
+        },
+        "moderate": {
+          "attempted": 36,
+          "verified": 33
+        },
+        "challenge": {
+          "attempted": 18,
+          "verified": 12
+        }
+      },
+      "metrics": {
+        "elapsed_s": {
+          "mean": 3.785184997875149,
+          "median": 3.9867606200023147,
+          "min": 1.8751700959983282,
+          "max": 4.879802117000509
+        },
+        "lean_execution_s": {
+          "mean": 0.05003653645851753,
+          "median": 0.029356318002101034,
+          "min": 0.018635243002790958,
+          "max": 0.20829737599706277
+        },
+        "initialization_s": {
+          "mean": 1.939839612625191,
+          "median": 1.9459390315023484,
+          "min": 1.676960306998808,
+          "max": 2.4683974649960874
+        },
+        "verification_s": {
+          "mean": 1.7677100134717167,
+          "median": 1.9828416759992251,
+          "min": 0,
+          "max": 2.342646639001032
+        },
+        "planning_s": {
+          "mean": 0.0003793607227433111,
+          "median": 0.0003646635013865307,
+          "min": 0.0002294650039402768,
+          "max": 0.0008872649996192195
+        },
+        "model_inference_s": {
+          "mean": 0,
+          "median": 0.0,
+          "min": 0,
+          "max": 0
+        },
+        "expanded_states": {
+          "mean": 1,
+          "median": 1.0,
+          "min": 1,
+          "max": 1
+        },
+        "attempted_candidates": {
+          "mean": 1,
+          "median": 1.0,
+          "min": 1,
+          "max": 1
+        },
+        "proof_length": {
+          "mean": 0.875,
+          "median": 1.0,
+          "min": 0,
+          "max": 1
+        }
+      },
+      "success_interval": {
+        "estimate": 0.875,
+        "lower": 0.75,
+        "upper": 1.0
+      },
+      "termination_counts": {
+        "search_exhausted": 9,
+        "verified": 63
+      },
+      "families": {
+        "existential_elimination": {
+          "runs": 12,
+          "verified": 12
+        },
+        "function_congruence": {
+          "runs": 12,
+          "verified": 12
+        },
+        "predicate_transport": {
+          "runs": 12,
+          "verified": 12
+        },
+        "set_differences": {
+          "runs": 12,
+          "verified": 9
+        },
+        "set_preimages": {
+          "runs": 12,
+          "verified": 6
+        },
+        "witness_construction": {
+          "runs": 12,
+          "verified": 12
+        }
+      }
+    }
+  },
+  "paired_differences": {
+    "bfs": {
+      "interpretation": "learned minus baseline; lower effort is better; all tasks include failures",
+      "success_rate": {
+        "estimate": 0.0,
+        "lower": 0.0,
+        "upper": 0.0
+      },
+      "expanded_states": {
+        "estimate": -0.7916666666666666,
+        "lower": -2.25,
+        "upper": 0.041666666666666664
+      },
+      "attempted_candidates": {
+        "estimate": -3.875,
+        "lower": -10.75,
+        "upper": 0.08333333333333333
+      },
+      "elapsed_s": {
+        "estimate": -0.01699274830601401,
+        "lower": -0.081767924209089,
+        "upper": 0.04891607900066849
+      },
+      "lean_execution_s": {
+        "estimate": -0.009088138986448434,
+        "lower": -0.028828970459875966,
+        "upper": 0.0021433007222084488
+      },
+      "common_verified_tasks": [
+        "p2_congr_binary",
+        "p2_congr_function_argument",
+        "p2_congr_nested",
+        "p2_congr_single",
+        "p2_difference_construct",
+        "p2_difference_exclusion",
+        "p2_difference_member",
+        "p2_difference_monotone",
+        "p2_exists_nested",
+        "p2_exists_project",
+        "p2_exists_swap",
+        "p2_exists_transport",
+        "p2_predicate_argument",
+        "p2_predicate_binary",
+        "p2_predicate_function",
+        "p2_predicate_negative",
+        "p2_preimage_inter_member",
+        "p2_preimage_inter_subset",
+        "p2_preimage_member",
+        "p2_preimage_monotone",
+        "p2_witness_augment",
+        "p2_witness_binary",
+        "p2_witness_pair",
+        "p2_witness_single"
+      ],
+      "common_verified_mean_differences": {
+        "expanded_states": -0.7916666666666666,
+        "attempted_candidates": -3.875,
+        "elapsed_s": -0.01699274830601401,
+        "lean_execution_s": -0.009088138986448434
+      }
+    },
+    "best_first": {
+      "interpretation": "learned minus baseline; lower effort is better; all tasks include failures",
+      "success_rate": {
+        "estimate": 0.0,
+        "lower": 0.0,
+        "upper": 0.0
+      },
+      "expanded_states": {
+        "estimate": 0.041666666666666664,
+        "lower": 0.0,
+        "upper": 0.125
+      },
+      "attempted_candidates": {
+        "estimate": 0.16666666666666666,
+        "lower": -0.625,
+        "upper": 1.0833333333333333
+      },
+      "elapsed_s": {
+        "estimate": -0.011304875708952278,
+        "lower": -0.05915685409753568,
+        "upper": 0.03713442455520841
+      },
+      "lean_execution_s": {
+        "estimate": 0.000384127113647992,
+        "lower": -0.0019396395386542685,
+        "upper": 0.0030348131402004384
+      },
+      "common_verified_tasks": [
+        "p2_congr_binary",
+        "p2_congr_function_argument",
+        "p2_congr_nested",
+        "p2_congr_single",
+        "p2_difference_construct",
+        "p2_difference_exclusion",
+        "p2_difference_member",
+        "p2_difference_monotone",
+        "p2_exists_nested",
+        "p2_exists_project",
+        "p2_exists_swap",
+        "p2_exists_transport",
+        "p2_predicate_argument",
+        "p2_predicate_binary",
+        "p2_predicate_function",
+        "p2_predicate_negative",
+        "p2_preimage_inter_member",
+        "p2_preimage_inter_subset",
+        "p2_preimage_member",
+        "p2_preimage_monotone",
+        "p2_witness_augment",
+        "p2_witness_binary",
+        "p2_witness_pair",
+        "p2_witness_single"
+      ],
+      "common_verified_mean_differences": {
+        "expanded_states": 0.041666666666666664,
+        "attempted_candidates": 0.16666666666666666,
+        "elapsed_s": -0.011304875708952278,
+        "lean_execution_s": 0.000384127113647992
+      }
+    },
+    "automation": {
+      "interpretation": "learned minus baseline; lower effort is better; all tasks include failures",
+      "success_rate": {
+        "estimate": 0.125,
+        "lower": 0.0,
+        "upper": 0.25
+      },
+      "expanded_states": {
+        "estimate": 1.7083333333333333,
+        "lower": 1.0416666666666667,
+        "upper": 2.5
+      },
+      "attempted_candidates": {
+        "estimate": 9.791666666666666,
+        "lower": 5.875,
+        "upper": 14.208333333333334
+      },
+      "elapsed_s": {
+        "estimate": 0.13799667698569665,
+        "lower": -0.09258470216738922,
+        "upper": 0.4203246530825912
+      },
+      "lean_execution_s": {
+        "estimate": -0.026291703861412923,
+        "lower": -0.04081640326320566,
+        "upper": -0.01345757500075706
+      },
+      "common_verified_tasks": [
+        "p2_congr_binary",
+        "p2_congr_function_argument",
+        "p2_congr_nested",
+        "p2_congr_single",
+        "p2_difference_construct",
+        "p2_difference_exclusion",
+        "p2_difference_member",
+        "p2_exists_nested",
+        "p2_exists_project",
+        "p2_exists_swap",
+        "p2_exists_transport",
+        "p2_predicate_argument",
+        "p2_predicate_binary",
+        "p2_predicate_function",
+        "p2_predicate_negative",
+        "p2_preimage_inter_member",
+        "p2_preimage_member",
+        "p2_witness_augment",
+        "p2_witness_binary",
+        "p2_witness_pair",
+        "p2_witness_single"
+      ],
+      "common_verified_mean_differences": {
+        "expanded_states": 1.4285714285714286,
+        "attempted_candidates": 8.285714285714286,
+        "elapsed_s": -0.10478021665120554,
+        "lean_execution_s": -0.03141703687322747
+      }
+    }
+  },
+  "per_theorem": {
+    "p2_congr_binary": {
+      "family": "function_congruence",
+      "algorithms": {
+        "bfs": {
+          "runs": 3,
+          "verified": 3,
+          "terminations": [
+            "verified",
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.9528457856698274,
+          "lean_execution_s": 0.022950462664690956,
+          "initialization_s": 1.9593244520025717,
+          "verification_s": 1.9518126866654104,
+          "planning_s": 0.0017381819949756998,
+          "model_inference_s": 0.0008651579943640778,
+          "expanded_states": 2,
+          "attempted_candidates": 13,
+          "proof_length": 2
+        },
+        "best_first": {
+          "runs": 3,
+          "verified": 3,
+          "terminations": [
+            "verified",
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.9099111530013033,
+          "lean_execution_s": 0.021580436994554475,
+          "initialization_s": 1.913194719001088,
+          "verification_s": 1.9427522300005269,
+          "planning_s": 0.002151502999671114,
+          "model_inference_s": 0.0011024249955274474,
+          "expanded_states": 2,
+          "attempted_candidates": 12,
+          "proof_length": 2
+        },
+        "learned": {
+          "runs": 3,
+          "verified": 3,
+          "terminations": [
+            "verified",
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 4.001838955666851,
+          "lean_execution_s": 0.015990758666400023,
+          "initialization_s": 1.9958431760023814,
+          "verification_s": 1.9639345186636394,
+          "planning_s": 0.00249752600696714,
+          "model_inference_s": 0.0016853173316728014,
+          "expanded_states": 2,
+          "attempted_candidates": 9,
+          "proof_length": 2
+        },
+        "automation": {
+          "runs": 3,
+          "verified": 3,
+          "terminations": [
+            "verified",
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 4.110640273999404,
+          "lean_execution_s": 0.029356313333361566,
+          "initialization_s": 2.0240285209971867,
+          "verification_s": 2.0230447660020823,
+          "planning_s": 0.0003031393328759198,
+          "model_inference_s": 0,
+          "expanded_states": 1,
+          "attempted_candidates": 1,
+          "proof_length": 1
+        }
+      }
+    },
+    "p2_congr_function_argument": {
+      "family": "function_congruence",
+      "algorithms": {
+        "bfs": {
+          "runs": 3,
+          "verified": 3,
+          "terminations": [
+            "verified",
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.794277504668571,
+          "lean_execution_s": 0.025105622664947685,
+          "initialization_s": 1.8363759689988608,
+          "verification_s": 1.9078843160023098,
+          "planning_s": 0.0017286376654131648,
+          "model_inference_s": 0.0009268310022889636,
+          "expanded_states": 2,
+          "attempted_candidates": 13,
+          "proof_length": 2
+        },
+        "best_first": {
+          "runs": 3,
+          "verified": 3,
+          "terminations": [
+            "verified",
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.9320749416656327,
+          "lean_execution_s": 0.02201327333023073,
+          "initialization_s": 1.9064300690006348,
+          "verification_s": 1.977514405666928,
+          "planning_s": 0.0017304426655755378,
+          "model_inference_s": 0.0009067603338432187,
+          "expanded_states": 2,
+          "attempted_candidates": 12,
+          "proof_length": 2
+        },
+        "learned": {
+          "runs": 3,
+          "verified": 3,
+          "terminations": [
+            "verified",
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.9170125376670817,
+          "lean_execution_s": 0.021826163332055632,
+          "initialization_s": 1.9642366806656355,
+          "verification_s": 1.9042468206680496,
+          "planning_s": 0.0026263943315522433,
+          "model_inference_s": 0.0016507863329024985,
+          "expanded_states": 2,
+          "attempted_candidates": 9,
+          "proof_length": 2
+        },
+        "automation": {
+          "runs": 3,
+          "verified": 3,
+          "terminations": [
+            "verified",
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.8820167623319626,
+          "lean_execution_s": 0.023140455334214494,
+          "initialization_s": 1.8656213629995666,
+          "verification_s": 1.9701922446668807,
+          "planning_s": 0.0005040046671638265,
+          "model_inference_s": 0,
+          "expanded_states": 1,
+          "attempted_candidates": 1,
+          "proof_length": 1
+        }
+      }
+    },
+    "p2_congr_nested": {
+      "family": "function_congruence",
+      "algorithms": {
+        "bfs": {
+          "runs": 3,
+          "verified": 3,
+          "terminations": [
+            "verified",
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.8468818586673783,
+          "lean_execution_s": 0.004869686670038694,
+          "initialization_s": 1.8749120723320327,
+          "verification_s": 1.9443990766691666,
+          "planning_s": 0.0006957530010064753,
+          "model_inference_s": 0.00030109599902061746,
+          "expanded_states": 1,
+          "attempted_candidates": 3,
+          "proof_length": 1
+        },
+        "best_first": {
+          "runs": 3,
+          "verified": 3,
+          "terminations": [
+            "verified",
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.687285344999206,
+          "lean_execution_s": 0.010120801329321694,
+          "initialization_s": 1.791697720999461,
+          "verification_s": 1.8552610293360583,
+          "planning_s": 0.0008341883318886781,
+          "model_inference_s": 0.0003818279995660608,
+          "expanded_states": 1,
+          "attempted_candidates": 3,
+          "proof_length": 1
+        },
+        "learned": {
+          "runs": 3,
+          "verified": 3,
+          "terminations": [
+            "verified",
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.5772599579989524,
+          "lean_execution_s": 0.0015915609983494505,
+          "initialization_s": 1.730810028333508,
+          "verification_s": 1.8211580256659847,
+          "planning_s": 0.0007651976654112028,
+          "model_inference_s": 0.00041731067176442593,
+          "expanded_states": 1,
+          "attempted_candidates": 1,
+          "proof_length": 1
+        },
+        "automation": {
+          "runs": 3,
+          "verified": 3,
+          "terminations": [
+            "verified",
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.851062289000159,
+          "lean_execution_s": 0.02371947433372649,
+          "initialization_s": 1.8461837753347936,
+          "verification_s": 1.9593895163343404,
+          "planning_s": 0.00036951600244113553,
+          "model_inference_s": 0,
+          "expanded_states": 1,
+          "attempted_candidates": 1,
+          "proof_length": 1
+        }
+      }
+    },
+    "p2_congr_single": {
+      "family": "function_congruence",
+      "algorithms": {
+        "bfs": {
+          "runs": 3,
+          "verified": 3,
+          "terminations": [
+            "verified",
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.680420837001293,
+          "lean_execution_s": 0.006088822997602013,
+          "initialization_s": 1.8355546303331114,
+          "verification_s": 1.8059187886634998,
+          "planning_s": 0.0007058083331988504,
+          "model_inference_s": 0.0003573576662650642,
+          "expanded_states": 1,
+          "attempted_candidates": 3,
+          "proof_length": 1
+        },
+        "best_first": {
+          "runs": 3,
+          "verified": 3,
+          "terminations": [
+            "verified",
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.6022894113339134,
+          "lean_execution_s": 0.005261988997517619,
+          "initialization_s": 1.8812280579998817,
+          "verification_s": 1.6974853396677645,
+          "planning_s": 0.0007523520010484693,
+          "model_inference_s": 0.0003380816657833445,
+          "expanded_states": 1,
+          "attempted_candidates": 3,
+          "proof_length": 1
+        },
+        "learned": {
+          "runs": 3,
+          "verified": 3,
+          "terminations": [
+            "verified",
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.8014107843312863,
+          "lean_execution_s": 0.0019248256697513473,
+          "initialization_s": 1.8425542173354188,
+          "verification_s": 1.929021300333261,
+          "planning_s": 0.0017752436663916644,
+          "model_inference_s": 0.001442102334597924,
+          "expanded_states": 1,
+          "attempted_candidates": 1,
+          "proof_length": 1
+        },
+        "automation": {
+          "runs": 3,
+          "verified": 3,
+          "terminations": [
+            "verified",
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.8100107516656863,
+          "lean_execution_s": 0.02565953000157606,
+          "initialization_s": 1.8102700963354437,
+          "verification_s": 1.9445600150017224,
+          "planning_s": 0.0003980920009780675,
+          "model_inference_s": 0,
+          "expanded_states": 1,
+          "attempted_candidates": 1,
+          "proof_length": 1
+        }
+      }
+    },
+    "p2_difference_construct": {
+      "family": "set_differences",
+      "algorithms": {
+        "bfs": {
+          "runs": 3,
+          "verified": 3,
+          "terminations": [
+            "verified",
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.927358365666199,
+          "lean_execution_s": 0.01109122466732515,
+          "initialization_s": 1.9356184263330458,
+          "verification_s": 1.9615083483343672,
+          "planning_s": 0.0016708136681700125,
+          "model_inference_s": 0.0006094329946790822,
+          "expanded_states": 3,
+          "attempted_candidates": 7,
+          "proof_length": 3
+        },
+        "best_first": {
+          "runs": 3,
+          "verified": 3,
+          "terminations": [
+            "verified",
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 4.202422136334159,
+          "lean_execution_s": 0.011876549001802536,
+          "initialization_s": 2.1214727106683617,
+          "verification_s": 2.0387358226653305,
+          "planning_s": 0.0017692550003024128,
+          "model_inference_s": 0.0004989746642725853,
+          "expanded_states": 3,
+          "attempted_candidates": 6,
+          "proof_length": 3
+        },
+        "learned": {
+          "runs": 3,
+          "verified": 3,
+          "terminations": [
+            "verified",
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.9311212620013976,
+          "lean_execution_s": 0.012863699664497593,
+          "initialization_s": 1.98052260333255,
+          "verification_s": 1.9135038773310953,
+          "planning_s": 0.0017312216659775004,
+          "model_inference_s": 0.0006729323382993849,
+          "expanded_states": 3,
+          "attempted_candidates": 7,
+          "proof_length": 3
+        },
+        "automation": {
+          "runs": 3,
+          "verified": 3,
+          "terminations": [
+            "verified",
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 4.098389405999721,
+          "lean_execution_s": 0.02477229366680452,
+          "initialization_s": 2.0172707903329865,
+          "verification_s": 2.0310091136658834,
+          "planning_s": 0.00043130566821976873,
+          "model_inference_s": 0,
+          "expanded_states": 1,
+          "attempted_candidates": 1,
+          "proof_length": 1
+        }
+      }
+    },
+    "p2_difference_exclusion": {
+      "family": "set_differences",
+      "algorithms": {
+        "bfs": {
+          "runs": 3,
+          "verified": 3,
+          "terminations": [
+            "verified",
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.9782485640025698,
+          "lean_execution_s": 0.007085884336750799,
+          "initialization_s": 1.9434379986632848,
+          "verification_s": 1.9998660109995399,
+          "planning_s": 0.0008301756679429673,
+          "model_inference_s": 0.00047179966592617956,
+          "expanded_states": 1,
+          "attempted_candidates": 5,
+          "proof_length": 1
+        },
+        "best_first": {
+          "runs": 3,
+          "verified": 3,
+          "terminations": [
+            "verified",
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 4.036229354001989,
+          "lean_execution_s": 0.005315799331583548,
+          "initialization_s": 1.9757007356674876,
+          "verification_s": 2.0326534016664177,
+          "planning_s": 0.0008865573327057064,
+          "model_inference_s": 0.0003960726656562959,
+          "expanded_states": 1,
+          "attempted_candidates": 4,
+          "proof_length": 1
+        },
+        "learned": {
+          "runs": 3,
+          "verified": 3,
+          "terminations": [
+            "verified",
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.9163488786653033,
+          "lean_execution_s": 0.006444616332980028,
+          "initialization_s": 1.947854829331239,
+          "verification_s": 1.9257769860002252,
+          "planning_s": 0.001061700999950214,
+          "model_inference_s": 0.0006275206639353806,
+          "expanded_states": 1,
+          "attempted_candidates": 4,
+          "proof_length": 1
+        },
+        "automation": {
+          "runs": 3,
+          "verified": 3,
+          "terminations": [
+            "verified",
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 4.030435486667557,
+          "lean_execution_s": 0.025239464336967405,
+          "initialization_s": 2.027477305001715,
+          "verification_s": 1.9532424389981315,
+          "planning_s": 0.0003813639996224083,
+          "model_inference_s": 0,
+          "expanded_states": 1,
+          "attempted_candidates": 1,
+          "proof_length": 1
+        }
+      }
+    },
+    "p2_difference_member": {
+      "family": "set_differences",
+      "algorithms": {
+        "bfs": {
+          "runs": 3,
+          "verified": 3,
+          "terminations": [
+            "verified",
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.8978165706672976,
+          "lean_execution_s": 0.0043732333336568745,
+          "initialization_s": 1.9212234550019882,
+          "verification_s": 1.9375980499996028,
+          "planning_s": 0.0006987983336633382,
+          "model_inference_s": 0.00030875766727452475,
+          "expanded_states": 1,
+          "attempted_candidates": 2,
+          "proof_length": 1
+        },
+        "best_first": {
+          "runs": 3,
+          "verified": 3,
+          "terminations": [
+            "verified",
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.6999699093333525,
+          "lean_execution_s": 0.004685463667556178,
+          "initialization_s": 1.8940247003314046,
+          "verification_s": 1.7728083150019909,
+          "planning_s": 0.0007574459984122465,
+          "model_inference_s": 0.00034616766788531095,
+          "expanded_states": 1,
+          "attempted_candidates": 2,
+          "proof_length": 1
+        },
+        "learned": {
+          "runs": 3,
+          "verified": 3,
+          "terminations": [
+            "verified",
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.911697825334462,
+          "lean_execution_s": 0.001309409664827399,
+          "initialization_s": 1.9936224516665486,
+          "verification_s": 1.8912849213350758,
+          "planning_s": 0.0007174896672950126,
+          "model_inference_s": 0.00038442833222992096,
+          "expanded_states": 1,
+          "attempted_candidates": 1,
+          "proof_length": 1
+        },
+        "automation": {
+          "runs": 3,
+          "verified": 3,
+          "terminations": [
+            "verified",
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 4.00859696099845,
+          "lean_execution_s": 0.02199777700055468,
+          "initialization_s": 1.8853828506665498,
+          "verification_s": 2.0715924069979033,
+          "planning_s": 0.0003467383309422682,
+          "model_inference_s": 0,
+          "expanded_states": 1,
+          "attempted_candidates": 1,
+          "proof_length": 1
+        }
+      }
+    },
+    "p2_difference_monotone": {
+      "family": "set_differences",
+      "algorithms": {
+        "bfs": {
+          "runs": 3,
+          "verified": 3,
+          "terminations": [
+            "verified",
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 4.220701842335984,
+          "lean_execution_s": 0.3053043933250592,
+          "initialization_s": 1.927028225666921,
+          "verification_s": 1.941438516000441,
+          "planning_s": 0.016784954682710424,
+          "model_inference_s": 0.007152220340988909,
+          "expanded_states": 25,
+          "attempted_candidates": 121,
+          "proof_length": 6
+        },
+        "best_first": {
+          "runs": 3,
+          "verified": 3,
+          "terminations": [
+            "verified",
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 4.219999562335336,
+          "lean_execution_s": 0.08817208732943982,
+          "initialization_s": 1.990523209666814,
+          "verification_s": 2.0754417590020844,
+          "planning_s": 0.035308346656771995,
+          "model_inference_s": 0.002379349328596921,
+          "expanded_states": 8,
+          "attempted_candidates": 40,
+          "proof_length": 6
+        },
+        "learned": {
+          "runs": 3,
+          "verified": 3,
+          "terminations": [
+            "verified",
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 4.016699570000735,
+          "lean_execution_s": 0.08249612699728459,
+          "initialization_s": 1.9948770073315245,
+          "verification_s": 1.8977092209994832,
+          "planning_s": 0.006989124667597935,
+          "model_inference_s": 0.003724130341045869,
+          "expanded_states": 9,
+          "attempted_candidates": 43,
+          "proof_length": 6
+        },
+        "automation": {
+          "runs": 3,
+          "verified": 0,
+          "terminations": [
+            "search_exhausted",
+            "search_exhausted",
+            "search_exhausted"
+          ],
+          "elapsed_s": 2.067233566335441,
+          "lean_execution_s": 0.03269054766618259,
+          "initialization_s": 2.0072768489990267,
+          "verification_s": 0,
+          "planning_s": 0.00048429866728838533,
+          "model_inference_s": 0,
+          "expanded_states": 1,
+          "attempted_candidates": 1,
+          "proof_length": 0
+        }
+      }
+    },
+    "p2_exists_nested": {
+      "family": "existential_elimination",
+      "algorithms": {
+        "bfs": {
+          "runs": 3,
+          "verified": 3,
+          "terminations": [
+            "verified",
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 4.026656601665309,
+          "lean_execution_s": 0.060821467658873495,
+          "initialization_s": 1.951431481000327,
+          "verification_s": 1.9808798003335444,
+          "planning_s": 0.004060547333210707,
+          "model_inference_s": 0.0017766916619924207,
+          "expanded_states": 5,
+          "attempted_candidates": 36,
+          "proof_length": 4
+        },
+        "best_first": {
+          "runs": 3,
+          "verified": 3,
+          "terminations": [
+            "verified",
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 4.0595384790018825,
+          "lean_execution_s": 0.06797773397556739,
+          "initialization_s": 1.9903225639961117,
+          "verification_s": 1.958370718001485,
+          "planning_s": 0.006156675330809473,
+          "model_inference_s": 0.002663790665489311,
+          "expanded_states": 5,
+          "attempted_candidates": 34,
+          "proof_length": 4
+        },
+        "learned": {
+          "runs": 3,
+          "verified": 3,
+          "terminations": [
+            "verified",
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 4.0803435739968945,
+          "lean_execution_s": 0.06308720200468088,
+          "initialization_s": 2.024697005666288,
+          "verification_s": 1.9520993473318715,
+          "planning_s": 0.00478546599818704,
+          "model_inference_s": 0.0026402129976001256,
+          "expanded_states": 5,
+          "attempted_candidates": 33,
+          "proof_length": 4
+        },
+        "automation": {
+          "runs": 3,
+          "verified": 3,
+          "terminations": [
+            "verified",
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 4.151796219332027,
+          "lean_execution_s": 0.09648449266872679,
+          "initialization_s": 2.0092714426670377,
+          "verification_s": 2.023735067998738,
+          "planning_s": 0.00041156199828643974,
+          "model_inference_s": 0,
+          "expanded_states": 1,
+          "attempted_candidates": 1,
+          "proof_length": 1
+        }
+      }
+    },
+    "p2_exists_project": {
+      "family": "existential_elimination",
+      "algorithms": {
+        "bfs": {
+          "runs": 3,
+          "verified": 3,
+          "terminations": [
+            "verified",
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 4.306991510003475,
+          "lean_execution_s": 0.030775450007543743,
+          "initialization_s": 2.1296842053319174,
+          "verification_s": 2.1095227966676853,
+          "planning_s": 0.0021744950014787414,
+          "model_inference_s": 0.0010328260007857655,
+          "expanded_states": 3,
+          "attempted_candidates": 17,
+          "proof_length": 3
+        },
+        "best_first": {
+          "runs": 3,
+          "verified": 3,
+          "terminations": [
+            "verified",
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 4.19705407966588,
+          "lean_execution_s": 0.028309771332715172,
+          "initialization_s": 1.979510103999928,
+          "verification_s": 2.145650531332649,
+          "planning_s": 0.0018663043326038558,
+          "model_inference_s": 0.0008435149963285463,
+          "expanded_states": 3,
+          "attempted_candidates": 15,
+          "proof_length": 3
+        },
+        "learned": {
+          "runs": 3,
+          "verified": 3,
+          "terminations": [
+            "verified",
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 4.054490840998672,
+          "lean_execution_s": 0.029083452997535158,
+          "initialization_s": 1.9184437640045264,
+          "verification_s": 2.0703923986681425,
+          "planning_s": 0.002521630667615682,
+          "model_inference_s": 0.001368858662317507,
+          "expanded_states": 3,
+          "attempted_candidates": 14,
+          "proof_length": 3
+        },
+        "automation": {
+          "runs": 3,
+          "verified": 3,
+          "terminations": [
+            "verified",
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 4.368867005333111,
+          "lean_execution_s": 0.10099453499909335,
+          "initialization_s": 2.090123075332182,
+          "verification_s": 2.1427697193333493,
+          "planning_s": 0.0003329136695053118,
+          "model_inference_s": 0,
+          "expanded_states": 1,
+          "attempted_candidates": 1,
+          "proof_length": 1
+        }
+      }
+    },
+    "p2_exists_swap": {
+      "family": "existential_elimination",
+      "algorithms": {
+        "bfs": {
+          "runs": 3,
+          "verified": 3,
+          "terminations": [
+            "verified",
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.8415031073333616,
+          "lean_execution_s": 0.03658770932573437,
+          "initialization_s": 1.8820326670005063,
+          "verification_s": 1.8860546146631048,
+          "planning_s": 0.0020716636693881205,
+          "model_inference_s": 0.0008800310000272779,
+          "expanded_states": 3,
+          "attempted_candidates": 17,
+          "proof_length": 3
+        },
+        "best_first": {
+          "runs": 3,
+          "verified": 3,
+          "terminations": [
+            "verified",
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 4.120135454000168,
+          "lean_execution_s": 0.050314127993866954,
+          "initialization_s": 2.0409665093320655,
+          "verification_s": 2.003802237336155,
+          "planning_s": 0.0027125250029106005,
+          "model_inference_s": 0.0012915699990116991,
+          "expanded_states": 4,
+          "attempted_candidates": 24,
+          "proof_length": 3
+        },
+        "learned": {
+          "runs": 3,
+          "verified": 3,
+          "terminations": [
+            "verified",
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 4.146200633666012,
+          "lean_execution_s": 0.04512307865419037,
+          "initialization_s": 2.067408223335709,
+          "verification_s": 1.9983025643329408,
+          "planning_s": 0.0031370869983220473,
+          "model_inference_s": 0.001737341663101688,
+          "expanded_states": 4,
+          "attempted_candidates": 23,
+          "proof_length": 3
+        },
+        "automation": {
+          "runs": 3,
+          "verified": 3,
+          "terminations": [
+            "verified",
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 4.150827407669567,
+          "lean_execution_s": 0.09956691266658406,
+          "initialization_s": 1.9434434749976692,
+          "verification_s": 2.0798968436671808,
+          "planning_s": 0.0003759086685022339,
+          "model_inference_s": 0,
+          "expanded_states": 1,
+          "attempted_candidates": 1,
+          "proof_length": 1
+        }
+      }
+    },
+    "p2_exists_transport": {
+      "family": "existential_elimination",
+      "algorithms": {
+        "bfs": {
+          "runs": 3,
+          "verified": 3,
+          "terminations": [
+            "verified",
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 4.109129152998018,
+          "lean_execution_s": 0.033910656660737004,
+          "initialization_s": 2.033872457664984,
+          "verification_s": 2.008656968998063,
+          "planning_s": 0.002026194670179393,
+          "model_inference_s": 0.0007477516628568992,
+          "expanded_states": 4,
+          "attempted_candidates": 13,
+          "proof_length": 4
+        },
+        "best_first": {
+          "runs": 3,
+          "verified": 3,
+          "terminations": [
+            "verified",
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 4.067337581332443,
+          "lean_execution_s": 0.040485179335519206,
+          "initialization_s": 2.00204267000178,
+          "verification_s": 1.9931592753346195,
+          "planning_s": 0.0023628740018466488,
+          "model_inference_s": 0.0009375633405094655,
+          "expanded_states": 4,
+          "attempted_candidates": 13,
+          "proof_length": 4
+        },
+        "learned": {
+          "runs": 3,
+          "verified": 3,
+          "terminations": [
+            "verified",
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.9744858733320143,
+          "lean_execution_s": 0.03527761767084788,
+          "initialization_s": 1.995089474665292,
+          "verification_s": 1.895874621332041,
+          "planning_s": 0.0024571993320326633,
+          "model_inference_s": 0.001060113667335827,
+          "expanded_states": 4,
+          "attempted_candidates": 13,
+          "proof_length": 4
+        },
+        "automation": {
+          "runs": 3,
+          "verified": 3,
+          "terminations": [
+            "verified",
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 4.305705918666111,
+          "lean_execution_s": 0.17499855433319075,
+          "initialization_s": 2.010808161003903,
+          "verification_s": 2.101175839668334,
+          "planning_s": 0.000300929668204238,
+          "model_inference_s": 0,
+          "expanded_states": 1,
+          "attempted_candidates": 1,
+          "proof_length": 1
+        }
+      }
+    },
+    "p2_predicate_argument": {
+      "family": "predicate_transport",
+      "algorithms": {
+        "bfs": {
+          "runs": 3,
+          "verified": 3,
+          "terminations": [
+            "verified",
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 4.030510639665105,
+          "lean_execution_s": 0.006088659671756129,
+          "initialization_s": 2.0070139946668255,
+          "verification_s": 1.9855517646647058,
+          "planning_s": 0.0014056943327886984,
+          "model_inference_s": 0.0004815479987883009,
+          "expanded_states": 2,
+          "attempted_candidates": 4,
+          "proof_length": 2
+        },
+        "best_first": {
+          "runs": 3,
+          "verified": 3,
+          "terminations": [
+            "verified",
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 4.036966868666544,
+          "lean_execution_s": 0.005684899995685555,
+          "initialization_s": 2.0165002526676594,
+          "verification_s": 1.9827389350005735,
+          "planning_s": 0.0010317423317853052,
+          "model_inference_s": 0.0004010103293694556,
+          "expanded_states": 2,
+          "attempted_candidates": 4,
+          "proof_length": 2
+        },
+        "learned": {
+          "runs": 3,
+          "verified": 3,
+          "terminations": [
+            "verified",
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 4.108033164333999,
+          "lean_execution_s": 0.008141695669716379,
+          "initialization_s": 2.0432980096666142,
+          "verification_s": 2.026517499999803,
+          "planning_s": 0.0015761276663397439,
+          "model_inference_s": 0.0008214926710934378,
+          "expanded_states": 2,
+          "attempted_candidates": 6,
+          "proof_length": 2
+        },
+        "automation": {
+          "runs": 3,
+          "verified": 3,
+          "terminations": [
+            "verified",
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 4.066371968668439,
+          "lean_execution_s": 0.025909513666798983,
+          "initialization_s": 1.9966001923336687,
+          "verification_s": 2.0198518753337944,
+          "planning_s": 0.0003284936659232092,
+          "model_inference_s": 0,
+          "expanded_states": 1,
+          "attempted_candidates": 1,
+          "proof_length": 1
+        }
+      }
+    },
+    "p2_predicate_binary": {
+      "family": "predicate_transport",
+      "algorithms": {
+        "bfs": {
+          "runs": 3,
+          "verified": 3,
+          "terminations": [
+            "verified",
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 4.08644650066708,
+          "lean_execution_s": 0.027019470335896283,
+          "initialization_s": 2.0058388709973465,
+          "verification_s": 2.0207124756658836,
+          "planning_s": 0.0037627706672841064,
+          "model_inference_s": 0.0020539770024091317,
+          "expanded_states": 5,
+          "attempted_candidates": 21,
+          "proof_length": 3
+        },
+        "best_first": {
+          "runs": 3,
+          "verified": 3,
+          "terminations": [
+            "verified",
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 4.018683406999723,
+          "lean_execution_s": 0.03350582133134594,
+          "initialization_s": 1.9264822956659675,
+          "verification_s": 2.0214738633318725,
+          "planning_s": 0.003920035664729464,
+          "model_inference_s": 0.0018688819982344285,
+          "expanded_states": 5,
+          "attempted_candidates": 21,
+          "proof_length": 3
+        },
+        "learned": {
+          "runs": 3,
+          "verified": 3,
+          "terminations": [
+            "verified",
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 4.079891468332789,
+          "lean_execution_s": 0.040785713662141156,
+          "initialization_s": 1.931785710999975,
+          "verification_s": 2.057657958997879,
+          "planning_s": 0.004227543002343737,
+          "model_inference_s": 0.0022765053314894126,
+          "expanded_states": 5,
+          "attempted_candidates": 25,
+          "proof_length": 3
+        },
+        "automation": {
+          "runs": 3,
+          "verified": 3,
+          "terminations": [
+            "verified",
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 4.171555924668307,
+          "lean_execution_s": 0.025697690330465168,
+          "initialization_s": 2.0318414210002325,
+          "verification_s": 2.079285757329975,
+          "planning_s": 0.0003427690001747881,
+          "model_inference_s": 0,
+          "expanded_states": 1,
+          "attempted_candidates": 1,
+          "proof_length": 1
+        }
+      }
+    },
+    "p2_predicate_function": {
+      "family": "predicate_transport",
+      "algorithms": {
+        "bfs": {
+          "runs": 3,
+          "verified": 3,
+          "terminations": [
+            "verified",
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 4.076877703999344,
+          "lean_execution_s": 0.006229942002391908,
+          "initialization_s": 2.0041676129961465,
+          "verification_s": 2.0379164413316175,
+          "planning_s": 0.0010570836675469764,
+          "model_inference_s": 0.00040020533682157594,
+          "expanded_states": 2,
+          "attempted_candidates": 4,
+          "proof_length": 2
+        },
+        "best_first": {
+          "runs": 3,
+          "verified": 3,
+          "terminations": [
+            "verified",
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.963071210666385,
+          "lean_execution_s": 0.006244761003472377,
+          "initialization_s": 1.9264117890003642,
+          "verification_s": 1.996930764335654,
+          "planning_s": 0.0011578016637940891,
+          "model_inference_s": 0.00045089533280891675,
+          "expanded_states": 2,
+          "attempted_candidates": 4,
+          "proof_length": 2
+        },
+        "learned": {
+          "runs": 3,
+          "verified": 3,
+          "terminations": [
+            "verified",
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.9719011209987607,
+          "lean_execution_s": 0.010366705003737783,
+          "initialization_s": 1.9353971673335764,
+          "verification_s": 1.9956190800003242,
+          "planning_s": 0.0012171339985798113,
+          "model_inference_s": 0.0004919633308115104,
+          "expanded_states": 2,
+          "attempted_candidates": 6,
+          "proof_length": 2
+        },
+        "automation": {
+          "runs": 3,
+          "verified": 3,
+          "terminations": [
+            "verified",
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 4.045170522001475,
+          "lean_execution_s": 0.025918761666010443,
+          "initialization_s": 1.949685947666391,
+          "verification_s": 2.0360376546668704,
+          "planning_s": 0.00034336666916109,
+          "model_inference_s": 0,
+          "expanded_states": 1,
+          "attempted_candidates": 1,
+          "proof_length": 1
+        }
+      }
+    },
+    "p2_predicate_negative": {
+      "family": "predicate_transport",
+      "algorithms": {
+        "bfs": {
+          "runs": 3,
+          "verified": 3,
+          "terminations": [
+            "verified",
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.8471643576655574,
+          "lean_execution_s": 0.01460992499535981,
+          "initialization_s": 1.8142659006650017,
+          "verification_s": 1.9885295000009744,
+          "planning_s": 0.0018681956692792785,
+          "model_inference_s": 0.0008112276676304949,
+          "expanded_states": 3,
+          "attempted_candidates": 11,
+          "proof_length": 2
+        },
+        "best_first": {
+          "runs": 3,
+          "verified": 3,
+          "terminations": [
+            "verified",
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 4.067596092002835,
+          "lean_execution_s": 0.009282404998278556,
+          "initialization_s": 2.0422131343317838,
+          "verification_s": 1.9841109836658386,
+          "planning_s": 0.0013911936669804466,
+          "model_inference_s": 0.0005947186655248515,
+          "expanded_states": 2,
+          "attempted_candidates": 6,
+          "proof_length": 2
+        },
+        "learned": {
+          "runs": 3,
+          "verified": 3,
+          "terminations": [
+            "verified",
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 4.007179503333949,
+          "lean_execution_s": 0.012766647002232881,
+          "initialization_s": 2.032282281000031,
+          "verification_s": 1.9258543136675144,
+          "planning_s": 0.0013618809995629515,
+          "model_inference_s": 0.0006547243344054247,
+          "expanded_states": 2,
+          "attempted_candidates": 9,
+          "proof_length": 2
+        },
+        "automation": {
+          "runs": 3,
+          "verified": 3,
+          "terminations": [
+            "verified",
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.878538896669246,
+          "lean_execution_s": 0.023112944332145464,
+          "initialization_s": 1.8876565363340585,
+          "verification_s": 1.9348834953343612,
+          "planning_s": 0.0004605496675746205,
+          "model_inference_s": 0,
+          "expanded_states": 1,
+          "attempted_candidates": 1,
+          "proof_length": 1
+        }
+      }
+    },
+    "p2_preimage_inter_member": {
+      "family": "set_preimages",
+      "algorithms": {
+        "bfs": {
+          "runs": 3,
+          "verified": 3,
+          "terminations": [
+            "verified",
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.761063763333368,
+          "lean_execution_s": 0.012966070338734426,
+          "initialization_s": 1.9146844516678054,
+          "verification_s": 1.8019322146695533,
+          "planning_s": 0.0013619456682742264,
+          "model_inference_s": 0.00029596500341237214,
+          "expanded_states": 3,
+          "attempted_candidates": 4,
+          "proof_length": 3
+        },
+        "best_first": {
+          "runs": 3,
+          "verified": 3,
+          "terminations": [
+            "verified",
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.61776150266572,
+          "lean_execution_s": 0.009647497997017732,
+          "initialization_s": 1.7890624069987098,
+          "verification_s": 1.793183954997706,
+          "planning_s": 0.0014613343325133126,
+          "model_inference_s": 0.0002271383370195205,
+          "expanded_states": 3,
+          "attempted_candidates": 4,
+          "proof_length": 3
+        },
+        "learned": {
+          "runs": 3,
+          "verified": 3,
+          "terminations": [
+            "verified",
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.7028567153344434,
+          "lean_execution_s": 0.008916940998460632,
+          "initialization_s": 1.8599954053352121,
+          "verification_s": 1.798723539999628,
+          "planning_s": 0.0012448426665893446,
+          "model_inference_s": 0.00031887933194714907,
+          "expanded_states": 3,
+          "attempted_candidates": 4,
+          "proof_length": 3
+        },
+        "automation": {
+          "runs": 3,
+          "verified": 3,
+          "terminations": [
+            "verified",
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.9182284403335266,
+          "lean_execution_s": 0.024401417666619334,
+          "initialization_s": 1.9316375793350744,
+          "verification_s": 1.9377611009961886,
+          "planning_s": 0.0003761996704270132,
+          "model_inference_s": 0,
+          "expanded_states": 1,
+          "attempted_candidates": 1,
+          "proof_length": 1
+        }
+      }
+    },
+    "p2_preimage_inter_subset": {
+      "family": "set_preimages",
+      "algorithms": {
+        "bfs": {
+          "runs": 3,
+          "verified": 3,
+          "terminations": [
+            "verified",
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.8144029056687336,
+          "lean_execution_s": 0.05459385135327466,
+          "initialization_s": 1.8593835353337151,
+          "verification_s": 1.869943279334014,
+          "planning_s": 0.004066360335855279,
+          "model_inference_s": 0.0010146560040690626,
+          "expanded_states": 6,
+          "attempted_candidates": 18,
+          "proof_length": 3
+        },
+        "best_first": {
+          "runs": 3,
+          "verified": 3,
+          "terminations": [
+            "verified",
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.7696779716692013,
+          "lean_execution_s": 0.024607739663527656,
+          "initialization_s": 1.841548754001754,
+          "verification_s": 1.8638866076677612,
+          "planning_s": 0.0016052416710105415,
+          "model_inference_s": 0.0006508263322757557,
+          "expanded_states": 3,
+          "attempted_candidates": 8,
+          "proof_length": 3
+        },
+        "learned": {
+          "runs": 3,
+          "verified": 3,
+          "terminations": [
+            "verified",
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.706702211330897,
+          "lean_execution_s": 0.04158642466063611,
+          "initialization_s": 1.817281183662999,
+          "verification_s": 1.8235681296646362,
+          "planning_s": 0.0019976013330354667,
+          "model_inference_s": 0.0009618033315443123,
+          "expanded_states": 3,
+          "attempted_candidates": 14,
+          "proof_length": 3
+        },
+        "automation": {
+          "runs": 3,
+          "verified": 0,
+          "terminations": [
+            "search_exhausted",
+            "search_exhausted",
+            "search_exhausted"
+          ],
+          "elapsed_s": 1.9441355526675277,
+          "lean_execution_s": 0.05115243033408964,
+          "initialization_s": 1.8629670860027545,
+          "verification_s": 0,
+          "planning_s": 0.0003563329980048972,
+          "model_inference_s": 0,
+          "expanded_states": 1,
+          "attempted_candidates": 1,
+          "proof_length": 0
+        }
+      }
+    },
+    "p2_preimage_member": {
+      "family": "set_preimages",
+      "algorithms": {
+        "bfs": {
+          "runs": 3,
+          "verified": 3,
+          "terminations": [
+            "verified",
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 4.0402759343317785,
+          "lean_execution_s": 0.0027030873364613703,
+          "initialization_s": 1.948251232332647,
+          "verification_s": 2.0606583346646707,
+          "planning_s": 0.0005442356681063151,
+          "model_inference_s": 0.00011030600095788638,
+          "expanded_states": 1,
+          "attempted_candidates": 1,
+          "proof_length": 1
+        },
+        "best_first": {
+          "runs": 3,
+          "verified": 3,
+          "terminations": [
+            "verified",
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.8204162396699153,
+          "lean_execution_s": 0.0008765653352990436,
+          "initialization_s": 1.8849450236666598,
+          "verification_s": 1.8805939816690322,
+          "planning_s": 0.0003917493304470554,
+          "model_inference_s": 8.006733211611088e-05,
+          "expanded_states": 1,
+          "attempted_candidates": 1,
+          "proof_length": 1
+        },
+        "learned": {
+          "runs": 3,
+          "verified": 3,
+          "terminations": [
+            "verified",
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.77186040232967,
+          "lean_execution_s": 0.0008897586691697749,
+          "initialization_s": 1.8573140369990142,
+          "verification_s": 1.8806814480024816,
+          "planning_s": 0.00042219233243182924,
+          "model_inference_s": 0.00010931433401613806,
+          "expanded_states": 1,
+          "attempted_candidates": 1,
+          "proof_length": 1
+        },
+        "automation": {
+          "runs": 3,
+          "verified": 3,
+          "terminations": [
+            "verified",
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 4.019694034665008,
+          "lean_execution_s": 0.021574922335275915,
+          "initialization_s": 1.9314203123358311,
+          "verification_s": 2.0440168299974175,
+          "planning_s": 0.00035648000145253417,
+          "model_inference_s": 0,
+          "expanded_states": 1,
+          "attempted_candidates": 1,
+          "proof_length": 1
+        }
+      }
+    },
+    "p2_preimage_monotone": {
+      "family": "set_preimages",
+      "algorithms": {
+        "bfs": {
+          "runs": 3,
+          "verified": 3,
+          "terminations": [
+            "verified",
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.9161066246645837,
+          "lean_execution_s": 0.018802460668666754,
+          "initialization_s": 1.8711523666691694,
+          "verification_s": 1.9876578119995731,
+          "planning_s": 0.0011631109979740966,
+          "model_inference_s": 0.0004702116663490112,
+          "expanded_states": 2,
+          "attempted_candidates": 7,
+          "proof_length": 2
+        },
+        "best_first": {
+          "runs": 3,
+          "verified": 3,
+          "terminations": [
+            "verified",
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.740256164332095,
+          "lean_execution_s": 0.013419743328995537,
+          "initialization_s": 1.7897588040020007,
+          "verification_s": 1.8963469906666433,
+          "planning_s": 0.0010122936679787624,
+          "model_inference_s": 0.0003784200016525574,
+          "expanded_states": 2,
+          "attempted_candidates": 7,
+          "proof_length": 2
+        },
+        "learned": {
+          "runs": 3,
+          "verified": 3,
+          "terminations": [
+            "verified",
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.76648701900073,
+          "lean_execution_s": 0.020577274005821284,
+          "initialization_s": 1.87238942066809,
+          "verification_s": 1.8374887073320376,
+          "planning_s": 0.001320717002575596,
+          "model_inference_s": 0.0006162006635956155,
+          "expanded_states": 2,
+          "attempted_candidates": 7,
+          "proof_length": 2
+        },
+        "automation": {
+          "runs": 3,
+          "verified": 0,
+          "terminations": [
+            "search_exhausted",
+            "search_exhausted",
+            "search_exhausted"
+          ],
+          "elapsed_s": 1.9662148839973572,
+          "lean_execution_s": 0.03205996599960296,
+          "initialization_s": 1.911507751334284,
+          "verification_s": 0,
+          "planning_s": 0.00044588766953287023,
+          "model_inference_s": 0,
+          "expanded_states": 1,
+          "attempted_candidates": 1,
+          "proof_length": 0
+        }
+      }
+    },
+    "p2_witness_augment": {
+      "family": "witness_construction",
+      "algorithms": {
+        "bfs": {
+          "runs": 3,
+          "verified": 3,
+          "terminations": [
+            "verified",
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.960700594664862,
+          "lean_execution_s": 0.03689453199088651,
+          "initialization_s": 1.7780242813338798,
+          "verification_s": 2.1181724650014075,
+          "planning_s": 0.002491201004886534,
+          "model_inference_s": 0.0009261163334789065,
+          "expanded_states": 5,
+          "attempted_candidates": 17,
+          "proof_length": 5
+        },
+        "best_first": {
+          "runs": 3,
+          "verified": 3,
+          "terminations": [
+            "verified",
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.888375835000867,
+          "lean_execution_s": 0.03779241833156751,
+          "initialization_s": 1.9090318163337845,
+          "verification_s": 1.9003059310028523,
+          "planning_s": 0.0026422043398876363,
+          "model_inference_s": 0.0009310073291999288,
+          "expanded_states": 5,
+          "attempted_candidates": 17,
+          "proof_length": 5
+        },
+        "learned": {
+          "runs": 3,
+          "verified": 3,
+          "terminations": [
+            "verified",
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.7193023866663375,
+          "lean_execution_s": 0.03287798200472025,
+          "initialization_s": 1.833951621663194,
+          "verification_s": 1.819959366999683,
+          "planning_s": 0.002968133999578034,
+          "model_inference_s": 0.0012776476675450492,
+          "expanded_states": 5,
+          "attempted_candidates": 17,
+          "proof_length": 5
+        },
+        "automation": {
+          "runs": 3,
+          "verified": 3,
+          "terminations": [
+            "verified",
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.7728684333342244,
+          "lean_execution_s": 0.050120251333282795,
+          "initialization_s": 1.7773572356648704,
+          "verification_s": 1.9213121109981632,
+          "planning_s": 0.00034702200112709153,
+          "model_inference_s": 0,
+          "expanded_states": 1,
+          "attempted_candidates": 1,
+          "proof_length": 1
+        }
+      }
+    },
+    "p2_witness_binary": {
+      "family": "witness_construction",
+      "algorithms": {
+        "bfs": {
+          "runs": 3,
+          "verified": 3,
+          "terminations": [
+            "verified",
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.7639033143326137,
+          "lean_execution_s": 0.028621179997571744,
+          "initialization_s": 1.852147408334228,
+          "verification_s": 1.8589004796667723,
+          "planning_s": 0.0010538283313508146,
+          "model_inference_s": 0.00034573633699134615,
+          "expanded_states": 2,
+          "attempted_candidates": 8,
+          "proof_length": 2
+        },
+        "best_first": {
+          "runs": 3,
+          "verified": 3,
+          "terminations": [
+            "verified",
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.869247004331555,
+          "lean_execution_s": 0.03131460833052794,
+          "initialization_s": 1.907325459998295,
+          "verification_s": 1.8963604119999218,
+          "planning_s": 0.0010503533315689613,
+          "model_inference_s": 0.00028995299847641337,
+          "expanded_states": 2,
+          "attempted_candidates": 8,
+          "proof_length": 2
+        },
+        "learned": {
+          "runs": 3,
+          "verified": 3,
+          "terminations": [
+            "verified",
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 4.0365509886687505,
+          "lean_execution_s": 0.045914096328488085,
+          "initialization_s": 2.0122896556689134,
+          "verification_s": 1.9546632709971163,
+          "planning_s": 0.0012439513351030957,
+          "model_inference_s": 0.0003984493305324577,
+          "expanded_states": 2,
+          "attempted_candidates": 7,
+          "proof_length": 2
+        },
+        "automation": {
+          "runs": 3,
+          "verified": 3,
+          "terminations": [
+            "verified",
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 4.085064457666401,
+          "lean_execution_s": 0.09867609833357467,
+          "initialization_s": 1.9097398279991467,
+          "verification_s": 2.032804934332186,
+          "planning_s": 0.0003651726631990944,
+          "model_inference_s": 0,
+          "expanded_states": 1,
+          "attempted_candidates": 1,
+          "proof_length": 1
+        }
+      }
+    },
+    "p2_witness_pair": {
+      "family": "witness_construction",
+      "algorithms": {
+        "bfs": {
+          "runs": 3,
+          "verified": 3,
+          "terminations": [
+            "verified",
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.7423557746660663,
+          "lean_execution_s": 0.018304374997872703,
+          "initialization_s": 1.788950324335019,
+          "verification_s": 1.9113705123309046,
+          "planning_s": 0.0006442289983776087,
+          "model_inference_s": 0.00017113066375410804,
+          "expanded_states": 1,
+          "attempted_candidates": 4,
+          "proof_length": 1
+        },
+        "best_first": {
+          "runs": 3,
+          "verified": 3,
+          "terminations": [
+            "verified",
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.813572058667584,
+          "lean_execution_s": 0.017798650667828042,
+          "initialization_s": 1.8650007180015866,
+          "verification_s": 1.8943572973342573,
+          "planning_s": 0.0005390806642632621,
+          "model_inference_s": 0.00015688266527528563,
+          "expanded_states": 1,
+          "attempted_candidates": 4,
+          "proof_length": 1
+        },
+        "learned": {
+          "runs": 3,
+          "verified": 3,
+          "terminations": [
+            "verified",
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.90001595600188,
+          "lean_execution_s": 0.019669347668241244,
+          "initialization_s": 1.9425142053320694,
+          "verification_s": 1.9041946863338428,
+          "planning_s": 0.0006425296645223474,
+          "model_inference_s": 0.0002451749993876244,
+          "expanded_states": 1,
+          "attempted_candidates": 3,
+          "proof_length": 1
+        },
+        "automation": {
+          "runs": 3,
+          "verified": 3,
+          "terminations": [
+            "verified",
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 4.008099032000852,
+          "lean_execution_s": 0.07812415266622945,
+          "initialization_s": 1.9041543069979525,
+          "verification_s": 1.9986811016666859,
+          "planning_s": 0.0003609030003038545,
+          "model_inference_s": 0,
+          "expanded_states": 1,
+          "attempted_candidates": 1,
+          "proof_length": 1
+        }
+      }
+    },
+    "p2_witness_single": {
+      "family": "witness_construction",
+      "algorithms": {
+        "bfs": {
+          "runs": 3,
+          "verified": 3,
+          "terminations": [
+            "verified",
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.9415463416662533,
+          "lean_execution_s": 0.012193150003440678,
+          "initialization_s": 1.9840418043362054,
+          "verification_s": 1.9210653736663517,
+          "planning_s": 0.000556086333138713,
+          "model_inference_s": 0.00013495633174898103,
+          "expanded_states": 1,
+          "attempted_candidates": 3,
+          "proof_length": 1
+        },
+        "best_first": {
+          "runs": 3,
+          "verified": 3,
+          "terminations": [
+            "verified",
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 4.0878054519974585,
+          "lean_execution_s": 0.014368607999737529,
+          "initialization_s": 2.0665743313341713,
+          "verification_s": 1.9787085120018066,
+          "planning_s": 0.0006296140005967269,
+          "model_inference_s": 0.00017615499867436787,
+          "expanded_states": 1,
+          "attempted_candidates": 3,
+          "proof_length": 1
+        },
+        "learned": {
+          "runs": 3,
+          "verified": 3,
+          "terminations": [
+            "verified",
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 4.056668566668425,
+          "lean_execution_s": 0.010364884003744615,
+          "initialization_s": 1.8936471029980264,
+          "verification_s": 2.1127872906678626,
+          "planning_s": 0.0020538829994620755,
+          "model_inference_s": 0.00019177866973526156,
+          "expanded_states": 1,
+          "attempted_candidates": 2,
+          "proof_length": 1
+        },
+        "automation": {
+          "runs": 3,
+          "verified": 3,
+          "terminations": [
+            "verified",
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 4.132915754332013,
+          "lean_execution_s": 0.06550837599934312,
+          "initialization_s": 1.9244248013322551,
+          "verification_s": 2.1197974903310146,
+          "planning_s": 0.000381707664928399,
+          "model_inference_s": 0,
+          "expanded_states": 1,
+          "attempted_candidates": 1,
+          "proof_length": 1
+        }
+      }
+    }
+  }
+}

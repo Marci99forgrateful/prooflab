@@ -3,9 +3,14 @@
 ### Learning to Search for Formal Mathematical Proofs
 
 An interactive neuro-symbolic theorem proving laboratory built on Lean 4 and
-Mathlib. ProofLab **constructs proof paths** using breadth-first and heuristic
-best-first search, visualizes actual failed and successful tactic attempts, and
+Mathlib. ProofLab **constructs proof paths** using breadth-first, handcrafted
+best-first and locally learned candidate ranking, visualizes actual tactic attempts, and
 rechecks every successful proof in a separate Lean process.
+
+**v0.2.0 review candidate:** a real CPU-trained pairwise ranker, frozen new-family
+evaluation, three repeated runs per policy, and interactive ranking explanations.
+The [Phase 2 report](docs/phase-2-final-report.md) separates implementation from
+measured evidence and limitations. Main is not merged by this delivery.
 
 No paid model, API key, external inference service, or GPU is required.
 
@@ -58,12 +63,12 @@ trace and trajectory formats, experiment runner, and interactive visualization
 are project code applying established methods. Lean supplies elaboration and
 kernel verification; Mathlib supplies mathematics, `ring`, and other tactics.
 Native Aesop is evaluated only as a separately identified automation baseline.
-Hand-designed heuristics are not described as a trained AI model or novel research.
+The Phase 1 heuristic remains hand designed. Phase 2 separately fits a small linear model from real development-only Lean replay evidence; neither method is claimed to be novel machine-learning research.
 
 ## How the laboratory works
 
 ```text
-Theorem → actual Lean goal → structural candidates → BFS / best-first frontier
+Theorem → actual Lean goal → structural candidates → BFS / heuristic / learned ordering
                                ↑                         ↓
                         Mathlib lemma index ← saved Lean elaboration states
                                                          ↓
@@ -125,9 +130,10 @@ npm --prefix web run build
 The two original searches use identical candidate sets and budgets. Native
 Aesop is a separate reference. One-step lemma retrieval, specialized tactics
 and constructed derivations are reported separately. A failed bounded search
-never means the statement is false. The reserved split is **not a blinded
-evaluation**, no model has been trained, and no statistical breakthrough or
-mathematical novelty is claimed. See [methodology](docs/benchmark-methodology.md).
+never means the statement is false. The Phase 1 reserved split was **not a blinded
+evaluation**. Phase 2 uses a separately frozen new-family evaluation; its model
+never trains on either held-out set. No statistical breakthrough or mathematical
+novelty is claimed. See [methodology](docs/benchmark-methodology.md).
 
 ![Measured comparison generated from actual recorded runs](docs/assets/benchmark-results.svg)
 
@@ -146,10 +152,49 @@ mathematical novelty is claimed. See [methodology](docs/benchmark-methodology.md
 | Execution boundaries and scope | [Security and limitations](docs/security-and-limitations.md) |
 | Milestones and acceptance | [Progress](docs/development-progress.md), [final report](docs/phase-1-final-report.md) |
 
-The next research milestone is a small **locally trained** candidate ranker,
-evaluated on a new unseen theorem-family split with the same candidate pool
-and computational budgets. Phase 1 provides typed policy interfaces and genuine
-split-labelled trajectories, not an untrained function presented as AI.
+## Phase 2: learning to guide search
+
+The exported [73-coefficient CPU model](models/phase2/ranker.json) learns from
+114 actual Lean states on 47 permitted development tasks. Verified solution
+steps are positive evidence; only genuinely Lean-rejected siblings form
+contrasts. Valid and unexecuted alternatives are never labeled mathematically
+incorrect. L2 selection uses development validation only; the frozen evaluation
+contains 24 new statements in six different whole-theorem families, audited
+using native Lean expression graphs for structural duplication.
+
+```bash
+uv run --frozen prooflab collect-training --output /tmp/prooflab-training-replay
+uv run --frozen prooflab train --data /tmp/prooflab-training-replay --output /tmp/prooflab-ranker.json
+uv run --frozen prooflab search p2_congr_nested --algorithm learned --output learned.json
+uv run --frozen prooflab evaluate-phase2 --output experiments/phase2/my-run
+uv run --frozen python scripts/export_phase2.py experiments/phase2/my-run
+npm --prefix web run build
+```
+
+Choose **Phase 2 · learned search** in the interface, then compare BFS, handcrafted
+and learned trees or inspect both rankings and feature contributions at a real
+state. Three recorded repeats are selectable. Live local searches also record
+both score explanations. Scores are ordering values, never proof probabilities.
+Native Aesop remains a separately identified reference in benchmark results.
+
+[Model/features/training](docs/phase-2-model.md) ·
+[Frozen splits and protocol](docs/phase-2-data.md) ·
+[Measured results and error analysis](docs/phase-2-results.md) ·
+[Full Phase 2 delivery report](docs/phase-2-final-report.md).
+
+![Actual learned rankings and real Lean execution](docs/assets/phase2-rankings.png)
+
+The candidate generator, Lean bridge, independent checker and axiom rules are
+unchanged. The learned policy changes candidate order while retaining the
+original handcrafted frontier score. Raw repetitions, failures, timings,
+per-theorem results and uncertainty estimates are exported in
+[`experiments/phase2/evaluation-v1/`](experiments/phase2/evaluation-v1/).
+In 288 actual runs, BFS, handcrafted and learned each verify 72/72 runs;
+native Aesop verifies 63/72. Learned ordering averages 10.792 attempts versus
+10.625 for the handcrafted policy (paired difference +0.167, 95% theorem-cluster
+bootstrap interval −0.625 to +1.083). **This experiment does not establish an
+improvement over the existing heuristic.** The negative finding and local
+regressions are preserved without retuning.
 
 ## Deployment and compatibility
 

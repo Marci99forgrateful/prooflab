@@ -7,6 +7,7 @@ from typing import cast
 
 from prooflab.benchmark import Algorithm, run_benchmark
 from prooflab.dataset import get_task, load_tasks
+from prooflab.learning import DEFAULT_MODEL, LearnedRanking
 from prooflab.models import Budget
 from prooflab.search import search
 
@@ -21,6 +22,7 @@ def main() -> None:
         "--algorithm", choices=["bfs", "best_first", "learned", "automation"], default="best_first"
     )
     solve.add_argument("--output", type=Path)
+    solve.add_argument("--model", type=Path, help="Local JSON weights for learned search")
     benchmark = sub.add_parser("benchmark", help="Run real comparative experiments")
     benchmark.add_argument("--output", type=Path, required=True)
     benchmark.add_argument("--split", choices=["all", "development", "held_out"], default="all")
@@ -32,10 +34,18 @@ def main() -> None:
         command.add_argument("--attempts", type=int, default=400)
     serve = sub.add_parser("serve", help="Start the loopback-only research application")
     serve.add_argument("--port", type=int, default=8000)
-    sub.add_parser("collect-training", help="Replay permitted development evidence in Lean")
-    sub.add_parser("train", help="Select and refit the deterministic CPU ranking model")
+    collect = sub.add_parser(
+        "collect-training", help="Replay permitted development evidence in Lean"
+    )
+    collect.add_argument("--output", type=Path, required=True, help="New evidence directory")
+    train_parser = sub.add_parser(
+        "train", help="Select and refit the deterministic CPU ranking model"
+    )
+    train_parser.add_argument("--data", type=Path)
+    train_parser.add_argument("--output", type=Path, default=DEFAULT_MODEL)
     evaluate = sub.add_parser("evaluate-phase2", help="Run the frozen Phase 2 protocol")
     evaluate.add_argument("--output", type=Path, required=True)
+    evaluate.add_argument("--model", type=Path, default=DEFAULT_MODEL)
     args = parser.parse_args()
     if args.command == "tasks":
         print(json.dumps([t.model_dump() for t in load_tasks()], indent=2, ensure_ascii=False))
@@ -46,15 +56,15 @@ def main() -> None:
     elif args.command == "collect-training":
         from prooflab.training import collect_data
 
-        collect_data()
+        collect_data(args.output)
     elif args.command == "train":
-        from prooflab.training import train
+        from prooflab.training import DATA_DIR, train
 
-        train()
+        train(args.data or DATA_DIR, args.output)
     elif args.command == "evaluate-phase2":
         from prooflab.evaluation import run_evaluation
 
-        run_evaluation(args.output)
+        run_evaluation(args.output, args.model)
     else:
         budget = Budget(
             timeout_s=args.timeout,
@@ -63,7 +73,14 @@ def main() -> None:
             max_attempts=args.attempts,
         )
         if args.command == "search":
-            result = search(get_task(args.task), cast(Algorithm, args.algorithm), budget)
+            ranker = LearnedRanking(args.model) if args.model else None
+            result = search(
+                get_task(args.task),
+                cast(Algorithm, args.algorithm),
+                budget,
+                ranking=ranker if args.algorithm == "learned" else None,
+                comparison_ranker=ranker,
+            )
             data = result.model_dump_json(indent=2)
             if args.output:
                 args.output.parent.mkdir(parents=True, exist_ok=True)

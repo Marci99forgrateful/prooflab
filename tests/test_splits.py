@@ -59,3 +59,12 @@ def test_native_alpha_and_parameter_reordering_leakage_is_detected() -> None:
 def test_unresolved_lean_terms_cannot_be_fingerprinted() -> None:
     with pytest.raises(ValueError, match="Unresolved"):
         splits.expression_graph(["UNEXPECTED_METAVARIABLE"])
+
+
+@pytest.mark.integration
+def test_committed_native_audit_reproduces_for_all_statements() -> None:
+    frozen = splits.check_freeze()
+    actual = splits.audit_splits()
+    assert actual["expression_trees"] == frozen["expression_trees"]
+    assert actual["graph_hashes"] == frozen["graph_hashes"]
+    assert actual["duplicate_pairs"] == []

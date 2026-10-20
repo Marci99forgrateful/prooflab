@@ -1,0 +1,375 @@
+{
+  "schema_version": 1,
+  "task": {
+    "id": "p2_difference_member",
+    "title": "Project a set difference",
+    "domain": "sets",
+    "difficulty": "easy",
+    "split": "held_out",
+    "binders": "(α : Type) (A B : Set α) (x : α) (h : x ∈ A \\ B)",
+    "target": "x ∈ A",
+    "display": "x ∈ A",
+    "description": "Phase 2 frozen evaluation · set differences.",
+    "origin": "Original Phase 2 statement. Family fixed before model selection.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  "algorithm": "best_first",
+  "budget": {
+    "max_depth": 8,
+    "max_expansions": 60,
+    "max_candidates": 24,
+    "max_attempts": 400,
+    "timeout_s": 12.0,
+    "tactic_timeout_s": 3.0
+  },
+  "status": "verified",
+  "termination": "verified",
+  "nodes": [
+    {
+      "id": 0,
+      "parent": null,
+      "depth": 0,
+      "state": {
+        "state_id": 0,
+        "goals": [
+          {
+            "id": "_uniq.131",
+            "target": {
+              "text": "x ∈ A",
+              "head": "[anonymous]",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.126",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "A",
+                "id": "_uniq.127",
+                "type": {
+                  "text": "Set α",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "B",
+                "id": "_uniq.128",
+                "type": {
+                  "text": "Set α",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "x",
+                "id": "_uniq.129",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "h",
+                "id": "_uniq.130",
+                "type": {
+                  "text": "x ∈ A \\ B",
+                  "head": "And",
+                  "forall": false
+                },
+                "is_proof": true
+              }
+            ]
+          }
+        ]
+      },
+      "tactic": null,
+      "category": null,
+      "lemma": null,
+      "provenance": null,
+      "reason": "Initial Lean goal",
+      "status": "root",
+      "error": null,
+      "elapsed_ms": 0.0,
+      "on_proof_path": true
+    },
+    {
+      "id": 1,
+      "parent": 0,
+      "depth": 1,
+      "state": null,
+      "tactic": "assumption",
+      "category": "goal",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Match the goal against the local context",
+      "status": "rejected",
+      "error": "Tactic `assumption` failed\n\nα : Type\nA B : Set α\nx : α\nh : x ∈ A \\ B\n⊢ x ∈ A",
+      "elapsed_ms": 2.025502995820716,
+      "on_proof_path": false
+    },
+    {
+      "id": 2,
+      "parent": 0,
+      "depth": 1,
+      "state": {
+        "state_id": 1,
+        "goals": []
+      },
+      "tactic": "exact h.1",
+      "category": "hypothesis",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Project component 1",
+      "status": "solved",
+      "error": null,
+      "elapsed_ms": 0.6409850029740483,
+      "on_proof_path": true
+    }
+  ],
+  "metrics": {
+    "attempted_candidates": 2,
+    "accepted_transitions": 1,
+    "rejected_candidates": 1,
+    "expanded_states": 1,
+    "frontier": 0,
+    "max_depth": 1,
+    "proof_length": 1,
+    "elapsed_s": 3.553713888999482,
+    "lean_execution_s": 0.0026664879987947643,
+    "initialization_s": 1.809220548995654,
+    "verification_s": 1.7245806000064476,
+    "planning_s": 0.0006718209988321178,
+    "model_inference_s": 0.00030278600024757907
+  },
+  "proof": [
+    "exact h.1"
+  ],
+  "lean_source": "import ProofLab.Bridge\n\nset_option maxHeartbeats 300000\ntheorem prooflab_result (α : Type) (A B : Set α) (x : α) (h : x ∈ A \\ B) : x ∈ A := by\n  exact h.1\n\n#prooflab_audit prooflab_result\n",
+  "verification": {
+    "verified": true,
+    "axioms": [],
+    "error": null,
+    "elapsed_s": 1.7245806000064476,
+    "source_sha256": "6588762d6c84d29f1c4d060427df2a66f2638715c792ce719e2ebcaa061a715c"
+  },
+  "metadata": {
+    "code_commit": "1b9262dd32c23fa2ac95c47a5f9a9d2172d63da2",
+    "lean_version": "leanprover/lean4:v4.24.0",
+    "mathlib_revision": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7",
+    "python": "3.12.14",
+    "platform": "Linux-6.18.55-x86_64-with-glibc2.41",
+    "machine": "x86_64",
+    "processor": "",
+    "seed": "0 (deterministic)",
+    "state_identity": "Exact tactic prefix within one native session; no semantic merging",
+    "model_sha256": "99633c7039471cceb0292b4634df2b7c4d60218a0882f156e9cc70b5bd75730e",
+    "feature_version": "prooflab-state-action-v1",
+    "learned_scores_used_for_scheduling": "false",
+    "frontier_policy": "handcrafted state score; stable insertion-ID ties",
+    "repeat": "1",
+    "family": "set_differences"
+  },
+  "error": null,
+  "proof_origin": "constructed_derivation",
+  "rankings": [
+    {
+      "node_id": 0,
+      "candidates": [
+        {
+          "tactic": "assumption",
+          "category": "goal",
+          "generated_order": 0,
+          "actual_rank": 1,
+          "heuristic_score": 10.0,
+          "learned_score": -0.515283877345804,
+          "contributions": [
+            [
+              "op:assumption",
+              -0.4146238007012775
+            ],
+            [
+              "cross:other|assumption",
+              -0.10066007664452657
+            ],
+            [
+              "bias",
+              0.0
+            ],
+            [
+              "shape:other",
+              0.0
+            ],
+            [
+              "goals",
+              0.0
+            ]
+          ]
+        },
+        {
+          "tactic": "exact h.1",
+          "category": "hypothesis",
+          "generated_order": 1,
+          "actual_rank": 2,
+          "heuristic_score": 8.0,
+          "learned_score": 0.1500547656144324,
+          "contributions": [
+            [
+              "cross:other|projection",
+              0.1051867449523751
+            ],
+            [
+              "op:projection",
+              0.05035184712964076
+            ],
+            [
+              "target_overlap",
+              -0.005483826467583457
+            ],
+            [
+              "bias",
+              0.0
+            ],
+            [
+              "shape:other",
+              0.0
+            ]
+          ]
+        },
+        {
+          "tactic": "exact h.2",
+          "category": "hypothesis",
+          "generated_order": 3,
+          "actual_rank": 3,
+          "heuristic_score": 8.0,
+          "learned_score": 0.1500547656144324,
+          "contributions": [
+            [
+              "cross:other|projection",
+              0.1051867449523751
+            ],
+            [
+              "op:projection",
+              0.05035184712964076
+            ],
+            [
+              "target_overlap",
+              -0.005483826467583457
+            ],
+            [
+              "bias",
+              0.0
+            ],
+            [
+              "shape:other",
+              0.0
+            ]
+          ]
+        },
+        {
+          "tactic": "apply h.1",
+          "category": "hypothesis",
+          "generated_order": 2,
+          "actual_rank": 4,
+          "heuristic_score": 5.0,
+          "learned_score": -0.4584387573691958,
+          "contributions": [
+            [
+              "op:hyp_apply",
+              -0.3740214834569449
+            ],
+            [
+              "cross:other|hyp_apply",
+              -0.07893344744466746
+            ],
+            [
+              "target_overlap",
+              -0.005483826467583457
+            ],
+            [
+              "bias",
+              0.0
+            ],
+            [
+              "shape:other",
+              0.0
+            ]
+          ]
+        },
+        {
+          "tactic": "apply h.2",
+          "category": "hypothesis",
+          "generated_order": 4,
+          "actual_rank": 5,
+          "heuristic_score": 5.0,
+          "learned_score": -0.4584387573691958,
+          "contributions": [
+            [
+              "op:hyp_apply",
+              -0.3740214834569449
+            ],
+            [
+              "cross:other|hyp_apply",
+              -0.07893344744466746
+            ],
+            [
+              "target_overlap",
+              -0.005483826467583457
+            ],
+            [
+              "bias",
+              0.0
+            ],
+            [
+              "shape:other",
+              0.0
+            ]
+          ]
+        },
+        {
+          "tactic": "rcases h with ⟨h0, h1⟩",
+          "category": "hypothesis",
+          "generated_order": 5,
+          "actual_rank": 6,
+          "heuristic_score": 4.0,
+          "learned_score": 0.14332973180605446,
+          "contributions": [
+            [
+              "op:cases",
+              0.07440677913681897
+            ],
+            [
+              "cross:other|cases",
+              0.07440677913681897
+            ],
+            [
+              "target_overlap",
+              -0.005483826467583457
+            ],
+            [
+              "bias",
+              0.0
+            ],
+            [
+              "shape:other",
+              0.0
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}

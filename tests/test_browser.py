@@ -212,3 +212,53 @@ def test_local_api_cancellation_ends_without_certifying_a_proof(page: Page, app_
         time.sleep(0.05)
     assert job["trace"]["status"] == "cancelled"
     assert not job["trace"]["verification"]["verified"]
+
+
+def test_learned_rankings_explain_real_execution_and_three_trees(page: Page) -> None:
+    page.locator("#dataset-select").select_option("phase2")
+    page.locator("#task-select").select_option("p2_congr_nested")
+    page.locator('[data-algorithm="learned"]').click()
+    expect(page.locator("#metric-status")).to_have_text("✓ Verified")
+    expect(page.locator("#rankings-panel")).to_be_visible()
+    expect(page.locator("#ranking-note")).to_contain_text(
+        "Learned scores determine candidate order"
+    )
+    expect(page.locator("#ranking-rows tr").first).to_contain_text("rw [h]")
+    expect(page.locator("#ranking-rows")).to_contain_text("Not executed")
+    page.locator("#ranking-rows details summary").first.click()
+    expect(page.locator("#ranking-rows details pre").first).to_contain_text("cross:Eq|rewrite")
+    with page.expect_download() as download:
+        page.locator("#export-trace").click()
+    trace = json.loads(download.value.path().read_text())
+    assert trace["algorithm"] == "learned" and trace["verification"]["verified"]
+    assert trace["rankings"][0]["candidates"][0]["tactic"] == "rw [h]"
+    page.locator("#repeat-select").select_option("2")
+    expect(page.locator("#proof-method")).to_contain_text("repeat 3 of 3")
+    with page.expect_download() as download:
+        page.locator("#export-trace").click()
+    trace = json.loads(download.value.path().read_text())
+    assert trace["metadata"]["repeat"] == "2"
+    page.locator('[data-view="compare"]').click()
+    page.locator("#compare-task").select_option("p2_congr_nested")
+    expect(page.locator("#comparison-grid .card")).to_have_count(3)
+    expect(page.locator("#comparison-grid")).to_contain_text("Learned candidate ranking")
+    page.locator('[data-view="benchmarks"]').click()
+    expect(page.locator("#benchmark-content")).to_contain_text("Learned ranker")
+    expect(page.locator("#benchmark-content")).to_contain_text("95% CI")
+    expect(page.locator("#benchmark-content")).to_contain_text("288")
+    page.locator("#dataset-select").select_option("phase1")
+    page.locator('[data-view="lab"]').click()
+    page.locator('[data-algorithm="best_first"]').click()
+    expect(page.locator("#metric-status")).to_have_text("✓ Verified")
+
+
+def test_live_learned_search_is_a_new_verified_computation(page: Page) -> None:
+    # Development task regression; not a new model-selection experiment.
+    page.locator('[data-algorithm="learned"]').click()
+    page.locator("#mode-toggle").click()
+    page.locator("#run-button").click()
+    expect(page.locator("#notice")).to_contain_text(
+        "New computation completed: verified", timeout=45000
+    )
+    expect(page.locator("#rankings-panel")).to_be_visible()
+    expect(page.locator("#proof-method")).to_contain_text("Learned")

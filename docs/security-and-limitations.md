@@ -30,7 +30,7 @@ no formal proof of the implementation itself is claimed.
 - Lemma retrieval uses a bounded curated index and simple type features.
 - Conservative path identity retains semantic duplicate states. Pretty-text
   matching proposes some tactics but is never accepted as mathematical evidence.
-- The held-out dataset is reserved but not blind; no trained model is evaluated.
+- Phase 1 held-out data was reserved but not blind. Phase 2 uses a new frozen family split and a genuinely fitted model; see [its data limitations](phase-2-data.md).
 - Live search finishes before animated playback; streaming is future work.
 - Graph rendering has a node cap. Raw traces preserve all recorded attempts.
 - The supported distribution requires the project checkout. A standalone wheel

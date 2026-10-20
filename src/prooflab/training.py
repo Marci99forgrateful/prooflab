@@ -288,6 +288,11 @@ def train(data: Path = DATA_DIR, model_path: Path = DEFAULT_MODEL) -> dict[str, 
         "selection_training_pairs": len(train_pairs),
         "selection_validation_pairs": len(val_pairs),
     }
-    (data / "training-report.json").write_text(json.dumps(report, indent=2) + "\n")
+    report_path = (
+        data / "training-report.json"
+        if model_path.resolve() == DEFAULT_MODEL.resolve()
+        else model_path.with_suffix(".training-report.json")
+    )
+    report_path.write_text(json.dumps(report, indent=2) + "\n")
     print(json.dumps(report, indent=2))
     return report

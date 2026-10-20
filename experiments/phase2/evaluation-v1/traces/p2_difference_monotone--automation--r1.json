@@ -1,0 +1,169 @@
+{
+  "schema_version": 1,
+  "task": {
+    "id": "p2_difference_monotone",
+    "title": "Monotonicity of set difference",
+    "domain": "sets",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(α : Type) (A B C : Set α) (h : A ⊆ B)",
+    "target": "A \\ C ⊆ B \\ C",
+    "display": "A \\ C ⊆ B \\ C",
+    "description": "Phase 2 frozen evaluation · set differences.",
+    "origin": "Original Phase 2 statement. Family fixed before model selection.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  "algorithm": "automation",
+  "budget": {
+    "max_depth": 8,
+    "max_expansions": 60,
+    "max_candidates": 24,
+    "max_attempts": 400,
+    "timeout_s": 12.0,
+    "tactic_timeout_s": 3.0
+  },
+  "status": "not_found_within_budget",
+  "termination": "search_exhausted",
+  "nodes": [
+    {
+      "id": 0,
+      "parent": null,
+      "depth": 0,
+      "state": {
+        "state_id": 0,
+        "goals": [
+          {
+            "id": "_uniq.98",
+            "target": {
+              "text": "A \\ C ⊆ B \\ C",
+              "head": "[anonymous]",
+              "forall": true
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.93",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "A",
+                "id": "_uniq.94",
+                "type": {
+                  "text": "Set α",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "B",
+                "id": "_uniq.95",
+                "type": {
+                  "text": "Set α",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "C",
+                "id": "_uniq.96",
+                "type": {
+                  "text": "Set α",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "h",
+                "id": "_uniq.97",
+                "type": {
+                  "text": "A ⊆ B",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": true
+              }
+            ]
+          }
+        ]
+      },
+      "tactic": null,
+      "category": null,
+      "lemma": null,
+      "provenance": null,
+      "reason": "Initial Lean goal",
+      "status": "root",
+      "error": null,
+      "elapsed_ms": 0.0,
+      "on_proof_path": false
+    },
+    {
+      "id": 1,
+      "parent": 0,
+      "depth": 1,
+      "state": null,
+      "tactic": "aesop",
+      "category": "reference",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Native Aesop baseline; not a ProofLab algorithm",
+      "status": "rejected",
+      "error": "tactic 'aesop' failed, made no progress\nInitial goal:\n  α : Type\n  A B C : Set α\n  h : A ⊆ B\n  ⊢ A \\ C ⊆ B \\ C",
+      "elapsed_ms": 32.11711200128775,
+      "on_proof_path": false
+    }
+  ],
+  "metrics": {
+    "attempted_candidates": 1,
+    "accepted_transitions": 0,
+    "rejected_candidates": 1,
+    "expanded_states": 1,
+    "frontier": 0,
+    "max_depth": 1,
+    "proof_length": 0,
+    "elapsed_s": 2.0171895769963157,
+    "lean_execution_s": 0.03211711200128775,
+    "initialization_s": 1.952601880999282,
+    "verification_s": 0.0,
+    "planning_s": 0.0004763769975397736,
+    "model_inference_s": 0.0
+  },
+  "proof": [],
+  "lean_source": null,
+  "verification": {
+    "verified": false,
+    "axioms": [],
+    "error": null,
+    "elapsed_s": 0.0,
+    "source_sha256": null
+  },
+  "metadata": {
+    "code_commit": "1b9262dd32c23fa2ac95c47a5f9a9d2172d63da2",
+    "lean_version": "leanprover/lean4:v4.24.0",
+    "mathlib_revision": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7",
+    "python": "3.12.14",
+    "platform": "Linux-6.18.55-x86_64-with-glibc2.41",
+    "machine": "x86_64",
+    "processor": "",
+    "seed": "0 (deterministic)",
+    "state_identity": "Exact tactic prefix within one native session; no semantic merging",
+    "model_sha256": "99633c7039471cceb0292b4634df2b7c4d60218a0882f156e9cc70b5bd75730e",
+    "feature_version": "prooflab-state-action-v1",
+    "learned_scores_used_for_scheduling": "false",
+    "frontier_policy": "handcrafted state score; stable insertion-ID ties",
+    "repeat": "1",
+    "family": "set_differences"
+  },
+  "error": null,
+  "proof_origin": null,
+  "rankings": []
+}

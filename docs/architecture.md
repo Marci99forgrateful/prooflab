@@ -1,5 +1,9 @@
 # Architecture — decision record 001
 
+> Phase 1 foundation document. Phase 2 implementation and current evidence:
+> [model](phase-2-model.md), [frozen data/protocol](phase-2-data.md),
+> [measured results](phase-2-results.md), [delivery report](phase-2-final-report.md).
+
 **Decision:** use a persistent Lean-native tactic session, Python search and
 research orchestration, and an independent static browser client.
 

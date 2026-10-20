@@ -1,5 +1,9 @@
 # From heuristic to locally learned guidance
 
+> Phase 1 foundation document. Phase 2 implementation and current evidence:
+> [model](phase-2-model.md), [frozen data/protocol](phase-2-data.md),
+> [measured results](phase-2-results.md), [delivery report](phase-2-final-report.md).
+
 Phase 1 contains no trained model. Its deterministic ranking interface is
 designed for extension without changing the trusted execution/verification
 boundary. No hosted inference or paid API is needed.

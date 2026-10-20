@@ -1,0 +1,535 @@
+{
+  "schema_version": 1,
+  "task": {
+    "id": "p2_predicate_function",
+    "title": "Transport under function equality",
+    "domain": "logic",
+    "difficulty": "moderate",
+    "split": "held_out",
+    "binders": "(α β : Type) (P : β → Prop) (f g : α → β) (x : α) (h : f = g) (hp : P (f x))",
+    "target": "P (g x)",
+    "display": "P (g x)",
+    "description": "Phase 2 frozen evaluation · predicate transport.",
+    "origin": "Original Phase 2 statement. Family fixed before model selection.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  "algorithm": "bfs",
+  "budget": {
+    "max_depth": 8,
+    "max_expansions": 60,
+    "max_candidates": 24,
+    "max_attempts": 400,
+    "timeout_s": 12.0,
+    "tactic_timeout_s": 3.0
+  },
+  "status": "verified",
+  "termination": "verified",
+  "nodes": [
+    {
+      "id": 0,
+      "parent": null,
+      "depth": 0,
+      "state": {
+        "state_id": 0,
+        "goals": [
+          {
+            "id": "_uniq.48",
+            "target": {
+              "text": "P (g x)",
+              "head": "[anonymous]",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.40",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "β",
+                "id": "_uniq.41",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "P",
+                "id": "_uniq.42",
+                "type": {
+                  "text": "β → Prop",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "f",
+                "id": "_uniq.43",
+                "type": {
+                  "text": "α → β",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "g",
+                "id": "_uniq.44",
+                "type": {
+                  "text": "α → β",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "x",
+                "id": "_uniq.45",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "h",
+                "id": "_uniq.46",
+                "type": {
+                  "text": "f = g",
+                  "head": "Eq",
+                  "forall": false
+                },
+                "is_proof": true
+              },
+              {
+                "name": "hp",
+                "id": "_uniq.47",
+                "type": {
+                  "text": "P (f x)",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              }
+            ]
+          }
+        ]
+      },
+      "tactic": null,
+      "category": null,
+      "lemma": null,
+      "provenance": null,
+      "reason": "Initial Lean goal",
+      "status": "root",
+      "error": null,
+      "elapsed_ms": 0.0,
+      "on_proof_path": true
+    },
+    {
+      "id": 1,
+      "parent": 0,
+      "depth": 1,
+      "state": null,
+      "tactic": "assumption",
+      "category": "goal",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Match the goal against the local context",
+      "status": "rejected",
+      "error": "Tactic `assumption` failed\n\nα β : Type\nP : β → Prop\nf g : α → β\nx : α\nh : f = g\nhp : P (f x)\n⊢ P (g x)",
+      "elapsed_ms": 3.199323000444565,
+      "on_proof_path": false
+    },
+    {
+      "id": 2,
+      "parent": 0,
+      "depth": 1,
+      "state": null,
+      "tactic": "rw [h]",
+      "category": "hypothesis",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Rewrite using a local equality",
+      "status": "rejected",
+      "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  f\nin the target expression\n  P (g x)\n\nα β : Type\nP : β → Prop\nf g : α → β\nx : α\nh : f = g\nhp : P (f x)\n⊢ P (g x)",
+      "elapsed_ms": 1.4100719999987632,
+      "on_proof_path": false
+    },
+    {
+      "id": 3,
+      "parent": 0,
+      "depth": 1,
+      "state": {
+        "state_id": 1,
+        "goals": [
+          {
+            "id": "_uniq.55",
+            "target": {
+              "text": "P (f x)",
+              "head": "[anonymous]",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.40",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "β",
+                "id": "_uniq.41",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "P",
+                "id": "_uniq.42",
+                "type": {
+                  "text": "β → Prop",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "f",
+                "id": "_uniq.43",
+                "type": {
+                  "text": "α → β",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "g",
+                "id": "_uniq.44",
+                "type": {
+                  "text": "α → β",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "x",
+                "id": "_uniq.45",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "h",
+                "id": "_uniq.46",
+                "type": {
+                  "text": "f = g",
+                  "head": "Eq",
+                  "forall": false
+                },
+                "is_proof": true
+              },
+              {
+                "name": "hp",
+                "id": "_uniq.47",
+                "type": {
+                  "text": "P (f x)",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              }
+            ]
+          }
+        ]
+      },
+      "tactic": "rw [← h]",
+      "category": "hypothesis",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Explore reverse equality rewriting",
+      "status": "accepted",
+      "error": null,
+      "elapsed_ms": 2.3973060015123338,
+      "on_proof_path": true
+    },
+    {
+      "id": 4,
+      "parent": 3,
+      "depth": 2,
+      "state": {
+        "state_id": 2,
+        "goals": []
+      },
+      "tactic": "assumption",
+      "category": "goal",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Match the goal against the local context",
+      "status": "solved",
+      "error": null,
+      "elapsed_ms": 0.20237400167388842,
+      "on_proof_path": true
+    }
+  ],
+  "metrics": {
+    "attempted_candidates": 4,
+    "accepted_transitions": 2,
+    "rejected_candidates": 2,
+    "expanded_states": 2,
+    "frontier": 0,
+    "max_depth": 2,
+    "proof_length": 2,
+    "elapsed_s": 4.347420036996482,
+    "lean_execution_s": 0.00720907500362955,
+    "initialization_s": 2.118271075996745,
+    "verification_s": 2.188351769997098,
+    "planning_s": 0.001200756996695418,
+    "model_inference_s": 0.00038390800182241946
+  },
+  "proof": [
+    "rw [← h]",
+    "assumption"
+  ],
+  "lean_source": "import ProofLab.Bridge\n\nset_option maxHeartbeats 300000\ntheorem prooflab_result (α β : Type) (P : β → Prop) (f g : α → β) (x : α) (h : f = g) (hp : P (f x)) : P (g x) := by\n  rw [← h]\n  assumption\n\n#prooflab_audit prooflab_result\n",
+  "verification": {
+    "verified": true,
+    "axioms": [],
+    "error": null,
+    "elapsed_s": 2.188351769997098,
+    "source_sha256": "1f7e3662dc49b446cea60701d5d4cfd8f3f9ee28a73407a6677f898524331ec6"
+  },
+  "metadata": {
+    "code_commit": "1b9262dd32c23fa2ac95c47a5f9a9d2172d63da2",
+    "lean_version": "leanprover/lean4:v4.24.0",
+    "mathlib_revision": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7",
+    "python": "3.12.14",
+    "platform": "Linux-6.18.55-x86_64-with-glibc2.41",
+    "machine": "x86_64",
+    "processor": "",
+    "seed": "0 (deterministic)",
+    "state_identity": "Exact tactic prefix within one native session; no semantic merging",
+    "model_sha256": "99633c7039471cceb0292b4634df2b7c4d60218a0882f156e9cc70b5bd75730e",
+    "feature_version": "prooflab-state-action-v1",
+    "learned_scores_used_for_scheduling": "false",
+    "frontier_policy": "handcrafted state score; stable insertion-ID ties",
+    "repeat": "1",
+    "family": "predicate_transport"
+  },
+  "error": null,
+  "proof_origin": "constructed_derivation",
+  "rankings": [
+    {
+      "node_id": 0,
+      "candidates": [
+        {
+          "tactic": "assumption",
+          "category": "goal",
+          "generated_order": 0,
+          "actual_rank": 1,
+          "heuristic_score": 10.0,
+          "learned_score": -0.515283877345804,
+          "contributions": [
+            [
+              "op:assumption",
+              -0.4146238007012775
+            ],
+            [
+              "cross:other|assumption",
+              -0.10066007664452657
+            ],
+            [
+              "bias",
+              0.0
+            ],
+            [
+              "shape:other",
+              0.0
+            ],
+            [
+              "goals",
+              0.0
+            ]
+          ]
+        },
+        {
+          "tactic": "rw [h]",
+          "category": "hypothesis",
+          "generated_order": 1,
+          "actual_rank": 2,
+          "heuristic_score": 6.0,
+          "learned_score": 0.2656908255149429,
+          "contributions": [
+            [
+              "op:rewrite",
+              0.16045103809721512
+            ],
+            [
+              "rewrite_reverse_occurs",
+              0.1068849353580028
+            ],
+            [
+              "target_overlap",
+              -0.0016451479402750373
+            ],
+            [
+              "bias",
+              0.0
+            ],
+            [
+              "shape:other",
+              0.0
+            ]
+          ]
+        },
+        {
+          "tactic": "rw [← h]",
+          "category": "hypothesis",
+          "generated_order": 2,
+          "actual_rank": 3,
+          "heuristic_score": 3.0,
+          "learned_score": 0.09032130462071128,
+          "contributions": [
+            [
+              "rewrite_reverse_occurs",
+              0.1068849353580028
+            ],
+            [
+              "op:reverse_rewrite",
+              -0.014918482797016479
+            ],
+            [
+              "target_overlap",
+              -0.0016451479402750373
+            ],
+            [
+              "bias",
+              0.0
+            ],
+            [
+              "shape:other",
+              0.0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "node_id": 3,
+      "candidates": [
+        {
+          "tactic": "assumption",
+          "category": "goal",
+          "generated_order": 0,
+          "actual_rank": 1,
+          "heuristic_score": 10.0,
+          "learned_score": -0.515283877345804,
+          "contributions": [
+            [
+              "op:assumption",
+              -0.4146238007012775
+            ],
+            [
+              "cross:other|assumption",
+              -0.10066007664452657
+            ],
+            [
+              "bias",
+              0.0
+            ],
+            [
+              "shape:other",
+              0.0
+            ],
+            [
+              "goals",
+              0.0
+            ]
+          ]
+        },
+        {
+          "tactic": "rw [h]",
+          "category": "hypothesis",
+          "generated_order": 1,
+          "actual_rank": 2,
+          "heuristic_score": 6.0,
+          "learned_score": 0.34507232083065964,
+          "contributions": [
+            [
+              "rewrite_occurs",
+              0.18626643067371954
+            ],
+            [
+              "op:rewrite",
+              0.16045103809721512
+            ],
+            [
+              "target_overlap",
+              -0.0016451479402750373
+            ],
+            [
+              "bias",
+              0.0
+            ],
+            [
+              "shape:other",
+              0.0
+            ]
+          ]
+        },
+        {
+          "tactic": "rw [← h]",
+          "category": "hypothesis",
+          "generated_order": 2,
+          "actual_rank": 3,
+          "heuristic_score": 3.0,
+          "learned_score": 0.169702799936428,
+          "contributions": [
+            [
+              "rewrite_occurs",
+              0.18626643067371954
+            ],
+            [
+              "op:reverse_rewrite",
+              -0.014918482797016479
+            ],
+            [
+              "target_overlap",
+              -0.0016451479402750373
+            ],
+            [
+              "bias",
+              0.0
+            ],
+            [
+              "shape:other",
+              0.0
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,5 +1,9 @@
 # Search policies and candidate generation
 
+> Phase 1 foundation document. Phase 2 implementation and current evidence:
+> [model](phase-2-model.md), [frozen data/protocol](phase-2-data.md),
+> [measured results](phase-2-results.md), [delivery report](phase-2-final-report.md).
+
 Breadth-first search uses a FIFO frontier. Accepted states are expanded in
 nondecreasing depth and stable generation order. Best-first search uses a heap
 and a deterministic insertion-ID tie-break. Its state score is:

@@ -1,5 +1,9 @@
 # Visualization
 
+> Phase 1 foundation document. Phase 2 implementation and current evidence:
+> [model](phase-2-model.md), [frozen data/protocol](phase-2-data.md),
+> [measured results](phase-2-results.md), [delivery report](phase-2-final-report.md).
+
 The browser reads actual per-attempt trace JSON. One root is the native initial
 Lean state. Every other node is an accepted, rejected, interrupted or solved
 tactic attempt. Edges refer to recorded parent IDs. No decorative search

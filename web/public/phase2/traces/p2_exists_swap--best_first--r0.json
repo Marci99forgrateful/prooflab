@@ -1,0 +1,1652 @@
+{
+  "schema_version": 1,
+  "task": {
+    "id": "p2_exists_swap",
+    "title": "Reassemble a witness property",
+    "domain": "logic",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(α : Type) (P Q : α → Prop) (h : ∃ x, P x ∧ Q x)",
+    "target": "∃ x, Q x ∧ P x",
+    "display": "∃ x, Q x ∧ P x",
+    "description": "Phase 2 frozen evaluation · existential elimination.",
+    "origin": "Original Phase 2 statement. Family fixed before model selection.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  "algorithm": "best_first",
+  "budget": {
+    "max_depth": 8,
+    "max_expansions": 60,
+    "max_candidates": 24,
+    "max_attempts": 400,
+    "timeout_s": 12.0,
+    "tactic_timeout_s": 3.0
+  },
+  "status": "verified",
+  "termination": "verified",
+  "nodes": [
+    {
+      "id": 0,
+      "parent": null,
+      "depth": 0,
+      "state": {
+        "state_id": 0,
+        "goals": [
+          {
+            "id": "_uniq.33",
+            "target": {
+              "text": "∃ x, Q x ∧ P x",
+              "head": "Exists",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.29",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "P",
+                "id": "_uniq.30",
+                "type": {
+                  "text": "α → Prop",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "Q",
+                "id": "_uniq.31",
+                "type": {
+                  "text": "α → Prop",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "h",
+                "id": "_uniq.32",
+                "type": {
+                  "text": "∃ x, P x ∧ Q x",
+                  "head": "Exists",
+                  "forall": false
+                },
+                "is_proof": true
+              }
+            ]
+          }
+        ]
+      },
+      "tactic": null,
+      "category": null,
+      "lemma": null,
+      "provenance": null,
+      "reason": "Initial Lean goal",
+      "status": "root",
+      "error": null,
+      "elapsed_ms": 0.0,
+      "on_proof_path": true
+    },
+    {
+      "id": 1,
+      "parent": 0,
+      "depth": 1,
+      "state": null,
+      "tactic": "assumption",
+      "category": "goal",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Match the goal against the local context",
+      "status": "rejected",
+      "error": "Tactic `assumption` failed\n\nα : Type\nP Q : α → Prop\nh : ∃ x, P x ∧ Q x\n⊢ ∃ x, Q x ∧ P x",
+      "elapsed_ms": 2.8647599974647164,
+      "on_proof_path": false
+    },
+    {
+      "id": 2,
+      "parent": 0,
+      "depth": 1,
+      "state": {
+        "state_id": 1,
+        "goals": [
+          {
+            "id": "_uniq.54",
+            "target": {
+              "text": "∃ x, Q x ∧ P x",
+              "head": "Exists",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.29",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "P",
+                "id": "_uniq.30",
+                "type": {
+                  "text": "α → Prop",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "Q",
+                "id": "_uniq.31",
+                "type": {
+                  "text": "α → Prop",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "h0",
+                "id": "_uniq.52",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "h1",
+                "id": "_uniq.53",
+                "type": {
+                  "text": "P h0 ∧ Q h0",
+                  "head": "And",
+                  "forall": false
+                },
+                "is_proof": true
+              }
+            ]
+          }
+        ]
+      },
+      "tactic": "rcases h with ⟨h0, h1⟩",
+      "category": "hypothesis",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Eliminate a structured hypothesis with fresh explicit names",
+      "status": "accepted",
+      "error": null,
+      "elapsed_ms": 2.3086829969543032,
+      "on_proof_path": true
+    },
+    {
+      "id": 3,
+      "parent": 0,
+      "depth": 1,
+      "state": null,
+      "tactic": "exists P",
+      "category": "goal",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Try a witness from the local context",
+      "status": "rejected",
+      "error": "Application type mismatch: The argument\n  P\nhas type\n  α → Prop\nbut is expected to have type\n  α\nin the application\n  Exists.intro P",
+      "elapsed_ms": 8.502962002239656,
+      "on_proof_path": false
+    },
+    {
+      "id": 4,
+      "parent": 0,
+      "depth": 1,
+      "state": null,
+      "tactic": "exists Q",
+      "category": "goal",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Try a witness from the local context",
+      "status": "rejected",
+      "error": "Application type mismatch: The argument\n  Q\nhas type\n  α → Prop\nbut is expected to have type\n  α\nin the application\n  Exists.intro Q",
+      "elapsed_ms": 6.624947003729176,
+      "on_proof_path": false
+    },
+    {
+      "id": 5,
+      "parent": 2,
+      "depth": 2,
+      "state": null,
+      "tactic": "assumption",
+      "category": "goal",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Match the goal against the local context",
+      "status": "rejected",
+      "error": "Tactic `assumption` failed\n\nα : Type\nP Q : α → Prop\nh0 : α\nh1 : P h0 ∧ Q h0\n⊢ ∃ x, Q x ∧ P x",
+      "elapsed_ms": 1.8263679958181456,
+      "on_proof_path": false
+    },
+    {
+      "id": 6,
+      "parent": 2,
+      "depth": 2,
+      "state": null,
+      "tactic": "exact h1.1",
+      "category": "hypothesis",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Project component 1",
+      "status": "rejected",
+      "error": "Type mismatch\n  h1.left\nhas type\n  P h0\nbut is expected to have type\n  ∃ x, Q x ∧ P x",
+      "elapsed_ms": 1.406185001542326,
+      "on_proof_path": false
+    },
+    {
+      "id": 7,
+      "parent": 2,
+      "depth": 2,
+      "state": null,
+      "tactic": "exact h1.2",
+      "category": "hypothesis",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Project component 2",
+      "status": "rejected",
+      "error": "Type mismatch\n  h1.right\nhas type\n  Q h0\nbut is expected to have type\n  ∃ x, Q x ∧ P x",
+      "elapsed_ms": 1.2410870040184818,
+      "on_proof_path": false
+    },
+    {
+      "id": 8,
+      "parent": 2,
+      "depth": 2,
+      "state": null,
+      "tactic": "apply h1.1",
+      "category": "hypothesis",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Apply a conjunction component",
+      "status": "rejected",
+      "error": "Tactic `apply` failed: could not unify the type of `h1.left`\n  P h0\nwith the goal\n  ∃ x, Q x ∧ P x\n\nα : Type\nP Q : α → Prop\nh0 : α\nh1 : P h0 ∧ Q h0\n⊢ ∃ x, Q x ∧ P x",
+      "elapsed_ms": 2.1563939953921363,
+      "on_proof_path": false
+    },
+    {
+      "id": 9,
+      "parent": 2,
+      "depth": 2,
+      "state": null,
+      "tactic": "apply h1.2",
+      "category": "hypothesis",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Apply a conjunction component",
+      "status": "rejected",
+      "error": "Tactic `apply` failed: could not unify the type of `h1.right`\n  Q h0\nwith the goal\n  ∃ x, Q x ∧ P x\n\nα : Type\nP Q : α → Prop\nh0 : α\nh1 : P h0 ∧ Q h0\n⊢ ∃ x, Q x ∧ P x",
+      "elapsed_ms": 2.1058979982626624,
+      "on_proof_path": false
+    },
+    {
+      "id": 10,
+      "parent": 2,
+      "depth": 2,
+      "state": {
+        "state_id": 2,
+        "goals": [
+          {
+            "id": "_uniq.545",
+            "target": {
+              "text": "∃ x, Q x ∧ P x",
+              "head": "Exists",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.29",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "P",
+                "id": "_uniq.30",
+                "type": {
+                  "text": "α → Prop",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "Q",
+                "id": "_uniq.31",
+                "type": {
+                  "text": "α → Prop",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "h0",
+                "id": "_uniq.52",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "h2",
+                "id": "_uniq.543",
+                "type": {
+                  "text": "P h0",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              },
+              {
+                "name": "h3",
+                "id": "_uniq.544",
+                "type": {
+                  "text": "Q h0",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              }
+            ]
+          }
+        ]
+      },
+      "tactic": "rcases h1 with ⟨h2, h3⟩",
+      "category": "hypothesis",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Eliminate a structured hypothesis with fresh explicit names",
+      "status": "accepted",
+      "error": null,
+      "elapsed_ms": 1.9709249972947873,
+      "on_proof_path": true
+    },
+    {
+      "id": 11,
+      "parent": 2,
+      "depth": 2,
+      "state": null,
+      "tactic": "exists P",
+      "category": "goal",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Try a witness from the local context",
+      "status": "rejected",
+      "error": "Application type mismatch: The argument\n  P\nhas type\n  α → Prop\nbut is expected to have type\n  α\nin the application\n  Exists.intro P",
+      "elapsed_ms": 1.0336049963370897,
+      "on_proof_path": false
+    },
+    {
+      "id": 12,
+      "parent": 2,
+      "depth": 2,
+      "state": null,
+      "tactic": "exists Q",
+      "category": "goal",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Try a witness from the local context",
+      "status": "rejected",
+      "error": "Application type mismatch: The argument\n  Q\nhas type\n  α → Prop\nbut is expected to have type\n  α\nin the application\n  Exists.intro Q",
+      "elapsed_ms": 0.8862530012265779,
+      "on_proof_path": false
+    },
+    {
+      "id": 13,
+      "parent": 2,
+      "depth": 2,
+      "state": {
+        "state_id": 3,
+        "goals": [
+          {
+            "id": "_uniq.573",
+            "target": {
+              "text": "Q h0 ∧ P h0",
+              "head": "And",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.29",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "P",
+                "id": "_uniq.30",
+                "type": {
+                  "text": "α → Prop",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "Q",
+                "id": "_uniq.31",
+                "type": {
+                  "text": "α → Prop",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "h0",
+                "id": "_uniq.52",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "h1",
+                "id": "_uniq.53",
+                "type": {
+                  "text": "P h0 ∧ Q h0",
+                  "head": "And",
+                  "forall": false
+                },
+                "is_proof": true
+              }
+            ]
+          }
+        ]
+      },
+      "tactic": "exists h0",
+      "category": "goal",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Try a witness from the local context",
+      "status": "accepted",
+      "error": null,
+      "elapsed_ms": 3.4703359997365624,
+      "on_proof_path": false
+    },
+    {
+      "id": 14,
+      "parent": 13,
+      "depth": 3,
+      "state": null,
+      "tactic": "assumption",
+      "category": "goal",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Match the goal against the local context",
+      "status": "rejected",
+      "error": "Tactic `assumption` failed\n\nα : Type\nP Q : α → Prop\nh0 : α\nh1 : P h0 ∧ Q h0\n⊢ Q h0 ∧ P h0",
+      "elapsed_ms": 1.0266649987897836,
+      "on_proof_path": false
+    },
+    {
+      "id": 15,
+      "parent": 13,
+      "depth": 3,
+      "state": {
+        "state_id": 4,
+        "goals": [
+          {
+            "id": "_uniq.608",
+            "target": {
+              "text": "Q h0",
+              "head": "[anonymous]",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.29",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "P",
+                "id": "_uniq.30",
+                "type": {
+                  "text": "α → Prop",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "Q",
+                "id": "_uniq.31",
+                "type": {
+                  "text": "α → Prop",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "h0",
+                "id": "_uniq.52",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "h1",
+                "id": "_uniq.53",
+                "type": {
+                  "text": "P h0 ∧ Q h0",
+                  "head": "And",
+                  "forall": false
+                },
+                "is_proof": true
+              }
+            ]
+          },
+          {
+            "id": "_uniq.609",
+            "target": {
+              "text": "P h0",
+              "head": "[anonymous]",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.29",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "P",
+                "id": "_uniq.30",
+                "type": {
+                  "text": "α → Prop",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "Q",
+                "id": "_uniq.31",
+                "type": {
+                  "text": "α → Prop",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "h0",
+                "id": "_uniq.52",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "h1",
+                "id": "_uniq.53",
+                "type": {
+                  "text": "P h0 ∧ Q h0",
+                  "head": "And",
+                  "forall": false
+                },
+                "is_proof": true
+              }
+            ]
+          }
+        ]
+      },
+      "tactic": "constructor",
+      "category": "goal",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Split the goal into its components",
+      "status": "accepted",
+      "error": null,
+      "elapsed_ms": 1.549511005578097,
+      "on_proof_path": false
+    },
+    {
+      "id": 16,
+      "parent": 13,
+      "depth": 3,
+      "state": null,
+      "tactic": "exact h1.1",
+      "category": "hypothesis",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Project component 1",
+      "status": "rejected",
+      "error": "Type mismatch\n  h1.left\nhas type\n  P h0\nbut is expected to have type\n  Q h0 ∧ P h0",
+      "elapsed_ms": 0.9416070024599321,
+      "on_proof_path": false
+    },
+    {
+      "id": 17,
+      "parent": 13,
+      "depth": 3,
+      "state": null,
+      "tactic": "exact h1.2",
+      "category": "hypothesis",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Project component 2",
+      "status": "rejected",
+      "error": "Type mismatch\n  h1.right\nhas type\n  Q h0\nbut is expected to have type\n  Q h0 ∧ P h0",
+      "elapsed_ms": 0.9629080013837665,
+      "on_proof_path": false
+    },
+    {
+      "id": 18,
+      "parent": 13,
+      "depth": 3,
+      "state": null,
+      "tactic": "apply h1.1",
+      "category": "hypothesis",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Apply a conjunction component",
+      "status": "rejected",
+      "error": "Tactic `apply` failed: could not unify the type of `h1.left`\n  P h0\nwith the goal\n  Q h0 ∧ P h0\n\nα : Type\nP Q : α → Prop\nh0 : α\nh1 : P h0 ∧ Q h0\n⊢ Q h0 ∧ P h0",
+      "elapsed_ms": 1.4234720001695678,
+      "on_proof_path": false
+    },
+    {
+      "id": 19,
+      "parent": 13,
+      "depth": 3,
+      "state": null,
+      "tactic": "apply h1.2",
+      "category": "hypothesis",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Apply a conjunction component",
+      "status": "rejected",
+      "error": "Tactic `apply` failed: could not unify the type of `h1.right`\n  Q h0\nwith the goal\n  Q h0 ∧ P h0\n\nα : Type\nP Q : α → Prop\nh0 : α\nh1 : P h0 ∧ Q h0\n⊢ Q h0 ∧ P h0",
+      "elapsed_ms": 1.4358699991134927,
+      "on_proof_path": false
+    },
+    {
+      "id": 20,
+      "parent": 13,
+      "depth": 3,
+      "state": {
+        "state_id": 5,
+        "goals": [
+          {
+            "id": "_uniq.635",
+            "target": {
+              "text": "Q h0 ∧ P h0",
+              "head": "And",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.29",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "P",
+                "id": "_uniq.30",
+                "type": {
+                  "text": "α → Prop",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "Q",
+                "id": "_uniq.31",
+                "type": {
+                  "text": "α → Prop",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "h0",
+                "id": "_uniq.52",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "h2",
+                "id": "_uniq.633",
+                "type": {
+                  "text": "P h0",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              },
+              {
+                "name": "h3",
+                "id": "_uniq.634",
+                "type": {
+                  "text": "Q h0",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              }
+            ]
+          }
+        ]
+      },
+      "tactic": "rcases h1 with ⟨h2, h3⟩",
+      "category": "hypothesis",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Eliminate a structured hypothesis with fresh explicit names",
+      "status": "accepted",
+      "error": null,
+      "elapsed_ms": 1.429340998583939,
+      "on_proof_path": false
+    },
+    {
+      "id": 21,
+      "parent": 10,
+      "depth": 3,
+      "state": null,
+      "tactic": "assumption",
+      "category": "goal",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Match the goal against the local context",
+      "status": "rejected",
+      "error": "Tactic `assumption` failed\n\nα : Type\nP Q : α → Prop\nh0 : α\nh2 : P h0\nh3 : Q h0\n⊢ ∃ x, Q x ∧ P x",
+      "elapsed_ms": 1.5093399997567758,
+      "on_proof_path": false
+    },
+    {
+      "id": 22,
+      "parent": 10,
+      "depth": 3,
+      "state": null,
+      "tactic": "exists P",
+      "category": "goal",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Try a witness from the local context",
+      "status": "rejected",
+      "error": "Application type mismatch: The argument\n  P\nhas type\n  α → Prop\nbut is expected to have type\n  α\nin the application\n  Exists.intro P",
+      "elapsed_ms": 0.883438995515462,
+      "on_proof_path": false
+    },
+    {
+      "id": 23,
+      "parent": 10,
+      "depth": 3,
+      "state": null,
+      "tactic": "exists Q",
+      "category": "goal",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Try a witness from the local context",
+      "status": "rejected",
+      "error": "Application type mismatch: The argument\n  Q\nhas type\n  α → Prop\nbut is expected to have type\n  α\nin the application\n  Exists.intro Q",
+      "elapsed_ms": 0.758782000048086,
+      "on_proof_path": false
+    },
+    {
+      "id": 24,
+      "parent": 10,
+      "depth": 3,
+      "state": {
+        "state_id": 6,
+        "goals": []
+      },
+      "tactic": "exists h0",
+      "category": "goal",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Try a witness from the local context",
+      "status": "solved",
+      "error": null,
+      "elapsed_ms": 2.177556001697667,
+      "on_proof_path": true
+    }
+  ],
+  "metrics": {
+    "attempted_candidates": 24,
+    "accepted_transitions": 6,
+    "rejected_candidates": 18,
+    "expanded_states": 4,
+    "frontier": 2,
+    "max_depth": 3,
+    "proof_length": 3,
+    "elapsed_s": 4.339223294999101,
+    "lean_execution_s": 0.05049689399311319,
+    "initialization_s": 2.0574315519988886,
+    "verification_s": 2.195503656002984,
+    "planning_s": 0.00260252599400701,
+    "model_inference_s": 0.0012301599999773316
+  },
+  "proof": [
+    "rcases h with ⟨h0, h1⟩",
+    "rcases h1 with ⟨h2, h3⟩",
+    "exists h0"
+  ],
+  "lean_source": "import ProofLab.Bridge\n\nset_option maxHeartbeats 300000\ntheorem prooflab_result (α : Type) (P Q : α → Prop) (h : ∃ x, P x ∧ Q x) : ∃ x, Q x ∧ P x := by\n  rcases h with ⟨h0, h1⟩\n  rcases h1 with ⟨h2, h3⟩\n  exists h0\n\n#prooflab_audit prooflab_result\n",
+  "verification": {
+    "verified": true,
+    "axioms": [],
+    "error": null,
+    "elapsed_s": 2.195503656002984,
+    "source_sha256": "f7e57aab575742657e47e73b01c2a392b7d14aa76c26ab9f7163af350f89b2c1"
+  },
+  "metadata": {
+    "code_commit": "1b9262dd32c23fa2ac95c47a5f9a9d2172d63da2",
+    "lean_version": "leanprover/lean4:v4.24.0",
+    "mathlib_revision": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7",
+    "python": "3.12.14",
+    "platform": "Linux-6.18.55-x86_64-with-glibc2.41",
+    "machine": "x86_64",
+    "processor": "",
+    "seed": "0 (deterministic)",
+    "state_identity": "Exact tactic prefix within one native session; no semantic merging",
+    "model_sha256": "99633c7039471cceb0292b4634df2b7c4d60218a0882f156e9cc70b5bd75730e",
+    "feature_version": "prooflab-state-action-v1",
+    "learned_scores_used_for_scheduling": "false",
+    "frontier_policy": "handcrafted state score; stable insertion-ID ties",
+    "repeat": "0",
+    "family": "existential_elimination"
+  },
+  "error": null,
+  "proof_origin": "constructed_derivation",
+  "rankings": [
+    {
+      "node_id": 0,
+      "candidates": [
+        {
+          "tactic": "assumption",
+          "category": "goal",
+          "generated_order": 0,
+          "actual_rank": 1,
+          "heuristic_score": 10.0,
+          "learned_score": -0.4146238007012775,
+          "contributions": [
+            [
+              "op:assumption",
+              -0.4146238007012775
+            ],
+            [
+              "bias",
+              0.0
+            ],
+            [
+              "shape:Exists",
+              0.0
+            ],
+            [
+              "cross:Exists|assumption",
+              0.0
+            ],
+            [
+              "goals",
+              0.0
+            ]
+          ]
+        },
+        {
+          "tactic": "rcases h with ⟨h0, h1⟩",
+          "category": "hypothesis",
+          "generated_order": 1,
+          "actual_rank": 2,
+          "heuristic_score": 4.0,
+          "learned_score": 0.06618103943544378,
+          "contributions": [
+            [
+              "op:cases",
+              0.07440677913681897
+            ],
+            [
+              "target_overlap",
+              -0.008225739701375186
+            ],
+            [
+              "bias",
+              0.0
+            ],
+            [
+              "shape:Exists",
+              0.0
+            ],
+            [
+              "cross:Exists|cases",
+              0.0
+            ]
+          ]
+        },
+        {
+          "tactic": "exists P",
+          "category": "goal",
+          "generated_order": 2,
+          "actual_rank": 3,
+          "heuristic_score": 3.0,
+          "learned_score": 0.0,
+          "contributions": [
+            [
+              "bias",
+              0.0
+            ],
+            [
+              "shape:Exists",
+              0.0
+            ],
+            [
+              "op:exists",
+              0.0
+            ],
+            [
+              "cross:Exists|exists",
+              0.0
+            ],
+            [
+              "goals",
+              0.0
+            ]
+          ]
+        },
+        {
+          "tactic": "exists Q",
+          "category": "goal",
+          "generated_order": 3,
+          "actual_rank": 4,
+          "heuristic_score": 3.0,
+          "learned_score": 0.0,
+          "contributions": [
+            [
+              "bias",
+              0.0
+            ],
+            [
+              "shape:Exists",
+              0.0
+            ],
+            [
+              "op:exists",
+              0.0
+            ],
+            [
+              "cross:Exists|exists",
+              0.0
+            ],
+            [
+              "goals",
+              0.0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "node_id": 2,
+      "candidates": [
+        {
+          "tactic": "assumption",
+          "category": "goal",
+          "generated_order": 0,
+          "actual_rank": 1,
+          "heuristic_score": 10.0,
+          "learned_score": -0.4146238007012775,
+          "contributions": [
+            [
+              "op:assumption",
+              -0.4146238007012775
+            ],
+            [
+              "bias",
+              0.0
+            ],
+            [
+              "shape:Exists",
+              0.0
+            ],
+            [
+              "cross:Exists|assumption",
+              0.0
+            ],
+            [
+              "goals",
+              0.0
+            ]
+          ]
+        },
+        {
+          "tactic": "exact h1.1",
+          "category": "hypothesis",
+          "generated_order": 1,
+          "actual_rank": 2,
+          "heuristic_score": 8.0,
+          "learned_score": 0.04541640330881565,
+          "contributions": [
+            [
+              "op:projection",
+              0.05035184712964076
+            ],
+            [
+              "target_overlap",
+              -0.004935443820825111
+            ],
+            [
+              "bias",
+              0.0
+            ],
+            [
+              "shape:Exists",
+              0.0
+            ],
+            [
+              "cross:Exists|projection",
+              0.0
+            ]
+          ]
+        },
+        {
+          "tactic": "exact h1.2",
+          "category": "hypothesis",
+          "generated_order": 3,
+          "actual_rank": 3,
+          "heuristic_score": 8.0,
+          "learned_score": 0.04541640330881565,
+          "contributions": [
+            [
+              "op:projection",
+              0.05035184712964076
+            ],
+            [
+              "target_overlap",
+              -0.004935443820825111
+            ],
+            [
+              "bias",
+              0.0
+            ],
+            [
+              "shape:Exists",
+              0.0
+            ],
+            [
+              "cross:Exists|projection",
+              0.0
+            ]
+          ]
+        },
+        {
+          "tactic": "apply h1.1",
+          "category": "hypothesis",
+          "generated_order": 2,
+          "actual_rank": 4,
+          "heuristic_score": 5.0,
+          "learned_score": -0.37895692727777003,
+          "contributions": [
+            [
+              "op:hyp_apply",
+              -0.3740214834569449
+            ],
+            [
+              "target_overlap",
+              -0.004935443820825111
+            ],
+            [
+              "bias",
+              0.0
+            ],
+            [
+              "shape:Exists",
+              0.0
+            ],
+            [
+              "cross:Exists|hyp_apply",
+              0.0
+            ]
+          ]
+        },
+        {
+          "tactic": "apply h1.2",
+          "category": "hypothesis",
+          "generated_order": 4,
+          "actual_rank": 5,
+          "heuristic_score": 5.0,
+          "learned_score": -0.37895692727777003,
+          "contributions": [
+            [
+              "op:hyp_apply",
+              -0.3740214834569449
+            ],
+            [
+              "target_overlap",
+              -0.004935443820825111
+            ],
+            [
+              "bias",
+              0.0
+            ],
+            [
+              "shape:Exists",
+              0.0
+            ],
+            [
+              "cross:Exists|hyp_apply",
+              0.0
+            ]
+          ]
+        },
+        {
+          "tactic": "rcases h1 with ⟨h2, h3⟩",
+          "category": "hypothesis",
+          "generated_order": 5,
+          "actual_rank": 6,
+          "heuristic_score": 4.0,
+          "learned_score": 0.06947133531599385,
+          "contributions": [
+            [
+              "op:cases",
+              0.07440677913681897
+            ],
+            [
+              "target_overlap",
+              -0.004935443820825111
+            ],
+            [
+              "bias",
+              0.0
+            ],
+            [
+              "shape:Exists",
+              0.0
+            ],
+            [
+              "cross:Exists|cases",
+              0.0
+            ]
+          ]
+        },
+        {
+          "tactic": "exists P",
+          "category": "goal",
+          "generated_order": 6,
+          "actual_rank": 7,
+          "heuristic_score": 3.0,
+          "learned_score": 0.0,
+          "contributions": [
+            [
+              "bias",
+              0.0
+            ],
+            [
+              "shape:Exists",
+              0.0
+            ],
+            [
+              "op:exists",
+              0.0
+            ],
+            [
+              "cross:Exists|exists",
+              0.0
+            ],
+            [
+              "goals",
+              0.0
+            ]
+          ]
+        },
+        {
+          "tactic": "exists Q",
+          "category": "goal",
+          "generated_order": 7,
+          "actual_rank": 8,
+          "heuristic_score": 3.0,
+          "learned_score": 0.0,
+          "contributions": [
+            [
+              "bias",
+              0.0
+            ],
+            [
+              "shape:Exists",
+              0.0
+            ],
+            [
+              "op:exists",
+              0.0
+            ],
+            [
+              "cross:Exists|exists",
+              0.0
+            ],
+            [
+              "goals",
+              0.0
+            ]
+          ]
+        },
+        {
+          "tactic": "exists h0",
+          "category": "goal",
+          "generated_order": 8,
+          "actual_rank": 9,
+          "heuristic_score": 3.0,
+          "learned_score": 0.0,
+          "contributions": [
+            [
+              "bias",
+              0.0
+            ],
+            [
+              "shape:Exists",
+              0.0
+            ],
+            [
+              "op:exists",
+              0.0
+            ],
+            [
+              "cross:Exists|exists",
+              0.0
+            ],
+            [
+              "goals",
+              0.0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "node_id": 13,
+      "candidates": [
+        {
+          "tactic": "assumption",
+          "category": "goal",
+          "generated_order": 1,
+          "actual_rank": 1,
+          "heuristic_score": 10.0,
+          "learned_score": -0.4886186248939497,
+          "contributions": [
+            [
+              "op:assumption",
+              -0.4146238007012775
+            ],
+            [
+              "cross:And|assumption",
+              -0.07399482419267216
+            ],
+            [
+              "bias",
+              0.0
+            ],
+            [
+              "shape:And",
+              0.0
+            ],
+            [
+              "goals",
+              0.0
+            ]
+          ]
+        },
+        {
+          "tactic": "constructor",
+          "category": "goal",
+          "generated_order": 0,
+          "actual_rank": 2,
+          "heuristic_score": 8.0,
+          "learned_score": 0.5287010579962164,
+          "contributions": [
+            [
+              "op:constructor",
+              0.28191824717710173
+            ],
+            [
+              "cross:And|constructor",
+              0.2467828108191146
+            ],
+            [
+              "bias",
+              0.0
+            ],
+            [
+              "shape:And",
+              0.0
+            ],
+            [
+              "goals",
+              0.0
+            ]
+          ]
+        },
+        {
+          "tactic": "exact h1.1",
+          "category": "hypothesis",
+          "generated_order": 2,
+          "actual_rank": 3,
+          "heuristic_score": 8.0,
+          "learned_score": -0.012708790394468834,
+          "contributions": [
+            [
+              "cross:And|projection",
+              -0.05483489782273441
+            ],
+            [
+              "op:projection",
+              0.05035184712964076
+            ],
+            [
+              "target_overlap",
+              -0.008225739701375186
+            ],
+            [
+              "bias",
+              0.0
+            ],
+            [
+              "shape:And",
+              0.0
+            ]
+          ]
+        },
+        {
+          "tactic": "exact h1.2",
+          "category": "hypothesis",
+          "generated_order": 4,
+          "actual_rank": 4,
+          "heuristic_score": 8.0,
+          "learned_score": -0.012708790394468834,
+          "contributions": [
+            [
+              "cross:And|projection",
+              -0.05483489782273441
+            ],
+            [
+              "op:projection",
+              0.05035184712964076
+            ],
+            [
+              "target_overlap",
+              -0.008225739701375186
+            ],
+            [
+              "bias",
+              0.0
+            ],
+            [
+              "shape:And",
+              0.0
+            ]
+          ]
+        },
+        {
+          "tactic": "apply h1.1",
+          "category": "hypothesis",
+          "generated_order": 3,
+          "actual_rank": 5,
+          "heuristic_score": 5.0,
+          "learned_score": -0.44578999011166104,
+          "contributions": [
+            [
+              "op:hyp_apply",
+              -0.3740214834569449
+            ],
+            [
+              "cross:And|hyp_apply",
+              -0.06354276695334096
+            ],
+            [
+              "target_overlap",
+              -0.008225739701375186
+            ],
+            [
+              "bias",
+              0.0
+            ],
+            [
+              "shape:And",
+              0.0
+            ]
+          ]
+        },
+        {
+          "tactic": "apply h1.2",
+          "category": "hypothesis",
+          "generated_order": 5,
+          "actual_rank": 6,
+          "heuristic_score": 5.0,
+          "learned_score": -0.44578999011166104,
+          "contributions": [
+            [
+              "op:hyp_apply",
+              -0.3740214834569449
+            ],
+            [
+              "cross:And|hyp_apply",
+              -0.06354276695334096
+            ],
+            [
+              "target_overlap",
+              -0.008225739701375186
+            ],
+            [
+              "bias",
+              0.0
+            ],
+            [
+              "shape:And",
+              0.0
+            ]
+          ]
+        },
+        {
+          "tactic": "rcases h1 with ⟨h2, h3⟩",
+          "category": "hypothesis",
+          "generated_order": 6,
+          "actual_rank": 7,
+          "heuristic_score": 4.0,
+          "learned_score": 0.06618103943544378,
+          "contributions": [
+            [
+              "op:cases",
+              0.07440677913681897
+            ],
+            [
+              "target_overlap",
+              -0.008225739701375186
+            ],
+            [
+              "bias",
+              0.0
+            ],
+            [
+              "shape:And",
+              0.0
+            ],
+            [
+              "cross:And|cases",
+              0.0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "node_id": 10,
+      "candidates": [
+        {
+          "tactic": "assumption",
+          "category": "goal",
+          "generated_order": 0,
+          "actual_rank": 1,
+          "heuristic_score": 10.0,
+          "learned_score": -0.4146238007012775,
+          "contributions": [
+            [
+              "op:assumption",
+              -0.4146238007012775
+            ],
+            [
+              "bias",
+              0.0
+            ],
+            [
+              "shape:Exists",
+              0.0
+            ],
+            [
+              "cross:Exists|assumption",
+              0.0
+            ],
+            [
+              "goals",
+              0.0
+            ]
+          ]
+        },
+        {
+          "tactic": "exists P",
+          "category": "goal",
+          "generated_order": 1,
+          "actual_rank": 2,
+          "heuristic_score": 3.0,
+          "learned_score": 0.0,
+          "contributions": [
+            [
+              "bias",
+              0.0
+            ],
+            [
+              "shape:Exists",
+              0.0
+            ],
+            [
+              "op:exists",
+              0.0
+            ],
+            [
+              "cross:Exists|exists",
+              0.0
+            ],
+            [
+              "goals",
+              0.0
+            ]
+          ]
+        },
+        {
+          "tactic": "exists Q",
+          "category": "goal",
+          "generated_order": 2,
+          "actual_rank": 3,
+          "heuristic_score": 3.0,
+          "learned_score": 0.0,
+          "contributions": [
+            [
+              "bias",
+              0.0
+            ],
+            [
+              "shape:Exists",
+              0.0
+            ],
+            [
+              "op:exists",
+              0.0
+            ],
+            [
+              "cross:Exists|exists",
+              0.0
+            ],
+            [
+              "goals",
+              0.0
+            ]
+          ]
+        },
+        {
+          "tactic": "exists h0",
+          "category": "goal",
+          "generated_order": 3,
+          "actual_rank": 4,
+          "heuristic_score": 3.0,
+          "learned_score": 0.0,
+          "contributions": [
+            [
+              "bias",
+              0.0
+            ],
+            [
+              "shape:Exists",
+              0.0
+            ],
+            [
+              "op:exists",
+              0.0
+            ],
+            [
+              "cross:Exists|exists",
+              0.0
+            ],
+            [
+              "goals",
+              0.0
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}

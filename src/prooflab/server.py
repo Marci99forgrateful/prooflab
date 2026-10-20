@@ -16,8 +16,9 @@ from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 from starlette.middleware.trustedhost import TrustedHostMiddleware
 
-from prooflab.dataset import get_task, load_tasks
+from prooflab.dataset import get_task, load_phase2_tasks, load_tasks
 from prooflab.lean import ROOT
+from prooflab.learning import LearnedRanking
 from prooflab.models import Budget, Model, Trace
 from prooflab.search import search
 
@@ -28,7 +29,7 @@ async def lifespan(_: FastAPI) -> AsyncIterator[None]:
     shutdown()
 
 
-app = FastAPI(title="ProofLab", version="0.1.0", docs_url=None, redoc_url=None, lifespan=lifespan)
+app = FastAPI(title="ProofLab", version="0.2.0", docs_url=None, redoc_url=None, lifespan=lifespan)
 app.add_middleware(TrustedHostMiddleware, allowed_hosts=["127.0.0.1", "localhost", "testserver"])
 pool = ThreadPoolExecutor(max_workers=2, thread_name_prefix="prooflab")
 lock = threading.Lock()
@@ -47,7 +48,7 @@ jobs: dict[str, Job] = {}
 
 class SearchRequest(Model):
     task_id: str
-    algorithm: Literal["bfs", "best_first"] = "best_first"
+    algorithm: Literal["bfs", "best_first", "learned"] = "best_first"
     budget: Budget = Budget()
 
 
@@ -80,13 +81,25 @@ def health() -> dict[str, object]:
 
 
 @app.get("/api/tasks")
-def tasks() -> list[dict[str, object]]:
-    return [t.model_dump() for t in load_tasks()]
+def tasks(dataset: Literal["phase1", "phase2"] = "phase1") -> list[dict[str, object]]:
+    return [t.model_dump() for t in (load_phase2_tasks() if dataset == "phase2" else load_tasks())]
+
+
+@app.get("/api/model")
+def model() -> dict[str, object]:
+    ranker = LearnedRanking()
+    return {"sha256": ranker.model_hash, **ranker.model.model_dump()}
 
 
 def execute(job: Job, body: SearchRequest) -> None:
     try:
-        job.trace = search(get_task(body.task_id), body.algorithm, body.budget, job.cancel)
+        job.trace = search(
+            get_task(body.task_id),
+            body.algorithm,
+            body.budget,
+            job.cancel,
+            comparison_ranker=LearnedRanking(),
+        )
         job.state = "completed"
     except Exception as error:
         job.error = str(error)
