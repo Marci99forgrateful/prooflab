@@ -1,0 +1,183 @@
+{
+  "recorded_at": "2026-10-20T21:18:50.731399+00:00",
+  "repository": "Marci99forgrateful/prooflab",
+  "pull_request": 4,
+  "final_tested_source_head": "55ee523065f89a349510d3e51d61110f8f44c33c",
+  "verified_run": {
+    "id": 39498108456,
+    "url": "https://github.com/Marci99forgrateful/prooflab/actions/runs/39498108456",
+    "status": "completed",
+    "conclusion": "success",
+    "created_at": "2026-10-20T21:09:50Z",
+    "updated_at": "2026-10-20T21:16:51Z",
+    "jobs": [
+      {
+        "id": 118888328815,
+        "name": "verify",
+        "runner": "GitHub Actions 1000000404",
+        "status": "completed",
+        "conclusion": "success",
+        "steps": [
+          {
+            "name": "Set up job",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run astral-sh/setup-uv@v6",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/setup-node@v4",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Restore pinned Lean and Mathlib",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run bash scripts/bootstrap.sh",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run uv run --frozen ruff check src scripts tests",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run uv run --frozen ruff format --check src scripts tests",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run uv run --frozen mypy src/prooflab",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run npm --prefix web test",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run npm --prefix web run format:check",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run uv run --frozen playwright install --with-deps chromium",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run uv run --frozen pytest -q --junitxml=artifacts/local/pytest.xml",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Report actual JUnit outcomes",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/upload-artifact@v4",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Restore pinned Lean and Mathlib",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/setup-node@v4",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run astral-sh/setup-uv@v6",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Complete job",
+            "status": "completed",
+            "conclusion": "success"
+          }
+        ]
+      }
+    ],
+    "annotations": [
+      {
+        "path": ".github",
+        "blob_href": "https://github.com/Marci99forgrateful/prooflab/blob/55ee523065f89a349510d3e51d61110f8f44c33c/.github",
+        "start_line": 2,
+        "start_column": null,
+        "end_line": 2,
+        "end_column": null,
+        "annotation_level": "warning",
+        "title": "",
+        "message": "Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/cache@v4, actions/checkout@v4, actions/setup-node@v4, actions/upload-artifact@v4, astral-sh/setup-uv@v6. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/",
+        "raw_details": ""
+      },
+      {
+        "path": ".github",
+        "blob_href": "https://github.com/Marci99forgrateful/prooflab/blob/55ee523065f89a349510d3e51d61110f8f44c33c/.github",
+        "start_line": 8,
+        "start_column": null,
+        "end_line": 8,
+        "end_column": null,
+        "annotation_level": "notice",
+        "title": "Actual Pytest outcomes",
+        "message": "{'tests': 106, 'failures': 0, 'errors': 0, 'skipped': 0}",
+        "raw_details": ""
+      }
+    ]
+  },
+  "prior_attempts": [
+    {
+      "id": 39495585244,
+      "head": "181f69d9b88fce01894f507eff97363b72ae7930",
+      "conclusion": "failure",
+      "failed_step": "pytest",
+      "full_logs_access": "blocked by cloud egress policy; no passing claim"
+    },
+    {
+      "id": 39497294641,
+      "head": "45233f3edad7051c4e5ca857883f6d22fbe9badf",
+      "conclusion": "failure",
+      "tests": 106,
+      "failures": 13,
+      "errors": 0,
+      "skipped": 0,
+      "diagnostic": "Actual JUnit annotations expose frozen legacy CSV byte-check failures; GitHub caps per-step error annotations"
+    }
+  ],
+  "diagnosis": {
+    "classification": "Repository checkout reproducibility defect; separate from network denial of log downloads",
+    "artifact": "experiments/phase1-v1/results.csv",
+    "cause": "Global CSV eol=lf smudged historical CRLF working bytes to LF on clean checkout, violating the existing Phase 3 SHA-256 manifest",
+    "repair": ".gitattributes path-specific text eol=crlf restores original bytes; no frozen manifest, CSV values, model, search code or evaluation budgets changed",
+    "fresh_checkout": "All frozen checks pass at 55ee523; see phase5-checkout-reproduction.json",
+    "log_access_blocked_hosts": [
+      "results-receiver.actions.githubusercontent.com",
+      "productionresultssa1.blob.core.windows.net"
+    ],
+    "diagnostic_channel": "Permitted GitHub Checks API annotations of actual JUnit results; no network-policy bypass or new credential"
+  },
+  "limits": "A following evidence-only commit will trigger another automatic CI run; this record identifies the exact source revision verified here."
+}

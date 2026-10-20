@@ -6,7 +6,7 @@
   "checkout_normalization_only": [
     "experiments/phase1-v1/results.csv"
   ],
-  "normalization_note": "Historical Phase 1 CSV retains pre-existing CRLF in the working tree; committed LF content is identical under repository text/eol rules. File was not rewritten.",
+  "normalization_note": "Historical Phase 1 CSV remains byte-identical in this working tree. A path-specific eol=crlf rule now also restores its frozen CRLF bytes in clean checkouts while keeping the committed Git blob unchanged.",
   "files": {
     "ProofLab/Bridge.lean": {
       "phase4_git_blob": "5d2e9b4c690d5e038e27e8fc941a42e42ee3dcd9",

@@ -56,3 +56,5 @@ The frozen raw family-bootstrap iteration was hash-order dependent. A separate c
 Local and hosted validation evidence is recorded separately in `artifacts/phase5-validation.json` and `artifacts/phase5-hosted-ci.json`. Hosted infrastructure rejection is not a passing test or a code failure. The delivery branch is `feature/phase5-type-directed-retrieval`, with a draft pull request targeting `feature/phase4-search-architecture`. Main, MathVerify and the Phase 4 branch are not merged or modified.
 
 Actual interface captures: [tree comparison](assets/phase5-tree-comparison.png), [native witness and types](assets/phase5-native-witness.png), [regression](assets/phase5-regression.png), [mobile](assets/phase5-mobile.png).
+
+**Hosted verification passed:** [run 39498108456](https://github.com/Marci99forgrateful/prooflab/actions/runs/39498108456), 106 tests with no failures/errors/skips. Two earlier runs exposed a historical CSV checkout line-ending defect; a path-specific Git rule restores the already-frozen bytes without changing data or hashes. [Investigation and exact evidence](phase-5-ci.md).

@@ -222,7 +222,7 @@ def main() -> None:
         "",
         "[Model/features/labels](phase-5-model.md) · [Data/protocol boundary](phase-5-data.md) · [Source comparison](phase-5-related-work.md) · [Phase 4 coverage diagnosis](phase-5-coverage.md) · [Exact commands and scopes](phase-5-reproduction.md).",
         "",
-        "Local and hosted validation evidence is recorded separately in `artifacts/phase5-validation.json` and `artifacts/phase5-hosted-ci.json`. Hosted infrastructure rejection is not a passing test or a code failure. The delivery branch is `feature/phase5-type-directed-retrieval`, with a draft pull request targeting `feature/phase4-search-architecture`. Main, MathVerify and the Phase 4 branch are not merged or modified.",
+        "Local and hosted validation evidence is recorded separately in `artifacts/phase5-validation.json` and `artifacts/phase5-hosted-ci.json`. Hosted run 39498108456 passed all 106 tests after the historical CSV checkout rule restored already-frozen CRLF bytes; no data, checksum, model or search budget changed. See [CI investigation](phase-5-ci.md). The delivery branch is `feature/phase5-type-directed-retrieval`, with a draft pull request targeting `feature/phase4-search-architecture`. Main, MathVerify and the Phase 4 branch are not merged or modified.",
     ]
     (ROOT / "docs/phase-5-final-report.md").write_text("\n".join(report) + "\n")
     print("Rendered actual Phase 5 results and final report")

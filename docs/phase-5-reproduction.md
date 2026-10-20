@@ -57,3 +57,5 @@ Browser tests use installed Chromium (`PROOFLAB_CHROMIUM` may override its path)
 The frozen runner's intermediate family set gives its finite bootstrap a hash-order dependency. Its raw `summary.json` is retained. `summary-canonical.json` sorts family IDs, preserves all actual outcomes and theorem-bootstrap values, and explicitly records the family-balanced point for the common-success sensitivity analysis. `statistics-correction.json` links both reports by hash. This fixes derived reporting determinism without changing a model, experiment budget, realized trace or selection decision.
 
 The current cloud review server is available at `http://127.0.0.1:8003`; a fresh installation can use the CLI default port 8000.
+
+The historical `experiments/phase1-v1/results.csv` has a path-specific CRLF checkout rule matching the original frozen hash. Preserve `.gitattributes` when copying/reconstructing a clean checkout; do not normalize that old file or update its frozen checksum. See [hosted CI investigation](phase-5-ci.md).
