@@ -16,10 +16,11 @@ from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 from starlette.middleware.trustedhost import TrustedHostMiddleware
 
-from prooflab.dataset import get_task, load_phase2_tasks, load_tasks
+from prooflab.dataset import get_task, load_phase2_tasks, load_phase3_tasks, load_tasks
 from prooflab.lean import ROOT
 from prooflab.learning import LearnedRanking
 from prooflab.models import Budget, Model, Trace
+from prooflab.outcome import MODELS, OutcomeRanking
 from prooflab.search import search
 
 
@@ -29,7 +30,7 @@ async def lifespan(_: FastAPI) -> AsyncIterator[None]:
     shutdown()
 
 
-app = FastAPI(title="ProofLab", version="0.2.0", docs_url=None, redoc_url=None, lifespan=lifespan)
+app = FastAPI(title="ProofLab", version="0.3.0", docs_url=None, redoc_url=None, lifespan=lifespan)
 app.add_middleware(TrustedHostMiddleware, allowed_hosts=["127.0.0.1", "localhost", "testserver"])
 pool = ThreadPoolExecutor(max_workers=2, thread_name_prefix="prooflab")
 lock = threading.Lock()
@@ -48,7 +49,7 @@ jobs: dict[str, Job] = {}
 
 class SearchRequest(Model):
     task_id: str
-    algorithm: Literal["bfs", "best_first", "learned"] = "best_first"
+    algorithm: Literal["bfs", "best_first", "learned", "outcome"] = "best_first"
     budget: Budget = Budget()
 
 
@@ -81,14 +82,38 @@ def health() -> dict[str, object]:
 
 
 @app.get("/api/tasks")
-def tasks(dataset: Literal["phase1", "phase2"] = "phase1") -> list[dict[str, object]]:
-    return [t.model_dump() for t in (load_phase2_tasks() if dataset == "phase2" else load_tasks())]
+def tasks(dataset: Literal["phase1", "phase2", "phase3"] = "phase1") -> list[dict[str, object]]:
+    loader = {"phase1": load_tasks, "phase2": load_phase2_tasks, "phase3": load_phase3_tasks}[
+        dataset
+    ]
+    return [t.model_dump() for t in loader()]
 
 
 @app.get("/api/model")
-def model() -> dict[str, object]:
-    ranker = LearnedRanking()
+def model(
+    variant: Literal["phase2", "outcome", "applicability_only", "old_features_outcome"] = "phase2",
+) -> dict[str, object]:
+    ranker = LearnedRanking() if variant == "phase2" else OutcomeRanking(MODELS / f"{variant}.json")
     return {"sha256": ranker.model_hash, **ranker.model.model_dump()}
+
+
+@app.get("/api/continuations")
+def continuation_index() -> list[dict[str, object]]:
+    from prooflab.research import manifest
+
+    return manifest()
+
+
+@app.get("/api/continuations/{role}/{task_id}")
+def continuation_record(
+    role: Literal["development", "diagnostic"], task_id: str
+) -> dict[str, object]:
+    from prooflab.research import bundle
+
+    try:
+        return bundle(role, task_id)
+    except KeyError:
+        raise HTTPException(404, "Unknown repository-owned continuation record") from None
 
 
 def execute(job: Job, body: SearchRequest) -> None:
@@ -99,6 +124,7 @@ def execute(job: Job, body: SearchRequest) -> None:
             body.budget,
             job.cancel,
             comparison_ranker=LearnedRanking(),
+            comparison_outcome=OutcomeRanking(),
         )
         job.state = "completed"
     except Exception as error:

@@ -2,15 +2,16 @@
 
 ### Learning to Search for Formal Mathematical Proofs
 
-An interactive neuro-symbolic theorem proving laboratory built on Lean 4 and
+An interactive machine-learning and symbolic proof-search laboratory built on Lean 4 and
 Mathlib. ProofLab **constructs proof paths** using breadth-first, handcrafted
 best-first and locally learned candidate ranking, visualizes actual tactic attempts, and
 rechecks every successful proof in a separate Lean process.
 
-**v0.2.0 review candidate:** a real CPU-trained pairwise ranker, frozen new-family
-evaluation, three repeated runs per policy, and interactive ranking explanations.
-The [Phase 2 report](docs/phase-2-final-report.md) separates implementation from
-measured evidence and limitations. Main is not merged by this delivery.
+**v0.3.0 review candidate:** outcome-aware learning from multiple valid proof
+continuations, a harder frozen 32-task benchmark, controlled ablations, and an
+interactive continuation laboratory. The [Phase 3 report](docs/phase-3-final-report.md)
+separates actual functionality, measured findings and remaining limits. Phase 2
+review/results remain intact; the Phase 3 draft PR targets the Phase 2 branch.
 
 No paid model, API key, external inference service, or GPU is required.
 
@@ -55,6 +56,51 @@ uv run --frozen ruff check src scripts tests
 uv run --frozen mypy src/prooflab
 npm --prefix web test
 ```
+
+## Phase 3: which valid step has the better future?
+
+A locally trained 108-coefficient CPU model uses **155 real cost preferences**
+from 199 explored Lean-accepted alternatives, including 81 comparisons of two
+nonterminal successors. Only two independently verified completions with unequal
+measured costs create a preference. Sixteen unresolved continuations remain
+censored, not incorrect actions. No candidate lookahead is hidden in deployment.
+
+The frozen harder benchmark has 32 statements in eight families. Across **384
+actual searches**, Phase 3, Phase 2 and the handcrafted policy each solve 23/32
+theorems in both repetitions; BFS solves 20/32 and native Aesop 17/32. Phase 3
+uses 144.188 mean attempts versus 145.500 for Phase 2 and 144.500 for handcrafted.
+**No improvement over the existing heuristic or Phase 2 is established.** A small
+matched-feature ablation benefit is sensitive to family clustering; richer
+features also produce a recorded regression. These findings are preserved.
+
+```bash
+uv run --frozen prooflab collect-continuations --output /tmp/prooflab-p3-data
+uv run --frozen prooflab train-outcome --output /tmp/prooflab-p3-models
+uv run --frozen prooflab search p3_order_guard --algorithm outcome --output /tmp/proof.json
+uv run --frozen prooflab evaluate-phase3 --output experiments/phase3/my-run
+uv run --frozen prooflab compact-traces --experiment experiments/phase3/my-run
+```
+
+Choose **Phase 3 · outcome learning** for five actual policy trees and scores.
+Open **Alternative continuations** to inspect the complete generated pool,
+accepted/rejected tactics, actual successor states, verified/censored/unexplored
+futures, model contributions, exact proof paths and resource costs. Click a
+continuation-tree node to inspect its native goals/context. Development evidence
+and held-out post-evaluation diagnostics are explicitly distinct. Static replay,
+exports and loopback-only live search remain supported.
+
+[Model and training](docs/phase-3-model.md) ·
+[Frozen data/protocol](docs/phase-3-data.md) ·
+[Quantitative results and real cases](docs/phase-3-results.md) ·
+[Full Phase 3 delivery report](docs/phase-3-final-report.md).
+
+![Actual Phase 3 continuation laboratory](docs/assets/phase3-continuations.png)
+
+Large traces are canonical, lossless gzip JSON with original-byte hash indices;
+`prooflab unpack-traces` restores them exactly. Offline web assets are generated
+from canonical research into ignored files during bootstrap, avoiding another
+large dataset copy in Git. The candidate generator, trusted Lean bridge,
+independent verifier and all Phase 1–2 research artifacts are preserved.
 
 ## What is original?
 

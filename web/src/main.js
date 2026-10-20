@@ -1,5 +1,11 @@
 import katex from "katex";
 import "./style.css";
+import {
+  initializeContinuations,
+  openContinuations,
+  continuationKey,
+  selectContinuation,
+} from "./continuations.js";
 import { escapeHtml as esc, layoutTree, treeMarkup } from "./tree.js";
 
 const $ = (selector) => document.querySelector(selector);
@@ -10,6 +16,7 @@ const PLAY_ICON =
 const PAUSE_ICON =
   '<svg class="play-glyph" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 3h3v10H4zM10 3h3v10h-3z"/></svg>';
 const state = {
+  dataset: "phase1",
   repeat: 0,
   tasks: [],
   manifest: [],
@@ -80,11 +87,13 @@ function setAlgorithm(algorithm) {
     b.classList.toggle("selected", b.dataset.algorithm === algorithm),
   );
   $("#strategy-note").textContent =
-    algorithm === "learned"
-      ? "A locally trained pairwise model orders the same candidates. The state frontier keeps the original heuristic."
-      : algorithm === "bfs"
-        ? "Explore each depth in order. A deterministic, systematic baseline."
-        : "Prioritize smaller goals with a transparent mathematical heuristic.";
+    algorithm === "outcome"
+      ? "Predict efficient verified continuations using the current goal and context. Same candidates; no Lean lookahead."
+      : algorithm === "learned"
+        ? "A locally trained pairwise model orders the same candidates. The state frontier keeps the original heuristic."
+        : algorithm === "bfs"
+          ? "Explore each depth in order. A deterministic, systematic baseline."
+          : "Prioritize smaller goals with a transparent mathematical heuristic.";
 }
 async function fetchTrace(taskId, algorithm) {
   const entry = state.manifest.find(
@@ -169,8 +178,27 @@ function showRankings(node) {
   if (!ranking) return;
   $("#ranking-state").textContent = `STATE ${ranking.node_id}`;
   $("#ranking-note").textContent =
-    `${state.trace.algorithm === "learned" ? "Learned scores determine candidate order; the original heuristic orders frontier states." : "This run follows its original policy; learned scores are recorded annotations."} Larger scores rank first within each policy; the two score scales differ. Scores are not probabilities or proof certificates. ${ranking.node_id !== node.id ? "Showing the expanded parent of the selected node." : "Showing candidates generated from this exact Lean state."}`;
+    `${state.trace.algorithm === "outcome" ? "Outcome scores determine candidate order; all features are available before candidate execution." : state.trace.algorithm === "learned" ? "Learned scores determine candidate order; the original heuristic orders frontier states." : "This run follows its original policy; learned scores are recorded annotations."} Larger scores rank first within each policy; the two score scales differ. Scores are not probabilities or proof certificates. ${ranking.node_id !== node.id ? "Showing the expanded parent of the selected node." : "Showing candidates generated from this exact Lean state."}`;
+  const prefix = [];
+  let ancestor = state.trace.nodes[ranking.node_id];
+  while (ancestor?.parent !== null && ancestor?.parent !== undefined) {
+    prefix.unshift(ancestor.tactic);
+    ancestor = state.trace.nodes[ancestor.parent];
+  }
+  const key = continuationKey(state.trace.task.id, prefix);
+  $("#open-continuations").hidden = !key;
+  $("#open-continuations").onclick = () => {
+    selectContinuation(key);
+    showView("continuations");
+  };
   const candidates = ranking.candidates;
+  const hasOutcome = candidates.some((c) => Number.isFinite(c.outcome_score));
+  $("#outcome-ranking-header").hidden = !hasOutcome;
+  const outcomeOrder = [...candidates].sort(
+    (a, b) =>
+      b.outcome_score - a.outcome_score ||
+      a.generated_order - b.generated_order,
+  );
   const heuristic = [...candidates].sort(
     (a, b) =>
       b.heuristic_score - a.heuristic_score ||
@@ -192,9 +220,9 @@ function showRankings(node) {
           : "Not replayed yet"
         : "Not executed";
       const contributions = c.contributions
-        .map(([name, value]) => `${name}: ${value.toFixed(4)}`)
+        .map(([name, value]) => `${name}: ${value.toFixed(6)}`)
         .join("\n");
-      return `<tr><td>${c.actual_rank}</td><td><code>${esc(c.tactic)}</code><details><summary>Top feature contributions</summary><pre>${esc(contributions)}</pre></details></td><td>${heuristic.indexOf(c) + 1} / ${c.heuristic_score.toFixed(3)}</td><td>${learned.indexOf(c) + 1} / ${c.learned_score.toFixed(3)}</td><td>${esc(outcome)}</td></tr>`;
+      return `<tr><td>${c.actual_rank}</td><td><code>${esc(c.tactic)}</code><details><summary>Top feature contributions</summary><pre>${esc(contributions)}</pre></details></td><td>${heuristic.indexOf(c) + 1} / ${c.heuristic_score.toFixed(3)}</td><td>${learned.indexOf(c) + 1} / ${c.learned_score.toFixed(3)}</td>${hasOutcome ? `<td>${outcomeOrder.indexOf(c) + 1} / ${c.outcome_score.toFixed(6)}<details><summary>Phase 3 features</summary><pre>${esc(c.outcome_contributions.map(([name, value]) => `${name}: ${value.toFixed(6)}`).join("\n"))}</pre></details></td>` : ""}<td>${esc(outcome)}</td></tr>`;
     })
     .join("");
 }
@@ -225,7 +253,7 @@ function inspect(id) {
     : "✓ No remaining goals";
   $("#node-error").hidden = !node.error;
   $("#node-error").textContent = node.error || "";
-  $$(".tree-node").forEach((el) =>
+  $$("#tree-svg .tree-node").forEach((el) =>
     el.classList.toggle("selected-node", Number(el.dataset.node) === id),
   );
 }
@@ -266,7 +294,7 @@ function setTrace(trace) {
         ? "INCOMPLETE SEARCH"
         : "NO RESULT YET";
   $("#proof-method").textContent = trace
-    ? `${trace.algorithm === "learned" ? "Learned" : trace.algorithm === "bfs" ? "Breadth-first" : "Best-first"} · ${trace.proof.length} proof steps${trace.metadata.repeat !== undefined ? ` · repeat ${Number(trace.metadata.repeat) + 1} of 3` : ""}`
+    ? `${trace.algorithm === "outcome" ? "Outcome-aware" : trace.algorithm === "learned" ? "Learned" : trace.algorithm === "bfs" ? "Breadth-first" : "Best-first"} · ${trace.proof.length} proof steps${trace.metadata.repeat !== undefined ? ` · repeat ${Number(trace.metadata.repeat) + 1} of ${trace.task.id.startsWith("p3_") ? 2 : 3}` : ""}`
     : "";
   renderTree();
   if (trace?.nodes.length) inspect(0);
@@ -365,22 +393,24 @@ function miniTree(trace) {
     positions = [...layoutTree(nodes).values()];
   const w = Math.max(1, ...positions.map((p) => p.x)) + 100,
     h = Math.max(1, ...positions.map((p) => p.y)) + 130;
-  return `<div class="tree-container"><svg viewBox="-50 -50 ${w} ${h}" role="img" aria-label="${trace.algorithm} recorded search tree">${treeMarkup(nodes, -1).markup}</svg></div>`;
+  return `<div class="tree-container"><svg viewBox="-50 -50 ${w} ${h}" role="img" aria-label="${esc(trace.algorithm)} recorded search tree">${treeMarkup(nodes, -1).markup}</svg></div>`;
 }
 async function compare() {
   $("#comparison-grid").textContent = "Loading recorded comparisons…";
   try {
     const traces = await Promise.all(
-      ($("#compare-task").value.startsWith("p2_")
-        ? ["bfs", "best_first", "learned"]
-        : ["bfs", "best_first"]
+      ($("#compare-task").value.startsWith("p3_")
+        ? ["bfs", "best_first", "learned", "outcome", "automation"]
+        : $("#compare-task").value.startsWith("p2_")
+          ? ["bfs", "best_first", "learned"]
+          : ["bfs", "best_first"]
       ).map((algorithm) => fetchTrace($("#compare-task").value, algorithm)),
     );
     $("#comparison-grid").innerHTML = traces
       .map((trace, i) =>
         trace
-          ? `<article class="card"><div class="card-top"><h2>${["Systematic breadth-first", "Heuristic best-first", "Learned candidate ranking"][i]}</h2><span class="subtle-pill">${trace.verification.verified ? "✓ VERIFIED" : "INCOMPLETE"}</span></div>${miniTree(trace)}<div class="comparison-metrics"><div><strong>${trace.metrics.expanded_states}</strong>expanded states</div><div><strong>${trace.metrics.attempted_candidates}</strong>tactic attempts</div><div><strong>${trace.metrics.elapsed_s.toFixed(2)}s</strong>wall time</div><div><strong>${trace.metrics.lean_execution_s.toFixed(3)}s</strong>Lean interaction</div></div><pre>${esc(trace.proof.length ? trace.proof.join("\n") : trace.termination)}</pre></article>`
-          : `<article class="card benchmark-chart">No recorded ${["breadth-first", "best-first", "learned"][i]} run for this task.</article>`,
+          ? `<article class="card"><div class="card-top"><h2>${["Systematic breadth-first", "Heuristic best-first", "Learned candidate ranking", "Outcome-aware ranking", "Native Aesop reference"][i]}</h2><span class="subtle-pill">${trace.verification.verified ? "✓ VERIFIED" : "INCOMPLETE"}</span></div>${miniTree(trace)}<div class="comparison-metrics"><div><strong>${trace.metrics.expanded_states}</strong>expanded states</div><div><strong>${trace.metrics.attempted_candidates}</strong>tactic attempts</div><div><strong>${trace.metrics.elapsed_s.toFixed(2)}s</strong>wall time</div><div><strong>${trace.metrics.lean_execution_s.toFixed(3)}s</strong>Lean interaction</div></div><pre>${esc(trace.proof.length ? trace.proof.join("\n") : trace.termination)}</pre></article>`
+          : `<article class="card benchmark-chart">No recorded ${["breadth-first", "best-first", "learned", "outcome", "native Aesop"][i]} run for this task.</article>`,
       )
       .join("");
   } catch (error) {
@@ -399,10 +429,13 @@ function benchmarks() {
     bfs: "Breadth-first",
     best_first: "Best-first",
     automation: "Native Aesop",
-    learned: "Learned ranker",
+    learned: "Learned ranker (Phase 2)",
+    outcome: "Outcome-aware (Phase 3)",
+    applicability_only: "Ablation: applicability only",
+    old_features_outcome: "Ablation: old features + outcomes",
   };
   $("#benchmark-content").innerHTML =
-    `<div class="benchmark-cards"><article class="card"><div class="small-label">MATHEMATICAL TASKS</div><strong>${state.tasks.length}</strong><p>Logic · orders · algebra · sets</p></article><article class="card"><div class="small-label">RECORDED RUNS</div><strong>${groups.reduce((n, [, g]) => n + g.attempted, 0)}</strong><p>Including incomplete searches and errors</p></article><article class="card"><div class="small-label">HELD-OUT TASKS</div><strong>${state.tasks.filter((t) => t.split === "held_out").length}</strong><p>Split fixed before the comparative experiment</p></article></div><section class="card benchmark-chart"><h2>Independently verified proofs</h2>${groups.map(([key, g]) => `<div class="chart-row"><span>${names[key]}</span><div class="chart-bar"><span style="width:${g.success_rate * 100}%"></span></div><span>${g.verified} / ${g.attempted}${g.success_interval ? ` · 95% CI ${(100 * g.success_interval.lower).toFixed(1)}–${(100 * g.success_interval.upper).toFixed(1)}%` : ""}</span></div>`).join("")}<p class="method-note">Native Aesop is a separate Mathlib automation reference. Its results are not attributed to ProofLab search.</p></section><div class="card benchmark-table"><table><thead><tr><th>STRATEGY</th><th>VERIFIED</th><th>MEDIAN WALL TIME</th><th>LEAN INTERACTION</th><th>MEAN ATTEMPTS</th><th>MEAN EXPANSIONS</th><th>RESOURCE LIMITS</th><th>EXECUTION ERRORS</th></tr></thead><tbody>${groups.map(([key, g]) => `<tr><td>${names[key]}</td><td>${g.verified}/${g.attempted}</td><td>${g.median_wall_s.toFixed(2)}s</td><td>${g.mean_lean_execution_s.toFixed(3)}s</td><td>${g.mean_candidates.toFixed(2)}</td><td>${g.mean_expansions.toFixed(1)}</td><td>${g.resource_limits}</td><td>${g.execution_errors}</td></tr>`).join("")}</tbody></table></div><div class="card provenance"><div class="small-label">EXPERIMENT PROVENANCE</div>Model: ${esc(p.model_sha256 || "Phase 1 handcrafted policies")}<br>Code: ${esc(p.code_commit)}<br>Lean: ${esc(p.lean_version)}<br>Mathlib: ${esc(p.mathlib_revision)}<br>Dataset SHA-256: ${esc(p.evaluation_sha256 || p.dataset_sha256)}<br>Host: ${esc(p.platform)}<br>Budget: ${esc(JSON.stringify(p.budget))}<br>${esc(p.timing_note)}<br>${summaryData.paired_differences ? `Three repeats per theorem; 95% intervals resample theorem clusters. Learned minus handcrafted: success ${(100 * summaryData.paired_differences.best_first.success_rate.estimate).toFixed(1)} percentage points; attempts ${summaryData.paired_differences.best_first.attempted_candidates.estimate.toFixed(2)} per theorem. Failures remain in these means. Training loss does not establish a search improvement.` : "These descriptive results are not a claim of statistical significance."}</div>`;
+    `<div class="benchmark-cards"><article class="card"><div class="small-label">MATHEMATICAL TASKS</div><strong>${state.tasks.length}</strong><p>Logic · orders · algebra · sets</p></article><article class="card"><div class="small-label">RECORDED RUNS</div><strong>${groups.reduce((n, [, g]) => n + g.attempted, 0)}</strong><p>Including incomplete searches and errors</p></article><article class="card"><div class="small-label">HELD-OUT TASKS</div><strong>${state.tasks.filter((t) => t.split === "held_out").length}</strong><p>Split fixed before the comparative experiment</p></article></div><section class="card benchmark-chart"><h2>Independently verified proofs</h2>${groups.map(([key, g]) => `<div class="chart-row"><span>${names[key]}</span><div class="chart-bar"><span style="width:${g.success_rate * 100}%"></span></div><span>${g.verified} / ${g.attempted}${g.success_interval ? ` · 95% CI ${(100 * g.success_interval.lower).toFixed(1)}–${(100 * g.success_interval.upper).toFixed(1)}%` : ""}</span></div>`).join("")}<p class="method-note">Native Aesop is a separate Mathlib automation reference. Its results are not attributed to ProofLab search.</p></section><div class="card benchmark-table"><table><thead><tr><th>STRATEGY</th><th>VERIFIED</th><th>MEDIAN WALL TIME</th><th>LEAN INTERACTION</th><th>MEAN ATTEMPTS</th><th>MEAN EXPANSIONS</th><th>RESOURCE LIMITS</th><th>EXECUTION ERRORS</th></tr></thead><tbody>${groups.map(([key, g]) => `<tr><td>${names[key]}</td><td>${g.verified}/${g.attempted}</td><td>${g.median_wall_s.toFixed(2)}s</td><td>${g.mean_lean_execution_s.toFixed(3)}s</td><td>${g.mean_candidates.toFixed(2)}</td><td>${g.mean_expansions.toFixed(1)}</td><td>${g.resource_limits}</td><td>${g.execution_errors}</td></tr>`).join("")}</tbody></table></div><div class="card provenance"><div class="small-label">EXPERIMENT PROVENANCE</div>Model: ${esc(p.models?.outcome || p.model_sha256 || "Phase 1 handcrafted policies")}<br>Code: ${esc(p.code_commit)}<br>Lean: ${esc(p.lean_version)}<br>Mathlib: ${esc(p.mathlib_revision)}<br>Dataset SHA-256: ${esc(p.evaluation_sha256 || p.dataset_sha256)}<br>Host: ${esc(p.platform)}<br>Budget: ${esc(JSON.stringify(p.budget))}<br>${esc(p.timing_note)}<br>${summaryData.paired_differences ? `${p.repetitions === 2 ? "Two repeats per theorem for primary policies; one per ablation" : "Three repeats per theorem"}; 95% intervals resample theorem clusters. ${p.models ? "Outcome model" : "Learned"} minus handcrafted: success ${(100 * summaryData.paired_differences.best_first.success_rate.estimate).toFixed(1)} percentage points; attempts ${summaryData.paired_differences.best_first.attempted_candidates.estimate.toFixed(2)} per theorem. Failures remain in these means. Training loss does not establish a search improvement.` : "These descriptive results are not a claim of statistical significance."}</div>`;
 }
 function showView(view) {
   $$(".view").forEach((el) => (el.hidden = el.id !== `${view}-view`));
@@ -414,7 +447,9 @@ function showView(view) {
     compare: "Compare strategies",
     benchmarks: "Benchmarks",
     about: "Inside the lab",
+    continuations: "Alternative continuations",
   }[view];
+  if (view === "continuations") openContinuations();
   if (view === "compare") compare();
   if (view === "benchmarks") benchmarks();
   location.hash = view;
@@ -575,7 +610,14 @@ async function chooseDataset(name) {
     return;
   }
   togglePlayback(false);
-  $("#repeat-label").hidden = name !== "phase2";
+  state.dataset = name;
+  state.repeat = 0;
+  const reps = name === "phase3" ? 2 : 3;
+  $("#repeat-select").innerHTML = Array.from(
+    { length: reps },
+    (_, i) => `<option value="${i}">${i + 1} of ${reps}</option>`,
+  ).join("");
+  $("#repeat-label").hidden = name === "phase1";
   if (name === "phase1") {
     state.repeat = 0;
     $("#repeat-select").value = "0";
@@ -638,9 +680,23 @@ async function boot() {
       manifest: phase2[1] || [],
       summary: phase2[2],
     };
+  const phase3 = await Promise.all(
+    ["tasks.json", "manifest.json", "summary.json"].map(async (file) => {
+      const response = await fetch(`${base}phase3/${file}`);
+      return response.ok ? response.json() : null;
+    }),
+  );
+  if (phase3[0])
+    datasets.phase3 = {
+      tasks: phase3[0],
+      manifest: phase3[1] || [],
+      summary: phase3[2],
+    };
+  await initializeContinuations(base);
   await chooseDataset("phase1");
   const view = location.hash.slice(1);
-  if (["lab", "compare", "benchmarks", "about"].includes(view)) showView(view);
+  if (["lab", "compare", "benchmarks", "about", "continuations"].includes(view))
+    showView(view);
   if (["localhost", "127.0.0.1"].includes(location.hostname)) {
     try {
       const r = await fetch("/api/health");

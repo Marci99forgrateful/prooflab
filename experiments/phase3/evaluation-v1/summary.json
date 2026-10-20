@@ -1,0 +1,5705 @@
+{
+  "provenance": {
+    "code_commit": "7c3d1f28025763b962e4c262aaee37b866bfcb91",
+    "lean_version": "leanprover/lean4:v4.24.0",
+    "mathlib_revision": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7",
+    "python": "3.12.14",
+    "platform": "Linux-6.18.55-x86_64-with-glibc2.41",
+    "machine": "x86_64",
+    "processor": "",
+    "seed": "0 (deterministic)",
+    "state_identity": "Exact tactic prefix within one native session; no semantic merging",
+    "started_at": "2026-10-20T10:25:21.745894+00:00",
+    "dataset_sha256": "6f165729c288bfb4b68fa41b1688efce2ebc48538179cc757b31bcf4b16bc728",
+    "protocol_sha256": "95518563c75d9743476b58b9dc76f7afd39a7a4609eadd0f98e91c3586e9f006",
+    "freeze_sha256": "87ba0f9aa18c7dd9428a6fd8cdffcf942ec50e969d881e99ce5d4a4d92ae7d5c",
+    "model_freeze_sha256": "e0d052db4bbc845081db374effa9c6b754be72588cf44d6d11e6d96f2512f32c",
+    "phase2_model_sha256": "99633c7039471cceb0292b4634df2b7c4d60218a0882f156e9cc70b5bd75730e",
+    "models": {
+      "outcome": "5a86274e3a6f5b534e0822b2723229d6eac8895c6003ebcdd17be5122fd1963a",
+      "applicability_only": "32be519857274107701798abfdba4069f66c7be4ad599730fc9709eae97c6292",
+      "old_features_outcome": "c6810f2a4d094138b8d1c1da0f1b4fcd6470b16043a434ada3610d9aafb7f066"
+    },
+    "source_sha256": {
+      "src/prooflab/__init__.py": "3d855a98e8eb2e883d10988aff52d814c030bb2eeaee6e9075028a56e228c283",
+      "src/prooflab/benchmark.py": "3163846c23df47b81341c35557eb1e0c70b84fc91ee8060270f62d357a600c1b",
+      "src/prooflab/candidates.py": "cec84585f6891e832d3e7f9d65ffae6f12d2e5eb59e4f138f08c2754a5eba1d7",
+      "src/prooflab/cli.py": "ce191594b69fd1e44fa63512cebc80b2ccd162ee2f03a4b85dee8d7cf2aef2c0",
+      "src/prooflab/continuations.py": "2cb7417d98d04e289f935527283df7fed7d28e637963db670be4ff8ff9f2c9b3",
+      "src/prooflab/dataset.py": "70cd57bf41c306940260425060cf98546d5160504a65945c3786776338d716ba",
+      "src/prooflab/evaluation.py": "ea88e24f8f78dc9cb3b951f02445013031c14320bc282653539717448d7f0a38",
+      "src/prooflab/features.py": "69437762d7279a3306f2f0fa4c7bfa22274c3f49b2c679f7308cf587e3c812b8",
+      "src/prooflab/lean.py": "319a310bfdf78ffd7033b0f8f1efc5e3b705623031fa6201e27657c628d4c4c4",
+      "src/prooflab/learning.py": "164226ab21dbfafde195b0697a68bc73ce926ad2ba557ed2ae1b2b6c13061d09",
+      "src/prooflab/models.py": "68fa954da01da32140e9d2cf6e805bf5f7fa4189551b957ba1f5c1eec12651a9",
+      "src/prooflab/outcome.py": "4321b7597c67ecba7302c149a53ebbd3a0b5249a43a1ec888f1d637afb14f271",
+      "src/prooflab/outcome_features.py": "621218d07ad86e1a3842531feaf0a241c4cd544c71df61c319644e93569299d0",
+      "src/prooflab/outcome_training.py": "c8eba82e847bd3574e0ea29768fa4ff0ce847ceb0880dc3615629ad5fbac2f31",
+      "src/prooflab/phase3_data.py": "94296ae09aa9ac35628be40f6fe96caeeda038fb1fdbaad2159712cecd308238",
+      "src/prooflab/phase3_evaluation.py": "40223603120652751f28e19f64dc1d7fab36df73a1f0fe9e03c53027f9b327e6",
+      "src/prooflab/search.py": "c56826c109773dd00e651bda86bb0f5f22cfd9c20ebb44a47414acbfdb9cab5d",
+      "src/prooflab/server.py": "a39de17b718883bcb111e3d689526eba7fddebceb9912b563359d99b13eeec72",
+      "src/prooflab/splits.py": "be56f32886566a8771b8e4c7eb62777b17b9fde9c6f5e2c9cbdaeadc9f8a21b3",
+      "src/prooflab/training.py": "8caf424a53f8a8fb513d00b5240b9e6c9faf39016ab9636f2f194b580d8770c0"
+    },
+    "workers": 2,
+    "affinity_cpus": 5,
+    "budget": {
+      "max_depth": 10,
+      "max_expansions": 70,
+      "max_candidates": 24,
+      "max_attempts": 500,
+      "timeout_s": 12.0,
+      "tactic_timeout_s": 2.0
+    },
+    "repetitions": 2,
+    "ablation_repetitions": 1,
+    "algorithms": [
+      "bfs",
+      "best_first",
+      "learned",
+      "outcome",
+      "automation",
+      "applicability_only",
+      "old_features_outcome"
+    ],
+    "timing_note": "Two workers share host. All ProofLab policies record both model explanations; their cost is counted. No hidden Lean lookahead. Aesop internal work is separate.",
+    "search_time_definition": "elapsed minus initialization minus fresh verification; includes cleanup overhead",
+    "uncertainty": {
+      "bootstrap_samples": 10000,
+      "seed": 2718,
+      "unit": "independent theorem cluster; keep repeated executions together",
+      "interval": 0.95
+    },
+    "ordering": "Repeat 0 interleaves all policies/ablations, repeat 1 primary policies; rotate by theorem and repeat"
+  },
+  "results": {
+    "bfs": {
+      "attempted": 64,
+      "verified": 40,
+      "success_rate": 0.625,
+      "mean_wall_s": 4.158187191078355,
+      "median_wall_s": 3.8003176839993102,
+      "resource_limits": 24,
+      "execution_errors": 0,
+      "mean_expansions": 32.46875,
+      "mean_candidates": 189.21875,
+      "mean_lean_execution_s": 1.005584992086142,
+      "proof_origins": {
+        "native_automation": 0,
+        "retrieved_lemma": 0,
+        "specialized_tactic": 0,
+        "constructed_derivation": 40
+      },
+      "domains": {
+        "logic": {
+          "attempted": 16,
+          "verified": 16
+        },
+        "order": {
+          "attempted": 16,
+          "verified": 8
+        },
+        "algebra": {
+          "attempted": 16,
+          "verified": 12
+        },
+        "sets": {
+          "attempted": 16,
+          "verified": 4
+        }
+      },
+      "splits": {
+        "development": {
+          "attempted": 0,
+          "verified": 0
+        },
+        "held_out": {
+          "attempted": 64,
+          "verified": 40
+        }
+      },
+      "difficulties": {
+        "easy": {
+          "attempted": 0,
+          "verified": 0
+        },
+        "moderate": {
+          "attempted": 0,
+          "verified": 0
+        },
+        "challenge": {
+          "attempted": 64,
+          "verified": 40
+        }
+      },
+      "metrics": {
+        "elapsed_s": {
+          "mean": 4.158187191078355,
+          "median": 3.8003176839993102,
+          "min": 2.657667938998202,
+          "max": 10.04538333700475
+        },
+        "lean_execution_s": {
+          "mean": 1.005584992086142,
+          "median": 0.9474887459655292,
+          "min": 0.010643850000633392,
+          "max": 6.134308410953963
+        },
+        "initialization_s": {
+          "mean": 1.8423666833907646,
+          "median": 1.7801238605024992,
+          "min": 1.6168359869989217,
+          "max": 2.2320915610034717
+        },
+        "verification_s": {
+          "mean": 1.1880386728437315,
+          "median": 1.7313061724998988,
+          "min": 0,
+          "max": 2.3507354370012763
+        },
+        "planning_s": {
+          "mean": 0.03738286586860795,
+          "median": 0.025841362508799648,
+          "min": 0.0019426529906922951,
+          "max": 0.09065642398491036
+        },
+        "model_inference_s": {
+          "mean": 0.024896179142956498,
+          "median": 0.01962046900371206,
+          "min": 0.0011348169937264174,
+          "max": 0.07458184401184553
+        },
+        "expanded_states": {
+          "mean": 32.46875,
+          "median": 11.0,
+          "min": 2,
+          "max": 70
+        },
+        "attempted_candidates": {
+          "mean": 189.21875,
+          "median": 116.0,
+          "min": 5,
+          "max": 500
+        },
+        "proof_length": {
+          "mean": 2.8125,
+          "median": 3.0,
+          "min": 0,
+          "max": 9
+        },
+        "search_s": {
+          "mean": 1.1277818348438586,
+          "median": 1.0645280864991946,
+          "min": 0.03002888699847972,
+          "max": 6.297549796006933
+        }
+      },
+      "success_interval": {
+        "estimate": 0.625,
+        "lower": 0.46875,
+        "upper": 0.78125
+      },
+      "termination_counts": {
+        "resource_limit:attempts": 4,
+        "resource_limit:expansions": 20,
+        "verified": 40
+      },
+      "families": {
+        "contextual_polynomial_routes": {
+          "runs": 8,
+          "verified": 8
+        },
+        "disjunctive_routes": {
+          "runs": 8,
+          "verified": 8
+        },
+        "higher_order_routes": {
+          "runs": 8,
+          "verified": 8
+        },
+        "nested_set_routes": {
+          "runs": 8,
+          "verified": 2
+        },
+        "noncommutative_rewrite_routes": {
+          "runs": 8,
+          "verified": 4
+        },
+        "ordered_route_products": {
+          "runs": 8,
+          "verified": 0
+        },
+        "relational_diamonds": {
+          "runs": 8,
+          "verified": 8
+        },
+        "set_exclusion_routes": {
+          "runs": 8,
+          "verified": 2
+        }
+      }
+    },
+    "best_first": {
+      "attempted": 64,
+      "verified": 46,
+      "success_rate": 0.71875,
+      "mean_wall_s": 3.9090374492502633,
+      "median_wall_s": 3.813423479499761,
+      "resource_limits": 18,
+      "execution_errors": 0,
+      "mean_expansions": 23.8125,
+      "mean_candidates": 144.5,
+      "mean_lean_execution_s": 0.631573637157544,
+      "proof_origins": {
+        "native_automation": 0,
+        "retrieved_lemma": 0,
+        "specialized_tactic": 0,
+        "constructed_derivation": 46
+      },
+      "domains": {
+        "logic": {
+          "attempted": 16,
+          "verified": 16
+        },
+        "order": {
+          "attempted": 16,
+          "verified": 10
+        },
+        "algebra": {
+          "attempted": 16,
+          "verified": 12
+        },
+        "sets": {
+          "attempted": 16,
+          "verified": 8
+        }
+      },
+      "splits": {
+        "development": {
+          "attempted": 0,
+          "verified": 0
+        },
+        "held_out": {
+          "attempted": 64,
+          "verified": 46
+        }
+      },
+      "difficulties": {
+        "easy": {
+          "attempted": 0,
+          "verified": 0
+        },
+        "moderate": {
+          "attempted": 0,
+          "verified": 0
+        },
+        "challenge": {
+          "attempted": 64,
+          "verified": 46
+        }
+      },
+      "metrics": {
+        "elapsed_s": {
+          "mean": 3.9090374492502633,
+          "median": 3.813423479499761,
+          "min": 2.6766686209957697,
+          "max": 6.074613595003029
+        },
+        "lean_execution_s": {
+          "mean": 0.631573637157544,
+          "median": 0.16344943851072458,
+          "min": 0.009953366003173869,
+          "max": 2.862729312000738
+        },
+        "initialization_s": {
+          "mean": 1.833007209078346,
+          "median": 1.7738662765004847,
+          "min": 1.6587051739988965,
+          "max": 2.2705174250004347
+        },
+        "verification_s": {
+          "mean": 1.3494138440777306,
+          "median": 1.7867278964986326,
+          "min": 0,
+          "max": 2.4027984290005406
+        },
+        "planning_s": {
+          "mean": 0.03962849276797442,
+          "median": 0.013095728500047699,
+          "min": 0.002057215002423618,
+          "max": 0.803115480033739
+        },
+        "model_inference_s": {
+          "mean": 0.030812874637149434,
+          "median": 0.009290352991229156,
+          "min": 0.0011719040048774332,
+          "max": 0.7784626999782631
+        },
+        "expanded_states": {
+          "mean": 23.8125,
+          "median": 10.0,
+          "min": 2,
+          "max": 70
+        },
+        "attempted_candidates": {
+          "mean": 144.5,
+          "median": 66.5,
+          "min": 5,
+          "max": 500
+        },
+        "proof_length": {
+          "mean": 3.59375,
+          "median": 3.0,
+          "min": 0,
+          "max": 9
+        },
+        "search_s": {
+          "mean": 0.7266163960941867,
+          "median": 0.206245757999568,
+          "min": 0.03325918099289993,
+          "max": 3.014058555010706
+        }
+      },
+      "success_interval": {
+        "estimate": 0.71875,
+        "lower": 0.5625,
+        "upper": 0.875
+      },
+      "termination_counts": {
+        "resource_limit:attempts": 4,
+        "resource_limit:expansions": 14,
+        "verified": 46
+      },
+      "families": {
+        "contextual_polynomial_routes": {
+          "runs": 8,
+          "verified": 8
+        },
+        "disjunctive_routes": {
+          "runs": 8,
+          "verified": 8
+        },
+        "higher_order_routes": {
+          "runs": 8,
+          "verified": 8
+        },
+        "nested_set_routes": {
+          "runs": 8,
+          "verified": 6
+        },
+        "noncommutative_rewrite_routes": {
+          "runs": 8,
+          "verified": 4
+        },
+        "ordered_route_products": {
+          "runs": 8,
+          "verified": 2
+        },
+        "relational_diamonds": {
+          "runs": 8,
+          "verified": 8
+        },
+        "set_exclusion_routes": {
+          "runs": 8,
+          "verified": 2
+        }
+      }
+    },
+    "learned": {
+      "attempted": 64,
+      "verified": 46,
+      "success_rate": 0.71875,
+      "mean_wall_s": 3.923022180046928,
+      "median_wall_s": 3.8074096765012655,
+      "resource_limits": 18,
+      "execution_errors": 0,
+      "mean_expansions": 24.21875,
+      "mean_candidates": 145.5,
+      "mean_lean_execution_s": 0.636374372397654,
+      "proof_origins": {
+        "native_automation": 0,
+        "retrieved_lemma": 0,
+        "specialized_tactic": 0,
+        "constructed_derivation": 46
+      },
+      "domains": {
+        "logic": {
+          "attempted": 16,
+          "verified": 16
+        },
+        "order": {
+          "attempted": 16,
+          "verified": 10
+        },
+        "algebra": {
+          "attempted": 16,
+          "verified": 12
+        },
+        "sets": {
+          "attempted": 16,
+          "verified": 8
+        }
+      },
+      "splits": {
+        "development": {
+          "attempted": 0,
+          "verified": 0
+        },
+        "held_out": {
+          "attempted": 64,
+          "verified": 46
+        }
+      },
+      "difficulties": {
+        "easy": {
+          "attempted": 0,
+          "verified": 0
+        },
+        "moderate": {
+          "attempted": 0,
+          "verified": 0
+        },
+        "challenge": {
+          "attempted": 64,
+          "verified": 46
+        }
+      },
+      "metrics": {
+        "elapsed_s": {
+          "mean": 3.923022180046928,
+          "median": 3.8074096765012655,
+          "min": 2.490662627002166,
+          "max": 7.245987659000093
+        },
+        "lean_execution_s": {
+          "mean": 0.636374372397654,
+          "median": 0.17869407600301201,
+          "min": 0.009769347016117536,
+          "max": 2.774276093005028
+        },
+        "initialization_s": {
+          "mean": 1.8433749480158212,
+          "median": 1.8080278970010113,
+          "min": 1.5693254740035627,
+          "max": 2.3171520749965566
+        },
+        "verification_s": {
+          "mean": 1.3618674969219455,
+          "median": 1.7738000909994298,
+          "min": 0,
+          "max": 2.4670073879970005
+        },
+        "planning_s": {
+          "mean": 0.034668311920427186,
+          "median": 0.0165717980125919,
+          "min": 0.002776327994070016,
+          "max": 0.11320910598442424
+        },
+        "model_inference_s": {
+          "mean": 0.02550103229873457,
+          "median": 0.012005825981759699,
+          "min": 0.001614359011000488,
+          "max": 0.09690800200769445
+        },
+        "expanded_states": {
+          "mean": 24.21875,
+          "median": 10.5,
+          "min": 2,
+          "max": 70
+        },
+        "attempted_candidates": {
+          "mean": 145.5,
+          "median": 70.5,
+          "min": 5,
+          "max": 500
+        },
+        "proof_length": {
+          "mean": 3.59375,
+          "median": 3.0,
+          "min": 0,
+          "max": 9
+        },
+        "search_s": {
+          "mean": 0.7177797351091613,
+          "median": 0.23962434350323747,
+          "min": 0.03495219199976418,
+          "max": 3.5471723880036734
+        }
+      },
+      "success_interval": {
+        "estimate": 0.71875,
+        "lower": 0.5625,
+        "upper": 0.875
+      },
+      "termination_counts": {
+        "resource_limit:attempts": 4,
+        "resource_limit:expansions": 14,
+        "verified": 46
+      },
+      "families": {
+        "contextual_polynomial_routes": {
+          "runs": 8,
+          "verified": 8
+        },
+        "disjunctive_routes": {
+          "runs": 8,
+          "verified": 8
+        },
+        "higher_order_routes": {
+          "runs": 8,
+          "verified": 8
+        },
+        "nested_set_routes": {
+          "runs": 8,
+          "verified": 6
+        },
+        "noncommutative_rewrite_routes": {
+          "runs": 8,
+          "verified": 4
+        },
+        "ordered_route_products": {
+          "runs": 8,
+          "verified": 2
+        },
+        "relational_diamonds": {
+          "runs": 8,
+          "verified": 8
+        },
+        "set_exclusion_routes": {
+          "runs": 8,
+          "verified": 2
+        }
+      }
+    },
+    "outcome": {
+      "attempted": 64,
+      "verified": 46,
+      "success_rate": 0.71875,
+      "mean_wall_s": 3.8937586124060317,
+      "median_wall_s": 3.800763466999342,
+      "resource_limits": 18,
+      "execution_errors": 0,
+      "mean_expansions": 23.96875,
+      "mean_candidates": 144.1875,
+      "mean_lean_execution_s": 0.6159585755517583,
+      "proof_origins": {
+        "native_automation": 0,
+        "retrieved_lemma": 0,
+        "specialized_tactic": 0,
+        "constructed_derivation": 46
+      },
+      "domains": {
+        "logic": {
+          "attempted": 16,
+          "verified": 16
+        },
+        "order": {
+          "attempted": 16,
+          "verified": 10
+        },
+        "algebra": {
+          "attempted": 16,
+          "verified": 12
+        },
+        "sets": {
+          "attempted": 16,
+          "verified": 8
+        }
+      },
+      "splits": {
+        "development": {
+          "attempted": 0,
+          "verified": 0
+        },
+        "held_out": {
+          "attempted": 64,
+          "verified": 46
+        }
+      },
+      "difficulties": {
+        "easy": {
+          "attempted": 0,
+          "verified": 0
+        },
+        "moderate": {
+          "attempted": 0,
+          "verified": 0
+        },
+        "challenge": {
+          "attempted": 64,
+          "verified": 46
+        }
+      },
+      "metrics": {
+        "elapsed_s": {
+          "mean": 3.8937586124060317,
+          "median": 3.800763466999342,
+          "min": 2.4867118030015263,
+          "max": 5.948284178004542
+        },
+        "lean_execution_s": {
+          "mean": 0.6159585755517583,
+          "median": 0.17470438745658612,
+          "min": 0.008110891001706477,
+          "max": 3.303027881134767
+        },
+        "initialization_s": {
+          "mean": 1.8416729421256832,
+          "median": 1.8099811534993933,
+          "min": 1.5972539540016442,
+          "max": 2.30378028099949
+        },
+        "verification_s": {
+          "mean": 1.341693746734677,
+          "median": 1.7569293145024858,
+          "min": 0,
+          "max": 2.3707208260020707
+        },
+        "planning_s": {
+          "mean": 0.05407260033973671,
+          "median": 0.018682020989217563,
+          "min": 0.0026715989952208474,
+          "max": 0.9444244869955583
+        },
+        "model_inference_s": {
+          "mean": 0.044835854684833976,
+          "median": 0.015308764996007085,
+          "min": 0.0016563320095883682,
+          "max": 0.9423992579904734
+        },
+        "expanded_states": {
+          "mean": 23.96875,
+          "median": 10.0,
+          "min": 3,
+          "max": 70
+        },
+        "attempted_candidates": {
+          "mean": 144.1875,
+          "median": 63.5,
+          "min": 5,
+          "max": 500
+        },
+        "proof_length": {
+          "mean": 3.59375,
+          "median": 3.0,
+          "min": 0,
+          "max": 9
+        },
+        "search_s": {
+          "mean": 0.7103919235456715,
+          "median": 0.23039587499806657,
+          "min": 0.030725482996786013,
+          "max": 3.4870826690021204
+        }
+      },
+      "success_interval": {
+        "estimate": 0.71875,
+        "lower": 0.5625,
+        "upper": 0.875
+      },
+      "termination_counts": {
+        "resource_limit:attempts": 4,
+        "resource_limit:expansions": 14,
+        "verified": 46
+      },
+      "families": {
+        "contextual_polynomial_routes": {
+          "runs": 8,
+          "verified": 8
+        },
+        "disjunctive_routes": {
+          "runs": 8,
+          "verified": 8
+        },
+        "higher_order_routes": {
+          "runs": 8,
+          "verified": 8
+        },
+        "nested_set_routes": {
+          "runs": 8,
+          "verified": 6
+        },
+        "noncommutative_rewrite_routes": {
+          "runs": 8,
+          "verified": 4
+        },
+        "ordered_route_products": {
+          "runs": 8,
+          "verified": 2
+        },
+        "relational_diamonds": {
+          "runs": 8,
+          "verified": 8
+        },
+        "set_exclusion_routes": {
+          "runs": 8,
+          "verified": 2
+        }
+      }
+    },
+    "automation": {
+      "attempted": 64,
+      "verified": 34,
+      "success_rate": 0.53125,
+      "mean_wall_s": 3.0230244082340505,
+      "median_wall_s": 3.457867016495584,
+      "resource_limits": 0,
+      "execution_errors": 0,
+      "mean_expansions": 1,
+      "mean_candidates": 1,
+      "mean_lean_execution_s": 0.07968588940548216,
+      "proof_origins": {
+        "native_automation": 34,
+        "retrieved_lemma": 0,
+        "specialized_tactic": 0,
+        "constructed_derivation": 0
+      },
+      "domains": {
+        "logic": {
+          "attempted": 16,
+          "verified": 16
+        },
+        "order": {
+          "attempted": 16,
+          "verified": 8
+        },
+        "algebra": {
+          "attempted": 16,
+          "verified": 8
+        },
+        "sets": {
+          "attempted": 16,
+          "verified": 2
+        }
+      },
+      "splits": {
+        "development": {
+          "attempted": 0,
+          "verified": 0
+        },
+        "held_out": {
+          "attempted": 64,
+          "verified": 34
+        }
+      },
+      "difficulties": {
+        "easy": {
+          "attempted": 0,
+          "verified": 0
+        },
+        "moderate": {
+          "attempted": 0,
+          "verified": 0
+        },
+        "challenge": {
+          "attempted": 64,
+          "verified": 34
+        }
+      },
+      "metrics": {
+        "elapsed_s": {
+          "mean": 3.0230244082340505,
+          "median": 3.457867016495584,
+          "min": 1.6523770369967679,
+          "max": 4.98535389600147
+        },
+        "lean_execution_s": {
+          "mean": 0.07968588940548216,
+          "median": 0.03301224549795734,
+          "min": 0.017952611000509933,
+          "max": 0.5906015210057376
+        },
+        "initialization_s": {
+          "mean": 1.8490801998279949,
+          "median": 1.8035193899995647,
+          "min": 1.5831909109983826,
+          "max": 2.7557590610012994
+        },
+        "verification_s": {
+          "mean": 1.066010240531,
+          "median": 1.6835489409968432,
+          "min": 0,
+          "max": 2.585663812002167
+        },
+        "planning_s": {
+          "mean": 0.0003940005625509002,
+          "median": 0.00035580050462158397,
+          "min": 0.00022203400294529274,
+          "max": 0.00140257000020938
+        },
+        "model_inference_s": {
+          "mean": 0,
+          "median": 0.0,
+          "min": 0,
+          "max": 0
+        },
+        "expanded_states": {
+          "mean": 1,
+          "median": 1.0,
+          "min": 1,
+          "max": 1
+        },
+        "attempted_candidates": {
+          "mean": 1,
+          "median": 1.0,
+          "min": 1,
+          "max": 1
+        },
+        "proof_length": {
+          "mean": 0.53125,
+          "median": 1.0,
+          "min": 0,
+          "max": 1
+        },
+        "search_s": {
+          "mean": 0.10793396787505571,
+          "median": 0.06452438250198611,
+          "min": 0.03480752000177745,
+          "max": 0.6136796129940194
+        }
+      },
+      "success_interval": {
+        "estimate": 0.53125,
+        "lower": 0.375,
+        "upper": 0.6875
+      },
+      "termination_counts": {
+        "search_exhausted": 30,
+        "verified": 34
+      },
+      "families": {
+        "contextual_polynomial_routes": {
+          "runs": 8,
+          "verified": 0
+        },
+        "disjunctive_routes": {
+          "runs": 8,
+          "verified": 8
+        },
+        "higher_order_routes": {
+          "runs": 8,
+          "verified": 8
+        },
+        "nested_set_routes": {
+          "runs": 8,
+          "verified": 2
+        },
+        "noncommutative_rewrite_routes": {
+          "runs": 8,
+          "verified": 8
+        },
+        "ordered_route_products": {
+          "runs": 8,
+          "verified": 0
+        },
+        "relational_diamonds": {
+          "runs": 8,
+          "verified": 8
+        },
+        "set_exclusion_routes": {
+          "runs": 8,
+          "verified": 0
+        }
+      }
+    },
+    "applicability_only": {
+      "attempted": 32,
+      "verified": 23,
+      "success_rate": 0.71875,
+      "mean_wall_s": 3.9502334680628337,
+      "median_wall_s": 3.7863381690003735,
+      "resource_limits": 9,
+      "execution_errors": 0,
+      "mean_expansions": 24.25,
+      "mean_candidates": 145.90625,
+      "mean_lean_execution_s": 0.6248644147804043,
+      "proof_origins": {
+        "native_automation": 0,
+        "retrieved_lemma": 0,
+        "specialized_tactic": 0,
+        "constructed_derivation": 23
+      },
+      "domains": {
+        "logic": {
+          "attempted": 8,
+          "verified": 8
+        },
+        "order": {
+          "attempted": 8,
+          "verified": 5
+        },
+        "algebra": {
+          "attempted": 8,
+          "verified": 6
+        },
+        "sets": {
+          "attempted": 8,
+          "verified": 4
+        }
+      },
+      "splits": {
+        "development": {
+          "attempted": 0,
+          "verified": 0
+        },
+        "held_out": {
+          "attempted": 32,
+          "verified": 23
+        }
+      },
+      "difficulties": {
+        "easy": {
+          "attempted": 0,
+          "verified": 0
+        },
+        "moderate": {
+          "attempted": 0,
+          "verified": 0
+        },
+        "challenge": {
+          "attempted": 32,
+          "verified": 23
+        }
+      },
+      "metrics": {
+        "elapsed_s": {
+          "mean": 3.9502334680628337,
+          "median": 3.7863381690003735,
+          "min": 2.7015843950066483,
+          "max": 5.972273305000272
+        },
+        "lean_execution_s": {
+          "mean": 0.6248644147804043,
+          "median": 0.16267604598033358,
+          "min": 0.009777341998415068,
+          "max": 2.8872433399956208
+        },
+        "initialization_s": {
+          "mean": 1.8622679067502759,
+          "median": 1.8233984994985803,
+          "min": 1.591763976997754,
+          "max": 2.1793479600019054
+        },
+        "verification_s": {
+          "mean": 1.3762048011558363,
+          "median": 1.8236746120019234,
+          "min": 0,
+          "max": 2.19878459800384
+        },
+        "planning_s": {
+          "mean": 0.03917163815344793,
+          "median": 0.020299459512898466,
+          "min": 0.0028012940019834787,
+          "max": 0.13028111802850617
+        },
+        "model_inference_s": {
+          "mean": 0.029753550102441295,
+          "median": 0.01587239748914726,
+          "min": 0.0018091530073434114,
+          "max": 0.1086583719952614
+        },
+        "expanded_states": {
+          "mean": 24.25,
+          "median": 10.5,
+          "min": 3,
+          "max": 70
+        },
+        "attempted_candidates": {
+          "mean": 145.90625,
+          "median": 70.5,
+          "min": 5,
+          "max": 500
+        },
+        "proof_length": {
+          "mean": 3.59375,
+          "median": 3.0,
+          "min": 0,
+          "max": 9
+        },
+        "search_s": {
+          "mean": 0.7117607601567215,
+          "median": 0.22378996499901405,
+          "min": 0.034695556001679506,
+          "max": 3.0603239859992755
+        }
+      },
+      "success_interval": {
+        "estimate": 0.71875,
+        "lower": 0.5625,
+        "upper": 0.875
+      },
+      "termination_counts": {
+        "resource_limit:attempts": 2,
+        "resource_limit:expansions": 7,
+        "verified": 23
+      },
+      "families": {
+        "contextual_polynomial_routes": {
+          "runs": 4,
+          "verified": 4
+        },
+        "disjunctive_routes": {
+          "runs": 4,
+          "verified": 4
+        },
+        "higher_order_routes": {
+          "runs": 4,
+          "verified": 4
+        },
+        "nested_set_routes": {
+          "runs": 4,
+          "verified": 3
+        },
+        "noncommutative_rewrite_routes": {
+          "runs": 4,
+          "verified": 2
+        },
+        "ordered_route_products": {
+          "runs": 4,
+          "verified": 1
+        },
+        "relational_diamonds": {
+          "runs": 4,
+          "verified": 4
+        },
+        "set_exclusion_routes": {
+          "runs": 4,
+          "verified": 1
+        }
+      }
+    },
+    "old_features_outcome": {
+      "attempted": 32,
+      "verified": 23,
+      "success_rate": 0.71875,
+      "mean_wall_s": 3.940959364186483,
+      "median_wall_s": 3.8750711460015737,
+      "resource_limits": 9,
+      "execution_errors": 0,
+      "mean_expansions": 23.9375,
+      "mean_candidates": 143.625,
+      "mean_lean_execution_s": 0.6202366686204641,
+      "proof_origins": {
+        "native_automation": 0,
+        "retrieved_lemma": 0,
+        "specialized_tactic": 0,
+        "constructed_derivation": 23
+      },
+      "domains": {
+        "logic": {
+          "attempted": 8,
+          "verified": 8
+        },
+        "order": {
+          "attempted": 8,
+          "verified": 5
+        },
+        "algebra": {
+          "attempted": 8,
+          "verified": 6
+        },
+        "sets": {
+          "attempted": 8,
+          "verified": 4
+        }
+      },
+      "splits": {
+        "development": {
+          "attempted": 0,
+          "verified": 0
+        },
+        "held_out": {
+          "attempted": 32,
+          "verified": 23
+        }
+      },
+      "difficulties": {
+        "easy": {
+          "attempted": 0,
+          "verified": 0
+        },
+        "moderate": {
+          "attempted": 0,
+          "verified": 0
+        },
+        "challenge": {
+          "attempted": 32,
+          "verified": 23
+        }
+      },
+      "metrics": {
+        "elapsed_s": {
+          "mean": 3.940959364186483,
+          "median": 3.8750711460015737,
+          "min": 2.688478481999482,
+          "max": 6.044169631997647
+        },
+        "lean_execution_s": {
+          "mean": 0.6202366686204641,
+          "median": 0.16879297199193388,
+          "min": 0.015049560999614187,
+          "max": 2.8749921080525382
+        },
+        "initialization_s": {
+          "mean": 1.8655588819381137,
+          "median": 1.8184371940005803,
+          "min": 1.5887030099984258,
+          "max": 2.391899929003557
+        },
+        "verification_s": {
+          "mean": 1.3777060147185693,
+          "median": 1.7428722375007055,
+          "min": 0,
+          "max": 2.32822080799815
+        },
+        "planning_s": {
+          "mean": 0.033960547874585245,
+          "median": 0.01673115800440428,
+          "min": 0.002298667997820303,
+          "max": 0.11624102100904565
+        },
+        "model_inference_s": {
+          "mean": 0.025113248867455695,
+          "median": 0.012774735496350331,
+          "min": 0.0014341080095618963,
+          "max": 0.09627017195452936
+        },
+        "expanded_states": {
+          "mean": 23.9375,
+          "median": 10.0,
+          "min": 2,
+          "max": 70
+        },
+        "attempted_candidates": {
+          "mean": 143.625,
+          "median": 63.0,
+          "min": 5,
+          "max": 500
+        },
+        "proof_length": {
+          "mean": 3.59375,
+          "median": 3.0,
+          "min": 0,
+          "max": 9
+        },
+        "search_s": {
+          "mean": 0.6976944675298,
+          "median": 0.21691586999440915,
+          "min": 0.035130326003127266,
+          "max": 3.0467435830069007
+        }
+      },
+      "success_interval": {
+        "estimate": 0.71875,
+        "lower": 0.5625,
+        "upper": 0.875
+      },
+      "termination_counts": {
+        "resource_limit:attempts": 2,
+        "resource_limit:expansions": 7,
+        "verified": 23
+      },
+      "families": {
+        "contextual_polynomial_routes": {
+          "runs": 4,
+          "verified": 4
+        },
+        "disjunctive_routes": {
+          "runs": 4,
+          "verified": 4
+        },
+        "higher_order_routes": {
+          "runs": 4,
+          "verified": 4
+        },
+        "nested_set_routes": {
+          "runs": 4,
+          "verified": 3
+        },
+        "noncommutative_rewrite_routes": {
+          "runs": 4,
+          "verified": 2
+        },
+        "ordered_route_products": {
+          "runs": 4,
+          "verified": 1
+        },
+        "relational_diamonds": {
+          "runs": 4,
+          "verified": 4
+        },
+        "set_exclusion_routes": {
+          "runs": 4,
+          "verified": 1
+        }
+      }
+    }
+  },
+  "paired_differences": {
+    "bfs": {
+      "interpretation": "learned minus baseline; lower effort is better; all tasks include failures",
+      "success_rate": {
+        "estimate": 0.09375,
+        "lower": 0.0,
+        "upper": 0.21875
+      },
+      "expanded_states": {
+        "estimate": -8.5,
+        "lower": -15.03125,
+        "upper": -2.90625
+      },
+      "attempted_candidates": {
+        "estimate": -45.03125,
+        "lower": -81.5625,
+        "upper": -13.3125
+      },
+      "elapsed_s": {
+        "estimate": -0.26442857867232306,
+        "lower": -0.6279872681558345,
+        "upper": 0.017196662062133328
+      },
+      "lean_execution_s": {
+        "estimate": -0.3896264165343837,
+        "lower": -0.7254002123722785,
+        "upper": -0.1375338387310876
+      },
+      "common_verified_tasks": [
+        "p3_higher_cycle",
+        "p3_higher_discharge",
+        "p3_higher_nested",
+        "p3_higher_pair",
+        "p3_monoid_chain",
+        "p3_monoid_distractor",
+        "p3_or_both_long",
+        "p3_or_chain",
+        "p3_or_dead_branch",
+        "p3_or_pair_routes",
+        "p3_relation_fork",
+        "p3_relation_pair",
+        "p3_relation_reverse",
+        "p3_relation_shortcut",
+        "p3_ring_chain",
+        "p3_ring_product_pair",
+        "p3_ring_reverse",
+        "p3_ring_two_equalities",
+        "p3_set_choice",
+        "p3_set_diff_chain"
+      ],
+      "common_verified_mean_differences": {
+        "expanded_states": -5.95,
+        "attempted_candidates": -36,
+        "elapsed_s": -0.3982619994008928,
+        "lean_execution_s": -0.38004074169766683
+      }
+    },
+    "best_first": {
+      "interpretation": "learned minus baseline; lower effort is better; all tasks include failures",
+      "success_rate": {
+        "estimate": 0.0,
+        "lower": 0.0,
+        "upper": 0.0
+      },
+      "expanded_states": {
+        "estimate": 0.15625,
+        "lower": -0.125,
+        "upper": 0.59375
+      },
+      "attempted_candidates": {
+        "estimate": -0.3125,
+        "lower": -2.15625,
+        "upper": 1.90625
+      },
+      "elapsed_s": {
+        "estimate": -0.015278836844231591,
+        "lower": -0.13641845204654146,
+        "upper": 0.09530795298280736
+      },
+      "lean_execution_s": {
+        "estimate": -0.01561506160578574,
+        "lower": -0.09174542814139386,
+        "upper": 0.0498444820526629
+      },
+      "common_verified_tasks": [
+        "p3_higher_cycle",
+        "p3_higher_discharge",
+        "p3_higher_nested",
+        "p3_higher_pair",
+        "p3_monoid_chain",
+        "p3_monoid_distractor",
+        "p3_or_both_long",
+        "p3_or_chain",
+        "p3_or_dead_branch",
+        "p3_or_pair_routes",
+        "p3_order_guard",
+        "p3_relation_fork",
+        "p3_relation_pair",
+        "p3_relation_reverse",
+        "p3_relation_shortcut",
+        "p3_ring_chain",
+        "p3_ring_product_pair",
+        "p3_ring_reverse",
+        "p3_ring_two_equalities",
+        "p3_set_choice",
+        "p3_set_diff_chain",
+        "p3_set_join_elimination",
+        "p3_set_nested_left"
+      ],
+      "common_verified_mean_differences": {
+        "expanded_states": 0.21739130434782608,
+        "attempted_candidates": -0.43478260869565216,
+        "elapsed_s": 0.017382665412341063,
+        "lean_execution_s": -0.020417792436289703
+      }
+    },
+    "learned": {
+      "interpretation": "learned minus baseline; lower effort is better; all tasks include failures",
+      "success_rate": {
+        "estimate": 0.0,
+        "lower": 0.0,
+        "upper": 0.0
+      },
+      "expanded_states": {
+        "estimate": -0.25,
+        "lower": -0.6875,
+        "upper": 0.03125
+      },
+      "attempted_candidates": {
+        "estimate": -1.3125,
+        "lower": -3.5625,
+        "upper": 0.90625
+      },
+      "elapsed_s": {
+        "estimate": -0.029263567640896326,
+        "lower": -0.12273047579640206,
+        "upper": 0.06234103292081272
+      },
+      "lean_execution_s": {
+        "estimate": -0.020415796845895784,
+        "lower": -0.07242152463027196,
+        "upper": 0.02490058547323315
+      },
+      "common_verified_tasks": [
+        "p3_higher_cycle",
+        "p3_higher_discharge",
+        "p3_higher_nested",
+        "p3_higher_pair",
+        "p3_monoid_chain",
+        "p3_monoid_distractor",
+        "p3_or_both_long",
+        "p3_or_chain",
+        "p3_or_dead_branch",
+        "p3_or_pair_routes",
+        "p3_order_guard",
+        "p3_relation_fork",
+        "p3_relation_pair",
+        "p3_relation_reverse",
+        "p3_relation_shortcut",
+        "p3_ring_chain",
+        "p3_ring_product_pair",
+        "p3_ring_reverse",
+        "p3_ring_two_equalities",
+        "p3_set_choice",
+        "p3_set_diff_chain",
+        "p3_set_join_elimination",
+        "p3_set_nested_left"
+      ],
+      "common_verified_mean_differences": {
+        "expanded_states": -0.34782608695652173,
+        "attempted_candidates": -1.8695652173913044,
+        "elapsed_s": -0.030529857195885954,
+        "lean_execution_s": -0.039386715614850604
+      }
+    },
+    "automation": {
+      "interpretation": "learned minus baseline; lower effort is better; all tasks include failures",
+      "success_rate": {
+        "estimate": 0.1875,
+        "lower": 0.0,
+        "upper": 0.375
+      },
+      "expanded_states": {
+        "estimate": 22.96875,
+        "lower": 14.625,
+        "upper": 32.1875
+      },
+      "attempted_candidates": {
+        "estimate": 143.1875,
+        "lower": 91.125,
+        "upper": 199.9375
+      },
+      "elapsed_s": {
+        "estimate": 0.8707342041719812,
+        "lower": 0.45189855653086397,
+        "upper": 1.3118175743279608
+      },
+      "lean_execution_s": {
+        "estimate": 0.5362726861462761,
+        "lower": 0.27535168158840406,
+        "upper": 0.8280964173854954
+      },
+      "common_verified_tasks": [
+        "p3_higher_cycle",
+        "p3_higher_discharge",
+        "p3_higher_nested",
+        "p3_higher_pair",
+        "p3_monoid_chain",
+        "p3_monoid_distractor",
+        "p3_or_both_long",
+        "p3_or_chain",
+        "p3_or_dead_branch",
+        "p3_or_pair_routes",
+        "p3_relation_fork",
+        "p3_relation_pair",
+        "p3_relation_reverse",
+        "p3_relation_shortcut"
+      ],
+      "common_verified_mean_differences": {
+        "expanded_states": 5,
+        "attempted_candidates": 24.642857142857142,
+        "elapsed_s": -0.16702980174964718,
+        "lean_execution_s": -0.06452510046489936
+      }
+    },
+    "applicability_only": {
+      "interpretation": "learned minus baseline; lower effort is better; all tasks include failures",
+      "success_rate": {
+        "estimate": 0.0,
+        "lower": 0.0,
+        "upper": 0.0
+      },
+      "expanded_states": {
+        "estimate": -0.28125,
+        "lower": -0.71875,
+        "upper": 0.0
+      },
+      "attempted_candidates": {
+        "estimate": -1.71875,
+        "lower": -3.625,
+        "upper": -0.1875
+      },
+      "elapsed_s": {
+        "estimate": -0.05647485565680199,
+        "lower": -0.1620640385782508,
+        "upper": 0.0504384463893075
+      },
+      "lean_execution_s": {
+        "estimate": -0.008905839228646073,
+        "lower": -0.04029457176852702,
+        "upper": 0.029586510377157538
+      },
+      "common_verified_tasks": [
+        "p3_higher_cycle",
+        "p3_higher_discharge",
+        "p3_higher_nested",
+        "p3_higher_pair",
+        "p3_monoid_chain",
+        "p3_monoid_distractor",
+        "p3_or_both_long",
+        "p3_or_chain",
+        "p3_or_dead_branch",
+        "p3_or_pair_routes",
+        "p3_order_guard",
+        "p3_relation_fork",
+        "p3_relation_pair",
+        "p3_relation_reverse",
+        "p3_relation_shortcut",
+        "p3_ring_chain",
+        "p3_ring_product_pair",
+        "p3_ring_reverse",
+        "p3_ring_two_equalities",
+        "p3_set_choice",
+        "p3_set_diff_chain",
+        "p3_set_join_elimination",
+        "p3_set_nested_left"
+      ],
+      "common_verified_mean_differences": {
+        "expanded_states": -0.391304347826087,
+        "attempted_candidates": -2.4347826086956523,
+        "elapsed_s": -0.0420524618912959,
+        "lean_execution_s": -0.023222335723403376
+      }
+    },
+    "old_features_outcome": {
+      "interpretation": "learned minus baseline; lower effort is better; all tasks include failures",
+      "success_rate": {
+        "estimate": 0.0,
+        "lower": 0.0,
+        "upper": 0.0
+      },
+      "expanded_states": {
+        "estimate": 0.03125,
+        "lower": 0.0,
+        "upper": 0.09375
+      },
+      "attempted_candidates": {
+        "estimate": 0.5625,
+        "lower": 0.0,
+        "upper": 1.5625
+      },
+      "elapsed_s": {
+        "estimate": -0.047200751780451355,
+        "lower": -0.15087780453075084,
+        "upper": 0.05412354704765221
+      },
+      "lean_execution_s": {
+        "estimate": -0.004278093068705857,
+        "lower": -0.03866630032462126,
+        "upper": 0.031976771622339584
+      },
+      "common_verified_tasks": [
+        "p3_higher_cycle",
+        "p3_higher_discharge",
+        "p3_higher_nested",
+        "p3_higher_pair",
+        "p3_monoid_chain",
+        "p3_monoid_distractor",
+        "p3_or_both_long",
+        "p3_or_chain",
+        "p3_or_dead_branch",
+        "p3_or_pair_routes",
+        "p3_order_guard",
+        "p3_relation_fork",
+        "p3_relation_pair",
+        "p3_relation_reverse",
+        "p3_relation_shortcut",
+        "p3_ring_chain",
+        "p3_ring_product_pair",
+        "p3_ring_reverse",
+        "p3_ring_two_equalities",
+        "p3_set_choice",
+        "p3_set_diff_chain",
+        "p3_set_join_elimination",
+        "p3_set_nested_left"
+      ],
+      "common_verified_mean_differences": {
+        "expanded_states": 0.043478260869565216,
+        "attempted_candidates": 0.782608695652174,
+        "elapsed_s": -0.053842489281795795,
+        "lean_execution_s": -0.013887130625295433
+      }
+    }
+  },
+  "per_theorem": {
+    "p3_higher_cycle": {
+      "family": "higher_order_routes",
+      "algorithms": {
+        "bfs": {
+          "runs": 2,
+          "verified": 2,
+          "terminations": [
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.6349423125029716,
+          "lean_execution_s": 0.06454079302056925,
+          "initialization_s": 1.752208312998846,
+          "verification_s": 1.7857297070004279,
+          "planning_s": 0.014311759001429891,
+          "model_inference_s": 0.009792872999241808,
+          "expanded_states": 12,
+          "attempted_candidates": 58,
+          "proof_length": 9
+        },
+        "best_first": {
+          "runs": 2,
+          "verified": 2,
+          "terminations": [
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.6212906720029423,
+          "lean_execution_s": 0.048168279990932206,
+          "initialization_s": 1.7262647564966755,
+          "verification_s": 1.8190782585006673,
+          "planning_s": 0.008997827000712277,
+          "model_inference_s": 0.006405386502592592,
+          "expanded_states": 9,
+          "attempted_candidates": 43,
+          "proof_length": 9
+        },
+        "learned": {
+          "runs": 2,
+          "verified": 2,
+          "terminations": [
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.7358640844977344,
+          "lean_execution_s": 0.043879558506887406,
+          "initialization_s": 1.842624592998618,
+          "verification_s": 1.8172427009994863,
+          "planning_s": 0.012754455994581804,
+          "model_inference_s": 0.009657685503043467,
+          "expanded_states": 9,
+          "attempted_candidates": 44,
+          "proof_length": 9
+        },
+        "outcome": {
+          "runs": 2,
+          "verified": 2,
+          "terminations": [
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.704648435497802,
+          "lean_execution_s": 0.05060288298409432,
+          "initialization_s": 1.8909127869992517,
+          "verification_s": 1.7135445110034198,
+          "planning_s": 0.014574459495634073,
+          "model_inference_s": 0.010754859998996835,
+          "expanded_states": 9,
+          "attempted_candidates": 43,
+          "proof_length": 9
+        },
+        "automation": {
+          "runs": 2,
+          "verified": 2,
+          "terminations": [
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.6487059839964786,
+          "lean_execution_s": 0.024772841501544463,
+          "initialization_s": 1.753935767501389,
+          "verification_s": 1.8515436409979884,
+          "planning_s": 0.0004161609977018088,
+          "model_inference_s": 0,
+          "expanded_states": 1,
+          "attempted_candidates": 1,
+          "proof_length": 1
+        },
+        "applicability_only": {
+          "runs": 1,
+          "verified": 1,
+          "terminations": [
+            "verified"
+          ],
+          "elapsed_s": 3.858307082002284,
+          "lean_execution_s": 0.05719697599852225,
+          "initialization_s": 1.9300513420021161,
+          "verification_s": 1.8390618080011336,
+          "planning_s": 0.014149320006254129,
+          "model_inference_s": 0.010715712000092026,
+          "expanded_states": 9,
+          "attempted_candidates": 43,
+          "proof_length": 9
+        },
+        "old_features_outcome": {
+          "runs": 1,
+          "verified": 1,
+          "terminations": [
+            "verified"
+          ],
+          "elapsed_s": 3.7667664629989304,
+          "lean_execution_s": 0.05179934801708441,
+          "initialization_s": 1.7956494500031113,
+          "verification_s": 1.873613130999729,
+          "planning_s": 0.011675005982397124,
+          "model_inference_s": 0.008652245996927377,
+          "expanded_states": 9,
+          "attempted_candidates": 44,
+          "proof_length": 9
+        }
+      }
+    },
+    "p3_higher_discharge": {
+      "family": "higher_order_routes",
+      "algorithms": {
+        "bfs": {
+          "runs": 2,
+          "verified": 2,
+          "terminations": [
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.76696262599944,
+          "lean_execution_s": 0.010811394509801175,
+          "initialization_s": 1.8012973475015315,
+          "verification_s": 1.9255627154998365,
+          "planning_s": 0.00282898099248996,
+          "model_inference_s": 0.001720905005640816,
+          "expanded_states": 4,
+          "attempted_candidates": 11,
+          "proof_length": 4
+        },
+        "best_first": {
+          "runs": 2,
+          "verified": 2,
+          "terminations": [
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.7212593445001403,
+          "lean_execution_s": 0.010323532500478905,
+          "initialization_s": 1.8952392729988787,
+          "verification_s": 1.7866204420024587,
+          "planning_s": 0.003029667499504285,
+          "model_inference_s": 0.0017703990015434101,
+          "expanded_states": 4,
+          "attempted_candidates": 11,
+          "proof_length": 4
+        },
+        "learned": {
+          "runs": 2,
+          "verified": 2,
+          "terminations": [
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.7087097560033726,
+          "lean_execution_s": 0.010660564501449699,
+          "initialization_s": 1.8302848335006274,
+          "verification_s": 1.8364237820023845,
+          "planning_s": 0.0035324940108694136,
+          "model_inference_s": 0.002139672498742584,
+          "expanded_states": 4,
+          "attempted_candidates": 11,
+          "proof_length": 4
+        },
+        "outcome": {
+          "runs": 2,
+          "verified": 2,
+          "terminations": [
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.6122139705003065,
+          "lean_execution_s": 0.00811623100162251,
+          "initialization_s": 1.7860038449980493,
+          "verification_s": 1.7816268785027205,
+          "planning_s": 0.0037618690003000665,
+          "model_inference_s": 0.0025690450020192657,
+          "expanded_states": 4,
+          "attempted_candidates": 11,
+          "proof_length": 4
+        },
+        "automation": {
+          "runs": 2,
+          "verified": 2,
+          "terminations": [
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.571586258000025,
+          "lean_execution_s": 0.024837274500896456,
+          "initialization_s": 1.774874690501747,
+          "verification_s": 1.754853317997913,
+          "planning_s": 0.00040402249942417257,
+          "model_inference_s": 0,
+          "expanded_states": 1,
+          "attempted_candidates": 1,
+          "proof_length": 1
+        },
+        "applicability_only": {
+          "runs": 1,
+          "verified": 1,
+          "terminations": [
+            "verified"
+          ],
+          "elapsed_s": 3.7054930820013396,
+          "lean_execution_s": 0.009777341998415068,
+          "initialization_s": 1.7773240480019012,
+          "verification_s": 1.8822102759950212,
+          "planning_s": 0.0036341070008347742,
+          "model_inference_s": 0.00252004100184422,
+          "expanded_states": 4,
+          "attempted_candidates": 11,
+          "proof_length": 4
+        },
+        "old_features_outcome": {
+          "runs": 1,
+          "verified": 1,
+          "terminations": [
+            "verified"
+          ],
+          "elapsed_s": 4.025989754001785,
+          "lean_execution_s": 0.01625321999017615,
+          "initialization_s": 1.9164532659997349,
+          "verification_s": 2.055741644995578,
+          "planning_s": 0.004723446996649727,
+          "model_inference_s": 0.0031284470023820177,
+          "expanded_states": 4,
+          "attempted_candidates": 11,
+          "proof_length": 4
+        }
+      }
+    },
+    "p3_higher_nested": {
+      "family": "higher_order_routes",
+      "algorithms": {
+        "bfs": {
+          "runs": 2,
+          "verified": 2,
+          "terminations": [
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.701742300996557,
+          "lean_execution_s": 0.03752643399639055,
+          "initialization_s": 1.7400295229999756,
+          "verification_s": 1.8878881159980665,
+          "planning_s": 0.008538417005183874,
+          "model_inference_s": 0.005813010506244609,
+          "expanded_states": 8,
+          "attempted_candidates": 31,
+          "proof_length": 8
+        },
+        "best_first": {
+          "runs": 2,
+          "verified": 2,
+          "terminations": [
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.71460753700012,
+          "lean_execution_s": 0.0319952780046151,
+          "initialization_s": 1.8248049744979653,
+          "verification_s": 1.8241558084991993,
+          "planning_s": 0.006781111998861888,
+          "model_inference_s": 0.0045533670017903205,
+          "expanded_states": 8,
+          "attempted_candidates": 31,
+          "proof_length": 8
+        },
+        "learned": {
+          "runs": 2,
+          "verified": 2,
+          "terminations": [
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.650614457499614,
+          "lean_execution_s": 0.034750562994304346,
+          "initialization_s": 1.797742926497449,
+          "verification_s": 1.7829729994991794,
+          "planning_s": 0.009970122002414428,
+          "model_inference_s": 0.007288208485988434,
+          "expanded_states": 8,
+          "attempted_candidates": 31,
+          "proof_length": 8
+        },
+        "outcome": {
+          "runs": 2,
+          "verified": 2,
+          "terminations": [
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.4569770630005223,
+          "lean_execution_s": 0.03711513951566303,
+          "initialization_s": 1.6923154545002035,
+          "verification_s": 1.6991685160028283,
+          "planning_s": 0.009023977509059478,
+          "model_inference_s": 0.006808908994571539,
+          "expanded_states": 8,
+          "attempted_candidates": 31,
+          "proof_length": 8
+        },
+        "automation": {
+          "runs": 2,
+          "verified": 2,
+          "terminations": [
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.749211293998087,
+          "lean_execution_s": 0.026820037001016317,
+          "initialization_s": 1.7884338600015326,
+          "verification_s": 1.9146275160019286,
+          "planning_s": 0.0003398065018700436,
+          "model_inference_s": 0,
+          "expanded_states": 1,
+          "attempted_candidates": 1,
+          "proof_length": 1
+        },
+        "applicability_only": {
+          "runs": 1,
+          "verified": 1,
+          "terminations": [
+            "verified"
+          ],
+          "elapsed_s": 4.205493798996031,
+          "lean_execution_s": 0.04282408001017757,
+          "initialization_s": 1.9531925219998811,
+          "verification_s": 2.165393427996605,
+          "planning_s": 0.009474787009821739,
+          "model_inference_s": 0.006940221988770645,
+          "expanded_states": 8,
+          "attempted_candidates": 31,
+          "proof_length": 8
+        },
+        "old_features_outcome": {
+          "runs": 1,
+          "verified": 1,
+          "terminations": [
+            "verified"
+          ],
+          "elapsed_s": 4.11206649900123,
+          "lean_execution_s": 0.05045407798024826,
+          "initialization_s": 1.834950848002336,
+          "verification_s": 2.183920292001858,
+          "planning_s": 0.008738645999983419,
+          "model_inference_s": 0.006431910005630925,
+          "expanded_states": 8,
+          "attempted_candidates": 31,
+          "proof_length": 8
+        }
+      }
+    },
+    "p3_higher_pair": {
+      "family": "higher_order_routes",
+      "algorithms": {
+        "bfs": {
+          "runs": 2,
+          "verified": 2,
+          "terminations": [
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.910405858001468,
+          "lean_execution_s": 0.013884798001527088,
+          "initialization_s": 1.8887336484986008,
+          "verification_s": 1.9706131019993336,
+          "planning_s": 0.004083698004251346,
+          "model_inference_s": 0.0024430159937764984,
+          "expanded_states": 5,
+          "attempted_candidates": 14,
+          "proof_length": 5
+        },
+        "best_first": {
+          "runs": 2,
+          "verified": 2,
+          "terminations": [
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 4.035606656998425,
+          "lean_execution_s": 0.015294957993319258,
+          "initialization_s": 1.9386505279981066,
+          "verification_s": 2.0530101964977803,
+          "planning_s": 0.003738608498679241,
+          "model_inference_s": 0.002076147498883074,
+          "expanded_states": 5,
+          "attempted_candidates": 14,
+          "proof_length": 5
+        },
+        "learned": {
+          "runs": 2,
+          "verified": 2,
+          "terminations": [
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 4.0601768890010135,
+          "lean_execution_s": 0.015310906503145816,
+          "initialization_s": 1.8604521689994726,
+          "verification_s": 2.1462799984983576,
+          "planning_s": 0.0048222974910459016,
+          "model_inference_s": 0.003161835003993474,
+          "expanded_states": 5,
+          "attempted_candidates": 14,
+          "proof_length": 5
+        },
+        "outcome": {
+          "runs": 2,
+          "verified": 2,
+          "terminations": [
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.7279778529991745,
+          "lean_execution_s": 0.013259758485219209,
+          "initialization_s": 1.8934229020014754,
+          "verification_s": 1.79085826100345,
+          "planning_s": 0.00444131949916482,
+          "model_inference_s": 0.0029677884995180648,
+          "expanded_states": 5,
+          "attempted_candidates": 14,
+          "proof_length": 5
+        },
+        "automation": {
+          "runs": 2,
+          "verified": 2,
+          "terminations": [
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.731544432001101,
+          "lean_execution_s": 0.02817546050209785,
+          "initialization_s": 1.789962941002159,
+          "verification_s": 1.8808066564997716,
+          "planning_s": 0.000449250997917261,
+          "model_inference_s": 0,
+          "expanded_states": 1,
+          "attempted_candidates": 1,
+          "proof_length": 1
+        },
+        "applicability_only": {
+          "runs": 1,
+          "verified": 1,
+          "terminations": [
+            "verified"
+          ],
+          "elapsed_s": 3.913011181000911,
+          "lean_execution_s": 0.01572168899292592,
+          "initialization_s": 1.9050056019987096,
+          "verification_s": 1.9534221979993163,
+          "planning_s": 0.0045244759967317805,
+          "model_inference_s": 0.0031195839910651557,
+          "expanded_states": 5,
+          "attempted_candidates": 14,
+          "proof_length": 5
+        },
+        "old_features_outcome": {
+          "runs": 1,
+          "verified": 1,
+          "terminations": [
+            "verified"
+          ],
+          "elapsed_s": 4.019717367998965,
+          "lean_execution_s": 0.019247497992182616,
+          "initialization_s": 1.7857991519995267,
+          "verification_s": 2.1885692200012272,
+          "planning_s": 0.006320744992990512,
+          "model_inference_s": 0.0047004069929244,
+          "expanded_states": 5,
+          "attempted_candidates": 14,
+          "proof_length": 5
+        }
+      }
+    },
+    "p3_monoid_chain": {
+      "family": "noncommutative_rewrite_routes",
+      "algorithms": {
+        "bfs": {
+          "runs": 2,
+          "verified": 2,
+          "terminations": [
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 4.871620086501935,
+          "lean_execution_s": 0.5094448204872606,
+          "initialization_s": 2.181565982999018,
+          "verification_s": 2.1171487364990753,
+          "planning_s": 0.018897975998697802,
+          "model_inference_s": 0.015115679994778475,
+          "expanded_states": 7,
+          "attempted_candidates": 87,
+          "proof_length": 3
+        },
+        "best_first": {
+          "runs": 2,
+          "verified": 2,
+          "terminations": [
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 4.540732956498687,
+          "lean_execution_s": 0.30991169200569857,
+          "initialization_s": 2.2592045234996476,
+          "verification_s": 1.9305084144980356,
+          "planning_s": 0.01173742399623734,
+          "model_inference_s": 0.009033350503159454,
+          "expanded_states": 5,
+          "attempted_candidates": 59,
+          "proof_length": 3
+        },
+        "learned": {
+          "runs": 2,
+          "verified": 2,
+          "terminations": [
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 4.50878791300056,
+          "lean_execution_s": 0.3271604729889077,
+          "initialization_s": 2.0228388814975915,
+          "verification_s": 2.111960022000858,
+          "planning_s": 0.014266025995311793,
+          "model_inference_s": 0.011824140998214716,
+          "expanded_states": 5,
+          "attempted_candidates": 54,
+          "proof_length": 3
+        },
+        "outcome": {
+          "runs": 2,
+          "verified": 2,
+          "terminations": [
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 4.657318415498594,
+          "lean_execution_s": 0.2955035290251544,
+          "initialization_s": 2.092195426001126,
+          "verification_s": 2.232711538501462,
+          "planning_s": 0.016084234001027653,
+          "model_inference_s": 0.013350992507184856,
+          "expanded_states": 5,
+          "attempted_candidates": 59,
+          "proof_length": 3
+        },
+        "automation": {
+          "runs": 2,
+          "verified": 2,
+          "terminations": [
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 4.568500639001286,
+          "lean_execution_s": 0.028303862000029767,
+          "initialization_s": 2.1375975614973868,
+          "verification_s": 2.311992047503736,
+          "planning_s": 0.00042969149581040256,
+          "model_inference_s": 0,
+          "expanded_states": 1,
+          "attempted_candidates": 1,
+          "proof_length": 1
+        },
+        "applicability_only": {
+          "runs": 1,
+          "verified": 1,
+          "terminations": [
+            "verified"
+          ],
+          "elapsed_s": 4.65787955000269,
+          "lean_execution_s": 0.2883978459794889,
+          "initialization_s": 2.178216200998577,
+          "verification_s": 2.1505087469995487,
+          "planning_s": 0.01836010901024565,
+          "model_inference_s": 0.015657224990718532,
+          "expanded_states": 5,
+          "attempted_candidates": 54,
+          "proof_length": 3
+        },
+        "old_features_outcome": {
+          "runs": 1,
+          "verified": 1,
+          "terminations": [
+            "verified"
+          ],
+          "elapsed_s": 4.582545142999152,
+          "lean_execution_s": 0.28948530000343453,
+          "initialization_s": 2.095337564998772,
+          "verification_s": 2.116581613998278,
+          "planning_s": 0.012779518008755986,
+          "model_inference_s": 0.010271965998981614,
+          "expanded_states": 5,
+          "attempted_candidates": 59,
+          "proof_length": 3
+        }
+      }
+    },
+    "p3_monoid_distractor": {
+      "family": "noncommutative_rewrite_routes",
+      "algorithms": {
+        "bfs": {
+          "runs": 2,
+          "verified": 2,
+          "terminations": [
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.9619303670006047,
+          "lean_execution_s": 0.08879609951327438,
+          "initialization_s": 1.862915427002008,
+          "verification_s": 1.9707627390016569,
+          "planning_s": 0.005397510998591315,
+          "model_inference_s": 0.0044542214964167215,
+          "expanded_states": 2,
+          "attempted_candidates": 26,
+          "proof_length": 2
+        },
+        "best_first": {
+          "runs": 2,
+          "verified": 2,
+          "terminations": [
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.9383948080030677,
+          "lean_execution_s": 0.10967857900686795,
+          "initialization_s": 1.823860255000909,
+          "verification_s": 1.97212934900017,
+          "planning_s": 0.005752841003413778,
+          "model_inference_s": 0.004047009500936838,
+          "expanded_states": 2,
+          "attempted_candidates": 23,
+          "proof_length": 2
+        },
+        "learned": {
+          "runs": 2,
+          "verified": 2,
+          "terminations": [
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 4.192744665000646,
+          "lean_execution_s": 0.09881339099956676,
+          "initialization_s": 2.041803838004853,
+          "verification_s": 2.0088931050013343,
+          "planning_s": 0.007509769500757102,
+          "model_inference_s": 0.0061524980010290165,
+          "expanded_states": 2,
+          "attempted_candidates": 18,
+          "proof_length": 2
+        },
+        "outcome": {
+          "runs": 2,
+          "verified": 2,
+          "terminations": [
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 4.218501424995338,
+          "lean_execution_s": 0.16650723096609,
+          "initialization_s": 1.9556908765007393,
+          "verification_s": 2.053901938001218,
+          "planning_s": 0.011316015999909723,
+          "model_inference_s": 0.009963286498532398,
+          "expanded_states": 3,
+          "attempted_candidates": 39,
+          "proof_length": 2
+        },
+        "automation": {
+          "runs": 2,
+          "verified": 2,
+          "terminations": [
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 4.2273548414996185,
+          "lean_execution_s": 0.03192037050030194,
+          "initialization_s": 2.156373576999613,
+          "verification_s": 2.0198392674974457,
+          "planning_s": 0.0003582739991543349,
+          "model_inference_s": 0,
+          "expanded_states": 1,
+          "attempted_candidates": 1,
+          "proof_length": 1
+        },
+        "applicability_only": {
+          "runs": 1,
+          "verified": 1,
+          "terminations": [
+            "verified"
+          ],
+          "elapsed_s": 3.986101198999677,
+          "lean_execution_s": 0.16318002999469172,
+          "initialization_s": 1.8800280270006624,
+          "verification_s": 1.8929427369948826,
+          "planning_s": 0.014782753001782112,
+          "model_inference_s": 0.012917427018692251,
+          "expanded_states": 3,
+          "attempted_candidates": 33,
+          "proof_length": 2
+        },
+        "old_features_outcome": {
+          "runs": 1,
+          "verified": 1,
+          "terminations": [
+            "verified"
+          ],
+          "elapsed_s": 4.0392157419992145,
+          "lean_execution_s": 0.09847979000915075,
+          "initialization_s": 1.9639078289983445,
+          "verification_s": 1.936286112999369,
+          "planning_s": 0.006635154000832699,
+          "model_inference_s": 0.0055812389982747845,
+          "expanded_states": 2,
+          "attempted_candidates": 24,
+          "proof_length": 2
+        }
+      }
+    },
+    "p3_monoid_reverse": {
+      "family": "noncommutative_rewrite_routes",
+      "algorithms": {
+        "bfs": {
+          "runs": 2,
+          "verified": 0,
+          "terminations": [
+            "resource_limit:attempts",
+            "resource_limit:attempts"
+          ],
+          "elapsed_s": 4.556295468999451,
+          "lean_execution_s": 2.472349232491979,
+          "initialization_s": 1.9512509460000729,
+          "verification_s": 0,
+          "planning_s": 0.08215784500498557,
+          "model_inference_s": 0.06397165199814481,
+          "expanded_states": 39,
+          "attempted_candidates": 500,
+          "proof_length": 0
+        },
+        "best_first": {
+          "runs": 2,
+          "verified": 0,
+          "terminations": [
+            "resource_limit:attempts",
+            "resource_limit:attempts"
+          ],
+          "elapsed_s": 4.530926926003303,
+          "lean_execution_s": 2.4597136010306713,
+          "initialization_s": 1.941770137502317,
+          "verification_s": 0,
+          "planning_s": 0.08175146248322562,
+          "model_inference_s": 0.06428006149508292,
+          "expanded_states": 39,
+          "attempted_candidates": 500,
+          "proof_length": 0
+        },
+        "learned": {
+          "runs": 2,
+          "verified": 0,
+          "terminations": [
+            "resource_limit:attempts",
+            "resource_limit:attempts"
+          ],
+          "elapsed_s": 4.631408347497199,
+          "lean_execution_s": 2.5586552124914306,
+          "initialization_s": 1.9062473259982653,
+          "verification_s": 0,
+          "planning_s": 0.10762079248888767,
+          "model_inference_s": 0.08790032351316768,
+          "expanded_states": 39,
+          "attempted_candidates": 500,
+          "proof_length": 0
+        },
+        "outcome": {
+          "runs": 2,
+          "verified": 0,
+          "terminations": [
+            "resource_limit:attempts",
+            "resource_limit:attempts"
+          ],
+          "elapsed_s": 4.815403092499764,
+          "lean_execution_s": 2.710604467571102,
+          "initialization_s": 1.927617580498918,
+          "verification_s": 0,
+          "planning_s": 0.13038981548743322,
+          "model_inference_s": 0.10920318099670112,
+          "expanded_states": 39,
+          "attempted_candidates": 500,
+          "proof_length": 0
+        },
+        "automation": {
+          "runs": 2,
+          "verified": 2,
+          "terminations": [
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 4.127732321998337,
+          "lean_execution_s": 0.02904824199504219,
+          "initialization_s": 1.9492497870014631,
+          "verification_s": 2.100571962997492,
+          "planning_s": 0.0003435520047787577,
+          "model_inference_s": 0,
+          "expanded_states": 1,
+          "attempted_candidates": 1,
+          "proof_length": 1
+        },
+        "applicability_only": {
+          "runs": 1,
+          "verified": 0,
+          "terminations": [
+            "resource_limit:attempts"
+          ],
+          "elapsed_s": 5.210905886000546,
+          "lean_execution_s": 2.8872433399956208,
+          "initialization_s": 2.1505819000012707,
+          "verification_s": 0,
+          "planning_s": 0.1281416019774042,
+          "model_inference_s": 0.1086583719952614,
+          "expanded_states": 39,
+          "attempted_candidates": 500,
+          "proof_length": 0
+        },
+        "old_features_outcome": {
+          "runs": 1,
+          "verified": 0,
+          "terminations": [
+            "resource_limit:attempts"
+          ],
+          "elapsed_s": 5.157976422000502,
+          "lean_execution_s": 2.8749921080525382,
+          "initialization_s": 2.111232838993601,
+          "verification_s": 0,
+          "planning_s": 0.11624102100904565,
+          "model_inference_s": 0.09627017195452936,
+          "expanded_states": 39,
+          "attempted_candidates": 500,
+          "proof_length": 0
+        }
+      }
+    },
+    "p3_monoid_three": {
+      "family": "noncommutative_rewrite_routes",
+      "algorithms": {
+        "bfs": {
+          "runs": 2,
+          "verified": 0,
+          "terminations": [
+            "resource_limit:attempts",
+            "resource_limit:attempts"
+          ],
+          "elapsed_s": 4.115809253002226,
+          "lean_execution_s": 2.2275724465325766,
+          "initialization_s": 1.752802424998663,
+          "verification_s": 0,
+          "planning_s": 0.08661968246451579,
+          "model_inference_s": 0.07075053549488075,
+          "expanded_states": 34,
+          "attempted_candidates": 500,
+          "proof_length": 0
+        },
+        "best_first": {
+          "runs": 2,
+          "verified": 0,
+          "terminations": [
+            "resource_limit:attempts",
+            "resource_limit:attempts"
+          ],
+          "elapsed_s": 4.2048336590014515,
+          "lean_execution_s": 2.31724028300232,
+          "initialization_s": 1.7509502544999123,
+          "verification_s": 0,
+          "planning_s": 0.08859812351147411,
+          "model_inference_s": 0.07327261750833713,
+          "expanded_states": 34,
+          "attempted_candidates": 500,
+          "proof_length": 0
+        },
+        "learned": {
+          "runs": 2,
+          "verified": 0,
+          "terminations": [
+            "resource_limit:attempts",
+            "resource_limit:attempts"
+          ],
+          "elapsed_s": 4.809304590002284,
+          "lean_execution_s": 2.5915268570206536,
+          "initialization_s": 1.7484469785013061,
+          "verification_s": 0,
+          "planning_s": 0.10991140198893845,
+          "model_inference_s": 0.09398797298490535,
+          "expanded_states": 34,
+          "attempted_candidates": 500,
+          "proof_length": 0
+        },
+        "outcome": {
+          "runs": 2,
+          "verified": 0,
+          "terminations": [
+            "resource_limit:attempts",
+            "resource_limit:attempts"
+          ],
+          "elapsed_s": 4.8454173040008754,
+          "lean_execution_s": 2.9102250315518177,
+          "initialization_s": 1.7466077634999237,
+          "verification_s": 0,
+          "planning_s": 0.13221108399011428,
+          "model_inference_s": 0.11499279349300195,
+          "expanded_states": 34,
+          "attempted_candidates": 500,
+          "proof_length": 0
+        },
+        "automation": {
+          "runs": 2,
+          "verified": 2,
+          "terminations": [
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.876060835998942,
+          "lean_execution_s": 0.022775770499720238,
+          "initialization_s": 1.9323052689978795,
+          "verification_s": 1.895609022998542,
+          "planning_s": 0.0003820550009550061,
+          "model_inference_s": 0,
+          "expanded_states": 1,
+          "attempted_candidates": 1,
+          "proof_length": 1
+        },
+        "applicability_only": {
+          "runs": 1,
+          "verified": 0,
+          "terminations": [
+            "resource_limit:attempts"
+          ],
+          "elapsed_s": 4.652931627002545,
+          "lean_execution_s": 2.4736091169324936,
+          "initialization_s": 2.0061271180020412,
+          "verification_s": 0,
+          "planning_s": 0.12003829497552942,
+          "model_inference_s": 0.10426338198158192,
+          "expanded_states": 34,
+          "attempted_candidates": 500,
+          "proof_length": 0
+        },
+        "old_features_outcome": {
+          "runs": 1,
+          "verified": 0,
+          "terminations": [
+            "resource_limit:attempts"
+          ],
+          "elapsed_s": 4.455598631000612,
+          "lean_execution_s": 2.5456274359312374,
+          "initialization_s": 1.758673762997205,
+          "verification_s": 0,
+          "planning_s": 0.10909962699224707,
+          "model_inference_s": 0.09361586402519606,
+          "expanded_states": 34,
+          "attempted_candidates": 500,
+          "proof_length": 0
+        }
+      }
+    },
+    "p3_or_both_long": {
+      "family": "disjunctive_routes",
+      "algorithms": {
+        "bfs": {
+          "runs": 2,
+          "verified": 2,
+          "terminations": [
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.5931044124990876,
+          "lean_execution_s": 0.03733489151272806,
+          "initialization_s": 1.778020760997606,
+          "verification_s": 1.7353485365019878,
+          "planning_s": 0.008524325494363438,
+          "model_inference_s": 0.006263843999477103,
+          "expanded_states": 7,
+          "attempted_candidates": 40,
+          "proof_length": 4
+        },
+        "best_first": {
+          "runs": 2,
+          "verified": 2,
+          "terminations": [
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.618349517000752,
+          "lean_execution_s": 0.02495523549441714,
+          "initialization_s": 1.7895054425025592,
+          "verification_s": 1.7638509509961295,
+          "planning_s": 0.006055956502677873,
+          "model_inference_s": 0.004502468997088727,
+          "expanded_states": 5,
+          "attempted_candidates": 28,
+          "proof_length": 4
+        },
+        "learned": {
+          "runs": 2,
+          "verified": 2,
+          "terminations": [
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.5704927554979804,
+          "lean_execution_s": 0.026902092511591036,
+          "initialization_s": 1.8118161845013674,
+          "verification_s": 1.6735296499973629,
+          "planning_s": 0.008395129501877818,
+          "model_inference_s": 0.006652728505287087,
+          "expanded_states": 5,
+          "attempted_candidates": 28,
+          "proof_length": 4
+        },
+        "outcome": {
+          "runs": 2,
+          "verified": 2,
+          "terminations": [
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.6809814179978275,
+          "lean_execution_s": 0.029478708522219677,
+          "initialization_s": 1.8113296705050743,
+          "verification_s": 1.7791381620008906,
+          "planning_s": 0.008420291000220459,
+          "model_inference_s": 0.00680325950452243,
+          "expanded_states": 5,
+          "attempted_candidates": 28,
+          "proof_length": 4
+        },
+        "automation": {
+          "runs": 2,
+          "verified": 2,
+          "terminations": [
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.6773389435002173,
+          "lean_execution_s": 0.024521124996681465,
+          "initialization_s": 1.7681857919997128,
+          "verification_s": 1.8603109789983137,
+          "planning_s": 0.0003724349990079645,
+          "model_inference_s": 0,
+          "expanded_states": 1,
+          "attempted_candidates": 1,
+          "proof_length": 1
+        },
+        "applicability_only": {
+          "runs": 1,
+          "verified": 1,
+          "terminations": [
+            "verified"
+          ],
+          "elapsed_s": 3.744908763001149,
+          "lean_execution_s": 0.02432860700355377,
+          "initialization_s": 1.7115302790043643,
+          "verification_s": 1.9668523979999009,
+          "planning_s": 0.009150996993412264,
+          "model_inference_s": 0.007111800012353342,
+          "expanded_states": 5,
+          "attempted_candidates": 28,
+          "proof_length": 4
+        },
+        "old_features_outcome": {
+          "runs": 1,
+          "verified": 1,
+          "terminations": [
+            "verified"
+          ],
+          "elapsed_s": 3.574340430997836,
+          "lean_execution_s": 0.02344097498280462,
+          "initialization_s": 1.7399976209999295,
+          "verification_s": 1.7325222439976642,
+          "planning_s": 0.007323086996620987,
+          "model_inference_s": 0.005570599983911961,
+          "expanded_states": 5,
+          "attempted_candidates": 28,
+          "proof_length": 4
+        }
+      }
+    },
+    "p3_or_chain": {
+      "family": "disjunctive_routes",
+      "algorithms": {
+        "bfs": {
+          "runs": 2,
+          "verified": 2,
+          "terminations": [
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 4.000058582503698,
+          "lean_execution_s": 0.024472627013892634,
+          "initialization_s": 1.8900171415007208,
+          "verification_s": 2.050635592000617,
+          "planning_s": 0.0073352360050193965,
+          "model_inference_s": 0.005452753004647093,
+          "expanded_states": 5,
+          "attempted_candidates": 23,
+          "proof_length": 3
+        },
+        "best_first": {
+          "runs": 2,
+          "verified": 2,
+          "terminations": [
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.6768843950012524,
+          "lean_execution_s": 0.02074694998373161,
+          "initialization_s": 1.6912399784996524,
+          "verification_s": 1.9267893380019814,
+          "planning_s": 0.005168435498489998,
+          "model_inference_s": 0.003624753499025246,
+          "expanded_states": 5,
+          "attempted_candidates": 23,
+          "proof_length": 3
+        },
+        "learned": {
+          "runs": 2,
+          "verified": 2,
+          "terminations": [
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.494537864000449,
+          "lean_execution_s": 0.018627450983331073,
+          "initialization_s": 1.6512887995013443,
+          "verification_s": 1.7844629229985003,
+          "planning_s": 0.005445248494652333,
+          "model_inference_s": 0.004006502997071948,
+          "expanded_states": 4,
+          "attempted_candidates": 18,
+          "proof_length": 3
+        },
+        "outcome": {
+          "runs": 2,
+          "verified": 2,
+          "terminations": [
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.599591006503033,
+          "lean_execution_s": 0.013828343497152673,
+          "initialization_s": 1.7328283445021953,
+          "verification_s": 1.82851674849735,
+          "planning_s": 0.005463155004690634,
+          "model_inference_s": 0.0040425235019938555,
+          "expanded_states": 4,
+          "attempted_candidates": 18,
+          "proof_length": 3
+        },
+        "automation": {
+          "runs": 2,
+          "verified": 2,
+          "terminations": [
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.5801339315003133,
+          "lean_execution_s": 0.026325923499825876,
+          "initialization_s": 1.7314749030010717,
+          "verification_s": 1.7955845559990848,
+          "planning_s": 0.00037881999742239714,
+          "model_inference_s": 0,
+          "expanded_states": 1,
+          "attempted_candidates": 1,
+          "proof_length": 1
+        },
+        "applicability_only": {
+          "runs": 1,
+          "verified": 1,
+          "terminations": [
+            "verified"
+          ],
+          "elapsed_s": 3.328717267999309,
+          "lean_execution_s": 0.013443424002616666,
+          "initialization_s": 1.591763976997754,
+          "verification_s": 1.7022577349998755,
+          "planning_s": 0.004994854993128683,
+          "model_inference_s": 0.0038146990118548274,
+          "expanded_states": 4,
+          "attempted_candidates": 18,
+          "proof_length": 3
+        },
+        "old_features_outcome": {
+          "runs": 1,
+          "verified": 1,
+          "terminations": [
+            "verified"
+          ],
+          "elapsed_s": 3.5071982119989116,
+          "lean_execution_s": 0.015613046001817565,
+          "initialization_s": 1.8019235399988247,
+          "verification_s": 1.647296909999568,
+          "planning_s": 0.006774646004487295,
+          "model_inference_s": 0.005172915000002831,
+          "expanded_states": 4,
+          "attempted_candidates": 18,
+          "proof_length": 3
+        }
+      }
+    },
+    "p3_or_dead_branch": {
+      "family": "disjunctive_routes",
+      "algorithms": {
+        "bfs": {
+          "runs": 2,
+          "verified": 2,
+          "terminations": [
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.7650573319988325,
+          "lean_execution_s": 0.01783850650099339,
+          "initialization_s": 1.84342222000123,
+          "verification_s": 1.8638402529977611,
+          "planning_s": 0.005535359498026082,
+          "model_inference_s": 0.003176289494149387,
+          "expanded_states": 6,
+          "attempted_candidates": 23,
+          "proof_length": 5
+        },
+        "best_first": {
+          "runs": 2,
+          "verified": 2,
+          "terminations": [
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.80074021150358,
+          "lean_execution_s": 0.019521143000019947,
+          "initialization_s": 1.8642879740036733,
+          "verification_s": 1.8784725855002762,
+          "planning_s": 0.005742415993154282,
+          "model_inference_s": 0.0031011124956421554,
+          "expanded_states": 6,
+          "attempted_candidates": 23,
+          "proof_length": 5
+        },
+        "learned": {
+          "runs": 2,
+          "verified": 2,
+          "terminations": [
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.9600680974981515,
+          "lean_execution_s": 0.027219091996812494,
+          "initialization_s": 1.9360648165056773,
+          "verification_s": 1.9656958164960088,
+          "planning_s": 0.0063993139992817305,
+          "model_inference_s": 0.004389669997181045,
+          "expanded_states": 6,
+          "attempted_candidates": 23,
+          "proof_length": 5
+        },
+        "outcome": {
+          "runs": 2,
+          "verified": 2,
+          "terminations": [
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.7919465090017184,
+          "lean_execution_s": 0.020502641513303388,
+          "initialization_s": 1.835419193499547,
+          "verification_s": 1.8980856355010474,
+          "planning_s": 0.010155177998967702,
+          "model_inference_s": 0.008404124509979738,
+          "expanded_states": 6,
+          "attempted_candidates": 23,
+          "proof_length": 5
+        },
+        "automation": {
+          "runs": 2,
+          "verified": 2,
+          "terminations": [
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.891218143497099,
+          "lean_execution_s": 0.024653722997754812,
+          "initialization_s": 1.8578198545001214,
+          "verification_s": 1.9842810674999782,
+          "planning_s": 0.0003082739967794623,
+          "model_inference_s": 0,
+          "expanded_states": 1,
+          "attempted_candidates": 1,
+          "proof_length": 1
+        },
+        "applicability_only": {
+          "runs": 1,
+          "verified": 1,
+          "terminations": [
+            "verified"
+          ],
+          "elapsed_s": 3.5726269820006564,
+          "lean_execution_s": 0.015181695001956541,
+          "initialization_s": 1.7554481839979417,
+          "verification_s": 1.76302043999749,
+          "planning_s": 0.006162083984236233,
+          "model_inference_s": 0.004559471002721693,
+          "expanded_states": 6,
+          "attempted_candidates": 23,
+          "proof_length": 5
+        },
+        "old_features_outcome": {
+          "runs": 1,
+          "verified": 1,
+          "terminations": [
+            "verified"
+          ],
+          "elapsed_s": 3.4884223579938407,
+          "lean_execution_s": 0.017800292014726438,
+          "initialization_s": 1.7511632450041361,
+          "verification_s": 1.6946703790017636,
+          "planning_s": 0.005521977996977512,
+          "model_inference_s": 0.0038287920033326373,
+          "expanded_states": 6,
+          "attempted_candidates": 23,
+          "proof_length": 5
+        }
+      }
+    },
+    "p3_or_pair_routes": {
+      "family": "disjunctive_routes",
+      "algorithms": {
+        "bfs": {
+          "runs": 2,
+          "verified": 2,
+          "terminations": [
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.608820272998855,
+          "lean_execution_s": 0.027505263009516057,
+          "initialization_s": 1.7913392849986849,
+          "verification_s": 1.7333564329965157,
+          "planning_s": 0.007361946998571511,
+          "model_inference_s": 0.0047716289991512895,
+          "expanded_states": 9,
+          "attempted_candidates": 37,
+          "proof_length": 5
+        },
+        "best_first": {
+          "runs": 2,
+          "verified": 2,
+          "terminations": [
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.6108253835009236,
+          "lean_execution_s": 0.028943155495653627,
+          "initialization_s": 1.7851396475016372,
+          "verification_s": 1.7396213799984253,
+          "planning_s": 0.007054678502754541,
+          "model_inference_s": 0.004823883002245566,
+          "expanded_states": 7,
+          "attempted_candidates": 29,
+          "proof_length": 5
+        },
+        "learned": {
+          "runs": 2,
+          "verified": 2,
+          "terminations": [
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.4568389899977774,
+          "lean_execution_s": 0.020614188513718545,
+          "initialization_s": 1.765248427498591,
+          "verification_s": 1.630995420502586,
+          "planning_s": 0.007214775494503556,
+          "model_inference_s": 0.005032060005760286,
+          "expanded_states": 6,
+          "attempted_candidates": 25,
+          "proof_length": 5
+        },
+        "outcome": {
+          "runs": 2,
+          "verified": 2,
+          "terminations": [
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 4.271332449498004,
+          "lean_execution_s": 0.022750386498955777,
+          "initialization_s": 1.9751429890056897,
+          "verification_s": 1.7544980689999647,
+          "planning_s": 0.476123878503131,
+          "model_inference_s": 0.47411842949077254,
+          "expanded_states": 6,
+          "attempted_candidates": 25,
+          "proof_length": 5
+        },
+        "automation": {
+          "runs": 2,
+          "verified": 2,
+          "terminations": [
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.9671356234975974,
+          "lean_execution_s": 0.02339243649839773,
+          "initialization_s": 2.1896830674995726,
+          "verification_s": 1.7191809164978622,
+          "planning_s": 0.0004984795014024712,
+          "model_inference_s": 0,
+          "expanded_states": 1,
+          "attempted_candidates": 1,
+          "proof_length": 1
+        },
+        "applicability_only": {
+          "runs": 1,
+          "verified": 1,
+          "terminations": [
+            "verified"
+          ],
+          "elapsed_s": 3.5549128109996673,
+          "lean_execution_s": 0.021270849989377894,
+          "initialization_s": 1.6732785630010767,
+          "verification_s": 1.8197451410014764,
+          "planning_s": 0.006962655003007967,
+          "model_inference_s": 0.004840631008846685,
+          "expanded_states": 6,
+          "attempted_candidates": 25,
+          "proof_length": 5
+        },
+        "old_features_outcome": {
+          "runs": 1,
+          "verified": 1,
+          "terminations": [
+            "verified"
+          ],
+          "elapsed_s": 3.799588481000683,
+          "lean_execution_s": 0.01873833001445746,
+          "initialization_s": 2.0325312970016967,
+          "verification_s": 1.7099645959970076,
+          "planning_s": 0.005778655002359301,
+          "model_inference_s": 0.004108852983335964,
+          "expanded_states": 6,
+          "attempted_candidates": 25,
+          "proof_length": 5
+        }
+      }
+    },
+    "p3_order_cycle_product": {
+      "family": "ordered_route_products",
+      "algorithms": {
+        "bfs": {
+          "runs": 2,
+          "verified": 0,
+          "terminations": [
+            "resource_limit:expansions",
+            "resource_limit:expansions"
+          ],
+          "elapsed_s": 3.5025107194996963,
+          "lean_execution_s": 1.2909069099732733,
+          "initialization_s": 1.817831958502211,
+          "verification_s": 0,
+          "planning_s": 0.060654648466879735,
+          "model_inference_s": 0.03352606502085109,
+          "expanded_states": 70,
+          "attempted_candidates": 273,
+          "proof_length": 0
+        },
+        "best_first": {
+          "runs": 2,
+          "verified": 0,
+          "terminations": [
+            "resource_limit:expansions",
+            "resource_limit:expansions"
+          ],
+          "elapsed_s": 2.7049579084996367,
+          "lean_execution_s": 0.871913779523311,
+          "initialization_s": 1.7235325270012254,
+          "verification_s": 0,
+          "planning_s": 0.05250706549122697,
+          "model_inference_s": 0.0282875474949833,
+          "expanded_states": 70,
+          "attempted_candidates": 283,
+          "proof_length": 0
+        },
+        "learned": {
+          "runs": 2,
+          "verified": 0,
+          "terminations": [
+            "resource_limit:expansions",
+            "resource_limit:expansions"
+          ],
+          "elapsed_s": 2.7647927465004614,
+          "lean_execution_s": 0.9080471505549212,
+          "initialization_s": 1.7328579624991107,
+          "verification_s": 0,
+          "planning_s": 0.06656702447799034,
+          "model_inference_s": 0.04039528050998342,
+          "expanded_states": 70,
+          "attempted_candidates": 283,
+          "proof_length": 0
+        },
+        "outcome": {
+          "runs": 2,
+          "verified": 0,
+          "terminations": [
+            "resource_limit:expansions",
+            "resource_limit:expansions"
+          ],
+          "elapsed_s": 2.799148806996527,
+          "lean_execution_s": 0.9332528600643855,
+          "initialization_s": 1.7371432395011652,
+          "verification_s": 0,
+          "planning_s": 0.07130628850791254,
+          "model_inference_s": 0.0428984354948625,
+          "expanded_states": 70,
+          "attempted_candidates": 283,
+          "proof_length": 0
+        },
+        "automation": {
+          "runs": 2,
+          "verified": 0,
+          "terminations": [
+            "search_exhausted",
+            "search_exhausted"
+          ],
+          "elapsed_s": 1.8309265159987262,
+          "lean_execution_s": 0.05504187149563222,
+          "initialization_s": 1.7350264259985124,
+          "verification_s": 0,
+          "planning_s": 0.0003224755018891301,
+          "model_inference_s": 0,
+          "expanded_states": 1,
+          "attempted_candidates": 1,
+          "proof_length": 0
+        },
+        "applicability_only": {
+          "runs": 1,
+          "verified": 0,
+          "terminations": [
+            "resource_limit:expansions"
+          ],
+          "elapsed_s": 2.941031025002303,
+          "lean_execution_s": 0.9527346120594302,
+          "initialization_s": 1.8714024209984927,
+          "verification_s": 0,
+          "planning_s": 0.06932239602610935,
+          "model_inference_s": 0.0425603430121555,
+          "expanded_states": 70,
+          "attempted_candidates": 283,
+          "proof_length": 0
+        },
+        "old_features_outcome": {
+          "runs": 1,
+          "verified": 0,
+          "terminations": [
+            "resource_limit:expansions"
+          ],
+          "elapsed_s": 2.9092265639992547,
+          "lean_execution_s": 0.8493095509911655,
+          "initialization_s": 1.9584230629989179,
+          "verification_s": 0,
+          "planning_s": 0.05681936900509754,
+          "model_inference_s": 0.03369669098901795,
+          "expanded_states": 70,
+          "attempted_candidates": 283,
+          "proof_length": 0
+        }
+      }
+    },
+    "p3_order_guard": {
+      "family": "ordered_route_products",
+      "algorithms": {
+        "bfs": {
+          "runs": 2,
+          "verified": 0,
+          "terminations": [
+            "resource_limit:expansions",
+            "resource_limit:expansions"
+          ],
+          "elapsed_s": 3.7493346109986305,
+          "lean_execution_s": 1.738490993007872,
+          "initialization_s": 1.7699582745044609,
+          "verification_s": 0,
+          "planning_s": 0.05283032398074283,
+          "model_inference_s": 0.026923021523543866,
+          "expanded_states": 70,
+          "attempted_candidates": 254,
+          "proof_length": 0
+        },
+        "best_first": {
+          "runs": 2,
+          "verified": 2,
+          "terminations": [
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.9437403199990513,
+          "lean_execution_s": 0.3379173714965873,
+          "initialization_s": 1.6823777114987024,
+          "verification_s": 1.8752143810015696,
+          "planning_s": 0.017250207496545045,
+          "model_inference_s": 0.008985904001747258,
+          "expanded_states": 24,
+          "attempted_candidates": 87,
+          "proof_length": 7
+        },
+        "learned": {
+          "runs": 2,
+          "verified": 2,
+          "terminations": [
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 4.077443555495847,
+          "lean_execution_s": 0.5238503090367885,
+          "initialization_s": 1.716893593002169,
+          "verification_s": 1.7662623255018843,
+          "planning_s": 0.03016248897256446,
+          "model_inference_s": 0.017128384508396266,
+          "expanded_states": 36,
+          "attempted_candidates": 133,
+          "proof_length": 7
+        },
+        "outcome": {
+          "runs": 2,
+          "verified": 2,
+          "terminations": [
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 4.068046023501665,
+          "lean_execution_s": 0.4076433850132162,
+          "initialization_s": 1.7476514325026073,
+          "verification_s": 1.837183676998393,
+          "planning_s": 0.02650508497390547,
+          "model_inference_s": 0.01598168300552061,
+          "expanded_states": 30,
+          "attempted_candidates": 109,
+          "proof_length": 7
+        },
+        "automation": {
+          "runs": 2,
+          "verified": 0,
+          "terminations": [
+            "search_exhausted",
+            "search_exhausted"
+          ],
+          "elapsed_s": 1.8685290060020634,
+          "lean_execution_s": 0.03473947799648158,
+          "initialization_s": 1.7937220054955105,
+          "verification_s": 0,
+          "planning_s": 0.00029537400041590445,
+          "model_inference_s": 0,
+          "expanded_states": 1,
+          "attempted_candidates": 1,
+          "proof_length": 0
+        },
+        "applicability_only": {
+          "runs": 1,
+          "verified": 1,
+          "terminations": [
+            "verified"
+          ],
+          "elapsed_s": 4.901508463997743,
+          "lean_execution_s": 0.5297419530397747,
+          "initialization_s": 2.137942061999638,
+          "verification_s": 2.1500341329956427,
+          "planning_s": 0.03544031299679773,
+          "model_inference_s": 0.02049345101113431,
+          "expanded_states": 36,
+          "attempted_candidates": 131,
+          "proof_length": 7
+        },
+        "old_features_outcome": {
+          "runs": 1,
+          "verified": 1,
+          "terminations": [
+            "verified"
+          ],
+          "elapsed_s": 4.236422695001238,
+          "lean_execution_s": 0.41053170395753114,
+          "initialization_s": 1.8759746170035214,
+          "verification_s": 1.8874907770004938,
+          "planning_s": 0.030462184993666597,
+          "model_inference_s": 0.01881248696736293,
+          "expanded_states": 30,
+          "attempted_candidates": 109,
+          "proof_length": 7
+        }
+      }
+    },
+    "p3_order_routes": {
+      "family": "ordered_route_products",
+      "algorithms": {
+        "bfs": {
+          "runs": 2,
+          "verified": 0,
+          "terminations": [
+            "resource_limit:expansions",
+            "resource_limit:expansions"
+          ],
+          "elapsed_s": 3.7858596719997877,
+          "lean_execution_s": 1.6754486654790526,
+          "initialization_s": 1.864787835002062,
+          "verification_s": 0,
+          "planning_s": 0.050175578511698404,
+          "model_inference_s": 0.0253268525157182,
+          "expanded_states": 70,
+          "attempted_candidates": 211,
+          "proof_length": 0
+        },
+        "best_first": {
+          "runs": 2,
+          "verified": 0,
+          "terminations": [
+            "resource_limit:expansions",
+            "resource_limit:expansions"
+          ],
+          "elapsed_s": 3.2705941075000737,
+          "lean_execution_s": 0.7838446615060093,
+          "initialization_s": 1.8419299134984612,
+          "verification_s": 0,
+          "planning_s": 0.04774965750038973,
+          "model_inference_s": 0.02456379349314375,
+          "expanded_states": 70,
+          "attempted_candidates": 211,
+          "proof_length": 0
+        },
+        "learned": {
+          "runs": 2,
+          "verified": 0,
+          "terminations": [
+            "resource_limit:expansions",
+            "resource_limit:expansions"
+          ],
+          "elapsed_s": 2.7018972160039993,
+          "lean_execution_s": 0.7061971705334145,
+          "initialization_s": 1.906087146500795,
+          "verification_s": 0,
+          "planning_s": 0.05123851848838967,
+          "model_inference_s": 0.02903227799470187,
+          "expanded_states": 70,
+          "attempted_candidates": 211,
+          "proof_length": 0
+        },
+        "outcome": {
+          "runs": 2,
+          "verified": 0,
+          "terminations": [
+            "resource_limit:expansions",
+            "resource_limit:expansions"
+          ],
+          "elapsed_s": 2.5972783525030536,
+          "lean_execution_s": 0.7357075819963939,
+          "initialization_s": 1.754887694500212,
+          "verification_s": 0,
+          "planning_s": 0.05901185600669123,
+          "model_inference_s": 0.03608048848400358,
+          "expanded_states": 70,
+          "attempted_candidates": 211,
+          "proof_length": 0
+        },
+        "automation": {
+          "runs": 2,
+          "verified": 0,
+          "terminations": [
+            "search_exhausted",
+            "search_exhausted"
+          ],
+          "elapsed_s": 1.9042895575003058,
+          "lean_execution_s": 0.06577404500058037,
+          "initialization_s": 1.8222434509989398,
+          "verification_s": 0,
+          "planning_s": 0.0004394110001157969,
+          "model_inference_s": 0,
+          "expanded_states": 1,
+          "attempted_candidates": 1,
+          "proof_length": 0
+        },
+        "applicability_only": {
+          "runs": 1,
+          "verified": 0,
+          "terminations": [
+            "resource_limit:expansions"
+          ],
+          "elapsed_s": 2.9188307400036138,
+          "lean_execution_s": 0.7353542729761102,
+          "initialization_s": 1.7690080330066849,
+          "verification_s": 0,
+          "planning_s": 0.05210807800904149,
+          "model_inference_s": 0.0308311570333899,
+          "expanded_states": 70,
+          "attempted_candidates": 211,
+          "proof_length": 0
+        },
+        "old_features_outcome": {
+          "runs": 1,
+          "verified": 0,
+          "terminations": [
+            "resource_limit:expansions"
+          ],
+          "elapsed_s": 2.8908271929976763,
+          "lean_execution_s": 1.0209704680310097,
+          "initialization_s": 1.7665724289981881,
+          "verification_s": 0,
+          "planning_s": 0.049593716001254506,
+          "model_inference_s": 0.028148801015049685,
+          "expanded_states": 70,
+          "attempted_candidates": 211,
+          "proof_length": 0
+        }
+      }
+    },
+    "p3_order_square": {
+      "family": "ordered_route_products",
+      "algorithms": {
+        "bfs": {
+          "runs": 2,
+          "verified": 0,
+          "terminations": [
+            "resource_limit:expansions",
+            "resource_limit:expansions"
+          ],
+          "elapsed_s": 3.1080096545010747,
+          "lean_execution_s": 1.2598186590294063,
+          "initialization_s": 1.7064690019979025,
+          "verification_s": 0,
+          "planning_s": 0.05650758247793419,
+          "model_inference_s": 0.02975638201678521,
+          "expanded_states": 70,
+          "attempted_candidates": 281,
+          "proof_length": 0
+        },
+        "best_first": {
+          "runs": 2,
+          "verified": 0,
+          "terminations": [
+            "resource_limit:expansions",
+            "resource_limit:expansions"
+          ],
+          "elapsed_s": 2.8368231224994815,
+          "lean_execution_s": 0.877626032459375,
+          "initialization_s": 1.7734732304998033,
+          "verification_s": 0,
+          "planning_s": 0.054250019038590835,
+          "model_inference_s": 0.029375062018516473,
+          "expanded_states": 70,
+          "attempted_candidates": 285,
+          "proof_length": 0
+        },
+        "learned": {
+          "runs": 2,
+          "verified": 0,
+          "terminations": [
+            "resource_limit:expansions",
+            "resource_limit:expansions"
+          ],
+          "elapsed_s": 2.732111815003009,
+          "lean_execution_s": 0.8306006445345702,
+          "initialization_s": 1.7800535914975626,
+          "verification_s": 0,
+          "planning_s": 0.061302975514990976,
+          "model_inference_s": 0.0367847535344481,
+          "expanded_states": 70,
+          "attempted_candidates": 285,
+          "proof_length": 0
+        },
+        "outcome": {
+          "runs": 2,
+          "verified": 0,
+          "terminations": [
+            "resource_limit:expansions",
+            "resource_limit:expansions"
+          ],
+          "elapsed_s": 2.759413007999683,
+          "lean_execution_s": 0.877730477033765,
+          "initialization_s": 1.6732065354990482,
+          "verification_s": 0,
+          "planning_s": 0.06319810748027521,
+          "model_inference_s": 0.03960750249461853,
+          "expanded_states": 70,
+          "attempted_candidates": 285,
+          "proof_length": 0
+        },
+        "automation": {
+          "runs": 2,
+          "verified": 0,
+          "terminations": [
+            "search_exhausted",
+            "search_exhausted"
+          ],
+          "elapsed_s": 1.7685291525012872,
+          "lean_execution_s": 0.049554871999134775,
+          "initialization_s": 1.7019095759969787,
+          "verification_s": 0,
+          "planning_s": 0.0003493710028124042,
+          "model_inference_s": 0,
+          "expanded_states": 1,
+          "attempted_candidates": 1,
+          "proof_length": 0
+        },
+        "applicability_only": {
+          "runs": 1,
+          "verified": 0,
+          "terminations": [
+            "resource_limit:expansions"
+          ],
+          "elapsed_s": 2.8297710940023535,
+          "lean_execution_s": 0.8984181639825692,
+          "initialization_s": 1.8073628089987324,
+          "verification_s": 0,
+          "planning_s": 0.07026745696202852,
+          "model_inference_s": 0.043411705031758174,
+          "expanded_states": 70,
+          "attempted_candidates": 285,
+          "proof_length": 0
+        },
+        "old_features_outcome": {
+          "runs": 1,
+          "verified": 0,
+          "terminations": [
+            "resource_limit:expansions"
+          ],
+          "elapsed_s": 3.003682608999952,
+          "lean_execution_s": 0.845507400954375,
+          "initialization_s": 1.9133117950041196,
+          "verification_s": 0,
+          "planning_s": 0.06476558696886059,
+          "model_inference_s": 0.038963094921200536,
+          "expanded_states": 70,
+          "attempted_candidates": 285,
+          "proof_length": 0
+        }
+      }
+    },
+    "p3_relation_fork": {
+      "family": "relational_diamonds",
+      "algorithms": {
+        "bfs": {
+          "runs": 2,
+          "verified": 2,
+          "terminations": [
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.981793810500676,
+          "lean_execution_s": 0.014758023506146856,
+          "initialization_s": 1.9551855890022125,
+          "verification_s": 1.9892393074987922,
+          "planning_s": 0.0041470745018159505,
+          "model_inference_s": 0.0031626384989067446,
+          "expanded_states": 3,
+          "attempted_candidates": 5,
+          "proof_length": 3
+        },
+        "best_first": {
+          "runs": 2,
+          "verified": 2,
+          "terminations": [
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.8740411210055754,
+          "lean_execution_s": 0.01423233249806799,
+          "initialization_s": 1.924178891997144,
+          "verification_s": 1.9067105925023498,
+          "planning_s": 0.0021610414987662807,
+          "model_inference_s": 0.001294732493988704,
+          "expanded_states": 3,
+          "attempted_candidates": 5,
+          "proof_length": 3
+        },
+        "learned": {
+          "runs": 2,
+          "verified": 2,
+          "terminations": [
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 4.024816500495945,
+          "lean_execution_s": 0.01610526500007836,
+          "initialization_s": 2.060138183496747,
+          "verification_s": 1.9208228020033857,
+          "planning_s": 0.0029779960023006424,
+          "model_inference_s": 0.0017994660047406796,
+          "expanded_states": 3,
+          "attempted_candidates": 5,
+          "proof_length": 3
+        },
+        "outcome": {
+          "runs": 2,
+          "verified": 2,
+          "terminations": [
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.8240066035032214,
+          "lean_execution_s": 0.01375087300039013,
+          "initialization_s": 1.9277369494993764,
+          "verification_s": 1.8621966095015523,
+          "planning_s": 0.003953027495299466,
+          "model_inference_s": 0.002156935504899593,
+          "expanded_states": 3,
+          "attempted_candidates": 5,
+          "proof_length": 3
+        },
+        "automation": {
+          "runs": 2,
+          "verified": 2,
+          "terminations": [
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 4.1429177104982955,
+          "lean_execution_s": 0.19945723499768064,
+          "initialization_s": 1.900426211002923,
+          "verification_s": 2.0183694879997347,
+          "planning_s": 0.000606707497354364,
+          "model_inference_s": 0,
+          "expanded_states": 1,
+          "attempted_candidates": 1,
+          "proof_length": 1
+        },
+        "applicability_only": {
+          "runs": 1,
+          "verified": 1,
+          "terminations": [
+            "verified"
+          ],
+          "elapsed_s": 3.7268864500001655,
+          "lean_execution_s": 0.014090551005210727,
+          "initialization_s": 1.7955197620030958,
+          "verification_s": 1.882119852998585,
+          "planning_s": 0.0028012940019834787,
+          "model_inference_s": 0.0018091530073434114,
+          "expanded_states": 3,
+          "attempted_candidates": 5,
+          "proof_length": 3
+        },
+        "old_features_outcome": {
+          "runs": 1,
+          "verified": 1,
+          "terminations": [
+            "verified"
+          ],
+          "elapsed_s": 3.499695361002523,
+          "lean_execution_s": 0.01647892400069395,
+          "initialization_s": 1.7312966190002044,
+          "verification_s": 1.7332684159991913,
+          "planning_s": 0.002298667997820303,
+          "model_inference_s": 0.0014341080095618963,
+          "expanded_states": 3,
+          "attempted_candidates": 5,
+          "proof_length": 3
+        }
+      }
+    },
+    "p3_relation_pair": {
+      "family": "relational_diamonds",
+      "algorithms": {
+        "bfs": {
+          "runs": 2,
+          "verified": 2,
+          "terminations": [
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 4.3111442330009595,
+          "lean_execution_s": 0.5969264294835739,
+          "initialization_s": 1.908377682997525,
+          "verification_s": 1.7280290785020043,
+          "planning_s": 0.03718161498181871,
+          "model_inference_s": 0.020223490999342175,
+          "expanded_states": 52,
+          "attempted_candidates": 104,
+          "proof_length": 9
+        },
+        "best_first": {
+          "runs": 2,
+          "verified": 2,
+          "terminations": [
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.5547647074963606,
+          "lean_execution_s": 0.06899235548553406,
+          "initialization_s": 1.7187323280013516,
+          "verification_s": 1.7320465110024088,
+          "planning_s": 0.006846192500233883,
+          "model_inference_s": 0.0038870360040164087,
+          "expanded_states": 9,
+          "attempted_candidates": 18,
+          "proof_length": 9
+        },
+        "learned": {
+          "runs": 2,
+          "verified": 2,
+          "terminations": [
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.7382034540023596,
+          "lean_execution_s": 0.05056616750516696,
+          "initialization_s": 1.7579550154987373,
+          "verification_s": 1.8842839680000907,
+          "planning_s": 0.007905633498012321,
+          "model_inference_s": 0.004699550499935867,
+          "expanded_states": 9,
+          "attempted_candidates": 18,
+          "proof_length": 9
+        },
+        "outcome": {
+          "runs": 2,
+          "verified": 2,
+          "terminations": [
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.734945673000766,
+          "lean_execution_s": 0.049793081991083454,
+          "initialization_s": 1.83245346300464,
+          "verification_s": 1.8181917454967333,
+          "planning_s": 0.008740044988371665,
+          "model_inference_s": 0.00577942599193193,
+          "expanded_states": 9,
+          "attempted_candidates": 18,
+          "proof_length": 9
+        },
+        "automation": {
+          "runs": 2,
+          "verified": 2,
+          "terminations": [
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 4.915919050996308,
+          "lean_execution_s": 0.5790117115029716,
+          "initialization_s": 1.7859402370013413,
+          "verification_s": 2.531250619002094,
+          "planning_s": 0.00033372700272593647,
+          "model_inference_s": 0,
+          "expanded_states": 1,
+          "attempted_candidates": 1,
+          "proof_length": 1
+        },
+        "applicability_only": {
+          "runs": 1,
+          "verified": 1,
+          "terminations": [
+            "verified"
+          ],
+          "elapsed_s": 3.783340492998832,
+          "lean_execution_s": 0.06623520400171401,
+          "initialization_s": 1.8049025959990104,
+          "verification_s": 1.8670686969999224,
+          "planning_s": 0.010025012008554768,
+          "model_inference_s": 0.006236774010176305,
+          "expanded_states": 9,
+          "attempted_candidates": 18,
+          "proof_length": 9
+        },
+        "old_features_outcome": {
+          "runs": 1,
+          "verified": 1,
+          "terminations": [
+            "verified"
+          ],
+          "elapsed_s": 3.8322826310031815,
+          "lean_execution_s": 0.06692816400027368,
+          "initialization_s": 1.9189437359964359,
+          "verification_s": 1.8147366030025296,
+          "planning_s": 0.00992532999953255,
+          "model_inference_s": 0.00507118999667,
+          "expanded_states": 9,
+          "attempted_candidates": 18,
+          "proof_length": 9
+        }
+      }
+    },
+    "p3_relation_reverse": {
+      "family": "relational_diamonds",
+      "algorithms": {
+        "bfs": {
+          "runs": 2,
+          "verified": 2,
+          "terminations": [
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.948226946500654,
+          "lean_execution_s": 0.09167754849841003,
+          "initialization_s": 1.9576807869998447,
+          "verification_s": 1.8524503834960342,
+          "planning_s": 0.010337329000321915,
+          "model_inference_s": 0.007056905993522378,
+          "expanded_states": 10,
+          "attempted_candidates": 28,
+          "proof_length": 4
+        },
+        "best_first": {
+          "runs": 2,
+          "verified": 2,
+          "terminations": [
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.834444217500277,
+          "lean_execution_s": 0.09200133248305065,
+          "initialization_s": 1.843739217503753,
+          "verification_s": 1.862523522500851,
+          "planning_s": 0.012370446500426624,
+          "model_inference_s": 0.007931188003567513,
+          "expanded_states": 14,
+          "attempted_candidates": 40,
+          "proof_length": 5
+        },
+        "learned": {
+          "runs": 2,
+          "verified": 2,
+          "terminations": [
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.7465222320024623,
+          "lean_execution_s": 0.09589791901089484,
+          "initialization_s": 1.7854975490008655,
+          "verification_s": 1.8126797575023375,
+          "planning_s": 0.015667026498704217,
+          "model_inference_s": 0.011256902012974024,
+          "expanded_states": 14,
+          "attempted_candidates": 40,
+          "proof_length": 5
+        },
+        "outcome": {
+          "runs": 2,
+          "verified": 2,
+          "terminations": [
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.9014972305012634,
+          "lean_execution_s": 0.1048986309870088,
+          "initialization_s": 1.886257278998528,
+          "verification_s": 1.8391641135021928,
+          "planning_s": 0.018994312988070305,
+          "model_inference_s": 0.014428411494009197,
+          "expanded_states": 14,
+          "attempted_candidates": 40,
+          "proof_length": 5
+        },
+        "automation": {
+          "runs": 2,
+          "verified": 2,
+          "terminations": [
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 4.871928735003166,
+          "lean_execution_s": 0.5502823485003319,
+          "initialization_s": 1.8807599619976827,
+          "verification_s": 2.4241653315002623,
+          "planning_s": 0.0003529460009303875,
+          "model_inference_s": 0,
+          "expanded_states": 1,
+          "attempted_candidates": 1,
+          "proof_length": 1
+        },
+        "applicability_only": {
+          "runs": 1,
+          "verified": 1,
+          "terminations": [
+            "verified"
+          ],
+          "elapsed_s": 3.789335845001915,
+          "lean_execution_s": 0.11149319401738467,
+          "initialization_s": 1.8688731619986356,
+          "verification_s": 1.7581854710006155,
+          "planning_s": 0.015765009993629064,
+          "model_inference_s": 0.011440704991400708,
+          "expanded_states": 14,
+          "attempted_candidates": 40,
+          "proof_length": 5
+        },
+        "old_features_outcome": {
+          "runs": 1,
+          "verified": 1,
+          "terminations": [
+            "verified"
+          ],
+          "elapsed_s": 4.097411179995106,
+          "lean_execution_s": 0.0963204180370667,
+          "initialization_s": 1.852522613000474,
+          "verification_s": 2.0649827949964674,
+          "planning_s": 0.013914365001255646,
+          "model_inference_s": 0.00984856698778458,
+          "expanded_states": 14,
+          "attempted_candidates": 40,
+          "proof_length": 5
+        }
+      }
+    },
+    "p3_relation_shortcut": {
+      "family": "relational_diamonds",
+      "algorithms": {
+        "bfs": {
+          "runs": 2,
+          "verified": 2,
+          "terminations": [
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.9367160764995788,
+          "lean_execution_s": 0.01247640650399262,
+          "initialization_s": 1.9722747675041319,
+          "verification_s": 1.9313110555012827,
+          "planning_s": 0.0024302609963342547,
+          "model_inference_s": 0.0014393254969036207,
+          "expanded_states": 3,
+          "attempted_candidates": 5,
+          "proof_length": 3
+        },
+        "best_first": {
+          "runs": 2,
+          "verified": 2,
+          "terminations": [
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 4.165890373998991,
+          "lean_execution_s": 0.01611225650049164,
+          "initialization_s": 2.0424235745012993,
+          "verification_s": 2.071801948499342,
+          "planning_s": 0.002155208003387088,
+          "model_inference_s": 0.0011787550029112026,
+          "expanded_states": 3,
+          "attempted_candidates": 5,
+          "proof_length": 3
+        },
+        "learned": {
+          "runs": 2,
+          "verified": 2,
+          "terminations": [
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 4.1340153835044475,
+          "lean_execution_s": 0.01846676650166046,
+          "initialization_s": 2.0334933289996115,
+          "verification_s": 2.0426964395010145,
+          "planning_s": 0.003260592002334306,
+          "model_inference_s": 0.0022326700018311385,
+          "expanded_states": 3,
+          "attempted_candidates": 5,
+          "proof_length": 3
+        },
+        "outcome": {
+          "runs": 2,
+          "verified": 2,
+          "terminations": [
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 4.356505717496475,
+          "lean_execution_s": 0.014279897000960773,
+          "initialization_s": 2.169032502002665,
+          "verification_s": 2.1447164685014286,
+          "planning_s": 0.0028437684959499165,
+          "model_inference_s": 0.0019267995085101575,
+          "expanded_states": 3,
+          "attempted_candidates": 5,
+          "proof_length": 3
+        },
+        "automation": {
+          "runs": 2,
+          "verified": 2,
+          "terminations": [
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 4.333365407499514,
+          "lean_execution_s": 0.1512643924979784,
+          "initialization_s": 2.0026552870003798,
+          "verification_s": 2.1470009885015315,
+          "planning_s": 0.00034841400338336825,
+          "model_inference_s": 0,
+          "expanded_states": 1,
+          "attempted_candidates": 1,
+          "proof_length": 1
+        },
+        "applicability_only": {
+          "runs": 1,
+          "verified": 1,
+          "terminations": [
+            "verified"
+          ],
+          "elapsed_s": 4.296774969996477,
+          "lean_execution_s": 0.015105459999176674,
+          "initialization_s": 2.0569416639991687,
+          "verification_s": 2.1829506670037517,
+          "planning_s": 0.0030180819958331995,
+          "model_inference_s": 0.0018643139919731766,
+          "expanded_states": 3,
+          "attempted_candidates": 5,
+          "proof_length": 3
+        },
+        "old_features_outcome": {
+          "runs": 1,
+          "verified": 1,
+          "terminations": [
+            "verified"
+          ],
+          "elapsed_s": 4.1607241610036,
+          "lean_execution_s": 0.015049560999614187,
+          "initialization_s": 2.041538382996805,
+          "verification_s": 2.0679595659967163,
+          "planning_s": 0.0027962169915554114,
+          "model_inference_s": 0.0016938870030571707,
+          "expanded_states": 3,
+          "attempted_candidates": 5,
+          "proof_length": 3
+        }
+      }
+    },
+    "p3_ring_chain": {
+      "family": "contextual_polynomial_routes",
+      "algorithms": {
+        "bfs": {
+          "runs": 2,
+          "verified": 2,
+          "terminations": [
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 6.438184495000314,
+          "lean_execution_s": 1.9693250254931627,
+          "initialization_s": 2.194255506998161,
+          "verification_s": 2.185359603503457,
+          "planning_s": 0.03368131699608057,
+          "model_inference_s": 0.022161476004839642,
+          "expanded_states": 8,
+          "attempted_candidates": 116,
+          "proof_length": 3
+        },
+        "best_first": {
+          "runs": 2,
+          "verified": 2,
+          "terminations": [
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 5.04833440549919,
+          "lean_execution_s": 1.090711670996825,
+          "initialization_s": 1.9045864535000874,
+          "verification_s": 2.002976277995913,
+          "planning_s": 0.01258182149467757,
+          "model_inference_s": 0.01035309749568114,
+          "expanded_states": 5,
+          "attempted_candidates": 75,
+          "proof_length": 3
+        },
+        "learned": {
+          "runs": 2,
+          "verified": 2,
+          "terminations": [
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 5.018247627500386,
+          "lean_execution_s": 1.0137253285065526,
+          "initialization_s": 1.8600639869982842,
+          "verification_s": 2.1063800109986914,
+          "planning_s": 0.014396622998901876,
+          "model_inference_s": 0.012181484995380742,
+          "expanded_states": 5,
+          "attempted_candidates": 72,
+          "proof_length": 3
+        },
+        "outcome": {
+          "runs": 2,
+          "verified": 2,
+          "terminations": [
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 4.946605911500228,
+          "lean_execution_s": 0.9821547760075191,
+          "initialization_s": 1.864298222499201,
+          "verification_s": 2.0451238050009124,
+          "planning_s": 0.01807728049607249,
+          "model_inference_s": 0.015631323989509838,
+          "expanded_states": 5,
+          "attempted_candidates": 66,
+          "proof_length": 3
+        },
+        "automation": {
+          "runs": 2,
+          "verified": 0,
+          "terminations": [
+            "search_exhausted",
+            "search_exhausted"
+          ],
+          "elapsed_s": 2.0569834080015426,
+          "lean_execution_s": 0.04555099299977883,
+          "initialization_s": 1.9754283589973056,
+          "verification_s": 0,
+          "planning_s": 0.0008670489987707697,
+          "model_inference_s": 0,
+          "expanded_states": 1,
+          "attempted_candidates": 1,
+          "proof_length": 0
+        },
+        "applicability_only": {
+          "runs": 1,
+          "verified": 1,
+          "terminations": [
+            "verified"
+          ],
+          "elapsed_s": 4.8480075810002745,
+          "lean_execution_s": 1.0112791970168473,
+          "initialization_s": 1.9514202289938112,
+          "verification_s": 1.8276040830023703,
+          "planning_s": 0.0199308130031568,
+          "model_inference_s": 0.01755674900050508,
+          "expanded_states": 5,
+          "attempted_candidates": 72,
+          "proof_length": 3
+        },
+        "old_features_outcome": {
+          "runs": 1,
+          "verified": 1,
+          "terminations": [
+            "verified"
+          ],
+          "elapsed_s": 5.611709072996746,
+          "lean_execution_s": 1.0832954709912883,
+          "initialization_s": 2.391899929003557,
+          "verification_s": 2.081576500997471,
+          "planning_s": 0.017450455008656718,
+          "model_inference_s": 0.01431892899563536,
+          "expanded_states": 5,
+          "attempted_candidates": 65,
+          "proof_length": 3
+        }
+      }
+    },
+    "p3_ring_product_pair": {
+      "family": "contextual_polynomial_routes",
+      "algorithms": {
+        "bfs": {
+          "runs": 2,
+          "verified": 2,
+          "terminations": [
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 9.97467577700445,
+          "lean_execution_s": 5.936142203405325,
+          "initialization_s": 1.9372641264963022,
+          "verification_s": 1.9468004549999023,
+          "planning_s": 0.08273747047496727,
+          "model_inference_s": 0.06316977049209527,
+          "expanded_states": 39,
+          "attempted_candidates": 483,
+          "proof_length": 4
+        },
+        "best_first": {
+          "runs": 2,
+          "verified": 2,
+          "terminations": [
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 5.7841755765002745,
+          "lean_execution_s": 1.598222233053093,
+          "initialization_s": 2.003302678000182,
+          "verification_s": 2.097437420499773,
+          "planning_s": 0.0476425179913349,
+          "model_inference_s": 0.037648057979822624,
+          "expanded_states": 22,
+          "attempted_candidates": 286,
+          "proof_length": 4
+        },
+        "learned": {
+          "runs": 2,
+          "verified": 2,
+          "terminations": [
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 5.586809110503964,
+          "lean_execution_s": 1.5892687859777652,
+          "initialization_s": 1.802170227503666,
+          "verification_s": 2.097016910502134,
+          "planning_s": 0.06476589548765332,
+          "model_inference_s": 0.053641213991795667,
+          "expanded_states": 22,
+          "attempted_candidates": 284,
+          "proof_length": 4
+        },
+        "outcome": {
+          "runs": 2,
+          "verified": 2,
+          "terminations": [
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 5.478030717498768,
+          "lean_execution_s": 1.435829351485154,
+          "initialization_s": 1.9594536065014836,
+          "verification_s": 1.9506304134993115,
+          "planning_s": 0.07179450599505799,
+          "model_inference_s": 0.060915034482604824,
+          "expanded_states": 22,
+          "attempted_candidates": 277,
+          "proof_length": 4
+        },
+        "automation": {
+          "runs": 2,
+          "verified": 0,
+          "terminations": [
+            "search_exhausted",
+            "search_exhausted"
+          ],
+          "elapsed_s": 1.860207748497487,
+          "lean_execution_s": 0.08887494499867898,
+          "initialization_s": 1.7471237009995093,
+          "verification_s": 0,
+          "planning_s": 0.00038884049718035385,
+          "model_inference_s": 0,
+          "expanded_states": 1,
+          "attempted_candidates": 1,
+          "proof_length": 0
+        },
+        "applicability_only": {
+          "runs": 1,
+          "verified": 1,
+          "terminations": [
+            "verified"
+          ],
+          "elapsed_s": 5.659886862995336,
+          "lean_execution_s": 1.5870319320456474,
+          "initialization_s": 1.7620640129971434,
+          "verification_s": 2.19878459800384,
+          "planning_s": 0.06852774298022268,
+          "model_inference_s": 0.05794154397881357,
+          "expanded_states": 22,
+          "attempted_candidates": 284,
+          "proof_length": 4
+        },
+        "old_features_outcome": {
+          "runs": 1,
+          "verified": 1,
+          "terminations": [
+            "verified"
+          ],
+          "elapsed_s": 6.044169631997647,
+          "lean_execution_s": 1.653122221941885,
+          "initialization_s": 1.9584542989978218,
+          "verification_s": 2.32822080799815,
+          "planning_s": 0.06659491498430725,
+          "model_inference_s": 0.05598787501367042,
+          "expanded_states": 22,
+          "attempted_candidates": 276,
+          "proof_length": 4
+        }
+      }
+    },
+    "p3_ring_reverse": {
+      "family": "contextual_polynomial_routes",
+      "algorithms": {
+        "bfs": {
+          "runs": 2,
+          "verified": 2,
+          "terminations": [
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 5.3312177094994695,
+          "lean_execution_s": 1.5654626384639414,
+          "initialization_s": 1.7948774970027443,
+          "verification_s": 1.9106101044999377,
+          "planning_s": 0.019689180506247794,
+          "model_inference_s": 0.015592686504533049,
+          "expanded_states": 8,
+          "attempted_candidates": 116,
+          "proof_length": 3
+        },
+        "best_first": {
+          "runs": 2,
+          "verified": 2,
+          "terminations": [
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 5.563326329498523,
+          "lean_execution_s": 1.9970096569522866,
+          "initialization_s": 1.7443148009988363,
+          "verification_s": 1.7660148674985976,
+          "planning_s": 0.0275088405032875,
+          "model_inference_s": 0.022078638492530445,
+          "expanded_states": 12,
+          "attempted_candidates": 152,
+          "proof_length": 3
+        },
+        "learned": {
+          "runs": 2,
+          "verified": 2,
+          "terminations": [
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 6.51480908150188,
+          "lean_execution_s": 2.3322033365329844,
+          "initialization_s": 2.059129256496817,
+          "verification_s": 2.0494665689984686,
+          "planning_s": 0.037154555509914644,
+          "model_inference_s": 0.03118210649699904,
+          "expanded_states": 12,
+          "attempted_candidates": 149,
+          "proof_length": 3
+        },
+        "outcome": {
+          "runs": 2,
+          "verified": 2,
+          "terminations": [
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 5.570730762501626,
+          "lean_execution_s": 1.830262124458386,
+          "initialization_s": 1.8576905240006454,
+          "verification_s": 1.805487074998382,
+          "planning_s": 0.04115471299883211,
+          "model_inference_s": 0.03526494201651076,
+          "expanded_states": 12,
+          "attempted_candidates": 143,
+          "proof_length": 3
+        },
+        "automation": {
+          "runs": 2,
+          "verified": 0,
+          "terminations": [
+            "search_exhausted",
+            "search_exhausted"
+          ],
+          "elapsed_s": 1.9381872409976495,
+          "lean_execution_s": 0.04296206349681597,
+          "initialization_s": 1.8709010445018066,
+          "verification_s": 0,
+          "planning_s": 0.000350713002262637,
+          "model_inference_s": 0,
+          "expanded_states": 1,
+          "attempted_candidates": 1,
+          "proof_length": 0
+        },
+        "applicability_only": {
+          "runs": 1,
+          "verified": 1,
+          "terminations": [
+            "verified"
+          ],
+          "elapsed_s": 5.972273305000272,
+          "lean_execution_s": 2.017742308031302,
+          "initialization_s": 1.811900107000838,
+          "verification_s": 2.062619641998026,
+          "planning_s": 0.03686421798920492,
+          "model_inference_s": 0.031226360035361722,
+          "expanded_states": 12,
+          "attempted_candidates": 149,
+          "proof_length": 3
+        },
+        "old_features_outcome": {
+          "runs": 1,
+          "verified": 1,
+          "terminations": [
+            "verified"
+          ],
+          "elapsed_s": 5.698100540001178,
+          "lean_execution_s": 1.8630965239863144,
+          "initialization_s": 1.7413300500047626,
+          "verification_s": 2.016706131005776,
+          "planning_s": 0.03127864199632313,
+          "model_inference_s": 0.02507710699865129,
+          "expanded_states": 12,
+          "attempted_candidates": 142,
+          "proof_length": 3
+        }
+      }
+    },
+    "p3_ring_two_equalities": {
+      "family": "contextual_polynomial_routes",
+      "algorithms": {
+        "bfs": {
+          "runs": 2,
+          "verified": 2,
+          "terminations": [
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 5.737405811003555,
+          "lean_execution_s": 2.0432164229896443,
+          "initialization_s": 1.7566379734998918,
+          "verification_s": 1.8776686885030358,
+          "planning_s": 0.025841362508799648,
+          "model_inference_s": 0.021364808995713247,
+          "expanded_states": 10,
+          "attempted_candidates": 146,
+          "proof_length": 3
+        },
+        "best_first": {
+          "runs": 2,
+          "verified": 2,
+          "terminations": [
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 5.137822243501432,
+          "lean_execution_s": 1.4897667600271234,
+          "initialization_s": 1.7497604939962912,
+          "verification_s": 1.8389812184977927,
+          "planning_s": 0.021230102494882885,
+          "model_inference_s": 0.01697620599225047,
+          "expanded_states": 7,
+          "attempted_candidates": 105,
+          "proof_length": 3
+        },
+        "learned": {
+          "runs": 2,
+          "verified": 2,
+          "terminations": [
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 5.062154875999113,
+          "lean_execution_s": 1.4473452325219114,
+          "initialization_s": 1.724209610500111,
+          "verification_s": 1.8434036030012066,
+          "planning_s": 0.02258022050227737,
+          "model_inference_s": 0.01920225600406411,
+          "expanded_states": 7,
+          "attempted_candidates": 103,
+          "proof_length": 3
+        },
+        "outcome": {
+          "runs": 2,
+          "verified": 2,
+          "terminations": [
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 4.978052145499532,
+          "lean_execution_s": 1.365414324489393,
+          "initialization_s": 1.7832735550000507,
+          "verification_s": 1.7692263949975313,
+          "planning_s": 0.026808506991073955,
+          "model_inference_s": 0.023271613994438667,
+          "expanded_states": 7,
+          "attempted_candidates": 96,
+          "proof_length": 3
+        },
+        "automation": {
+          "runs": 2,
+          "verified": 0,
+          "terminations": [
+            "search_exhausted",
+            "search_exhausted"
+          ],
+          "elapsed_s": 1.7898166599989054,
+          "lean_execution_s": 0.034011047002422856,
+          "initialization_s": 1.7314787305003847,
+          "verification_s": 0,
+          "planning_s": 0.0003626005018304568,
+          "model_inference_s": 0,
+          "expanded_states": 1,
+          "attempted_candidates": 1,
+          "proof_length": 0
+        },
+        "applicability_only": {
+          "runs": 1,
+          "verified": 1,
+          "terminations": [
+            "verified"
+          ],
+          "elapsed_s": 4.988277460994141,
+          "lean_execution_s": 1.3652816269968753,
+          "initialization_s": 1.7114328559982823,
+          "verification_s": 1.858835810002347,
+          "planning_s": 0.02535477199126035,
+          "model_inference_s": 0.022185002009791788,
+          "expanded_states": 7,
+          "attempted_candidates": 103,
+          "proof_length": 3
+        },
+        "old_features_outcome": {
+          "runs": 1,
+          "verified": 1,
+          "terminations": [
+            "verified"
+          ],
+          "elapsed_s": 4.936547613993753,
+          "lean_execution_s": 1.3818605419364758,
+          "initialization_s": 1.7581723500043154,
+          "verification_s": 1.7493760130018927,
+          "planning_s": 0.01935214499826543,
+          "model_inference_s": 0.016243798003415577,
+          "expanded_states": 7,
+          "attempted_candidates": 95,
+          "proof_length": 3
+        }
+      }
+    },
+    "p3_set_choice": {
+      "family": "nested_set_routes",
+      "algorithms": {
+        "bfs": {
+          "runs": 2,
+          "verified": 2,
+          "terminations": [
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.7153430245016352,
+          "lean_execution_s": 0.18575717749990872,
+          "initialization_s": 1.715106519000983,
+          "verification_s": 1.7747850679988915,
+          "planning_s": 0.010823330008861376,
+          "model_inference_s": 0.007406493507005507,
+          "expanded_states": 9,
+          "attempted_candidates": 62,
+          "proof_length": 3
+        },
+        "best_first": {
+          "runs": 2,
+          "verified": 2,
+          "terminations": [
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.7847890025004745,
+          "lean_execution_s": 0.09304944850009633,
+          "initialization_s": 1.874586113000987,
+          "verification_s": 1.7824203034979291,
+          "planning_s": 0.008752839497901732,
+          "model_inference_s": 0.006485080997663317,
+          "expanded_states": 6,
+          "attempted_candidates": 31,
+          "proof_length": 5
+        },
+        "learned": {
+          "runs": 2,
+          "verified": 2,
+          "terminations": [
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.872834478996083,
+          "lean_execution_s": 0.10881094398791902,
+          "initialization_s": 1.9411344200016174,
+          "verification_s": 1.7845998289994895,
+          "planning_s": 0.010600719000649406,
+          "model_inference_s": 0.007724732502538245,
+          "expanded_states": 6,
+          "attempted_candidates": 31,
+          "proof_length": 5
+        },
+        "outcome": {
+          "runs": 2,
+          "verified": 2,
+          "terminations": [
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.6975925785009167,
+          "lean_execution_s": 0.0893150814990804,
+          "initialization_s": 1.824111742000241,
+          "verification_s": 1.7522197620019142,
+          "planning_s": 0.010119199490873143,
+          "model_inference_s": 0.007783474989992101,
+          "expanded_states": 6,
+          "attempted_candidates": 31,
+          "proof_length": 5
+        },
+        "automation": {
+          "runs": 2,
+          "verified": 0,
+          "terminations": [
+            "search_exhausted",
+            "search_exhausted"
+          ],
+          "elapsed_s": 1.8110869660013122,
+          "lean_execution_s": 0.03491971199764521,
+          "initialization_s": 1.75021403449864,
+          "verification_s": 0,
+          "planning_s": 0.00031040199610288255,
+          "model_inference_s": 0,
+          "expanded_states": 1,
+          "attempted_candidates": 1,
+          "proof_length": 0
+        },
+        "applicability_only": {
+          "runs": 1,
+          "verified": 1,
+          "terminations": [
+            "verified"
+          ],
+          "elapsed_s": 4.170676246998482,
+          "lean_execution_s": 0.11315697598911356,
+          "initialization_s": 2.1793479600019054,
+          "verification_s": 1.8325758869978017,
+          "planning_s": 0.010214908987109084,
+          "model_inference_s": 0.0077607959901797585,
+          "expanded_states": 6,
+          "attempted_candidates": 31,
+          "proof_length": 5
+        },
+        "old_features_outcome": {
+          "runs": 1,
+          "verified": 1,
+          "terminations": [
+            "verified"
+          ],
+          "elapsed_s": 4.027897535997909,
+          "lean_execution_s": 0.0836345810093917,
+          "initialization_s": 2.1670994970045285,
+          "verification_s": 1.7363684619995183,
+          "planning_s": 0.007281464000698179,
+          "model_inference_s": 0.005230065980867948,
+          "expanded_states": 6,
+          "attempted_candidates": 31,
+          "proof_length": 5
+        }
+      }
+    },
+    "p3_set_complement_product": {
+      "family": "set_exclusion_routes",
+      "algorithms": {
+        "bfs": {
+          "runs": 2,
+          "verified": 0,
+          "terminations": [
+            "resource_limit:expansions",
+            "resource_limit:expansions"
+          ],
+          "elapsed_s": 2.668229604496446,
+          "lean_execution_s": 0.8731175060092937,
+          "initialization_s": 1.6964570394993643,
+          "verification_s": 0,
+          "planning_s": 0.05759714198211441,
+          "model_inference_s": 0.03333460300564184,
+          "expanded_states": 70,
+          "attempted_candidates": 299,
+          "proof_length": 0
+        },
+        "best_first": {
+          "runs": 2,
+          "verified": 0,
+          "terminations": [
+            "resource_limit:expansions",
+            "resource_limit:expansions"
+          ],
+          "elapsed_s": 2.8550821419958083,
+          "lean_execution_s": 0.9528817570062529,
+          "initialization_s": 1.7857800039964786,
+          "verification_s": 0,
+          "planning_s": 0.08132562398532173,
+          "model_inference_s": 0.055157423976197606,
+          "expanded_states": 70,
+          "attempted_candidates": 410,
+          "proof_length": 0
+        },
+        "learned": {
+          "runs": 2,
+          "verified": 0,
+          "terminations": [
+            "resource_limit:expansions",
+            "resource_limit:expansions"
+          ],
+          "elapsed_s": 2.8327553309973155,
+          "lean_execution_s": 0.9184924560358922,
+          "initialization_s": 1.7759095069959585,
+          "verification_s": 0,
+          "planning_s": 0.09632314100963413,
+          "model_inference_s": 0.07040619198960485,
+          "expanded_states": 70,
+          "attempted_candidates": 410,
+          "proof_length": 0
+        },
+        "outcome": {
+          "runs": 2,
+          "verified": 0,
+          "terminations": [
+            "resource_limit:expansions",
+            "resource_limit:expansions"
+          ],
+          "elapsed_s": 2.871693408000283,
+          "lean_execution_s": 1.0239511394684087,
+          "initialization_s": 1.6978121480024129,
+          "verification_s": 0,
+          "planning_s": 0.11364556446642382,
+          "model_inference_s": 0.08759151594495052,
+          "expanded_states": 70,
+          "attempted_candidates": 410,
+          "proof_length": 0
+        },
+        "automation": {
+          "runs": 2,
+          "verified": 0,
+          "terminations": [
+            "search_exhausted",
+            "search_exhausted"
+          ],
+          "elapsed_s": 1.8673189995024586,
+          "lean_execution_s": 0.028715566997561837,
+          "initialization_s": 1.812209461499151,
+          "verification_s": 0,
+          "planning_s": 0.00039467350507038645,
+          "model_inference_s": 0,
+          "expanded_states": 1,
+          "attempted_candidates": 1,
+          "proof_length": 0
+        },
+        "applicability_only": {
+          "runs": 1,
+          "verified": 0,
+          "terminations": [
+            "resource_limit:expansions"
+          ],
+          "elapsed_s": 2.7015843950066483,
+          "lean_execution_s": 0.8850329889028217,
+          "initialization_s": 1.679790538000816,
+          "verification_s": 0,
+          "planning_s": 0.10421054498146987,
+          "model_inference_s": 0.08053337403543992,
+          "expanded_states": 70,
+          "attempted_candidates": 410,
+          "proof_length": 0
+        },
+        "old_features_outcome": {
+          "runs": 1,
+          "verified": 0,
+          "terminations": [
+            "resource_limit:expansions"
+          ],
+          "elapsed_s": 2.736028298000747,
+          "lean_execution_s": 0.9127525640869862,
+          "initialization_s": 1.6998364079991006,
+          "verification_s": 0,
+          "planning_s": 0.09050022700830596,
+          "model_inference_s": 0.0691689259474515,
+          "expanded_states": 70,
+          "attempted_candidates": 410,
+          "proof_length": 0
+        }
+      }
+    },
+    "p3_set_diff_chain": {
+      "family": "set_exclusion_routes",
+      "algorithms": {
+        "bfs": {
+          "runs": 2,
+          "verified": 2,
+          "terminations": [
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 4.77233437349787,
+          "lean_execution_s": 1.0364145074854605,
+          "initialization_s": 1.8317856460016628,
+          "verification_s": 1.7800978560007934,
+          "planning_s": 0.06715155548226903,
+          "model_inference_s": 0.04462868951668497,
+          "expanded_states": 59,
+          "attempted_candidates": 338,
+          "proof_length": 7
+        },
+        "best_first": {
+          "runs": 2,
+          "verified": 2,
+          "terminations": [
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.8668658194983436,
+          "lean_execution_s": 0.15657911100061028,
+          "initialization_s": 1.7622461735045363,
+          "verification_s": 1.8968686954976874,
+          "planning_s": 0.014328095010569086,
+          "model_inference_s": 0.010113304990227334,
+          "expanded_states": 11,
+          "attempted_candidates": 63,
+          "proof_length": 7
+        },
+        "learned": {
+          "runs": 2,
+          "verified": 2,
+          "terminations": [
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.7250782400005846,
+          "lean_execution_s": 0.15025149953362416,
+          "initialization_s": 1.7407919460019912,
+          "verification_s": 1.777463976501167,
+          "planning_s": 0.019309206985781202,
+          "model_inference_s": 0.013863868516637012,
+          "expanded_states": 13,
+          "attempted_candidates": 71,
+          "proof_length": 7
+        },
+        "outcome": {
+          "runs": 2,
+          "verified": 2,
+          "terminations": [
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.786990534499637,
+          "lean_execution_s": 0.140134184013732,
+          "initialization_s": 1.782711868003389,
+          "verification_s": 1.8091520119996858,
+          "planning_s": 0.01938546849123668,
+          "model_inference_s": 0.015172280502156354,
+          "expanded_states": 11,
+          "attempted_candidates": 61,
+          "proof_length": 7
+        },
+        "automation": {
+          "runs": 2,
+          "verified": 0,
+          "terminations": [
+            "search_exhausted",
+            "search_exhausted"
+          ],
+          "elapsed_s": 1.839591775504232,
+          "lean_execution_s": 0.031869651000306476,
+          "initialization_s": 1.7835202899987053,
+          "verification_s": 0,
+          "planning_s": 0.0004049434974149335,
+          "model_inference_s": 0,
+          "expanded_states": 1,
+          "attempted_candidates": 1,
+          "proof_length": 0
+        },
+        "applicability_only": {
+          "runs": 1,
+          "verified": 1,
+          "terminations": [
+            "verified"
+          ],
+          "elapsed_s": 3.9031712419964606,
+          "lean_execution_s": 0.14529913804290118,
+          "initialization_s": 1.8756774670036975,
+          "verification_s": 1.7930442799988668,
+          "planning_s": 0.02076899499661522,
+          "model_inference_s": 0.01608756998757599,
+          "expanded_states": 13,
+          "attempted_candidates": 71,
+          "proof_length": 7
+        },
+        "old_features_outcome": {
+          "runs": 1,
+          "verified": 1,
+          "terminations": [
+            "verified"
+          ],
+          "elapsed_s": 3.917859660999966,
+          "lean_execution_s": 0.12590003199875355,
+          "initialization_s": 1.7982724600005895,
+          "verification_s": 1.9420107110054232,
+          "planning_s": 0.01601186100015184,
+          "model_inference_s": 0.012097028986318037,
+          "expanded_states": 11,
+          "attempted_candidates": 61,
+          "proof_length": 7
+        }
+      }
+    },
+    "p3_set_diff_nested": {
+      "family": "set_exclusion_routes",
+      "algorithms": {
+        "bfs": {
+          "runs": 2,
+          "verified": 0,
+          "terminations": [
+            "resource_limit:expansions",
+            "resource_limit:expansions"
+          ],
+          "elapsed_s": 2.852855338998779,
+          "lean_execution_s": 0.9724065659684129,
+          "initialization_s": 1.7641790560010122,
+          "verification_s": 0,
+          "planning_s": 0.06608804849747685,
+          "model_inference_s": 0.04141597749912762,
+          "expanded_states": 70,
+          "attempted_candidates": 331,
+          "proof_length": 0
+        },
+        "best_first": {
+          "runs": 2,
+          "verified": 0,
+          "terminations": [
+            "resource_limit:expansions",
+            "resource_limit:expansions"
+          ],
+          "elapsed_s": 2.948745023499214,
+          "lean_execution_s": 0.9751180765306344,
+          "initialization_s": 1.8517398245021468,
+          "verification_s": 0,
+          "planning_s": 0.07280790302684181,
+          "model_inference_s": 0.046386669484490994,
+          "expanded_states": 70,
+          "attempted_candidates": 343,
+          "proof_length": 0
+        },
+        "learned": {
+          "runs": 2,
+          "verified": 0,
+          "terminations": [
+            "resource_limit:expansions",
+            "resource_limit:expansions"
+          ],
+          "elapsed_s": 3.0539435105019948,
+          "lean_execution_s": 0.9960641625402786,
+          "initialization_s": 1.9293907440005569,
+          "verification_s": 0,
+          "planning_s": 0.08165163500234485,
+          "model_inference_s": 0.0556912020110758,
+          "expanded_states": 70,
+          "attempted_candidates": 343,
+          "proof_length": 0
+        },
+        "outcome": {
+          "runs": 2,
+          "verified": 0,
+          "terminations": [
+            "resource_limit:expansions",
+            "resource_limit:expansions"
+          ],
+          "elapsed_s": 2.8865962335003132,
+          "lean_execution_s": 0.8458785975126375,
+          "initialization_s": 1.9171218014998885,
+          "verification_s": 0,
+          "planning_s": 0.08263084851205349,
+          "model_inference_s": 0.05970538399924408,
+          "expanded_states": 70,
+          "attempted_candidates": 343,
+          "proof_length": 0
+        },
+        "automation": {
+          "runs": 2,
+          "verified": 0,
+          "terminations": [
+            "search_exhausted",
+            "search_exhausted"
+          ],
+          "elapsed_s": 1.7945059230005427,
+          "lean_execution_s": 0.030325553500006208,
+          "initialization_s": 1.7400881899993692,
+          "verification_s": 0,
+          "planning_s": 0.00032973099951050244,
+          "model_inference_s": 0,
+          "expanded_states": 1,
+          "attempted_candidates": 1,
+          "proof_length": 0
+        },
+        "applicability_only": {
+          "runs": 1,
+          "verified": 0,
+          "terminations": [
+            "resource_limit:expansions"
+          ],
+          "elapsed_s": 2.779116564001015,
+          "lean_execution_s": 0.8866470790235326,
+          "initialization_s": 1.7586775460003992,
+          "verification_s": 0,
+          "planning_s": 0.09531943298497936,
+          "model_inference_s": 0.06852110703039216,
+          "expanded_states": 70,
+          "attempted_candidates": 343,
+          "proof_length": 0
+        },
+        "old_features_outcome": {
+          "runs": 1,
+          "verified": 0,
+          "terminations": [
+            "resource_limit:expansions"
+          ],
+          "elapsed_s": 2.688478481999482,
+          "lean_execution_s": 0.8347815579327289,
+          "initialization_s": 1.7285505890031345,
+          "verification_s": 0,
+          "planning_s": 0.07591638203302864,
+          "model_inference_s": 0.05287955197127303,
+          "expanded_states": 70,
+          "attempted_candidates": 343,
+          "proof_length": 0
+        }
+      }
+    },
+    "p3_set_excluded_join": {
+      "family": "set_exclusion_routes",
+      "algorithms": {
+        "bfs": {
+          "runs": 2,
+          "verified": 0,
+          "terminations": [
+            "resource_limit:expansions",
+            "resource_limit:expansions"
+          ],
+          "elapsed_s": 3.3435991070000455,
+          "lean_execution_s": 1.4293670574843418,
+          "initialization_s": 1.7801900484992075,
+          "verification_s": 0,
+          "planning_s": 0.07860907947906526,
+          "model_inference_s": 0.0529056755003694,
+          "expanded_states": 70,
+          "attempted_candidates": 410,
+          "proof_length": 0
+        },
+        "best_first": {
+          "runs": 2,
+          "verified": 0,
+          "terminations": [
+            "resource_limit:expansions",
+            "resource_limit:expansions"
+          ],
+          "elapsed_s": 2.873976335496991,
+          "lean_execution_s": 0.9995540134805196,
+          "initialization_s": 1.7571789110043028,
+          "verification_s": 0,
+          "planning_s": 0.07380759800798842,
+          "model_inference_s": 0.05034588598937262,
+          "expanded_states": 70,
+          "attempted_candidates": 368,
+          "proof_length": 0
+        },
+        "learned": {
+          "runs": 2,
+          "verified": 0,
+          "terminations": [
+            "resource_limit:expansions",
+            "resource_limit:expansions"
+          ],
+          "elapsed_s": 2.7927860175004753,
+          "lean_execution_s": 0.9445015974488342,
+          "initialization_s": 1.72717827499946,
+          "verification_s": 0,
+          "planning_s": 0.0852549470255326,
+          "model_inference_s": 0.06167418853874551,
+          "expanded_states": 70,
+          "attempted_candidates": 367,
+          "proof_length": 0
+        },
+        "outcome": {
+          "runs": 2,
+          "verified": 0,
+          "terminations": [
+            "resource_limit:expansions",
+            "resource_limit:expansions"
+          ],
+          "elapsed_s": 3.033292360498308,
+          "lean_execution_s": 1.076516430493939,
+          "initialization_s": 1.7808096124972508,
+          "verification_s": 0,
+          "planning_s": 0.10933069101520232,
+          "model_inference_s": 0.08169493150853668,
+          "expanded_states": 70,
+          "attempted_candidates": 368,
+          "proof_length": 0
+        },
+        "automation": {
+          "runs": 2,
+          "verified": 0,
+          "terminations": [
+            "search_exhausted",
+            "search_exhausted"
+          ],
+          "elapsed_s": 1.9726710289978655,
+          "lean_execution_s": 0.06379896299768006,
+          "initialization_s": 1.8806362729992543,
+          "verification_s": 0,
+          "planning_s": 0.0003827259970421437,
+          "model_inference_s": 0,
+          "expanded_states": 1,
+          "attempted_candidates": 1,
+          "proof_length": 0
+        },
+        "applicability_only": {
+          "runs": 1,
+          "verified": 0,
+          "terminations": [
+            "resource_limit:expansions"
+          ],
+          "elapsed_s": 3.1653835859979154,
+          "lean_execution_s": 1.0411350820286316,
+          "initialization_s": 1.9706497619990841,
+          "verification_s": 0,
+          "planning_s": 0.09772595801041462,
+          "model_inference_s": 0.07205197501025395,
+          "expanded_states": 70,
+          "attempted_candidates": 367,
+          "proof_length": 0
+        },
+        "old_features_outcome": {
+          "runs": 1,
+          "verified": 0,
+          "terminations": [
+            "resource_limit:expansions"
+          ],
+          "elapsed_s": 3.089313463999133,
+          "lean_execution_s": 1.0604769309575204,
+          "initialization_s": 1.8892412860004697,
+          "verification_s": 0,
+          "planning_s": 0.08855255303205922,
+          "model_inference_s": 0.06332291298895143,
+          "expanded_states": 70,
+          "attempted_candidates": 368,
+          "proof_length": 0
+        }
+      }
+    },
+    "p3_set_join_elimination": {
+      "family": "nested_set_routes",
+      "algorithms": {
+        "bfs": {
+          "runs": 2,
+          "verified": 0,
+          "terminations": [
+            "resource_limit:expansions",
+            "resource_limit:expansions"
+          ],
+          "elapsed_s": 3.2298632444981195,
+          "lean_execution_s": 1.2255379324960813,
+          "initialization_s": 1.8784200209993287,
+          "verification_s": 0,
+          "planning_s": 0.06965132698678644,
+          "model_inference_s": 0.04628206399138435,
+          "expanded_states": 70,
+          "attempted_candidates": 375,
+          "proof_length": 0
+        },
+        "best_first": {
+          "runs": 2,
+          "verified": 2,
+          "terminations": [
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.8723168980031915,
+          "lean_execution_s": 0.14179625649921945,
+          "initialization_s": 1.8541419065004447,
+          "verification_s": 1.825842118498258,
+          "planning_s": 0.0151220630032185,
+          "model_inference_s": 0.009981934483221266,
+          "expanded_states": 16,
+          "attempted_candidates": 70,
+          "proof_length": 8
+        },
+        "learned": {
+          "runs": 2,
+          "verified": 2,
+          "terminations": [
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.780315498002892,
+          "lean_execution_s": 0.14679411202087067,
+          "initialization_s": 1.77361667650257,
+          "verification_s": 1.7954290154957562,
+          "planning_s": 0.017393519508914324,
+          "model_inference_s": 0.011567954978090711,
+          "expanded_states": 16,
+          "attempted_candidates": 70,
+          "proof_length": 8
+        },
+        "outcome": {
+          "runs": 2,
+          "verified": 2,
+          "terminations": [
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.801604245996714,
+          "lean_execution_s": 0.14817074702659738,
+          "initialization_s": 1.8009659114977694,
+          "verification_s": 1.804994361998979,
+          "planning_s": 0.02072943349048728,
+          "model_inference_s": 0.015206402997137047,
+          "expanded_states": 16,
+          "attempted_candidates": 70,
+          "proof_length": 8
+        },
+        "automation": {
+          "runs": 2,
+          "verified": 0,
+          "terminations": [
+            "search_exhausted",
+            "search_exhausted"
+          ],
+          "elapsed_s": 1.864936622998357,
+          "lean_execution_s": 0.05627284649744979,
+          "initialization_s": 1.7833535955032858,
+          "verification_s": 0,
+          "planning_s": 0.0003348245008965023,
+          "model_inference_s": 0,
+          "expanded_states": 1,
+          "attempted_candidates": 1,
+          "proof_length": 0
+        },
+        "applicability_only": {
+          "runs": 1,
+          "verified": 1,
+          "terminations": [
+            "verified"
+          ],
+          "elapsed_s": 3.646518837005715,
+          "lean_execution_s": 0.15987353998207254,
+          "initialization_s": 1.7085717110021506,
+          "verification_s": 1.7355720699997619,
+          "planning_s": 0.02066810602264013,
+          "model_inference_s": 0.014836236034170724,
+          "expanded_states": 16,
+          "attempted_candidates": 70,
+          "proof_length": 8
+        },
+        "old_features_outcome": {
+          "runs": 1,
+          "verified": 1,
+          "terminations": [
+            "verified"
+          ],
+          "elapsed_s": 3.5634941659955075,
+          "lean_execution_s": 0.15116129702073522,
+          "initialization_s": 1.6427163860062137,
+          "verification_s": 1.7290281699970365,
+          "planning_s": 0.021439548996568192,
+          "model_inference_s": 0.014857978982036002,
+          "expanded_states": 16,
+          "attempted_candidates": 70,
+          "proof_length": 8
+        }
+      }
+    },
+    "p3_set_join_product": {
+      "family": "nested_set_routes",
+      "algorithms": {
+        "bfs": {
+          "runs": 2,
+          "verified": 0,
+          "terminations": [
+            "resource_limit:expansions",
+            "resource_limit:expansions"
+          ],
+          "elapsed_s": 4.020840080498601,
+          "lean_execution_s": 1.4692710809140408,
+          "initialization_s": 1.6487961460006773,
+          "verification_s": 0,
+          "planning_s": 0.0827194034900458,
+          "model_inference_s": 0.05721108999932767,
+          "expanded_states": 70,
+          "attempted_candidates": 447,
+          "proof_length": 0
+        },
+        "best_first": {
+          "runs": 2,
+          "verified": 0,
+          "terminations": [
+            "resource_limit:expansions",
+            "resource_limit:expansions"
+          ],
+          "elapsed_s": 4.332786494502216,
+          "lean_execution_s": 2.087142999000207,
+          "initialization_s": 1.7404322194997803,
+          "verification_s": 0,
+          "planning_s": 0.4486812430259306,
+          "model_inference_s": 0.42288777798967203,
+          "expanded_states": 70,
+          "attempted_candidates": 427,
+          "proof_length": 0
+        },
+        "learned": {
+          "runs": 2,
+          "verified": 0,
+          "terminations": [
+            "resource_limit:expansions",
+            "resource_limit:expansions"
+          ],
+          "elapsed_s": 3.585249510495487,
+          "lean_execution_s": 1.5882882469559263,
+          "initialization_s": 1.8518267975014169,
+          "verification_s": 0,
+          "planning_s": 0.10215212800176232,
+          "model_inference_s": 0.077168162973976,
+          "expanded_states": 70,
+          "attempted_candidates": 427,
+          "proof_length": 0
+        },
+        "outcome": {
+          "runs": 2,
+          "verified": 0,
+          "terminations": [
+            "resource_limit:expansions",
+            "resource_limit:expansions"
+          ],
+          "elapsed_s": 3.0617590695001127,
+          "lean_execution_s": 1.1810958724963712,
+          "initialization_s": 1.7203637109996635,
+          "verification_s": 0,
+          "planning_s": 0.12087885900837136,
+          "model_inference_s": 0.09434491401043488,
+          "expanded_states": 70,
+          "attempted_candidates": 427,
+          "proof_length": 0
+        },
+        "automation": {
+          "runs": 2,
+          "verified": 2,
+          "terminations": [
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.760261862498737,
+          "lean_execution_s": 0.02586785500170663,
+          "initialization_s": 1.8059583760004898,
+          "verification_s": 1.902340318498318,
+          "planning_s": 0.0003295605019957293,
+          "model_inference_s": 0,
+          "expanded_states": 1,
+          "attempted_candidates": 1,
+          "proof_length": 1
+        },
+        "applicability_only": {
+          "runs": 1,
+          "verified": 0,
+          "terminations": [
+            "resource_limit:expansions"
+          ],
+          "elapsed_s": 3.3104354759998387,
+          "lean_execution_s": 1.285660935966007,
+          "initialization_s": 1.8348968919963227,
+          "verification_s": 0,
+          "planning_s": 0.13028111802850617,
+          "model_inference_s": 0.09940318308508722,
+          "expanded_states": 70,
+          "attempted_candidates": 427,
+          "proof_length": 0
+        },
+        "old_features_outcome": {
+          "runs": 1,
+          "verified": 0,
+          "terminations": [
+            "resource_limit:expansions"
+          ],
+          "elapsed_s": 3.0109167759947013,
+          "lean_execution_s": 1.1680394150680513,
+          "initialization_s": 1.6874042880008346,
+          "verification_s": 0,
+          "planning_s": 0.1026224339948385,
+          "model_inference_s": 0.07598511104879435,
+          "expanded_states": 70,
+          "attempted_candidates": 427,
+          "proof_length": 0
+        }
+      }
+    },
+    "p3_set_nested_left": {
+      "family": "nested_set_routes",
+      "algorithms": {
+        "bfs": {
+          "runs": 2,
+          "verified": 0,
+          "terminations": [
+            "resource_limit:expansions",
+            "resource_limit:expansions"
+          ],
+          "elapsed_s": 3.1670969520018843,
+          "lean_execution_s": 1.2601206864746928,
+          "initialization_s": 1.771595371497824,
+          "verification_s": 0,
+          "planning_s": 0.075805340999068,
+          "model_inference_s": 0.05006330650576274,
+          "expanded_states": 70,
+          "attempted_candidates": 421,
+          "proof_length": 0
+        },
+        "best_first": {
+          "runs": 2,
+          "verified": 2,
+          "terminations": [
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 3.821270159998676,
+          "lean_execution_s": 0.1693915965333872,
+          "initialization_s": 1.7868559724993247,
+          "verification_s": 1.828168429499783,
+          "planning_s": 0.014624730014475062,
+          "model_inference_s": 0.01060333499845001,
+          "expanded_states": 11,
+          "attempted_candidates": 76,
+          "proof_length": 7
+        },
+        "learned": {
+          "runs": 2,
+          "verified": 2,
+          "terminations": [
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 4.0123751669962076,
+          "lean_execution_s": 0.20438247197307646,
+          "initialization_s": 1.8147407445030694,
+          "verification_s": 1.9407982765005727,
+          "planning_s": 0.02087930800189497,
+          "model_inference_s": 0.016207086999202147,
+          "expanded_states": 12,
+          "attempted_candidates": 83,
+          "proof_length": 7
+        },
+        "outcome": {
+          "runs": 2,
+          "verified": 2,
+          "terminations": [
+            "verified",
+            "verified"
+          ],
+          "elapsed_s": 4.064177272000961,
+          "lean_execution_s": 0.17640065048544784,
+          "initialization_s": 1.8770655174994317,
+          "verification_s": 1.9638631989982969,
+          "planning_s": 0.019250371489761164,
+          "model_inference_s": 0.015326656503020786,
+          "expanded_states": 11,
+          "attempted_candidates": 75,
+          "proof_length": 7
+        },
+        "automation": {
+          "runs": 2,
+          "verified": 0,
+          "terminations": [
+            "search_exhausted",
+            "search_exhausted"
+          ],
+          "elapsed_s": 1.9282844430017576,
+          "lean_execution_s": 0.06610624400127563,
+          "initialization_s": 1.8370741130020178,
+          "verification_s": 0,
+          "planning_s": 0.00042270600170013495,
+          "model_inference_s": 0,
+          "expanded_states": 1,
+          "attempted_candidates": 1,
+          "proof_length": 0
+        },
+        "applicability_only": {
+          "runs": 1,
+          "verified": 1,
+          "terminations": [
+            "verified"
+          ],
+          "elapsed_s": 3.683371110004373,
+          "lean_execution_s": 0.16217206196597544,
+          "initialization_s": 1.7236436630046228,
+          "verification_s": 1.7537435379999806,
+          "planning_s": 0.024502128988387994,
+          "model_inference_s": 0.020243538987415377,
+          "expanded_states": 12,
+          "attempted_candidates": 84,
+          "proof_length": 7
+        },
+        "old_features_outcome": {
+          "runs": 1,
+          "verified": 1,
+          "terminations": [
+            "verified"
+          ],
+          "elapsed_s": 3.626486513996497,
+          "lean_execution_s": 0.18642464696313255,
+          "initialization_s": 1.5887030099984258,
+          "verification_s": 1.79570137400151,
+          "planning_s": 0.017549937991134357,
+          "model_inference_s": 0.013452442006382626,
+          "expanded_states": 11,
+          "attempted_candidates": 75,
+          "proof_length": 7
+        }
+      }
+    }
+  },
+  "training": {
+    "code_commit": "99e3598eaa4476eb14169c7c7e1aa35cca203372",
+    "lean_version": "leanprover/lean4:v4.24.0",
+    "mathlib_revision": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7",
+    "python": "3.12.14",
+    "platform": "Linux-6.18.55-x86_64-with-glibc2.41",
+    "machine": "x86_64",
+    "processor": "",
+    "seed": "0 (deterministic)",
+    "state_identity": "Exact tactic prefix within one native session; no semantic merging",
+    "freeze_sha256": "87ba0f9aa18c7dd9428a6fd8cdffcf942ec50e969d881e99ce5d4a4d92ae7d5c",
+    "collection_sha256": "f3f20a68a2ee86a546c752cbb5dcf91b9cefb8ec61a15130cdef4bd3d4fca4b7",
+    "task_file_hashes": {
+      "additive_zero.json": "fae2a6d4655d36fb65a34dad52a81dc0e1ea7f40e30a54ef60b6e4e145a130ab",
+      "and_build.json": "5d60a25d1147b5b756f525499613651c0f05c5b838917833d93c33a9bfdd6ebd",
+      "and_project.json": "db4fa9451094c7d682c4fca28e0c4162d5eb38411b2a67c65d3952b47c2d9e0e",
+      "and_swap.json": "bc0389444723d854503d4cbddefbc65ef7e00ced39080b4442453f6109499b8a",
+      "chain_conjunction.json": "c1e54441e0ef89f219401dbcde748f2e7c7ae9958192cc1a3feb553c60d3c5b8",
+      "chain_three.json": "b92c365ee19cc9075cd97bf9dc72754d603f35b152f7cc29b735492fe3574308",
+      "compose.json": "ab1c5ee255dabf51b48823664b82aec5b4c30e47dd0e655a618f1dc30862c800",
+      "contrapositive.json": "d4581c33dd249150e69a011c19df784e2c8c06dab1568c52dd2376ab4ee399be",
+      "curry.json": "c13121cba3971400993945bc113e318d99e93bec4d740d8ebd0b62ad2c9fb8c9",
+      "eq_chain.json": "7dd19c69fb303c25ca04d8bf8c3d80b0139c62e6246c55cfac0bcb8af4e47dbd",
+      "eq_symmetry.json": "2b789af7b67b954671bef276f7a8042fc22dcecf3049bbfdfd92eb2ea77c3cab",
+      "iff_intro.json": "3e1ae40cb9aa7838c6606e61b93cc376937aba6c50dd97a9f3c5e2c8d01dab57",
+      "imp_chain.json": "b5bcaca17920004d6765aeeedbcf23584a783bc460c355b756f8f5effbb6b943",
+      "imp_intro.json": "bd29b9ed442f45520db3fa6e85839c517be13f0cdfa3a052d5b3c9a768f79469",
+      "lt_chain.json": "f74520cd9749182911dd241367bcf9e4d62e907a8b94246af173fb5ab472258c",
+      "mixed_left.json": "eb7234be4e78ed049208debce00c2716e9b77ee9e8df46e3277e6f5b35bbc4d4",
+      "mixed_right.json": "31d8577ccbe4d220ec30bf90ea65d561fe2a7f6c9a8ca804b4e7f138498dbf2a",
+      "monoid_assoc.json": "0ccc90f43703a66ea9b9c0e68a4729621ee9255ae132946a05face94701ed5c1",
+      "monoid_comm.json": "67aa0f71a406e8b3faa58168e434b0bf8486828fffbd11254657ee61930c872b",
+      "monoid_left.json": "07176589d790077395a1ddd2978e527fa976d6add5c9d76780965fc0fec6a8ea",
+      "monoid_right.json": "e13357075194b60597ea4302c82eca956cb20434bc3816e0d3901e1dd24e9103",
+      "nat_successor.json": "7159a99b92f7a08b27fb1354b97b52071a94c625279936ed9a4e529b7ef167ae",
+      "or_left.json": "8d2b422826730fd87204185df3fc8fe709833033ac40c9fc3c6579f3ddfb0364",
+      "or_right.json": "a7f2be6812899f47d7a6c214ff9ed405192891d588f625f30f76c78f82975697",
+      "order_antisymm.json": "485f397ea51429aebe531cc9211be189e6026a5b7fb177076f067326e3057340",
+      "order_chain.json": "15aec07e1257c4a68ebe686293de20113a44627c45d781d37fa9862436afdb2b",
+      "order_intro.json": "2e429123a48012cdc2505d492ed1d97b833f40580210d7ea14fc0797ac123ee3",
+      "order_pair.json": "7ae9f79e0f000ea28c858c004940fc5f44d26554b797e0f0b9a76809e8616e93",
+      "order_refl.json": "5f1565b248b10d66e720b04e2744af2f72807be05c0f4a3fc23d92d9ebe72cd8",
+      "rewrite_product.json": "0f82144597ee09cadb5e24b6cc153a0b646f0be50330e8665bad2d1d3be45cae",
+      "rewrite_sum.json": "ef5cda0052e442ea384b32656221ca51d7c54dbe975c248c56a1e42d4c0da30b",
+      "ring_distribute.json": "f70d15f5b16b3ff7d70d3fe44da4a1c0f2aecb08b1743014150cdf8f7daa0bb0",
+      "ring_expand.json": "0b91a35f3e1b94b69d445fa1784eedb8ff24feec356426b0dd99e64a4eb27199",
+      "set_antisymm.json": "39b1ca3ff4c7eb8fdf481428377a693193675caedf5a3f11aaced36c203c9667",
+      "set_chain.json": "809d88ec3e73ffa0ce438397873b5d5278153148c22fc2a0403c36363db06ffd",
+      "set_inter_comm.json": "e51eb369080a0cb84e8e77384593c3764d701c26ebfd14fded9733fc0f0814ff",
+      "set_inter_left.json": "5b0c041771cbb13778776266a609f3cda060b38990a8663f9d88cafda9c88010",
+      "set_inter_member.json": "733d4654fbafb07bff31fe35e6e9404eb96e3b0a5a37b9e83aaac6cba706f5ae",
+      "set_inter_monotone.json": "6e1c77fe6d241df66cfd8d9a6168a022bdbe191e80491ab570e8b6849d5c5f02",
+      "set_inter_right.json": "06490e887222a6770d56eb28c84b88d330c7df5a51632a6a9d4a2ace5d9dad5f",
+      "set_membership.json": "d7fb904940d1b762ba7f986b5e8319b367ddf0cf7962ae79b41e8d4b107b8dcc",
+      "set_refl.json": "5e39b80fea715c40f811f0efd88f35bc59e7e15255e4343b3c371d49cbdef140",
+      "set_union_left.json": "b6c6096586c5d896ebec9a5b81bcea40838d22d3b52377f51628ff4e337ff026",
+      "set_union_member.json": "140c671b503dc27b1dd49f39abdb50f98531d5c07fc076e2db69ad217d36b71e",
+      "set_union_right.json": "6044949c472cf35cb9f2b61274f0de98228713e07451476d0ce84d9888c8e43c",
+      "symmetric_chain.json": "71882c4f7e3d437e2d783c1f363fa92a195453f81fae54dfe7b081b5a4c533c7",
+      "uncurry.json": "9bb6dc427db5d5d9ce9ddd5f41386918ab371eff9f516363c996525f8090238b",
+      "zero_additive.json": "6ad7cb2af0fabad3ed340c55bd3c1da1d9558fb05621716612847f698c315c36"
+    },
+    "training_ids": [
+      "additive_zero",
+      "and_build",
+      "and_project",
+      "and_swap",
+      "chain_conjunction",
+      "chain_three",
+      "compose",
+      "contrapositive",
+      "curry",
+      "eq_chain",
+      "eq_symmetry",
+      "iff_intro",
+      "imp_chain",
+      "imp_intro",
+      "lt_chain",
+      "mixed_left",
+      "mixed_right",
+      "monoid_assoc",
+      "monoid_comm",
+      "monoid_left",
+      "monoid_right",
+      "nat_successor",
+      "or_left",
+      "or_right",
+      "order_antisymm",
+      "order_chain",
+      "order_intro",
+      "order_pair",
+      "order_refl",
+      "rewrite_product",
+      "rewrite_sum",
+      "ring_distribute",
+      "ring_expand",
+      "set_antisymm",
+      "set_chain",
+      "set_inter_comm",
+      "set_inter_left",
+      "set_inter_member",
+      "set_inter_monotone",
+      "set_inter_right",
+      "set_membership",
+      "set_refl",
+      "set_union_left",
+      "set_union_member",
+      "set_union_right",
+      "symmetric_chain",
+      "uncurry",
+      "zero_additive"
+    ],
+    "validation_ids": [
+      "chain_conjunction",
+      "chain_three",
+      "lt_chain",
+      "mixed_left",
+      "mixed_right",
+      "nat_successor",
+      "order_antisymm",
+      "order_chain",
+      "order_intro",
+      "order_pair",
+      "order_refl",
+      "symmetric_chain"
+    ],
+    "selection_excludes_validation_tasks": true,
+    "final_refit": "All permitted development",
+    "evaluation_accessed": false,
+    "phase2_weights_used_as_feature": false,
+    "trials": [
+      {
+        "l2": 0.01,
+        "outcome_weight": 0.5,
+        "validation_outcome_loss": 0.6676996747817548,
+        "validation_applicability_loss": 0.45288985962206113
+      },
+      {
+        "l2": 0.01,
+        "outcome_weight": 2.0,
+        "validation_outcome_loss": 0.541288928691834,
+        "validation_applicability_loss": 0.4635889753151125
+      },
+      {
+        "l2": 0.1,
+        "outcome_weight": 0.5,
+        "validation_outcome_loss": 0.6658884613034391,
+        "validation_applicability_loss": 0.5362343401538932
+      },
+      {
+        "l2": 0.1,
+        "outcome_weight": 2.0,
+        "validation_outcome_loss": 0.5319053375066233,
+        "validation_applicability_loss": 0.5447498468388492
+      }
+    ],
+    "selected": {
+      "l2": 0.1,
+      "outcome_weight": 2.0,
+      "validation_outcome_loss": 0.5319053375066233,
+      "validation_applicability_loss": 0.5447498468388492
+    },
+    "config": {
+      "l2": [
+        0.01,
+        0.1
+      ],
+      "outcome_weight": [
+        0.5,
+        2.0
+      ],
+      "epochs": 200,
+      "learning_rate": 0.15,
+      "seed": 0
+    },
+    "applicability_pairs": 230,
+    "outcome_pairs": 155,
+    "nonterminal_outcome_pairs": 81,
+    "outcome_task_count": 36,
+    "training_outcome_pairs": 108,
+    "validation_outcome_pairs": 47,
+    "observations": {
+      "invalid": 230,
+      "verified": 183,
+      "unexplored_valid": 51,
+      "censored": 16
+    },
+    "label_policy": "Only unequal-cost verified valid alternatives; censored observations never negative",
+    "deployment_features": "Pre-action only; no native successor/lookahead access",
+    "models": {
+      "outcome": {
+        "sha256": "5a86274e3a6f5b534e0822b2723229d6eac8895c6003ebcdd17be5122fd1963a",
+        "parameters": 108,
+        "fit_wall_s": 0.16220365099434275,
+        "applicability_loss": 0.5463893913481761,
+        "outcome_loss": 0.3680516514071086
+      },
+      "applicability_only": {
+        "sha256": "32be519857274107701798abfdba4069f66c7be4ad599730fc9709eae97c6292",
+        "parameters": 104,
+        "fit_wall_s": 0.10029813899745932,
+        "applicability_loss": 0.4615505767742271,
+        "outcome_loss": 0.7449506577512115
+      },
+      "old_features_outcome": {
+        "sha256": "c6810f2a4d094138b8d1c1da0f1b4fcd6470b16043a434ada3610d9aafb7f066",
+        "parameters": 77,
+        "fit_wall_s": 0.1285294650006108,
+        "applicability_loss": 0.6504784168014281,
+        "outcome_loss": 0.4051272577852971
+      }
+    },
+    "training_wall_s": 1.343179780000355,
+    "training_cpu_s": 1.337714838,
+    "collection_wall_s": 275.1943744560049
+  }
+}

@@ -262,3 +262,86 @@ def test_live_learned_search_is_a_new_verified_computation(page: Page) -> None:
     )
     expect(page.locator("#rankings-panel")).to_be_visible()
     expect(page.locator("#proof-method")).to_contain_text("Learned")
+
+
+def test_phase3_actual_rankings_and_five_policy_comparison(page: Page) -> None:
+    page.locator("#dataset-select").select_option("phase3")
+    page.locator("#task-select").select_option("p3_order_guard")
+    page.locator('[data-algorithm="outcome"]').click()
+    expect(page.locator("#metric-status")).to_have_text("✓ Verified")
+    expect(page.locator("#ranking-note")).to_contain_text(
+        "Outcome scores determine candidate order"
+    )
+    expect(page.locator("#outcome-ranking-header")).to_be_visible()
+    expect(page.locator("#proof-method")).to_contain_text("Outcome-aware")
+    with page.expect_download() as download:
+        page.locator("#export-trace").click()
+    trace = json.loads(download.value.path().read_text())
+    assert trace["algorithm"] == "outcome" and trace["verification"]["verified"]
+    assert trace["rankings"][0]["candidates"][0]["outcome_score"] is not None
+    page.locator('[data-view="compare"]').click()
+    page.locator("#compare-task").select_option("p3_relation_reverse")
+    expect(page.locator("#comparison-grid .card")).to_have_count(5)
+    expect(page.locator("#comparison-grid")).to_contain_text("Native Aesop reference")
+    expect(page.locator("#comparison-grid")).to_contain_text("Outcome-aware ranking")
+    page.locator('[data-view="benchmarks"]').click()
+    expect(page.locator("#benchmark-content")).to_contain_text("384")
+    expect(page.locator("#benchmark-content")).to_contain_text("Ablation: applicability only")
+
+
+def test_actual_valid_continuations_costs_censoring_and_export(page: Page) -> None:
+    from prooflab.research import manifest
+
+    entries = manifest()
+    page.locator('[data-view="continuations"]').click()
+    page.locator("#continuation-state-select").select_option("development:and_swap:0")
+    expect(page.locator("#continuation-role")).to_contain_text(
+        "Development evidence used for training"
+    )
+    expect(page.locator("#continuation-context")).to_contain_text("Q ∧ P")
+    expect(page.locator("#continuation-rows")).to_contain_text("verified completion")
+    expect(page.locator("#continuation-left")).to_contain_text("fresh audit time")
+    expect(page.locator("#continuation-right")).to_contain_text("fresh audit time")
+    page.locator('#continuation-left .tree-node[data-node="1"]').click()
+    expect(page.locator("#continuation-left .continuation-node-label")).to_contain_text(
+        "Actual state 1"
+    )
+    expect(page.locator("#continuation-left .continuation-node-state")).to_contain_text("⊢")
+    before = page.locator("#continuation-left svg").get_attribute("viewBox")
+    page.locator('#continuation-left [data-czoom="in"]').click()
+    assert before != page.locator("#continuation-left svg").get_attribute("viewBox")
+    assert (
+        page.locator("#continuation-left .tree-node").count()
+        != page.locator("#continuation-right .tree-node").count()
+    )
+    with page.expect_download() as download:
+        page.locator("#export-continuations").click()
+    data = json.loads(download.value.path().read_text())
+    assert data["record"]["task_id"] == "and_swap" and data["source_sha256"]
+    assert data["annotations"]["0"][0]["outcome_score"] is not None
+    censored = next(e for e in entries if e["explored"] > e["verified"])
+    page.locator("#continuation-state-select").select_option(censored["key"])
+    expect(page.locator("#continuation-rows")).to_contain_text("bounded unresolved")
+    options = page.locator("#continuation-left-select option").all_text_contents()
+    index = next(i for i, text in enumerate(options) if "bounded unresolved" in text)
+    page.locator("#continuation-left-select").select_option(str(index))
+    expect(page.locator("#continuation-left")).to_contain_text("not evidence of impossibility")
+    diagnostic = next(
+        e for e in entries if e["role"] == "diagnostic" and e["case"]["kind"] == "higher_cost"
+    )
+    page.locator("#continuation-state-select").select_option(diagnostic["key"])
+    expect(page.locator("#continuation-role")).to_contain_text("never training data")
+    expect(page.locator("#continuation-case")).to_contain_text("local regression")
+    page.set_viewport_size({"width": 390, "height": 844})
+    assert page.evaluate("document.documentElement.scrollWidth <= innerWidth")
+
+
+def test_live_outcome_search_keeps_independent_verification(page: Page) -> None:
+    page.locator('[data-algorithm="outcome"]').click()
+    page.locator("#mode-toggle").click()
+    page.locator("#run-button").click()
+    expect(page.locator("#notice")).to_contain_text(
+        "New computation completed: verified", timeout=45000
+    )
+    expect(page.locator("#proof-method")).to_contain_text("Outcome-aware")
+    expect(page.locator("#outcome-ranking-header")).to_be_visible()

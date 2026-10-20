@@ -211,6 +211,8 @@ def load_records(data: Path) -> tuple[list[dict[str, Any]], dict[str, Any]]:
 
 
 def train(data: Path = DATA, destination: Path = MODELS) -> dict[str, Any]:
+    if (destination / "frozen.json").exists():
+        raise ValueError("Refuse to overwrite frozen models; choose a new output directory")
     started = time.monotonic()
     cpu_started = time.process_time()
     frozen = check_freeze()

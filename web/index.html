@@ -27,6 +27,9 @@
           <button class="nav-item" data-view="compare">
             <span class="nav-icon">⇄</span> Compare strategies
           </button>
+          <button class="nav-item" data-view="continuations">
+            <span class="nav-icon">⌥</span> Alternative continuations
+          </button>
           <button class="nav-item" data-view="benchmarks">
             <span class="nav-icon">▥</span> Benchmarks
           </button>
@@ -55,7 +58,7 @@
           ></a>
           <div>
             <span class="status-dot"></span> Lean 4 · Mathlib
-            <span class="version">v0.2</span>
+            <span class="version">v0.3</span>
           </div>
         </div>
       </aside>
@@ -69,6 +72,7 @@
             <select id="dataset-select" aria-label="Research dataset">
               <option value="phase1">Phase 1 · foundation</option>
               <option value="phase2">Phase 2 · learned search</option>
+              <option value="phase3">Phase 3 · outcome learning</option>
             </select>
             <span id="mode-badge" class="pill">Recorded replay</span
             ><button id="mode-toggle" class="text-button" hidden>
@@ -146,7 +150,9 @@
                   ><button data-algorithm="best_first" class="selected">
                     Best-first <span>Heuristic</span></button
                   ><button data-algorithm="learned">
-                    Learned <span>CPU model</span>
+                    Learned <span>CPU model</span></button
+                  ><button data-algorithm="outcome">
+                    Outcome-aware <span>Continuation costs</span>
                   </button>
                 </div>
                 <label id="repeat-label" hidden
@@ -314,6 +320,9 @@
                 <span id="ranking-state" class="mono muted"></span>
               </div>
               <p class="method-note" id="ranking-note"></p>
+              <button id="open-continuations" class="text-button" hidden>
+                Inspect recorded alternative continuations →
+              </button>
               <div class="ranking-scroll">
                 <table class="rankings-table">
                   <thead>
@@ -322,6 +331,9 @@
                       <th>TACTIC / MODEL CONTRIBUTIONS</th>
                       <th>HEURISTIC RANK / SCORE</th>
                       <th>LEARNED RANK / SCORE</th>
+                      <th id="outcome-ranking-header" hidden>
+                        PHASE 3 RANK / SCORE
+                      </th>
                       <th>LEAN OUTCOME</th>
                     </tr>
                   </thead>
@@ -397,7 +409,7 @@
                 <div class="eyebrow">
                   SAME MATHEMATICS. DIFFERENT SEARCH POLICIES.
                 </div>
-                <h1>Three ways to search<span>.</span></h1>
+                <h1>Compare the search policies<span>.</span></h1>
                 <p>
                   Compare genuine recorded runs with identical candidate
                   generation and budgets.
@@ -417,6 +429,80 @@
               mathematical truth or guarantee better performance. Wall times
               include Lean startup and independent verification.
             </p>
+          </section>
+          <section id="continuations-view" class="view" hidden>
+            <div class="page-heading">
+              <div>
+                <div class="eyebrow">VALID STEPS. DIFFERENT FUTURES.</div>
+                <h1>Follow the alternatives<span>.</span></h1>
+                <p>
+                  Compare actual bounded searches from Lean-accepted successor
+                  states. An unresolved continuation is an open question.
+                </p>
+              </div>
+            </div>
+            <div class="card continuation-picker">
+              <label for="continuation-state-select">Recorded proof state</label
+              ><select id="continuation-state-select"></select
+              ><button id="export-continuations" class="text-button">
+                Export evidence JSON
+              </button>
+              <p id="continuation-role" class="method-note"></p>
+              <p id="continuation-case" class="method-note"></p>
+            </div>
+            <p id="continuation-status" role="status"></p>
+            <div class="continuation-state-grid">
+              <section class="card">
+                <div class="card-top">
+                  <h2>Actual Lean context and goals</h2>
+                </div>
+                <pre id="continuation-context" class="continuation-code"></pre>
+              </section>
+              <section class="card">
+                <div class="card-top"><h2>Replayed tactic prefix</h2></div>
+                <pre id="continuation-prefix" class="continuation-code"></pre>
+                <p id="continuation-provenance" class="method-note"></p>
+              </section>
+            </div>
+            <section class="card rankings-card">
+              <div class="card-top"><h2>Every generated candidate</h2></div>
+              <p class="method-note">
+                Ranks use the same generated pool. Larger scores come first
+                within each model; their scales differ. Actual successor goal
+                counts are displayed for inspection only. Cost preferences
+                require two independently verified completions.
+              </p>
+              <div class="ranking-scroll">
+                <table class="rankings-table">
+                  <thead>
+                    <tr>
+                      <th>TACTIC / FEATURES</th>
+                      <th>OBSERVED STATUS</th>
+                      <th>PHASE 2 RANK / SCORE</th>
+                      <th>PHASE 3 RANK / SCORE</th>
+                      <th>ACTUAL SUCCESSOR</th>
+                      <th>VERIFIED SEARCH COST</th>
+                    </tr>
+                  </thead>
+                  <tbody id="continuation-rows"></tbody>
+                </table>
+              </div>
+            </section>
+            <div class="continuation-choices">
+              <label
+                >First alternative<select
+                  id="continuation-left-select"
+                ></select></label
+              ><label
+                >Second alternative<select
+                  id="continuation-right-select"
+                ></select
+              ></label>
+            </div>
+            <div class="comparison-grid continuation-comparison">
+              <article id="continuation-left" class="card"></article>
+              <article id="continuation-right" class="card"></article>
+            </div>
           </section>
           <section id="benchmarks-view" class="view" hidden>
             <div class="page-heading">
