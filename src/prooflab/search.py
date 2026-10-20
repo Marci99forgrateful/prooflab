@@ -7,6 +7,7 @@ import platform
 import subprocess
 import time
 from collections import deque
+from collections.abc import Callable
 from threading import Event
 
 from prooflab.candidates import (
@@ -15,6 +16,7 @@ from prooflab.candidates import (
     UniformRanking,
     generate_candidates,
 )
+from prooflab.frontier import FrontierModel, handcrafted_priority
 from prooflab.lean import (
     ROOT,
     Cancelled,
@@ -29,6 +31,8 @@ from prooflab.models import (
     Budget,
     Candidate,
     CandidateRanking,
+    FrontierDecision,
+    FrontierValue,
     Node,
     ProofState,
     SearchAlgorithm,
@@ -77,6 +81,9 @@ def search(
     ranking: RankingPolicy | None = None,
     comparison_ranker: LearnedRanking | None = None,
     comparison_outcome: OutcomeRanking | None = None,
+    comparison_frontier: FrontierModel | None = None,
+    beam_width: int = 12,
+    generator: Callable[[ProofState, int, frozenset[str]], list[Candidate]] = generate_candidates,
 ) -> Trace:
     budget = budget or Budget()
     trace = Trace(task=task, algorithm=algorithm, budget=budget, metadata=metadata())
@@ -86,7 +93,10 @@ def search(
         HeuristicRanking() if algorithm in ("best_first", "learned") else UniformRanking()
     )
     outcome_algorithms = ("outcome", "applicability_only", "old_features_outcome")
-    use_heap = algorithm in ("best_first", "learned", *outcome_algorithms)
+    frontier_algorithms = ("frontier", "joint", "beam", "linear_frontier")
+    use_heap = algorithm in ("best_first", "learned", *outcome_algorithms, *frontier_algorithms)
+    if beam_width < 1:
+        raise ValueError("Positive beam width required")
     fifo: deque[int] = deque([0])
     priority: list[tuple[float, int]] = [(0, 0)]
     prefixes: dict[int, tuple[str, ...]] = {0: ()}
@@ -96,6 +106,17 @@ def search(
         return max(0.001, deadline - time.monotonic())
 
     try:
+        if algorithm in frontier_algorithms:
+            comparison_frontier = comparison_frontier or FrontierModel()
+            if algorithm == "frontier":
+                policy = HeuristicRanking()
+            else:
+                policy = ranking if isinstance(ranking, OutcomeRanking) else OutcomeRanking()
+            comparison_ranker = comparison_ranker or LearnedRanking()
+            comparison_outcome = comparison_outcome or OutcomeRanking()
+        if comparison_frontier is not None:
+            trace.metadata["frontier_model_sha256"] = comparison_frontier.sha256
+            trace.metadata["frontier_lookahead_calls"] = "0: observed native descriptions only"
         if algorithm in outcome_algorithms:
             if ranking is not None and not isinstance(ranking, OutcomeRanking):
                 raise ValueError("An outcome run requires an exported OutcomeRanking")
@@ -127,6 +148,44 @@ def search(
                     "frontier_policy": "handcrafted state score; stable insertion-ID ties",
                 }
             )
+        if algorithm in frontier_algorithms:
+            trace.metadata["frontier_policy"] = (
+                "fitted log continuation cost + .15 depth; insertion scores; node-ID ties"
+            )
+            trace.metadata["beam_width"] = (
+                str(beam_width) if algorithm == "beam" else "unbounded within budget"
+            )
+        trace.metadata["generator"] = generator.__module__ + "." + generator.__name__
+
+        def record_value(
+            state: ProofState, depth: int, parent: ProofState | None, ident: int
+        ) -> float:
+            tick = time.monotonic()
+            heuristic = handcrafted_priority(state, depth)
+            value, contributions = (
+                comparison_frontier.explain(state, depth, parent)
+                if comparison_frontier
+                else (0.0, [])
+            )
+            state_priority = (
+                comparison_frontier.priority(value, depth)
+                if comparison_frontier and algorithm in frontier_algorithms
+                else policy.state_priority(state, depth)
+            )
+            if comparison_frontier:
+                trace.state_values.append(
+                    FrontierValue(
+                        node_id=ident,
+                        priority=state_priority,
+                        learned_value=value,
+                        heuristic_priority=heuristic,
+                        contributions=contributions,
+                    )
+                )
+                trace.metrics.model_inference_s += time.monotonic() - tick
+            trace.metrics.planning_s += time.monotonic() - tick
+            return state_priority
+
         init_start = time.monotonic()
         with LeanSession(task, timeout=min(20, remaining()), cancel=cancel) as lean:
             trace.metrics.initialization_s = time.monotonic() - init_start
@@ -140,6 +199,8 @@ def search(
                     status="root",
                 )
             )
+            root_priority = record_value(lean.initial, 0, None, 0)
+            priority = [(root_priority, 0)]
             while priority if use_heap else fifo:
                 if cancel is not None and cancel.is_set():
                     raise Cancelled("Search cancelled")
@@ -149,6 +210,16 @@ def search(
                 if trace.metrics.expanded_states >= budget.max_expansions:
                     trace.termination = "resource_limit:expansions"
                     break
+                if comparison_frontier:
+                    trace.frontier_decisions.append(
+                        FrontierDecision(
+                            selected=priority[0][1] if use_heap else fifo[0],
+                            attempted_candidates=trace.metrics.attempted_candidates,
+                            frontier=sorted(priority)
+                            if use_heap
+                            else [(float(trace.nodes[i].depth), i) for i in fifo],
+                        )
+                    )
                 current = heapq.heappop(priority)[1] if use_heap else fifo.popleft()
                 node = trace.nodes[current]
                 assert node.state is not None
@@ -157,17 +228,17 @@ def search(
                     continue
                 trace.metrics.expanded_states += 1
                 plan_start = time.monotonic()
-                candidates = generate_candidates(
+                candidates = generator(
                     node.state,
                     budget.max_candidates,
                     frozenset(task.forbidden_lemmas),
                 )
-                if algorithm == "automation":
+                if algorithm in ("automation", "grind"):
                     candidates = [
                         Candidate(
-                            tactic="aesop",
+                            tactic="aesop" if algorithm == "automation" else "grind",
                             category="reference",
-                            reason="Native Aesop baseline; not a ProofLab algorithm",
+                            reason="Native symbolic reference; internal work differs from ProofLab",
                         )
                     ]
                 availability = sorted(c.model_dump_json() for c in candidates)
@@ -178,7 +249,7 @@ def search(
                     trace.metrics.model_inference_s += time.monotonic() - ranking_tick
                 if sorted(c.model_dump_json() for c in candidates) != availability:
                     raise ValueError("Ranking policy altered candidate availability")
-                if comparison_ranker is not None and algorithm != "automation":
+                if comparison_ranker is not None and algorithm not in ("automation", "grind"):
                     inference_tick = time.monotonic()
                     trace.rankings.append(
                         StateRanking(
@@ -302,7 +373,7 @@ def search(
                             trace.metrics.proof_length = len(trace.proof)
                             trace.proof_origin = (
                                 "native_automation"
-                                if algorithm == "automation"
+                                if algorithm in ("automation", "grind")
                                 else "retrieved_lemma"
                                 if len(prefix) == 1 and candidate.lemma
                                 else "specialized_tactic"
@@ -316,14 +387,18 @@ def search(
                             trace.termination = "independent_verification_failed"
                             trace.error = trace.verification.error
                         return trace
+                    assert state is not None
+                    insertion_priority = record_value(state, successor.depth, node.state, ident)
                     if use_heap:
-                        assert state is not None
-                        heapq.heappush(
-                            priority, (policy.state_priority(state, successor.depth), ident)
-                        )
+                        heapq.heappush(priority, (insertion_priority, ident))
+                        if algorithm == "beam" and len(priority) > beam_width:
+                            worst = max(priority)
+                            priority.remove(worst)
+                            heapq.heapify(priority)
+                            trace.beam_evictions.append(worst[1])
                     else:
                         fifo.append(ident)
-                if algorithm == "automation":
+                if algorithm in ("automation", "grind"):
                     break
     except Cancelled as error:
         trace.status = "cancelled"

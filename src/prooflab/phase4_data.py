@@ -63,7 +63,10 @@ def freeze() -> dict[str, Any]:
         expression_trees=trees,
         graph_hashes=hashes,
         duplicate_pairs=[],
-        limits="Native reducible typed dependency-graph isomorphism with binder permutation; not arbitrary logical equivalence. Shared primitives remain.",
+        limits=(
+            "Native reducible typed dependency-graph isomorphism with binder permutation; "
+            "not arbitrary logical equivalence. Shared primitives remain."
+        ),
     )
     (DIRECTORY / "frozen.json").write_text(json.dumps(result, indent=2) + "\n")
     return result

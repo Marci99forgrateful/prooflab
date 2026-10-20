@@ -1,3 +1,4 @@
+# ruff: noqa: E501
 """Original statement-only Phase 4 families. Run once before the immutable freeze."""
 
 import json

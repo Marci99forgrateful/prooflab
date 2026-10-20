@@ -58,6 +58,11 @@ def summary(traces: list[Trace]) -> dict[str, Any]:
         "automation",
         "applicability_only",
         "old_features_outcome",
+        "frontier",
+        "joint",
+        "beam",
+        "linear_frontier",
+        "grind",
     ):
         subset = [t for t in traces if t.algorithm == algorithm]
         if not subset:
