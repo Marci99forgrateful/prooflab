@@ -55,7 +55,7 @@
           ></a>
           <div>
             <span class="status-dot"></span> Lean 4 · Mathlib
-            <span class="version">v0.1</span>
+            <span class="version">v0.2</span>
           </div>
         </div>
       </aside>
@@ -65,6 +65,11 @@
             Workspace <span>/</span> <strong id="crumb">Proof explorer</strong>
           </div>
           <div class="top-actions">
+            <label class="sr-only" for="dataset-select">Research dataset</label>
+            <select id="dataset-select" aria-label="Research dataset">
+              <option value="phase1">Phase 1 · foundation</option>
+              <option value="phase2">Phase 2 · learned search</option>
+            </select>
             <span id="mode-badge" class="pill">Recorded replay</span
             ><button id="mode-toggle" class="text-button" hidden>
               Use live search</button
@@ -127,7 +132,7 @@
                   </h2>
                   <span
                     class="help-mark"
-                    title="Both strategies receive the same bounded candidate generator."
+                    title="All ProofLab strategies receive the same bounded candidate generator."
                     >?</span
                   >
                 </div>
@@ -139,9 +144,19 @@
                   <button data-algorithm="bfs">
                     Breadth-first <span>Systematic</span></button
                   ><button data-algorithm="best_first" class="selected">
-                    Best-first <span>Heuristic</span>
+                    Best-first <span>Heuristic</span></button
+                  ><button data-algorithm="learned">
+                    Learned <span>CPU model</span>
                   </button>
                 </div>
+                <label id="repeat-label" hidden
+                  >Recorded repeat
+                  <select id="repeat-select" aria-label="Recorded repeat">
+                    <option value="0">1 of 3</option>
+                    <option value="1">2 of 3</option>
+                    <option value="2">3 of 3</option>
+                  </select>
+                </label>
                 <div class="strategy-note" id="strategy-note">
                   Prioritize smaller goals with a transparent mathematical
                   heuristic.
@@ -293,6 +308,27 @@
                 </div>
               </section>
             </div>
+            <section class="card rankings-card" id="rankings-panel" hidden>
+              <div class="card-top">
+                <h2>Why this candidate comes next</h2>
+                <span id="ranking-state" class="mono muted"></span>
+              </div>
+              <p class="method-note" id="ranking-note"></p>
+              <div class="ranking-scroll">
+                <table class="rankings-table">
+                  <thead>
+                    <tr>
+                      <th>ACTUAL ORDER</th>
+                      <th>TACTIC / MODEL CONTRIBUTIONS</th>
+                      <th>HEURISTIC RANK / SCORE</th>
+                      <th>LEARNED RANK / SCORE</th>
+                      <th>LEAN OUTCOME</th>
+                    </tr>
+                  </thead>
+                  <tbody id="ranking-rows"></tbody>
+                </table>
+              </div>
+            </section>
             <div class="metrics-row" id="metrics">
               <div>
                 <span>SEARCH STATES</span><strong id="metric-states">—</strong
@@ -361,7 +397,7 @@
                 <div class="eyebrow">
                   SAME MATHEMATICS. DIFFERENT SEARCH POLICIES.
                 </div>
-                <h1>Two ways to reason<span>.</span></h1>
+                <h1>Three ways to search<span>.</span></h1>
                 <p>
                   Compare genuine recorded runs with identical candidate
                   generation and budgets.
@@ -439,18 +475,19 @@
                 <h2>Show the limits.</h2>
                 <p>
                   Search is bounded. Failure means no proof was found within the
-                  budget, never that the statement is false. The heuristic is
-                  hand designed; no trained AI model is claimed.
+                  budget, never that the statement is false. The learned policy
+                  is a small CPU-trained linear ranker. Its scores order
+                  tactics; Lean establishes correctness.
                 </p>
               </article>
             </div>
             <div class="card about-end">
               <h2>Built for the next question.</h2>
               <p>
-                Typed ranking policies and real exported proof trajectories
-                prepare the system for future locally trained guidance. The
-                first question is measurable: how do deterministic and heuristic
-                search compare?
+                Phase 2 trains only on permitted development proofs and actual
+                Lean rejections. A frozen evaluation across new theorem families
+                measures whether learned candidate ordering helps. All
+                experimental failures remain visible.
               </p>
               <a
                 href="https://github.com/Marci99forgrateful/prooflab"

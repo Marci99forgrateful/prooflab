@@ -1,0 +1,420 @@
+{
+  "schema_version": 1,
+  "task": {
+    "id": "p2_congr_nested",
+    "title": "Congruence through composition",
+    "domain": "algebra",
+    "difficulty": "moderate",
+    "split": "held_out",
+    "binders": "(α β γ : Type) (f : α → β) (g : β → γ) (a b : α) (h : a = b)",
+    "target": "g (f a) = g (f b)",
+    "display": "g (f a) = g (f b)",
+    "description": "Phase 2 frozen evaluation · function congruence.",
+    "origin": "Original Phase 2 statement. Family fixed before model selection.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  "algorithm": "bfs",
+  "budget": {
+    "max_depth": 8,
+    "max_expansions": 60,
+    "max_candidates": 24,
+    "max_attempts": 400,
+    "timeout_s": 12.0,
+    "tactic_timeout_s": 3.0
+  },
+  "status": "verified",
+  "termination": "verified",
+  "nodes": [
+    {
+      "id": 0,
+      "parent": null,
+      "depth": 0,
+      "state": {
+        "state_id": 0,
+        "goals": [
+          {
+            "id": "_uniq.35",
+            "target": {
+              "text": "g (f a) = g (f b)",
+              "head": "Eq",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.27",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "β",
+                "id": "_uniq.28",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "γ",
+                "id": "_uniq.29",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "f",
+                "id": "_uniq.30",
+                "type": {
+                  "text": "α → β",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "g",
+                "id": "_uniq.31",
+                "type": {
+                  "text": "β → γ",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "a",
+                "id": "_uniq.32",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "b",
+                "id": "_uniq.33",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "h",
+                "id": "_uniq.34",
+                "type": {
+                  "text": "a = b",
+                  "head": "Eq",
+                  "forall": false
+                },
+                "is_proof": true
+              }
+            ]
+          }
+        ]
+      },
+      "tactic": null,
+      "category": null,
+      "lemma": null,
+      "provenance": null,
+      "reason": "Initial Lean goal",
+      "status": "root",
+      "error": null,
+      "elapsed_ms": 0.0,
+      "on_proof_path": true
+    },
+    {
+      "id": 1,
+      "parent": 0,
+      "depth": 1,
+      "state": null,
+      "tactic": "assumption",
+      "category": "goal",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Match the goal against the local context",
+      "status": "rejected",
+      "error": "Tactic `assumption` failed\n\nα β γ : Type\nf : α → β\ng : β → γ\na b : α\nh : a = b\n⊢ g (f a) = g (f b)",
+      "elapsed_ms": 1.93203600065317,
+      "on_proof_path": false
+    },
+    {
+      "id": 2,
+      "parent": 0,
+      "depth": 1,
+      "state": null,
+      "tactic": "rfl",
+      "category": "goal",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Check definitional equality",
+      "status": "rejected",
+      "error": "Tactic `rfl` failed: The left-hand side\n  g (f a)\nis not definitionally equal to the right-hand side\n  g (f b)\n\nα β γ : Type\nf : α → β\ng : β → γ\na b : α\nh : a = b\n⊢ g (f a) = g (f b)",
+      "elapsed_ms": 1.8761430037557147,
+      "on_proof_path": false
+    },
+    {
+      "id": 3,
+      "parent": 0,
+      "depth": 1,
+      "state": {
+        "state_id": 1,
+        "goals": []
+      },
+      "tactic": "rw [h]",
+      "category": "hypothesis",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Rewrite using a local equality",
+      "status": "solved",
+      "error": null,
+      "elapsed_ms": 0.7979699948919006,
+      "on_proof_path": true
+    }
+  ],
+  "metrics": {
+    "attempted_candidates": 3,
+    "accepted_transitions": 1,
+    "rejected_candidates": 2,
+    "expanded_states": 1,
+    "frontier": 0,
+    "max_depth": 1,
+    "proof_length": 1,
+    "elapsed_s": 4.034599835002155,
+    "lean_execution_s": 0.004606148999300785,
+    "initialization_s": 2.027474900998641,
+    "verification_s": 1.9858597490019747,
+    "planning_s": 0.0006786910016671754,
+    "model_inference_s": 0.0002939019977930002
+  },
+  "proof": [
+    "rw [h]"
+  ],
+  "lean_source": "import ProofLab.Bridge\n\nset_option maxHeartbeats 300000\ntheorem prooflab_result (α β γ : Type) (f : α → β) (g : β → γ) (a b : α) (h : a = b) : g (f a) = g (f b) := by\n  rw [h]\n\n#prooflab_audit prooflab_result\n",
+  "verification": {
+    "verified": true,
+    "axioms": [],
+    "error": null,
+    "elapsed_s": 1.9858597490019747,
+    "source_sha256": "399e0cb995aee74f9e4882c811399a6c115516459d53ea5d6dc7e6dff56fdb78"
+  },
+  "metadata": {
+    "code_commit": "1b9262dd32c23fa2ac95c47a5f9a9d2172d63da2",
+    "lean_version": "leanprover/lean4:v4.24.0",
+    "mathlib_revision": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7",
+    "python": "3.12.14",
+    "platform": "Linux-6.18.55-x86_64-with-glibc2.41",
+    "machine": "x86_64",
+    "processor": "",
+    "seed": "0 (deterministic)",
+    "state_identity": "Exact tactic prefix within one native session; no semantic merging",
+    "model_sha256": "99633c7039471cceb0292b4634df2b7c4d60218a0882f156e9cc70b5bd75730e",
+    "feature_version": "prooflab-state-action-v1",
+    "learned_scores_used_for_scheduling": "false",
+    "frontier_policy": "handcrafted state score; stable insertion-ID ties",
+    "repeat": "2",
+    "family": "function_congruence"
+  },
+  "error": null,
+  "proof_origin": "constructed_derivation",
+  "rankings": [
+    {
+      "node_id": 0,
+      "candidates": [
+        {
+          "tactic": "assumption",
+          "category": "goal",
+          "generated_order": 0,
+          "actual_rank": 1,
+          "heuristic_score": 10.0,
+          "learned_score": -0.5384024666394835,
+          "contributions": [
+            [
+              "op:assumption",
+              -0.4146238007012775
+            ],
+            [
+              "cross:Eq|assumption",
+              -0.12377866593820606
+            ],
+            [
+              "bias",
+              0.0
+            ],
+            [
+              "shape:Eq",
+              0.0
+            ],
+            [
+              "goals",
+              0.0
+            ]
+          ]
+        },
+        {
+          "tactic": "rfl",
+          "category": "goal",
+          "generated_order": 1,
+          "actual_rank": 2,
+          "heuristic_score": 8.0,
+          "learned_score": -0.39960806324098036,
+          "contributions": [
+            [
+              "op:rfl",
+              -0.19980403162049018
+            ],
+            [
+              "cross:Eq|rfl",
+              -0.19980403162049018
+            ],
+            [
+              "bias",
+              0.0
+            ],
+            [
+              "shape:Eq",
+              0.0
+            ],
+            [
+              "goals",
+              0.0
+            ]
+          ]
+        },
+        {
+          "tactic": "rw [h]",
+          "category": "hypothesis",
+          "generated_order": 2,
+          "actual_rank": 3,
+          "heuristic_score": 6.0,
+          "learned_score": 0.6091179984053274,
+          "contributions": [
+            [
+              "rewrite_occurs",
+              0.18626643067371954
+            ],
+            [
+              "op:rewrite",
+              0.16045103809721512
+            ],
+            [
+              "cross:Eq|rewrite",
+              0.16045103809721512
+            ],
+            [
+              "rewrite_reverse_occurs",
+              0.1068849353580028
+            ],
+            [
+              "target_overlap",
+              -0.004935443820825111
+            ]
+          ]
+        },
+        {
+          "tactic": "rw [← h]",
+          "category": "hypothesis",
+          "generated_order": 3,
+          "actual_rank": 4,
+          "heuristic_score": 3.0,
+          "learned_score": 0.2583789566168643,
+          "contributions": [
+            [
+              "rewrite_occurs",
+              0.18626643067371954
+            ],
+            [
+              "rewrite_reverse_occurs",
+              0.1068849353580028
+            ],
+            [
+              "op:reverse_rewrite",
+              -0.014918482797016479
+            ],
+            [
+              "cross:Eq|reverse_rewrite",
+              -0.014918482797016479
+            ],
+            [
+              "target_overlap",
+              -0.004935443820825111
+            ]
+          ]
+        },
+        {
+          "tactic": "apply Eq.symm",
+          "category": "lemma",
+          "generated_order": 4,
+          "actual_rank": 5,
+          "heuristic_score": 4.0,
+          "learned_score": 0.29073793928813485,
+          "contributions": [
+            [
+              "cross:Eq|lemma_apply",
+              0.18906752072909025
+            ],
+            [
+              "op:lemma_apply",
+              0.10167041855904463
+            ],
+            [
+              "bias",
+              0.0
+            ],
+            [
+              "shape:Eq",
+              0.0
+            ],
+            [
+              "goals",
+              0.0
+            ]
+          ]
+        },
+        {
+          "tactic": "apply Eq.trans",
+          "category": "lemma",
+          "generated_order": 5,
+          "actual_rank": 6,
+          "heuristic_score": 4.0,
+          "learned_score": 0.29073793928813485,
+          "contributions": [
+            [
+              "cross:Eq|lemma_apply",
+              0.18906752072909025
+            ],
+            [
+              "op:lemma_apply",
+              0.10167041855904463
+            ],
+            [
+              "bias",
+              0.0
+            ],
+            [
+              "shape:Eq",
+              0.0
+            ],
+            [
+              "goals",
+              0.0
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}

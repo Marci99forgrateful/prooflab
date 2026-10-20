@@ -1,0 +1,2214 @@
+{
+  "schema_version": 1,
+  "task": {
+    "id": "p2_predicate_binary",
+    "title": "Transport a binary relation",
+    "domain": "logic",
+    "difficulty": "moderate",
+    "split": "held_out",
+    "binders": "(α β : Type) (R : α → β → Prop) (a b : α) (x y : β) (ha : a = b) (hx : x = y) (hr : R a x)",
+    "target": "R b y",
+    "display": "R b y",
+    "description": "Phase 2 frozen evaluation · predicate transport.",
+    "origin": "Original Phase 2 statement. Family fixed before model selection.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  "algorithm": "bfs",
+  "budget": {
+    "max_depth": 8,
+    "max_expansions": 60,
+    "max_candidates": 24,
+    "max_attempts": 400,
+    "timeout_s": 12.0,
+    "tactic_timeout_s": 3.0
+  },
+  "status": "verified",
+  "termination": "verified",
+  "nodes": [
+    {
+      "id": 0,
+      "parent": null,
+      "depth": 0,
+      "state": {
+        "state_id": 0,
+        "goals": [
+          {
+            "id": "_uniq.53",
+            "target": {
+              "text": "R b y",
+              "head": "[anonymous]",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.43",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "β",
+                "id": "_uniq.44",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "R",
+                "id": "_uniq.45",
+                "type": {
+                  "text": "α → β → Prop",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "a",
+                "id": "_uniq.46",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "b",
+                "id": "_uniq.47",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "x",
+                "id": "_uniq.48",
+                "type": {
+                  "text": "β",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "y",
+                "id": "_uniq.49",
+                "type": {
+                  "text": "β",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "ha",
+                "id": "_uniq.50",
+                "type": {
+                  "text": "a = b",
+                  "head": "Eq",
+                  "forall": false
+                },
+                "is_proof": true
+              },
+              {
+                "name": "hx",
+                "id": "_uniq.51",
+                "type": {
+                  "text": "x = y",
+                  "head": "Eq",
+                  "forall": false
+                },
+                "is_proof": true
+              },
+              {
+                "name": "hr",
+                "id": "_uniq.52",
+                "type": {
+                  "text": "R a x",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              }
+            ]
+          }
+        ]
+      },
+      "tactic": null,
+      "category": null,
+      "lemma": null,
+      "provenance": null,
+      "reason": "Initial Lean goal",
+      "status": "root",
+      "error": null,
+      "elapsed_ms": 0.0,
+      "on_proof_path": true
+    },
+    {
+      "id": 1,
+      "parent": 0,
+      "depth": 1,
+      "state": null,
+      "tactic": "assumption",
+      "category": "goal",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Match the goal against the local context",
+      "status": "rejected",
+      "error": "Tactic `assumption` failed\n\nα β : Type\nR : α → β → Prop\na b : α\nx y : β\nha : a = b\nhx : x = y\nhr : R a x\n⊢ R b y",
+      "elapsed_ms": 3.262879006797448,
+      "on_proof_path": false
+    },
+    {
+      "id": 2,
+      "parent": 0,
+      "depth": 1,
+      "state": null,
+      "tactic": "rw [ha]",
+      "category": "hypothesis",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Rewrite using a local equality",
+      "status": "rejected",
+      "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  a\nin the target expression\n  R b y\n\nα β : Type\nR : α → β → Prop\na b : α\nx y : β\nha : a = b\nhx : x = y\nhr : R a x\n⊢ R b y",
+      "elapsed_ms": 1.1101999989477918,
+      "on_proof_path": false
+    },
+    {
+      "id": 3,
+      "parent": 0,
+      "depth": 1,
+      "state": {
+        "state_id": 1,
+        "goals": [
+          {
+            "id": "_uniq.58",
+            "target": {
+              "text": "R a y",
+              "head": "[anonymous]",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.43",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "β",
+                "id": "_uniq.44",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "R",
+                "id": "_uniq.45",
+                "type": {
+                  "text": "α → β → Prop",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "a",
+                "id": "_uniq.46",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "b",
+                "id": "_uniq.47",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "x",
+                "id": "_uniq.48",
+                "type": {
+                  "text": "β",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "y",
+                "id": "_uniq.49",
+                "type": {
+                  "text": "β",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "ha",
+                "id": "_uniq.50",
+                "type": {
+                  "text": "a = b",
+                  "head": "Eq",
+                  "forall": false
+                },
+                "is_proof": true
+              },
+              {
+                "name": "hx",
+                "id": "_uniq.51",
+                "type": {
+                  "text": "x = y",
+                  "head": "Eq",
+                  "forall": false
+                },
+                "is_proof": true
+              },
+              {
+                "name": "hr",
+                "id": "_uniq.52",
+                "type": {
+                  "text": "R a x",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              }
+            ]
+          }
+        ]
+      },
+      "tactic": "rw [← ha]",
+      "category": "hypothesis",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Explore reverse equality rewriting",
+      "status": "accepted",
+      "error": null,
+      "elapsed_ms": 1.5096909992280416,
+      "on_proof_path": true
+    },
+    {
+      "id": 4,
+      "parent": 0,
+      "depth": 1,
+      "state": null,
+      "tactic": "rw [hx]",
+      "category": "hypothesis",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Rewrite using a local equality",
+      "status": "rejected",
+      "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  x\nin the target expression\n  R b y\n\nα β : Type\nR : α → β → Prop\na b : α\nx y : β\nha : a = b\nhx : x = y\nhr : R a x\n⊢ R b y",
+      "elapsed_ms": 0.7638789975317195,
+      "on_proof_path": false
+    },
+    {
+      "id": 5,
+      "parent": 0,
+      "depth": 1,
+      "state": {
+        "state_id": 2,
+        "goals": [
+          {
+            "id": "_uniq.65",
+            "target": {
+              "text": "R b x",
+              "head": "[anonymous]",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.43",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "β",
+                "id": "_uniq.44",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "R",
+                "id": "_uniq.45",
+                "type": {
+                  "text": "α → β → Prop",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "a",
+                "id": "_uniq.46",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "b",
+                "id": "_uniq.47",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "x",
+                "id": "_uniq.48",
+                "type": {
+                  "text": "β",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "y",
+                "id": "_uniq.49",
+                "type": {
+                  "text": "β",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "ha",
+                "id": "_uniq.50",
+                "type": {
+                  "text": "a = b",
+                  "head": "Eq",
+                  "forall": false
+                },
+                "is_proof": true
+              },
+              {
+                "name": "hx",
+                "id": "_uniq.51",
+                "type": {
+                  "text": "x = y",
+                  "head": "Eq",
+                  "forall": false
+                },
+                "is_proof": true
+              },
+              {
+                "name": "hr",
+                "id": "_uniq.52",
+                "type": {
+                  "text": "R a x",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              }
+            ]
+          }
+        ]
+      },
+      "tactic": "rw [← hx]",
+      "category": "hypothesis",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Explore reverse equality rewriting",
+      "status": "accepted",
+      "error": null,
+      "elapsed_ms": 1.3339769939193502,
+      "on_proof_path": false
+    },
+    {
+      "id": 6,
+      "parent": 3,
+      "depth": 2,
+      "state": null,
+      "tactic": "assumption",
+      "category": "goal",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Match the goal against the local context",
+      "status": "rejected",
+      "error": "Tactic `assumption` failed\n\nα β : Type\nR : α → β → Prop\na b : α\nx y : β\nha : a = b\nhx : x = y\nhr : R a x\n⊢ R a y",
+      "elapsed_ms": 0.7612360059283674,
+      "on_proof_path": false
+    },
+    {
+      "id": 7,
+      "parent": 3,
+      "depth": 2,
+      "state": {
+        "state_id": 3,
+        "goals": [
+          {
+            "id": "_uniq.72",
+            "target": {
+              "text": "R b y",
+              "head": "[anonymous]",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.43",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "β",
+                "id": "_uniq.44",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "R",
+                "id": "_uniq.45",
+                "type": {
+                  "text": "α → β → Prop",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "a",
+                "id": "_uniq.46",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "b",
+                "id": "_uniq.47",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "x",
+                "id": "_uniq.48",
+                "type": {
+                  "text": "β",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "y",
+                "id": "_uniq.49",
+                "type": {
+                  "text": "β",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "ha",
+                "id": "_uniq.50",
+                "type": {
+                  "text": "a = b",
+                  "head": "Eq",
+                  "forall": false
+                },
+                "is_proof": true
+              },
+              {
+                "name": "hx",
+                "id": "_uniq.51",
+                "type": {
+                  "text": "x = y",
+                  "head": "Eq",
+                  "forall": false
+                },
+                "is_proof": true
+              },
+              {
+                "name": "hr",
+                "id": "_uniq.52",
+                "type": {
+                  "text": "R a x",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              }
+            ]
+          }
+        ]
+      },
+      "tactic": "rw [ha]",
+      "category": "hypothesis",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Rewrite using a local equality",
+      "status": "accepted",
+      "error": null,
+      "elapsed_ms": 1.281628996366635,
+      "on_proof_path": false
+    },
+    {
+      "id": 8,
+      "parent": 3,
+      "depth": 2,
+      "state": null,
+      "tactic": "rw [← ha]",
+      "category": "hypothesis",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Explore reverse equality rewriting",
+      "status": "rejected",
+      "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  b\nin the target expression\n  R a y\n\nα β : Type\nR : α → β → Prop\na b : α\nx y : β\nha : a = b\nhx : x = y\nhr : R a x\n⊢ R a y",
+      "elapsed_ms": 0.7601430042996071,
+      "on_proof_path": false
+    },
+    {
+      "id": 9,
+      "parent": 3,
+      "depth": 2,
+      "state": null,
+      "tactic": "rw [hx]",
+      "category": "hypothesis",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Rewrite using a local equality",
+      "status": "rejected",
+      "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  x\nin the target expression\n  R a y\n\nα β : Type\nR : α → β → Prop\na b : α\nx y : β\nha : a = b\nhx : x = y\nhr : R a x\n⊢ R a y",
+      "elapsed_ms": 0.7982219976838678,
+      "on_proof_path": false
+    },
+    {
+      "id": 10,
+      "parent": 3,
+      "depth": 2,
+      "state": {
+        "state_id": 4,
+        "goals": [
+          {
+            "id": "_uniq.79",
+            "target": {
+              "text": "R a x",
+              "head": "[anonymous]",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.43",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "β",
+                "id": "_uniq.44",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "R",
+                "id": "_uniq.45",
+                "type": {
+                  "text": "α → β → Prop",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "a",
+                "id": "_uniq.46",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "b",
+                "id": "_uniq.47",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "x",
+                "id": "_uniq.48",
+                "type": {
+                  "text": "β",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "y",
+                "id": "_uniq.49",
+                "type": {
+                  "text": "β",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "ha",
+                "id": "_uniq.50",
+                "type": {
+                  "text": "a = b",
+                  "head": "Eq",
+                  "forall": false
+                },
+                "is_proof": true
+              },
+              {
+                "name": "hx",
+                "id": "_uniq.51",
+                "type": {
+                  "text": "x = y",
+                  "head": "Eq",
+                  "forall": false
+                },
+                "is_proof": true
+              },
+              {
+                "name": "hr",
+                "id": "_uniq.52",
+                "type": {
+                  "text": "R a x",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              }
+            ]
+          }
+        ]
+      },
+      "tactic": "rw [← hx]",
+      "category": "hypothesis",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Explore reverse equality rewriting",
+      "status": "accepted",
+      "error": null,
+      "elapsed_ms": 1.2402959982864559,
+      "on_proof_path": true
+    },
+    {
+      "id": 11,
+      "parent": 5,
+      "depth": 2,
+      "state": null,
+      "tactic": "assumption",
+      "category": "goal",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Match the goal against the local context",
+      "status": "rejected",
+      "error": "Tactic `assumption` failed\n\nα β : Type\nR : α → β → Prop\na b : α\nx y : β\nha : a = b\nhx : x = y\nhr : R a x\n⊢ R b x",
+      "elapsed_ms": 0.7731040022918023,
+      "on_proof_path": false
+    },
+    {
+      "id": 12,
+      "parent": 5,
+      "depth": 2,
+      "state": null,
+      "tactic": "rw [ha]",
+      "category": "hypothesis",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Rewrite using a local equality",
+      "status": "rejected",
+      "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  a\nin the target expression\n  R b x\n\nα β : Type\nR : α → β → Prop\na b : α\nx y : β\nha : a = b\nhx : x = y\nhr : R a x\n⊢ R b x",
+      "elapsed_ms": 0.7716609979979694,
+      "on_proof_path": false
+    },
+    {
+      "id": 13,
+      "parent": 5,
+      "depth": 2,
+      "state": {
+        "state_id": 5,
+        "goals": [
+          {
+            "id": "_uniq.86",
+            "target": {
+              "text": "R a x",
+              "head": "[anonymous]",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.43",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "β",
+                "id": "_uniq.44",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "R",
+                "id": "_uniq.45",
+                "type": {
+                  "text": "α → β → Prop",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "a",
+                "id": "_uniq.46",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "b",
+                "id": "_uniq.47",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "x",
+                "id": "_uniq.48",
+                "type": {
+                  "text": "β",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "y",
+                "id": "_uniq.49",
+                "type": {
+                  "text": "β",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "ha",
+                "id": "_uniq.50",
+                "type": {
+                  "text": "a = b",
+                  "head": "Eq",
+                  "forall": false
+                },
+                "is_proof": true
+              },
+              {
+                "name": "hx",
+                "id": "_uniq.51",
+                "type": {
+                  "text": "x = y",
+                  "head": "Eq",
+                  "forall": false
+                },
+                "is_proof": true
+              },
+              {
+                "name": "hr",
+                "id": "_uniq.52",
+                "type": {
+                  "text": "R a x",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              }
+            ]
+          }
+        ]
+      },
+      "tactic": "rw [← ha]",
+      "category": "hypothesis",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Explore reverse equality rewriting",
+      "status": "accepted",
+      "error": null,
+      "elapsed_ms": 1.3073070003883913,
+      "on_proof_path": false
+    },
+    {
+      "id": 14,
+      "parent": 5,
+      "depth": 2,
+      "state": {
+        "state_id": 6,
+        "goals": [
+          {
+            "id": "_uniq.93",
+            "target": {
+              "text": "R b y",
+              "head": "[anonymous]",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.43",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "β",
+                "id": "_uniq.44",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "R",
+                "id": "_uniq.45",
+                "type": {
+                  "text": "α → β → Prop",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "a",
+                "id": "_uniq.46",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "b",
+                "id": "_uniq.47",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "x",
+                "id": "_uniq.48",
+                "type": {
+                  "text": "β",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "y",
+                "id": "_uniq.49",
+                "type": {
+                  "text": "β",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "ha",
+                "id": "_uniq.50",
+                "type": {
+                  "text": "a = b",
+                  "head": "Eq",
+                  "forall": false
+                },
+                "is_proof": true
+              },
+              {
+                "name": "hx",
+                "id": "_uniq.51",
+                "type": {
+                  "text": "x = y",
+                  "head": "Eq",
+                  "forall": false
+                },
+                "is_proof": true
+              },
+              {
+                "name": "hr",
+                "id": "_uniq.52",
+                "type": {
+                  "text": "R a x",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              }
+            ]
+          }
+        ]
+      },
+      "tactic": "rw [hx]",
+      "category": "hypothesis",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Rewrite using a local equality",
+      "status": "accepted",
+      "error": null,
+      "elapsed_ms": 1.2525950005510822,
+      "on_proof_path": false
+    },
+    {
+      "id": 15,
+      "parent": 5,
+      "depth": 2,
+      "state": null,
+      "tactic": "rw [← hx]",
+      "category": "hypothesis",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Explore reverse equality rewriting",
+      "status": "rejected",
+      "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  y\nin the target expression\n  R b x\n\nα β : Type\nR : α → β → Prop\na b : α\nx y : β\nha : a = b\nhx : x = y\nhr : R a x\n⊢ R b x",
+      "elapsed_ms": 0.7881350029492751,
+      "on_proof_path": false
+    },
+    {
+      "id": 16,
+      "parent": 7,
+      "depth": 3,
+      "state": null,
+      "tactic": "assumption",
+      "category": "goal",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Match the goal against the local context",
+      "status": "rejected",
+      "error": "Tactic `assumption` failed\n\nα β : Type\nR : α → β → Prop\na b : α\nx y : β\nha : a = b\nhx : x = y\nhr : R a x\n⊢ R b y",
+      "elapsed_ms": 0.7927330007078126,
+      "on_proof_path": false
+    },
+    {
+      "id": 17,
+      "parent": 7,
+      "depth": 3,
+      "state": null,
+      "tactic": "rw [ha]",
+      "category": "hypothesis",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Rewrite using a local equality",
+      "status": "rejected",
+      "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  a\nin the target expression\n  R b y\n\nα β : Type\nR : α → β → Prop\na b : α\nx y : β\nha : a = b\nhx : x = y\nhr : R a x\n⊢ R b y",
+      "elapsed_ms": 0.7705889947828837,
+      "on_proof_path": false
+    },
+    {
+      "id": 18,
+      "parent": 7,
+      "depth": 3,
+      "state": {
+        "state_id": 7,
+        "goals": [
+          {
+            "id": "_uniq.100",
+            "target": {
+              "text": "R a y",
+              "head": "[anonymous]",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.43",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "β",
+                "id": "_uniq.44",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "R",
+                "id": "_uniq.45",
+                "type": {
+                  "text": "α → β → Prop",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "a",
+                "id": "_uniq.46",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "b",
+                "id": "_uniq.47",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "x",
+                "id": "_uniq.48",
+                "type": {
+                  "text": "β",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "y",
+                "id": "_uniq.49",
+                "type": {
+                  "text": "β",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "ha",
+                "id": "_uniq.50",
+                "type": {
+                  "text": "a = b",
+                  "head": "Eq",
+                  "forall": false
+                },
+                "is_proof": true
+              },
+              {
+                "name": "hx",
+                "id": "_uniq.51",
+                "type": {
+                  "text": "x = y",
+                  "head": "Eq",
+                  "forall": false
+                },
+                "is_proof": true
+              },
+              {
+                "name": "hr",
+                "id": "_uniq.52",
+                "type": {
+                  "text": "R a x",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              }
+            ]
+          }
+        ]
+      },
+      "tactic": "rw [← ha]",
+      "category": "hypothesis",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Explore reverse equality rewriting",
+      "status": "accepted",
+      "error": null,
+      "elapsed_ms": 1.2401560015860014,
+      "on_proof_path": false
+    },
+    {
+      "id": 19,
+      "parent": 7,
+      "depth": 3,
+      "state": null,
+      "tactic": "rw [hx]",
+      "category": "hypothesis",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Rewrite using a local equality",
+      "status": "rejected",
+      "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  x\nin the target expression\n  R b y\n\nα β : Type\nR : α → β → Prop\na b : α\nx y : β\nha : a = b\nhx : x = y\nhr : R a x\n⊢ R b y",
+      "elapsed_ms": 0.7749460055492818,
+      "on_proof_path": false
+    },
+    {
+      "id": 20,
+      "parent": 7,
+      "depth": 3,
+      "state": {
+        "state_id": 8,
+        "goals": [
+          {
+            "id": "_uniq.107",
+            "target": {
+              "text": "R b x",
+              "head": "[anonymous]",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.43",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "β",
+                "id": "_uniq.44",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "R",
+                "id": "_uniq.45",
+                "type": {
+                  "text": "α → β → Prop",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "a",
+                "id": "_uniq.46",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "b",
+                "id": "_uniq.47",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "x",
+                "id": "_uniq.48",
+                "type": {
+                  "text": "β",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "y",
+                "id": "_uniq.49",
+                "type": {
+                  "text": "β",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "ha",
+                "id": "_uniq.50",
+                "type": {
+                  "text": "a = b",
+                  "head": "Eq",
+                  "forall": false
+                },
+                "is_proof": true
+              },
+              {
+                "name": "hx",
+                "id": "_uniq.51",
+                "type": {
+                  "text": "x = y",
+                  "head": "Eq",
+                  "forall": false
+                },
+                "is_proof": true
+              },
+              {
+                "name": "hr",
+                "id": "_uniq.52",
+                "type": {
+                  "text": "R a x",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              }
+            ]
+          }
+        ]
+      },
+      "tactic": "rw [← hx]",
+      "category": "hypothesis",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Explore reverse equality rewriting",
+      "status": "accepted",
+      "error": null,
+      "elapsed_ms": 1.311662999796681,
+      "on_proof_path": false
+    },
+    {
+      "id": 21,
+      "parent": 10,
+      "depth": 3,
+      "state": {
+        "state_id": 9,
+        "goals": []
+      },
+      "tactic": "assumption",
+      "category": "goal",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Match the goal against the local context",
+      "status": "solved",
+      "error": null,
+      "elapsed_ms": 0.12127200170652941,
+      "on_proof_path": true
+    }
+  ],
+  "metrics": {
+    "attempted_candidates": 21,
+    "accepted_transitions": 9,
+    "rejected_candidates": 12,
+    "expanded_states": 5,
+    "frontier": 4,
+    "max_depth": 3,
+    "proof_length": 3,
+    "elapsed_s": 4.270600329000445,
+    "lean_execution_s": 0.022726313007296994,
+    "initialization_s": 2.162135758997465,
+    "verification_s": 2.046644773996377,
+    "planning_s": 0.002743237004324328,
+    "model_inference_s": 0.0013074860034976155
+  },
+  "proof": [
+    "rw [← ha]",
+    "rw [← hx]",
+    "assumption"
+  ],
+  "lean_source": "import ProofLab.Bridge\n\nset_option maxHeartbeats 300000\ntheorem prooflab_result (α β : Type) (R : α → β → Prop) (a b : α) (x y : β) (ha : a = b) (hx : x = y) (hr : R a x) : R b y := by\n  rw [← ha]\n  rw [← hx]\n  assumption\n\n#prooflab_audit prooflab_result\n",
+  "verification": {
+    "verified": true,
+    "axioms": [],
+    "error": null,
+    "elapsed_s": 2.046644773996377,
+    "source_sha256": "aed8a3d39ae03fb86174f75c90f51964349c3b13ce309b9d94ad2045a7ab8a02"
+  },
+  "metadata": {
+    "code_commit": "1b9262dd32c23fa2ac95c47a5f9a9d2172d63da2",
+    "lean_version": "leanprover/lean4:v4.24.0",
+    "mathlib_revision": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7",
+    "python": "3.12.14",
+    "platform": "Linux-6.18.55-x86_64-with-glibc2.41",
+    "machine": "x86_64",
+    "processor": "",
+    "seed": "0 (deterministic)",
+    "state_identity": "Exact tactic prefix within one native session; no semantic merging",
+    "model_sha256": "99633c7039471cceb0292b4634df2b7c4d60218a0882f156e9cc70b5bd75730e",
+    "feature_version": "prooflab-state-action-v1",
+    "learned_scores_used_for_scheduling": "false",
+    "frontier_policy": "handcrafted state score; stable insertion-ID ties",
+    "repeat": "1",
+    "family": "predicate_transport"
+  },
+  "error": null,
+  "proof_origin": "constructed_derivation",
+  "rankings": [
+    {
+      "node_id": 0,
+      "candidates": [
+        {
+          "tactic": "assumption",
+          "category": "goal",
+          "generated_order": 0,
+          "actual_rank": 1,
+          "heuristic_score": 10.0,
+          "learned_score": -0.515283877345804,
+          "contributions": [
+            [
+              "op:assumption",
+              -0.4146238007012775
+            ],
+            [
+              "cross:other|assumption",
+              -0.10066007664452657
+            ],
+            [
+              "bias",
+              0.0
+            ],
+            [
+              "shape:other",
+              0.0
+            ],
+            [
+              "goals",
+              0.0
+            ]
+          ]
+        },
+        {
+          "tactic": "rw [ha]",
+          "category": "hypothesis",
+          "generated_order": 1,
+          "actual_rank": 2,
+          "heuristic_score": 6.0,
+          "learned_score": 0.2656908255149429,
+          "contributions": [
+            [
+              "op:rewrite",
+              0.16045103809721512
+            ],
+            [
+              "rewrite_reverse_occurs",
+              0.1068849353580028
+            ],
+            [
+              "target_overlap",
+              -0.0016451479402750373
+            ],
+            [
+              "bias",
+              0.0
+            ],
+            [
+              "shape:other",
+              0.0
+            ]
+          ]
+        },
+        {
+          "tactic": "rw [← ha]",
+          "category": "hypothesis",
+          "generated_order": 2,
+          "actual_rank": 3,
+          "heuristic_score": 3.0,
+          "learned_score": 0.09032130462071128,
+          "contributions": [
+            [
+              "rewrite_reverse_occurs",
+              0.1068849353580028
+            ],
+            [
+              "op:reverse_rewrite",
+              -0.014918482797016479
+            ],
+            [
+              "target_overlap",
+              -0.0016451479402750373
+            ],
+            [
+              "bias",
+              0.0
+            ],
+            [
+              "shape:other",
+              0.0
+            ]
+          ]
+        },
+        {
+          "tactic": "rw [hx]",
+          "category": "hypothesis",
+          "generated_order": 3,
+          "actual_rank": 4,
+          "heuristic_score": 6.0,
+          "learned_score": 0.2656908255149429,
+          "contributions": [
+            [
+              "op:rewrite",
+              0.16045103809721512
+            ],
+            [
+              "rewrite_reverse_occurs",
+              0.1068849353580028
+            ],
+            [
+              "target_overlap",
+              -0.0016451479402750373
+            ],
+            [
+              "bias",
+              0.0
+            ],
+            [
+              "shape:other",
+              0.0
+            ]
+          ]
+        },
+        {
+          "tactic": "rw [← hx]",
+          "category": "hypothesis",
+          "generated_order": 4,
+          "actual_rank": 5,
+          "heuristic_score": 3.0,
+          "learned_score": 0.09032130462071128,
+          "contributions": [
+            [
+              "rewrite_reverse_occurs",
+              0.1068849353580028
+            ],
+            [
+              "op:reverse_rewrite",
+              -0.014918482797016479
+            ],
+            [
+              "target_overlap",
+              -0.0016451479402750373
+            ],
+            [
+              "bias",
+              0.0
+            ],
+            [
+              "shape:other",
+              0.0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "node_id": 3,
+      "candidates": [
+        {
+          "tactic": "assumption",
+          "category": "goal",
+          "generated_order": 0,
+          "actual_rank": 1,
+          "heuristic_score": 10.0,
+          "learned_score": -0.515283877345804,
+          "contributions": [
+            [
+              "op:assumption",
+              -0.4146238007012775
+            ],
+            [
+              "cross:other|assumption",
+              -0.10066007664452657
+            ],
+            [
+              "bias",
+              0.0
+            ],
+            [
+              "shape:other",
+              0.0
+            ],
+            [
+              "goals",
+              0.0
+            ]
+          ]
+        },
+        {
+          "tactic": "rw [ha]",
+          "category": "hypothesis",
+          "generated_order": 1,
+          "actual_rank": 2,
+          "heuristic_score": 6.0,
+          "learned_score": 0.34507232083065964,
+          "contributions": [
+            [
+              "rewrite_occurs",
+              0.18626643067371954
+            ],
+            [
+              "op:rewrite",
+              0.16045103809721512
+            ],
+            [
+              "target_overlap",
+              -0.0016451479402750373
+            ],
+            [
+              "bias",
+              0.0
+            ],
+            [
+              "shape:other",
+              0.0
+            ]
+          ]
+        },
+        {
+          "tactic": "rw [← ha]",
+          "category": "hypothesis",
+          "generated_order": 2,
+          "actual_rank": 3,
+          "heuristic_score": 3.0,
+          "learned_score": 0.169702799936428,
+          "contributions": [
+            [
+              "rewrite_occurs",
+              0.18626643067371954
+            ],
+            [
+              "op:reverse_rewrite",
+              -0.014918482797016479
+            ],
+            [
+              "target_overlap",
+              -0.0016451479402750373
+            ],
+            [
+              "bias",
+              0.0
+            ],
+            [
+              "shape:other",
+              0.0
+            ]
+          ]
+        },
+        {
+          "tactic": "rw [hx]",
+          "category": "hypothesis",
+          "generated_order": 3,
+          "actual_rank": 4,
+          "heuristic_score": 6.0,
+          "learned_score": 0.2656908255149429,
+          "contributions": [
+            [
+              "op:rewrite",
+              0.16045103809721512
+            ],
+            [
+              "rewrite_reverse_occurs",
+              0.1068849353580028
+            ],
+            [
+              "target_overlap",
+              -0.0016451479402750373
+            ],
+            [
+              "bias",
+              0.0
+            ],
+            [
+              "shape:other",
+              0.0
+            ]
+          ]
+        },
+        {
+          "tactic": "rw [← hx]",
+          "category": "hypothesis",
+          "generated_order": 4,
+          "actual_rank": 5,
+          "heuristic_score": 3.0,
+          "learned_score": 0.09032130462071128,
+          "contributions": [
+            [
+              "rewrite_reverse_occurs",
+              0.1068849353580028
+            ],
+            [
+              "op:reverse_rewrite",
+              -0.014918482797016479
+            ],
+            [
+              "target_overlap",
+              -0.0016451479402750373
+            ],
+            [
+              "bias",
+              0.0
+            ],
+            [
+              "shape:other",
+              0.0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "node_id": 5,
+      "candidates": [
+        {
+          "tactic": "assumption",
+          "category": "goal",
+          "generated_order": 0,
+          "actual_rank": 1,
+          "heuristic_score": 10.0,
+          "learned_score": -0.515283877345804,
+          "contributions": [
+            [
+              "op:assumption",
+              -0.4146238007012775
+            ],
+            [
+              "cross:other|assumption",
+              -0.10066007664452657
+            ],
+            [
+              "bias",
+              0.0
+            ],
+            [
+              "shape:other",
+              0.0
+            ],
+            [
+              "goals",
+              0.0
+            ]
+          ]
+        },
+        {
+          "tactic": "rw [ha]",
+          "category": "hypothesis",
+          "generated_order": 1,
+          "actual_rank": 2,
+          "heuristic_score": 6.0,
+          "learned_score": 0.2656908255149429,
+          "contributions": [
+            [
+              "op:rewrite",
+              0.16045103809721512
+            ],
+            [
+              "rewrite_reverse_occurs",
+              0.1068849353580028
+            ],
+            [
+              "target_overlap",
+              -0.0016451479402750373
+            ],
+            [
+              "bias",
+              0.0
+            ],
+            [
+              "shape:other",
+              0.0
+            ]
+          ]
+        },
+        {
+          "tactic": "rw [← ha]",
+          "category": "hypothesis",
+          "generated_order": 2,
+          "actual_rank": 3,
+          "heuristic_score": 3.0,
+          "learned_score": 0.09032130462071128,
+          "contributions": [
+            [
+              "rewrite_reverse_occurs",
+              0.1068849353580028
+            ],
+            [
+              "op:reverse_rewrite",
+              -0.014918482797016479
+            ],
+            [
+              "target_overlap",
+              -0.0016451479402750373
+            ],
+            [
+              "bias",
+              0.0
+            ],
+            [
+              "shape:other",
+              0.0
+            ]
+          ]
+        },
+        {
+          "tactic": "rw [hx]",
+          "category": "hypothesis",
+          "generated_order": 3,
+          "actual_rank": 4,
+          "heuristic_score": 6.0,
+          "learned_score": 0.34507232083065964,
+          "contributions": [
+            [
+              "rewrite_occurs",
+              0.18626643067371954
+            ],
+            [
+              "op:rewrite",
+              0.16045103809721512
+            ],
+            [
+              "target_overlap",
+              -0.0016451479402750373
+            ],
+            [
+              "bias",
+              0.0
+            ],
+            [
+              "shape:other",
+              0.0
+            ]
+          ]
+        },
+        {
+          "tactic": "rw [← hx]",
+          "category": "hypothesis",
+          "generated_order": 4,
+          "actual_rank": 5,
+          "heuristic_score": 3.0,
+          "learned_score": 0.169702799936428,
+          "contributions": [
+            [
+              "rewrite_occurs",
+              0.18626643067371954
+            ],
+            [
+              "op:reverse_rewrite",
+              -0.014918482797016479
+            ],
+            [
+              "target_overlap",
+              -0.0016451479402750373
+            ],
+            [
+              "bias",
+              0.0
+            ],
+            [
+              "shape:other",
+              0.0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "node_id": 7,
+      "candidates": [
+        {
+          "tactic": "assumption",
+          "category": "goal",
+          "generated_order": 0,
+          "actual_rank": 1,
+          "heuristic_score": 10.0,
+          "learned_score": -0.515283877345804,
+          "contributions": [
+            [
+              "op:assumption",
+              -0.4146238007012775
+            ],
+            [
+              "cross:other|assumption",
+              -0.10066007664452657
+            ],
+            [
+              "bias",
+              0.0
+            ],
+            [
+              "shape:other",
+              0.0
+            ],
+            [
+              "goals",
+              0.0
+            ]
+          ]
+        },
+        {
+          "tactic": "rw [ha]",
+          "category": "hypothesis",
+          "generated_order": 1,
+          "actual_rank": 2,
+          "heuristic_score": 6.0,
+          "learned_score": 0.2656908255149429,
+          "contributions": [
+            [
+              "op:rewrite",
+              0.16045103809721512
+            ],
+            [
+              "rewrite_reverse_occurs",
+              0.1068849353580028
+            ],
+            [
+              "target_overlap",
+              -0.0016451479402750373
+            ],
+            [
+              "bias",
+              0.0
+            ],
+            [
+              "shape:other",
+              0.0
+            ]
+          ]
+        },
+        {
+          "tactic": "rw [← ha]",
+          "category": "hypothesis",
+          "generated_order": 2,
+          "actual_rank": 3,
+          "heuristic_score": 3.0,
+          "learned_score": 0.09032130462071128,
+          "contributions": [
+            [
+              "rewrite_reverse_occurs",
+              0.1068849353580028
+            ],
+            [
+              "op:reverse_rewrite",
+              -0.014918482797016479
+            ],
+            [
+              "target_overlap",
+              -0.0016451479402750373
+            ],
+            [
+              "bias",
+              0.0
+            ],
+            [
+              "shape:other",
+              0.0
+            ]
+          ]
+        },
+        {
+          "tactic": "rw [hx]",
+          "category": "hypothesis",
+          "generated_order": 3,
+          "actual_rank": 4,
+          "heuristic_score": 6.0,
+          "learned_score": 0.2656908255149429,
+          "contributions": [
+            [
+              "op:rewrite",
+              0.16045103809721512
+            ],
+            [
+              "rewrite_reverse_occurs",
+              0.1068849353580028
+            ],
+            [
+              "target_overlap",
+              -0.0016451479402750373
+            ],
+            [
+              "bias",
+              0.0
+            ],
+            [
+              "shape:other",
+              0.0
+            ]
+          ]
+        },
+        {
+          "tactic": "rw [← hx]",
+          "category": "hypothesis",
+          "generated_order": 4,
+          "actual_rank": 5,
+          "heuristic_score": 3.0,
+          "learned_score": 0.09032130462071128,
+          "contributions": [
+            [
+              "rewrite_reverse_occurs",
+              0.1068849353580028
+            ],
+            [
+              "op:reverse_rewrite",
+              -0.014918482797016479
+            ],
+            [
+              "target_overlap",
+              -0.0016451479402750373
+            ],
+            [
+              "bias",
+              0.0
+            ],
+            [
+              "shape:other",
+              0.0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "node_id": 10,
+      "candidates": [
+        {
+          "tactic": "assumption",
+          "category": "goal",
+          "generated_order": 0,
+          "actual_rank": 1,
+          "heuristic_score": 10.0,
+          "learned_score": -0.515283877345804,
+          "contributions": [
+            [
+              "op:assumption",
+              -0.4146238007012775
+            ],
+            [
+              "cross:other|assumption",
+              -0.10066007664452657
+            ],
+            [
+              "bias",
+              0.0
+            ],
+            [
+              "shape:other",
+              0.0
+            ],
+            [
+              "goals",
+              0.0
+            ]
+          ]
+        },
+        {
+          "tactic": "rw [ha]",
+          "category": "hypothesis",
+          "generated_order": 1,
+          "actual_rank": 2,
+          "heuristic_score": 6.0,
+          "learned_score": 0.34507232083065964,
+          "contributions": [
+            [
+              "rewrite_occurs",
+              0.18626643067371954
+            ],
+            [
+              "op:rewrite",
+              0.16045103809721512
+            ],
+            [
+              "target_overlap",
+              -0.0016451479402750373
+            ],
+            [
+              "bias",
+              0.0
+            ],
+            [
+              "shape:other",
+              0.0
+            ]
+          ]
+        },
+        {
+          "tactic": "rw [← ha]",
+          "category": "hypothesis",
+          "generated_order": 2,
+          "actual_rank": 3,
+          "heuristic_score": 3.0,
+          "learned_score": 0.169702799936428,
+          "contributions": [
+            [
+              "rewrite_occurs",
+              0.18626643067371954
+            ],
+            [
+              "op:reverse_rewrite",
+              -0.014918482797016479
+            ],
+            [
+              "target_overlap",
+              -0.0016451479402750373
+            ],
+            [
+              "bias",
+              0.0
+            ],
+            [
+              "shape:other",
+              0.0
+            ]
+          ]
+        },
+        {
+          "tactic": "rw [hx]",
+          "category": "hypothesis",
+          "generated_order": 3,
+          "actual_rank": 4,
+          "heuristic_score": 6.0,
+          "learned_score": 0.34507232083065964,
+          "contributions": [
+            [
+              "rewrite_occurs",
+              0.18626643067371954
+            ],
+            [
+              "op:rewrite",
+              0.16045103809721512
+            ],
+            [
+              "target_overlap",
+              -0.0016451479402750373
+            ],
+            [
+              "bias",
+              0.0
+            ],
+            [
+              "shape:other",
+              0.0
+            ]
+          ]
+        },
+        {
+          "tactic": "rw [← hx]",
+          "category": "hypothesis",
+          "generated_order": 4,
+          "actual_rank": 5,
+          "heuristic_score": 3.0,
+          "learned_score": 0.169702799936428,
+          "contributions": [
+            [
+              "rewrite_occurs",
+              0.18626643067371954
+            ],
+            [
+              "op:reverse_rewrite",
+              -0.014918482797016479
+            ],
+            [
+              "target_overlap",
+              -0.0016451479402750373
+            ],
+            [
+              "bias",
+              0.0
+            ],
+            [
+              "shape:other",
+              0.0
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}

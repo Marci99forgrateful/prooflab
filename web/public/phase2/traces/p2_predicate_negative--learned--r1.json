@@ -1,0 +1,932 @@
+{
+  "schema_version": 1,
+  "task": {
+    "id": "p2_predicate_negative",
+    "title": "Transport a negated predicate",
+    "domain": "logic",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(α : Type) (P : α → Prop) (a b : α) (h : a = b) (hn : ¬ P a)",
+    "target": "¬ P b",
+    "display": "¬ P b",
+    "description": "Phase 2 frozen evaluation · predicate transport.",
+    "origin": "Original Phase 2 statement. Family fixed before model selection.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  "algorithm": "learned",
+  "budget": {
+    "max_depth": 8,
+    "max_expansions": 60,
+    "max_candidates": 24,
+    "max_attempts": 400,
+    "timeout_s": 12.0,
+    "tactic_timeout_s": 3.0
+  },
+  "status": "verified",
+  "termination": "verified",
+  "nodes": [
+    {
+      "id": 0,
+      "parent": null,
+      "depth": 0,
+      "state": {
+        "state_id": 0,
+        "goals": [
+          {
+            "id": "_uniq.31",
+            "target": {
+              "text": "¬P b",
+              "head": "[anonymous]",
+              "forall": true
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.25",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "P",
+                "id": "_uniq.26",
+                "type": {
+                  "text": "α → Prop",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "a",
+                "id": "_uniq.27",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "b",
+                "id": "_uniq.28",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "h",
+                "id": "_uniq.29",
+                "type": {
+                  "text": "a = b",
+                  "head": "Eq",
+                  "forall": false
+                },
+                "is_proof": true
+              },
+              {
+                "name": "hn",
+                "id": "_uniq.30",
+                "type": {
+                  "text": "¬P a",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": true
+              }
+            ]
+          }
+        ]
+      },
+      "tactic": null,
+      "category": null,
+      "lemma": null,
+      "provenance": null,
+      "reason": "Initial Lean goal",
+      "status": "root",
+      "error": null,
+      "elapsed_ms": 0.0,
+      "on_proof_path": true
+    },
+    {
+      "id": 1,
+      "parent": 0,
+      "depth": 1,
+      "state": {
+        "state_id": 1,
+        "goals": [
+          {
+            "id": "_uniq.33",
+            "target": {
+              "text": "False",
+              "head": "False",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.25",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "P",
+                "id": "_uniq.26",
+                "type": {
+                  "text": "α → Prop",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "a",
+                "id": "_uniq.27",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "b",
+                "id": "_uniq.28",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "h",
+                "id": "_uniq.29",
+                "type": {
+                  "text": "a = b",
+                  "head": "Eq",
+                  "forall": false
+                },
+                "is_proof": true
+              },
+              {
+                "name": "hn",
+                "id": "_uniq.30",
+                "type": {
+                  "text": "¬P a",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": true
+              },
+              {
+                "name": "h0",
+                "id": "_uniq.32",
+                "type": {
+                  "text": "P b",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              }
+            ]
+          }
+        ]
+      },
+      "tactic": "intro h0",
+      "category": "goal",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Introduce a binder or implication premise",
+      "status": "accepted",
+      "error": null,
+      "elapsed_ms": 2.319940998859238,
+      "on_proof_path": false
+    },
+    {
+      "id": 2,
+      "parent": 0,
+      "depth": 1,
+      "state": null,
+      "tactic": "rw [h]",
+      "category": "hypothesis",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Rewrite using a local equality",
+      "status": "rejected",
+      "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  a\nin the target expression\n  ¬P b\n\nα : Type\nP : α → Prop\na b : α\nh : a = b\nhn : ¬P a\n⊢ ¬P b",
+      "elapsed_ms": 1.7950199980987236,
+      "on_proof_path": false
+    },
+    {
+      "id": 3,
+      "parent": 0,
+      "depth": 1,
+      "state": {
+        "state_id": 2,
+        "goals": [
+          {
+            "id": "_uniq.37",
+            "target": {
+              "text": "¬P a",
+              "head": "[anonymous]",
+              "forall": true
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.25",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "P",
+                "id": "_uniq.26",
+                "type": {
+                  "text": "α → Prop",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "a",
+                "id": "_uniq.27",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "b",
+                "id": "_uniq.28",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "h",
+                "id": "_uniq.29",
+                "type": {
+                  "text": "a = b",
+                  "head": "Eq",
+                  "forall": false
+                },
+                "is_proof": true
+              },
+              {
+                "name": "hn",
+                "id": "_uniq.30",
+                "type": {
+                  "text": "¬P a",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": true
+              }
+            ]
+          }
+        ]
+      },
+      "tactic": "rw [← h]",
+      "category": "hypothesis",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Explore reverse equality rewriting",
+      "status": "accepted",
+      "error": null,
+      "elapsed_ms": 2.760713003226556,
+      "on_proof_path": true
+    },
+    {
+      "id": 4,
+      "parent": 0,
+      "depth": 1,
+      "state": null,
+      "tactic": "assumption",
+      "category": "goal",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Match the goal against the local context",
+      "status": "rejected",
+      "error": "Tactic `assumption` failed\n\nα : Type\nP : α → Prop\na b : α\nh : a = b\nhn : ¬P a\n⊢ ¬P b",
+      "elapsed_ms": 1.3935759998275898,
+      "on_proof_path": false
+    },
+    {
+      "id": 5,
+      "parent": 0,
+      "depth": 1,
+      "state": null,
+      "tactic": "apply hn",
+      "category": "hypothesis",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Use implication or function hn",
+      "status": "rejected",
+      "error": "Tactic `apply` failed: could not unify the type of `hn`\n  ¬P a\nwith the goal\n  ¬P b\n\nα : Type\nP : α → Prop\na b : α\nh : a = b\nhn : ¬P a\n⊢ ¬P b",
+      "elapsed_ms": 1.7233730031875893,
+      "on_proof_path": false
+    },
+    {
+      "id": 6,
+      "parent": 3,
+      "depth": 2,
+      "state": {
+        "state_id": 3,
+        "goals": [
+          {
+            "id": "_uniq.62",
+            "target": {
+              "text": "False",
+              "head": "False",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.25",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "P",
+                "id": "_uniq.26",
+                "type": {
+                  "text": "α → Prop",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "a",
+                "id": "_uniq.27",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "b",
+                "id": "_uniq.28",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "h",
+                "id": "_uniq.29",
+                "type": {
+                  "text": "a = b",
+                  "head": "Eq",
+                  "forall": false
+                },
+                "is_proof": true
+              },
+              {
+                "name": "hn",
+                "id": "_uniq.30",
+                "type": {
+                  "text": "¬P a",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": true
+              },
+              {
+                "name": "h0",
+                "id": "_uniq.61",
+                "type": {
+                  "text": "P a",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              }
+            ]
+          }
+        ]
+      },
+      "tactic": "intro h0",
+      "category": "goal",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Introduce a binder or implication premise",
+      "status": "accepted",
+      "error": null,
+      "elapsed_ms": 1.219253994349856,
+      "on_proof_path": false
+    },
+    {
+      "id": 7,
+      "parent": 3,
+      "depth": 2,
+      "state": {
+        "state_id": 4,
+        "goals": [
+          {
+            "id": "_uniq.66",
+            "target": {
+              "text": "¬P b",
+              "head": "[anonymous]",
+              "forall": true
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.25",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "P",
+                "id": "_uniq.26",
+                "type": {
+                  "text": "α → Prop",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "a",
+                "id": "_uniq.27",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "b",
+                "id": "_uniq.28",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "h",
+                "id": "_uniq.29",
+                "type": {
+                  "text": "a = b",
+                  "head": "Eq",
+                  "forall": false
+                },
+                "is_proof": true
+              },
+              {
+                "name": "hn",
+                "id": "_uniq.30",
+                "type": {
+                  "text": "¬P a",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": true
+              }
+            ]
+          }
+        ]
+      },
+      "tactic": "rw [h]",
+      "category": "hypothesis",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Rewrite using a local equality",
+      "status": "accepted",
+      "error": null,
+      "elapsed_ms": 2.269033000629861,
+      "on_proof_path": false
+    },
+    {
+      "id": 8,
+      "parent": 3,
+      "depth": 2,
+      "state": null,
+      "tactic": "rw [← h]",
+      "category": "hypothesis",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Explore reverse equality rewriting",
+      "status": "rejected",
+      "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  b\nin the target expression\n  ¬P a\n\nα : Type\nP : α → Prop\na b : α\nh : a = b\nhn : ¬P a\n⊢ ¬P a",
+      "elapsed_ms": 1.4315779990283772,
+      "on_proof_path": false
+    },
+    {
+      "id": 9,
+      "parent": 3,
+      "depth": 2,
+      "state": {
+        "state_id": 5,
+        "goals": []
+      },
+      "tactic": "apply hn",
+      "category": "hypothesis",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Use implication or function hn",
+      "status": "solved",
+      "error": null,
+      "elapsed_ms": 0.18758200167212635,
+      "on_proof_path": true
+    }
+  ],
+  "metrics": {
+    "attempted_candidates": 9,
+    "accepted_transitions": 5,
+    "rejected_candidates": 4,
+    "expanded_states": 2,
+    "frontier": 3,
+    "max_depth": 2,
+    "proof_length": 2,
+    "elapsed_s": 3.9784258240033523,
+    "lean_execution_s": 0.015100069998879917,
+    "initialization_s": 2.007133471997804,
+    "verification_s": 1.9185737279985915,
+    "planning_s": 0.0015710189982200973,
+    "model_inference_s": 0.0006517600049846806
+  },
+  "proof": [
+    "rw [← h]",
+    "apply hn"
+  ],
+  "lean_source": "import ProofLab.Bridge\n\nset_option maxHeartbeats 300000\ntheorem prooflab_result (α : Type) (P : α → Prop) (a b : α) (h : a = b) (hn : ¬ P a) : ¬ P b := by\n  rw [← h]\n  apply hn\n\n#prooflab_audit prooflab_result\n",
+  "verification": {
+    "verified": true,
+    "axioms": [],
+    "error": null,
+    "elapsed_s": 1.9185737279985915,
+    "source_sha256": "f9747b09cd6a5e4779e89a04b5bed08817ea292d27465bba47d65dd354a7af63"
+  },
+  "metadata": {
+    "code_commit": "1b9262dd32c23fa2ac95c47a5f9a9d2172d63da2",
+    "lean_version": "leanprover/lean4:v4.24.0",
+    "mathlib_revision": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7",
+    "python": "3.12.14",
+    "platform": "Linux-6.18.55-x86_64-with-glibc2.41",
+    "machine": "x86_64",
+    "processor": "",
+    "seed": "0 (deterministic)",
+    "state_identity": "Exact tactic prefix within one native session; no semantic merging",
+    "model_sha256": "99633c7039471cceb0292b4634df2b7c4d60218a0882f156e9cc70b5bd75730e",
+    "feature_version": "prooflab-state-action-v1",
+    "learned_scores_used_for_scheduling": "true",
+    "frontier_policy": "handcrafted state score; stable insertion-ID ties",
+    "repeat": "1",
+    "family": "predicate_transport"
+  },
+  "error": null,
+  "proof_origin": "constructed_derivation",
+  "rankings": [
+    {
+      "node_id": 0,
+      "candidates": [
+        {
+          "tactic": "intro h0",
+          "category": "goal",
+          "generated_order": 0,
+          "actual_rank": 1,
+          "heuristic_score": 9.0,
+          "learned_score": 0.4417678679870576,
+          "contributions": [
+            [
+              "op:intro",
+              0.2208839339935288
+            ],
+            [
+              "cross:forall|intro",
+              0.2208839339935288
+            ],
+            [
+              "bias",
+              0.0
+            ],
+            [
+              "shape:forall",
+              0.0
+            ],
+            [
+              "goals",
+              0.0
+            ]
+          ]
+        },
+        {
+          "tactic": "rw [h]",
+          "category": "hypothesis",
+          "generated_order": 2,
+          "actual_rank": 2,
+          "heuristic_score": 6.0,
+          "learned_score": 0.2652795385298741,
+          "contributions": [
+            [
+              "op:rewrite",
+              0.16045103809721512
+            ],
+            [
+              "rewrite_reverse_occurs",
+              0.1068849353580028
+            ],
+            [
+              "target_overlap",
+              -0.0020564349253437966
+            ],
+            [
+              "bias",
+              0.0
+            ],
+            [
+              "shape:forall",
+              0.0
+            ]
+          ]
+        },
+        {
+          "tactic": "rw [← h]",
+          "category": "hypothesis",
+          "generated_order": 3,
+          "actual_rank": 3,
+          "heuristic_score": 3.0,
+          "learned_score": 0.08991001763564252,
+          "contributions": [
+            [
+              "rewrite_reverse_occurs",
+              0.1068849353580028
+            ],
+            [
+              "op:reverse_rewrite",
+              -0.014918482797016479
+            ],
+            [
+              "target_overlap",
+              -0.0020564349253437966
+            ],
+            [
+              "bias",
+              0.0
+            ],
+            [
+              "shape:forall",
+              0.0
+            ]
+          ]
+        },
+        {
+          "tactic": "assumption",
+          "category": "goal",
+          "generated_order": 1,
+          "actual_rank": 4,
+          "heuristic_score": 10.0,
+          "learned_score": -0.5020342510404003,
+          "contributions": [
+            [
+              "op:assumption",
+              -0.4146238007012775
+            ],
+            [
+              "cross:forall|assumption",
+              -0.08741045033912281
+            ],
+            [
+              "bias",
+              0.0
+            ],
+            [
+              "shape:forall",
+              0.0
+            ],
+            [
+              "goals",
+              0.0
+            ]
+          ]
+        },
+        {
+          "tactic": "apply hn",
+          "category": "hypothesis",
+          "generated_order": 4,
+          "actual_rank": 5,
+          "heuristic_score": 7.0,
+          "learned_score": -0.7232135855021739,
+          "contributions": [
+            [
+              "op:hyp_apply",
+              -0.3740214834569449
+            ],
+            [
+              "cross:forall|hyp_apply",
+              -0.2040459446009726
+            ],
+            [
+              "hyp_is_forall",
+              -0.14240424421046455
+            ],
+            [
+              "target_overlap",
+              -0.0027419132337917285
+            ],
+            [
+              "bias",
+              0.0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "node_id": 3,
+      "candidates": [
+        {
+          "tactic": "intro h0",
+          "category": "goal",
+          "generated_order": 0,
+          "actual_rank": 1,
+          "heuristic_score": 9.0,
+          "learned_score": 0.4417678679870576,
+          "contributions": [
+            [
+              "op:intro",
+              0.2208839339935288
+            ],
+            [
+              "cross:forall|intro",
+              0.2208839339935288
+            ],
+            [
+              "bias",
+              0.0
+            ],
+            [
+              "shape:forall",
+              0.0
+            ],
+            [
+              "goals",
+              0.0
+            ]
+          ]
+        },
+        {
+          "tactic": "rw [h]",
+          "category": "hypothesis",
+          "generated_order": 2,
+          "actual_rank": 2,
+          "heuristic_score": 6.0,
+          "learned_score": 0.3446610338455909,
+          "contributions": [
+            [
+              "rewrite_occurs",
+              0.18626643067371954
+            ],
+            [
+              "op:rewrite",
+              0.16045103809721512
+            ],
+            [
+              "target_overlap",
+              -0.0020564349253437966
+            ],
+            [
+              "bias",
+              0.0
+            ],
+            [
+              "shape:forall",
+              0.0
+            ]
+          ]
+        },
+        {
+          "tactic": "rw [← h]",
+          "category": "hypothesis",
+          "generated_order": 3,
+          "actual_rank": 3,
+          "heuristic_score": 3.0,
+          "learned_score": 0.16929151295135925,
+          "contributions": [
+            [
+              "rewrite_occurs",
+              0.18626643067371954
+            ],
+            [
+              "op:reverse_rewrite",
+              -0.014918482797016479
+            ],
+            [
+              "target_overlap",
+              -0.0020564349253437966
+            ],
+            [
+              "bias",
+              0.0
+            ],
+            [
+              "shape:forall",
+              0.0
+            ]
+          ]
+        },
+        {
+          "tactic": "apply hn",
+          "category": "hypothesis",
+          "generated_order": 4,
+          "actual_rank": 4,
+          "heuristic_score": 7.0,
+          "learned_score": -0.4609865030556215,
+          "contributions": [
+            [
+              "op:hyp_apply",
+              -0.3740214834569449
+            ],
+            [
+              "hyp_conclusion_match",
+              0.26771090891413574
+            ],
+            [
+              "cross:forall|hyp_apply",
+              -0.2040459446009726
+            ],
+            [
+              "hyp_is_forall",
+              -0.14240424421046455
+            ],
+            [
+              "target_overlap",
+              -0.008225739701375186
+            ]
+          ]
+        },
+        {
+          "tactic": "assumption",
+          "category": "goal",
+          "generated_order": 1,
+          "actual_rank": 5,
+          "heuristic_score": 10.0,
+          "learned_score": -0.5020342510404003,
+          "contributions": [
+            [
+              "op:assumption",
+              -0.4146238007012775
+            ],
+            [
+              "cross:forall|assumption",
+              -0.08741045033912281
+            ],
+            [
+              "bias",
+              0.0
+            ],
+            [
+              "shape:forall",
+              0.0
+            ],
+            [
+              "goals",
+              0.0
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}

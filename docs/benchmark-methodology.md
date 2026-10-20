@@ -1,5 +1,9 @@
 # Benchmark methodology
 
+> Phase 1 foundation document. Phase 2 implementation and current evidence:
+> [model](phase-2-model.md), [frozen data/protocol](phase-2-data.md),
+> [measured results](phase-2-results.md), [delivery report](phase-2-final-report.md).
+
 The frozen JSON dataset contains **64 tasks**, 16 each in logic, orders, algebra
 and sets. Each subject has six easy, six moderate and four challenge tasks.
 The last four form the reserved held-out split: 48 development and 16 held-out.

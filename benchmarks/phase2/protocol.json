@@ -1,0 +1,72 @@
+{
+  "version": 1,
+  "phase1_source": "experiments/phase1-v3",
+  "evaluation_tasks": 24,
+  "evaluation_families": {
+    "p2_exists_project": "existential_elimination",
+    "p2_exists_nested": "existential_elimination",
+    "p2_exists_transport": "existential_elimination",
+    "p2_exists_swap": "existential_elimination",
+    "p2_witness_single": "witness_construction",
+    "p2_witness_pair": "witness_construction",
+    "p2_witness_binary": "witness_construction",
+    "p2_witness_augment": "witness_construction",
+    "p2_congr_single": "function_congruence",
+    "p2_congr_nested": "function_congruence",
+    "p2_congr_function_argument": "function_congruence",
+    "p2_congr_binary": "function_congruence",
+    "p2_predicate_argument": "predicate_transport",
+    "p2_predicate_function": "predicate_transport",
+    "p2_predicate_binary": "predicate_transport",
+    "p2_predicate_negative": "predicate_transport",
+    "p2_preimage_member": "set_preimages",
+    "p2_preimage_inter_member": "set_preimages",
+    "p2_preimage_inter_subset": "set_preimages",
+    "p2_preimage_monotone": "set_preimages",
+    "p2_difference_member": "set_differences",
+    "p2_difference_exclusion": "set_differences",
+    "p2_difference_construct": "set_differences",
+    "p2_difference_monotone": "set_differences"
+  },
+  "training_permission": "Phase 1 split=development only",
+  "selection_train": "development tasks outside order domain",
+  "selection_validation": "development tasks in order domain (never evaluation tasks)",
+  "final_refit": "all permitted Phase 1 development tasks",
+  "model": "pairwise logistic linear ranker; pure Python CPU",
+  "hyperparameters": {
+    "l2": [
+      0.001,
+      0.01,
+      0.1
+    ],
+    "epochs": 200,
+    "learning_rate": 0.15,
+    "seed": 0
+  },
+  "selection_metric": "mean validation pairwise logistic loss",
+  "labels": "verified-path action preferred to an actually Lean-rejected sibling; valid or unexecuted alternatives unlabeled",
+  "frontier": "same handcrafted state-priority function for learned and best_first; learned changes candidate ordering only",
+  "algorithms": [
+    "bfs",
+    "best_first",
+    "learned",
+    "automation"
+  ],
+  "repetitions": 3,
+  "workers": 2,
+  "budget": {
+    "max_depth": 8,
+    "max_expansions": 60,
+    "max_candidates": 24,
+    "max_attempts": 400,
+    "timeout_s": 12,
+    "tactic_timeout_s": 3
+  },
+  "uncertainty": {
+    "bootstrap_samples": 10000,
+    "seed": 1729,
+    "unit": "theorem cluster, all repetitions kept together",
+    "interval": 0.95
+  },
+  "constraints": "Candidate generator and Lean verifier remain unchanged; evaluation run only after frozen model selection. No model retuning after test outcomes."
+}

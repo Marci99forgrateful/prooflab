@@ -1,0 +1,362 @@
+[
+  {
+    "id": "p2_exists_project",
+    "title": "Project an existential witness",
+    "domain": "logic",
+    "difficulty": "easy",
+    "split": "held_out",
+    "binders": "(α : Type) (P Q : α → Prop) (h : ∃ x, P x ∧ Q x)",
+    "target": "∃ x, P x",
+    "display": "∃ x, P x",
+    "description": "Phase 2 frozen evaluation · existential elimination.",
+    "origin": "Original Phase 2 statement. Family fixed before model selection.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "p2_exists_nested",
+    "title": "Nested witness projection",
+    "domain": "logic",
+    "difficulty": "moderate",
+    "split": "held_out",
+    "binders": "(α : Type) (P Q R : α → Prop) (h : ∃ x, P x ∧ Q x ∧ R x)",
+    "target": "∃ x, R x",
+    "display": "∃ x, R x",
+    "description": "Phase 2 frozen evaluation · existential elimination.",
+    "origin": "Original Phase 2 statement. Family fixed before model selection.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "p2_exists_transport",
+    "title": "Transport an existential property",
+    "domain": "logic",
+    "difficulty": "moderate",
+    "split": "held_out",
+    "binders": "(α : Type) (P Q : α → Prop) (h : ∃ x, P x) (f : ∀ x, P x → Q x)",
+    "target": "∃ x, Q x",
+    "display": "∃ x, Q x",
+    "description": "Phase 2 frozen evaluation · existential elimination.",
+    "origin": "Original Phase 2 statement. Family fixed before model selection.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "p2_exists_swap",
+    "title": "Reassemble a witness property",
+    "domain": "logic",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(α : Type) (P Q : α → Prop) (h : ∃ x, P x ∧ Q x)",
+    "target": "∃ x, Q x ∧ P x",
+    "display": "∃ x, Q x ∧ P x",
+    "description": "Phase 2 frozen evaluation · existential elimination.",
+    "origin": "Original Phase 2 statement. Family fixed before model selection.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "p2_witness_single",
+    "title": "Construct an existential witness",
+    "domain": "logic",
+    "difficulty": "easy",
+    "split": "held_out",
+    "binders": "(α : Type) (P : α → Prop) (a : α) (h : P a)",
+    "target": "∃ x, P x",
+    "display": "∃ x, P x",
+    "description": "Phase 2 frozen evaluation · witness construction.",
+    "origin": "Original Phase 2 statement. Family fixed before model selection.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "p2_witness_pair",
+    "title": "Construct a joint witness",
+    "domain": "logic",
+    "difficulty": "moderate",
+    "split": "held_out",
+    "binders": "(α : Type) (P Q : α → Prop) (a : α) (hp : P a) (hq : Q a)",
+    "target": "∃ x, P x ∧ Q x",
+    "display": "∃ x, P x ∧ Q x",
+    "description": "Phase 2 frozen evaluation · witness construction.",
+    "origin": "Original Phase 2 statement. Family fixed before model selection.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "p2_witness_binary",
+    "title": "Two dependent witnesses",
+    "domain": "logic",
+    "difficulty": "moderate",
+    "split": "held_out",
+    "binders": "(α β : Type) (R : α → β → Prop) (a : α) (b : β) (h : R a b)",
+    "target": "∃ x, ∃ y, R x y",
+    "display": "∃ x, ∃ y, R x y",
+    "description": "Phase 2 frozen evaluation · witness construction.",
+    "origin": "Original Phase 2 statement. Family fixed before model selection.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "p2_witness_augment",
+    "title": "Augment an existing witness",
+    "domain": "logic",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(α : Type) (P Q : α → Prop) (h : ∃ x, P x) (hq : ∀ x, Q x)",
+    "target": "∃ x, P x ∧ Q x",
+    "display": "∃ x, P x ∧ Q x",
+    "description": "Phase 2 frozen evaluation · witness construction.",
+    "origin": "Original Phase 2 statement. Family fixed before model selection.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "p2_congr_single",
+    "title": "Congruence of a function",
+    "domain": "algebra",
+    "difficulty": "easy",
+    "split": "held_out",
+    "binders": "(α β : Type) (f : α → β) (a b : α) (h : a = b)",
+    "target": "f a = f b",
+    "display": "f a = f b",
+    "description": "Phase 2 frozen evaluation · function congruence.",
+    "origin": "Original Phase 2 statement. Family fixed before model selection.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "p2_congr_nested",
+    "title": "Congruence through composition",
+    "domain": "algebra",
+    "difficulty": "moderate",
+    "split": "held_out",
+    "binders": "(α β γ : Type) (f : α → β) (g : β → γ) (a b : α) (h : a = b)",
+    "target": "g (f a) = g (f b)",
+    "display": "g (f a) = g (f b)",
+    "description": "Phase 2 frozen evaluation · function congruence.",
+    "origin": "Original Phase 2 statement. Family fixed before model selection.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "p2_congr_function_argument",
+    "title": "Rewrite function and argument",
+    "domain": "algebra",
+    "difficulty": "moderate",
+    "split": "held_out",
+    "binders": "(α β : Type) (f g : α → β) (a b : α) (hf : f = g) (ha : a = b)",
+    "target": "f a = g b",
+    "display": "f a = g b",
+    "description": "Phase 2 frozen evaluation · function congruence.",
+    "origin": "Original Phase 2 statement. Family fixed before model selection.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "p2_congr_binary",
+    "title": "Congruence in two arguments",
+    "domain": "algebra",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(α β γ : Type) (f : α → β → γ) (a b : α) (x y : β) (ha : a = b) (hx : x = y)",
+    "target": "f a x = f b y",
+    "display": "f a x = f b y",
+    "description": "Phase 2 frozen evaluation · function congruence.",
+    "origin": "Original Phase 2 statement. Family fixed before model selection.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "p2_predicate_argument",
+    "title": "Transport a predicate",
+    "domain": "logic",
+    "difficulty": "easy",
+    "split": "held_out",
+    "binders": "(α : Type) (P : α → Prop) (a b : α) (h : a = b) (ha : P a)",
+    "target": "P b",
+    "display": "P b",
+    "description": "Phase 2 frozen evaluation · predicate transport.",
+    "origin": "Original Phase 2 statement. Family fixed before model selection.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "p2_predicate_function",
+    "title": "Transport under function equality",
+    "domain": "logic",
+    "difficulty": "moderate",
+    "split": "held_out",
+    "binders": "(α β : Type) (P : β → Prop) (f g : α → β) (x : α) (h : f = g) (hp : P (f x))",
+    "target": "P (g x)",
+    "display": "P (g x)",
+    "description": "Phase 2 frozen evaluation · predicate transport.",
+    "origin": "Original Phase 2 statement. Family fixed before model selection.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "p2_predicate_binary",
+    "title": "Transport a binary relation",
+    "domain": "logic",
+    "difficulty": "moderate",
+    "split": "held_out",
+    "binders": "(α β : Type) (R : α → β → Prop) (a b : α) (x y : β) (ha : a = b) (hx : x = y) (hr : R a x)",
+    "target": "R b y",
+    "display": "R b y",
+    "description": "Phase 2 frozen evaluation · predicate transport.",
+    "origin": "Original Phase 2 statement. Family fixed before model selection.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "p2_predicate_negative",
+    "title": "Transport a negated predicate",
+    "domain": "logic",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(α : Type) (P : α → Prop) (a b : α) (h : a = b) (hn : ¬ P a)",
+    "target": "¬ P b",
+    "display": "¬ P b",
+    "description": "Phase 2 frozen evaluation · predicate transport.",
+    "origin": "Original Phase 2 statement. Family fixed before model selection.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "p2_preimage_member",
+    "title": "Read preimage membership",
+    "domain": "sets",
+    "difficulty": "easy",
+    "split": "held_out",
+    "binders": "(α β : Type) (f : α → β) (A : Set β) (x : α) (h : x ∈ f ⁻¹' A)",
+    "target": "f x ∈ A",
+    "display": "f x ∈ A",
+    "description": "Phase 2 frozen evaluation · set preimages.",
+    "origin": "Original Phase 2 statement. Family fixed before model selection.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "p2_preimage_inter_member",
+    "title": "Preimage intersection membership",
+    "domain": "sets",
+    "difficulty": "moderate",
+    "split": "held_out",
+    "binders": "(α β : Type) (f : α → β) (A B : Set β) (x : α) (ha : x ∈ f ⁻¹' A) (hb : x ∈ f ⁻¹' B)",
+    "target": "x ∈ f ⁻¹' (A ∩ B)",
+    "display": "x ∈ f ⁻¹' (A ∩ B)",
+    "description": "Phase 2 frozen evaluation · set preimages.",
+    "origin": "Original Phase 2 statement. Family fixed before model selection.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "p2_preimage_inter_subset",
+    "title": "Preimage distributes into intersection",
+    "domain": "sets",
+    "difficulty": "moderate",
+    "split": "held_out",
+    "binders": "(α β : Type) (f : α → β) (A B : Set β)",
+    "target": "f ⁻¹' (A ∩ B) ⊆ (f ⁻¹' A) ∩ (f ⁻¹' B)",
+    "display": "f ⁻¹' (A ∩ B) ⊆ (f ⁻¹' A) ∩ (f ⁻¹' B)",
+    "description": "Phase 2 frozen evaluation · set preimages.",
+    "origin": "Original Phase 2 statement. Family fixed before model selection.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "p2_preimage_monotone",
+    "title": "Monotonicity through preimages",
+    "domain": "sets",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(α β : Type) (f : α → β) (A B : Set β) (h : A ⊆ B)",
+    "target": "f ⁻¹' A ⊆ f ⁻¹' B",
+    "display": "f ⁻¹' A ⊆ f ⁻¹' B",
+    "description": "Phase 2 frozen evaluation · set preimages.",
+    "origin": "Original Phase 2 statement. Family fixed before model selection.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "p2_difference_member",
+    "title": "Project a set difference",
+    "domain": "sets",
+    "difficulty": "easy",
+    "split": "held_out",
+    "binders": "(α : Type) (A B : Set α) (x : α) (h : x ∈ A \\ B)",
+    "target": "x ∈ A",
+    "display": "x ∈ A",
+    "description": "Phase 2 frozen evaluation · set differences.",
+    "origin": "Original Phase 2 statement. Family fixed before model selection.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "p2_difference_exclusion",
+    "title": "Extract exclusion evidence",
+    "domain": "sets",
+    "difficulty": "moderate",
+    "split": "held_out",
+    "binders": "(α : Type) (A B : Set α) (x : α) (h : x ∈ A \\ B)",
+    "target": "x ∉ B",
+    "display": "x ∉ B",
+    "description": "Phase 2 frozen evaluation · set differences.",
+    "origin": "Original Phase 2 statement. Family fixed before model selection.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "p2_difference_construct",
+    "title": "Construct difference membership",
+    "domain": "sets",
+    "difficulty": "moderate",
+    "split": "held_out",
+    "binders": "(α : Type) (A B : Set α) (x : α) (ha : x ∈ A) (hn : x ∉ B)",
+    "target": "x ∈ A \\ B",
+    "display": "x ∈ A \\ B",
+    "description": "Phase 2 frozen evaluation · set differences.",
+    "origin": "Original Phase 2 statement. Family fixed before model selection.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "p2_difference_monotone",
+    "title": "Monotonicity of set difference",
+    "domain": "sets",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(α : Type) (A B C : Set α) (h : A ⊆ B)",
+    "target": "A \\ C ⊆ B \\ C",
+    "display": "A \\ C ⊆ B \\ C",
+    "description": "Phase 2 frozen evaluation · set differences.",
+    "origin": "Original Phase 2 statement. Family fixed before model selection.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  }
+]

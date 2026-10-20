@@ -10,14 +10,14 @@ import statistics
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import UTC, datetime
 from pathlib import Path
-from typing import Any, Literal
+from typing import Any
 
 from prooflab.dataset import load_tasks
 from prooflab.lean import ROOT
-from prooflab.models import Budget, Trace
+from prooflab.models import Budget, SearchAlgorithm, Trace
 from prooflab.search import metadata, search
 
-Algorithm = Literal["bfs", "best_first", "automation"]
+Algorithm = SearchAlgorithm
 
 
 def trajectory(trace: Trace) -> list[dict[str, Any]]:
@@ -50,7 +50,7 @@ def trajectory(trace: Trace) -> list[dict[str, Any]]:
 
 def summary(traces: list[Trace]) -> dict[str, Any]:
     groups: dict[str, Any] = {}
-    for algorithm in ("bfs", "best_first", "automation"):
+    for algorithm in ("bfs", "best_first", "learned", "automation"):
         subset = [t for t in traces if t.algorithm == algorithm]
         if not subset:
             continue

@@ -6,6 +6,8 @@ from typing import Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+SearchAlgorithm = Literal["bfs", "best_first", "learned", "automation"]
+
 
 class Model(BaseModel):
     model_config = ConfigDict(extra="forbid")
@@ -96,6 +98,22 @@ class Metrics(Model):
     initialization_s: float = 0
     verification_s: float = 0
     planning_s: float = 0
+    model_inference_s: float = 0
+
+
+class CandidateRanking(Model):
+    tactic: str
+    category: str
+    generated_order: int
+    actual_rank: int
+    heuristic_score: float
+    learned_score: float | None = None
+    contributions: list[tuple[str, float]] = Field(default_factory=list)
+
+
+class StateRanking(Model):
+    node_id: int
+    candidates: list[CandidateRanking]
 
 
 class Verification(Model):
@@ -109,7 +127,7 @@ class Verification(Model):
 class Trace(Model):
     schema_version: int = 1
     task: Task
-    algorithm: Literal["bfs", "best_first", "automation"]
+    algorithm: SearchAlgorithm
     budget: Budget
     status: Literal[
         "verified", "not_found_within_budget", "execution_error", "cancelled", "unsupported"
@@ -123,3 +141,4 @@ class Trace(Model):
     metadata: dict[str, str] = Field(default_factory=dict)
     error: str | None = None
     proof_origin: str | None = None
+    rankings: list[StateRanking] = Field(default_factory=list)
