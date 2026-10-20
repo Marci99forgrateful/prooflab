@@ -111,6 +111,8 @@ def main():
     out = ROOT / "docs/assets"
     for ext in ["svg", "png", "pdf"]:
         fig.savefig(out / f"phase4-results.{ext}", dpi=180)
+    svg = out / "phase4-results.svg"
+    svg.write_text("\n".join(line.rstrip() for line in svg.read_text().splitlines()) + "\n")
     plt.close(fig)
 
 

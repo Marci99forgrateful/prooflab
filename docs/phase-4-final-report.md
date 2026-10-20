@@ -43,7 +43,11 @@ See [reproduction commands and exact provenance](phase-4-reproducibility.md). Be
 
 ## Validation and review status
 
-Local checks and the fresh draft PR/hosted run are recorded in `artifacts/phase4-validation.json` and `artifacts/phase4-hosted-ci.json`. The detailed JUnit evidence is retained. Hosted infrastructure refusals are reported separately and never interpreted as failing code/test steps. Main and the Phase 3 review branch remain untouched.
+**Local validation passed:** 90 Pytest cases (18 browser), 10 Node tests, Ruff lint/format (72 files), strict Mypy (29 modules), Prettier/Vite, full bootstrap and Lean build (679 targets), plus five separately recompiled/audited exported proofs. [Draft PR #3](https://github.com/Marci99forgrateful/prooflab/pull/3) targets Phase 3.
+
+Hosted run [39447864710](https://github.com/Marci99forgrateful/prooflab/actions/runs/39447864710) was refused **before any job step started**, with GitHub’s billing/spending-limit annotation. This is an infrastructure block, not evidence of a code/test failure; no hosted pass is claimed.
+
+Local checks and the draft PR/hosted run are recorded in `artifacts/phase4-validation.json` and `artifacts/phase4-hosted-ci.json`. The detailed JUnit evidence is retained. Hosted infrastructure refusals are reported separately and never interpreted as failing code/test steps. Main and the Phase 3 review branch remain untouched.
 
 ## Remaining limitations
 
