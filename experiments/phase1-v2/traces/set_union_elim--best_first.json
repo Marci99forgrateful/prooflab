@@ -1,0 +1,2718 @@
+{
+  "schema_version": 1,
+  "task": {
+    "id": "set_union_elim",
+    "title": "Union elimination",
+    "domain": "sets",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(α : Type) (A B C : Set α) (ha : A ⊆ C) (hb : B ⊆ C)",
+    "target": "A ∪ B ⊆ C",
+    "display": "A ⊆ C, B ⊆ C ⊢ A ∪ B ⊆ C",
+    "description": "Union elimination. Search uses the same candidate generator as all other tasks.",
+    "origin": "Original benchmark statement; mathematical result is not claimed novel.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  "algorithm": "best_first",
+  "budget": {
+    "max_depth": 7,
+    "max_expansions": 60,
+    "max_candidates": 24,
+    "max_attempts": 400,
+    "timeout_s": 12.0,
+    "tactic_timeout_s": 3.0
+  },
+  "status": "verified",
+  "termination": "verified",
+  "nodes": [
+    {
+      "id": 0,
+      "parent": null,
+      "depth": 0,
+      "state": {
+        "state_id": 0,
+        "goals": [
+          {
+            "id": "_uniq.85",
+            "target": {
+              "text": "A ∪ B ⊆ C",
+              "head": "[anonymous]",
+              "forall": true
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.79",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "A",
+                "id": "_uniq.80",
+                "type": {
+                  "text": "Set α",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "B",
+                "id": "_uniq.81",
+                "type": {
+                  "text": "Set α",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "C",
+                "id": "_uniq.82",
+                "type": {
+                  "text": "Set α",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "ha",
+                "id": "_uniq.83",
+                "type": {
+                  "text": "A ⊆ C",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": true
+              },
+              {
+                "name": "hb",
+                "id": "_uniq.84",
+                "type": {
+                  "text": "B ⊆ C",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": true
+              }
+            ]
+          }
+        ]
+      },
+      "tactic": null,
+      "category": null,
+      "lemma": null,
+      "provenance": null,
+      "reason": "Initial Lean goal",
+      "status": "root",
+      "error": null,
+      "elapsed_ms": 0.0,
+      "on_proof_path": true
+    },
+    {
+      "id": 1,
+      "parent": 0,
+      "depth": 1,
+      "state": null,
+      "tactic": "assumption",
+      "category": "goal",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Match the goal against the local context",
+      "status": "rejected",
+      "error": "Tactic `assumption` failed\n\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\n⊢ A ∪ B ⊆ C",
+      "elapsed_ms": 4.30863299993689,
+      "on_proof_path": false
+    },
+    {
+      "id": 2,
+      "parent": 0,
+      "depth": 1,
+      "state": {
+        "state_id": 1,
+        "goals": [
+          {
+            "id": "_uniq.101",
+            "target": {
+              "text": "h0 ∈ A ∪ B → h0 ∈ C",
+              "head": "[anonymous]",
+              "forall": true
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.79",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "A",
+                "id": "_uniq.80",
+                "type": {
+                  "text": "Set α",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "B",
+                "id": "_uniq.81",
+                "type": {
+                  "text": "Set α",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "C",
+                "id": "_uniq.82",
+                "type": {
+                  "text": "Set α",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "ha",
+                "id": "_uniq.83",
+                "type": {
+                  "text": "A ⊆ C",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": true
+              },
+              {
+                "name": "hb",
+                "id": "_uniq.84",
+                "type": {
+                  "text": "B ⊆ C",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": true
+              },
+              {
+                "name": "h0",
+                "id": "_uniq.100",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              }
+            ]
+          }
+        ]
+      },
+      "tactic": "intro h0",
+      "category": "goal",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Introduce a binder or implication premise",
+      "status": "accepted",
+      "error": null,
+      "elapsed_ms": 1.59967699983099,
+      "on_proof_path": true
+    },
+    {
+      "id": 3,
+      "parent": 0,
+      "depth": 1,
+      "state": null,
+      "tactic": "apply ha",
+      "category": "hypothesis",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Use implication or function ha",
+      "status": "rejected",
+      "error": "Tactic `apply` failed: could not unify the type of `ha`\n  A ⊆ C\nwith the goal\n  A ∪ B ⊆ C\n\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\n⊢ A ∪ B ⊆ C",
+      "elapsed_ms": 2.390997000020434,
+      "on_proof_path": false
+    },
+    {
+      "id": 4,
+      "parent": 0,
+      "depth": 1,
+      "state": null,
+      "tactic": "apply hb",
+      "category": "hypothesis",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Use implication or function hb",
+      "status": "rejected",
+      "error": "Tactic `apply` failed: could not unify the type of `hb`\n  B ⊆ C\nwith the goal\n  A ∪ B ⊆ C\n\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\n⊢ A ∪ B ⊆ C",
+      "elapsed_ms": 1.9109949998892262,
+      "on_proof_path": false
+    },
+    {
+      "id": 5,
+      "parent": 0,
+      "depth": 1,
+      "state": {
+        "state_id": 2,
+        "goals": [
+          {
+            "id": "_uniq.140",
+            "target": {
+              "text": "A ∪ B ⊆ ?b",
+              "head": "[anonymous]",
+              "forall": true
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.79",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "A",
+                "id": "_uniq.80",
+                "type": {
+                  "text": "Set α",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "B",
+                "id": "_uniq.81",
+                "type": {
+                  "text": "Set α",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "C",
+                "id": "_uniq.82",
+                "type": {
+                  "text": "Set α",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "ha",
+                "id": "_uniq.83",
+                "type": {
+                  "text": "A ⊆ C",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": true
+              },
+              {
+                "name": "hb",
+                "id": "_uniq.84",
+                "type": {
+                  "text": "B ⊆ C",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": true
+              }
+            ]
+          },
+          {
+            "id": "_uniq.141",
+            "target": {
+              "text": "?b ⊆ C",
+              "head": "[anonymous]",
+              "forall": true
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.79",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "A",
+                "id": "_uniq.80",
+                "type": {
+                  "text": "Set α",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "B",
+                "id": "_uniq.81",
+                "type": {
+                  "text": "Set α",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "C",
+                "id": "_uniq.82",
+                "type": {
+                  "text": "Set α",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "ha",
+                "id": "_uniq.83",
+                "type": {
+                  "text": "A ⊆ C",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": true
+              },
+              {
+                "name": "hb",
+                "id": "_uniq.84",
+                "type": {
+                  "text": "B ⊆ C",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": true
+              }
+            ]
+          },
+          {
+            "id": "_uniq.138",
+            "target": {
+              "text": "Set α",
+              "head": "[anonymous]",
+              "forall": true
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.79",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "A",
+                "id": "_uniq.80",
+                "type": {
+                  "text": "Set α",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "B",
+                "id": "_uniq.81",
+                "type": {
+                  "text": "Set α",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "C",
+                "id": "_uniq.82",
+                "type": {
+                  "text": "Set α",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "ha",
+                "id": "_uniq.83",
+                "type": {
+                  "text": "A ⊆ C",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": true
+              },
+              {
+                "name": "hb",
+                "id": "_uniq.84",
+                "type": {
+                  "text": "B ⊆ C",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": true
+              }
+            ]
+          }
+        ]
+      },
+      "tactic": "apply Set.Subset.trans",
+      "category": "lemma",
+      "lemma": "Set.Subset.trans",
+      "provenance": "Mathlib.Data.Set.Basic",
+      "reason": "Type-feature match: ('⊆',)",
+      "status": "accepted",
+      "error": null,
+      "elapsed_ms": 4.039146999957666,
+      "on_proof_path": false
+    },
+    {
+      "id": 6,
+      "parent": 0,
+      "depth": 1,
+      "state": null,
+      "tactic": "apply Set.subset_union_left",
+      "category": "lemma",
+      "lemma": "Set.subset_union_left",
+      "provenance": "Mathlib.Data.Set.Basic",
+      "reason": "Type-feature match: ('⊆', '∪')",
+      "status": "rejected",
+      "error": "Tactic `apply` failed: could not unify the conclusion of `@Set.subset_union_left`\n  ?s ⊆ ?s ∪ ?t\nwith the goal\n  A ∪ B ⊆ C\n\nNote: The full type of `@Set.subset_union_left` is\n  ∀ {α : Type ?u.147} {s t : Set α}, s ⊆ s ∪ t\n\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\n⊢ A ∪ B ⊆ C",
+      "elapsed_ms": 4.405797999879724,
+      "on_proof_path": false
+    },
+    {
+      "id": 7,
+      "parent": 0,
+      "depth": 1,
+      "state": null,
+      "tactic": "apply Set.subset_union_right",
+      "category": "lemma",
+      "lemma": "Set.subset_union_right",
+      "provenance": "Mathlib.Data.Set.Basic",
+      "reason": "Type-feature match: ('⊆', '∪')",
+      "status": "rejected",
+      "error": "Tactic `apply` failed: could not unify the conclusion of `@Set.subset_union_right`\n  ?t ⊆ ?s ∪ ?t\nwith the goal\n  A ∪ B ⊆ C\n\nNote: The full type of `@Set.subset_union_right` is\n  ∀ {α : Type ?u.192} {s t : Set α}, t ⊆ s ∪ t\n\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\n⊢ A ∪ B ⊆ C",
+      "elapsed_ms": 5.143839000083972,
+      "on_proof_path": false
+    },
+    {
+      "id": 8,
+      "parent": 2,
+      "depth": 2,
+      "state": null,
+      "tactic": "assumption",
+      "category": "goal",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Match the goal against the local context",
+      "status": "rejected",
+      "error": "Tactic `assumption` failed\n\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\n⊢ h0 ∈ A ∪ B → h0 ∈ C",
+      "elapsed_ms": 1.5760809999392222,
+      "on_proof_path": false
+    },
+    {
+      "id": 9,
+      "parent": 2,
+      "depth": 2,
+      "state": {
+        "state_id": 3,
+        "goals": [
+          {
+            "id": "_uniq.244",
+            "target": {
+              "text": "h0 ∈ C",
+              "head": "[anonymous]",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.79",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "A",
+                "id": "_uniq.80",
+                "type": {
+                  "text": "Set α",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "B",
+                "id": "_uniq.81",
+                "type": {
+                  "text": "Set α",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "C",
+                "id": "_uniq.82",
+                "type": {
+                  "text": "Set α",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "ha",
+                "id": "_uniq.83",
+                "type": {
+                  "text": "A ⊆ C",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": true
+              },
+              {
+                "name": "hb",
+                "id": "_uniq.84",
+                "type": {
+                  "text": "B ⊆ C",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": true
+              },
+              {
+                "name": "h0",
+                "id": "_uniq.100",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "h1",
+                "id": "_uniq.243",
+                "type": {
+                  "text": "h0 ∈ A ∪ B",
+                  "head": "Or",
+                  "forall": false
+                },
+                "is_proof": true
+              }
+            ]
+          }
+        ]
+      },
+      "tactic": "intro h1",
+      "category": "goal",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Introduce a binder or implication premise",
+      "status": "accepted",
+      "error": null,
+      "elapsed_ms": 1.5674079998007073,
+      "on_proof_path": true
+    },
+    {
+      "id": 10,
+      "parent": 2,
+      "depth": 2,
+      "state": null,
+      "tactic": "apply ha",
+      "category": "hypothesis",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Use implication or function ha",
+      "status": "rejected",
+      "error": "Tactic `apply` failed: could not unify the conclusion of `ha`\n  ?a ∈ A → ?a ∈ C\nwith the goal\n  h0 ∈ A ∪ B → h0 ∈ C\n\nNote: The full type of `ha` is\n  A ⊆ C\n\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\n⊢ h0 ∈ A ∪ B → h0 ∈ C",
+      "elapsed_ms": 2.678821000017706,
+      "on_proof_path": false
+    },
+    {
+      "id": 11,
+      "parent": 2,
+      "depth": 2,
+      "state": null,
+      "tactic": "apply hb",
+      "category": "hypothesis",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Use implication or function hb",
+      "status": "rejected",
+      "error": "Tactic `apply` failed: could not unify the conclusion of `hb`\n  ?a ∈ B → ?a ∈ C\nwith the goal\n  h0 ∈ A ∪ B → h0 ∈ C\n\nNote: The full type of `hb` is\n  B ⊆ C\n\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\n⊢ h0 ∈ A ∪ B → h0 ∈ C",
+      "elapsed_ms": 2.770178000218948,
+      "on_proof_path": false
+    },
+    {
+      "id": 12,
+      "parent": 9,
+      "depth": 3,
+      "state": null,
+      "tactic": "assumption",
+      "category": "goal",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Match the goal against the local context",
+      "status": "rejected",
+      "error": "Tactic `assumption` failed\n\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\nh1 : h0 ∈ A ∪ B\n⊢ h0 ∈ C",
+      "elapsed_ms": 1.254326999969635,
+      "on_proof_path": false
+    },
+    {
+      "id": 13,
+      "parent": 9,
+      "depth": 3,
+      "state": {
+        "state_id": 4,
+        "goals": [
+          {
+            "id": "_uniq.267",
+            "target": {
+              "text": "h0 ∈ A",
+              "head": "[anonymous]",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.79",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "A",
+                "id": "_uniq.80",
+                "type": {
+                  "text": "Set α",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "B",
+                "id": "_uniq.81",
+                "type": {
+                  "text": "Set α",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "C",
+                "id": "_uniq.82",
+                "type": {
+                  "text": "Set α",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "ha",
+                "id": "_uniq.83",
+                "type": {
+                  "text": "A ⊆ C",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": true
+              },
+              {
+                "name": "hb",
+                "id": "_uniq.84",
+                "type": {
+                  "text": "B ⊆ C",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": true
+              },
+              {
+                "name": "h0",
+                "id": "_uniq.100",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "h1",
+                "id": "_uniq.243",
+                "type": {
+                  "text": "h0 ∈ A ∪ B",
+                  "head": "Or",
+                  "forall": false
+                },
+                "is_proof": true
+              }
+            ]
+          }
+        ]
+      },
+      "tactic": "apply ha",
+      "category": "hypothesis",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Use implication or function ha",
+      "status": "accepted",
+      "error": null,
+      "elapsed_ms": 1.7121159999078372,
+      "on_proof_path": false
+    },
+    {
+      "id": 14,
+      "parent": 9,
+      "depth": 3,
+      "state": {
+        "state_id": 5,
+        "goals": [
+          {
+            "id": "_uniq.271",
+            "target": {
+              "text": "h0 ∈ B",
+              "head": "[anonymous]",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.79",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "A",
+                "id": "_uniq.80",
+                "type": {
+                  "text": "Set α",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "B",
+                "id": "_uniq.81",
+                "type": {
+                  "text": "Set α",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "C",
+                "id": "_uniq.82",
+                "type": {
+                  "text": "Set α",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "ha",
+                "id": "_uniq.83",
+                "type": {
+                  "text": "A ⊆ C",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": true
+              },
+              {
+                "name": "hb",
+                "id": "_uniq.84",
+                "type": {
+                  "text": "B ⊆ C",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": true
+              },
+              {
+                "name": "h0",
+                "id": "_uniq.100",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "h1",
+                "id": "_uniq.243",
+                "type": {
+                  "text": "h0 ∈ A ∪ B",
+                  "head": "Or",
+                  "forall": false
+                },
+                "is_proof": true
+              }
+            ]
+          }
+        ]
+      },
+      "tactic": "apply hb",
+      "category": "hypothesis",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Use implication or function hb",
+      "status": "accepted",
+      "error": null,
+      "elapsed_ms": 1.7390559999057587,
+      "on_proof_path": false
+    },
+    {
+      "id": 15,
+      "parent": 9,
+      "depth": 3,
+      "state": {
+        "state_id": 6,
+        "goals": [
+          {
+            "id": "_uniq.289",
+            "target": {
+              "text": "h0 ∈ C",
+              "head": "[anonymous]",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.79",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "A",
+                "id": "_uniq.80",
+                "type": {
+                  "text": "Set α",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "B",
+                "id": "_uniq.81",
+                "type": {
+                  "text": "Set α",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "C",
+                "id": "_uniq.82",
+                "type": {
+                  "text": "Set α",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "ha",
+                "id": "_uniq.83",
+                "type": {
+                  "text": "A ⊆ C",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": true
+              },
+              {
+                "name": "hb",
+                "id": "_uniq.84",
+                "type": {
+                  "text": "B ⊆ C",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": true
+              },
+              {
+                "name": "h0",
+                "id": "_uniq.100",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "h2",
+                "id": "_uniq.288",
+                "type": {
+                  "text": "h0 ∈ A",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              }
+            ]
+          },
+          {
+            "id": "_uniq.294",
+            "target": {
+              "text": "h0 ∈ C",
+              "head": "[anonymous]",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.79",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "A",
+                "id": "_uniq.80",
+                "type": {
+                  "text": "Set α",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "B",
+                "id": "_uniq.81",
+                "type": {
+                  "text": "Set α",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "C",
+                "id": "_uniq.82",
+                "type": {
+                  "text": "Set α",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "ha",
+                "id": "_uniq.83",
+                "type": {
+                  "text": "A ⊆ C",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": true
+              },
+              {
+                "name": "hb",
+                "id": "_uniq.84",
+                "type": {
+                  "text": "B ⊆ C",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": true
+              },
+              {
+                "name": "h0",
+                "id": "_uniq.100",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "h3",
+                "id": "_uniq.293",
+                "type": {
+                  "text": "h0 ∈ B",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              }
+            ]
+          }
+        ]
+      },
+      "tactic": "rcases h1 with h2 | h3",
+      "category": "hypothesis",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Explore both cases of a disjunction",
+      "status": "accepted",
+      "error": null,
+      "elapsed_ms": 5.456438999999591,
+      "on_proof_path": true
+    },
+    {
+      "id": 16,
+      "parent": 13,
+      "depth": 4,
+      "state": null,
+      "tactic": "assumption",
+      "category": "goal",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Match the goal against the local context",
+      "status": "rejected",
+      "error": "Tactic `assumption` failed\n\ncase a\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\nh1 : h0 ∈ A ∪ B\n⊢ h0 ∈ A",
+      "elapsed_ms": 1.5729169999758597,
+      "on_proof_path": false
+    },
+    {
+      "id": 17,
+      "parent": 13,
+      "depth": 4,
+      "state": null,
+      "tactic": "apply ha",
+      "category": "hypothesis",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Use implication or function ha",
+      "status": "rejected",
+      "error": "Tactic `apply` failed: could not unify the conclusion of `ha`\n  ?a ∈ C\nwith the goal\n  h0 ∈ A\n\nNote: The full type of `ha` is\n  A ⊆ C\n\ncase a\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\nh1 : h0 ∈ A ∪ B\n⊢ h0 ∈ A",
+      "elapsed_ms": 1.7484509999121656,
+      "on_proof_path": false
+    },
+    {
+      "id": 18,
+      "parent": 13,
+      "depth": 4,
+      "state": null,
+      "tactic": "apply hb",
+      "category": "hypothesis",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Use implication or function hb",
+      "status": "rejected",
+      "error": "Tactic `apply` failed: could not unify the conclusion of `hb`\n  ?a ∈ C\nwith the goal\n  h0 ∈ A\n\nNote: The full type of `hb` is\n  B ⊆ C\n\ncase a\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\nh1 : h0 ∈ A ∪ B\n⊢ h0 ∈ A",
+      "elapsed_ms": 2.09167800016985,
+      "on_proof_path": false
+    },
+    {
+      "id": 19,
+      "parent": 13,
+      "depth": 4,
+      "state": {
+        "state_id": 7,
+        "goals": [
+          {
+            "id": "_uniq.325",
+            "target": {
+              "text": "h0 ∈ A",
+              "head": "[anonymous]",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.79",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "A",
+                "id": "_uniq.80",
+                "type": {
+                  "text": "Set α",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "B",
+                "id": "_uniq.81",
+                "type": {
+                  "text": "Set α",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "C",
+                "id": "_uniq.82",
+                "type": {
+                  "text": "Set α",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "ha",
+                "id": "_uniq.83",
+                "type": {
+                  "text": "A ⊆ C",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": true
+              },
+              {
+                "name": "hb",
+                "id": "_uniq.84",
+                "type": {
+                  "text": "B ⊆ C",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": true
+              },
+              {
+                "name": "h0",
+                "id": "_uniq.100",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "h2",
+                "id": "_uniq.324",
+                "type": {
+                  "text": "h0 ∈ A",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              }
+            ]
+          },
+          {
+            "id": "_uniq.330",
+            "target": {
+              "text": "h0 ∈ A",
+              "head": "[anonymous]",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.79",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "A",
+                "id": "_uniq.80",
+                "type": {
+                  "text": "Set α",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "B",
+                "id": "_uniq.81",
+                "type": {
+                  "text": "Set α",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "C",
+                "id": "_uniq.82",
+                "type": {
+                  "text": "Set α",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "ha",
+                "id": "_uniq.83",
+                "type": {
+                  "text": "A ⊆ C",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": true
+              },
+              {
+                "name": "hb",
+                "id": "_uniq.84",
+                "type": {
+                  "text": "B ⊆ C",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": true
+              },
+              {
+                "name": "h0",
+                "id": "_uniq.100",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "h3",
+                "id": "_uniq.329",
+                "type": {
+                  "text": "h0 ∈ B",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              }
+            ]
+          }
+        ]
+      },
+      "tactic": "rcases h1 with h2 | h3",
+      "category": "hypothesis",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Explore both cases of a disjunction",
+      "status": "accepted",
+      "error": null,
+      "elapsed_ms": 3.275087000019994,
+      "on_proof_path": false
+    },
+    {
+      "id": 20,
+      "parent": 14,
+      "depth": 4,
+      "state": null,
+      "tactic": "assumption",
+      "category": "goal",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Match the goal against the local context",
+      "status": "rejected",
+      "error": "Tactic `assumption` failed\n\ncase a\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\nh1 : h0 ∈ A ∪ B\n⊢ h0 ∈ B",
+      "elapsed_ms": 2.1909960000812134,
+      "on_proof_path": false
+    },
+    {
+      "id": 21,
+      "parent": 14,
+      "depth": 4,
+      "state": null,
+      "tactic": "apply ha",
+      "category": "hypothesis",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Use implication or function ha",
+      "status": "rejected",
+      "error": "Tactic `apply` failed: could not unify the conclusion of `ha`\n  ?a ∈ C\nwith the goal\n  h0 ∈ B\n\nNote: The full type of `ha` is\n  A ⊆ C\n\ncase a\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\nh1 : h0 ∈ A ∪ B\n⊢ h0 ∈ B",
+      "elapsed_ms": 2.2171860000526067,
+      "on_proof_path": false
+    },
+    {
+      "id": 22,
+      "parent": 14,
+      "depth": 4,
+      "state": null,
+      "tactic": "apply hb",
+      "category": "hypothesis",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Use implication or function hb",
+      "status": "rejected",
+      "error": "Tactic `apply` failed: could not unify the conclusion of `hb`\n  ?a ∈ C\nwith the goal\n  h0 ∈ B\n\nNote: The full type of `hb` is\n  B ⊆ C\n\ncase a\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\nh1 : h0 ∈ A ∪ B\n⊢ h0 ∈ B",
+      "elapsed_ms": 1.9675000000916043,
+      "on_proof_path": false
+    },
+    {
+      "id": 23,
+      "parent": 14,
+      "depth": 4,
+      "state": {
+        "state_id": 8,
+        "goals": [
+          {
+            "id": "_uniq.361",
+            "target": {
+              "text": "h0 ∈ B",
+              "head": "[anonymous]",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.79",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "A",
+                "id": "_uniq.80",
+                "type": {
+                  "text": "Set α",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "B",
+                "id": "_uniq.81",
+                "type": {
+                  "text": "Set α",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "C",
+                "id": "_uniq.82",
+                "type": {
+                  "text": "Set α",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "ha",
+                "id": "_uniq.83",
+                "type": {
+                  "text": "A ⊆ C",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": true
+              },
+              {
+                "name": "hb",
+                "id": "_uniq.84",
+                "type": {
+                  "text": "B ⊆ C",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": true
+              },
+              {
+                "name": "h0",
+                "id": "_uniq.100",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "h2",
+                "id": "_uniq.360",
+                "type": {
+                  "text": "h0 ∈ A",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              }
+            ]
+          },
+          {
+            "id": "_uniq.366",
+            "target": {
+              "text": "h0 ∈ B",
+              "head": "[anonymous]",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.79",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "A",
+                "id": "_uniq.80",
+                "type": {
+                  "text": "Set α",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "B",
+                "id": "_uniq.81",
+                "type": {
+                  "text": "Set α",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "C",
+                "id": "_uniq.82",
+                "type": {
+                  "text": "Set α",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "ha",
+                "id": "_uniq.83",
+                "type": {
+                  "text": "A ⊆ C",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": true
+              },
+              {
+                "name": "hb",
+                "id": "_uniq.84",
+                "type": {
+                  "text": "B ⊆ C",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": true
+              },
+              {
+                "name": "h0",
+                "id": "_uniq.100",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "h3",
+                "id": "_uniq.365",
+                "type": {
+                  "text": "h0 ∈ B",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              }
+            ]
+          }
+        ]
+      },
+      "tactic": "rcases h1 with h2 | h3",
+      "category": "hypothesis",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Explore both cases of a disjunction",
+      "status": "accepted",
+      "error": null,
+      "elapsed_ms": 3.6090300000068964,
+      "on_proof_path": false
+    },
+    {
+      "id": 24,
+      "parent": 15,
+      "depth": 4,
+      "state": null,
+      "tactic": "assumption",
+      "category": "goal",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Match the goal against the local context",
+      "status": "rejected",
+      "error": "Tactic `assumption` failed\n\ncase inl\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\nh2 : h0 ∈ A\n⊢ h0 ∈ C",
+      "elapsed_ms": 1.2503909999850293,
+      "on_proof_path": false
+    },
+    {
+      "id": 25,
+      "parent": 15,
+      "depth": 4,
+      "state": {
+        "state_id": 9,
+        "goals": [
+          {
+            "id": "_uniq.371",
+            "target": {
+              "text": "h0 ∈ A",
+              "head": "[anonymous]",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.79",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "A",
+                "id": "_uniq.80",
+                "type": {
+                  "text": "Set α",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "B",
+                "id": "_uniq.81",
+                "type": {
+                  "text": "Set α",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "C",
+                "id": "_uniq.82",
+                "type": {
+                  "text": "Set α",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "ha",
+                "id": "_uniq.83",
+                "type": {
+                  "text": "A ⊆ C",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": true
+              },
+              {
+                "name": "hb",
+                "id": "_uniq.84",
+                "type": {
+                  "text": "B ⊆ C",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": true
+              },
+              {
+                "name": "h0",
+                "id": "_uniq.100",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "h2",
+                "id": "_uniq.288",
+                "type": {
+                  "text": "h0 ∈ A",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              }
+            ]
+          },
+          {
+            "id": "_uniq.294",
+            "target": {
+              "text": "h0 ∈ C",
+              "head": "[anonymous]",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.79",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "A",
+                "id": "_uniq.80",
+                "type": {
+                  "text": "Set α",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "B",
+                "id": "_uniq.81",
+                "type": {
+                  "text": "Set α",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "C",
+                "id": "_uniq.82",
+                "type": {
+                  "text": "Set α",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "ha",
+                "id": "_uniq.83",
+                "type": {
+                  "text": "A ⊆ C",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": true
+              },
+              {
+                "name": "hb",
+                "id": "_uniq.84",
+                "type": {
+                  "text": "B ⊆ C",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": true
+              },
+              {
+                "name": "h0",
+                "id": "_uniq.100",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "h3",
+                "id": "_uniq.293",
+                "type": {
+                  "text": "h0 ∈ B",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              }
+            ]
+          }
+        ]
+      },
+      "tactic": "apply ha",
+      "category": "hypothesis",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Use implication or function ha",
+      "status": "accepted",
+      "error": null,
+      "elapsed_ms": 2.6034669999717153,
+      "on_proof_path": true
+    },
+    {
+      "id": 26,
+      "parent": 15,
+      "depth": 4,
+      "state": {
+        "state_id": 10,
+        "goals": [
+          {
+            "id": "_uniq.375",
+            "target": {
+              "text": "h0 ∈ B",
+              "head": "[anonymous]",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.79",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "A",
+                "id": "_uniq.80",
+                "type": {
+                  "text": "Set α",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "B",
+                "id": "_uniq.81",
+                "type": {
+                  "text": "Set α",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "C",
+                "id": "_uniq.82",
+                "type": {
+                  "text": "Set α",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "ha",
+                "id": "_uniq.83",
+                "type": {
+                  "text": "A ⊆ C",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": true
+              },
+              {
+                "name": "hb",
+                "id": "_uniq.84",
+                "type": {
+                  "text": "B ⊆ C",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": true
+              },
+              {
+                "name": "h0",
+                "id": "_uniq.100",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "h2",
+                "id": "_uniq.288",
+                "type": {
+                  "text": "h0 ∈ A",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              }
+            ]
+          },
+          {
+            "id": "_uniq.294",
+            "target": {
+              "text": "h0 ∈ C",
+              "head": "[anonymous]",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.79",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "A",
+                "id": "_uniq.80",
+                "type": {
+                  "text": "Set α",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "B",
+                "id": "_uniq.81",
+                "type": {
+                  "text": "Set α",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "C",
+                "id": "_uniq.82",
+                "type": {
+                  "text": "Set α",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "ha",
+                "id": "_uniq.83",
+                "type": {
+                  "text": "A ⊆ C",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": true
+              },
+              {
+                "name": "hb",
+                "id": "_uniq.84",
+                "type": {
+                  "text": "B ⊆ C",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": true
+              },
+              {
+                "name": "h0",
+                "id": "_uniq.100",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "h3",
+                "id": "_uniq.293",
+                "type": {
+                  "text": "h0 ∈ B",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              }
+            ]
+          }
+        ]
+      },
+      "tactic": "apply hb",
+      "category": "hypothesis",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Use implication or function hb",
+      "status": "accepted",
+      "error": null,
+      "elapsed_ms": 2.337076000003435,
+      "on_proof_path": false
+    },
+    {
+      "id": 27,
+      "parent": 19,
+      "depth": 5,
+      "state": {
+        "state_id": 11,
+        "goals": [
+          {
+            "id": "_uniq.330",
+            "target": {
+              "text": "h0 ∈ A",
+              "head": "[anonymous]",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.79",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "A",
+                "id": "_uniq.80",
+                "type": {
+                  "text": "Set α",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "B",
+                "id": "_uniq.81",
+                "type": {
+                  "text": "Set α",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "C",
+                "id": "_uniq.82",
+                "type": {
+                  "text": "Set α",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "ha",
+                "id": "_uniq.83",
+                "type": {
+                  "text": "A ⊆ C",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": true
+              },
+              {
+                "name": "hb",
+                "id": "_uniq.84",
+                "type": {
+                  "text": "B ⊆ C",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": true
+              },
+              {
+                "name": "h0",
+                "id": "_uniq.100",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "h3",
+                "id": "_uniq.329",
+                "type": {
+                  "text": "h0 ∈ B",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              }
+            ]
+          }
+        ]
+      },
+      "tactic": "assumption",
+      "category": "goal",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Match the goal against the local context",
+      "status": "accepted",
+      "error": null,
+      "elapsed_ms": 1.5038530000310857,
+      "on_proof_path": false
+    },
+    {
+      "id": 28,
+      "parent": 19,
+      "depth": 5,
+      "state": null,
+      "tactic": "apply ha",
+      "category": "hypothesis",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Use implication or function ha",
+      "status": "rejected",
+      "error": "Tactic `apply` failed: could not unify the conclusion of `ha`\n  ?a ∈ C\nwith the goal\n  h0 ∈ A\n\nNote: The full type of `ha` is\n  A ⊆ C\n\ncase a.inl\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\nh2 : h0 ∈ A\n⊢ h0 ∈ A",
+      "elapsed_ms": 2.0030329999372043,
+      "on_proof_path": false
+    },
+    {
+      "id": 29,
+      "parent": 19,
+      "depth": 5,
+      "state": null,
+      "tactic": "apply hb",
+      "category": "hypothesis",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Use implication or function hb",
+      "status": "rejected",
+      "error": "Tactic `apply` failed: could not unify the conclusion of `hb`\n  ?a ∈ C\nwith the goal\n  h0 ∈ A\n\nNote: The full type of `hb` is\n  B ⊆ C\n\ncase a.inl\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\nh2 : h0 ∈ A\n⊢ h0 ∈ A",
+      "elapsed_ms": 1.5339380001933023,
+      "on_proof_path": false
+    },
+    {
+      "id": 30,
+      "parent": 27,
+      "depth": 6,
+      "state": null,
+      "tactic": "assumption",
+      "category": "goal",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Match the goal against the local context",
+      "status": "rejected",
+      "error": "Tactic `assumption` failed\n\ncase a.inr\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\nh3 : h0 ∈ B\n⊢ h0 ∈ A",
+      "elapsed_ms": 1.279925999824627,
+      "on_proof_path": false
+    },
+    {
+      "id": 31,
+      "parent": 27,
+      "depth": 6,
+      "state": null,
+      "tactic": "apply ha",
+      "category": "hypothesis",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Use implication or function ha",
+      "status": "rejected",
+      "error": "Tactic `apply` failed: could not unify the conclusion of `ha`\n  ?a ∈ C\nwith the goal\n  h0 ∈ A\n\nNote: The full type of `ha` is\n  A ⊆ C\n\ncase a.inr\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\nh3 : h0 ∈ B\n⊢ h0 ∈ A",
+      "elapsed_ms": 1.2610670000867685,
+      "on_proof_path": false
+    },
+    {
+      "id": 32,
+      "parent": 27,
+      "depth": 6,
+      "state": null,
+      "tactic": "apply hb",
+      "category": "hypothesis",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Use implication or function hb",
+      "status": "rejected",
+      "error": "Tactic `apply` failed: could not unify the conclusion of `hb`\n  ?a ∈ C\nwith the goal\n  h0 ∈ A\n\nNote: The full type of `hb` is\n  B ⊆ C\n\ncase a.inr\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\nh3 : h0 ∈ B\n⊢ h0 ∈ A",
+      "elapsed_ms": 1.8347400000493508,
+      "on_proof_path": false
+    },
+    {
+      "id": 33,
+      "parent": 23,
+      "depth": 5,
+      "state": null,
+      "tactic": "assumption",
+      "category": "goal",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Match the goal against the local context",
+      "status": "rejected",
+      "error": "Tactic `assumption` failed\n\ncase a.inl\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\nh2 : h0 ∈ A\n⊢ h0 ∈ B",
+      "elapsed_ms": 1.1979030000475177,
+      "on_proof_path": false
+    },
+    {
+      "id": 34,
+      "parent": 23,
+      "depth": 5,
+      "state": null,
+      "tactic": "apply ha",
+      "category": "hypothesis",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Use implication or function ha",
+      "status": "rejected",
+      "error": "Tactic `apply` failed: could not unify the conclusion of `ha`\n  ?a ∈ C\nwith the goal\n  h0 ∈ B\n\nNote: The full type of `ha` is\n  A ⊆ C\n\ncase a.inl\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\nh2 : h0 ∈ A\n⊢ h0 ∈ B",
+      "elapsed_ms": 1.4201559999946767,
+      "on_proof_path": false
+    },
+    {
+      "id": 35,
+      "parent": 23,
+      "depth": 5,
+      "state": null,
+      "tactic": "apply hb",
+      "category": "hypothesis",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Use implication or function hb",
+      "status": "rejected",
+      "error": "Tactic `apply` failed: could not unify the conclusion of `hb`\n  ?a ∈ C\nwith the goal\n  h0 ∈ B\n\nNote: The full type of `hb` is\n  B ⊆ C\n\ncase a.inl\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\nh2 : h0 ∈ A\n⊢ h0 ∈ B",
+      "elapsed_ms": 1.9157819999691128,
+      "on_proof_path": false
+    },
+    {
+      "id": 36,
+      "parent": 25,
+      "depth": 5,
+      "state": {
+        "state_id": 12,
+        "goals": [
+          {
+            "id": "_uniq.294",
+            "target": {
+              "text": "h0 ∈ C",
+              "head": "[anonymous]",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.79",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "A",
+                "id": "_uniq.80",
+                "type": {
+                  "text": "Set α",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "B",
+                "id": "_uniq.81",
+                "type": {
+                  "text": "Set α",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "C",
+                "id": "_uniq.82",
+                "type": {
+                  "text": "Set α",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "ha",
+                "id": "_uniq.83",
+                "type": {
+                  "text": "A ⊆ C",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": true
+              },
+              {
+                "name": "hb",
+                "id": "_uniq.84",
+                "type": {
+                  "text": "B ⊆ C",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": true
+              },
+              {
+                "name": "h0",
+                "id": "_uniq.100",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "h3",
+                "id": "_uniq.293",
+                "type": {
+                  "text": "h0 ∈ B",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              }
+            ]
+          }
+        ]
+      },
+      "tactic": "assumption",
+      "category": "goal",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Match the goal against the local context",
+      "status": "accepted",
+      "error": null,
+      "elapsed_ms": 1.6453550001642725,
+      "on_proof_path": true
+    },
+    {
+      "id": 37,
+      "parent": 25,
+      "depth": 5,
+      "state": null,
+      "tactic": "apply ha",
+      "category": "hypothesis",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Use implication or function ha",
+      "status": "rejected",
+      "error": "Tactic `apply` failed: could not unify the conclusion of `ha`\n  ?a ∈ C\nwith the goal\n  h0 ∈ A\n\nNote: The full type of `ha` is\n  A ⊆ C\n\ncase inl.a\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\nh2 : h0 ∈ A\n⊢ h0 ∈ A",
+      "elapsed_ms": 1.77183599998898,
+      "on_proof_path": false
+    },
+    {
+      "id": 38,
+      "parent": 25,
+      "depth": 5,
+      "state": null,
+      "tactic": "apply hb",
+      "category": "hypothesis",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Use implication or function hb",
+      "status": "rejected",
+      "error": "Tactic `apply` failed: could not unify the conclusion of `hb`\n  ?a ∈ C\nwith the goal\n  h0 ∈ A\n\nNote: The full type of `hb` is\n  B ⊆ C\n\ncase inl.a\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\nh2 : h0 ∈ A\n⊢ h0 ∈ A",
+      "elapsed_ms": 1.723974000015005,
+      "on_proof_path": false
+    },
+    {
+      "id": 39,
+      "parent": 36,
+      "depth": 6,
+      "state": null,
+      "tactic": "assumption",
+      "category": "goal",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Match the goal against the local context",
+      "status": "rejected",
+      "error": "Tactic `assumption` failed\n\ncase inr\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\nh3 : h0 ∈ B\n⊢ h0 ∈ C",
+      "elapsed_ms": 1.7339490000267688,
+      "on_proof_path": false
+    },
+    {
+      "id": 40,
+      "parent": 36,
+      "depth": 6,
+      "state": {
+        "state_id": 13,
+        "goals": [
+          {
+            "id": "_uniq.427",
+            "target": {
+              "text": "h0 ∈ A",
+              "head": "[anonymous]",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.79",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "A",
+                "id": "_uniq.80",
+                "type": {
+                  "text": "Set α",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "B",
+                "id": "_uniq.81",
+                "type": {
+                  "text": "Set α",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "C",
+                "id": "_uniq.82",
+                "type": {
+                  "text": "Set α",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "ha",
+                "id": "_uniq.83",
+                "type": {
+                  "text": "A ⊆ C",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": true
+              },
+              {
+                "name": "hb",
+                "id": "_uniq.84",
+                "type": {
+                  "text": "B ⊆ C",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": true
+              },
+              {
+                "name": "h0",
+                "id": "_uniq.100",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "h3",
+                "id": "_uniq.293",
+                "type": {
+                  "text": "h0 ∈ B",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              }
+            ]
+          }
+        ]
+      },
+      "tactic": "apply ha",
+      "category": "hypothesis",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Use implication or function ha",
+      "status": "accepted",
+      "error": null,
+      "elapsed_ms": 1.8235330001061811,
+      "on_proof_path": false
+    },
+    {
+      "id": 41,
+      "parent": 36,
+      "depth": 6,
+      "state": {
+        "state_id": 14,
+        "goals": [
+          {
+            "id": "_uniq.431",
+            "target": {
+              "text": "h0 ∈ B",
+              "head": "[anonymous]",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.79",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "A",
+                "id": "_uniq.80",
+                "type": {
+                  "text": "Set α",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "B",
+                "id": "_uniq.81",
+                "type": {
+                  "text": "Set α",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "C",
+                "id": "_uniq.82",
+                "type": {
+                  "text": "Set α",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "ha",
+                "id": "_uniq.83",
+                "type": {
+                  "text": "A ⊆ C",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": true
+              },
+              {
+                "name": "hb",
+                "id": "_uniq.84",
+                "type": {
+                  "text": "B ⊆ C",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": true
+              },
+              {
+                "name": "h0",
+                "id": "_uniq.100",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "h3",
+                "id": "_uniq.293",
+                "type": {
+                  "text": "h0 ∈ B",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              }
+            ]
+          }
+        ]
+      },
+      "tactic": "apply hb",
+      "category": "hypothesis",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Use implication or function hb",
+      "status": "accepted",
+      "error": null,
+      "elapsed_ms": 1.5160409998316027,
+      "on_proof_path": true
+    },
+    {
+      "id": 42,
+      "parent": 40,
+      "depth": 7,
+      "state": null,
+      "tactic": "assumption",
+      "category": "goal",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Match the goal against the local context",
+      "status": "rejected",
+      "error": "Tactic `assumption` failed\n\ncase inr.a\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\nh3 : h0 ∈ B\n⊢ h0 ∈ A",
+      "elapsed_ms": 1.1293889999706153,
+      "on_proof_path": false
+    },
+    {
+      "id": 43,
+      "parent": 40,
+      "depth": 7,
+      "state": null,
+      "tactic": "apply ha",
+      "category": "hypothesis",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Use implication or function ha",
+      "status": "rejected",
+      "error": "Tactic `apply` failed: could not unify the conclusion of `ha`\n  ?a ∈ C\nwith the goal\n  h0 ∈ A\n\nNote: The full type of `ha` is\n  A ⊆ C\n\ncase inr.a\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\nh3 : h0 ∈ B\n⊢ h0 ∈ A",
+      "elapsed_ms": 1.3681479999831936,
+      "on_proof_path": false
+    },
+    {
+      "id": 44,
+      "parent": 40,
+      "depth": 7,
+      "state": null,
+      "tactic": "apply hb",
+      "category": "hypothesis",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Use implication or function hb",
+      "status": "rejected",
+      "error": "Tactic `apply` failed: could not unify the conclusion of `hb`\n  ?a ∈ C\nwith the goal\n  h0 ∈ A\n\nNote: The full type of `hb` is\n  B ⊆ C\n\ncase inr.a\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\nh3 : h0 ∈ B\n⊢ h0 ∈ A",
+      "elapsed_ms": 1.3182130001041514,
+      "on_proof_path": false
+    },
+    {
+      "id": 45,
+      "parent": 41,
+      "depth": 7,
+      "state": {
+        "state_id": 15,
+        "goals": []
+      },
+      "tactic": "assumption",
+      "category": "goal",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Match the goal against the local context",
+      "status": "solved",
+      "error": null,
+      "elapsed_ms": 0.1899249998587038,
+      "on_proof_path": true
+    }
+  ],
+  "metrics": {
+    "attempted_candidates": 45,
+    "accepted_transitions": 15,
+    "rejected_candidates": 30,
+    "expanded_states": 13,
+    "frontier": 2,
+    "max_depth": 7,
+    "proof_length": 7,
+    "elapsed_s": 3.84310301000005,
+    "lean_execution_s": 0.0955880519998118,
+    "initialization_s": 1.8834341199999471,
+    "verification_s": 1.8234720529999322,
+    "planning_s": 0.003994579999698544
+  },
+  "proof": [
+    "intro h0",
+    "intro h1",
+    "rcases h1 with h2 | h3",
+    "apply ha",
+    "assumption",
+    "apply hb",
+    "assumption"
+  ],
+  "lean_source": "import ProofLab.Bridge\n\nset_option maxHeartbeats 300000\ntheorem prooflab_result (α : Type) (A B C : Set α) (ha : A ⊆ C) (hb : B ⊆ C) : A ∪ B ⊆ C := by\n  intro h0\n  intro h1\n  rcases h1 with h2 | h3\n  apply ha\n  assumption\n  apply hb\n  assumption\n\n#prooflab_audit prooflab_result\n",
+  "verification": {
+    "verified": true,
+    "axioms": [],
+    "error": null,
+    "elapsed_s": 1.8234720529999322,
+    "source_sha256": "01d9bea72a9acc2b715c36151ef9adbf1cab7d2eef4da6954831d7d3d038e378"
+  },
+  "metadata": {
+    "code_commit": "a16b54fe84b719c9f109a758ccc2bb8dc717d267",
+    "lean_version": "leanprover/lean4:v4.24.0",
+    "mathlib_revision": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7",
+    "python": "3.12.14",
+    "platform": "Linux-6.18.55-x86_64-with-glibc2.41",
+    "machine": "x86_64",
+    "processor": "",
+    "seed": "0 (deterministic)",
+    "state_identity": "Exact tactic prefix within one native session; no semantic merging"
+  },
+  "error": null,
+  "proof_origin": "constructed_derivation"
+}

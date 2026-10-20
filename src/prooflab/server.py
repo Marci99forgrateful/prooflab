@@ -5,7 +5,9 @@ from __future__ import annotations
 import atexit
 import secrets
 import threading
+from collections.abc import AsyncIterator, Awaitable, Callable
 from concurrent.futures import ThreadPoolExecutor
+from contextlib import asynccontextmanager
 from dataclasses import dataclass, field
 from typing import Literal
 
@@ -19,7 +21,14 @@ from prooflab.lean import ROOT
 from prooflab.models import Budget, Model, Trace
 from prooflab.search import search
 
-app = FastAPI(title="ProofLab", version="0.1.0", docs_url=None, redoc_url=None)
+
+@asynccontextmanager
+async def lifespan(_: FastAPI) -> AsyncIterator[None]:
+    yield
+    shutdown()
+
+
+app = FastAPI(title="ProofLab", version="0.1.0", docs_url=None, redoc_url=None, lifespan=lifespan)
 app.add_middleware(TrustedHostMiddleware, allowed_hosts=["127.0.0.1", "localhost", "testserver"])
 pool = ThreadPoolExecutor(max_workers=2, thread_name_prefix="prooflab")
 lock = threading.Lock()
@@ -43,7 +52,9 @@ class SearchRequest(Model):
 
 
 @app.middleware("http")
-async def local_only(request: Request, call_next: object) -> Response:
+async def local_only(
+    request: Request, call_next: Callable[[Request], Awaitable[Response]]
+) -> Response:
     # Browsers may read replay assets anywhere; computation is a same-origin operation.
     if request.url.path.startswith("/api/") and request.method != "GET":
         origin = request.headers.get("origin")
@@ -52,7 +63,7 @@ async def local_only(request: Request, call_next: object) -> Response:
             return Response("Cross-origin computation is disabled", status_code=403)
         if request.headers.get("sec-fetch-site") == "cross-site":
             return Response("Cross-site computation is disabled", status_code=403)
-    response = await call_next(request)  # type: ignore[operator]
+    response = await call_next(request)
     response.headers["X-Content-Type-Options"] = "nosniff"
     response.headers["Referrer-Policy"] = "no-referrer"
     response.headers["Content-Security-Policy"] = (
@@ -60,7 +71,7 @@ async def local_only(request: Request, call_next: object) -> Response:
         "font-src 'self'; img-src 'self' data:; connect-src 'self'; object-src 'none'; "
         "base-uri 'none'; frame-ancestors 'none'"
     )
-    return response  # type: ignore[no-any-return]
+    return response
 
 
 @app.get("/api/health")

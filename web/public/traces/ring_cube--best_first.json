@@ -108,7 +108,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\nR : Type\ninst✝ : CommRing R\na b : R\n⊢ (a + b) ^ 3 = a ^ 3 + 3 * a ^ 2 * b + 3 * a * b ^ 2 + b ^ 3",
-      "elapsed_ms": 2.0655870000609866,
+      "elapsed_ms": 1.5008880000095814,
       "on_proof_path": false
     },
     {
@@ -123,7 +123,7 @@
       "reason": "Check definitional equality",
       "status": "rejected",
       "error": "Tactic `rfl` failed: The left-hand side\n  (a + b) ^ 3\nis not definitionally equal to the right-hand side\n  a ^ 3 + 3 * a ^ 2 * b + 3 * a * b ^ 2 + b ^ 3\n\nR : Type\ninst✝ : CommRing R\na b : R\n⊢ (a + b) ^ 3 = a ^ 3 + 3 * a ^ 2 * b + 3 * a * b ^ 2 + b ^ 3",
-      "elapsed_ms": 6.921783000052528,
+      "elapsed_ms": 7.301182999981393,
       "on_proof_path": false
     },
     {
@@ -192,7 +192,7 @@
       "reason": "Type-feature match: ('=',)",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.5370819999134255,
+      "elapsed_ms": 2.276644999938071,
       "on_proof_path": false
     },
     {
@@ -361,7 +361,7 @@
       "reason": "Type-feature match: ('=',)",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.8920910001725133,
+      "elapsed_ms": 2.182843999889883,
       "on_proof_path": false
     },
     {
@@ -376,7 +376,7 @@
       "reason": "Type-feature match: ('*',)",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@mul_assoc`\n  ?a * ?b * ?c = ?a * (?b * ?c)\nwith the goal\n  (a + b) ^ 3 = a ^ 3 + 3 * a ^ 2 * b + 3 * a * b ^ 2 + b ^ 3\n\nNote: The full type of `@mul_assoc` is\n  ∀ {G : Type ?u.3079} [inst : Semigroup G] (a b c : G), a * b * c = a * (b * c)\n\nR : Type\ninst✝ : CommRing R\na b : R\n⊢ (a + b) ^ 3 = a ^ 3 + 3 * a ^ 2 * b + 3 * a * b ^ 2 + b ^ 3",
-      "elapsed_ms": 11.358827000094607,
+      "elapsed_ms": 12.668628000028548,
       "on_proof_path": false
     },
     {
@@ -391,7 +391,7 @@
       "reason": "Type-feature match: ('*',)",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@mul_comm`\n  ?a * ?b = ?b * ?a\nwith the goal\n  (a + b) ^ 3 = a ^ 3 + 3 * a ^ 2 * b + 3 * a * b ^ 2 + b ^ 3\n\nNote: The full type of `@mul_comm` is\n  ∀ {G : Type ?u.3123} [inst : CommMagma G] (a b : G), a * b = b * a\n\nR : Type\ninst✝ : CommRing R\na b : R\n⊢ (a + b) ^ 3 = a ^ 3 + 3 * a ^ 2 * b + 3 * a * b ^ 2 + b ^ 3",
-      "elapsed_ms": 10.307941000064602,
+      "elapsed_ms": 10.185622999870247,
       "on_proof_path": false
     },
     {
@@ -406,7 +406,7 @@
       "reason": "Type-feature match: ('+',)",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@add_assoc`\n  ?a + ?b + ?c = ?a + (?b + ?c)\nwith the goal\n  (a + b) ^ 3 = a ^ 3 + 3 * a ^ 2 * b + 3 * a * b ^ 2 + b ^ 3\n\nNote: The full type of `@add_assoc` is\n  ∀ {G : Type ?u.3154} [inst : AddSemigroup G] (a b c : G), a + b + c = a + (b + c)\n\nR : Type\ninst✝ : CommRing R\na b : R\n⊢ (a + b) ^ 3 = a ^ 3 + 3 * a ^ 2 * b + 3 * a * b ^ 2 + b ^ 3",
-      "elapsed_ms": 21.317477999900802,
+      "elapsed_ms": 20.59443200005262,
       "on_proof_path": false
     },
     {
@@ -421,7 +421,7 @@
       "reason": "Type-feature match: ('+',)",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@add_comm`\n  ?a + ?b = ?b + ?a\nwith the goal\n  (a + b) ^ 3 = a ^ 3 + 3 * a ^ 2 * b + 3 * a * b ^ 2 + b ^ 3\n\nNote: The full type of `@add_comm` is\n  ∀ {G : Type ?u.3207} [inst : AddCommMagma G] (a b : G), a + b = b + a\n\nR : Type\ninst✝ : CommRing R\na b : R\n⊢ (a + b) ^ 3 = a ^ 3 + 3 * a ^ 2 * b + 3 * a * b ^ 2 + b ^ 3",
-      "elapsed_ms": 12.347914999963905,
+      "elapsed_ms": 13.148601000011695,
       "on_proof_path": false
     },
     {
@@ -436,7 +436,7 @@
       "reason": "Type-feature match: ('*', '+')",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@mul_add`\n  ?a * (?b + ?c) = ?a * ?b + ?a * ?c\nwith the goal\n  (a + b) ^ 3 = a ^ 3 + 3 * a ^ 2 * b + 3 * a * b ^ 2 + b ^ 3\n\nNote: The full type of `@mul_add` is\n  ∀ {R : Type ?u.3262} [inst : Mul R] [inst_1 : Add R] [LeftDistribClass R] (a b c : R), a * (b + c) = a * b + a * c\n\nR : Type\ninst✝ : CommRing R\na b : R\n⊢ (a + b) ^ 3 = a ^ 3 + 3 * a ^ 2 * b + 3 * a * b ^ 2 + b ^ 3",
-      "elapsed_ms": 22.458644999915123,
+      "elapsed_ms": 24.974982000003365,
       "on_proof_path": false
     },
     {
@@ -451,7 +451,7 @@
       "reason": "Type-feature match: ('*', '+')",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@add_mul`\n  (?a + ?b) * ?c = ?a * ?c + ?b * ?c\nwith the goal\n  (a + b) ^ 3 = a ^ 3 + 3 * a ^ 2 * b + 3 * a * b ^ 2 + b ^ 3\n\nNote: The full type of `@add_mul` is\n  ∀ {R : Type ?u.3315} [inst : Mul R] [inst_1 : Add R] [RightDistribClass R] (a b c : R), (a + b) * c = a * c + b * c\n\nR : Type\ninst✝ : CommRing R\na b : R\n⊢ (a + b) ^ 3 = a ^ 3 + 3 * a ^ 2 * b + 3 * a * b ^ 2 + b ^ 3",
-      "elapsed_ms": 22.329760999809878,
+      "elapsed_ms": 25.54419299985966,
       "on_proof_path": false
     },
     {
@@ -469,7 +469,7 @@
       "reason": "Normalize a polynomial equality (Mathlib ring)",
       "status": "solved",
       "error": null,
-      "elapsed_ms": 20.123110999975324,
+      "elapsed_ms": 20.860167000137153,
       "on_proof_path": true
     }
   ],
@@ -481,11 +481,11 @@
     "frontier": 2,
     "max_depth": 1,
     "proof_length": 1,
-    "elapsed_s": 3.5032355000000734,
-    "lean_execution_s": 0.1326602209999237,
-    "initialization_s": 1.6144697590000305,
-    "verification_s": 1.7393205389998911,
-    "planning_s": 0.0003298859999176784
+    "elapsed_s": 3.3958651939999527,
+    "lean_execution_s": 0.14123818599978222,
+    "initialization_s": 1.5477366260001872,
+    "verification_s": 1.67312314600008,
+    "planning_s": 0.00028322699995442235
   },
   "proof": [
     "ring"
@@ -499,11 +499,11 @@
       "Quot.sound"
     ],
     "error": null,
-    "elapsed_s": 1.7393205389998911,
+    "elapsed_s": 1.67312314600008,
     "source_sha256": "b4e8115dbbd6d5558a7743f66ea60456889523edcca4ddfad91bc6d050d602d8"
   },
   "metadata": {
-    "code_commit": "f91bb03a141dfca5a34b3e12880a80837724aa00",
+    "code_commit": "a16b54fe84b719c9f109a758ccc2bb8dc717d267",
     "lean_version": "leanprover/lean4:v4.24.0",
     "mathlib_revision": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7",
     "python": "3.12.14",

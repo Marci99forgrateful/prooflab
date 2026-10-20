@@ -130,3 +130,23 @@ def test_natural_arithmetic_specialization_is_rechecked() -> None:
     assert result.status == "verified", result.error
     assert "omega" in result.proof
     assert result.proof_origin == "specialized_tactic"
+
+
+@pytest.mark.parametrize("algorithm", ["bfs", "best_first"])
+def test_order_antisymmetry_is_retrieved_from_equality_goal_and_order_context(
+    algorithm: str,
+) -> None:
+    task = Task(
+        id="unseen_antisymmetry",
+        title="Order context",
+        domain="order",
+        difficulty="moderate",
+        split="held_out",
+        display="",
+        description="",
+        binders="(α : Type) [PartialOrder α] (u v : α) (left : u ≤ v) (right : v ≤ u)",
+        target="u = v",
+    )
+    result = search(task, algorithm, Budget(timeout_s=15))  # type: ignore[arg-type]
+    assert result.status == "verified", result.error
+    assert "apply le_antisymm" in result.proof

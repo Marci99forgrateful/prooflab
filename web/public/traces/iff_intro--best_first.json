@@ -108,7 +108,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\nP Q : Prop\nhpq : P → Q\nhqp : Q → P\n⊢ P ↔ Q",
-      "elapsed_ms": 2.702236000004632,
+      "elapsed_ms": 2.2349319999648287,
       "on_proof_path": false
     },
     {
@@ -227,7 +227,7 @@
       "reason": "Split the goal into its components",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.0557190000781702,
+      "elapsed_ms": 1.607527999794911,
       "on_proof_path": true
     },
     {
@@ -242,7 +242,7 @@
       "reason": "Use implication or function hpq",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `hpq`\n  Q\nwith the goal\n  P ↔ Q\n\nNote: The full type of `hpq` is\n  P → Q\n\nP Q : Prop\nhpq : P → Q\nhqp : Q → P\n⊢ P ↔ Q",
-      "elapsed_ms": 0.7930730000680342,
+      "elapsed_ms": 0.7109290002063062,
       "on_proof_path": false
     },
     {
@@ -257,7 +257,7 @@
       "reason": "Use implication or function hqp",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `hqp`\n  P\nwith the goal\n  P ↔ Q\n\nNote: The full type of `hqp` is\n  Q → P\n\nP Q : Prop\nhpq : P → Q\nhqp : Q → P\n⊢ P ↔ Q",
-      "elapsed_ms": 0.7384619998447306,
+      "elapsed_ms": 0.6101279998347309,
       "on_proof_path": false
     },
     {
@@ -326,7 +326,7 @@
       "reason": "Match the goal against the local context",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 0.5605830001513823,
+      "elapsed_ms": 0.44714300020132214,
       "on_proof_path": true
     },
     {
@@ -455,7 +455,7 @@
       "reason": "Introduce a binder or implication premise",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 0.7141950000004726,
+      "elapsed_ms": 0.6333829999221052,
       "on_proof_path": false
     },
     {
@@ -524,7 +524,7 @@
       "reason": "Use implication or function hpq",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 0.43716800018955837,
+      "elapsed_ms": 0.644519000161381,
       "on_proof_path": false
     },
     {
@@ -539,7 +539,7 @@
       "reason": "Use implication or function hqp",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the type of `hqp`\n  Q → P\nwith the goal\n  P → Q\n\ncase mp\nP Q : Prop\nhpq : P → Q\nhqp : Q → P\n⊢ P → Q",
-      "elapsed_ms": 0.6392919999598234,
+      "elapsed_ms": 0.548394999896118,
       "on_proof_path": false
     },
     {
@@ -557,7 +557,7 @@
       "reason": "Match the goal against the local context",
       "status": "solved",
       "error": null,
-      "elapsed_ms": 0.11555400010365702,
+      "elapsed_ms": 0.1327200000105222,
       "on_proof_path": true
     }
   ],
@@ -569,11 +569,11 @@
     "frontier": 2,
     "max_depth": 3,
     "proof_length": 3,
-    "elapsed_s": 3.368388363999884,
-    "lean_execution_s": 0.007756282000400461,
-    "initialization_s": 1.6398798130001069,
-    "verification_s": 1.6848079349999807,
-    "planning_s": 0.0008347169998614845
+    "elapsed_s": 3.1035546479999994,
+    "lean_execution_s": 0.007569676999992225,
+    "initialization_s": 1.4930645780000305,
+    "verification_s": 1.586069081000005,
+    "planning_s": 0.0007531830001425988
   },
   "proof": [
     "constructor",
@@ -585,11 +585,11 @@
     "verified": true,
     "axioms": [],
     "error": null,
-    "elapsed_s": 1.6848079349999807,
+    "elapsed_s": 1.586069081000005,
     "source_sha256": "97a4cb46031e712877f1e74bfd849257ec51a767f3595e88be7786b6067de958"
   },
   "metadata": {
-    "code_commit": "f91bb03a141dfca5a34b3e12880a80837724aa00",
+    "code_commit": "a16b54fe84b719c9f109a758ccc2bb8dc717d267",
     "lean_version": "leanprover/lean4:v4.24.0",
     "mathlib_revision": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7",
     "python": "3.12.14",

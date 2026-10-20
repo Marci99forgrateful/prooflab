@@ -118,7 +118,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\nM : Type\ninst✝ : Monoid M\na b : M\nh : a = b\n⊢ a * 1 = b",
-      "elapsed_ms": 1.5392859997973574,
+      "elapsed_ms": 1.5613369998845883,
       "on_proof_path": false
     },
     {
@@ -133,7 +133,7 @@
       "reason": "Check definitional equality",
       "status": "rejected",
       "error": "Tactic `rfl` failed: The left-hand side\n  a * 1\nis not definitionally equal to the right-hand side\n  b\n\nM : Type\ninst✝ : Monoid M\na b : M\nh : a = b\n⊢ a * 1 = b",
-      "elapsed_ms": 1.2374419998195663,
+      "elapsed_ms": 1.351151000108075,
       "on_proof_path": false
     },
     {
@@ -212,7 +212,7 @@
       "reason": "Rewrite using a local equality",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.5069579999362759,
+      "elapsed_ms": 1.5745270000024902,
       "on_proof_path": true
     },
     {
@@ -291,7 +291,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.2345780000941886,
+      "elapsed_ms": 1.3165200000457844,
       "on_proof_path": false
     },
     {
@@ -370,7 +370,7 @@
       "reason": "Type-feature match: ('=',)",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 0.794295999867245,
+      "elapsed_ms": 0.8517609999216802,
       "on_proof_path": false
     },
     {
@@ -569,7 +569,7 @@
       "reason": "Type-feature match: ('=',)",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.4281890000802377,
+      "elapsed_ms": 1.5574520000427583,
       "on_proof_path": false
     },
     {
@@ -584,7 +584,7 @@
       "reason": "Type-feature match: ('*', '1')",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@mul_one`\n  ?a * 1 = ?a\nwith the goal\n  a * 1 = b\n\nNote: The full type of `@mul_one` is\n  ∀ {M : Type ?u.698} [inst : MulOneClass M] (a : M), a * 1 = a\n\nM : Type\ninst✝ : Monoid M\na b : M\nh : a = b\n⊢ a * 1 = b",
-      "elapsed_ms": 7.064460000037798,
+      "elapsed_ms": 9.956968999858873,
       "on_proof_path": false
     },
     {
@@ -599,7 +599,7 @@
       "reason": "Type-feature match: ('*', '1')",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@one_mul`\n  1 * ?a = ?a\nwith the goal\n  a * 1 = b\n\nNote: The full type of `@one_mul` is\n  ∀ {M : Type ?u.822} [inst : MulOneClass M] (a : M), 1 * a = a\n\nM : Type\ninst✝ : Monoid M\na b : M\nh : a = b\n⊢ a * 1 = b",
-      "elapsed_ms": 6.269445000043561,
+      "elapsed_ms": 6.328273999997691,
       "on_proof_path": false
     },
     {
@@ -614,7 +614,7 @@
       "reason": "Type-feature match: ('*',)",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@mul_assoc`\n  ?a * ?b * ?c = ?a * (?b * ?c)\nwith the goal\n  a * 1 = b\n\nNote: The full type of `@mul_assoc` is\n  ∀ {G : Type ?u.839} [inst : Semigroup G] (a b c : G), a * b * c = a * (b * c)\n\nM : Type\ninst✝ : Monoid M\na b : M\nh : a = b\n⊢ a * 1 = b",
-      "elapsed_ms": 8.764918999986548,
+      "elapsed_ms": 9.963171999970655,
       "on_proof_path": false
     },
     {
@@ -629,7 +629,7 @@
       "reason": "Type-feature match: ('*',)",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@mul_comm`\n  @HMul.hMul ?G ?G ?G (@instHMul ?G CommMagma.toMul) ?a ?b = ?b * ?a\nwith the goal\n  @HMul.hMul M M M (@instHMul M inst✝.toMulOneClass.toMul) a 1 = b\n\nNote: The full type of `@mul_comm` is\n  ∀ {G : Type ?u.991} [inst : CommMagma G] (a b : G), a * b = b * a\n\nM : Type\ninst✝ : Monoid M\na b : M\nh : a = b\n⊢ a * 1 = b",
-      "elapsed_ms": 9.831143999917913,
+      "elapsed_ms": 10.228757000049882,
       "on_proof_path": false
     },
     {
@@ -644,7 +644,7 @@
       "reason": "Normalize a polynomial equality (Mathlib ring)",
       "status": "rejected",
       "error": "ring_nf made no progress on goal",
-      "elapsed_ms": 5.695140000170795,
+      "elapsed_ms": 6.405368999821803,
       "on_proof_path": false
     },
     {
@@ -659,7 +659,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\nM : Type\ninst✝ : Monoid M\na b : M\nh : a = b\n⊢ b * 1 = b",
-      "elapsed_ms": 0.8674650000557449,
+      "elapsed_ms": 0.9402629998476186,
       "on_proof_path": false
     },
     {
@@ -674,7 +674,7 @@
       "reason": "Check definitional equality",
       "status": "rejected",
       "error": "Tactic `rfl` failed: The left-hand side\n  b * 1\nis not definitionally equal to the right-hand side\n  b\n\nM : Type\ninst✝ : Monoid M\na b : M\nh : a = b\n⊢ b * 1 = b",
-      "elapsed_ms": 1.7440140002236149,
+      "elapsed_ms": 1.382467999974324,
       "on_proof_path": false
     },
     {
@@ -689,7 +689,7 @@
       "reason": "Rewrite using a local equality",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  a\nin the target expression\n  b * 1 = b\n\nM : Type\ninst✝ : Monoid M\na b : M\nh : a = b\n⊢ b * 1 = b",
-      "elapsed_ms": 1.1726650000127847,
+      "elapsed_ms": 0.8457419999103877,
       "on_proof_path": false
     },
     {
@@ -768,7 +768,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.85471999998299,
+      "elapsed_ms": 1.3808460000745981,
       "on_proof_path": false
     },
     {
@@ -847,7 +847,7 @@
       "reason": "Type-feature match: ('=',)",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.1559489998944628,
+      "elapsed_ms": 0.8690460001616884,
       "on_proof_path": false
     },
     {
@@ -1046,7 +1046,7 @@
       "reason": "Type-feature match: ('=',)",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 2.1604809999189456,
+      "elapsed_ms": 1.4982519999193755,
       "on_proof_path": false
     },
     {
@@ -1064,7 +1064,7 @@
       "reason": "Type-feature match: ('*', '1')",
       "status": "solved",
       "error": null,
-      "elapsed_ms": 7.912316999863833,
+      "elapsed_ms": 4.844754000032481,
       "on_proof_path": true
     }
   ],
@@ -1076,11 +1076,11 @@
     "frontier": 6,
     "max_depth": 2,
     "proof_length": 2,
-    "elapsed_s": 3.290267255999879,
-    "lean_execution_s": 0.06223346799970386,
-    "initialization_s": 1.4851670449997982,
-    "verification_s": 1.7072045559998514,
-    "planning_s": 0.0005523309998807235
+    "elapsed_s": 4.1082799499999965,
+    "lean_execution_s": 0.06285665999962475,
+    "initialization_s": 1.8723878330001753,
+    "verification_s": 2.1495489269998416,
+    "planning_s": 0.0006812829997215886
   },
   "proof": [
     "rw [h]",
@@ -1091,11 +1091,11 @@
     "verified": true,
     "axioms": [],
     "error": null,
-    "elapsed_s": 1.7072045559998514,
+    "elapsed_s": 2.1495489269998416,
     "source_sha256": "342ef042eb1207e92951bf5ccd48d5fc16b7f4b68e1d255d5e8ec2ac22d74220"
   },
   "metadata": {
-    "code_commit": "f91bb03a141dfca5a34b3e12880a80837724aa00",
+    "code_commit": "a16b54fe84b719c9f109a758ccc2bb8dc717d267",
     "lean_version": "leanprover/lean4:v4.24.0",
     "mathlib_revision": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7",
     "python": "3.12.14",

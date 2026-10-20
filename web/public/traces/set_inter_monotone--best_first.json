@@ -118,7 +118,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\nα : Type\nA B C : Set α\nh : A ⊆ B\n⊢ A ∩ C ⊆ B ∩ C",
-      "elapsed_ms": 1.9135710001592088,
+      "elapsed_ms": 2.118580000114889,
       "on_proof_path": false
     },
     {
@@ -207,7 +207,7 @@
       "reason": "Introduce a binder or implication premise",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.560468999969089,
+      "elapsed_ms": 1.4220210000530642,
       "on_proof_path": true
     },
     {
@@ -222,7 +222,7 @@
       "reason": "Use implication or function h",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the type of `h`\n  A ⊆ B\nwith the goal\n  A ∩ C ⊆ B ∩ C\n\nα : Type\nA B C : Set α\nh : A ⊆ B\n⊢ A ∩ C ⊆ B ∩ C",
-      "elapsed_ms": 1.933320000034655,
+      "elapsed_ms": 1.8556029999672319,
       "on_proof_path": false
     },
     {
@@ -421,7 +421,7 @@
       "reason": "Type-feature match: ('⊆',)",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 2.956485000140674,
+      "elapsed_ms": 2.54991799988602,
       "on_proof_path": false
     },
     {
@@ -560,7 +560,7 @@
       "reason": "Type-feature match: ('⊆', '∩')",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 3.351229000145395,
+      "elapsed_ms": 3.202590999990207,
       "on_proof_path": false
     },
     {
@@ -699,7 +699,7 @@
       "reason": "Type-feature match: ('⊆', '∩')",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 3.323992000105136,
+      "elapsed_ms": 2.9604769999878044,
       "on_proof_path": false
     },
     {
@@ -714,7 +714,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\nα : Type\nA B C : Set α\nh : A ⊆ B\nh0 : α\n⊢ h0 ∈ A ∩ C → h0 ∈ B ∩ C",
-      "elapsed_ms": 1.368909999882817,
+      "elapsed_ms": 1.3027909999436815,
       "on_proof_path": false
     },
     {
@@ -813,7 +813,7 @@
       "reason": "Introduce a binder or implication premise",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.2293610000142507,
+      "elapsed_ms": 1.1992249999366322,
       "on_proof_path": true
     },
     {
@@ -828,7 +828,7 @@
       "reason": "Use implication or function h",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `h`\n  ?a ∈ A → ?a ∈ B\nwith the goal\n  h0 ∈ A ∩ C → h0 ∈ B ∩ C\n\nNote: The full type of `h` is\n  A ⊆ B\n\nα : Type\nA B C : Set α\nh : A ⊆ B\nh0 : α\n⊢ h0 ∈ A ∩ C → h0 ∈ B ∩ C",
-      "elapsed_ms": 3.0348679999860906,
+      "elapsed_ms": 2.5463429999490472,
       "on_proof_path": false
     },
     {
@@ -843,7 +843,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\nα : Type\nA B C : Set α\nh : A ⊆ B\nh0 : α\nh1 : h0 ∈ A ∩ C\n⊢ h0 ∈ B ∩ C",
-      "elapsed_ms": 1.9090640000740677,
+      "elapsed_ms": 1.782803000196509,
       "on_proof_path": false
     },
     {
@@ -1022,7 +1022,7 @@
       "reason": "Split the goal into its components",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 2.228389000038078,
+      "elapsed_ms": 2.1980489998441044,
       "on_proof_path": true
     },
     {
@@ -1037,7 +1037,7 @@
       "reason": "Project component 1",
       "status": "rejected",
       "error": "Type mismatch\n  h1.left\nhas type\n  h0 ∈ A\nbut is expected to have type\n  h0 ∈ B ∩ C",
-      "elapsed_ms": 1.51403399991068,
+      "elapsed_ms": 1.4209789999313216,
       "on_proof_path": false
     },
     {
@@ -1052,7 +1052,7 @@
       "reason": "Project component 2",
       "status": "rejected",
       "error": "Type mismatch\n  h1.right\nhas type\n  h0 ∈ C\nbut is expected to have type\n  h0 ∈ B ∩ C",
-      "elapsed_ms": 1.1937869999201212,
+      "elapsed_ms": 1.1302819998491032,
       "on_proof_path": false
     },
     {
@@ -1067,7 +1067,7 @@
       "reason": "Use implication or function h",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `h`\n  ?a ∈ B\nwith the goal\n  h0 ∈ B ∩ C\n\nNote: The full type of `h` is\n  A ⊆ B\n\nα : Type\nA B C : Set α\nh : A ⊆ B\nh0 : α\nh1 : h0 ∈ A ∩ C\n⊢ h0 ∈ B ∩ C",
-      "elapsed_ms": 1.9050680000418652,
+      "elapsed_ms": 1.9687429999066808,
       "on_proof_path": false
     },
     {
@@ -1082,7 +1082,7 @@
       "reason": "Apply a conjunction component",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the type of `h1.left`\n  h0 ∈ A\nwith the goal\n  h0 ∈ B ∩ C\n\nα : Type\nA B C : Set α\nh : A ⊆ B\nh0 : α\nh1 : h0 ∈ A ∩ C\n⊢ h0 ∈ B ∩ C",
-      "elapsed_ms": 1.6134380000494275,
+      "elapsed_ms": 1.6553909999856842,
       "on_proof_path": false
     },
     {
@@ -1097,7 +1097,7 @@
       "reason": "Apply a conjunction component",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the type of `h1.right`\n  h0 ∈ C\nwith the goal\n  h0 ∈ B ∩ C\n\nα : Type\nA B C : Set α\nh : A ⊆ B\nh0 : α\nh1 : h0 ∈ A ∩ C\n⊢ h0 ∈ B ∩ C",
-      "elapsed_ms": 1.5666379999856872,
+      "elapsed_ms": 1.6783559999566933,
       "on_proof_path": false
     },
     {
@@ -1206,7 +1206,7 @@
       "reason": "Eliminate a structured hypothesis with fresh explicit names",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.8921979999504401,
+      "elapsed_ms": 2.0021039999846835,
       "on_proof_path": false
     },
     {
@@ -1221,7 +1221,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\nα : Type\nA B C : Set α\nh : A ⊆ B\nh0 : α\nh2 : h0 ∈ A\nh3 : h0 ∈ C\n⊢ h0 ∈ B ∩ C",
-      "elapsed_ms": 1.4036029999715538,
+      "elapsed_ms": 2.6691280002069107,
       "on_proof_path": false
     },
     {
@@ -1420,7 +1420,7 @@
       "reason": "Split the goal into its components",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 2.250045999971917,
+      "elapsed_ms": 2.7969499999471736,
       "on_proof_path": false
     },
     {
@@ -1435,7 +1435,7 @@
       "reason": "Use implication or function h",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `h`\n  ?a ∈ B\nwith the goal\n  h0 ∈ B ∩ C\n\nNote: The full type of `h` is\n  A ⊆ B\n\nα : Type\nA B C : Set α\nh : A ⊆ B\nh0 : α\nh2 : h0 ∈ A\nh3 : h0 ∈ C\n⊢ h0 ∈ B ∩ C",
-      "elapsed_ms": 1.6351770000255783,
+      "elapsed_ms": 1.7252269999517011,
       "on_proof_path": false
     },
     {
@@ -1450,7 +1450,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\ncase left\nα : Type\nA B C : Set α\nh : A ⊆ B\nh0 : α\nh1 : h0 ∈ A ∩ C\n⊢ h0 ∈ B",
-      "elapsed_ms": 1.1337509999975737,
+      "elapsed_ms": 1.2475480000375683,
       "on_proof_path": false
     },
     {
@@ -1465,7 +1465,7 @@
       "reason": "Project component 1",
       "status": "rejected",
       "error": "Type mismatch\n  h1.left\nhas type\n  h0 ∈ A\nbut is expected to have type\n  h0 ∈ B",
-      "elapsed_ms": 1.2912530000903644,
+      "elapsed_ms": 1.038832999938677,
       "on_proof_path": false
     },
     {
@@ -1480,7 +1480,7 @@
       "reason": "Project component 2",
       "status": "rejected",
       "error": "Type mismatch\n  h1.right\nhas type\n  h0 ∈ C\nbut is expected to have type\n  h0 ∈ B",
-      "elapsed_ms": 0.9287479999784409,
+      "elapsed_ms": 1.0270059999584191,
       "on_proof_path": false
     },
     {
@@ -1659,7 +1659,7 @@
       "reason": "Use implication or function h",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 2.207468000051449,
+      "elapsed_ms": 3.2023199999002827,
       "on_proof_path": true
     },
     {
@@ -1674,7 +1674,7 @@
       "reason": "Apply a conjunction component",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the type of `h1.left`\n  h0 ∈ A\nwith the goal\n  h0 ∈ B\n\ncase left\nα : Type\nA B C : Set α\nh : A ⊆ B\nh0 : α\nh1 : h0 ∈ A ∩ C\n⊢ h0 ∈ B",
-      "elapsed_ms": 1.6788869997981237,
+      "elapsed_ms": 2.328345000023546,
       "on_proof_path": false
     },
     {
@@ -1689,7 +1689,7 @@
       "reason": "Apply a conjunction component",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the type of `h1.right`\n  h0 ∈ C\nwith the goal\n  h0 ∈ B\n\ncase left\nα : Type\nA B C : Set α\nh : A ⊆ B\nh0 : α\nh1 : h0 ∈ A ∩ C\n⊢ h0 ∈ B",
-      "elapsed_ms": 1.4346689999911177,
+      "elapsed_ms": 1.4330270000755263,
       "on_proof_path": false
     },
     {
@@ -1878,7 +1878,7 @@
       "reason": "Eliminate a structured hypothesis with fresh explicit names",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 2.912989000151356,
+      "elapsed_ms": 2.9767709997940983,
       "on_proof_path": false
     },
     {
@@ -1893,7 +1893,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\ncase a\nα : Type\nA B C : Set α\nh : A ⊆ B\n⊢ B ∩ C ∈ LE.le (A ∩ C) ∩ ?t",
-      "elapsed_ms": 1.6723969999929977,
+      "elapsed_ms": 2.119360000051529,
       "on_proof_path": false
     },
     {
@@ -2092,7 +2092,7 @@
       "reason": "Split the goal into its components",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 2.771090999885928,
+      "elapsed_ms": 3.624876999992921,
       "on_proof_path": false
     },
     {
@@ -2107,7 +2107,7 @@
       "reason": "Use implication or function h",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `h`\n  ?a ∈ B\nwith the goal\n  B ∩ C ∈ LE.le (A ∩ C) ∩ ?t\n\nNote: The full type of `h` is\n  A ⊆ B\n\ncase a\nα : Type\nA B C : Set α\nh : A ⊆ B\n⊢ B ∩ C ∈ LE.le (A ∩ C) ∩ ?t",
-      "elapsed_ms": 2.6450509999449423,
+      "elapsed_ms": 3.111574000058681,
       "on_proof_path": false
     },
     {
@@ -2122,7 +2122,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\ncase a\nα : Type\nA B C : Set α\nh : A ⊆ B\n⊢ B ∩ C ∈ ?s ∩ LE.le (A ∩ C)",
-      "elapsed_ms": 1.398655000002691,
+      "elapsed_ms": 1.6682010000295122,
       "on_proof_path": false
     },
     {
@@ -2321,7 +2321,7 @@
       "reason": "Split the goal into its components",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 2.7331890000823478,
+      "elapsed_ms": 3.2750899999882677,
       "on_proof_path": false
     },
     {
@@ -2336,7 +2336,7 @@
       "reason": "Use implication or function h",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `h`\n  ?a ∈ B\nwith the goal\n  B ∩ C ∈ ?s ∩ LE.le (A ∩ C)\n\nNote: The full type of `h` is\n  A ⊆ B\n\ncase a\nα : Type\nA B C : Set α\nh : A ⊆ B\n⊢ B ∩ C ∈ ?s ∩ LE.le (A ∩ C)",
-      "elapsed_ms": 2.184207999789578,
+      "elapsed_ms": 3.3769429999210843,
       "on_proof_path": false
     },
     {
@@ -2351,7 +2351,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\ncase left\nα : Type\nA B C : Set α\nh : A ⊆ B\nh0 : α\nh2 : h0 ∈ A\nh3 : h0 ∈ C\n⊢ h0 ∈ B",
-      "elapsed_ms": 1.2824709999676998,
+      "elapsed_ms": 2.2625460001108877,
       "on_proof_path": false
     },
     {
@@ -2550,7 +2550,7 @@
       "reason": "Use implication or function h",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 2.259745999936058,
+      "elapsed_ms": 2.633994999996503,
       "on_proof_path": false
     },
     {
@@ -2565,7 +2565,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\ncase left.a\nα : Type\nA B C : Set α\nh : A ⊆ B\nh0 : α\nh1 : h0 ∈ A ∩ C\n⊢ h0 ∈ A",
-      "elapsed_ms": 1.2752489999456884,
+      "elapsed_ms": 1.2445239999578916,
       "on_proof_path": false
     },
     {
@@ -2664,7 +2664,7 @@
       "reason": "Project component 1",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.734100000021499,
+      "elapsed_ms": 1.6074390000540006,
       "on_proof_path": true
     },
     {
@@ -2679,7 +2679,7 @@
       "reason": "Project component 2",
       "status": "rejected",
       "error": "Type mismatch\n  h1.right\nhas type\n  h0 ∈ C\nbut is expected to have type\n  h0 ∈ A",
-      "elapsed_ms": 1.013074999946184,
+      "elapsed_ms": 1.0729750001701177,
       "on_proof_path": false
     },
     {
@@ -2694,7 +2694,7 @@
       "reason": "Use implication or function h",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `h`\n  ?a ∈ B\nwith the goal\n  h0 ∈ A\n\nNote: The full type of `h` is\n  A ⊆ B\n\ncase left.a\nα : Type\nA B C : Set α\nh : A ⊆ B\nh0 : α\nh1 : h0 ∈ A ∩ C\n⊢ h0 ∈ A",
-      "elapsed_ms": 1.3039219998063345,
+      "elapsed_ms": 1.3592960001460597,
       "on_proof_path": false
     },
     {
@@ -2793,7 +2793,7 @@
       "reason": "Apply a conjunction component",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.5593970001646085,
+      "elapsed_ms": 1.670674000024519,
       "on_proof_path": false
     },
     {
@@ -2808,7 +2808,7 @@
       "reason": "Apply a conjunction component",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the type of `h1.right`\n  h0 ∈ C\nwith the goal\n  h0 ∈ A\n\ncase left.a\nα : Type\nA B C : Set α\nh : A ⊆ B\nh0 : α\nh1 : h0 ∈ A ∩ C\n⊢ h0 ∈ A",
-      "elapsed_ms": 1.5505730000313633,
+      "elapsed_ms": 1.4363719999437308,
       "on_proof_path": false
     },
     {
@@ -2997,7 +2997,7 @@
       "reason": "Eliminate a structured hypothesis with fresh explicit names",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 2.7410959999087936,
+      "elapsed_ms": 2.7371099999982107,
       "on_proof_path": false
     },
     {
@@ -3012,7 +3012,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\ncase right\nα : Type\nA B C : Set α\nh : A ⊆ B\nh0 : α\nh1 : h0 ∈ A ∩ C\n⊢ h0 ∈ C",
-      "elapsed_ms": 1.2033709999741404,
+      "elapsed_ms": 1.3060060000498197,
       "on_proof_path": false
     },
     {
@@ -3027,7 +3027,7 @@
       "reason": "Project component 1",
       "status": "rejected",
       "error": "Type mismatch\n  h1.left\nhas type\n  h0 ∈ A\nbut is expected to have type\n  h0 ∈ C",
-      "elapsed_ms": 1.2729259999559872,
+      "elapsed_ms": 1.0178820000419364,
       "on_proof_path": false
     },
     {
@@ -3045,7 +3045,7 @@
       "reason": "Project component 2",
       "status": "solved",
       "error": null,
-      "elapsed_ms": 0.6926730000031966,
+      "elapsed_ms": 0.4025859998364467,
       "on_proof_path": true
     }
   ],
@@ -3057,11 +3057,11 @@
     "frontier": 7,
     "max_depth": 6,
     "proof_length": 6,
-    "elapsed_s": 3.650296679999883,
-    "lean_execution_s": 0.0826646019997952,
-    "initialization_s": 1.7655734350000785,
-    "verification_s": 1.7627928800000063,
-    "planning_s": 0.0027138760001435003
+    "elapsed_s": 3.653690850999965,
+    "lean_execution_s": 0.08936686099968938,
+    "initialization_s": 1.7203984039999796,
+    "verification_s": 1.6801410499999747,
+    "planning_s": 0.003034207999917271
   },
   "proof": [
     "intro h0",
@@ -3076,11 +3076,11 @@
     "verified": true,
     "axioms": [],
     "error": null,
-    "elapsed_s": 1.7627928800000063,
+    "elapsed_s": 1.6801410499999747,
     "source_sha256": "9bb2ec9ae6b401cccc109e3170e41bccc64a9fe3474da5dfbe27198f752d497c"
   },
   "metadata": {
-    "code_commit": "f91bb03a141dfca5a34b3e12880a80837724aa00",
+    "code_commit": "a16b54fe84b719c9f109a758ccc2bb8dc717d267",
     "lean_version": "leanprover/lean4:v4.24.0",
     "mathlib_revision": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7",
     "python": "3.12.14",

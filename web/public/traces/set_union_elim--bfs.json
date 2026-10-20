@@ -212,7 +212,7 @@
       "reason": "Introduce a binder or implication premise",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 2.7060730001267075,
+      "elapsed_ms": 2.5813239999479265,
       "on_proof_path": false
     },
     {
@@ -227,7 +227,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\n⊢ A ∪ B ⊆ C",
-      "elapsed_ms": 2.580083000111699,
+      "elapsed_ms": 2.1258679998936714,
       "on_proof_path": false
     },
     {
@@ -242,7 +242,7 @@
       "reason": "Use implication or function ha",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the type of `ha`\n  A ⊆ C\nwith the goal\n  A ∪ B ⊆ C\n\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\n⊢ A ∪ B ⊆ C",
-      "elapsed_ms": 2.3490510000101494,
+      "elapsed_ms": 1.8792979999489035,
       "on_proof_path": false
     },
     {
@@ -257,7 +257,7 @@
       "reason": "Use implication or function hb",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the type of `hb`\n  B ⊆ C\nwith the goal\n  A ∪ B ⊆ C\n\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\n⊢ A ∪ B ⊆ C",
-      "elapsed_ms": 2.36461400004373,
+      "elapsed_ms": 1.5835130000141362,
       "on_proof_path": false
     },
     {
@@ -486,7 +486,7 @@
       "reason": "Type-feature match: ('⊆',)",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 4.269415999942794,
+      "elapsed_ms": 3.9061669999682636,
       "on_proof_path": false
     },
     {
@@ -501,7 +501,7 @@
       "reason": "Type-feature match: ('⊆', '∪')",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Set.subset_union_left`\n  ?s ⊆ ?s ∪ ?t\nwith the goal\n  A ∪ B ⊆ C\n\nNote: The full type of `@Set.subset_union_left` is\n  ∀ {α : Type ?u.147} {s t : Set α}, s ⊆ s ∪ t\n\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\n⊢ A ∪ B ⊆ C",
-      "elapsed_ms": 6.241738999960944,
+      "elapsed_ms": 4.515733000062028,
       "on_proof_path": false
     },
     {
@@ -516,7 +516,7 @@
       "reason": "Type-feature match: ('⊆', '∪')",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Set.subset_union_right`\n  ?t ⊆ ?s ∪ ?t\nwith the goal\n  A ∪ B ⊆ C\n\nNote: The full type of `@Set.subset_union_right` is\n  ∀ {α : Type ?u.192} {s t : Set α}, t ⊆ s ∪ t\n\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\n⊢ A ∪ B ⊆ C",
-      "elapsed_ms": 7.293927999853622,
+      "elapsed_ms": 7.728919000101087,
       "on_proof_path": false
     },
     {
@@ -625,7 +625,7 @@
       "reason": "Introduce a binder or implication premise",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 2.583639000022231,
+      "elapsed_ms": 3.0766400000175054,
       "on_proof_path": false
     },
     {
@@ -640,7 +640,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\n⊢ h0 ∈ A ∪ B → h0 ∈ C",
-      "elapsed_ms": 3.1474279999201826,
+      "elapsed_ms": 1.9500740002058592,
       "on_proof_path": false
     },
     {
@@ -655,7 +655,7 @@
       "reason": "Use implication or function ha",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `ha`\n  ?a ∈ A → ?a ∈ C\nwith the goal\n  h0 ∈ A ∪ B → h0 ∈ C\n\nNote: The full type of `ha` is\n  A ⊆ C\n\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\n⊢ h0 ∈ A ∪ B → h0 ∈ C",
-      "elapsed_ms": 5.148358000042208,
+      "elapsed_ms": 2.9718010000578943,
       "on_proof_path": false
     },
     {
@@ -670,7 +670,7 @@
       "reason": "Use implication or function hb",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `hb`\n  ?a ∈ B → ?a ∈ C\nwith the goal\n  h0 ∈ A ∪ B → h0 ∈ C\n\nNote: The full type of `hb` is\n  B ⊆ C\n\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\n⊢ h0 ∈ A ∪ B → h0 ∈ C",
-      "elapsed_ms": 4.037236000158373,
+      "elapsed_ms": 3.711724000140748,
       "on_proof_path": false
     },
     {
@@ -909,7 +909,7 @@
       "reason": "Introduce a binder or implication premise",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 4.40470000012283,
+      "elapsed_ms": 3.06352000006882,
       "on_proof_path": false
     },
     {
@@ -924,7 +924,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\ncase ab\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\n⊢ A ∪ B ⊆ ?b",
-      "elapsed_ms": 2.734675000056086,
+      "elapsed_ms": 1.9222529999751714,
       "on_proof_path": false
     },
     {
@@ -939,7 +939,7 @@
       "reason": "Use implication or function ha",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the type of `ha`\n  A ⊆ C\nwith the goal\n  A ∪ B ⊆ ?b\n\ncase ab\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\n⊢ A ∪ B ⊆ ?b",
-      "elapsed_ms": 2.7469439999094902,
+      "elapsed_ms": 2.2206310000001395,
       "on_proof_path": false
     },
     {
@@ -954,7 +954,7 @@
       "reason": "Use implication or function hb",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the type of `hb`\n  B ⊆ C\nwith the goal\n  A ∪ B ⊆ ?b\n\ncase ab\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\n⊢ A ∪ B ⊆ ?b",
-      "elapsed_ms": 3.0167560000791127,
+      "elapsed_ms": 2.0111759999963397,
       "on_proof_path": false
     },
     {
@@ -1323,7 +1323,7 @@
       "reason": "Type-feature match: ('⊆',)",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 4.95857300006719,
+      "elapsed_ms": 5.493063999892911,
       "on_proof_path": false
     },
     {
@@ -1482,7 +1482,7 @@
       "reason": "Type-feature match: ('⊆', '∪')",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 3.1447929998194013,
+      "elapsed_ms": 2.401012000063929,
       "on_proof_path": false
     },
     {
@@ -1641,7 +1641,7 @@
       "reason": "Type-feature match: ('⊆', '∪')",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 2.596027999970829,
+      "elapsed_ms": 2.8218659999765805,
       "on_proof_path": false
     },
     {
@@ -1656,7 +1656,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\nh1 : h0 ∈ A ∪ B\n⊢ h0 ∈ C",
-      "elapsed_ms": 1.3637819999985368,
+      "elapsed_ms": 1.604554000095959,
       "on_proof_path": false
     },
     {
@@ -1765,7 +1765,7 @@
       "reason": "Use implication or function ha",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.4984199999616976,
+      "elapsed_ms": 1.4085989998875448,
       "on_proof_path": false
     },
     {
@@ -1874,7 +1874,7 @@
       "reason": "Use implication or function hb",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.4000219998706598,
+      "elapsed_ms": 1.5232820001074288,
       "on_proof_path": false
     },
     {
@@ -2073,7 +2073,7 @@
       "reason": "Explore both cases of a disjunction",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 3.259702000150355,
+      "elapsed_ms": 3.052913999908924,
       "on_proof_path": false
     },
     {
@@ -2322,7 +2322,7 @@
       "reason": "Introduce a binder or implication premise",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 3.247818000090774,
+      "elapsed_ms": 2.910218999886638,
       "on_proof_path": false
     },
     {
@@ -2337,7 +2337,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\ncase ab\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\n⊢ h0 ∈ A ∪ B → h0 ∈ ?b",
-      "elapsed_ms": 1.5951609998410277,
+      "elapsed_ms": 1.644644999942102,
       "on_proof_path": false
     },
     {
@@ -2352,7 +2352,7 @@
       "reason": "Use implication or function ha",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `ha`\n  ?a ∈ A → ?a ∈ C\nwith the goal\n  h0 ∈ A ∪ B → h0 ∈ ?b\n\nNote: The full type of `ha` is\n  A ⊆ C\n\ncase ab\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\n⊢ h0 ∈ A ∪ B → h0 ∈ ?b",
-      "elapsed_ms": 2.5469530000918894,
+      "elapsed_ms": 2.6197019999472104,
       "on_proof_path": false
     },
     {
@@ -2367,7 +2367,7 @@
       "reason": "Use implication or function hb",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `hb`\n  ?a ∈ B → ?a ∈ C\nwith the goal\n  h0 ∈ A ∪ B → h0 ∈ ?b\n\nNote: The full type of `hb` is\n  B ⊆ C\n\ncase ab\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\n⊢ h0 ∈ A ∪ B → h0 ∈ ?b",
-      "elapsed_ms": 2.3884439999619644,
+      "elapsed_ms": 3.035006000118301,
       "on_proof_path": false
     },
     {
@@ -2746,7 +2746,7 @@
       "reason": "Introduce a binder or implication premise",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 4.930821000016294,
+      "elapsed_ms": 5.108006000000387,
       "on_proof_path": false
     },
     {
@@ -2761,7 +2761,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\ncase ab.ab\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\n⊢ A ∪ B ⊆ ?ab.b",
-      "elapsed_ms": 1.8263290000959387,
+      "elapsed_ms": 1.855672000147024,
       "on_proof_path": false
     },
     {
@@ -2776,7 +2776,7 @@
       "reason": "Use implication or function ha",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the type of `ha`\n  A ⊆ C\nwith the goal\n  A ∪ B ⊆ ?ab.b\n\ncase ab.ab\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\n⊢ A ∪ B ⊆ ?ab.b",
-      "elapsed_ms": 1.9376960001409316,
+      "elapsed_ms": 2.170856000020649,
       "on_proof_path": false
     },
     {
@@ -2791,7 +2791,7 @@
       "reason": "Use implication or function hb",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the type of `hb`\n  B ⊆ C\nwith the goal\n  A ∪ B ⊆ ?ab.b\n\ncase ab.ab\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\n⊢ A ∪ B ⊆ ?ab.b",
-      "elapsed_ms": 1.940781000030256,
+      "elapsed_ms": 1.8716459999268409,
       "on_proof_path": false
     },
     {
@@ -3300,7 +3300,7 @@
       "reason": "Type-feature match: ('⊆',)",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 6.054532999996809,
+      "elapsed_ms": 7.410269000047265,
       "on_proof_path": false
     },
     {
@@ -3599,7 +3599,7 @@
       "reason": "Type-feature match: ('⊆', '∪')",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 3.93084600000293,
+      "elapsed_ms": 4.07777499981421,
       "on_proof_path": false
     },
     {
@@ -3898,7 +3898,7 @@
       "reason": "Type-feature match: ('⊆', '∪')",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 4.046140000127707,
+      "elapsed_ms": 4.318306999948618,
       "on_proof_path": false
     },
     {
@@ -4067,7 +4067,7 @@
       "reason": "Introduce a binder or implication premise",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 3.054216999998971,
+      "elapsed_ms": 2.1427140000014333,
       "on_proof_path": false
     },
     {
@@ -4156,7 +4156,7 @@
       "reason": "Match the goal against the local context",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.6422319999946922,
+      "elapsed_ms": 1.3832510001066112,
       "on_proof_path": false
     },
     {
@@ -4171,7 +4171,7 @@
       "reason": "Use implication or function ha",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `ha`\n  ?a ∈ A → ?a ∈ C\nwith the goal\n  Set α\n\nNote: The full type of `ha` is\n  A ⊆ C\n\ncase ab.t\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\n⊢ Set α",
-      "elapsed_ms": 1.9427740000992344,
+      "elapsed_ms": 1.6124109999964276,
       "on_proof_path": false
     },
     {
@@ -4186,7 +4186,7 @@
       "reason": "Use implication or function hb",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `hb`\n  ?a ∈ B → ?a ∈ C\nwith the goal\n  Set α\n\nNote: The full type of `hb` is\n  B ⊆ C\n\ncase ab.t\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\n⊢ Set α",
-      "elapsed_ms": 2.5141839998923388,
+      "elapsed_ms": 1.535880999881556,
       "on_proof_path": false
     },
     {
@@ -4355,7 +4355,7 @@
       "reason": "Introduce a binder or implication premise",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 2.153011000018523,
+      "elapsed_ms": 2.033798999946157,
       "on_proof_path": false
     },
     {
@@ -4444,7 +4444,7 @@
       "reason": "Match the goal against the local context",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.645306000000346,
+      "elapsed_ms": 1.446867000140628,
       "on_proof_path": false
     },
     {
@@ -4459,7 +4459,7 @@
       "reason": "Use implication or function ha",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `ha`\n  ?a ∈ A → ?a ∈ C\nwith the goal\n  Set α\n\nNote: The full type of `ha` is\n  A ⊆ C\n\ncase ab.s\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\n⊢ Set α",
-      "elapsed_ms": 1.6260070001408167,
+      "elapsed_ms": 1.5536880000581732,
       "on_proof_path": false
     },
     {
@@ -4474,7 +4474,7 @@
       "reason": "Use implication or function hb",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `hb`\n  ?a ∈ B → ?a ∈ C\nwith the goal\n  Set α\n\nNote: The full type of `hb` is\n  B ⊆ C\n\ncase ab.s\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\n⊢ Set α",
-      "elapsed_ms": 2.557109000008495,
+      "elapsed_ms": 1.5135579999423499,
       "on_proof_path": false
     },
     {
@@ -4489,7 +4489,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\ncase a\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\nh1 : h0 ∈ A ∪ B\n⊢ h0 ∈ A",
-      "elapsed_ms": 1.431103999948391,
+      "elapsed_ms": 1.450862999945457,
       "on_proof_path": false
     },
     {
@@ -4504,7 +4504,7 @@
       "reason": "Use implication or function ha",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `ha`\n  ?a ∈ C\nwith the goal\n  h0 ∈ A\n\nNote: The full type of `ha` is\n  A ⊆ C\n\ncase a\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\nh1 : h0 ∈ A ∪ B\n⊢ h0 ∈ A",
-      "elapsed_ms": 1.5262469999015593,
+      "elapsed_ms": 1.5638229999694886,
       "on_proof_path": false
     },
     {
@@ -4519,7 +4519,7 @@
       "reason": "Use implication or function hb",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `hb`\n  ?a ∈ C\nwith the goal\n  h0 ∈ A\n\nNote: The full type of `hb` is\n  B ⊆ C\n\ncase a\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\nh1 : h0 ∈ A ∪ B\n⊢ h0 ∈ A",
-      "elapsed_ms": 1.5200379998532298,
+      "elapsed_ms": 1.9351419998656638,
       "on_proof_path": false
     },
     {
@@ -4718,7 +4718,7 @@
       "reason": "Explore both cases of a disjunction",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 2.715217000059056,
+      "elapsed_ms": 3.1150969998634537,
       "on_proof_path": false
     },
     {
@@ -4733,7 +4733,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\ncase a\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\nh1 : h0 ∈ A ∪ B\n⊢ h0 ∈ B",
-      "elapsed_ms": 1.374287999851731,
+      "elapsed_ms": 1.5501880000101664,
       "on_proof_path": false
     },
     {
@@ -4748,7 +4748,7 @@
       "reason": "Use implication or function ha",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `ha`\n  ?a ∈ C\nwith the goal\n  h0 ∈ B\n\nNote: The full type of `ha` is\n  A ⊆ C\n\ncase a\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\nh1 : h0 ∈ A ∪ B\n⊢ h0 ∈ B",
-      "elapsed_ms": 1.5361920000032114,
+      "elapsed_ms": 1.5481789998830209,
       "on_proof_path": false
     },
     {
@@ -4763,7 +4763,7 @@
       "reason": "Use implication or function hb",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `hb`\n  ?a ∈ C\nwith the goal\n  h0 ∈ B\n\nNote: The full type of `hb` is\n  B ⊆ C\n\ncase a\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\nh1 : h0 ∈ A ∪ B\n⊢ h0 ∈ B",
-      "elapsed_ms": 1.554258999931335,
+      "elapsed_ms": 1.5014890000202286,
       "on_proof_path": false
     },
     {
@@ -4962,7 +4962,7 @@
       "reason": "Explore both cases of a disjunction",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 2.839964000031614,
+      "elapsed_ms": 2.887905000079627,
       "on_proof_path": false
     },
     {
@@ -4977,7 +4977,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\ncase inl\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\nh2 : h0 ∈ A\n⊢ h0 ∈ C",
-      "elapsed_ms": 1.3528360000236717,
+      "elapsed_ms": 2.0077100000435166,
       "on_proof_path": false
     },
     {
@@ -5176,7 +5176,7 @@
       "reason": "Use implication or function ha",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 2.4669529998391226,
+      "elapsed_ms": 2.6628660000369564,
       "on_proof_path": false
     },
     {
@@ -5375,7 +5375,7 @@
       "reason": "Use implication or function hb",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 2.2653399998944224,
+      "elapsed_ms": 5.162597999969876,
       "on_proof_path": false
     },
     {
@@ -5464,7 +5464,7 @@
       "reason": "Match the goal against the local context",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.2375530000099388,
+      "elapsed_ms": 2.869216999897617,
       "on_proof_path": false
     },
     {
@@ -5643,7 +5643,7 @@
       "reason": "Use implication or function ha",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 4.749352999851908,
+      "elapsed_ms": 3.056648999972822,
       "on_proof_path": false
     },
     {
@@ -5822,7 +5822,7 @@
       "reason": "Use implication or function hb",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 2.8750769999987824,
+      "elapsed_ms": 3.0962880000515725,
       "on_proof_path": false
     },
     {
@@ -6161,7 +6161,7 @@
       "reason": "Explore both cases of a disjunction",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 5.566076999912184,
+      "elapsed_ms": 5.381962000001295,
       "on_proof_path": false
     },
     {
@@ -6550,7 +6550,7 @@
       "reason": "Introduce a binder or implication premise",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 5.606528000043909,
+      "elapsed_ms": 5.71937099994102,
       "on_proof_path": false
     },
     {
@@ -6565,7 +6565,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\ncase ab.ab\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\n⊢ h0 ∈ A ∪ B → h0 ∈ ?ab.b",
-      "elapsed_ms": 2.098297999964416,
+      "elapsed_ms": 2.464178000082029,
       "on_proof_path": false
     },
     {
@@ -6580,7 +6580,7 @@
       "reason": "Use implication or function ha",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `ha`\n  ?a ∈ A → ?a ∈ C\nwith the goal\n  h0 ∈ A ∪ B → h0 ∈ ?ab.b\n\nNote: The full type of `ha` is\n  A ⊆ C\n\ncase ab.ab\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\n⊢ h0 ∈ A ∪ B → h0 ∈ ?ab.b",
-      "elapsed_ms": 3.385645999969711,
+      "elapsed_ms": 3.1432790001417743,
       "on_proof_path": false
     },
     {
@@ -6595,7 +6595,7 @@
       "reason": "Use implication or function hb",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `hb`\n  ?a ∈ B → ?a ∈ C\nwith the goal\n  h0 ∈ A ∪ B → h0 ∈ ?ab.b\n\nNote: The full type of `hb` is\n  B ⊆ C\n\ncase ab.ab\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\n⊢ h0 ∈ A ∪ B → h0 ∈ ?ab.b",
-      "elapsed_ms": 3.2030059999215155,
+      "elapsed_ms": 3.0622270001003926,
       "on_proof_path": false
     },
     {
@@ -7114,7 +7114,7 @@
       "reason": "Introduce a binder or implication premise",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 7.727239999894664,
+      "elapsed_ms": 6.600271000024804,
       "on_proof_path": false
     },
     {
@@ -7129,7 +7129,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\ncase ab.ab.ab\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\n⊢ A ∪ B ⊆ ?ab.ab.b",
-      "elapsed_ms": 2.239720999796191,
+      "elapsed_ms": 2.3322389999975712,
       "on_proof_path": false
     },
     {
@@ -7144,7 +7144,7 @@
       "reason": "Use implication or function ha",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the type of `ha`\n  A ⊆ C\nwith the goal\n  A ∪ B ⊆ ?ab.ab.b\n\ncase ab.ab.ab\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\n⊢ A ∪ B ⊆ ?ab.ab.b",
-      "elapsed_ms": 2.4436680000690103,
+      "elapsed_ms": 2.208292999966943,
       "on_proof_path": false
     },
     {
@@ -7159,7 +7159,7 @@
       "reason": "Use implication or function hb",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the type of `hb`\n  B ⊆ C\nwith the goal\n  A ∪ B ⊆ ?ab.ab.b\n\ncase ab.ab.ab\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\n⊢ A ∪ B ⊆ ?ab.ab.b",
-      "elapsed_ms": 2.3371780000616127,
+      "elapsed_ms": 2.194292000012865,
       "on_proof_path": false
     },
     {
@@ -7808,7 +7808,7 @@
       "reason": "Type-feature match: ('⊆',)",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 9.782723999933296,
+      "elapsed_ms": 8.26297200001136,
       "on_proof_path": false
     },
     {
@@ -8247,7 +8247,7 @@
       "reason": "Type-feature match: ('⊆', '∪')",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 7.574545000124999,
+      "elapsed_ms": 7.8345669999180245,
       "on_proof_path": false
     },
     {
@@ -8686,7 +8686,7 @@
       "reason": "Type-feature match: ('⊆', '∪')",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 6.927977000032115,
+      "elapsed_ms": 6.9821449999381,
       "on_proof_path": false
     },
     {
@@ -8995,7 +8995,7 @@
       "reason": "Introduce a binder or implication premise",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 4.461475000198334,
+      "elapsed_ms": 7.1494060000532045,
       "on_proof_path": false
     },
     {
@@ -9224,7 +9224,7 @@
       "reason": "Match the goal against the local context",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 3.6853669998890837,
+      "elapsed_ms": 3.587085999924966,
       "on_proof_path": false
     },
     {
@@ -9239,7 +9239,7 @@
       "reason": "Use implication or function ha",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `ha`\n  ?a ∈ A → ?a ∈ C\nwith the goal\n  Set α\n\nNote: The full type of `ha` is\n  A ⊆ C\n\ncase ab.ab.t\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\n⊢ Set α",
-      "elapsed_ms": 1.9927189998725225,
+      "elapsed_ms": 1.859458000126324,
       "on_proof_path": false
     },
     {
@@ -9254,7 +9254,7 @@
       "reason": "Use implication or function hb",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `hb`\n  ?a ∈ B → ?a ∈ C\nwith the goal\n  Set α\n\nNote: The full type of `hb` is\n  B ⊆ C\n\ncase ab.ab.t\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\n⊢ Set α",
-      "elapsed_ms": 1.7850459998953738,
+      "elapsed_ms": 1.7126059999554855,
       "on_proof_path": false
     },
     {
@@ -9563,7 +9563,7 @@
       "reason": "Introduce a binder or implication premise",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 4.67931299999691,
+      "elapsed_ms": 4.298879000089073,
       "on_proof_path": false
     },
     {
@@ -9792,7 +9792,7 @@
       "reason": "Match the goal against the local context",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 3.740734999837514,
+      "elapsed_ms": 3.3061050000924297,
       "on_proof_path": false
     },
     {
@@ -9807,7 +9807,7 @@
       "reason": "Use implication or function ha",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `ha`\n  ?a ∈ A → ?a ∈ C\nwith the goal\n  Set α\n\nNote: The full type of `ha` is\n  A ⊆ C\n\ncase ab.ab.s\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\n⊢ Set α",
-      "elapsed_ms": 1.6046860000642482,
+      "elapsed_ms": 1.9500289999996312,
       "on_proof_path": false
     },
     {
@@ -9822,7 +9822,7 @@
       "reason": "Use implication or function hb",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `hb`\n  ?a ∈ B → ?a ∈ C\nwith the goal\n  Set α\n\nNote: The full type of `hb` is\n  B ⊆ C\n\ncase ab.ab.s\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\n⊢ Set α",
-      "elapsed_ms": 1.4546090001203993,
+      "elapsed_ms": 1.5846839999085205,
       "on_proof_path": false
     },
     {
@@ -9837,7 +9837,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\ncase ab.t\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\n⊢ Prop",
-      "elapsed_ms": 0.674815999900602,
+      "elapsed_ms": 2.4077380001017445,
       "on_proof_path": false
     },
     {
@@ -9852,7 +9852,7 @@
       "reason": "Use implication or function ha",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `ha`\n  ?a ∈ C\nwith the goal\n  Prop\n\nNote: The full type of `ha` is\n  A ⊆ C\n\ncase ab.t\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\n⊢ Prop",
-      "elapsed_ms": 0.913534999881449,
+      "elapsed_ms": 6.005004999906305,
       "on_proof_path": false
     },
     {
@@ -9867,7 +9867,7 @@
       "reason": "Use implication or function hb",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `hb`\n  ?a ∈ C\nwith the goal\n  Prop\n\nNote: The full type of `hb` is\n  B ⊆ C\n\ncase ab.t\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\n⊢ Prop",
-      "elapsed_ms": 1.0370710001552652,
+      "elapsed_ms": 1.8069889999878797,
       "on_proof_path": false
     },
     {
@@ -9966,7 +9966,7 @@
       "reason": "Introduce a binder or implication premise",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.3629410000248754,
+      "elapsed_ms": 2.0392579999679583,
       "on_proof_path": false
     },
     {
@@ -9981,7 +9981,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\ncase bc\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\n⊢ A ∪ B ∪ C ⊆ C",
-      "elapsed_ms": 2.1954640001240477,
+      "elapsed_ms": 2.125849000094604,
       "on_proof_path": false
     },
     {
@@ -9996,7 +9996,7 @@
       "reason": "Use implication or function ha",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the type of `ha`\n  A ⊆ C\nwith the goal\n  A ∪ B ∪ C ⊆ C\n\ncase bc\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\n⊢ A ∪ B ∪ C ⊆ C",
-      "elapsed_ms": 2.2803169999860984,
+      "elapsed_ms": 1.9165740000062215,
       "on_proof_path": false
     },
     {
@@ -10011,7 +10011,7 @@
       "reason": "Use implication or function hb",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the type of `hb`\n  B ⊆ C\nwith the goal\n  A ∪ B ∪ C ⊆ C\n\ncase bc\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\n⊢ A ∪ B ∪ C ⊆ C",
-      "elapsed_ms": 1.7151720001038484,
+      "elapsed_ms": 2.0477009998103313,
       "on_proof_path": false
     },
     {
@@ -10240,7 +10240,7 @@
       "reason": "Type-feature match: ('⊆',)",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 2.9602249999243213,
+      "elapsed_ms": 3.2196139998177387,
       "on_proof_path": false
     },
     {
@@ -10255,7 +10255,7 @@
       "reason": "Type-feature match: ('⊆', '∪')",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Set.subset_union_left`\n  ?s ⊆ ?s ∪ ?t\nwith the goal\n  A ∪ B ∪ C ⊆ C\n\nNote: The full type of `@Set.subset_union_left` is\n  ∀ {α : Type ?u.900} {s t : Set α}, s ⊆ s ∪ t\n\ncase bc\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\n⊢ A ∪ B ∪ C ⊆ C",
-      "elapsed_ms": 3.737165000075038,
+      "elapsed_ms": 5.210439000165934,
       "on_proof_path": false
     },
     {
@@ -10270,7 +10270,7 @@
       "reason": "Type-feature match: ('⊆', '∪')",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Set.subset_union_right`\n  ?t ⊆ ?s ∪ ?t\nwith the goal\n  A ∪ B ∪ C ⊆ C\n\nNote: The full type of `@Set.subset_union_right` is\n  ∀ {α : Type ?u.945} {s t : Set α}, t ⊆ s ∪ t\n\ncase bc\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\n⊢ A ∪ B ∪ C ⊆ C",
-      "elapsed_ms": 4.249866000009206,
+      "elapsed_ms": 5.336379000027591,
       "on_proof_path": false
     },
     {
@@ -10285,7 +10285,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\ncase ab.s\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\n⊢ Prop",
-      "elapsed_ms": 1.0558389999459905,
+      "elapsed_ms": 1.9508550001319236,
       "on_proof_path": false
     },
     {
@@ -10300,7 +10300,7 @@
       "reason": "Use implication or function ha",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `ha`\n  ?a ∈ C\nwith the goal\n  Prop\n\nNote: The full type of `ha` is\n  A ⊆ C\n\ncase ab.s\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\n⊢ Prop",
-      "elapsed_ms": 1.0506919998078956,
+      "elapsed_ms": 2.2532600000886305,
       "on_proof_path": false
     },
     {
@@ -10315,7 +10315,7 @@
       "reason": "Use implication or function hb",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `hb`\n  ?a ∈ C\nwith the goal\n  Prop\n\nNote: The full type of `hb` is\n  B ⊆ C\n\ncase ab.s\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\n⊢ Prop",
-      "elapsed_ms": 1.0184630000367179,
+      "elapsed_ms": 1.0485380000773148,
       "on_proof_path": false
     },
     {
@@ -10414,7 +10414,7 @@
       "reason": "Introduce a binder or implication premise",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.746398000022964,
+      "elapsed_ms": 1.971926999885909,
       "on_proof_path": false
     },
     {
@@ -10429,7 +10429,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\ncase bc\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\n⊢ C ∪ (A ∪ B) ⊆ C",
-      "elapsed_ms": 1.5697730000283627,
+      "elapsed_ms": 1.8409200001769932,
       "on_proof_path": false
     },
     {
@@ -10444,7 +10444,7 @@
       "reason": "Use implication or function ha",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the type of `ha`\n  A ⊆ C\nwith the goal\n  C ∪ (A ∪ B) ⊆ C\n\ncase bc\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\n⊢ C ∪ (A ∪ B) ⊆ C",
-      "elapsed_ms": 1.848742999982278,
+      "elapsed_ms": 2.034220000041387,
       "on_proof_path": false
     },
     {
@@ -10459,7 +10459,7 @@
       "reason": "Use implication or function hb",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the type of `hb`\n  B ⊆ C\nwith the goal\n  C ∪ (A ∪ B) ⊆ C\n\ncase bc\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\n⊢ C ∪ (A ∪ B) ⊆ C",
-      "elapsed_ms": 1.7672499998298008,
+      "elapsed_ms": 1.9614820000697364,
       "on_proof_path": false
     },
     {
@@ -10688,7 +10688,7 @@
       "reason": "Type-feature match: ('⊆',)",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 3.0790839998644515,
+      "elapsed_ms": 3.233805999798278,
       "on_proof_path": false
     },
     {
@@ -10703,7 +10703,7 @@
       "reason": "Type-feature match: ('⊆', '∪')",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Set.subset_union_left`\n  ?s ⊆ ?s ∪ ?t\nwith the goal\n  C ∪ (A ∪ B) ⊆ C\n\nNote: The full type of `@Set.subset_union_left` is\n  ∀ {α : Type ?u.1063} {s t : Set α}, s ⊆ s ∪ t\n\ncase bc\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\n⊢ C ∪ (A ∪ B) ⊆ C",
-      "elapsed_ms": 4.491238999889902,
+      "elapsed_ms": 5.584042000009504,
       "on_proof_path": false
     },
     {
@@ -10718,7 +10718,7 @@
       "reason": "Type-feature match: ('⊆', '∪')",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Set.subset_union_right`\n  ?t ⊆ ?s ∪ ?t\nwith the goal\n  C ∪ (A ∪ B) ⊆ C\n\nNote: The full type of `@Set.subset_union_right` is\n  ∀ {α : Type ?u.1108} {s t : Set α}, t ⊆ s ∪ t\n\ncase bc\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\n⊢ C ∪ (A ∪ B) ⊆ C",
-      "elapsed_ms": 4.309214999921096,
+      "elapsed_ms": 5.42382000003272,
       "on_proof_path": false
     },
     {
@@ -10827,7 +10827,7 @@
       "reason": "Match the goal against the local context",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.5680100000281527,
+      "elapsed_ms": 1.8557620001047326,
       "on_proof_path": false
     },
     {
@@ -10842,7 +10842,7 @@
       "reason": "Use implication or function ha",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `ha`\n  ?a ∈ C\nwith the goal\n  h0 ∈ A\n\nNote: The full type of `ha` is\n  A ⊆ C\n\ncase a.inl\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\nh2 : h0 ∈ A\n⊢ h0 ∈ A",
-      "elapsed_ms": 1.56051900012244,
+      "elapsed_ms": 1.6968630000064877,
       "on_proof_path": false
     },
     {
@@ -10857,7 +10857,7 @@
       "reason": "Use implication or function hb",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `hb`\n  ?a ∈ C\nwith the goal\n  h0 ∈ A\n\nNote: The full type of `hb` is\n  B ⊆ C\n\ncase a.inl\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\nh2 : h0 ∈ A\n⊢ h0 ∈ A",
-      "elapsed_ms": 1.5775540000504407,
+      "elapsed_ms": 1.3586649999979272,
       "on_proof_path": false
     },
     {
@@ -10872,7 +10872,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\ncase a.inl\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\nh2 : h0 ∈ A\n⊢ h0 ∈ B",
-      "elapsed_ms": 1.234247999946092,
+      "elapsed_ms": 1.2166800001978118,
       "on_proof_path": false
     },
     {
@@ -10887,7 +10887,7 @@
       "reason": "Use implication or function ha",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `ha`\n  ?a ∈ C\nwith the goal\n  h0 ∈ B\n\nNote: The full type of `ha` is\n  A ⊆ C\n\ncase a.inl\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\nh2 : h0 ∈ A\n⊢ h0 ∈ B",
-      "elapsed_ms": 1.4739129999270517,
+      "elapsed_ms": 1.5886399999089917,
       "on_proof_path": false
     },
     {
@@ -10902,7 +10902,7 @@
       "reason": "Use implication or function hb",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `hb`\n  ?a ∈ C\nwith the goal\n  h0 ∈ B\n\nNote: The full type of `hb` is\n  B ⊆ C\n\ncase a.inl\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\nh2 : h0 ∈ A\n⊢ h0 ∈ B",
-      "elapsed_ms": 1.408600000104343,
+      "elapsed_ms": 1.3686390000202664,
       "on_proof_path": false
     },
     {
@@ -11011,7 +11011,7 @@
       "reason": "Match the goal against the local context",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.2668709998706618,
+      "elapsed_ms": 1.4634920000844431,
       "on_proof_path": false
     },
     {
@@ -11026,7 +11026,7 @@
       "reason": "Use implication or function ha",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `ha`\n  ?a ∈ C\nwith the goal\n  h0 ∈ A\n\nNote: The full type of `ha` is\n  A ⊆ C\n\ncase inl.a\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\nh2 : h0 ∈ A\n⊢ h0 ∈ A",
-      "elapsed_ms": 1.3167120000616706,
+      "elapsed_ms": 1.3557199999922886,
       "on_proof_path": false
     },
     {
@@ -11041,7 +11041,7 @@
       "reason": "Use implication or function hb",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `hb`\n  ?a ∈ C\nwith the goal\n  h0 ∈ A\n\nNote: The full type of `hb` is\n  B ⊆ C\n\ncase inl.a\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\nh2 : h0 ∈ A\n⊢ h0 ∈ A",
-      "elapsed_ms": 1.354949000187844,
+      "elapsed_ms": 1.3805069997943065,
       "on_proof_path": false
     },
     {
@@ -11056,7 +11056,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\ncase inl.a\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\nh2 : h0 ∈ A\n⊢ h0 ∈ B",
-      "elapsed_ms": 1.3177129999348836,
+      "elapsed_ms": 1.2748780000038096,
       "on_proof_path": false
     },
     {
@@ -11071,7 +11071,7 @@
       "reason": "Use implication or function ha",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `ha`\n  ?a ∈ C\nwith the goal\n  h0 ∈ B\n\nNote: The full type of `ha` is\n  A ⊆ C\n\ncase inl.a\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\nh2 : h0 ∈ A\n⊢ h0 ∈ B",
-      "elapsed_ms": 1.4829219999228371,
+      "elapsed_ms": 1.395198999944114,
       "on_proof_path": false
     },
     {
@@ -11086,7 +11086,7 @@
       "reason": "Use implication or function hb",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `hb`\n  ?a ∈ C\nwith the goal\n  h0 ∈ B\n\nNote: The full type of `hb` is\n  B ⊆ C\n\ncase inl.a\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\nh2 : h0 ∈ A\n⊢ h0 ∈ B",
-      "elapsed_ms": 1.4394170000286977,
+      "elapsed_ms": 1.3423800000964548,
       "on_proof_path": false
     },
     {
@@ -11185,7 +11185,7 @@
       "reason": "Introduce a binder or implication premise",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.6034230000059324,
+      "elapsed_ms": 1.6213700000662357,
       "on_proof_path": false
     },
     {
@@ -11200,7 +11200,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\ncase bc\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\n⊢ A ∪ B ⊆ C",
-      "elapsed_ms": 1.5161410001383047,
+      "elapsed_ms": 1.7697830000997783,
       "on_proof_path": false
     },
     {
@@ -11215,7 +11215,7 @@
       "reason": "Use implication or function ha",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the type of `ha`\n  A ⊆ C\nwith the goal\n  A ∪ B ⊆ C\n\ncase bc\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\n⊢ A ∪ B ⊆ C",
-      "elapsed_ms": 1.8260879999161261,
+      "elapsed_ms": 1.8688919999476639,
       "on_proof_path": false
     },
     {
@@ -11230,7 +11230,7 @@
       "reason": "Use implication or function hb",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the type of `hb`\n  B ⊆ C\nwith the goal\n  A ∪ B ⊆ C\n\ncase bc\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\n⊢ A ∪ B ⊆ C",
-      "elapsed_ms": 2.434042999993835,
+      "elapsed_ms": 1.7411399999218702,
       "on_proof_path": false
     },
     {
@@ -11459,7 +11459,7 @@
       "reason": "Type-feature match: ('⊆',)",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 4.388235000078566,
+      "elapsed_ms": 5.872174999922208,
       "on_proof_path": false
     },
     {
@@ -11474,7 +11474,7 @@
       "reason": "Type-feature match: ('⊆', '∪')",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Set.subset_union_left`\n  ?s ⊆ ?s ∪ ?t\nwith the goal\n  A ∪ B ⊆ C\n\nNote: The full type of `@Set.subset_union_left` is\n  ∀ {α : Type ?u.1260} {s t : Set α}, s ⊆ s ∪ t\n\ncase bc\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\n⊢ A ∪ B ⊆ C",
-      "elapsed_ms": 4.764920999832611,
+      "elapsed_ms": 6.753941999932067,
       "on_proof_path": false
     },
     {
@@ -11489,7 +11489,7 @@
       "reason": "Type-feature match: ('⊆', '∪')",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Set.subset_union_right`\n  ?t ⊆ ?s ∪ ?t\nwith the goal\n  A ∪ B ⊆ C\n\nNote: The full type of `@Set.subset_union_right` is\n  ∀ {α : Type ?u.1305} {s t : Set α}, t ⊆ s ∪ t\n\ncase bc\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\n⊢ A ∪ B ⊆ C",
-      "elapsed_ms": 4.291728999987754,
+      "elapsed_ms": 5.609673999970255,
       "on_proof_path": false
     },
     {
@@ -11504,7 +11504,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\ncase ab.a\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\nh1 : h0 ∈ A ∪ B\n⊢ h0 ∈ A",
-      "elapsed_ms": 1.7796590000216383,
+      "elapsed_ms": 2.3777070000505773,
       "on_proof_path": false
     },
     {
@@ -11519,7 +11519,7 @@
       "reason": "Use implication or function ha",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `ha`\n  ?a ∈ C\nwith the goal\n  h0 ∈ A\n\nNote: The full type of `ha` is\n  A ⊆ C\n\ncase ab.a\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\nh1 : h0 ∈ A ∪ B\n⊢ h0 ∈ A",
-      "elapsed_ms": 1.5903529999832244,
+      "elapsed_ms": 2.3584439998103335,
       "on_proof_path": false
     },
     {
@@ -11534,7 +11534,7 @@
       "reason": "Use implication or function hb",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `hb`\n  ?a ∈ C\nwith the goal\n  h0 ∈ A\n\nNote: The full type of `hb` is\n  B ⊆ C\n\ncase ab.a\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\nh1 : h0 ∈ A ∪ B\n⊢ h0 ∈ A",
-      "elapsed_ms": 1.4767229999961273,
+      "elapsed_ms": 2.561734999972032,
       "on_proof_path": false
     },
     {
@@ -11803,7 +11803,7 @@
       "reason": "Explore both cases of a disjunction",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 3.878024999949048,
+      "elapsed_ms": 5.459544000132155,
       "on_proof_path": false
     },
     {
@@ -11818,7 +11818,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\ncase ab.a\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\nh1 : h0 ∈ A ∪ B\n⊢ h0 ∈ B",
-      "elapsed_ms": 1.5723159999652125,
+      "elapsed_ms": 1.7373240000324586,
       "on_proof_path": false
     },
     {
@@ -11833,7 +11833,7 @@
       "reason": "Use implication or function ha",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `ha`\n  ?a ∈ C\nwith the goal\n  h0 ∈ B\n\nNote: The full type of `ha` is\n  A ⊆ C\n\ncase ab.a\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\nh1 : h0 ∈ A ∪ B\n⊢ h0 ∈ B",
-      "elapsed_ms": 1.447969000082594,
+      "elapsed_ms": 1.9807699998182215,
       "on_proof_path": false
     },
     {
@@ -11848,7 +11848,7 @@
       "reason": "Use implication or function hb",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `hb`\n  ?a ∈ C\nwith the goal\n  h0 ∈ B\n\nNote: The full type of `hb` is\n  B ⊆ C\n\ncase ab.a\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\nh1 : h0 ∈ A ∪ B\n⊢ h0 ∈ B",
-      "elapsed_ms": 1.3550690000556642,
+      "elapsed_ms": 6.578938000075141,
       "on_proof_path": false
     },
     {
@@ -12117,7 +12117,7 @@
       "reason": "Explore both cases of a disjunction",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 3.344111999922461,
+      "elapsed_ms": 4.737537999972119,
       "on_proof_path": false
     },
     {
@@ -12296,7 +12296,7 @@
       "reason": "Match the goal against the local context",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.98034999993979,
+      "elapsed_ms": 2.3821439999665017,
       "on_proof_path": false
     },
     {
@@ -12565,7 +12565,7 @@
       "reason": "Use implication or function ha",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 2.983899999890127,
+      "elapsed_ms": 5.0981599999886384,
       "on_proof_path": false
     },
     {
@@ -12834,7 +12834,7 @@
       "reason": "Use implication or function hb",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 3.269799999998213,
+      "elapsed_ms": 4.696872000067742,
       "on_proof_path": false
     },
     {
@@ -13063,7 +13063,7 @@
       "reason": "Match the goal against the local context",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 2.6643090000106895,
+      "elapsed_ms": 3.8575040000523586,
       "on_proof_path": false
     },
     {
@@ -13382,7 +13382,7 @@
       "reason": "Use implication or function ha",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 4.014200000028723,
+      "elapsed_ms": 4.827183000088553,
       "on_proof_path": false
     },
     {
@@ -13701,7 +13701,7 @@
       "reason": "Use implication or function hb",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 3.899657999909323,
+      "elapsed_ms": 6.111389999887251,
       "on_proof_path": false
     },
     {
@@ -14180,7 +14180,7 @@
       "reason": "Explore both cases of a disjunction",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 6.804589000012129,
+      "elapsed_ms": 6.807703000049514,
       "on_proof_path": false
     },
     {
@@ -14709,7 +14709,7 @@
       "reason": "Introduce a binder or implication premise",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 6.2669300000379735,
+      "elapsed_ms": 6.5094039998712105,
       "on_proof_path": false
     },
     {
@@ -14724,7 +14724,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\ncase ab.ab.ab\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\n⊢ h0 ∈ A ∪ B → h0 ∈ ?ab.ab.b",
-      "elapsed_ms": 2.821845999960715,
+      "elapsed_ms": 2.184036000016931,
       "on_proof_path": false
     },
     {
@@ -14739,7 +14739,7 @@
       "reason": "Use implication or function ha",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `ha`\n  ?a ∈ A → ?a ∈ C\nwith the goal\n  h0 ∈ A ∪ B → h0 ∈ ?ab.ab.b\n\nNote: The full type of `ha` is\n  A ⊆ C\n\ncase ab.ab.ab\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\n⊢ h0 ∈ A ∪ B → h0 ∈ ?ab.ab.b",
-      "elapsed_ms": 3.264152000156173,
+      "elapsed_ms": 4.637017000050037,
       "on_proof_path": false
     },
     {
@@ -14754,7 +14754,7 @@
       "reason": "Use implication or function hb",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `hb`\n  ?a ∈ B → ?a ∈ C\nwith the goal\n  h0 ∈ A ∪ B → h0 ∈ ?ab.ab.b\n\nNote: The full type of `hb` is\n  B ⊆ C\n\ncase ab.ab.ab\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\n⊢ h0 ∈ A ∪ B → h0 ∈ ?ab.ab.b",
-      "elapsed_ms": 2.8646000000662752,
+      "elapsed_ms": 8.651597000152833,
       "on_proof_path": false
     },
     {
@@ -15413,7 +15413,7 @@
       "reason": "Introduce a binder or implication premise",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 8.18204200004402,
+      "elapsed_ms": 8.189300999902116,
       "on_proof_path": false
     },
     {
@@ -15428,7 +15428,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\ncase ab.ab.ab.ab\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\n⊢ A ∪ B ⊆ ?ab.ab.ab.b",
-      "elapsed_ms": 1.9000590000359807,
+      "elapsed_ms": 2.3144920000959246,
       "on_proof_path": false
     },
     {
@@ -15443,7 +15443,7 @@
       "reason": "Use implication or function ha",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the type of `ha`\n  A ⊆ C\nwith the goal\n  A ∪ B ⊆ ?ab.ab.ab.b\n\ncase ab.ab.ab.ab\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\n⊢ A ∪ B ⊆ ?ab.ab.ab.b",
-      "elapsed_ms": 1.8204900000000634,
+      "elapsed_ms": 5.216518999986874,
       "on_proof_path": false
     },
     {
@@ -15458,7 +15458,7 @@
       "reason": "Use implication or function hb",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the type of `hb`\n  B ⊆ C\nwith the goal\n  A ∪ B ⊆ ?ab.ab.ab.b\n\ncase ab.ab.ab.ab\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\n⊢ A ∪ B ⊆ ?ab.ab.ab.b",
-      "elapsed_ms": 1.730574000021079,
+      "elapsed_ms": 2.4346029999833263,
       "on_proof_path": false
     },
     {
@@ -16247,7 +16247,7 @@
       "reason": "Type-feature match: ('⊆',)",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 9.722280000005412,
+      "elapsed_ms": 14.091021000012915,
       "on_proof_path": false
     },
     {
@@ -16826,7 +16826,7 @@
       "reason": "Type-feature match: ('⊆', '∪')",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 7.000984999876891,
+      "elapsed_ms": 9.980435999977999,
       "on_proof_path": false
     },
     {
@@ -17405,7 +17405,7 @@
       "reason": "Type-feature match: ('⊆', '∪')",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 7.352073999982167,
+      "elapsed_ms": 9.8899000001893,
       "on_proof_path": false
     },
     {
@@ -17854,7 +17854,7 @@
       "reason": "Introduce a binder or implication premise",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 5.826547999959075,
+      "elapsed_ms": 9.680334999984552,
       "on_proof_path": false
     },
     {
@@ -18223,7 +18223,7 @@
       "reason": "Match the goal against the local context",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 4.955587000040396,
+      "elapsed_ms": 6.34076999995159,
       "on_proof_path": false
     },
     {
@@ -18238,7 +18238,7 @@
       "reason": "Use implication or function ha",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `ha`\n  ?a ∈ A → ?a ∈ C\nwith the goal\n  Set α\n\nNote: The full type of `ha` is\n  A ⊆ C\n\ncase ab.ab.ab.t\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\n⊢ Set α",
-      "elapsed_ms": 1.781180000079985,
+      "elapsed_ms": 2.2763049998957285,
       "on_proof_path": false
     },
     {
@@ -18253,7 +18253,7 @@
       "reason": "Use implication or function hb",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `hb`\n  ?a ∈ B → ?a ∈ C\nwith the goal\n  Set α\n\nNote: The full type of `hb` is\n  B ⊆ C\n\ncase ab.ab.ab.t\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\n⊢ Set α",
-      "elapsed_ms": 1.6796469999462715,
+      "elapsed_ms": 1.9533789998149587,
       "on_proof_path": false
     },
     {
@@ -18702,7 +18702,7 @@
       "reason": "Introduce a binder or implication premise",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 6.1316869998790935,
+      "elapsed_ms": 6.891068000186351,
       "on_proof_path": false
     },
     {
@@ -19071,7 +19071,7 @@
       "reason": "Match the goal against the local context",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 5.288048000011258,
+      "elapsed_ms": 6.092925999837462,
       "on_proof_path": false
     },
     {
@@ -19086,7 +19086,7 @@
       "reason": "Use implication or function ha",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `ha`\n  ?a ∈ A → ?a ∈ C\nwith the goal\n  Set α\n\nNote: The full type of `ha` is\n  A ⊆ C\n\ncase ab.ab.ab.s\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\n⊢ Set α",
-      "elapsed_ms": 1.6006490000108897,
+      "elapsed_ms": 2.1341310000480007,
       "on_proof_path": false
     },
     {
@@ -19101,7 +19101,7 @@
       "reason": "Use implication or function hb",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `hb`\n  ?a ∈ B → ?a ∈ C\nwith the goal\n  Set α\n\nNote: The full type of `hb` is\n  B ⊆ C\n\ncase ab.ab.ab.s\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\n⊢ Set α",
-      "elapsed_ms": 1.692917999889687,
+      "elapsed_ms": 2.023845000167057,
       "on_proof_path": false
     },
     {
@@ -19116,7 +19116,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\ncase ab.ab.t\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\n⊢ Prop",
-      "elapsed_ms": 0.712332000148308,
+      "elapsed_ms": 1.0317320000012842,
       "on_proof_path": false
     },
     {
@@ -19131,7 +19131,7 @@
       "reason": "Use implication or function ha",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `ha`\n  ?a ∈ C\nwith the goal\n  Prop\n\nNote: The full type of `ha` is\n  A ⊆ C\n\ncase ab.ab.t\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\n⊢ Prop",
-      "elapsed_ms": 0.9952979999070521,
+      "elapsed_ms": 1.3113229999817122,
       "on_proof_path": false
     },
     {
@@ -19146,7 +19146,7 @@
       "reason": "Use implication or function hb",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `hb`\n  ?a ∈ C\nwith the goal\n  Prop\n\nNote: The full type of `hb` is\n  B ⊆ C\n\ncase ab.ab.t\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\n⊢ Prop",
-      "elapsed_ms": 1.2049829999796202,
+      "elapsed_ms": 1.4495110001462308,
       "on_proof_path": false
     },
     {
@@ -19385,7 +19385,7 @@
       "reason": "Introduce a binder or implication premise",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 3.5307129999182507,
+      "elapsed_ms": 4.038426000079198,
       "on_proof_path": false
     },
     {
@@ -19400,7 +19400,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\ncase ab.bc\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\n⊢ A ∪ B ∪ C ⊆ ?b",
-      "elapsed_ms": 1.700378999885288,
+      "elapsed_ms": 2.3810520001461555,
       "on_proof_path": false
     },
     {
@@ -19415,7 +19415,7 @@
       "reason": "Use implication or function ha",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the type of `ha`\n  A ⊆ C\nwith the goal\n  A ∪ B ∪ C ⊆ ?b\n\ncase ab.bc\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\n⊢ A ∪ B ∪ C ⊆ ?b",
-      "elapsed_ms": 1.9884130001628364,
+      "elapsed_ms": 2.796628000169221,
       "on_proof_path": false
     },
     {
@@ -19430,7 +19430,7 @@
       "reason": "Use implication or function hb",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the type of `hb`\n  B ⊆ C\nwith the goal\n  A ∪ B ∪ C ⊆ ?b\n\ncase ab.bc\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\n⊢ A ∪ B ∪ C ⊆ ?b",
-      "elapsed_ms": 1.8905340000401338,
+      "elapsed_ms": 4.982426999958989,
       "on_proof_path": false
     },
     {
@@ -19799,7 +19799,7 @@
       "reason": "Type-feature match: ('⊆',)",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 4.886393000106182,
+      "elapsed_ms": 6.459067999912804,
       "on_proof_path": false
     },
     {
@@ -19958,7 +19958,7 @@
       "reason": "Type-feature match: ('⊆', '∪')",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 2.4071820000699518,
+      "elapsed_ms": 3.2858030001534644,
       "on_proof_path": false
     },
     {
@@ -20117,7 +20117,7 @@
       "reason": "Type-feature match: ('⊆', '∪')",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 2.273251000133314,
+      "elapsed_ms": 3.3986440000717266,
       "on_proof_path": false
     },
     {
@@ -20132,7 +20132,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\ncase ab.ab.s\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\n⊢ Prop",
-      "elapsed_ms": 0.7866640000884217,
+      "elapsed_ms": 1.119934999906036,
       "on_proof_path": false
     },
     {
@@ -20147,7 +20147,7 @@
       "reason": "Use implication or function ha",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `ha`\n  ?a ∈ C\nwith the goal\n  Prop\n\nNote: The full type of `ha` is\n  A ⊆ C\n\ncase ab.ab.s\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\n⊢ Prop",
-      "elapsed_ms": 1.0876759999973729,
+      "elapsed_ms": 1.5682399998695473,
       "on_proof_path": false
     },
     {
@@ -20162,7 +20162,7 @@
       "reason": "Use implication or function hb",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `hb`\n  ?a ∈ C\nwith the goal\n  Prop\n\nNote: The full type of `hb` is\n  B ⊆ C\n\ncase ab.ab.s\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\n⊢ Prop",
-      "elapsed_ms": 1.2008470000637317,
+      "elapsed_ms": 1.4066359999560518,
       "on_proof_path": false
     },
     {
@@ -20401,7 +20401,7 @@
       "reason": "Introduce a binder or implication premise",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 3.2210780000241357,
+      "elapsed_ms": 4.465138000114166,
       "on_proof_path": false
     },
     {
@@ -20416,7 +20416,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\ncase ab.bc\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\n⊢ C ∪ (A ∪ B) ⊆ ?b",
-      "elapsed_ms": 1.6894819998469757,
+      "elapsed_ms": 2.5047290000657085,
       "on_proof_path": false
     },
     {
@@ -20431,7 +20431,7 @@
       "reason": "Use implication or function ha",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the type of `ha`\n  A ⊆ C\nwith the goal\n  C ∪ (A ∪ B) ⊆ ?b\n\ncase ab.bc\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\n⊢ C ∪ (A ∪ B) ⊆ ?b",
-      "elapsed_ms": 1.9245759999648726,
+      "elapsed_ms": 2.8300580001996423,
       "on_proof_path": false
     },
     {
@@ -20446,7 +20446,7 @@
       "reason": "Use implication or function hb",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the type of `hb`\n  B ⊆ C\nwith the goal\n  C ∪ (A ∪ B) ⊆ ?b\n\ncase ab.bc\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\n⊢ C ∪ (A ∪ B) ⊆ ?b",
-      "elapsed_ms": 1.8191169999681733,
+      "elapsed_ms": 3.6636529998759215,
       "on_proof_path": false
     },
     {
@@ -20815,7 +20815,7 @@
       "reason": "Type-feature match: ('⊆',)",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 4.425358999924356,
+      "elapsed_ms": 5.586085000004459,
       "on_proof_path": false
     },
     {
@@ -20974,7 +20974,7 @@
       "reason": "Type-feature match: ('⊆', '∪')",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 2.613622999888321,
+      "elapsed_ms": 2.468755000109013,
       "on_proof_path": false
     },
     {
@@ -21133,7 +21133,7 @@
       "reason": "Type-feature match: ('⊆', '∪')",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 2.348633999872618,
+      "elapsed_ms": 2.5163850000353705,
       "on_proof_path": false
     },
     {
@@ -21242,7 +21242,7 @@
       "reason": "Introduce a binder or implication premise",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.4335969999592635,
+      "elapsed_ms": 1.5268570000444015,
       "on_proof_path": false
     },
     {
@@ -21257,7 +21257,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\ncase bc\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\n⊢ h0 ∈ A ∪ B ∪ C → h0 ∈ C",
-      "elapsed_ms": 1.4937179998923966,
+      "elapsed_ms": 1.806377000093562,
       "on_proof_path": false
     },
     {
@@ -21272,7 +21272,7 @@
       "reason": "Use implication or function ha",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `ha`\n  ?a ∈ A → ?a ∈ C\nwith the goal\n  h0 ∈ A ∪ B ∪ C → h0 ∈ C\n\nNote: The full type of `ha` is\n  A ⊆ C\n\ncase bc\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\n⊢ h0 ∈ A ∪ B ∪ C → h0 ∈ C",
-      "elapsed_ms": 2.9751759998362104,
+      "elapsed_ms": 2.4897060000057536,
       "on_proof_path": false
     },
     {
@@ -21287,7 +21287,7 @@
       "reason": "Use implication or function hb",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `hb`\n  ?a ∈ B → ?a ∈ C\nwith the goal\n  h0 ∈ A ∪ B ∪ C → h0 ∈ C\n\nNote: The full type of `hb` is\n  B ⊆ C\n\ncase bc\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\n⊢ h0 ∈ A ∪ B ∪ C → h0 ∈ C",
-      "elapsed_ms": 2.746833999935916,
+      "elapsed_ms": 3.928931000018565,
       "on_proof_path": false
     },
     {
@@ -21526,7 +21526,7 @@
       "reason": "Introduce a binder or implication premise",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 3.0246009998791124,
+      "elapsed_ms": 3.3847429999696033,
       "on_proof_path": false
     },
     {
@@ -21541,7 +21541,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\ncase bc.ab\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\n⊢ A ∪ B ∪ C ⊆ ?bc.b",
-      "elapsed_ms": 1.6344690000096307,
+      "elapsed_ms": 1.8755520000013348,
       "on_proof_path": false
     },
     {
@@ -21556,7 +21556,7 @@
       "reason": "Use implication or function ha",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the type of `ha`\n  A ⊆ C\nwith the goal\n  A ∪ B ∪ C ⊆ ?bc.b\n\ncase bc.ab\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\n⊢ A ∪ B ∪ C ⊆ ?bc.b",
-      "elapsed_ms": 1.9383970000035333,
+      "elapsed_ms": 2.0161740001185535,
       "on_proof_path": false
     },
     {
@@ -21571,7 +21571,7 @@
       "reason": "Use implication or function hb",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the type of `hb`\n  B ⊆ C\nwith the goal\n  A ∪ B ∪ C ⊆ ?bc.b\n\ncase bc.ab\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\n⊢ A ∪ B ∪ C ⊆ ?bc.b",
-      "elapsed_ms": 1.8227430000479217,
+      "elapsed_ms": 2.0120970000334637,
       "on_proof_path": false
     },
     {
@@ -21940,7 +21940,7 @@
       "reason": "Type-feature match: ('⊆',)",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 4.765952000070683,
+      "elapsed_ms": 6.146876999991946,
       "on_proof_path": false
     },
     {
@@ -22099,7 +22099,7 @@
       "reason": "Type-feature match: ('⊆', '∪')",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 2.661414999920453,
+      "elapsed_ms": 7.972736000056102,
       "on_proof_path": false
     },
     {
@@ -22258,7 +22258,7 @@
       "reason": "Type-feature match: ('⊆', '∪')",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 3.181046999998216,
+      "elapsed_ms": 3.3820290000221576,
       "on_proof_path": false
     },
     {
@@ -22367,7 +22367,7 @@
       "reason": "Introduce a binder or implication premise",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 2.06798199997138,
+      "elapsed_ms": 1.7872690000331204,
       "on_proof_path": false
     },
     {
@@ -22382,7 +22382,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\ncase bc\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\n⊢ h0 ∈ C ∪ (A ∪ B) → h0 ∈ C",
-      "elapsed_ms": 2.2616440001002047,
+      "elapsed_ms": 2.020810999965761,
       "on_proof_path": false
     },
     {
@@ -22397,7 +22397,7 @@
       "reason": "Use implication or function ha",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `ha`\n  ?a ∈ A → ?a ∈ C\nwith the goal\n  h0 ∈ C ∪ (A ∪ B) → h0 ∈ C\n\nNote: The full type of `ha` is\n  A ⊆ C\n\ncase bc\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\n⊢ h0 ∈ C ∪ (A ∪ B) → h0 ∈ C",
-      "elapsed_ms": 3.765014999999039,
+      "elapsed_ms": 2.82521999997698,
       "on_proof_path": false
     },
     {
@@ -22412,7 +22412,7 @@
       "reason": "Use implication or function hb",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `hb`\n  ?a ∈ B → ?a ∈ C\nwith the goal\n  h0 ∈ C ∪ (A ∪ B) → h0 ∈ C\n\nNote: The full type of `hb` is\n  B ⊆ C\n\ncase bc\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\n⊢ h0 ∈ C ∪ (A ∪ B) → h0 ∈ C",
-      "elapsed_ms": 3.6569930000496242,
+      "elapsed_ms": 2.4580179999702523,
       "on_proof_path": false
     },
     {
@@ -22651,7 +22651,7 @@
       "reason": "Introduce a binder or implication premise",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 4.327021000108289,
+      "elapsed_ms": 3.4968410000146832,
       "on_proof_path": false
     },
     {
@@ -22666,7 +22666,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\ncase bc.ab\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\n⊢ C ∪ (A ∪ B) ⊆ ?bc.b",
-      "elapsed_ms": 2.604879999807963,
+      "elapsed_ms": 1.8037140000615182,
       "on_proof_path": false
     },
     {
@@ -22681,7 +22681,7 @@
       "reason": "Use implication or function ha",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the type of `ha`\n  A ⊆ C\nwith the goal\n  C ∪ (A ∪ B) ⊆ ?bc.b\n\ncase bc.ab\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\n⊢ C ∪ (A ∪ B) ⊆ ?bc.b",
-      "elapsed_ms": 2.8513610000118206,
+      "elapsed_ms": 2.18791199995394,
       "on_proof_path": false
     },
     {
@@ -22696,7 +22696,7 @@
       "reason": "Use implication or function hb",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the type of `hb`\n  B ⊆ C\nwith the goal\n  C ∪ (A ∪ B) ⊆ ?bc.b\n\ncase bc.ab\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\n⊢ C ∪ (A ∪ B) ⊆ ?bc.b",
-      "elapsed_ms": 2.815837000071042,
+      "elapsed_ms": 2.567894000094384,
       "on_proof_path": false
     },
     {
@@ -23065,7 +23065,7 @@
       "reason": "Type-feature match: ('⊆',)",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 6.719842000165954,
+      "elapsed_ms": 5.41668000005302,
       "on_proof_path": false
     },
     {
@@ -23224,7 +23224,7 @@
       "reason": "Type-feature match: ('⊆', '∪')",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 3.503242000078899,
+      "elapsed_ms": 2.7707690001079754,
       "on_proof_path": false
     },
     {
@@ -23383,7 +23383,7 @@
       "reason": "Type-feature match: ('⊆', '∪')",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 3.4849639998810744,
+      "elapsed_ms": 2.73329200012995,
       "on_proof_path": false
     },
     {
@@ -23398,7 +23398,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\ncase a.inr\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\nh3 : h0 ∈ B\n⊢ h0 ∈ A",
-      "elapsed_ms": 1.8805100000918173,
+      "elapsed_ms": 1.6914349998842226,
       "on_proof_path": false
     },
     {
@@ -23413,7 +23413,7 @@
       "reason": "Use implication or function ha",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `ha`\n  ?a ∈ C\nwith the goal\n  h0 ∈ A\n\nNote: The full type of `ha` is\n  A ⊆ C\n\ncase a.inr\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\nh3 : h0 ∈ B\n⊢ h0 ∈ A",
-      "elapsed_ms": 2.0623329999125417,
+      "elapsed_ms": 2.7026870000099734,
       "on_proof_path": false
     },
     {
@@ -23428,7 +23428,7 @@
       "reason": "Use implication or function hb",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `hb`\n  ?a ∈ C\nwith the goal\n  h0 ∈ A\n\nNote: The full type of `hb` is\n  B ⊆ C\n\ncase a.inr\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\nh3 : h0 ∈ B\n⊢ h0 ∈ A",
-      "elapsed_ms": 1.9357029998445796,
+      "elapsed_ms": 1.4659060000212776,
       "on_proof_path": false
     },
     {
@@ -23443,7 +23443,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\ncase inr\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\nh3 : h0 ∈ B\n⊢ h0 ∈ C",
-      "elapsed_ms": 1.7584560000614147,
+      "elapsed_ms": 2.122794000115391,
       "on_proof_path": false
     },
     {
@@ -23552,7 +23552,7 @@
       "reason": "Use implication or function ha",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.8060279999190243,
+      "elapsed_ms": 2.2489230000246607,
       "on_proof_path": false
     },
     {
@@ -23661,7 +23661,7 @@
       "reason": "Use implication or function hb",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.8879809999816644,
+      "elapsed_ms": 3.682470000057947,
       "on_proof_path": false
     },
     {
@@ -23770,7 +23770,7 @@
       "reason": "Introduce a binder or implication premise",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.912327000127334,
+      "elapsed_ms": 2.7253410000867007,
       "on_proof_path": false
     },
     {
@@ -23785,7 +23785,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\ncase bc\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\n⊢ h0 ∈ A ∪ B → h0 ∈ C",
-      "elapsed_ms": 2.214231999914773,
+      "elapsed_ms": 2.373890999933792,
       "on_proof_path": false
     },
     {
@@ -23800,7 +23800,7 @@
       "reason": "Use implication or function ha",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `ha`\n  ?a ∈ A → ?a ∈ C\nwith the goal\n  h0 ∈ A ∪ B → h0 ∈ C\n\nNote: The full type of `ha` is\n  A ⊆ C\n\ncase bc\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\n⊢ h0 ∈ A ∪ B → h0 ∈ C",
-      "elapsed_ms": 3.605906000075265,
+      "elapsed_ms": 2.696867999929964,
       "on_proof_path": false
     },
     {
@@ -23815,7 +23815,7 @@
       "reason": "Use implication or function hb",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `hb`\n  ?a ∈ B → ?a ∈ C\nwith the goal\n  h0 ∈ A ∪ B → h0 ∈ C\n\nNote: The full type of `hb` is\n  B ⊆ C\n\ncase bc\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\n⊢ h0 ∈ A ∪ B → h0 ∈ C",
-      "elapsed_ms": 3.373806999888984,
+      "elapsed_ms": 4.750056999910157,
       "on_proof_path": false
     },
     {
@@ -24054,7 +24054,7 @@
       "reason": "Introduce a binder or implication premise",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 4.147681999938868,
+      "elapsed_ms": 4.028870999945866,
       "on_proof_path": false
     },
     {
@@ -24069,7 +24069,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\ncase bc.ab\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\n⊢ A ∪ B ⊆ ?bc.b",
-      "elapsed_ms": 2.496266999969521,
+      "elapsed_ms": 3.119423000043753,
       "on_proof_path": false
     },
     {
@@ -24084,7 +24084,7 @@
       "reason": "Use implication or function ha",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the type of `ha`\n  A ⊆ C\nwith the goal\n  A ∪ B ⊆ ?bc.b\n\ncase bc.ab\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\n⊢ A ∪ B ⊆ ?bc.b",
-      "elapsed_ms": 2.6667629999792553,
+      "elapsed_ms": 2.5640879998718447,
       "on_proof_path": false
     },
     {
@@ -24099,7 +24099,7 @@
       "reason": "Use implication or function hb",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the type of `hb`\n  B ⊆ C\nwith the goal\n  A ∪ B ⊆ ?bc.b\n\ncase bc.ab\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\n⊢ A ∪ B ⊆ ?bc.b",
-      "elapsed_ms": 2.618019000010463,
+      "elapsed_ms": 2.6882849999765313,
       "on_proof_path": false
     },
     {
@@ -24468,7 +24468,7 @@
       "reason": "Type-feature match: ('⊆',)",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 6.480042000021058,
+      "elapsed_ms": 5.620216000124856,
       "on_proof_path": false
     },
     {
@@ -24627,7 +24627,7 @@
       "reason": "Type-feature match: ('⊆', '∪')",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 3.230150000035792,
+      "elapsed_ms": 3.2048319999375963,
       "on_proof_path": false
     },
     {
@@ -24786,7 +24786,7 @@
       "reason": "Type-feature match: ('⊆', '∪')",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 3.2045119999111193,
+      "elapsed_ms": 2.9014449999067438,
       "on_proof_path": false
     },
     {
@@ -24965,7 +24965,7 @@
       "reason": "Match the goal against the local context",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 2.835026000184371,
+      "elapsed_ms": 2.1527940000396484,
       "on_proof_path": false
     },
     {
@@ -24980,7 +24980,7 @@
       "reason": "Use implication or function ha",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `ha`\n  ?a ∈ C\nwith the goal\n  h0 ∈ A\n\nNote: The full type of `ha` is\n  A ⊆ C\n\ncase ab.a.inl\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\nh2 : h0 ∈ A\n⊢ h0 ∈ A",
-      "elapsed_ms": 2.066329999934169,
+      "elapsed_ms": 1.808972000162612,
       "on_proof_path": false
     },
     {
@@ -24995,7 +24995,7 @@
       "reason": "Use implication or function hb",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `hb`\n  ?a ∈ C\nwith the goal\n  h0 ∈ A\n\nNote: The full type of `hb` is\n  B ⊆ C\n\ncase ab.a.inl\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\nh2 : h0 ∈ A\n⊢ h0 ∈ A",
-      "elapsed_ms": 1.9119569999475061,
+      "elapsed_ms": 1.723978999962128,
       "on_proof_path": false
     },
     {
@@ -25010,7 +25010,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\ncase ab.a.inl\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\nh2 : h0 ∈ A\n⊢ h0 ∈ B",
-      "elapsed_ms": 1.7802089998895099,
+      "elapsed_ms": 1.2835210000048392,
       "on_proof_path": false
     },
     {
@@ -25025,7 +25025,7 @@
       "reason": "Use implication or function ha",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `ha`\n  ?a ∈ C\nwith the goal\n  h0 ∈ B\n\nNote: The full type of `ha` is\n  A ⊆ C\n\ncase ab.a.inl\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\nh2 : h0 ∈ A\n⊢ h0 ∈ B",
-      "elapsed_ms": 1.616681999848879,
+      "elapsed_ms": 1.5137969999159395,
       "on_proof_path": false
     },
     {
@@ -25040,7 +25040,7 @@
       "reason": "Use implication or function hb",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `hb`\n  ?a ∈ C\nwith the goal\n  h0 ∈ B\n\nNote: The full type of `hb` is\n  B ⊆ C\n\ncase ab.a.inl\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\nh2 : h0 ∈ A\n⊢ h0 ∈ B",
-      "elapsed_ms": 1.581320000013875,
+      "elapsed_ms": 1.3974330001929047,
       "on_proof_path": false
     },
     {
@@ -25055,7 +25055,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\ncase ab.inr\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\nh3 : h0 ∈ B\n⊢ h0 ∈ A",
-      "elapsed_ms": 1.466547000063656,
+      "elapsed_ms": 2.293640999823765,
       "on_proof_path": false
     },
     {
@@ -25070,7 +25070,7 @@
       "reason": "Use implication or function ha",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `ha`\n  ?a ∈ C\nwith the goal\n  h0 ∈ A\n\nNote: The full type of `ha` is\n  A ⊆ C\n\ncase ab.inr\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\nh3 : h0 ∈ B\n⊢ h0 ∈ A",
-      "elapsed_ms": 1.7018660000758246,
+      "elapsed_ms": 1.724825000110286,
       "on_proof_path": false
     },
     {
@@ -25085,7 +25085,7 @@
       "reason": "Use implication or function hb",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `hb`\n  ?a ∈ C\nwith the goal\n  h0 ∈ A\n\nNote: The full type of `hb` is\n  B ⊆ C\n\ncase ab.inr\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\nh3 : h0 ∈ B\n⊢ h0 ∈ A",
-      "elapsed_ms": 1.4547190000939736,
+      "elapsed_ms": 1.6320259999247355,
       "on_proof_path": false
     },
     {
@@ -25264,7 +25264,7 @@
       "reason": "Match the goal against the local context",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 2.633362999858946,
+      "elapsed_ms": 3.6413990001165075,
       "on_proof_path": false
     },
     {
@@ -25279,7 +25279,7 @@
       "reason": "Use implication or function ha",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `ha`\n  ?a ∈ C\nwith the goal\n  h0 ∈ A\n\nNote: The full type of `ha` is\n  A ⊆ C\n\ncase ab.inl.a\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\nh2 : h0 ∈ A\n⊢ h0 ∈ A",
-      "elapsed_ms": 1.5679190000810195,
+      "elapsed_ms": 1.5364319999662257,
       "on_proof_path": false
     },
     {
@@ -25294,7 +25294,7 @@
       "reason": "Use implication or function hb",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `hb`\n  ?a ∈ C\nwith the goal\n  h0 ∈ A\n\nNote: The full type of `hb` is\n  B ⊆ C\n\ncase ab.inl.a\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\nh2 : h0 ∈ A\n⊢ h0 ∈ A",
-      "elapsed_ms": 1.4970719998927962,
+      "elapsed_ms": 1.3237809998827288,
       "on_proof_path": false
     },
     {
@@ -25309,7 +25309,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\ncase ab.inl.a\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\nh2 : h0 ∈ A\n⊢ h0 ∈ B",
-      "elapsed_ms": 1.3698709999516723,
+      "elapsed_ms": 1.3517039999442204,
       "on_proof_path": false
     },
     {
@@ -25324,7 +25324,7 @@
       "reason": "Use implication or function ha",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `ha`\n  ?a ∈ C\nwith the goal\n  h0 ∈ B\n\nNote: The full type of `ha` is\n  A ⊆ C\n\ncase ab.inl.a\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\nh2 : h0 ∈ A\n⊢ h0 ∈ B",
-      "elapsed_ms": 1.446076000092944,
+      "elapsed_ms": 1.5408579999984795,
       "on_proof_path": false
     },
     {
@@ -25339,7 +25339,7 @@
       "reason": "Use implication or function hb",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `hb`\n  ?a ∈ C\nwith the goal\n  h0 ∈ B\n\nNote: The full type of `hb` is\n  B ⊆ C\n\ncase ab.inl.a\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\nh2 : h0 ∈ A\n⊢ h0 ∈ B",
-      "elapsed_ms": 1.295929999969303,
+      "elapsed_ms": 1.3451330000862072,
       "on_proof_path": false
     },
     {
@@ -25578,7 +25578,7 @@
       "reason": "Introduce a binder or implication premise",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 3.286564999825714,
+      "elapsed_ms": 5.2257230001941934,
       "on_proof_path": false
     },
     {
@@ -25593,7 +25593,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\ncase ab.bc\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\n⊢ A ∪ B ⊆ ?b",
-      "elapsed_ms": 1.6662279999763996,
+      "elapsed_ms": 1.861449999978504,
       "on_proof_path": false
     },
     {
@@ -25608,7 +25608,7 @@
       "reason": "Use implication or function ha",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the type of `ha`\n  A ⊆ C\nwith the goal\n  A ∪ B ⊆ ?b\n\ncase ab.bc\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\n⊢ A ∪ B ⊆ ?b",
-      "elapsed_ms": 3.351031999955012,
+      "elapsed_ms": 2.2473310000350466,
       "on_proof_path": false
     },
     {
@@ -25623,7 +25623,7 @@
       "reason": "Use implication or function hb",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the type of `hb`\n  B ⊆ C\nwith the goal\n  A ∪ B ⊆ ?b\n\ncase ab.bc\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\n⊢ A ∪ B ⊆ ?b",
-      "elapsed_ms": 2.1445869999752176,
+      "elapsed_ms": 2.247721999992791,
       "on_proof_path": false
     },
     {
@@ -25992,7 +25992,7 @@
       "reason": "Type-feature match: ('⊆',)",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 5.098211999893465,
+      "elapsed_ms": 5.1457110000683315,
       "on_proof_path": false
     },
     {
@@ -26151,7 +26151,7 @@
       "reason": "Type-feature match: ('⊆', '∪')",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 2.7857120001044677,
+      "elapsed_ms": 2.6953359999879467,
       "on_proof_path": false
     },
     {
@@ -26310,7 +26310,7 @@
       "reason": "Type-feature match: ('⊆', '∪')",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 2.5521410000237665,
+      "elapsed_ms": 5.488729000035164,
       "on_proof_path": false
     },
     {
@@ -26325,7 +26325,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\ncase ab.ab.a\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\nh1 : h0 ∈ A ∪ B\n⊢ h0 ∈ A",
-      "elapsed_ms": 1.4723360000061803,
+      "elapsed_ms": 1.4565819999461382,
       "on_proof_path": false
     },
     {
@@ -26340,7 +26340,7 @@
       "reason": "Use implication or function ha",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `ha`\n  ?a ∈ C\nwith the goal\n  h0 ∈ A\n\nNote: The full type of `ha` is\n  A ⊆ C\n\ncase ab.ab.a\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\nh1 : h0 ∈ A ∪ B\n⊢ h0 ∈ A",
-      "elapsed_ms": 1.5287100000023202,
+      "elapsed_ms": 1.8383460001132335,
       "on_proof_path": false
     },
     {
@@ -26355,7 +26355,7 @@
       "reason": "Use implication or function hb",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `hb`\n  ?a ∈ C\nwith the goal\n  h0 ∈ A\n\nNote: The full type of `hb` is\n  B ⊆ C\n\ncase ab.ab.a\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\nh1 : h0 ∈ A ∪ B\n⊢ h0 ∈ A",
-      "elapsed_ms": 1.3489289999597531,
+      "elapsed_ms": 1.7734579998887057,
       "on_proof_path": false
     },
     {
@@ -26764,7 +26764,7 @@
       "reason": "Explore both cases of a disjunction",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 5.165502999943783,
+      "elapsed_ms": 5.427435000001424,
       "on_proof_path": false
     },
     {
@@ -26779,7 +26779,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\ncase ab.ab.a\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\nh1 : h0 ∈ A ∪ B\n⊢ h0 ∈ B",
-      "elapsed_ms": 1.4224910000848467,
+      "elapsed_ms": 1.5017489999991085,
       "on_proof_path": false
     },
     {
@@ -26794,7 +26794,7 @@
       "reason": "Use implication or function ha",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `ha`\n  ?a ∈ C\nwith the goal\n  h0 ∈ B\n\nNote: The full type of `ha` is\n  A ⊆ C\n\ncase ab.ab.a\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\nh1 : h0 ∈ A ∪ B\n⊢ h0 ∈ B",
-      "elapsed_ms": 1.4749090000805154,
+      "elapsed_ms": 1.9219209998482256,
       "on_proof_path": false
     },
     {
@@ -26809,7 +26809,7 @@
       "reason": "Use implication or function hb",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `hb`\n  ?a ∈ C\nwith the goal\n  h0 ∈ B\n\nNote: The full type of `hb` is\n  B ⊆ C\n\ncase ab.ab.a\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\nh1 : h0 ∈ A ∪ B\n⊢ h0 ∈ B",
-      "elapsed_ms": 1.3396649999322108,
+      "elapsed_ms": 1.753178000171829,
       "on_proof_path": false
     },
     {
@@ -27218,7 +27218,7 @@
       "reason": "Explore both cases of a disjunction",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 4.984910999837666,
+      "elapsed_ms": 5.677451999872574,
       "on_proof_path": false
     },
     {
@@ -27537,7 +27537,7 @@
       "reason": "Match the goal against the local context",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 6.635309000103007,
+      "elapsed_ms": 5.365772999994078,
       "on_proof_path": false
     },
     {
@@ -27946,7 +27946,7 @@
       "reason": "Use implication or function ha",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 7.065602000011495,
+      "elapsed_ms": 6.496333999848503,
       "on_proof_path": false
     },
     {
@@ -28355,7 +28355,7 @@
       "reason": "Use implication or function hb",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 6.609695999941323,
+      "elapsed_ms": 7.141626000020551,
       "on_proof_path": false
     },
     {
@@ -28724,7 +28724,7 @@
       "reason": "Match the goal against the local context",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 4.717238000012003,
+      "elapsed_ms": 6.189731999938886,
       "on_proof_path": false
     },
     {
@@ -29183,7 +29183,7 @@
       "reason": "Use implication or function ha",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 6.086358000175096,
+      "elapsed_ms": 9.23550599986811,
       "on_proof_path": false
     },
     {
@@ -29642,7 +29642,7 @@
       "reason": "Use implication or function hb",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 5.703592999907414,
+      "elapsed_ms": 7.755647999829307,
       "on_proof_path": false
     },
     {
@@ -30261,7 +30261,7 @@
       "reason": "Explore both cases of a disjunction",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 9.040795000146318,
+      "elapsed_ms": 11.800425000046744,
       "on_proof_path": false
     },
     {
@@ -30930,7 +30930,7 @@
       "reason": "Introduce a binder or implication premise",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 9.4507120002163,
+      "elapsed_ms": 8.961883999972997,
       "on_proof_path": false
     },
     {
@@ -30945,7 +30945,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\ncase ab.ab.ab.ab\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\n⊢ h0 ∈ A ∪ B → h0 ∈ ?ab.ab.ab.b",
-      "elapsed_ms": 2.1562839999660355,
+      "elapsed_ms": 1.7249449999781064,
       "on_proof_path": false
     },
     {
@@ -30960,7 +30960,7 @@
       "reason": "Use implication or function ha",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `ha`\n  ?a ∈ A → ?a ∈ C\nwith the goal\n  h0 ∈ A ∪ B → h0 ∈ ?ab.ab.ab.b\n\nNote: The full type of `ha` is\n  A ⊆ C\n\ncase ab.ab.ab.ab\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\n⊢ h0 ∈ A ∪ B → h0 ∈ ?ab.ab.ab.b",
-      "elapsed_ms": 3.1040910000683652,
+      "elapsed_ms": 2.910399000029429,
       "on_proof_path": false
     },
     {
@@ -30975,7 +30975,7 @@
       "reason": "Use implication or function hb",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `hb`\n  ?a ∈ B → ?a ∈ C\nwith the goal\n  h0 ∈ A ∪ B → h0 ∈ ?ab.ab.ab.b\n\nNote: The full type of `hb` is\n  B ⊆ C\n\ncase ab.ab.ab.ab\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\n⊢ h0 ∈ A ∪ B → h0 ∈ ?ab.ab.ab.b",
-      "elapsed_ms": 2.936519000058979,
+      "elapsed_ms": 5.642260000058741,
       "on_proof_path": false
     },
     {
@@ -31774,7 +31774,7 @@
       "reason": "Introduce a binder or implication premise",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 10.736726000004637,
+      "elapsed_ms": 9.346190999849568,
       "on_proof_path": false
     },
     {
@@ -31789,7 +31789,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\ncase ab.ab.ab.ab.ab\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\n⊢ A ∪ B ⊆ ?ab.ab.ab.ab.b",
-      "elapsed_ms": 2.1585980000509153,
+      "elapsed_ms": 2.123920000030921,
       "on_proof_path": false
     },
     {
@@ -31804,7 +31804,7 @@
       "reason": "Use implication or function ha",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the type of `ha`\n  A ⊆ C\nwith the goal\n  A ∪ B ⊆ ?ab.ab.ab.ab.b\n\ncase ab.ab.ab.ab.ab\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\n⊢ A ∪ B ⊆ ?ab.ab.ab.ab.b",
-      "elapsed_ms": 2.3115989999951125,
+      "elapsed_ms": 2.2969159999775,
       "on_proof_path": false
     },
     {
@@ -31819,7 +31819,7 @@
       "reason": "Use implication or function hb",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the type of `hb`\n  B ⊆ C\nwith the goal\n  A ∪ B ⊆ ?ab.ab.ab.ab.b\n\ncase ab.ab.ab.ab.ab\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\n⊢ A ∪ B ⊆ ?ab.ab.ab.ab.b",
-      "elapsed_ms": 2.280100999996648,
+      "elapsed_ms": 2.661473999978625,
       "on_proof_path": false
     },
     {
@@ -32748,7 +32748,7 @@
       "reason": "Type-feature match: ('⊆',)",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 12.891509000155565,
+      "elapsed_ms": 14.419273999919824,
       "on_proof_path": false
     },
     {
@@ -33467,7 +33467,7 @@
       "reason": "Type-feature match: ('⊆', '∪')",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 10.063613000056648,
+      "elapsed_ms": 9.496748999936244,
       "on_proof_path": false
     },
     {
@@ -34186,7 +34186,7 @@
       "reason": "Type-feature match: ('⊆', '∪')",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 8.579208999890398,
+      "elapsed_ms": 9.555635999959122,
       "on_proof_path": false
     },
     {
@@ -34775,7 +34775,7 @@
       "reason": "Introduce a binder or implication premise",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 6.632420000187267,
+      "elapsed_ms": 7.73982500004422,
       "on_proof_path": false
     },
     {
@@ -35284,7 +35284,7 @@
       "reason": "Match the goal against the local context",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 6.23765600016668,
+      "elapsed_ms": 6.663666000122248,
       "on_proof_path": false
     },
     {
@@ -35299,7 +35299,7 @@
       "reason": "Use implication or function ha",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `ha`\n  ?a ∈ A → ?a ∈ C\nwith the goal\n  Set α\n\nNote: The full type of `ha` is\n  A ⊆ C\n\ncase ab.ab.ab.ab.t\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\n⊢ Set α",
-      "elapsed_ms": 1.6458560000955913,
+      "elapsed_ms": 2.1304150000105437,
       "on_proof_path": false
     },
     {
@@ -35314,7 +35314,7 @@
       "reason": "Use implication or function hb",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `hb`\n  ?a ∈ B → ?a ∈ C\nwith the goal\n  Set α\n\nNote: The full type of `hb` is\n  B ⊆ C\n\ncase ab.ab.ab.ab.t\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\n⊢ Set α",
-      "elapsed_ms": 1.510678000158805,
+      "elapsed_ms": 1.7406079998636415,
       "on_proof_path": false
     },
     {
@@ -35903,7 +35903,7 @@
       "reason": "Introduce a binder or implication premise",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 7.199748999937583,
+      "elapsed_ms": 8.960130999867033,
       "on_proof_path": false
     },
     {
@@ -36412,7 +36412,7 @@
       "reason": "Match the goal against the local context",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 5.770964000021195,
+      "elapsed_ms": 8.134890000064843,
       "on_proof_path": false
     },
     {
@@ -36427,7 +36427,7 @@
       "reason": "Use implication or function ha",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `ha`\n  ?a ∈ A → ?a ∈ C\nwith the goal\n  Set α\n\nNote: The full type of `ha` is\n  A ⊆ C\n\ncase ab.ab.ab.ab.s\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\n⊢ Set α",
-      "elapsed_ms": 1.6750209999827348,
+      "elapsed_ms": 1.705605999859472,
       "on_proof_path": false
     },
     {
@@ -36442,7 +36442,7 @@
       "reason": "Use implication or function hb",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `hb`\n  ?a ∈ B → ?a ∈ C\nwith the goal\n  Set α\n\nNote: The full type of `hb` is\n  B ⊆ C\n\ncase ab.ab.ab.ab.s\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\n⊢ Set α",
-      "elapsed_ms": 1.391254000054687,
+      "elapsed_ms": 1.4064060001146572,
       "on_proof_path": false
     },
     {
@@ -36457,7 +36457,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\ncase ab.ab.ab.t\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\n⊢ Prop",
-      "elapsed_ms": 0.6364280000070721,
+      "elapsed_ms": 0.7287670000550861,
       "on_proof_path": false
     },
     {
@@ -36472,7 +36472,7 @@
       "reason": "Use implication or function ha",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `ha`\n  ?a ∈ C\nwith the goal\n  Prop\n\nNote: The full type of `ha` is\n  A ⊆ C\n\ncase ab.ab.ab.t\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\n⊢ Prop",
-      "elapsed_ms": 0.8989429998109699,
+      "elapsed_ms": 0.9669449998455093,
       "on_proof_path": false
     },
     {
@@ -36487,7 +36487,7 @@
       "reason": "Use implication or function hb",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `hb`\n  ?a ∈ C\nwith the goal\n  Prop\n\nNote: The full type of `hb` is\n  B ⊆ C\n\ncase ab.ab.ab.t\nα : Type\nA B C : Set α\nha : A ⊆ C\nhb : B ⊆ C\nh0 : α\n⊢ Prop",
-      "elapsed_ms": 0.9326040001269575,
+      "elapsed_ms": 0.9994740000820457,
       "on_proof_path": false
     }
   ],
@@ -36499,11 +36499,11 @@
     "frontier": 52,
     "max_depth": 6,
     "proof_length": 0,
-    "elapsed_s": 2.639928078999901,
-    "lean_execution_s": 0.8106298299992432,
-    "initialization_s": 1.7595768339999722,
+    "elapsed_s": 2.8046802320000097,
+    "lean_execution_s": 0.9181532270010848,
+    "initialization_s": 1.8147390510000605,
     "verification_s": 0.0,
-    "planning_s": 0.02005337900095583
+    "planning_s": 0.022335722000434544
   },
   "proof": [],
   "lean_source": null,
@@ -36515,7 +36515,7 @@
     "source_sha256": null
   },
   "metadata": {
-    "code_commit": "f91bb03a141dfca5a34b3e12880a80837724aa00",
+    "code_commit": "a16b54fe84b719c9f109a758ccc2bb8dc717d267",
     "lean_version": "leanprover/lean4:v4.24.0",
     "mathlib_revision": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7",
     "python": "3.12.14",

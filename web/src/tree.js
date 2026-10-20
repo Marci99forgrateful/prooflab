@@ -25,10 +25,10 @@ export function treeMarkup(nodes, selected = 0) {
     if (node.parent === null || !positions.has(node.parent)) continue;
     const p = positions.get(node.parent), q = positions.get(node.id);
     const proof = node.on_proof_path;
-    result += `<path class="tree-edge ${proof ? 'proof-edge' : ''} ${node.status === 'rejected' ? 'rejected-edge' : ''}" d="M${p.x},${p.y} C${p.x},${p.y + 56} ${q.x},${q.y - 56} ${q.x},${q.y}"/>`;
+    result += `<path class="tree-edge ${proof ? 'proof-edge' : ''} ${['rejected','error'].includes(node.status) ? 'rejected-edge' : ''}" d="M${p.x},${p.y} C${p.x},${p.y + 56} ${q.x},${q.y - 56} ${q.x},${q.y}"/>`;
   }
   for (const node of nodes) {
-    const p = positions.get(node.id), failed = node.status === 'rejected';
+    const p = positions.get(node.id), failed = ['rejected','error'].includes(node.status);
     const label = node.status === 'solved' ? '✓' : failed ? '×' : node.parent === null ? '⊢' : node.state?.goals.length;
     result += `<g class="tree-node ${node.status} ${node.on_proof_path ? 'on-path' : ''} ${node.id === selected ? 'selected-node' : ''}" transform="translate(${p.x},${p.y})" data-node="${node.id}" tabindex="0" role="button" aria-label="State ${node.id}, ${escapeHtml(node.tactic || 'initial goal')}, ${node.status}"><title>${escapeHtml(node.tactic || 'Initial goal')} · ${node.status}</title><circle r="${failed ? 13 : 21}"/><text class="node-symbol" text-anchor="middle" dominant-baseline="central">${escapeHtml(label)}</text><text class="node-tactic" text-anchor="middle" y="40">${escapeHtml((node.tactic || 'initial goal').slice(0, 23))}</text></g>`;
   }

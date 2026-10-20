@@ -100,6 +100,28 @@ def test_natural_number_detection_uses_lean_constant_not_pretty_notation() -> No
     assert "omega" in {c.tactic for c in candidates.generate_candidates(state)}
 
 
+def test_retrieval_distinguishes_conclusion_from_hypothesis_features() -> None:
+    state = ProofState(
+        state_id=0,
+        goals=[
+            Goal(
+                id="eq_goal",
+                target=Expression(text="u = v", head="Eq", forall=False),
+                hypotheses=[
+                    Hypothesis(
+                        name="h",
+                        id="ineq",
+                        type=Expression(text="u ≤ v", head="LE.le", forall=False),
+                    )
+                ],
+            )
+        ],
+    )
+    assert "apply le_antisymm" in {c.tactic for c in candidates.generate_candidates(state)}
+    state.goals[0].hypotheses = []
+    assert "apply le_antisymm" not in {c.tactic for c in candidates.generate_candidates(state)}
+
+
 @pytest.mark.parametrize(
     "values", [{"max_depth": 0}, {"max_attempts": 10001}, {"timeout_s": 0}, {"max_candidates": 65}]
 )

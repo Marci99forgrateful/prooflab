@@ -20,6 +20,7 @@ class Lemma:
     tokens: tuple[str, ...]
     module: str
     action: str = "apply"
+    context_tokens: tuple[str, ...] = ()
 
 
 # A deliberately small, public retrieval corpus, independent of task definitions.
@@ -27,13 +28,13 @@ class Lemma:
 LEMMAS = (
     Lemma("le_refl", "order", ("≤",), "Mathlib.Order.Defs.PartialOrder"),
     Lemma("le_trans", "order", ("≤",), "Mathlib.Order.Defs.PartialOrder"),
-    Lemma("le_antisymm", "order", ("=", "≤"), "Mathlib.Order.Defs.PartialOrder"),
+    Lemma("le_antisymm", "order", ("=",), "Mathlib.Order.Defs.PartialOrder", context_tokens=("≤",)),
     Lemma("lt_trans", "order", ("<",), "Mathlib.Order.Defs.PartialOrder"),
     Lemma("lt_of_lt_of_le", "order", ("<",), "Mathlib.Order.Defs.PartialOrder"),
     Lemma("lt_of_le_of_lt", "order", ("<",), "Mathlib.Order.Defs.PartialOrder"),
     Lemma("Eq.symm", "logic", ("=",), "Init.Prelude"),
     Lemma("Eq.trans", "logic", ("=",), "Init.Prelude"),
-    Lemma("Set.Subset.antisymm", "sets", ("=", "Set"), "Mathlib.Data.Set.Basic"),
+    Lemma("Set.Subset.antisymm", "sets", ("=",), "Mathlib.Data.Set.Basic", context_tokens=("Set",)),
     Lemma("Set.Subset.trans", "sets", ("⊆",), "Mathlib.Data.Set.Basic"),
     Lemma("Set.inter_subset_left", "sets", ("⊆", "∩"), "Mathlib.Data.Set.Basic"),
     Lemma("Set.inter_subset_right", "sets", ("⊆", "∩"), "Mathlib.Data.Set.Basic"),
@@ -116,14 +117,16 @@ def generate_candidates(
     for lemma in LEMMAS:
         if lemma.name in forbidden or any(lemma.name.endswith("." + x) for x in forbidden):
             continue
-        if not all(t in target.text or (t == "Set" and "Set" in context) for t in lemma.tokens):
+        if not all(t in target.text for t in lemma.tokens):
+            continue
+        if not all(t in context for t in lemma.context_tokens):
             continue
         # `apply` permits Lean's elaborator to infer implicit parameters.
         result.append(
             Candidate(
                 tactic=f"apply {lemma.name}",
                 category="lemma",
-                reason=f"Type-feature match: {lemma.tokens}",
+                reason=f"Goal features: {lemma.tokens}; context features: {lemma.context_tokens}",
                 prior=4,
                 lemma=lemma.name,
                 provenance=lemma.module,

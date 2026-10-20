@@ -98,7 +98,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\nM : Type\ninst✝ : Monoid M\na : M\n⊢ 1 * a = a",
-      "elapsed_ms": 1.4860960000078194,
+      "elapsed_ms": 0.9950259998277033,
       "on_proof_path": false
     },
     {
@@ -113,7 +113,7 @@
       "reason": "Check definitional equality",
       "status": "rejected",
       "error": "Tactic `rfl` failed: The left-hand side\n  1 * a\nis not definitionally equal to the right-hand side\n  a\n\nM : Type\ninst✝ : Monoid M\na : M\n⊢ 1 * a = a",
-      "elapsed_ms": 3.2281470000725676,
+      "elapsed_ms": 1.3578079999660986,
       "on_proof_path": false
     },
     {
@@ -172,7 +172,7 @@
       "reason": "Type-feature match: ('=',)",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.486361000161196,
+      "elapsed_ms": 0.7580999999845517,
       "on_proof_path": false
     },
     {
@@ -311,7 +311,7 @@
       "reason": "Type-feature match: ('=',)",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.5529770000739518,
+      "elapsed_ms": 1.0949369998343172,
       "on_proof_path": false
     },
     {
@@ -326,7 +326,7 @@
       "reason": "Type-feature match: ('*', '1')",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@mul_one`\n  ?a * 1 = ?a\nwith the goal\n  1 * a = a\n\nNote: The full type of `@mul_one` is\n  ∀ {M : Type ?u.676} [inst : MulOneClass M] (a : M), a * 1 = a\n\nM : Type\ninst✝ : Monoid M\na : M\n⊢ 1 * a = a",
-      "elapsed_ms": 14.489833999959956,
+      "elapsed_ms": 9.053739999899335,
       "on_proof_path": false
     },
     {
@@ -344,7 +344,7 @@
       "reason": "Type-feature match: ('*', '1')",
       "status": "solved",
       "error": null,
-      "elapsed_ms": 4.70447900011095,
+      "elapsed_ms": 2.4598410000180593,
       "on_proof_path": true
     }
   ],
@@ -356,11 +356,11 @@
     "frontier": 2,
     "max_depth": 1,
     "proof_length": 1,
-    "elapsed_s": 3.8653452050000396,
-    "lean_execution_s": 0.02694789400038644,
-    "initialization_s": 1.889915518999942,
-    "verification_s": 1.9157519420000426,
-    "planning_s": 0.00032212499991146615
+    "elapsed_s": 3.260505286000125,
+    "lean_execution_s": 0.015719451999530065,
+    "initialization_s": 1.5751879270001155,
+    "verification_s": 1.6533615729999838,
+    "planning_s": 0.00032438800008094404
   },
   "proof": [
     "apply one_mul"
@@ -370,11 +370,11 @@
     "verified": true,
     "axioms": [],
     "error": null,
-    "elapsed_s": 1.9157519420000426,
+    "elapsed_s": 1.6533615729999838,
     "source_sha256": "dda03255cea480a19548d48446824531ae32ac71738fb6f2e706b2967231b149"
   },
   "metadata": {
-    "code_commit": "f91bb03a141dfca5a34b3e12880a80837724aa00",
+    "code_commit": "a16b54fe84b719c9f109a758ccc2bb8dc717d267",
     "lean_version": "leanprover/lean4:v4.24.0",
     "mathlib_revision": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7",
     "python": "3.12.14",

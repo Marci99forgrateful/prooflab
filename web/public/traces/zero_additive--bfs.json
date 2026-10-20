@@ -98,7 +98,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\nR : Type\ninst✝ : Ring R\na : R\n⊢ 0 + a = a",
-      "elapsed_ms": 0.9771610000370856,
+      "elapsed_ms": 1.1952480001582444,
       "on_proof_path": false
     },
     {
@@ -113,7 +113,7 @@
       "reason": "Check definitional equality",
       "status": "rejected",
       "error": "Tactic `rfl` failed: The left-hand side\n  0 + a\nis not definitionally equal to the right-hand side\n  a\n\nR : Type\ninst✝ : Ring R\na : R\n⊢ 0 + a = a",
-      "elapsed_ms": 3.680079000105252,
+      "elapsed_ms": 4.409288000033484,
       "on_proof_path": false
     },
     {
@@ -172,7 +172,7 @@
       "reason": "Type-feature match: ('=',)",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 0.8988829999907466,
+      "elapsed_ms": 0.9463740000228427,
       "on_proof_path": false
     },
     {
@@ -311,7 +311,7 @@
       "reason": "Type-feature match: ('=',)",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.3109019998864824,
+      "elapsed_ms": 1.4791549999699782,
       "on_proof_path": false
     },
     {
@@ -326,7 +326,7 @@
       "reason": "Type-feature match: ('+', '0')",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@add_zero`\n  ?a + 0 = ?a\nwith the goal\n  0 + a = a\n\nNote: The full type of `@add_zero` is\n  ∀ {M : Type ?u.247} [inst : AddZeroClass M] (a : M), a + 0 = a\n\nR : Type\ninst✝ : Ring R\na : R\n⊢ 0 + a = a",
-      "elapsed_ms": 13.521088000061354,
+      "elapsed_ms": 19.896399999879577,
       "on_proof_path": false
     },
     {
@@ -344,7 +344,7 @@
       "reason": "Type-feature match: ('+', '0')",
       "status": "solved",
       "error": null,
-      "elapsed_ms": 2.350036000052569,
+      "elapsed_ms": 2.088310999852183,
       "on_proof_path": true
     }
   ],
@@ -356,11 +356,11 @@
     "frontier": 2,
     "max_depth": 1,
     "proof_length": 1,
-    "elapsed_s": 3.2024394600000505,
-    "lean_execution_s": 0.02273814900013349,
-    "initialization_s": 1.5671768799998063,
-    "verification_s": 1.5790110970001479,
-    "planning_s": 0.0005789510000795417
+    "elapsed_s": 3.2953097360000356,
+    "lean_execution_s": 0.03001477599991631,
+    "initialization_s": 1.5680843650000043,
+    "verification_s": 1.6647298949999367,
+    "planning_s": 0.00023117799992178334
   },
   "proof": [
     "apply zero_add"
@@ -370,11 +370,11 @@
     "verified": true,
     "axioms": [],
     "error": null,
-    "elapsed_s": 1.5790110970001479,
+    "elapsed_s": 1.6647298949999367,
     "source_sha256": "2361873abb03ce9cbed79f18e69d79efb0ed1505567f6b2822da190f11bafa83"
   },
   "metadata": {
-    "code_commit": "f91bb03a141dfca5a34b3e12880a80837724aa00",
+    "code_commit": "a16b54fe84b719c9f109a758ccc2bb8dc717d267",
     "lean_version": "leanprover/lean4:v4.24.0",
     "mathlib_revision": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7",
     "python": "3.12.14",

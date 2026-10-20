@@ -118,7 +118,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\nα : Type\ninst✝ : PartialOrder α\na b : α\nh : a ≤ b\n⊢ a ≤ b ∧ b ≤ b",
-      "elapsed_ms": 2.192029000070761,
+      "elapsed_ms": 2.493259999937436,
       "on_proof_path": false
     },
     {
@@ -257,7 +257,7 @@
       "reason": "Split the goal into its components",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.370713000142132,
+      "elapsed_ms": 1.476240000101825,
       "on_proof_path": true
     },
     {
@@ -272,7 +272,7 @@
       "reason": "Type-feature match: ('≤',)",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@le_refl`\n  ?a ≤ ?a\nwith the goal\n  a ≤ b ∧ b ≤ b\n\nNote: The full type of `@le_refl` is\n  ∀ {α : Type ?u.48} [inst : Preorder α] (a : α), a ≤ a\n\nα : Type\ninst✝ : PartialOrder α\na b : α\nh : a ≤ b\n⊢ a ≤ b ∧ b ≤ b",
-      "elapsed_ms": 2.432128999998895,
+      "elapsed_ms": 3.022756000063964,
       "on_proof_path": false
     },
     {
@@ -287,7 +287,7 @@
       "reason": "Type-feature match: ('≤',)",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@le_trans`\n  ?a ≤ ?c\nwith the goal\n  a ≤ b ∧ b ≤ b\n\nNote: The full type of `@le_trans` is\n  ∀ {α : Type ?u.125} [inst : Preorder α] {a b c : α}, a ≤ b → b ≤ c → a ≤ c\n\nα : Type\ninst✝ : PartialOrder α\na b : α\nh : a ≤ b\n⊢ a ≤ b ∧ b ≤ b",
-      "elapsed_ms": 2.25677500020538,
+      "elapsed_ms": 3.5135450000325363,
       "on_proof_path": false
     },
     {
@@ -366,7 +366,7 @@
       "reason": "Match the goal against the local context",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 0.7343049999235518,
+      "elapsed_ms": 0.9596830000191403,
       "on_proof_path": true
     },
     {
@@ -381,7 +381,7 @@
       "reason": "Type-feature match: ('≤',)",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@le_refl`\n  ?a ≤ ?a\nwith the goal\n  a ≤ b\n\nNote: The full type of `@le_refl` is\n  ∀ {α : Type ?u.214} [inst : Preorder α] (a : α), a ≤ a\n\ncase left\nα : Type\ninst✝ : PartialOrder α\na b : α\nh : a ≤ b\n⊢ a ≤ b",
-      "elapsed_ms": 2.4216340000293712,
+      "elapsed_ms": 3.0220749999898544,
       "on_proof_path": false
     },
     {
@@ -640,7 +640,7 @@
       "reason": "Type-feature match: ('≤',)",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 2.7674650000335532,
+      "elapsed_ms": 2.9599120000511903,
       "on_proof_path": false
     },
     {
@@ -655,7 +655,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\ncase right\nα : Type\ninst✝ : PartialOrder α\na b : α\nh : a ≤ b\n⊢ b ≤ b",
-      "elapsed_ms": 0.9129130000928853,
+      "elapsed_ms": 0.8673239999552607,
       "on_proof_path": false
     },
     {
@@ -673,7 +673,7 @@
       "reason": "Type-feature match: ('≤',)",
       "status": "solved",
       "error": null,
-      "elapsed_ms": 0.36677200000667654,
+      "elapsed_ms": 0.3171670000483573,
       "on_proof_path": true
     }
   ],
@@ -685,11 +685,11 @@
     "frontier": 1,
     "max_depth": 3,
     "proof_length": 3,
-    "elapsed_s": 3.1568871789997957,
-    "lean_execution_s": 0.015454735000503206,
-    "initialization_s": 1.5469235760001538,
-    "verification_s": 1.5594408419999581,
-    "planning_s": 0.0011075069996877573
+    "elapsed_s": 3.6879697809999925,
+    "lean_execution_s": 0.018631962000199564,
+    "initialization_s": 1.7259208640000452,
+    "verification_s": 1.909777909000013,
+    "planning_s": 0.0010622680001688423
   },
   "proof": [
     "constructor",
@@ -701,11 +701,11 @@
     "verified": true,
     "axioms": [],
     "error": null,
-    "elapsed_s": 1.5594408419999581,
+    "elapsed_s": 1.909777909000013,
     "source_sha256": "ca480b2c1ad0e9330c80b67d68c1e454616835c401993863f53602e97ec35209"
   },
   "metadata": {
-    "code_commit": "f91bb03a141dfca5a34b3e12880a80837724aa00",
+    "code_commit": "a16b54fe84b719c9f109a758ccc2bb8dc717d267",
     "lean_version": "leanprover/lean4:v4.24.0",
     "mathlib_revision": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7",
     "python": "3.12.14",

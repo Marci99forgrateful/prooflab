@@ -118,7 +118,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\nR : Type\ninst✝ : Ring R\na b c : R\n⊢ a * (b + c) = a * b + a * c",
-      "elapsed_ms": 1.899428000115222,
+      "elapsed_ms": 1.2880570000106673,
       "on_proof_path": false
     },
     {
@@ -133,7 +133,7 @@
       "reason": "Check definitional equality",
       "status": "rejected",
       "error": "Tactic `rfl` failed: The left-hand side\n  a * (b + c)\nis not definitionally equal to the right-hand side\n  a * b + a * c\n\nR : Type\ninst✝ : Ring R\na b c : R\n⊢ a * (b + c) = a * b + a * c",
-      "elapsed_ms": 7.9114160000699485,
+      "elapsed_ms": 4.593170000134705,
       "on_proof_path": false
     },
     {
@@ -212,7 +212,7 @@
       "reason": "Type-feature match: ('=',)",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 2.226880999842251,
+      "elapsed_ms": 1.1495800001739553,
       "on_proof_path": false
     },
     {
@@ -411,7 +411,7 @@
       "reason": "Type-feature match: ('=',)",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 4.417328000045018,
+      "elapsed_ms": 1.5906820001418964,
       "on_proof_path": false
     },
     {
@@ -426,7 +426,7 @@
       "reason": "Type-feature match: ('*',)",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@mul_assoc`\n  ?a * ?b * ?c = ?a * (?b * ?c)\nwith the goal\n  a * (b + c) = a * b + a * c\n\nNote: The full type of `@mul_assoc` is\n  ∀ {G : Type ?u.470} [inst : Semigroup G] (a b c : G), a * b * c = a * (b * c)\n\nR : Type\ninst✝ : Ring R\na b c : R\n⊢ a * (b + c) = a * b + a * c",
-      "elapsed_ms": 19.64940000016213,
+      "elapsed_ms": 11.769874000037817,
       "on_proof_path": false
     },
     {
@@ -441,7 +441,7 @@
       "reason": "Type-feature match: ('*',)",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@mul_comm`\n  @HMul.hMul ?G ?G ?G (@instHMul ?G CommMagma.toMul) ?a ?b = ?b * ?a\nwith the goal\n  @HMul.hMul R R R (@instHMul R Ring.toNonAssocRing.toNonUnitalNonAssocSemiring.toDistrib.toMul) a (b + c) =\n    a * b + a * c\n\nNote: The full type of `@mul_comm` is\n  ∀ {G : Type ?u.553} [inst : CommMagma G] (a b : G), a * b = b * a\n\nR : Type\ninst✝ : Ring R\na b c : R\n⊢ a * (b + c) = a * b + a * c",
-      "elapsed_ms": 26.7856389998542,
+      "elapsed_ms": 15.548750000107248,
       "on_proof_path": false
     },
     {
@@ -456,7 +456,7 @@
       "reason": "Type-feature match: ('+',)",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@add_assoc`\n  ?a + ?b + ?c = ?a + (?b + ?c)\nwith the goal\n  a * (b + c) = a * b + a * c\n\nNote: The full type of `@add_assoc` is\n  ∀ {G : Type ?u.706} [inst : AddSemigroup G] (a b c : G), a + b + c = a + (b + c)\n\nR : Type\ninst✝ : Ring R\na b c : R\n⊢ a * (b + c) = a * b + a * c",
-      "elapsed_ms": 29.948958999966635,
+      "elapsed_ms": 18.208799999911207,
       "on_proof_path": false
     },
     {
@@ -471,7 +471,7 @@
       "reason": "Type-feature match: ('+',)",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@add_comm`\n  ?a + ?b = ?b + ?a\nwith the goal\n  a * (b + c) = a * b + a * c\n\nNote: The full type of `@add_comm` is\n  ∀ {G : Type ?u.751} [inst : AddCommMagma G] (a b : G), a + b = b + a\n\nR : Type\ninst✝ : Ring R\na b c : R\n⊢ a * (b + c) = a * b + a * c",
-      "elapsed_ms": 18.78460699981588,
+      "elapsed_ms": 12.31842999982291,
       "on_proof_path": false
     },
     {
@@ -489,7 +489,7 @@
       "reason": "Type-feature match: ('*', '+')",
       "status": "solved",
       "error": null,
-      "elapsed_ms": 5.276710999851275,
+      "elapsed_ms": 3.5554589999264863,
       "on_proof_path": true
     }
   ],
@@ -501,11 +501,11 @@
     "frontier": 2,
     "max_depth": 1,
     "proof_length": 1,
-    "elapsed_s": 3.3907128519999787,
-    "lean_execution_s": 0.11690036899972256,
-    "initialization_s": 1.6430357669999012,
-    "verification_s": 1.5975744120000854,
-    "planning_s": 0.0003789600000345672
+    "elapsed_s": 3.298761807999881,
+    "lean_execution_s": 0.07002280200026689,
+    "initialization_s": 1.6396015420000367,
+    "verification_s": 1.5727030070002002,
+    "planning_s": 0.0002827050000178133
   },
   "proof": [
     "apply mul_add"
@@ -515,11 +515,11 @@
     "verified": true,
     "axioms": [],
     "error": null,
-    "elapsed_s": 1.5975744120000854,
+    "elapsed_s": 1.5727030070002002,
     "source_sha256": "4bd858a41421b31193e3c450f637be5081dff9a1d2b965df83a092fc94452cf3"
   },
   "metadata": {
-    "code_commit": "f91bb03a141dfca5a34b3e12880a80837724aa00",
+    "code_commit": "a16b54fe84b719c9f109a758ccc2bb8dc717d267",
     "lean_version": "leanprover/lean4:v4.24.0",
     "mathlib_revision": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7",
     "python": "3.12.14",

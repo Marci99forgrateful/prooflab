@@ -44,7 +44,7 @@ async function fetchTrace(taskId, algorithm) {
 function togglePlayback(play = !state.playing) {
   state.playing = play;
   clearTimeout(state.timer);
-  $('#play-toggle').textContent = play ? 'Ⅱ' : '▶';
+  $('#play-toggle').textContent = play ? 'Ⅱ' : '▶\uFE0E';
   if (play && state.trace) {
     if (state.visible >= state.trace.nodes.length) state.visible = 1;
     function tick() {
@@ -80,6 +80,7 @@ function renderTree(fit = true) {
   $('#timeline').max = state.trace?.nodes.length || 1;
   $('#timeline').value = state.visible;
   $('#step-count').textContent = `${Math.max(0, state.visible - 1)} / ${Math.max(0, (state.trace?.nodes.length || 1) - 1)} steps`;
+  $('.tree-watermark').textContent = state.visible > 320 ? 'FIRST 320 RECORDED STATES · EXPORT FULL TRACE FOR ALL ATTEMPTS' : 'THE SPACE OF POSSIBLE PROOFS';
   if (fit) fitTree();
 }
 function inspect(id) {
@@ -89,7 +90,7 @@ function inspect(id) {
   state.selected = id;
   $('#node-label').textContent = `STATE ${String(id).padStart(2, '0')}`;
   $('#selected-tactic').textContent = node.tactic || 'Initial goal';
-  $('#selected-reason').textContent = node.reason + (node.provenance ? ` · ${node.provenance}` : '') + (node.status === 'rejected' ? '. Rejected by Lean; parent state shown below.' : '');
+  $('#selected-reason').textContent = node.reason + (node.provenance ? ` · ${node.provenance}` : '') + (node.status === 'rejected' ? '. Rejected by Lean; parent state shown below.' : node.status === 'error' ? '. Interrupted attempt; parent state shown below.' : '');
   const proofState = node.state || state.trace.nodes.find(n => n.id === node.parent)?.state;
   const first = proofState?.goals[0];
   $('#hypotheses').textContent = first?.hypotheses.map(h => `${h.name} : ${h.type.text}`).join('\n') || 'No local hypotheses';
@@ -106,7 +107,8 @@ function setTrace(trace) {
   $('#metric-attempts').textContent = m?.attempted_candidates ?? '—';
   $('#metric-depth').textContent = m?.max_depth ?? '—';
   $('#metric-time').textContent = m ? `${m.elapsed_s.toFixed(2)}s` : '—';
-  $('#metric-status').textContent = trace?.status === 'verified' ? '✓ Verified' : trace ? 'No proof found' : 'Awaiting trace';
+  const statusLabels = {verified:'✓ Verified',not_found_within_budget:'No proof found',execution_error:'Execution error',cancelled:'Cancelled',unsupported:'Unsupported'};
+  $('#metric-status').textContent = trace ? statusLabels[trace.status] : 'Awaiting trace';
   $('#metric-status-note').textContent = trace?.status === 'verified' ? 'Fresh Lean process + axiom audit' : trace?.termination || 'Fresh Lean process + axiom audit';
   $('#proof-code').textContent = trace?.lean_source || (trace ? `No verified proof found.\n${trace.termination}\nThis is not evidence that the theorem is false.` : 'Choose a theorem and explore its proof search.');
   $('#proof-badge').textContent = trace?.status === 'verified' ? '✓ KERNEL CHECKED' : trace ? 'INCOMPLETE SEARCH' : 'NO RESULT YET';
@@ -116,6 +118,9 @@ function setTrace(trace) {
   else {
     $('#tree-empty').textContent = 'No recorded run for this task. Use live local search to compute one.';
     $('#hypotheses').textContent = ''; $('#goals').textContent = '';
+    $('#selected-tactic').textContent = 'Initial goal';
+    $('#selected-reason').textContent = 'Choose a recorded run or compute a new local search.';
+    $('#node-error').hidden = true;
   }
 }
 async function loadSelected() {
@@ -137,12 +142,15 @@ async function run() {
     else notice('This task has no recorded run. Start the local application for a new Lean search.');
     return;
   }
-  $('#run-label').textContent = 'Cancel computation';
+  $('#run-label').textContent = 'Starting Lean…';
+  $('#run-button').disabled = true;
   notice('Lean is exploring actual candidate tactics. The completed trace will be replayable here.');
   try {
     const response = await fetch('/api/search', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({task_id:state.task.id, algorithm:state.algorithm})});
     if (!response.ok) throw new Error((await response.json()).detail || 'Search could not start.');
     state.job = (await response.json()).job_id;
+    $('#run-button').disabled = false;
+    $('#run-label').textContent = 'Cancel computation';
     const taskId = state.task.id;
     while (state.job) {
       await new Promise(resolve => setTimeout(resolve, 300));
@@ -155,7 +163,7 @@ async function run() {
       state.job = null;
     }
   } catch (error) { notice(error.message); state.job = null; }
-  finally { $('#run-label').textContent = 'Explore proof'; }
+  finally { $('#run-label').textContent = 'Explore proof'; $('#run-button').disabled = false; }
 }
 function miniTree(trace) {
   const nodes = trace.nodes.slice(0, 220), positions = [...layoutTree(nodes).values()];
@@ -204,6 +212,7 @@ $('#tree-svg').addEventListener('pointerup', () => dragging = null);
 $('#tree-svg').addEventListener('pointercancel', () => dragging = null);
 $('#tree-svg').addEventListener('wheel', e => {e.preventDefault(); state.zoom = Math.max(.03,Math.min(6,state.zoom * (e.deltaY < 0 ? 1.1 : .9))); updateTransform();}, {passive:false});
 $('#export-svg').addEventListener('click', () => {if(!state.trace)return; const svg = $('#tree-svg').cloneNode(true); svg.setAttribute('xmlns','http://www.w3.org/2000/svg'); const style = document.createElementNS('http://www.w3.org/2000/svg','style'); style.textContent = '.tree-edge{fill:none;stroke:#658d79;stroke-width:1.5}.proof-edge{stroke:#34704a;stroke-width:3}.tree-node circle{fill:#eef5e9;stroke:#58834c}.tree-node text{fill:#183d2a;font:10px monospace}.node-symbol{font-size:14px!important}.rejected circle{stroke:#b17b6c;fill:#f8eee9}.on-path circle{fill:#bde6a8}'; svg.prepend(style); download(`${state.task.id}-search.svg`, svg.outerHTML, 'image/svg+xml');});
+$('#export-trace').addEventListener('click', () => {if(state.trace)download(`${state.task.id}-${state.algorithm}.json`,JSON.stringify(state.trace,null,2),'application/json');});
 $('#copy-proof').addEventListener('click', async () => {if(state.trace?.lean_source){try{await navigator.clipboard.writeText(state.trace.lean_source);$('#copy-proof').textContent='Copied ✓';setTimeout(()=>$('#copy-proof').textContent='Copy',1800);}catch{notice('Clipboard unavailable. Download the Lean artifact instead.');}}});
 $('#download-proof').addEventListener('click', () => {if(state.trace?.lean_source)download(`${state.task.id}.lean`,state.trace.lean_source);});
 $('#compare-run').addEventListener('click', compare);

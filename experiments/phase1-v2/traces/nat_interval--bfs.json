@@ -1,0 +1,278 @@
+{
+  "schema_version": 1,
+  "task": {
+    "id": "nat_interval",
+    "title": "Natural interval",
+    "domain": "order",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(n : Nat) (h : n < 4)",
+    "target": "n ≤ 3",
+    "display": "n < 4 ⊢ n ≤ 3",
+    "description": "Natural interval. Search uses the same candidate generator as all other tasks.",
+    "origin": "Original benchmark statement; mathematical result is not claimed novel.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  "algorithm": "bfs",
+  "budget": {
+    "max_depth": 7,
+    "max_expansions": 60,
+    "max_candidates": 24,
+    "max_attempts": 400,
+    "timeout_s": 12.0,
+    "tactic_timeout_s": 3.0
+  },
+  "status": "verified",
+  "termination": "verified",
+  "nodes": [
+    {
+      "id": 0,
+      "parent": null,
+      "depth": 0,
+      "state": {
+        "state_id": 0,
+        "goals": [
+          {
+            "id": "_uniq.75",
+            "target": {
+              "text": "n ≤ 3",
+              "head": "Nat.le",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "n",
+                "id": "_uniq.73",
+                "type": {
+                  "text": "ℕ",
+                  "head": "Nat",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "h",
+                "id": "_uniq.74",
+                "type": {
+                  "text": "n < 4",
+                  "head": "Nat.le",
+                  "forall": false
+                },
+                "is_proof": true
+              }
+            ]
+          }
+        ]
+      },
+      "tactic": null,
+      "category": null,
+      "lemma": null,
+      "provenance": null,
+      "reason": "Initial Lean goal",
+      "status": "root",
+      "error": null,
+      "elapsed_ms": 0.0,
+      "on_proof_path": true
+    },
+    {
+      "id": 1,
+      "parent": 0,
+      "depth": 1,
+      "state": null,
+      "tactic": "assumption",
+      "category": "goal",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Match the goal against the local context",
+      "status": "rejected",
+      "error": "Tactic `assumption` failed\n\nn : ℕ\nh : n < 4\n⊢ n ≤ 3",
+      "elapsed_ms": 2.5359250000747124,
+      "on_proof_path": false
+    },
+    {
+      "id": 2,
+      "parent": 0,
+      "depth": 1,
+      "state": null,
+      "tactic": "apply le_refl",
+      "category": "lemma",
+      "lemma": "le_refl",
+      "provenance": "Mathlib.Order.Defs.PartialOrder",
+      "reason": "Type-feature match: ('≤',)",
+      "status": "rejected",
+      "error": "Tactic `apply` failed: could not unify the conclusion of `@le_refl`\n  ?a ≤ ?a\nwith the goal\n  n ≤ 3\n\nNote: The full type of `@le_refl` is\n  ∀ {α : Type ?u.76} [inst : Preorder α] (a : α), a ≤ a\n\nn : ℕ\nh : n < 4\n⊢ n ≤ 3",
+      "elapsed_ms": 2.9027560001395614,
+      "on_proof_path": false
+    },
+    {
+      "id": 3,
+      "parent": 0,
+      "depth": 1,
+      "state": {
+        "state_id": 1,
+        "goals": [
+          {
+            "id": "_uniq.170",
+            "target": {
+              "text": "n ≤ ?b",
+              "head": "Nat.le",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "n",
+                "id": "_uniq.73",
+                "type": {
+                  "text": "ℕ",
+                  "head": "Nat",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "h",
+                "id": "_uniq.74",
+                "type": {
+                  "text": "n < 4",
+                  "head": "Nat.le",
+                  "forall": false
+                },
+                "is_proof": true
+              }
+            ]
+          },
+          {
+            "id": "_uniq.171",
+            "target": {
+              "text": "?b ≤ 3",
+              "head": "Nat.le",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "n",
+                "id": "_uniq.73",
+                "type": {
+                  "text": "ℕ",
+                  "head": "Nat",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "h",
+                "id": "_uniq.74",
+                "type": {
+                  "text": "n < 4",
+                  "head": "Nat.le",
+                  "forall": false
+                },
+                "is_proof": true
+              }
+            ]
+          },
+          {
+            "id": "_uniq.168",
+            "target": {
+              "text": "ℕ",
+              "head": "Nat",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "n",
+                "id": "_uniq.73",
+                "type": {
+                  "text": "ℕ",
+                  "head": "Nat",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "h",
+                "id": "_uniq.74",
+                "type": {
+                  "text": "n < 4",
+                  "head": "Nat.le",
+                  "forall": false
+                },
+                "is_proof": true
+              }
+            ]
+          }
+        ]
+      },
+      "tactic": "apply le_trans",
+      "category": "lemma",
+      "lemma": "le_trans",
+      "provenance": "Mathlib.Order.Defs.PartialOrder",
+      "reason": "Type-feature match: ('≤',)",
+      "status": "accepted",
+      "error": null,
+      "elapsed_ms": 1.7844639999111678,
+      "on_proof_path": false
+    },
+    {
+      "id": 4,
+      "parent": 0,
+      "depth": 1,
+      "state": {
+        "state_id": 2,
+        "goals": []
+      },
+      "tactic": "omega",
+      "category": "specialized",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Presburger arithmetic (Lean omega)",
+      "status": "solved",
+      "error": null,
+      "elapsed_ms": 2.705148000131885,
+      "on_proof_path": true
+    }
+  ],
+  "metrics": {
+    "attempted_candidates": 4,
+    "accepted_transitions": 2,
+    "rejected_candidates": 2,
+    "expanded_states": 1,
+    "frontier": 1,
+    "max_depth": 1,
+    "proof_length": 1,
+    "elapsed_s": 3.567203587999984,
+    "lean_execution_s": 0.009928293000257327,
+    "initialization_s": 1.7680765390000488,
+    "verification_s": 1.7729078049999316,
+    "planning_s": 0.000249826000072062
+  },
+  "proof": [
+    "omega"
+  ],
+  "lean_source": "import ProofLab.Bridge\n\nset_option maxHeartbeats 300000\ntheorem prooflab_result (n : Nat) (h : n < 4) : n ≤ 3 := by\n  omega\n\n#prooflab_audit prooflab_result\n",
+  "verification": {
+    "verified": true,
+    "axioms": [
+      "propext",
+      "Quot.sound"
+    ],
+    "error": null,
+    "elapsed_s": 1.7729078049999316,
+    "source_sha256": "cfe5357a3c0d787882841e334f5471281885222da178f20071328fbeefd04c28"
+  },
+  "metadata": {
+    "code_commit": "a16b54fe84b719c9f109a758ccc2bb8dc717d267",
+    "lean_version": "leanprover/lean4:v4.24.0",
+    "mathlib_revision": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7",
+    "python": "3.12.14",
+    "platform": "Linux-6.18.55-x86_64-with-glibc2.41",
+    "machine": "x86_64",
+    "processor": "",
+    "seed": "0 (deterministic)",
+    "state_identity": "Exact tactic prefix within one native session; no semantic merging"
+  },
+  "error": null,
+  "proof_origin": "specialized_tactic"
+}

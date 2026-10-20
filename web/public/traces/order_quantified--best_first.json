@@ -118,7 +118,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\nα : Type\ninst✝ : PartialOrder α\na b : α\nhab : a ≤ b\n⊢ ∀ (c : α), b ≤ c → a ≤ c",
-      "elapsed_ms": 2.7047709997987113,
+      "elapsed_ms": 2.3251169998275145,
       "on_proof_path": false
     },
     {
@@ -207,7 +207,7 @@
       "reason": "Introduce a binder or implication premise",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 0.9680969999408262,
+      "elapsed_ms": 4.773769999928845,
       "on_proof_path": true
     },
     {
@@ -222,7 +222,7 @@
       "reason": "Type-feature match: ('≤',)",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@le_refl`\n  ∀ [inst : Preorder ?α] (a : ?α), a ≤ a\nwith the goal\n  ∀ (c : α), b ≤ c → a ≤ c\n\nNote: The full type of `@le_refl` is\n  ∀ {α : Type ?u.58} [inst : Preorder α] (a : α), a ≤ a\n\nα : Type\ninst✝ : PartialOrder α\na b : α\nhab : a ≤ b\n⊢ ∀ (c : α), b ≤ c → a ≤ c",
-      "elapsed_ms": 2.944040000102177,
+      "elapsed_ms": 4.671226000027673,
       "on_proof_path": false
     },
     {
@@ -237,7 +237,7 @@
       "reason": "Type-feature match: ('≤',)",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@le_trans`\n  ?a ≤ ?b → ?b ≤ ?c → ?a ≤ ?c\nwith the goal\n  ∀ (c : α), b ≤ c → a ≤ c\n\nNote: The full type of `@le_trans` is\n  ∀ {α : Type ?u.104} [inst : Preorder α] {a b c : α}, a ≤ b → b ≤ c → a ≤ c\n\nα : Type\ninst✝ : PartialOrder α\na b : α\nhab : a ≤ b\n⊢ ∀ (c : α), b ≤ c → a ≤ c",
-      "elapsed_ms": 2.832002000104694,
+      "elapsed_ms": 4.104572999949596,
       "on_proof_path": false
     },
     {
@@ -252,7 +252,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\nα : Type\ninst✝ : PartialOrder α\na b : α\nhab : a ≤ b\nh0 : α\n⊢ b ≤ h0 → a ≤ h0",
-      "elapsed_ms": 0.8439400000952446,
+      "elapsed_ms": 2.5819139998475293,
       "on_proof_path": false
     },
     {
@@ -351,7 +351,7 @@
       "reason": "Introduce a binder or implication premise",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.0931449999134202,
+      "elapsed_ms": 1.2866059998941637,
       "on_proof_path": false
     },
     {
@@ -366,7 +366,7 @@
       "reason": "Type-feature match: ('≤',)",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@le_refl`\n  ∀ (a : ?α), a ≤ a\nwith the goal\n  b ≤ h0 → a ≤ h0\n\nNote: The full type of `@le_refl` is\n  ∀ {α : Type ?u.211} [inst : Preorder α] (a : α), a ≤ a\n\nα : Type\ninst✝ : PartialOrder α\na b : α\nhab : a ≤ b\nh0 : α\n⊢ b ≤ h0 → a ≤ h0",
-      "elapsed_ms": 2.235314000017752,
+      "elapsed_ms": 2.6200410000001284,
       "on_proof_path": false
     },
     {
@@ -455,7 +455,7 @@
       "reason": "Type-feature match: ('≤',)",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.1642220001704118,
+      "elapsed_ms": 1.50056699999368,
       "on_proof_path": true
     },
     {
@@ -473,7 +473,7 @@
       "reason": "Match the goal against the local context",
       "status": "solved",
       "error": null,
-      "elapsed_ms": 0.21816800017404603,
+      "elapsed_ms": 0.3368570000930049,
       "on_proof_path": true
     }
   ],
@@ -485,11 +485,11 @@
     "frontier": 1,
     "max_depth": 3,
     "proof_length": 3,
-    "elapsed_s": 3.103948189999983,
-    "lean_execution_s": 0.015003699000317283,
-    "initialization_s": 1.5156228979999469,
-    "verification_s": 1.540179432000059,
-    "planning_s": 0.0010277270000642602
+    "elapsed_s": 3.7845257420001417,
+    "lean_execution_s": 0.024200670999562135,
+    "initialization_s": 1.8817991120001807,
+    "verification_s": 1.8572255169999607,
+    "planning_s": 0.0011919030000626663
   },
   "proof": [
     "intro h0",
@@ -501,11 +501,11 @@
     "verified": true,
     "axioms": [],
     "error": null,
-    "elapsed_s": 1.540179432000059,
+    "elapsed_s": 1.8572255169999607,
     "source_sha256": "64861c947a6e74e8e5b627992f713672dc1a882bdaf512f51dd6a0b08aacbf51"
   },
   "metadata": {
-    "code_commit": "f91bb03a141dfca5a34b3e12880a80837724aa00",
+    "code_commit": "a16b54fe84b719c9f109a758ccc2bb8dc717d267",
     "lean_version": "leanprover/lean4:v4.24.0",
     "mathlib_revision": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7",
     "python": "3.12.14",

@@ -192,7 +192,7 @@
       "reason": "Introduce a binder or implication premise",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 3.554709000127332,
+      "elapsed_ms": 1.3846740000644786,
       "on_proof_path": true
     },
     {
@@ -207,7 +207,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\nα : Type\nP Q : α → Prop\nh : ∀ (x : α), P x → Q x\nhp : ∀ (x : α), P x\n⊢ ∀ (x : α), Q x",
-      "elapsed_ms": 1.2730060000194499,
+      "elapsed_ms": 1.1438109997925494,
       "on_proof_path": false
     },
     {
@@ -222,7 +222,7 @@
       "reason": "Use implication or function h",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `h`\n  P ?x → Q ?x\nwith the goal\n  ∀ (x : α), Q x\n\nNote: The full type of `h` is\n  ∀ (x : α), P x → Q x\n\nα : Type\nP Q : α → Prop\nh : ∀ (x : α), P x → Q x\nhp : ∀ (x : α), P x\n⊢ ∀ (x : α), Q x",
-      "elapsed_ms": 1.547839000068052,
+      "elapsed_ms": 1.4401869998437178,
       "on_proof_path": false
     },
     {
@@ -237,7 +237,7 @@
       "reason": "Use implication or function hp",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the type of `hp`\n  ∀ (x : α), P x\nwith the goal\n  ∀ (x : α), Q x\n\nα : Type\nP Q : α → Prop\nh : ∀ (x : α), P x → Q x\nhp : ∀ (x : α), P x\n⊢ ∀ (x : α), Q x",
-      "elapsed_ms": 1.1210160000700853,
+      "elapsed_ms": 1.1650229998849682,
       "on_proof_path": false
     },
     {
@@ -252,7 +252,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\nα : Type\nP Q : α → Prop\nh : ∀ (x : α), P x → Q x\nhp : ∀ (x : α), P x\nh0 : α\n⊢ Q h0",
-      "elapsed_ms": 0.7325229998969007,
+      "elapsed_ms": 0.7182910001120035,
       "on_proof_path": false
     },
     {
@@ -341,7 +341,7 @@
       "reason": "Use implication or function h",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 0.9038099999543192,
+      "elapsed_ms": 0.907374999997046,
       "on_proof_path": true
     },
     {
@@ -356,7 +356,7 @@
       "reason": "Use implication or function hp",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `hp`\n  P ?x\nwith the goal\n  Q h0\n\nNote: The full type of `hp` is\n  ∀ (x : α), P x\n\nα : Type\nP Q : α → Prop\nh : ∀ (x : α), P x → Q x\nhp : ∀ (x : α), P x\nh0 : α\n⊢ Q h0",
-      "elapsed_ms": 1.0153969999464607,
+      "elapsed_ms": 1.1472060000414785,
       "on_proof_path": false
     },
     {
@@ -371,7 +371,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\ncase a\nα : Type\nP Q : α → Prop\nh : ∀ (x : α), P x → Q x\nhp : ∀ (x : α), P x\nh0 : α\n⊢ P h0",
-      "elapsed_ms": 0.7434890001150052,
+      "elapsed_ms": 0.7225770000331977,
       "on_proof_path": false
     },
     {
@@ -386,7 +386,7 @@
       "reason": "Use implication or function h",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `h`\n  Q ?x\nwith the goal\n  P h0\n\nNote: The full type of `h` is\n  ∀ (x : α), P x → Q x\n\ncase a\nα : Type\nP Q : α → Prop\nh : ∀ (x : α), P x → Q x\nhp : ∀ (x : α), P x\nh0 : α\n⊢ P h0",
-      "elapsed_ms": 1.32128800009923,
+      "elapsed_ms": 1.4172220001000824,
       "on_proof_path": false
     },
     {
@@ -404,7 +404,7 @@
       "reason": "Use implication or function hp",
       "status": "solved",
       "error": null,
-      "elapsed_ms": 0.16543900005672185,
+      "elapsed_ms": 0.19677600016621,
       "on_proof_path": true
     }
   ],
@@ -416,11 +416,11 @@
     "frontier": 0,
     "max_depth": 3,
     "proof_length": 3,
-    "elapsed_s": 3.394357513000159,
-    "lean_execution_s": 0.012378516000353557,
-    "initialization_s": 1.6028074569999262,
-    "verification_s": 1.7142936119998922,
-    "planning_s": 0.0006684760001007817
+    "elapsed_s": 3.2395692499999313,
+    "lean_execution_s": 0.010243142000035732,
+    "initialization_s": 1.5783344550000038,
+    "verification_s": 1.6179159499999969,
+    "planning_s": 0.0007884260000992072
   },
   "proof": [
     "intro h0",
@@ -432,11 +432,11 @@
     "verified": true,
     "axioms": [],
     "error": null,
-    "elapsed_s": 1.7142936119998922,
+    "elapsed_s": 1.6179159499999969,
     "source_sha256": "46b9546a3775abc59c05389e555938d919cb8324bc3a4c9e71de98006a9fa50f"
   },
   "metadata": {
-    "code_commit": "f91bb03a141dfca5a34b3e12880a80837724aa00",
+    "code_commit": "a16b54fe84b719c9f109a758ccc2bb8dc717d267",
     "lean_version": "leanprover/lean4:v4.24.0",
     "mathlib_revision": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7",
     "python": "3.12.14",

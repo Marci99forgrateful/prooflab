@@ -108,7 +108,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\nR : Type\ninst✝ : CommRing R\na b : R\n⊢ (a - b) * (a + b) = a ^ 2 - b ^ 2",
-      "elapsed_ms": 1.5361509999820555,
+      "elapsed_ms": 1.3710329999412352,
       "on_proof_path": false
     },
     {
@@ -123,7 +123,7 @@
       "reason": "Check definitional equality",
       "status": "rejected",
       "error": "Tactic `rfl` failed: The left-hand side\n  (a - b) * (a + b)\nis not definitionally equal to the right-hand side\n  a ^ 2 - b ^ 2\n\nR : Type\ninst✝ : CommRing R\na b : R\n⊢ (a - b) * (a + b) = a ^ 2 - b ^ 2",
-      "elapsed_ms": 3.693459000032817,
+      "elapsed_ms": 4.053820000081032,
       "on_proof_path": false
     },
     {
@@ -192,7 +192,7 @@
       "reason": "Type-feature match: ('=',)",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.1520040000050358,
+      "elapsed_ms": 1.1942579999413283,
       "on_proof_path": false
     },
     {
@@ -361,7 +361,7 @@
       "reason": "Type-feature match: ('=',)",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.581370000167226,
+      "elapsed_ms": 2.192579999928057,
       "on_proof_path": false
     },
     {
@@ -376,7 +376,7 @@
       "reason": "Type-feature match: ('*',)",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@mul_assoc`\n  ?a * ?b * ?c = ?a * (?b * ?c)\nwith the goal\n  (a - b) * (a + b) = a ^ 2 - b ^ 2\n\nNote: The full type of `@mul_assoc` is\n  ∀ {G : Type ?u.845} [inst : Semigroup G] (a b c : G), a * b * c = a * (b * c)\n\nR : Type\ninst✝ : CommRing R\na b : R\n⊢ (a - b) * (a + b) = a ^ 2 - b ^ 2",
-      "elapsed_ms": 20.976507000113997,
+      "elapsed_ms": 27.25497999995241,
       "on_proof_path": false
     },
     {
@@ -391,7 +391,7 @@
       "reason": "Type-feature match: ('*',)",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@mul_comm`\n  ?a * ?b = ?b * ?a\nwith the goal\n  (a - b) * (a + b) = a ^ 2 - b ^ 2\n\nNote: The full type of `@mul_comm` is\n  ∀ {G : Type ?u.893} [inst : CommMagma G] (a b : G), a * b = b * a\n\nR : Type\ninst✝ : CommRing R\na b : R\n⊢ (a - b) * (a + b) = a ^ 2 - b ^ 2",
-      "elapsed_ms": 6.058665999944424,
+      "elapsed_ms": 8.988545999955022,
       "on_proof_path": false
     },
     {
@@ -406,7 +406,7 @@
       "reason": "Type-feature match: ('+',)",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@add_assoc`\n  ?a + ?b + ?c = ?a + (?b + ?c)\nwith the goal\n  (a - b) * (a + b) = a ^ 2 - b ^ 2\n\nNote: The full type of `@add_assoc` is\n  ∀ {G : Type ?u.924} [inst : AddSemigroup G] (a b c : G), a + b + c = a + (b + c)\n\nR : Type\ninst✝ : CommRing R\na b : R\n⊢ (a - b) * (a + b) = a ^ 2 - b ^ 2",
-      "elapsed_ms": 15.843111999856774,
+      "elapsed_ms": 13.573997000094096,
       "on_proof_path": false
     },
     {
@@ -421,7 +421,7 @@
       "reason": "Type-feature match: ('+',)",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@add_comm`\n  ?a + ?b = ?b + ?a\nwith the goal\n  (a - b) * (a + b) = a ^ 2 - b ^ 2\n\nNote: The full type of `@add_comm` is\n  ∀ {G : Type ?u.977} [inst : AddCommMagma G] (a b : G), a + b = b + a\n\nR : Type\ninst✝ : CommRing R\na b : R\n⊢ (a - b) * (a + b) = a ^ 2 - b ^ 2",
-      "elapsed_ms": 22.873071000049094,
+      "elapsed_ms": 20.96463800012316,
       "on_proof_path": false
     },
     {
@@ -436,7 +436,7 @@
       "reason": "Type-feature match: ('*', '+')",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@mul_add`\n  ?a * (?b + ?c) = ?a * ?b + ?a * ?c\nwith the goal\n  (a - b) * (a + b) = a ^ 2 - b ^ 2\n\nNote: The full type of `@mul_add` is\n  ∀ {R : Type ?u.1032} [inst : Mul R] [inst_1 : Add R] [LeftDistribClass R] (a b c : R), a * (b + c) = a * b + a * c\n\nR : Type\ninst✝ : CommRing R\na b : R\n⊢ (a - b) * (a + b) = a ^ 2 - b ^ 2",
-      "elapsed_ms": 12.145948000124918,
+      "elapsed_ms": 9.833157000002757,
       "on_proof_path": false
     },
     {
@@ -451,7 +451,7 @@
       "reason": "Type-feature match: ('*', '+')",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@add_mul`\n  (?a + ?b) * ?c = ?a * ?c + ?b * ?c\nwith the goal\n  (a - b) * (a + b) = a ^ 2 - b ^ 2\n\nNote: The full type of `@add_mul` is\n  ∀ {R : Type ?u.1061} [inst : Mul R] [inst_1 : Add R] [RightDistribClass R] (a b c : R), (a + b) * c = a * c + b * c\n\nR : Type\ninst✝ : CommRing R\na b : R\n⊢ (a - b) * (a + b) = a ^ 2 - b ^ 2",
-      "elapsed_ms": 46.13890300015555,
+      "elapsed_ms": 35.41014200004611,
       "on_proof_path": false
     },
     {
@@ -469,7 +469,7 @@
       "reason": "Normalize a polynomial equality (Mathlib ring)",
       "status": "solved",
       "error": null,
-      "elapsed_ms": 12.457586999971682,
+      "elapsed_ms": 14.4807070000752,
       "on_proof_path": true
     }
   ],
@@ -481,11 +481,11 @@
     "frontier": 2,
     "max_depth": 1,
     "proof_length": 1,
-    "elapsed_s": 3.5865391129998443,
-    "lean_execution_s": 0.14445677800040357,
-    "initialization_s": 1.8152117060001274,
-    "verification_s": 1.6076431929998307,
-    "planning_s": 0.0002805419999276637
+    "elapsed_s": 3.6207020679999005,
+    "lean_execution_s": 0.1393178580001404,
+    "initialization_s": 1.7255331810001735,
+    "verification_s": 1.7355550160000348,
+    "planning_s": 0.00028578000001289183
   },
   "proof": [
     "ring"
@@ -498,11 +498,11 @@
       "Quot.sound"
     ],
     "error": null,
-    "elapsed_s": 1.6076431929998307,
+    "elapsed_s": 1.7355550160000348,
     "source_sha256": "1510e71dc51a9bdd24b2634ac72020273b539ae37a62bd308c67048b5db8ca48"
   },
   "metadata": {
-    "code_commit": "f91bb03a141dfca5a34b3e12880a80837724aa00",
+    "code_commit": "a16b54fe84b719c9f109a758ccc2bb8dc717d267",
     "lean_version": "leanprover/lean4:v4.24.0",
     "mathlib_revision": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7",
     "python": "3.12.14",
