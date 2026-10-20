@@ -118,7 +118,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\nM : Type\ninst✝ : Monoid M\na b c : M\n⊢ a * b * c = a * (b * c)",
-      "elapsed_ms": 1.257802000054653,
+      "elapsed_ms": 1.4890209999975923,
       "on_proof_path": false
     },
     {
@@ -133,7 +133,7 @@
       "reason": "Check definitional equality",
       "status": "rejected",
       "error": "Tactic `rfl` failed: The left-hand side\n  a * b * c\nis not definitionally equal to the right-hand side\n  a * (b * c)\n\nM : Type\ninst✝ : Monoid M\na b c : M\n⊢ a * b * c = a * (b * c)",
-      "elapsed_ms": 2.1697939998830407,
+      "elapsed_ms": 2.171727999666473,
       "on_proof_path": false
     },
     {
@@ -209,10 +209,10 @@
       "category": "lemma",
       "lemma": "Eq.symm",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 0.9866249999959109,
+      "elapsed_ms": 0.9891689996948116,
       "on_proof_path": false
     },
     {
@@ -408,10 +408,10 @@
       "category": "lemma",
       "lemma": "Eq.trans",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.9243239999013895,
+      "elapsed_ms": 1.36291099988739,
       "on_proof_path": false
     },
     {
@@ -426,10 +426,10 @@
       "category": "lemma",
       "lemma": "mul_assoc",
       "provenance": "Mathlib.Algebra.Group.Defs",
-      "reason": "Type-feature match: ('*',)",
+      "reason": "Goal features: ('*',); context features: ()",
       "status": "solved",
       "error": null,
-      "elapsed_ms": 7.006029000194758,
+      "elapsed_ms": 6.048130999715795,
       "on_proof_path": true
     }
   ],
@@ -441,11 +441,11 @@
     "frontier": 2,
     "max_depth": 1,
     "proof_length": 1,
-    "elapsed_s": 3.309042680999937,
-    "lean_execution_s": 0.013344574000029752,
-    "initialization_s": 1.6377245109999876,
-    "verification_s": 1.6386996830001408,
-    "planning_s": 0.00042468899982850417
+    "elapsed_s": 3.8145889480001642,
+    "lean_execution_s": 0.012060959998962062,
+    "initialization_s": 1.9631645419999586,
+    "verification_s": 1.8022615869999754,
+    "planning_s": 0.004172688999915408
   },
   "proof": [
     "apply mul_assoc"
@@ -455,11 +455,11 @@
     "verified": true,
     "axioms": [],
     "error": null,
-    "elapsed_s": 1.6386996830001408,
+    "elapsed_s": 1.8022615869999754,
     "source_sha256": "e4c28e7623960199486aeb8483662c469ccf8d4684c6950cb2583ae8d38d6455"
   },
   "metadata": {
-    "code_commit": "a16b54fe84b719c9f109a758ccc2bb8dc717d267",
+    "code_commit": "45322e084527600b9706510fe421c26f3da7e5eb",
     "lean_version": "leanprover/lean4:v4.24.0",
     "mathlib_revision": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7",
     "python": "3.12.14",

@@ -98,7 +98,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\nM : Type\ninst✝ : Monoid M\na : M\n⊢ 1 * a = a",
-      "elapsed_ms": 1.1566150001272035,
+      "elapsed_ms": 1.0464549995958805,
       "on_proof_path": false
     },
     {
@@ -113,7 +113,7 @@
       "reason": "Check definitional equality",
       "status": "rejected",
       "error": "Tactic `rfl` failed: The left-hand side\n  1 * a\nis not definitionally equal to the right-hand side\n  a\n\nM : Type\ninst✝ : Monoid M\na : M\n⊢ 1 * a = a",
-      "elapsed_ms": 1.9064479999997275,
+      "elapsed_ms": 1.2117640003452834,
       "on_proof_path": false
     },
     {
@@ -169,10 +169,10 @@
       "category": "lemma",
       "lemma": "Eq.symm",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.0371710000072198,
+      "elapsed_ms": 0.7585719999951834,
       "on_proof_path": false
     },
     {
@@ -308,10 +308,10 @@
       "category": "lemma",
       "lemma": "Eq.trans",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.491753999971479,
+      "elapsed_ms": 1.0818079999808106,
       "on_proof_path": false
     },
     {
@@ -323,10 +323,10 @@
       "category": "lemma",
       "lemma": "mul_one",
       "provenance": "Mathlib.Algebra.Group.Defs",
-      "reason": "Type-feature match: ('*', '1')",
+      "reason": "Goal features: ('*', '1'); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@mul_one`\n  ?a * 1 = ?a\nwith the goal\n  1 * a = a\n\nNote: The full type of `@mul_one` is\n  ∀ {M : Type ?u.676} [inst : MulOneClass M] (a : M), a * 1 = a\n\nM : Type\ninst✝ : Monoid M\na : M\n⊢ 1 * a = a",
-      "elapsed_ms": 12.717500999997355,
+      "elapsed_ms": 8.718017999854055,
       "on_proof_path": false
     },
     {
@@ -341,10 +341,10 @@
       "category": "lemma",
       "lemma": "one_mul",
       "provenance": "Mathlib.Algebra.Group.Defs",
-      "reason": "Type-feature match: ('*', '1')",
+      "reason": "Goal features: ('*', '1'); context features: ()",
       "status": "solved",
       "error": null,
-      "elapsed_ms": 4.023401999802445,
+      "elapsed_ms": 2.640923999933875,
       "on_proof_path": true
     }
   ],
@@ -356,11 +356,11 @@
     "frontier": 2,
     "max_depth": 1,
     "proof_length": 1,
-    "elapsed_s": 3.4623385669999607,
-    "lean_execution_s": 0.02233289099990543,
-    "initialization_s": 1.760857637999834,
-    "verification_s": 1.6449607449999348,
-    "planning_s": 0.00035159900016878964
+    "elapsed_s": 3.3307672669998283,
+    "lean_execution_s": 0.015457540999705088,
+    "initialization_s": 1.5618834950000746,
+    "verification_s": 1.7371932689998175,
+    "planning_s": 0.0002963359997920634
   },
   "proof": [
     "apply one_mul"
@@ -370,11 +370,11 @@
     "verified": true,
     "axioms": [],
     "error": null,
-    "elapsed_s": 1.6449607449999348,
+    "elapsed_s": 1.7371932689998175,
     "source_sha256": "dda03255cea480a19548d48446824531ae32ac71738fb6f2e706b2967231b149"
   },
   "metadata": {
-    "code_commit": "a16b54fe84b719c9f109a758ccc2bb8dc717d267",
+    "code_commit": "45322e084527600b9706510fe421c26f3da7e5eb",
     "lean_version": "leanprover/lean4:v4.24.0",
     "mathlib_revision": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7",
     "python": "3.12.14",

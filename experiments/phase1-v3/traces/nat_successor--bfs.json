@@ -1,0 +1,268 @@
+{
+  "schema_version": 1,
+  "task": {
+    "id": "nat_successor",
+    "title": "Natural successor",
+    "domain": "order",
+    "difficulty": "moderate",
+    "split": "development",
+    "binders": "(n : Nat)",
+    "target": "n ≤ n + 1",
+    "display": "n ≤ n + 1",
+    "description": "Natural successor. Search uses the same candidate generator as all other tasks.",
+    "origin": "Original benchmark statement; mathematical result is not claimed novel.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  "algorithm": "bfs",
+  "budget": {
+    "max_depth": 7,
+    "max_expansions": 60,
+    "max_candidates": 24,
+    "max_attempts": 400,
+    "timeout_s": 12.0,
+    "tactic_timeout_s": 3.0
+  },
+  "status": "verified",
+  "termination": "verified",
+  "nodes": [
+    {
+      "id": 0,
+      "parent": null,
+      "depth": 0,
+      "state": {
+        "state_id": 0,
+        "goals": [
+          {
+            "id": "_uniq.80",
+            "target": {
+              "text": "n ≤ n + 1",
+              "head": "Nat.le",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "n",
+                "id": "_uniq.79",
+                "type": {
+                  "text": "ℕ",
+                  "head": "Nat",
+                  "forall": false
+                },
+                "is_proof": false
+              }
+            ]
+          }
+        ]
+      },
+      "tactic": null,
+      "category": null,
+      "lemma": null,
+      "provenance": null,
+      "reason": "Initial Lean goal",
+      "status": "root",
+      "error": null,
+      "elapsed_ms": 0.0,
+      "on_proof_path": true
+    },
+    {
+      "id": 1,
+      "parent": 0,
+      "depth": 1,
+      "state": null,
+      "tactic": "assumption",
+      "category": "goal",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Match the goal against the local context",
+      "status": "rejected",
+      "error": "Tactic `assumption` failed\n\nn : ℕ\n⊢ n ≤ n + 1",
+      "elapsed_ms": 0.9998939999604772,
+      "on_proof_path": false
+    },
+    {
+      "id": 2,
+      "parent": 0,
+      "depth": 1,
+      "state": null,
+      "tactic": "apply le_refl",
+      "category": "lemma",
+      "lemma": "le_refl",
+      "provenance": "Mathlib.Order.Defs.PartialOrder",
+      "reason": "Goal features: ('≤',); context features: ()",
+      "status": "rejected",
+      "error": "Tactic `apply` failed: could not unify the conclusion of `@le_refl`\n  ?a ≤ ?a\nwith the goal\n  n ≤ n + 1\n\nNote: The full type of `@le_refl` is\n  ∀ {α : Type ?u.81} [inst : Preorder α] (a : α), a ≤ a\n\nn : ℕ\n⊢ n ≤ n + 1",
+      "elapsed_ms": 2.936358999932054,
+      "on_proof_path": false
+    },
+    {
+      "id": 3,
+      "parent": 0,
+      "depth": 1,
+      "state": {
+        "state_id": 1,
+        "goals": [
+          {
+            "id": "_uniq.182",
+            "target": {
+              "text": "n ≤ ?b",
+              "head": "Nat.le",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "n",
+                "id": "_uniq.79",
+                "type": {
+                  "text": "ℕ",
+                  "head": "Nat",
+                  "forall": false
+                },
+                "is_proof": false
+              }
+            ]
+          },
+          {
+            "id": "_uniq.183",
+            "target": {
+              "text": "?b ≤ n + 1",
+              "head": "Nat.le",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "n",
+                "id": "_uniq.79",
+                "type": {
+                  "text": "ℕ",
+                  "head": "Nat",
+                  "forall": false
+                },
+                "is_proof": false
+              }
+            ]
+          },
+          {
+            "id": "_uniq.180",
+            "target": {
+              "text": "ℕ",
+              "head": "Nat",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "n",
+                "id": "_uniq.79",
+                "type": {
+                  "text": "ℕ",
+                  "head": "Nat",
+                  "forall": false
+                },
+                "is_proof": false
+              }
+            ]
+          }
+        ]
+      },
+      "tactic": "apply le_trans",
+      "category": "lemma",
+      "lemma": "le_trans",
+      "provenance": "Mathlib.Order.Defs.PartialOrder",
+      "reason": "Goal features: ('≤',); context features: ()",
+      "status": "accepted",
+      "error": null,
+      "elapsed_ms": 1.7047559999809891,
+      "on_proof_path": false
+    },
+    {
+      "id": 4,
+      "parent": 0,
+      "depth": 1,
+      "state": null,
+      "tactic": "apply add_assoc",
+      "category": "lemma",
+      "lemma": "add_assoc",
+      "provenance": "Mathlib.Algebra.Group.Defs",
+      "reason": "Goal features: ('+',); context features: ()",
+      "status": "rejected",
+      "error": "Tactic `apply` failed: could not unify the conclusion of `@add_assoc`\n  ?a + ?b + ?c = ?a + (?b + ?c)\nwith the goal\n  n ≤ n + 1\n\nNote: The full type of `@add_assoc` is\n  ∀ {G : Type ?u.192} [inst : AddSemigroup G] (a b c : G), a + b + c = a + (b + c)\n\nn : ℕ\n⊢ n ≤ n + 1",
+      "elapsed_ms": 2.2828850001133105,
+      "on_proof_path": false
+    },
+    {
+      "id": 5,
+      "parent": 0,
+      "depth": 1,
+      "state": null,
+      "tactic": "apply add_comm",
+      "category": "lemma",
+      "lemma": "add_comm",
+      "provenance": "Mathlib.Algebra.Group.Defs",
+      "reason": "Goal features: ('+',); context features: ()",
+      "status": "rejected",
+      "error": "Tactic `apply` failed: could not unify the conclusion of `@add_comm`\n  ?a + ?b = ?b + ?a\nwith the goal\n  n ≤ n + 1\n\nNote: The full type of `@add_comm` is\n  ∀ {G : Type ?u.208} [inst : AddCommMagma G] (a b : G), a + b = b + a\n\nn : ℕ\n⊢ n ≤ n + 1",
+      "elapsed_ms": 1.7268090000470693,
+      "on_proof_path": false
+    },
+    {
+      "id": 6,
+      "parent": 0,
+      "depth": 1,
+      "state": {
+        "state_id": 2,
+        "goals": []
+      },
+      "tactic": "omega",
+      "category": "specialized",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Presburger arithmetic (Lean omega)",
+      "status": "solved",
+      "error": null,
+      "elapsed_ms": 2.180500999884316,
+      "on_proof_path": true
+    }
+  ],
+  "metrics": {
+    "attempted_candidates": 6,
+    "accepted_transitions": 2,
+    "rejected_candidates": 4,
+    "expanded_states": 1,
+    "frontier": 1,
+    "max_depth": 1,
+    "proof_length": 1,
+    "elapsed_s": 3.158560229999921,
+    "lean_execution_s": 0.011831203999918216,
+    "initialization_s": 1.5422472019999987,
+    "verification_s": 1.588102716000094,
+    "planning_s": 0.0003501370001686155
+  },
+  "proof": [
+    "omega"
+  ],
+  "lean_source": "import ProofLab.Bridge\n\nset_option maxHeartbeats 300000\ntheorem prooflab_result (n : Nat) : n ≤ n + 1 := by\n  omega\n\n#prooflab_audit prooflab_result\n",
+  "verification": {
+    "verified": true,
+    "axioms": [
+      "propext",
+      "Quot.sound"
+    ],
+    "error": null,
+    "elapsed_s": 1.588102716000094,
+    "source_sha256": "f5bee3fb9cee3e9f0b1573fde0ecb58c1f73c5628ab136e83c52196444cc2dcf"
+  },
+  "metadata": {
+    "code_commit": "45322e084527600b9706510fe421c26f3da7e5eb",
+    "lean_version": "leanprover/lean4:v4.24.0",
+    "mathlib_revision": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7",
+    "python": "3.12.14",
+    "platform": "Linux-6.18.55-x86_64-with-glibc2.41",
+    "machine": "x86_64",
+    "processor": "",
+    "seed": "0 (deterministic)",
+    "state_identity": "Exact tactic prefix within one native session; no semantic merging"
+  },
+  "error": null,
+  "proof_origin": "specialized_tactic"
+}

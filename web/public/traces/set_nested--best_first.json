@@ -108,7 +108,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\nα : Type\nA B C : Set α\n⊢ A ∩ (B ∩ C) ⊆ C",
-      "elapsed_ms": 5.480936999902042,
+      "elapsed_ms": 2.301072000136628,
       "on_proof_path": false
     },
     {
@@ -187,7 +187,7 @@
       "reason": "Introduce a binder or implication premise",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 2.267341999868222,
+      "elapsed_ms": 1.3003859999116685,
       "on_proof_path": true
     },
     {
@@ -353,10 +353,10 @@
       "category": "lemma",
       "lemma": "Set.Subset.trans",
       "provenance": "Mathlib.Data.Set.Basic",
-      "reason": "Type-feature match: ('⊆',)",
+      "reason": "Goal features: ('⊆',); context features: ()",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 2.989949000038905,
+      "elapsed_ms": 2.487783000105992,
       "on_proof_path": false
     },
     {
@@ -472,10 +472,10 @@
       "category": "lemma",
       "lemma": "Set.inter_subset_left",
       "provenance": "Mathlib.Data.Set.Basic",
-      "reason": "Type-feature match: ('⊆', '∩')",
+      "reason": "Goal features: ('⊆', '∩'); context features: ()",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 4.525614999920435,
+      "elapsed_ms": 3.3383529998900485,
       "on_proof_path": false
     },
     {
@@ -591,10 +591,10 @@
       "category": "lemma",
       "lemma": "Set.inter_subset_right",
       "provenance": "Mathlib.Data.Set.Basic",
-      "reason": "Type-feature match: ('⊆', '∩')",
+      "reason": "Goal features: ('⊆', '∩'); context features: ()",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 7.538953999983278,
+      "elapsed_ms": 2.9670040003111353,
       "on_proof_path": false
     },
     {
@@ -609,7 +609,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\nα : Type\nA B C : Set α\nh0 : α\n⊢ h0 ∈ A ∩ (B ∩ C) → h0 ∈ C",
-      "elapsed_ms": 2.2701759999108617,
+      "elapsed_ms": 1.2542679996840889,
       "on_proof_path": false
     },
     {
@@ -698,7 +698,7 @@
       "reason": "Introduce a binder or implication premise",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 2.575805000105902,
+      "elapsed_ms": 1.7299529999945662,
       "on_proof_path": true
     },
     {
@@ -713,7 +713,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\nα : Type\nA B C : Set α\nh0 : α\nh1 : h0 ∈ A ∩ (B ∩ C)\n⊢ h0 ∈ C",
-      "elapsed_ms": 1.8838739999864629,
+      "elapsed_ms": 1.3372220000746893,
       "on_proof_path": false
     },
     {
@@ -728,7 +728,7 @@
       "reason": "Project component 1",
       "status": "rejected",
       "error": "Type mismatch\n  h1.left\nhas type\n  h0 ∈ A\nbut is expected to have type\n  h0 ∈ C",
-      "elapsed_ms": 2.8394980001849035,
+      "elapsed_ms": 2.183074999720702,
       "on_proof_path": false
     },
     {
@@ -743,7 +743,7 @@
       "reason": "Project component 2",
       "status": "rejected",
       "error": "Type mismatch\n  h1.right\nhas type\n  h0 ∈ B ∩ C\nbut is expected to have type\n  h0 ∈ C",
-      "elapsed_ms": 1.3820799999848532,
+      "elapsed_ms": 1.2023090002912795,
       "on_proof_path": false
     },
     {
@@ -758,7 +758,7 @@
       "reason": "Apply a conjunction component",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the type of `h1.left`\n  h0 ∈ A\nwith the goal\n  h0 ∈ C\n\nα : Type\nA B C : Set α\nh0 : α\nh1 : h0 ∈ A ∩ (B ∩ C)\n⊢ h0 ∈ C",
-      "elapsed_ms": 2.2332199998800206,
+      "elapsed_ms": 1.3758000000052562,
       "on_proof_path": false
     },
     {
@@ -773,7 +773,7 @@
       "reason": "Apply a conjunction component",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the type of `h1.right`\n  h0 ∈ B ∩ C\nwith the goal\n  h0 ∈ C\n\nα : Type\nA B C : Set α\nh0 : α\nh1 : h0 ∈ A ∩ (B ∩ C)\n⊢ h0 ∈ C",
-      "elapsed_ms": 1.8993180001416476,
+      "elapsed_ms": 2.5165970000671223,
       "on_proof_path": false
     },
     {
@@ -872,7 +872,7 @@
       "reason": "Eliminate a structured hypothesis with fresh explicit names",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 2.3795949998657306,
+      "elapsed_ms": 2.1639870001308736,
       "on_proof_path": true
     },
     {
@@ -887,7 +887,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\nα : Type\nA B C : Set α\nh0 : α\nh2 : h0 ∈ A\nh3 : h0 ∈ B ∩ C\n⊢ h0 ∈ C",
-      "elapsed_ms": 1.532556000029217,
+      "elapsed_ms": 1.3183439996282686,
       "on_proof_path": false
     },
     {
@@ -902,7 +902,7 @@
       "reason": "Project component 1",
       "status": "rejected",
       "error": "Type mismatch\n  h3.left\nhas type\n  h0 ∈ B\nbut is expected to have type\n  h0 ∈ C",
-      "elapsed_ms": 3.313465000019278,
+      "elapsed_ms": 0.9786719997464388,
       "on_proof_path": false
     },
     {
@@ -920,7 +920,7 @@
       "reason": "Project component 2",
       "status": "solved",
       "error": null,
-      "elapsed_ms": 0.5288559998462006,
+      "elapsed_ms": 0.40737300014370703,
       "on_proof_path": true
     }
   ],
@@ -932,11 +932,11 @@
     "frontier": 3,
     "max_depth": 4,
     "proof_length": 4,
-    "elapsed_s": 3.6747929089999616,
-    "lean_execution_s": 0.04564123999966796,
-    "initialization_s": 1.9171085440000297,
-    "verification_s": 1.669335687000057,
-    "planning_s": 0.00154618600026879
+    "elapsed_s": 3.515113118000045,
+    "lean_execution_s": 0.028862197999842465,
+    "initialization_s": 1.687550821000059,
+    "verification_s": 1.7651620209999237,
+    "planning_s": 0.0009774210006980866
   },
   "proof": [
     "intro h0",
@@ -949,11 +949,11 @@
     "verified": true,
     "axioms": [],
     "error": null,
-    "elapsed_s": 1.669335687000057,
+    "elapsed_s": 1.7651620209999237,
     "source_sha256": "d26fec5b3958126f233f591c8b88911779cb9bd00e7dcd7f8ad37afb62a9d282"
   },
   "metadata": {
-    "code_commit": "a16b54fe84b719c9f109a758ccc2bb8dc717d267",
+    "code_commit": "45322e084527600b9706510fe421c26f3da7e5eb",
     "lean_version": "leanprover/lean4:v4.24.0",
     "mathlib_revision": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7",
     "python": "3.12.14",

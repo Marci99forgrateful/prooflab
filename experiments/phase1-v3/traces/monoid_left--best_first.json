@@ -1,0 +1,389 @@
+{
+  "schema_version": 1,
+  "task": {
+    "id": "monoid_left",
+    "title": "Left identity",
+    "domain": "algebra",
+    "difficulty": "easy",
+    "split": "development",
+    "binders": "(M : Type) [Monoid M] (a : M)",
+    "target": "1 * a = a",
+    "display": "1 · a = a",
+    "description": "Left identity. Search uses the same candidate generator as all other tasks.",
+    "origin": "Original benchmark statement; mathematical result is not claimed novel.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  "algorithm": "best_first",
+  "budget": {
+    "max_depth": 7,
+    "max_expansions": 60,
+    "max_candidates": 24,
+    "max_attempts": 400,
+    "timeout_s": 12.0,
+    "tactic_timeout_s": 3.0
+  },
+  "status": "verified",
+  "termination": "verified",
+  "nodes": [
+    {
+      "id": 0,
+      "parent": null,
+      "depth": 0,
+      "state": {
+        "state_id": 0,
+        "goals": [
+          {
+            "id": "_uniq.643",
+            "target": {
+              "text": "1 * a = a",
+              "head": "Eq",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "M",
+                "id": "_uniq.640",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "inst._@._stdin.2021293395._hygCtx._hyg.3",
+                "id": "_uniq.641",
+                "type": {
+                  "text": "Monoid M",
+                  "head": "Monoid",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "a",
+                "id": "_uniq.642",
+                "type": {
+                  "text": "M",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              }
+            ]
+          }
+        ]
+      },
+      "tactic": null,
+      "category": null,
+      "lemma": null,
+      "provenance": null,
+      "reason": "Initial Lean goal",
+      "status": "root",
+      "error": null,
+      "elapsed_ms": 0.0,
+      "on_proof_path": true
+    },
+    {
+      "id": 1,
+      "parent": 0,
+      "depth": 1,
+      "state": null,
+      "tactic": "assumption",
+      "category": "goal",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Match the goal against the local context",
+      "status": "rejected",
+      "error": "Tactic `assumption` failed\n\nM : Type\ninst✝ : Monoid M\na : M\n⊢ 1 * a = a",
+      "elapsed_ms": 1.1986940003225754,
+      "on_proof_path": false
+    },
+    {
+      "id": 2,
+      "parent": 0,
+      "depth": 1,
+      "state": null,
+      "tactic": "rfl",
+      "category": "goal",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Check definitional equality",
+      "status": "rejected",
+      "error": "Tactic `rfl` failed: The left-hand side\n  1 * a\nis not definitionally equal to the right-hand side\n  a\n\nM : Type\ninst✝ : Monoid M\na : M\n⊢ 1 * a = a",
+      "elapsed_ms": 1.6676999998708197,
+      "on_proof_path": false
+    },
+    {
+      "id": 3,
+      "parent": 0,
+      "depth": 1,
+      "state": {
+        "state_id": 1,
+        "goals": [
+          {
+            "id": "_uniq.656",
+            "target": {
+              "text": "a = 1 * a",
+              "head": "Eq",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "M",
+                "id": "_uniq.640",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "inst._@._stdin.2021293395._hygCtx._hyg.3",
+                "id": "_uniq.641",
+                "type": {
+                  "text": "Monoid M",
+                  "head": "Monoid",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "a",
+                "id": "_uniq.642",
+                "type": {
+                  "text": "M",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              }
+            ]
+          }
+        ]
+      },
+      "tactic": "apply Eq.symm",
+      "category": "lemma",
+      "lemma": "Eq.symm",
+      "provenance": "Init.Prelude",
+      "reason": "Goal features: ('=',); context features: ()",
+      "status": "accepted",
+      "error": null,
+      "elapsed_ms": 1.5591159999530646,
+      "on_proof_path": false
+    },
+    {
+      "id": 4,
+      "parent": 0,
+      "depth": 1,
+      "state": {
+        "state_id": 2,
+        "goals": [
+          {
+            "id": "_uniq.671",
+            "target": {
+              "text": "1 * a = ?b",
+              "head": "Eq",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "M",
+                "id": "_uniq.640",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "inst._@._stdin.2021293395._hygCtx._hyg.3",
+                "id": "_uniq.641",
+                "type": {
+                  "text": "Monoid M",
+                  "head": "Monoid",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "a",
+                "id": "_uniq.642",
+                "type": {
+                  "text": "M",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              }
+            ]
+          },
+          {
+            "id": "_uniq.672",
+            "target": {
+              "text": "?b = a",
+              "head": "Eq",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "M",
+                "id": "_uniq.640",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "inst._@._stdin.2021293395._hygCtx._hyg.3",
+                "id": "_uniq.641",
+                "type": {
+                  "text": "Monoid M",
+                  "head": "Monoid",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "a",
+                "id": "_uniq.642",
+                "type": {
+                  "text": "M",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              }
+            ]
+          },
+          {
+            "id": "_uniq.669",
+            "target": {
+              "text": "M",
+              "head": "[anonymous]",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "M",
+                "id": "_uniq.640",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "inst._@._stdin.2021293395._hygCtx._hyg.3",
+                "id": "_uniq.641",
+                "type": {
+                  "text": "Monoid M",
+                  "head": "Monoid",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "a",
+                "id": "_uniq.642",
+                "type": {
+                  "text": "M",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              }
+            ]
+          }
+        ]
+      },
+      "tactic": "apply Eq.trans",
+      "category": "lemma",
+      "lemma": "Eq.trans",
+      "provenance": "Init.Prelude",
+      "reason": "Goal features: ('=',); context features: ()",
+      "status": "accepted",
+      "error": null,
+      "elapsed_ms": 2.9391620000751573,
+      "on_proof_path": false
+    },
+    {
+      "id": 5,
+      "parent": 0,
+      "depth": 1,
+      "state": null,
+      "tactic": "apply mul_one",
+      "category": "lemma",
+      "lemma": "mul_one",
+      "provenance": "Mathlib.Algebra.Group.Defs",
+      "reason": "Goal features: ('*', '1'); context features: ()",
+      "status": "rejected",
+      "error": "Tactic `apply` failed: could not unify the conclusion of `@mul_one`\n  ?a * 1 = ?a\nwith the goal\n  1 * a = a\n\nNote: The full type of `@mul_one` is\n  ∀ {M : Type ?u.676} [inst : MulOneClass M] (a : M), a * 1 = a\n\nM : Type\ninst✝ : Monoid M\na : M\n⊢ 1 * a = a",
+      "elapsed_ms": 13.514476000182185,
+      "on_proof_path": false
+    },
+    {
+      "id": 6,
+      "parent": 0,
+      "depth": 1,
+      "state": {
+        "state_id": 3,
+        "goals": []
+      },
+      "tactic": "apply one_mul",
+      "category": "lemma",
+      "lemma": "one_mul",
+      "provenance": "Mathlib.Algebra.Group.Defs",
+      "reason": "Goal features: ('*', '1'); context features: ()",
+      "status": "solved",
+      "error": null,
+      "elapsed_ms": 3.150870999888866,
+      "on_proof_path": true
+    }
+  ],
+  "metrics": {
+    "attempted_candidates": 6,
+    "accepted_transitions": 3,
+    "rejected_candidates": 3,
+    "expanded_states": 1,
+    "frontier": 2,
+    "max_depth": 1,
+    "proof_length": 1,
+    "elapsed_s": 3.782195856999806,
+    "lean_execution_s": 0.02403001900029267,
+    "initialization_s": 1.730941731999792,
+    "verification_s": 2.007114816000012,
+    "planning_s": 0.00034839399995689746
+  },
+  "proof": [
+    "apply one_mul"
+  ],
+  "lean_source": "import ProofLab.Bridge\n\nset_option maxHeartbeats 300000\ntheorem prooflab_result (M : Type) [Monoid M] (a : M) : 1 * a = a := by\n  apply one_mul\n\n#prooflab_audit prooflab_result\n",
+  "verification": {
+    "verified": true,
+    "axioms": [],
+    "error": null,
+    "elapsed_s": 2.007114816000012,
+    "source_sha256": "dda03255cea480a19548d48446824531ae32ac71738fb6f2e706b2967231b149"
+  },
+  "metadata": {
+    "code_commit": "45322e084527600b9706510fe421c26f3da7e5eb",
+    "lean_version": "leanprover/lean4:v4.24.0",
+    "mathlib_revision": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7",
+    "python": "3.12.14",
+    "platform": "Linux-6.18.55-x86_64-with-glibc2.41",
+    "machine": "x86_64",
+    "processor": "",
+    "seed": "0 (deterministic)",
+    "state_identity": "Exact tactic prefix within one native session; no semantic merging"
+  },
+  "error": null,
+  "proof_origin": "retrieved_lemma"
+}

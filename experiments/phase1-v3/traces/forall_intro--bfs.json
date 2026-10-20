@@ -1,0 +1,451 @@
+{
+  "schema_version": 1,
+  "task": {
+    "id": "forall_intro",
+    "title": "Universal construction",
+    "domain": "logic",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(α : Type) (P Q : α → Prop) (h : ∀ x, P x → Q x) (hp : ∀ x, P x)",
+    "target": "∀ x, Q x",
+    "display": "(∀ x, P(x) → Q(x)), (∀ x, P(x)) ⊢ ∀ x, Q(x)",
+    "description": "Universal construction. Search uses the same candidate generator as all other tasks.",
+    "origin": "Original benchmark statement; mathematical result is not claimed novel.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  "algorithm": "bfs",
+  "budget": {
+    "max_depth": 7,
+    "max_expansions": 60,
+    "max_candidates": 24,
+    "max_attempts": 400,
+    "timeout_s": 12.0,
+    "tactic_timeout_s": 3.0
+  },
+  "status": "verified",
+  "termination": "verified",
+  "nodes": [
+    {
+      "id": 0,
+      "parent": null,
+      "depth": 0,
+      "state": {
+        "state_id": 0,
+        "goals": [
+          {
+            "id": "_uniq.46",
+            "target": {
+              "text": "∀ (x : α), Q x",
+              "head": "[anonymous]",
+              "forall": true
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.41",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "P",
+                "id": "_uniq.42",
+                "type": {
+                  "text": "α → Prop",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "Q",
+                "id": "_uniq.43",
+                "type": {
+                  "text": "α → Prop",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "h",
+                "id": "_uniq.44",
+                "type": {
+                  "text": "∀ (x : α), P x → Q x",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": true
+              },
+              {
+                "name": "hp",
+                "id": "_uniq.45",
+                "type": {
+                  "text": "∀ (x : α), P x",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": true
+              }
+            ]
+          }
+        ]
+      },
+      "tactic": null,
+      "category": null,
+      "lemma": null,
+      "provenance": null,
+      "reason": "Initial Lean goal",
+      "status": "root",
+      "error": null,
+      "elapsed_ms": 0.0,
+      "on_proof_path": true
+    },
+    {
+      "id": 1,
+      "parent": 0,
+      "depth": 1,
+      "state": {
+        "state_id": 1,
+        "goals": [
+          {
+            "id": "_uniq.48",
+            "target": {
+              "text": "Q h0",
+              "head": "[anonymous]",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.41",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "P",
+                "id": "_uniq.42",
+                "type": {
+                  "text": "α → Prop",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "Q",
+                "id": "_uniq.43",
+                "type": {
+                  "text": "α → Prop",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "h",
+                "id": "_uniq.44",
+                "type": {
+                  "text": "∀ (x : α), P x → Q x",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": true
+              },
+              {
+                "name": "hp",
+                "id": "_uniq.45",
+                "type": {
+                  "text": "∀ (x : α), P x",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": true
+              },
+              {
+                "name": "h0",
+                "id": "_uniq.47",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              }
+            ]
+          }
+        ]
+      },
+      "tactic": "intro h0",
+      "category": "goal",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Introduce a binder or implication premise",
+      "status": "accepted",
+      "error": null,
+      "elapsed_ms": 3.4285290000752866,
+      "on_proof_path": true
+    },
+    {
+      "id": 2,
+      "parent": 0,
+      "depth": 1,
+      "state": null,
+      "tactic": "assumption",
+      "category": "goal",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Match the goal against the local context",
+      "status": "rejected",
+      "error": "Tactic `assumption` failed\n\nα : Type\nP Q : α → Prop\nh : ∀ (x : α), P x → Q x\nhp : ∀ (x : α), P x\n⊢ ∀ (x : α), Q x",
+      "elapsed_ms": 1.233985999988363,
+      "on_proof_path": false
+    },
+    {
+      "id": 3,
+      "parent": 0,
+      "depth": 1,
+      "state": null,
+      "tactic": "apply h",
+      "category": "hypothesis",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Use implication or function h",
+      "status": "rejected",
+      "error": "Tactic `apply` failed: could not unify the conclusion of `h`\n  P ?x → Q ?x\nwith the goal\n  ∀ (x : α), Q x\n\nNote: The full type of `h` is\n  ∀ (x : α), P x → Q x\n\nα : Type\nP Q : α → Prop\nh : ∀ (x : α), P x → Q x\nhp : ∀ (x : α), P x\n⊢ ∀ (x : α), Q x",
+      "elapsed_ms": 1.5884899999036861,
+      "on_proof_path": false
+    },
+    {
+      "id": 4,
+      "parent": 0,
+      "depth": 1,
+      "state": null,
+      "tactic": "apply hp",
+      "category": "hypothesis",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Use implication or function hp",
+      "status": "rejected",
+      "error": "Tactic `apply` failed: could not unify the type of `hp`\n  ∀ (x : α), P x\nwith the goal\n  ∀ (x : α), Q x\n\nα : Type\nP Q : α → Prop\nh : ∀ (x : α), P x → Q x\nhp : ∀ (x : α), P x\n⊢ ∀ (x : α), Q x",
+      "elapsed_ms": 1.4176329998463189,
+      "on_proof_path": false
+    },
+    {
+      "id": 5,
+      "parent": 1,
+      "depth": 2,
+      "state": null,
+      "tactic": "assumption",
+      "category": "goal",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Match the goal against the local context",
+      "status": "rejected",
+      "error": "Tactic `assumption` failed\n\nα : Type\nP Q : α → Prop\nh : ∀ (x : α), P x → Q x\nhp : ∀ (x : α), P x\nh0 : α\n⊢ Q h0",
+      "elapsed_ms": 0.7811150001089118,
+      "on_proof_path": false
+    },
+    {
+      "id": 6,
+      "parent": 1,
+      "depth": 2,
+      "state": {
+        "state_id": 2,
+        "goals": [
+          {
+            "id": "_uniq.70",
+            "target": {
+              "text": "P h0",
+              "head": "[anonymous]",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.41",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "P",
+                "id": "_uniq.42",
+                "type": {
+                  "text": "α → Prop",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "Q",
+                "id": "_uniq.43",
+                "type": {
+                  "text": "α → Prop",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "h",
+                "id": "_uniq.44",
+                "type": {
+                  "text": "∀ (x : α), P x → Q x",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": true
+              },
+              {
+                "name": "hp",
+                "id": "_uniq.45",
+                "type": {
+                  "text": "∀ (x : α), P x",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": true
+              },
+              {
+                "name": "h0",
+                "id": "_uniq.47",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              }
+            ]
+          }
+        ]
+      },
+      "tactic": "apply h",
+      "category": "hypothesis",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Use implication or function h",
+      "status": "accepted",
+      "error": null,
+      "elapsed_ms": 1.3642619999245653,
+      "on_proof_path": true
+    },
+    {
+      "id": 7,
+      "parent": 1,
+      "depth": 2,
+      "state": null,
+      "tactic": "apply hp",
+      "category": "hypothesis",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Use implication or function hp",
+      "status": "rejected",
+      "error": "Tactic `apply` failed: could not unify the conclusion of `hp`\n  P ?x\nwith the goal\n  Q h0\n\nNote: The full type of `hp` is\n  ∀ (x : α), P x\n\nα : Type\nP Q : α → Prop\nh : ∀ (x : α), P x → Q x\nhp : ∀ (x : α), P x\nh0 : α\n⊢ Q h0",
+      "elapsed_ms": 1.2334160001046257,
+      "on_proof_path": false
+    },
+    {
+      "id": 8,
+      "parent": 6,
+      "depth": 3,
+      "state": null,
+      "tactic": "assumption",
+      "category": "goal",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Match the goal against the local context",
+      "status": "rejected",
+      "error": "Tactic `assumption` failed\n\ncase a\nα : Type\nP Q : α → Prop\nh : ∀ (x : α), P x → Q x\nhp : ∀ (x : α), P x\nh0 : α\n⊢ P h0",
+      "elapsed_ms": 0.8421879999787052,
+      "on_proof_path": false
+    },
+    {
+      "id": 9,
+      "parent": 6,
+      "depth": 3,
+      "state": null,
+      "tactic": "apply h",
+      "category": "hypothesis",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Use implication or function h",
+      "status": "rejected",
+      "error": "Tactic `apply` failed: could not unify the conclusion of `h`\n  Q ?x\nwith the goal\n  P h0\n\nNote: The full type of `h` is\n  ∀ (x : α), P x → Q x\n\ncase a\nα : Type\nP Q : α → Prop\nh : ∀ (x : α), P x → Q x\nhp : ∀ (x : α), P x\nh0 : α\n⊢ P h0",
+      "elapsed_ms": 1.2257339999450778,
+      "on_proof_path": false
+    },
+    {
+      "id": 10,
+      "parent": 6,
+      "depth": 3,
+      "state": {
+        "state_id": 3,
+        "goals": []
+      },
+      "tactic": "apply hp",
+      "category": "hypothesis",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Use implication or function hp",
+      "status": "solved",
+      "error": null,
+      "elapsed_ms": 0.3874930000620225,
+      "on_proof_path": true
+    }
+  ],
+  "metrics": {
+    "attempted_candidates": 10,
+    "accepted_transitions": 3,
+    "rejected_candidates": 7,
+    "expanded_states": 3,
+    "frontier": 0,
+    "max_depth": 3,
+    "proof_length": 3,
+    "elapsed_s": 3.7562896900001306,
+    "lean_execution_s": 0.013502845999937563,
+    "initialization_s": 1.7928917119998005,
+    "verification_s": 1.9252630680000493,
+    "planning_s": 0.001016380000010031
+  },
+  "proof": [
+    "intro h0",
+    "apply h",
+    "apply hp"
+  ],
+  "lean_source": "import ProofLab.Bridge\n\nset_option maxHeartbeats 300000\ntheorem prooflab_result (α : Type) (P Q : α → Prop) (h : ∀ x, P x → Q x) (hp : ∀ x, P x) : ∀ x, Q x := by\n  intro h0\n  apply h\n  apply hp\n\n#prooflab_audit prooflab_result\n",
+  "verification": {
+    "verified": true,
+    "axioms": [],
+    "error": null,
+    "elapsed_s": 1.9252630680000493,
+    "source_sha256": "46b9546a3775abc59c05389e555938d919cb8324bc3a4c9e71de98006a9fa50f"
+  },
+  "metadata": {
+    "code_commit": "45322e084527600b9706510fe421c26f3da7e5eb",
+    "lean_version": "leanprover/lean4:v4.24.0",
+    "mathlib_revision": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7",
+    "python": "3.12.14",
+    "platform": "Linux-6.18.55-x86_64-with-glibc2.41",
+    "machine": "x86_64",
+    "processor": "",
+    "seed": "0 (deterministic)",
+    "state_identity": "Exact tactic prefix within one native session; no semantic merging"
+  },
+  "error": null,
+  "proof_origin": "constructed_derivation"
+}

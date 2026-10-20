@@ -118,7 +118,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\nR : Type\ninst✝ : Ring R\na b c : R\n⊢ a * (b + c) = a * b + a * c",
-      "elapsed_ms": 1.2880570000106673,
+      "elapsed_ms": 1.2843529998463055,
       "on_proof_path": false
     },
     {
@@ -133,7 +133,7 @@
       "reason": "Check definitional equality",
       "status": "rejected",
       "error": "Tactic `rfl` failed: The left-hand side\n  a * (b + c)\nis not definitionally equal to the right-hand side\n  a * b + a * c\n\nR : Type\ninst✝ : Ring R\na b c : R\n⊢ a * (b + c) = a * b + a * c",
-      "elapsed_ms": 4.593170000134705,
+      "elapsed_ms": 5.061716999989585,
       "on_proof_path": false
     },
     {
@@ -209,10 +209,10 @@
       "category": "lemma",
       "lemma": "Eq.symm",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.1495800001739553,
+      "elapsed_ms": 0.9723630000735284,
       "on_proof_path": false
     },
     {
@@ -408,10 +408,10 @@
       "category": "lemma",
       "lemma": "Eq.trans",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.5906820001418964,
+      "elapsed_ms": 1.5895019996605697,
       "on_proof_path": false
     },
     {
@@ -423,10 +423,10 @@
       "category": "lemma",
       "lemma": "mul_assoc",
       "provenance": "Mathlib.Algebra.Group.Defs",
-      "reason": "Type-feature match: ('*',)",
+      "reason": "Goal features: ('*',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@mul_assoc`\n  ?a * ?b * ?c = ?a * (?b * ?c)\nwith the goal\n  a * (b + c) = a * b + a * c\n\nNote: The full type of `@mul_assoc` is\n  ∀ {G : Type ?u.470} [inst : Semigroup G] (a b c : G), a * b * c = a * (b * c)\n\nR : Type\ninst✝ : Ring R\na b c : R\n⊢ a * (b + c) = a * b + a * c",
-      "elapsed_ms": 11.769874000037817,
+      "elapsed_ms": 13.117809000050329,
       "on_proof_path": false
     },
     {
@@ -438,10 +438,10 @@
       "category": "lemma",
       "lemma": "mul_comm",
       "provenance": "Mathlib.Algebra.Group.Defs",
-      "reason": "Type-feature match: ('*',)",
+      "reason": "Goal features: ('*',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@mul_comm`\n  @HMul.hMul ?G ?G ?G (@instHMul ?G CommMagma.toMul) ?a ?b = ?b * ?a\nwith the goal\n  @HMul.hMul R R R (@instHMul R Ring.toNonAssocRing.toNonUnitalNonAssocSemiring.toDistrib.toMul) a (b + c) =\n    a * b + a * c\n\nNote: The full type of `@mul_comm` is\n  ∀ {G : Type ?u.553} [inst : CommMagma G] (a b : G), a * b = b * a\n\nR : Type\ninst✝ : Ring R\na b c : R\n⊢ a * (b + c) = a * b + a * c",
-      "elapsed_ms": 15.548750000107248,
+      "elapsed_ms": 15.378301000055217,
       "on_proof_path": false
     },
     {
@@ -453,10 +453,10 @@
       "category": "lemma",
       "lemma": "add_assoc",
       "provenance": "Mathlib.Algebra.Group.Defs",
-      "reason": "Type-feature match: ('+',)",
+      "reason": "Goal features: ('+',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@add_assoc`\n  ?a + ?b + ?c = ?a + (?b + ?c)\nwith the goal\n  a * (b + c) = a * b + a * c\n\nNote: The full type of `@add_assoc` is\n  ∀ {G : Type ?u.706} [inst : AddSemigroup G] (a b c : G), a + b + c = a + (b + c)\n\nR : Type\ninst✝ : Ring R\na b c : R\n⊢ a * (b + c) = a * b + a * c",
-      "elapsed_ms": 18.208799999911207,
+      "elapsed_ms": 21.88258800015319,
       "on_proof_path": false
     },
     {
@@ -468,10 +468,10 @@
       "category": "lemma",
       "lemma": "add_comm",
       "provenance": "Mathlib.Algebra.Group.Defs",
-      "reason": "Type-feature match: ('+',)",
+      "reason": "Goal features: ('+',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@add_comm`\n  ?a + ?b = ?b + ?a\nwith the goal\n  a * (b + c) = a * b + a * c\n\nNote: The full type of `@add_comm` is\n  ∀ {G : Type ?u.751} [inst : AddCommMagma G] (a b : G), a + b = b + a\n\nR : Type\ninst✝ : Ring R\na b c : R\n⊢ a * (b + c) = a * b + a * c",
-      "elapsed_ms": 12.31842999982291,
+      "elapsed_ms": 15.845874000206095,
       "on_proof_path": false
     },
     {
@@ -486,10 +486,10 @@
       "category": "lemma",
       "lemma": "mul_add",
       "provenance": "Mathlib.Algebra.Ring.Defs",
-      "reason": "Type-feature match: ('*', '+')",
+      "reason": "Goal features: ('*', '+'); context features: ()",
       "status": "solved",
       "error": null,
-      "elapsed_ms": 3.5554589999264863,
+      "elapsed_ms": 3.459495000242896,
       "on_proof_path": true
     }
   ],
@@ -501,11 +501,11 @@
     "frontier": 2,
     "max_depth": 1,
     "proof_length": 1,
-    "elapsed_s": 3.298761807999881,
-    "lean_execution_s": 0.07002280200026689,
-    "initialization_s": 1.6396015420000367,
-    "verification_s": 1.5727030070002002,
-    "planning_s": 0.0002827050000178133
+    "elapsed_s": 3.3040805380001075,
+    "lean_execution_s": 0.07859200200027772,
+    "initialization_s": 1.566793915999824,
+    "verification_s": 1.6422714969999106,
+    "planning_s": 0.00029079800015097135
   },
   "proof": [
     "apply mul_add"
@@ -515,11 +515,11 @@
     "verified": true,
     "axioms": [],
     "error": null,
-    "elapsed_s": 1.5727030070002002,
+    "elapsed_s": 1.6422714969999106,
     "source_sha256": "4bd858a41421b31193e3c450f637be5081dff9a1d2b965df83a092fc94452cf3"
   },
   "metadata": {
-    "code_commit": "a16b54fe84b719c9f109a758ccc2bb8dc717d267",
+    "code_commit": "45322e084527600b9706510fe421c26f3da7e5eb",
     "lean_version": "leanprover/lean4:v4.24.0",
     "mathlib_revision": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7",
     "python": "3.12.14",

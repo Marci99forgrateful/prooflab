@@ -1,0 +1,341 @@
+{
+  "schema_version": 1,
+  "task": {
+    "id": "and_project",
+    "title": "Nested conjunction",
+    "domain": "logic",
+    "difficulty": "moderate",
+    "split": "development",
+    "binders": "(P Q R : Prop) (h : P ∧ Q ∧ R)",
+    "target": "R",
+    "display": "P ∧ (Q ∧ R) ⊢ R",
+    "description": "Nested conjunction. Search uses the same candidate generator as all other tasks.",
+    "origin": "Original benchmark statement; mathematical result is not claimed novel.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  "algorithm": "best_first",
+  "budget": {
+    "max_depth": 7,
+    "max_expansions": 60,
+    "max_candidates": 24,
+    "max_attempts": 400,
+    "timeout_s": 12.0,
+    "tactic_timeout_s": 3.0
+  },
+  "status": "verified",
+  "termination": "verified",
+  "nodes": [
+    {
+      "id": 0,
+      "parent": null,
+      "depth": 0,
+      "state": {
+        "state_id": 0,
+        "goals": [
+          {
+            "id": "_uniq.19",
+            "target": {
+              "text": "R",
+              "head": "[anonymous]",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "P",
+                "id": "_uniq.15",
+                "type": {
+                  "text": "Prop",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "Q",
+                "id": "_uniq.16",
+                "type": {
+                  "text": "Prop",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "R",
+                "id": "_uniq.17",
+                "type": {
+                  "text": "Prop",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "h",
+                "id": "_uniq.18",
+                "type": {
+                  "text": "P ∧ Q ∧ R",
+                  "head": "And",
+                  "forall": false
+                },
+                "is_proof": true
+              }
+            ]
+          }
+        ]
+      },
+      "tactic": null,
+      "category": null,
+      "lemma": null,
+      "provenance": null,
+      "reason": "Initial Lean goal",
+      "status": "root",
+      "error": null,
+      "elapsed_ms": 0.0,
+      "on_proof_path": true
+    },
+    {
+      "id": 1,
+      "parent": 0,
+      "depth": 1,
+      "state": null,
+      "tactic": "assumption",
+      "category": "goal",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Match the goal against the local context",
+      "status": "rejected",
+      "error": "Tactic `assumption` failed\n\nP Q R : Prop\nh : P ∧ Q ∧ R\n⊢ R",
+      "elapsed_ms": 1.6122859999541106,
+      "on_proof_path": false
+    },
+    {
+      "id": 2,
+      "parent": 0,
+      "depth": 1,
+      "state": null,
+      "tactic": "exact h.1",
+      "category": "hypothesis",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Project component 1",
+      "status": "rejected",
+      "error": "Type mismatch\n  h.left\nhas type\n  P\nbut is expected to have type\n  R",
+      "elapsed_ms": 0.5927619999965827,
+      "on_proof_path": false
+    },
+    {
+      "id": 3,
+      "parent": 0,
+      "depth": 1,
+      "state": null,
+      "tactic": "exact h.2",
+      "category": "hypothesis",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Project component 2",
+      "status": "rejected",
+      "error": "Type mismatch\n  h.right\nhas type\n  Q ∧ R\nbut is expected to have type\n  R",
+      "elapsed_ms": 0.5392810001012549,
+      "on_proof_path": false
+    },
+    {
+      "id": 4,
+      "parent": 0,
+      "depth": 1,
+      "state": null,
+      "tactic": "apply h.1",
+      "category": "hypothesis",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Apply a conjunction component",
+      "status": "rejected",
+      "error": "Tactic `apply` failed: could not unify the type of `h.left`\n  P\nwith the goal\n  R\n\nP Q R : Prop\nh : P ∧ Q ∧ R\n⊢ R",
+      "elapsed_ms": 0.6070739998449426,
+      "on_proof_path": false
+    },
+    {
+      "id": 5,
+      "parent": 0,
+      "depth": 1,
+      "state": null,
+      "tactic": "apply h.2",
+      "category": "hypothesis",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Apply a conjunction component",
+      "status": "rejected",
+      "error": "Tactic `apply` failed: could not unify the type of `h.right`\n  Q ∧ R\nwith the goal\n  R\n\nP Q R : Prop\nh : P ∧ Q ∧ R\n⊢ R",
+      "elapsed_ms": 0.6411740000658028,
+      "on_proof_path": false
+    },
+    {
+      "id": 6,
+      "parent": 0,
+      "depth": 1,
+      "state": {
+        "state_id": 1,
+        "goals": [
+          {
+            "id": "_uniq.45",
+            "target": {
+              "text": "R",
+              "head": "[anonymous]",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "P",
+                "id": "_uniq.15",
+                "type": {
+                  "text": "Prop",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "Q",
+                "id": "_uniq.16",
+                "type": {
+                  "text": "Prop",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "R",
+                "id": "_uniq.17",
+                "type": {
+                  "text": "Prop",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "h0",
+                "id": "_uniq.43",
+                "type": {
+                  "text": "P",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              },
+              {
+                "name": "h1",
+                "id": "_uniq.44",
+                "type": {
+                  "text": "Q ∧ R",
+                  "head": "And",
+                  "forall": false
+                },
+                "is_proof": true
+              }
+            ]
+          }
+        ]
+      },
+      "tactic": "rcases h with ⟨h0, h1⟩",
+      "category": "hypothesis",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Eliminate a structured hypothesis with fresh explicit names",
+      "status": "accepted",
+      "error": null,
+      "elapsed_ms": 0.9432189999643015,
+      "on_proof_path": true
+    },
+    {
+      "id": 7,
+      "parent": 6,
+      "depth": 2,
+      "state": null,
+      "tactic": "assumption",
+      "category": "goal",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Match the goal against the local context",
+      "status": "rejected",
+      "error": "Tactic `assumption` failed\n\nP Q R : Prop\nh0 : P\nh1 : Q ∧ R\n⊢ R",
+      "elapsed_ms": 0.3821049999714887,
+      "on_proof_path": false
+    },
+    {
+      "id": 8,
+      "parent": 6,
+      "depth": 2,
+      "state": null,
+      "tactic": "exact h1.1",
+      "category": "hypothesis",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Project component 1",
+      "status": "rejected",
+      "error": "Type mismatch\n  h1.left\nhas type\n  Q\nbut is expected to have type\n  R",
+      "elapsed_ms": 0.4867929999363696,
+      "on_proof_path": false
+    },
+    {
+      "id": 9,
+      "parent": 6,
+      "depth": 2,
+      "state": {
+        "state_id": 2,
+        "goals": []
+      },
+      "tactic": "exact h1.2",
+      "category": "hypothesis",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Project component 2",
+      "status": "solved",
+      "error": null,
+      "elapsed_ms": 0.25710699992487207,
+      "on_proof_path": true
+    }
+  ],
+  "metrics": {
+    "attempted_candidates": 9,
+    "accepted_transitions": 2,
+    "rejected_candidates": 7,
+    "expanded_states": 2,
+    "frontier": 0,
+    "max_depth": 2,
+    "proof_length": 2,
+    "elapsed_s": 3.177789497000049,
+    "lean_execution_s": 0.0060618009997597255,
+    "initialization_s": 1.522215653000103,
+    "verification_s": 1.6292304559999593,
+    "planning_s": 0.000864290999743389
+  },
+  "proof": [
+    "rcases h with ⟨h0, h1⟩",
+    "exact h1.2"
+  ],
+  "lean_source": "import ProofLab.Bridge\n\nset_option maxHeartbeats 300000\ntheorem prooflab_result (P Q R : Prop) (h : P ∧ Q ∧ R) : R := by\n  rcases h with ⟨h0, h1⟩\n  exact h1.2\n\n#prooflab_audit prooflab_result\n",
+  "verification": {
+    "verified": true,
+    "axioms": [],
+    "error": null,
+    "elapsed_s": 1.6292304559999593,
+    "source_sha256": "0d9cd09413bc7fee3a2ac6b4ff17067510dc6ec8156830c44b72f69002e18f4c"
+  },
+  "metadata": {
+    "code_commit": "45322e084527600b9706510fe421c26f3da7e5eb",
+    "lean_version": "leanprover/lean4:v4.24.0",
+    "mathlib_revision": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7",
+    "python": "3.12.14",
+    "platform": "Linux-6.18.55-x86_64-with-glibc2.41",
+    "machine": "x86_64",
+    "processor": "",
+    "seed": "0 (deterministic)",
+    "state_identity": "Exact tactic prefix within one native session; no semantic merging"
+  },
+  "error": null,
+  "proof_origin": "constructed_derivation"
+}

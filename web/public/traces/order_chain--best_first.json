@@ -138,7 +138,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\nα : Type\ninst✝ : PartialOrder α\na b c : α\nhab : a ≤ b\nhbc : b ≤ c\n⊢ a ≤ c",
-      "elapsed_ms": 2.7380080000511953,
+      "elapsed_ms": 3.6617690000184666,
       "on_proof_path": false
     },
     {
@@ -150,10 +150,10 @@
       "category": "lemma",
       "lemma": "le_refl",
       "provenance": "Mathlib.Order.Defs.PartialOrder",
-      "reason": "Type-feature match: ('≤',)",
+      "reason": "Goal features: ('≤',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@le_refl`\n  ?a ≤ ?a\nwith the goal\n  a ≤ c\n\nNote: The full type of `@le_refl` is\n  ∀ {α : Type ?u.55} [inst : Preorder α] (a : α), a ≤ a\n\nα : Type\ninst✝ : PartialOrder α\na b c : α\nhab : a ≤ b\nhbc : b ≤ c\n⊢ a ≤ c",
-      "elapsed_ms": 2.378938999981983,
+      "elapsed_ms": 3.882622999981322,
       "on_proof_path": false
     },
     {
@@ -409,10 +409,10 @@
       "category": "lemma",
       "lemma": "le_trans",
       "provenance": "Mathlib.Order.Defs.PartialOrder",
-      "reason": "Type-feature match: ('≤',)",
+      "reason": "Goal features: ('≤',); context features: ()",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 2.7033769999889046,
+      "elapsed_ms": 3.53166400009286,
       "on_proof_path": true
     },
     {
@@ -511,7 +511,7 @@
       "reason": "Match the goal against the local context",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.0094389999721898,
+      "elapsed_ms": 1.336732000027041,
       "on_proof_path": true
     },
     {
@@ -607,10 +607,10 @@
       "category": "lemma",
       "lemma": "le_refl",
       "provenance": "Mathlib.Order.Defs.PartialOrder",
-      "reason": "Type-feature match: ('≤',)",
+      "reason": "Goal features: ('≤',); context features: ()",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.0927839998657873,
+      "elapsed_ms": 1.2690890000612853,
       "on_proof_path": false
     },
     {
@@ -1026,10 +1026,10 @@
       "category": "lemma",
       "lemma": "le_trans",
       "provenance": "Mathlib.Order.Defs.PartialOrder",
-      "reason": "Type-feature match: ('≤',)",
+      "reason": "Goal features: ('≤',); context features: ()",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 4.178094000053534,
+      "elapsed_ms": 4.861726000171984,
       "on_proof_path": false
     },
     {
@@ -1047,7 +1047,7 @@
       "reason": "Match the goal against the local context",
       "status": "solved",
       "error": null,
-      "elapsed_ms": 0.22259499996835075,
+      "elapsed_ms": 0.187441999969451,
       "on_proof_path": true
     }
   ],
@@ -1059,11 +1059,11 @@
     "frontier": 2,
     "max_depth": 3,
     "proof_length": 3,
-    "elapsed_s": 3.232663359999833,
-    "lean_execution_s": 0.014323235999881945,
-    "initialization_s": 1.5286172380001517,
-    "verification_s": 1.6567614890000186,
-    "planning_s": 0.0007149659998049174
+    "elapsed_s": 3.272731987000043,
+    "lean_execution_s": 0.01873104500032241,
+    "initialization_s": 1.5576723559997845,
+    "verification_s": 1.6652887199998077,
+    "planning_s": 0.0009592629996859614
   },
   "proof": [
     "apply le_trans",
@@ -1075,11 +1075,11 @@
     "verified": true,
     "axioms": [],
     "error": null,
-    "elapsed_s": 1.6567614890000186,
+    "elapsed_s": 1.6652887199998077,
     "source_sha256": "d5273e047f9306d6bec0751892b61b23780331e65b5dcca6e91332ba2f8643a8"
   },
   "metadata": {
-    "code_commit": "a16b54fe84b719c9f109a758ccc2bb8dc717d267",
+    "code_commit": "45322e084527600b9706510fe421c26f3da7e5eb",
     "lean_version": "leanprover/lean4:v4.24.0",
     "mathlib_revision": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7",
     "python": "3.12.14",

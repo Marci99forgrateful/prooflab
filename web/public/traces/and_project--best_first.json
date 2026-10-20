@@ -108,7 +108,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\nP Q R : Prop\nh : P ∧ Q ∧ R\n⊢ R",
-      "elapsed_ms": 1.761190000024726,
+      "elapsed_ms": 1.6122859999541106,
       "on_proof_path": false
     },
     {
@@ -123,7 +123,7 @@
       "reason": "Project component 1",
       "status": "rejected",
       "error": "Type mismatch\n  h.left\nhas type\n  P\nbut is expected to have type\n  R",
-      "elapsed_ms": 0.6233379999684985,
+      "elapsed_ms": 0.5927619999965827,
       "on_proof_path": false
     },
     {
@@ -138,7 +138,7 @@
       "reason": "Project component 2",
       "status": "rejected",
       "error": "Type mismatch\n  h.right\nhas type\n  Q ∧ R\nbut is expected to have type\n  R",
-      "elapsed_ms": 0.7388010001250223,
+      "elapsed_ms": 0.5392810001012549,
       "on_proof_path": false
     },
     {
@@ -153,7 +153,7 @@
       "reason": "Apply a conjunction component",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the type of `h.left`\n  P\nwith the goal\n  R\n\nP Q R : Prop\nh : P ∧ Q ∧ R\n⊢ R",
-      "elapsed_ms": 0.8347660000254109,
+      "elapsed_ms": 0.6070739998449426,
       "on_proof_path": false
     },
     {
@@ -168,7 +168,7 @@
       "reason": "Apply a conjunction component",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the type of `h.right`\n  Q ∧ R\nwith the goal\n  R\n\nP Q R : Prop\nh : P ∧ Q ∧ R\n⊢ R",
-      "elapsed_ms": 0.7548359999418608,
+      "elapsed_ms": 0.6411740000658028,
       "on_proof_path": false
     },
     {
@@ -247,7 +247,7 @@
       "reason": "Eliminate a structured hypothesis with fresh explicit names",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 0.8383009999306523,
+      "elapsed_ms": 0.9432189999643015,
       "on_proof_path": true
     },
     {
@@ -262,7 +262,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\nP Q R : Prop\nh0 : P\nh1 : Q ∧ R\n⊢ R",
-      "elapsed_ms": 0.379391000024043,
+      "elapsed_ms": 0.3821049999714887,
       "on_proof_path": false
     },
     {
@@ -277,7 +277,7 @@
       "reason": "Project component 1",
       "status": "rejected",
       "error": "Type mismatch\n  h1.left\nhas type\n  Q\nbut is expected to have type\n  R",
-      "elapsed_ms": 0.38750299995626847,
+      "elapsed_ms": 0.4867929999363696,
       "on_proof_path": false
     },
     {
@@ -295,7 +295,7 @@
       "reason": "Project component 2",
       "status": "solved",
       "error": null,
-      "elapsed_ms": 0.21524399994632404,
+      "elapsed_ms": 0.25710699992487207,
       "on_proof_path": true
     }
   ],
@@ -307,11 +307,11 @@
     "frontier": 0,
     "max_depth": 2,
     "proof_length": 2,
-    "elapsed_s": 3.614788272999931,
-    "lean_execution_s": 0.006533369999942806,
-    "initialization_s": 1.7216870339998422,
-    "verification_s": 1.8674816099999134,
-    "planning_s": 0.0005417749998741783
+    "elapsed_s": 3.177789497000049,
+    "lean_execution_s": 0.0060618009997597255,
+    "initialization_s": 1.522215653000103,
+    "verification_s": 1.6292304559999593,
+    "planning_s": 0.000864290999743389
   },
   "proof": [
     "rcases h with ⟨h0, h1⟩",
@@ -322,11 +322,11 @@
     "verified": true,
     "axioms": [],
     "error": null,
-    "elapsed_s": 1.8674816099999134,
+    "elapsed_s": 1.6292304559999593,
     "source_sha256": "0d9cd09413bc7fee3a2ac6b4ff17067510dc6ec8156830c44b72f69002e18f4c"
   },
   "metadata": {
-    "code_commit": "a16b54fe84b719c9f109a758ccc2bb8dc717d267",
+    "code_commit": "45322e084527600b9706510fe421c26f3da7e5eb",
     "lean_version": "leanprover/lean4:v4.24.0",
     "mathlib_revision": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7",
     "python": "3.12.14",

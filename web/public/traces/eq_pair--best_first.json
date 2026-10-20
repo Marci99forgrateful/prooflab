@@ -128,7 +128,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = c ∧ c = a",
-      "elapsed_ms": 3.016349000063201,
+      "elapsed_ms": 2.3047079998832487,
       "on_proof_path": false
     },
     {
@@ -287,7 +287,7 @@
       "reason": "Split the goal into its components",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 3.5462460000417195,
+      "elapsed_ms": 1.3838129998475779,
       "on_proof_path": false
     },
     {
@@ -302,7 +302,7 @@
       "reason": "Check definitional equality",
       "status": "rejected",
       "error": "Tactic `rfl` failed: The left-hand side\n  a = c\nis not definitionally equal to the right-hand side\n  c = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = c ∧ c = a",
-      "elapsed_ms": 1.9173959999534418,
+      "elapsed_ms": 1.215920000049664,
       "on_proof_path": false
     },
     {
@@ -391,7 +391,7 @@
       "reason": "Rewrite using a local equality",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 2.1208620000834344,
+      "elapsed_ms": 1.3152090000403405,
       "on_proof_path": false
     },
     {
@@ -406,7 +406,7 @@
       "reason": "Rewrite using a local equality",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  b\nin the target expression\n  a = c ∧ c = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = c ∧ c = a",
-      "elapsed_ms": 1.716462999866053,
+      "elapsed_ms": 1.0121730001628748,
       "on_proof_path": false
     },
     {
@@ -418,10 +418,10 @@
       "category": "lemma",
       "lemma": "Eq.symm",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.symm`\n  ?b = ?a\nwith the goal\n  a = c ∧ c = a\n\nNote: The full type of `@Eq.symm` is\n  ∀ {α : Sort ?u.49} {a b : α}, a = b → b = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = c ∧ c = a",
-      "elapsed_ms": 5.310762000135583,
+      "elapsed_ms": 1.7151309998553188,
       "on_proof_path": false
     },
     {
@@ -433,10 +433,10 @@
       "category": "lemma",
       "lemma": "Eq.trans",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.trans`\n  ?a = ?c\nwith the goal\n  a = c ∧ c = a\n\nNote: The full type of `@Eq.trans` is\n  ∀ {α : Sort ?u.62} {a b c : α}, a = b → b = c → a = c\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = c ∧ c = a",
-      "elapsed_ms": 2.7204900000015186,
+      "elapsed_ms": 1.5828319997126528,
       "on_proof_path": false
     },
     {
@@ -451,7 +451,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  b\nin the target expression\n  a = c ∧ c = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = c ∧ c = a",
-      "elapsed_ms": 5.4668069999479485,
+      "elapsed_ms": 0.8741750002627668,
       "on_proof_path": false
     },
     {
@@ -540,7 +540,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 2.1451180000440218,
+      "elapsed_ms": 1.2628500003302179,
       "on_proof_path": false
     },
     {
@@ -555,7 +555,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = c ∧ c = b",
-      "elapsed_ms": 1.074415999937628,
+      "elapsed_ms": 0.7620920000590559,
       "on_proof_path": false
     },
     {
@@ -714,7 +714,7 @@
       "reason": "Split the goal into its components",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.9085960000211344,
+      "elapsed_ms": 1.1569309999686084,
       "on_proof_path": false
     },
     {
@@ -729,7 +729,7 @@
       "reason": "Check definitional equality",
       "status": "rejected",
       "error": "Tactic `rfl` failed: The left-hand side\n  b = c\nis not definitionally equal to the right-hand side\n  c = b\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = c ∧ c = b",
-      "elapsed_ms": 1.7202980000092793,
+      "elapsed_ms": 1.0621589999573189,
       "on_proof_path": false
     },
     {
@@ -744,7 +744,7 @@
       "reason": "Rewrite using a local equality",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  a\nin the target expression\n  b = c ∧ c = b\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = c ∧ c = b",
-      "elapsed_ms": 1.4492099999188213,
+      "elapsed_ms": 0.8230880002884078,
       "on_proof_path": false
     },
     {
@@ -833,7 +833,7 @@
       "reason": "Rewrite using a local equality",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.849161999871285,
+      "elapsed_ms": 1.1347480003678356,
       "on_proof_path": false
     },
     {
@@ -845,10 +845,10 @@
       "category": "lemma",
       "lemma": "Eq.symm",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.symm`\n  ?b = ?a\nwith the goal\n  b = c ∧ c = b\n\nNote: The full type of `@Eq.symm` is\n  ∀ {α : Sort ?u.107} {a b : α}, a = b → b = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = c ∧ c = b",
-      "elapsed_ms": 2.5981299997965834,
+      "elapsed_ms": 1.5791969999554567,
       "on_proof_path": false
     },
     {
@@ -860,10 +860,10 @@
       "category": "lemma",
       "lemma": "Eq.trans",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.trans`\n  ?a = ?c\nwith the goal\n  b = c ∧ c = b\n\nNote: The full type of `@Eq.trans` is\n  ∀ {α : Sort ?u.120} {a b c : α}, a = b → b = c → a = c\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = c ∧ c = b",
-      "elapsed_ms": 2.5153960000352527,
+      "elapsed_ms": 1.6893420001906634,
       "on_proof_path": false
     },
     {
@@ -952,7 +952,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 2.3939029999837658,
+      "elapsed_ms": 1.2572119999276765,
       "on_proof_path": false
     },
     {
@@ -1041,7 +1041,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.8623830001160968,
+      "elapsed_ms": 1.296921999710321,
       "on_proof_path": false
     },
     {
@@ -1056,7 +1056,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = b ∧ b = a",
-      "elapsed_ms": 1.0483479998129042,
+      "elapsed_ms": 0.6320210000012594,
       "on_proof_path": false
     },
     {
@@ -1215,7 +1215,7 @@
       "reason": "Split the goal into its components",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.7242040000837733,
+      "elapsed_ms": 1.0399050001979049,
       "on_proof_path": false
     },
     {
@@ -1230,7 +1230,7 @@
       "reason": "Check definitional equality",
       "status": "rejected",
       "error": "Tactic `rfl` failed: The left-hand side\n  a = b\nis not definitionally equal to the right-hand side\n  b = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = b ∧ b = a",
-      "elapsed_ms": 1.7594679998182983,
+      "elapsed_ms": 1.0900310003307823,
       "on_proof_path": false
     },
     {
@@ -1319,7 +1319,7 @@
       "reason": "Rewrite using a local equality",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.8211399999472633,
+      "elapsed_ms": 1.2040420001540042,
       "on_proof_path": false
     },
     {
@@ -1408,7 +1408,7 @@
       "reason": "Rewrite using a local equality",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.8748459999642364,
+      "elapsed_ms": 1.2172210003882356,
       "on_proof_path": false
     },
     {
@@ -1420,10 +1420,10 @@
       "category": "lemma",
       "lemma": "Eq.symm",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.symm`\n  ?b = ?a\nwith the goal\n  a = b ∧ b = a\n\nNote: The full type of `@Eq.symm` is\n  ∀ {α : Sort ?u.179} {a b : α}, a = b → b = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = b ∧ b = a",
-      "elapsed_ms": 2.582566000000952,
+      "elapsed_ms": 1.6625220000605623,
       "on_proof_path": false
     },
     {
@@ -1435,10 +1435,10 @@
       "category": "lemma",
       "lemma": "Eq.trans",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.trans`\n  ?a = ?c\nwith the goal\n  a = b ∧ b = a\n\nNote: The full type of `@Eq.trans` is\n  ∀ {α : Sort ?u.192} {a b c : α}, a = b → b = c → a = c\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = b ∧ b = a",
-      "elapsed_ms": 2.4821759998303605,
+      "elapsed_ms": 1.5794569999343366,
       "on_proof_path": false
     },
     {
@@ -1527,7 +1527,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 2.0305760001519957,
+      "elapsed_ms": 1.347047000308521,
       "on_proof_path": false
     },
     {
@@ -1542,7 +1542,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  c\nin the target expression\n  a = b ∧ b = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = b ∧ b = a",
-      "elapsed_ms": 1.418745999899329,
+      "elapsed_ms": 0.8110909998322313,
       "on_proof_path": false
     },
     {
@@ -1557,7 +1557,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ c = c ∧ c = c",
-      "elapsed_ms": 0.892383000064001,
+      "elapsed_ms": 0.6706290000693116,
       "on_proof_path": false
     },
     {
@@ -1716,7 +1716,7 @@
       "reason": "Split the goal into its components",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.1267760000919225,
+      "elapsed_ms": 1.0549170001468156,
       "on_proof_path": false
     },
     {
@@ -1731,7 +1731,7 @@
       "reason": "Check definitional equality",
       "status": "rejected",
       "error": "Tactic `rfl` failed: No `[refl]` lemma registered for relation\n  And\n\nHint: Add the `[refl]` attribute to reflexivity lemmas for `And` to use this tactic\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ c = c ∧ c = c",
-      "elapsed_ms": 1.0912420000295242,
+      "elapsed_ms": 0.9791530001166393,
       "on_proof_path": false
     },
     {
@@ -1746,7 +1746,7 @@
       "reason": "Rewrite using a local equality",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  a\nin the target expression\n  c = c ∧ c = c\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ c = c ∧ c = c",
-      "elapsed_ms": 0.8160279999174236,
+      "elapsed_ms": 0.7870640001783613,
       "on_proof_path": false
     },
     {
@@ -1761,7 +1761,7 @@
       "reason": "Rewrite using a local equality",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  b\nin the target expression\n  c = c ∧ c = c\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ c = c ∧ c = c",
-      "elapsed_ms": 0.8071550000749994,
+      "elapsed_ms": 0.745111000014731,
       "on_proof_path": false
     },
     {
@@ -1773,10 +1773,10 @@
       "category": "lemma",
       "lemma": "Eq.symm",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.symm`\n  ?b = ?a\nwith the goal\n  c = c ∧ c = c\n\nNote: The full type of `@Eq.symm` is\n  ∀ {α : Sort ?u.230} {a b : α}, a = b → b = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ c = c ∧ c = c",
-      "elapsed_ms": 3.1205560001126287,
+      "elapsed_ms": 1.5077789998940716,
       "on_proof_path": false
     },
     {
@@ -1788,10 +1788,10 @@
       "category": "lemma",
       "lemma": "Eq.trans",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.trans`\n  ?a = ?c\nwith the goal\n  c = c ∧ c = c\n\nNote: The full type of `@Eq.trans` is\n  ∀ {α : Sort ?u.243} {a b c : α}, a = b → b = c → a = c\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ c = c ∧ c = c",
-      "elapsed_ms": 1.730124000005162,
+      "elapsed_ms": 1.6277039999295084,
       "on_proof_path": false
     },
     {
@@ -1806,7 +1806,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  b\nin the target expression\n  c = c ∧ c = c\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ c = c ∧ c = c",
-      "elapsed_ms": 0.8794339998985379,
+      "elapsed_ms": 0.8177300001079857,
       "on_proof_path": false
     },
     {
@@ -1895,7 +1895,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.2886890001482243,
+      "elapsed_ms": 1.2133459999859042,
       "on_proof_path": false
     },
     {
@@ -1910,7 +1910,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = c ∧ c = a",
-      "elapsed_ms": 0.719613000001118,
+      "elapsed_ms": 0.6938839997019386,
       "on_proof_path": false
     },
     {
@@ -2069,7 +2069,7 @@
       "reason": "Split the goal into its components",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 2.0216820000769076,
+      "elapsed_ms": 1.0652030000528612,
       "on_proof_path": false
     },
     {
@@ -2084,7 +2084,7 @@
       "reason": "Check definitional equality",
       "status": "rejected",
       "error": "Tactic `rfl` failed: The left-hand side\n  a = c\nis not definitionally equal to the right-hand side\n  c = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = c ∧ c = a",
-      "elapsed_ms": 1.6171929999018175,
+      "elapsed_ms": 1.1321329998281726,
       "on_proof_path": false
     },
     {
@@ -2173,7 +2173,7 @@
       "reason": "Rewrite using a local equality",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 5.84629800005132,
+      "elapsed_ms": 1.1944079997192603,
       "on_proof_path": false
     },
     {
@@ -2188,7 +2188,7 @@
       "reason": "Rewrite using a local equality",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  b\nin the target expression\n  a = c ∧ c = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = c ∧ c = a",
-      "elapsed_ms": 1.1073860000578861,
+      "elapsed_ms": 0.9087519997592608,
       "on_proof_path": false
     },
     {
@@ -2200,10 +2200,10 @@
       "category": "lemma",
       "lemma": "Eq.symm",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.symm`\n  ?b = ?a\nwith the goal\n  a = c ∧ c = a\n\nNote: The full type of `@Eq.symm` is\n  ∀ {α : Sort ?u.288} {a b : α}, a = b → b = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = c ∧ c = a",
-      "elapsed_ms": 5.7344389999798295,
+      "elapsed_ms": 1.5886109999883047,
       "on_proof_path": false
     },
     {
@@ -2215,10 +2215,10 @@
       "category": "lemma",
       "lemma": "Eq.trans",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.trans`\n  ?a = ?c\nwith the goal\n  a = c ∧ c = a\n\nNote: The full type of `@Eq.trans` is\n  ∀ {α : Sort ?u.301} {a b c : α}, a = b → b = c → a = c\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = c ∧ c = a",
-      "elapsed_ms": 2.1255379999729485,
+      "elapsed_ms": 1.7141990001618979,
       "on_proof_path": false
     },
     {
@@ -2233,7 +2233,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  b\nin the target expression\n  a = c ∧ c = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = c ∧ c = a",
-      "elapsed_ms": 0.8907809999527672,
+      "elapsed_ms": 0.8444410000265634,
       "on_proof_path": false
     },
     {
@@ -2322,7 +2322,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.4461459998074133,
+      "elapsed_ms": 1.3312979999682284,
       "on_proof_path": false
     },
     {
@@ -2337,7 +2337,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = b ∧ b = b",
-      "elapsed_ms": 0.6895479998547671,
+      "elapsed_ms": 0.6908089999342337,
       "on_proof_path": false
     },
     {
@@ -2496,7 +2496,7 @@
       "reason": "Split the goal into its components",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.4259259999107599,
+      "elapsed_ms": 1.0697000002437562,
       "on_proof_path": false
     },
     {
@@ -2511,7 +2511,7 @@
       "reason": "Check definitional equality",
       "status": "rejected",
       "error": "Tactic `rfl` failed: No `[refl]` lemma registered for relation\n  And\n\nHint: Add the `[refl]` attribute to reflexivity lemmas for `And` to use this tactic\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = b ∧ b = b",
-      "elapsed_ms": 1.0506009998607624,
+      "elapsed_ms": 0.9968700001081743,
       "on_proof_path": false
     },
     {
@@ -2526,7 +2526,7 @@
       "reason": "Rewrite using a local equality",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  a\nin the target expression\n  b = b ∧ b = b\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = b ∧ b = b",
-      "elapsed_ms": 0.887625000132175,
+      "elapsed_ms": 0.8185110000340501,
       "on_proof_path": false
     },
     {
@@ -2615,7 +2615,7 @@
       "reason": "Rewrite using a local equality",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.2701919999926758,
+      "elapsed_ms": 1.241759000095044,
       "on_proof_path": false
     },
     {
@@ -2627,10 +2627,10 @@
       "category": "lemma",
       "lemma": "Eq.symm",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.symm`\n  ?b = ?a\nwith the goal\n  b = b ∧ b = b\n\nNote: The full type of `@Eq.symm` is\n  ∀ {α : Sort ?u.346} {a b : α}, a = b → b = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = b ∧ b = b",
-      "elapsed_ms": 1.749813000060385,
+      "elapsed_ms": 1.5991559998838056,
       "on_proof_path": false
     },
     {
@@ -2642,10 +2642,10 @@
       "category": "lemma",
       "lemma": "Eq.trans",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.trans`\n  ?a = ?c\nwith the goal\n  b = b ∧ b = b\n\nNote: The full type of `@Eq.trans` is\n  ∀ {α : Sort ?u.359} {a b c : α}, a = b → b = c → a = c\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = b ∧ b = b",
-      "elapsed_ms": 2.5243079999199836,
+      "elapsed_ms": 1.6361510001843271,
       "on_proof_path": false
     },
     {
@@ -2734,7 +2734,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.4086490000408958,
+      "elapsed_ms": 1.2594049999279378,
       "on_proof_path": false
     },
     {
@@ -2749,7 +2749,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  c\nin the target expression\n  b = b ∧ b = b\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = b ∧ b = b",
-      "elapsed_ms": 0.896067999974548,
+      "elapsed_ms": 0.8350819998668157,
       "on_proof_path": false
     },
     {
@@ -2764,7 +2764,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = b ∧ b = b",
-      "elapsed_ms": 0.7041400001526199,
+      "elapsed_ms": 0.6305490001068392,
       "on_proof_path": false
     },
     {
@@ -2923,7 +2923,7 @@
       "reason": "Split the goal into its components",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.7094820000238542,
+      "elapsed_ms": 1.035849000345479,
       "on_proof_path": false
     },
     {
@@ -2938,7 +2938,7 @@
       "reason": "Check definitional equality",
       "status": "rejected",
       "error": "Tactic `rfl` failed: No `[refl]` lemma registered for relation\n  And\n\nHint: Add the `[refl]` attribute to reflexivity lemmas for `And` to use this tactic\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = b ∧ b = b",
-      "elapsed_ms": 1.0330249999697116,
+      "elapsed_ms": 1.045112000156223,
       "on_proof_path": false
     },
     {
@@ -2953,7 +2953,7 @@
       "reason": "Rewrite using a local equality",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  a\nin the target expression\n  b = b ∧ b = b\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = b ∧ b = b",
-      "elapsed_ms": 1.1779829999341018,
+      "elapsed_ms": 0.8887979997780349,
       "on_proof_path": false
     },
     {
@@ -3042,7 +3042,7 @@
       "reason": "Rewrite using a local equality",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.3179529998978978,
+      "elapsed_ms": 1.2790249998033687,
       "on_proof_path": false
     },
     {
@@ -3054,10 +3054,10 @@
       "category": "lemma",
       "lemma": "Eq.symm",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.symm`\n  ?b = ?a\nwith the goal\n  b = b ∧ b = b\n\nNote: The full type of `@Eq.symm` is\n  ∀ {α : Sort ?u.404} {a b : α}, a = b → b = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = b ∧ b = b",
-      "elapsed_ms": 1.7457569999805855,
+      "elapsed_ms": 1.618384999801492,
       "on_proof_path": false
     },
     {
@@ -3069,10 +3069,10 @@
       "category": "lemma",
       "lemma": "Eq.trans",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.trans`\n  ?a = ?c\nwith the goal\n  b = b ∧ b = b\n\nNote: The full type of `@Eq.trans` is\n  ∀ {α : Sort ?u.417} {a b c : α}, a = b → b = c → a = c\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = b ∧ b = b",
-      "elapsed_ms": 1.7491819999122526,
+      "elapsed_ms": 1.6470830000798742,
       "on_proof_path": false
     },
     {
@@ -3161,7 +3161,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 2.0707460000721767,
+      "elapsed_ms": 1.1902309997822158,
       "on_proof_path": false
     },
     {
@@ -3176,7 +3176,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  c\nin the target expression\n  b = b ∧ b = b\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = b ∧ b = b",
-      "elapsed_ms": 0.9919530000388477,
+      "elapsed_ms": 0.8951269996941846,
       "on_proof_path": false
     },
     {
@@ -3191,7 +3191,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = c ∧ c = a",
-      "elapsed_ms": 0.6916910001564247,
+      "elapsed_ms": 0.6834190003246476,
       "on_proof_path": false
     },
     {
@@ -3350,7 +3350,7 @@
       "reason": "Split the goal into its components",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.4280590000907978,
+      "elapsed_ms": 1.0530950003158068,
       "on_proof_path": false
     },
     {
@@ -3365,7 +3365,7 @@
       "reason": "Check definitional equality",
       "status": "rejected",
       "error": "Tactic `rfl` failed: The left-hand side\n  a = c\nis not definitionally equal to the right-hand side\n  c = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = c ∧ c = a",
-      "elapsed_ms": 1.4725860000908142,
+      "elapsed_ms": 1.0908959998232604,
       "on_proof_path": false
     },
     {
@@ -3454,7 +3454,7 @@
       "reason": "Rewrite using a local equality",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.6703230000985059,
+      "elapsed_ms": 1.1903209997399244,
       "on_proof_path": false
     },
     {
@@ -3469,7 +3469,7 @@
       "reason": "Rewrite using a local equality",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  b\nin the target expression\n  a = c ∧ c = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = c ∧ c = a",
-      "elapsed_ms": 0.9755480000421812,
+      "elapsed_ms": 0.7985520001057012,
       "on_proof_path": false
     },
     {
@@ -3481,10 +3481,10 @@
       "category": "lemma",
       "lemma": "Eq.symm",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.symm`\n  ?b = ?a\nwith the goal\n  a = c ∧ c = a\n\nNote: The full type of `@Eq.symm` is\n  ∀ {α : Sort ?u.462} {a b : α}, a = b → b = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = c ∧ c = a",
-      "elapsed_ms": 1.8556619997980306,
+      "elapsed_ms": 1.5054850000524311,
       "on_proof_path": false
     },
     {
@@ -3496,10 +3496,10 @@
       "category": "lemma",
       "lemma": "Eq.trans",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.trans`\n  ?a = ?c\nwith the goal\n  a = c ∧ c = a\n\nNote: The full type of `@Eq.trans` is\n  ∀ {α : Sort ?u.475} {a b c : α}, a = b → b = c → a = c\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = c ∧ c = a",
-      "elapsed_ms": 1.8830740000339574,
+      "elapsed_ms": 1.5082699997037707,
       "on_proof_path": false
     },
     {
@@ -3514,7 +3514,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  b\nin the target expression\n  a = c ∧ c = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = c ∧ c = a",
-      "elapsed_ms": 1.0267350000958686,
+      "elapsed_ms": 0.8376010000574752,
       "on_proof_path": false
     },
     {
@@ -3603,7 +3603,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 2.0111759999963397,
+      "elapsed_ms": 1.1988440001005074,
       "on_proof_path": false
     },
     {
@@ -3618,7 +3618,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = a ∧ a = a",
-      "elapsed_ms": 0.7602349999160651,
+      "elapsed_ms": 0.6260919999476755,
       "on_proof_path": false
     },
     {
@@ -3777,7 +3777,7 @@
       "reason": "Split the goal into its components",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.916914000048564,
+      "elapsed_ms": 1.0698700002649275,
       "on_proof_path": false
     },
     {
@@ -3792,7 +3792,7 @@
       "reason": "Check definitional equality",
       "status": "rejected",
       "error": "Tactic `rfl` failed: No `[refl]` lemma registered for relation\n  And\n\nHint: Add the `[refl]` attribute to reflexivity lemmas for `And` to use this tactic\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = a ∧ a = a",
-      "elapsed_ms": 1.4702420000958227,
+      "elapsed_ms": 0.9785829997781548,
       "on_proof_path": false
     },
     {
@@ -3881,7 +3881,7 @@
       "reason": "Rewrite using a local equality",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.7488119999597984,
+      "elapsed_ms": 1.1765599997488607,
       "on_proof_path": false
     },
     {
@@ -3896,7 +3896,7 @@
       "reason": "Rewrite using a local equality",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  b\nin the target expression\n  a = a ∧ a = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = a ∧ a = a",
-      "elapsed_ms": 0.916659000040454,
+      "elapsed_ms": 0.8190329999706591,
       "on_proof_path": false
     },
     {
@@ -3908,10 +3908,10 @@
       "category": "lemma",
       "lemma": "Eq.symm",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.symm`\n  ?b = ?a\nwith the goal\n  a = a ∧ a = a\n\nNote: The full type of `@Eq.symm` is\n  ∀ {α : Sort ?u.520} {a b : α}, a = b → b = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = a ∧ a = a",
-      "elapsed_ms": 1.8381859999863082,
+      "elapsed_ms": 1.5088609998201719,
       "on_proof_path": false
     },
     {
@@ -3923,10 +3923,10 @@
       "category": "lemma",
       "lemma": "Eq.trans",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.trans`\n  ?a = ?c\nwith the goal\n  a = a ∧ a = a\n\nNote: The full type of `@Eq.trans` is\n  ∀ {α : Sort ?u.533} {a b c : α}, a = b → b = c → a = c\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = a ∧ a = a",
-      "elapsed_ms": 1.720979000083389,
+      "elapsed_ms": 1.5476789999411267,
       "on_proof_path": false
     },
     {
@@ -3941,7 +3941,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  b\nin the target expression\n  a = a ∧ a = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = a ∧ a = a",
-      "elapsed_ms": 0.8440700000846846,
+      "elapsed_ms": 0.7682559999011573,
       "on_proof_path": false
     },
     {
@@ -3956,7 +3956,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  c\nin the target expression\n  a = a ∧ a = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = a ∧ a = a",
-      "elapsed_ms": 0.8418669999628037,
+      "elapsed_ms": 0.750518999666383,
       "on_proof_path": false
     },
     {
@@ -3971,7 +3971,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = b ∧ b = b",
-      "elapsed_ms": 0.7449910001469107,
+      "elapsed_ms": 0.6428579999919748,
       "on_proof_path": false
     },
     {
@@ -4130,7 +4130,7 @@
       "reason": "Split the goal into its components",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.170951999938552,
+      "elapsed_ms": 1.039744000081555,
       "on_proof_path": false
     },
     {
@@ -4145,7 +4145,7 @@
       "reason": "Check definitional equality",
       "status": "rejected",
       "error": "Tactic `rfl` failed: No `[refl]` lemma registered for relation\n  And\n\nHint: Add the `[refl]` attribute to reflexivity lemmas for `And` to use this tactic\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = b ∧ b = b",
-      "elapsed_ms": 1.2423699999999371,
+      "elapsed_ms": 0.9873560002233717,
       "on_proof_path": false
     },
     {
@@ -4160,7 +4160,7 @@
       "reason": "Rewrite using a local equality",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  a\nin the target expression\n  b = b ∧ b = b\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = b ∧ b = b",
-      "elapsed_ms": 0.8392629999889323,
+      "elapsed_ms": 1.0458040001140034,
       "on_proof_path": false
     },
     {
@@ -4249,7 +4249,7 @@
       "reason": "Rewrite using a local equality",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.2815690001843905,
+      "elapsed_ms": 1.2262449999980163,
       "on_proof_path": false
     },
     {
@@ -4261,10 +4261,10 @@
       "category": "lemma",
       "lemma": "Eq.symm",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.symm`\n  ?b = ?a\nwith the goal\n  b = b ∧ b = b\n\nNote: The full type of `@Eq.symm` is\n  ∀ {α : Sort ?u.571} {a b : α}, a = b → b = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = b ∧ b = b",
-      "elapsed_ms": 1.7308349999893835,
+      "elapsed_ms": 1.605725999979768,
       "on_proof_path": false
     },
     {
@@ -4276,10 +4276,10 @@
       "category": "lemma",
       "lemma": "Eq.trans",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.trans`\n  ?a = ?c\nwith the goal\n  b = b ∧ b = b\n\nNote: The full type of `@Eq.trans` is\n  ∀ {α : Sort ?u.584} {a b c : α}, a = b → b = c → a = c\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = b ∧ b = b",
-      "elapsed_ms": 1.7566230001193617,
+      "elapsed_ms": 1.7047850001290499,
       "on_proof_path": false
     },
     {
@@ -4368,7 +4368,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.6419809999206336,
+      "elapsed_ms": 1.1895999996340834,
       "on_proof_path": false
     },
     {
@@ -4383,7 +4383,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  c\nin the target expression\n  b = b ∧ b = b\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = b ∧ b = b",
-      "elapsed_ms": 0.8753980000619777,
+      "elapsed_ms": 0.8033190001697221,
       "on_proof_path": false
     },
     {
@@ -4398,7 +4398,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = c ∧ c = b",
-      "elapsed_ms": 0.7433589998981915,
+      "elapsed_ms": 0.6347150001602131,
       "on_proof_path": false
     },
     {
@@ -4557,7 +4557,7 @@
       "reason": "Split the goal into its components",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.2880780000159575,
+      "elapsed_ms": 1.0846420000234502,
       "on_proof_path": false
     },
     {
@@ -4572,7 +4572,7 @@
       "reason": "Check definitional equality",
       "status": "rejected",
       "error": "Tactic `rfl` failed: The left-hand side\n  b = c\nis not definitionally equal to the right-hand side\n  c = b\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = c ∧ c = b",
-      "elapsed_ms": 1.3714839999465767,
+      "elapsed_ms": 1.0418080000818009,
       "on_proof_path": false
     },
     {
@@ -4587,7 +4587,7 @@
       "reason": "Rewrite using a local equality",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  a\nin the target expression\n  b = c ∧ c = b\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = c ∧ c = b",
-      "elapsed_ms": 0.8920830000533897,
+      "elapsed_ms": 0.816789000054996,
       "on_proof_path": false
     },
     {
@@ -4676,7 +4676,7 @@
       "reason": "Rewrite using a local equality",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.8278809998264478,
+      "elapsed_ms": 1.1412270000619174,
       "on_proof_path": false
     },
     {
@@ -4688,10 +4688,10 @@
       "category": "lemma",
       "lemma": "Eq.symm",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.symm`\n  ?b = ?a\nwith the goal\n  b = c ∧ c = b\n\nNote: The full type of `@Eq.symm` is\n  ∀ {α : Sort ?u.629} {a b : α}, a = b → b = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = c ∧ c = b",
-      "elapsed_ms": 7.240096000032281,
+      "elapsed_ms": 1.5802879997863784,
       "on_proof_path": false
     },
     {
@@ -4703,10 +4703,10 @@
       "category": "lemma",
       "lemma": "Eq.trans",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.trans`\n  ?a = ?c\nwith the goal\n  b = c ∧ c = b\n\nNote: The full type of `@Eq.trans` is\n  ∀ {α : Sort ?u.642} {a b c : α}, a = b → b = c → a = c\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = c ∧ c = b",
-      "elapsed_ms": 4.419581000092876,
+      "elapsed_ms": 1.5758710001136933,
       "on_proof_path": false
     },
     {
@@ -4795,7 +4795,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 2.2085230000357114,
+      "elapsed_ms": 1.2078879999535275,
       "on_proof_path": false
     },
     {
@@ -4884,7 +4884,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.682642000105261,
+      "elapsed_ms": 1.2018480001643184,
       "on_proof_path": false
     },
     {
@@ -4899,7 +4899,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = b ∧ b = a",
-      "elapsed_ms": 0.7820270000138407,
+      "elapsed_ms": 0.6567979999090312,
       "on_proof_path": false
     },
     {
@@ -5058,7 +5058,7 @@
       "reason": "Split the goal into its components",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.4220400000795053,
+      "elapsed_ms": 1.0268850001011742,
       "on_proof_path": false
     },
     {
@@ -5073,7 +5073,7 @@
       "reason": "Check definitional equality",
       "status": "rejected",
       "error": "Tactic `rfl` failed: The left-hand side\n  a = b\nis not definitionally equal to the right-hand side\n  b = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = b ∧ b = a",
-      "elapsed_ms": 8.962747000168747,
+      "elapsed_ms": 1.0994140002367203,
       "on_proof_path": false
     },
     {
@@ -5162,7 +5162,7 @@
       "reason": "Rewrite using a local equality",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 2.337186999966434,
+      "elapsed_ms": 1.161518000117212,
       "on_proof_path": false
     },
     {
@@ -5251,7 +5251,7 @@
       "reason": "Rewrite using a local equality",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.7045649999545276,
+      "elapsed_ms": 1.1595250002756075,
       "on_proof_path": false
     },
     {
@@ -5263,10 +5263,10 @@
       "category": "lemma",
       "lemma": "Eq.symm",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.symm`\n  ?b = ?a\nwith the goal\n  a = b ∧ b = a\n\nNote: The full type of `@Eq.symm` is\n  ∀ {α : Sort ?u.701} {a b : α}, a = b → b = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = b ∧ b = a",
-      "elapsed_ms": 1.8223720001060428,
+      "elapsed_ms": 1.5406980000989279,
       "on_proof_path": false
     },
     {
@@ -5278,10 +5278,10 @@
       "category": "lemma",
       "lemma": "Eq.trans",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.trans`\n  ?a = ?c\nwith the goal\n  a = b ∧ b = a\n\nNote: The full type of `@Eq.trans` is\n  ∀ {α : Sort ?u.714} {a b c : α}, a = b → b = c → a = c\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = b ∧ b = a",
-      "elapsed_ms": 2.5051499999335647,
+      "elapsed_ms": 1.8307049999748415,
       "on_proof_path": false
     },
     {
@@ -5370,7 +5370,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.3913630000388366,
+      "elapsed_ms": 1.1727940000128,
       "on_proof_path": false
     },
     {
@@ -5385,7 +5385,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  c\nin the target expression\n  a = b ∧ b = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = b ∧ b = a",
-      "elapsed_ms": 0.9754029999839986,
+      "elapsed_ms": 0.8487170002808853,
       "on_proof_path": false
     },
     {
@@ -5400,7 +5400,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ c = c ∧ c = c",
-      "elapsed_ms": 0.9425480000118114,
+      "elapsed_ms": 0.6365879999066237,
       "on_proof_path": false
     },
     {
@@ -5559,7 +5559,7 @@
       "reason": "Split the goal into its components",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.3118240001404047,
+      "elapsed_ms": 1.0501100000510633,
       "on_proof_path": false
     },
     {
@@ -5574,7 +5574,7 @@
       "reason": "Check definitional equality",
       "status": "rejected",
       "error": "Tactic `rfl` failed: No `[refl]` lemma registered for relation\n  And\n\nHint: Add the `[refl]` attribute to reflexivity lemmas for `And` to use this tactic\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ c = c ∧ c = c",
-      "elapsed_ms": 1.2465759998576686,
+      "elapsed_ms": 0.9748769998623175,
       "on_proof_path": false
     },
     {
@@ -5589,7 +5589,7 @@
       "reason": "Rewrite using a local equality",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  a\nin the target expression\n  c = c ∧ c = c\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ c = c ∧ c = c",
-      "elapsed_ms": 1.007646000061868,
+      "elapsed_ms": 0.8635839999442396,
       "on_proof_path": false
     },
     {
@@ -5604,7 +5604,7 @@
       "reason": "Rewrite using a local equality",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  b\nin the target expression\n  c = c ∧ c = c\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ c = c ∧ c = c",
-      "elapsed_ms": 0.8847910000895354,
+      "elapsed_ms": 0.7883070002208115,
       "on_proof_path": false
     },
     {
@@ -5616,10 +5616,10 @@
       "category": "lemma",
       "lemma": "Eq.symm",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.symm`\n  ?b = ?a\nwith the goal\n  c = c ∧ c = c\n\nNote: The full type of `@Eq.symm` is\n  ∀ {α : Sort ?u.752} {a b : α}, a = b → b = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ c = c ∧ c = c",
-      "elapsed_ms": 1.8066279999402468,
+      "elapsed_ms": 1.6291819997604762,
       "on_proof_path": false
     },
     {
@@ -5631,10 +5631,10 @@
       "category": "lemma",
       "lemma": "Eq.trans",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.trans`\n  ?a = ?c\nwith the goal\n  c = c ∧ c = c\n\nNote: The full type of `@Eq.trans` is\n  ∀ {α : Sort ?u.765} {a b c : α}, a = b → b = c → a = c\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ c = c ∧ c = c",
-      "elapsed_ms": 1.8687819999740896,
+      "elapsed_ms": 1.5942140003062377,
       "on_proof_path": false
     },
     {
@@ -5649,7 +5649,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  b\nin the target expression\n  c = c ∧ c = c\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ c = c ∧ c = c",
-      "elapsed_ms": 0.925803000200176,
+      "elapsed_ms": 0.8861789997354208,
       "on_proof_path": false
     },
     {
@@ -5738,7 +5738,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.5932369999518414,
+      "elapsed_ms": 1.3390099998105143,
       "on_proof_path": false
     },
     {
@@ -5753,7 +5753,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = a ∧ a = a",
-      "elapsed_ms": 1.0320339999907446,
+      "elapsed_ms": 0.6503180002255249,
       "on_proof_path": false
     },
     {
@@ -5912,7 +5912,7 @@
       "reason": "Split the goal into its components",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 2.014591000033761,
+      "elapsed_ms": 1.1633099998107355,
       "on_proof_path": false
     },
     {
@@ -5927,7 +5927,7 @@
       "reason": "Check definitional equality",
       "status": "rejected",
       "error": "Tactic `rfl` failed: No `[refl]` lemma registered for relation\n  And\n\nHint: Add the `[refl]` attribute to reflexivity lemmas for `And` to use this tactic\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = a ∧ a = a",
-      "elapsed_ms": 1.0868049998862261,
+      "elapsed_ms": 1.0099689998241956,
       "on_proof_path": false
     },
     {
@@ -6016,7 +6016,7 @@
       "reason": "Rewrite using a local equality",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 2.0733100000143168,
+      "elapsed_ms": 1.1662249999062624,
       "on_proof_path": false
     },
     {
@@ -6031,7 +6031,7 @@
       "reason": "Rewrite using a local equality",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  b\nin the target expression\n  a = a ∧ a = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = a ∧ a = a",
-      "elapsed_ms": 1.570282999864503,
+      "elapsed_ms": 0.8492379997733224,
       "on_proof_path": false
     },
     {
@@ -6043,10 +6043,10 @@
       "category": "lemma",
       "lemma": "Eq.symm",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.symm`\n  ?b = ?a\nwith the goal\n  a = a ∧ a = a\n\nNote: The full type of `@Eq.symm` is\n  ∀ {α : Sort ?u.810} {a b : α}, a = b → b = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = a ∧ a = a",
-      "elapsed_ms": 3.6241729999346717,
+      "elapsed_ms": 1.5375330003735144,
       "on_proof_path": false
     },
     {
@@ -6058,10 +6058,10 @@
       "category": "lemma",
       "lemma": "Eq.trans",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.trans`\n  ?a = ?c\nwith the goal\n  a = a ∧ a = a\n\nNote: The full type of `@Eq.trans` is\n  ∀ {α : Sort ?u.823} {a b c : α}, a = b → b = c → a = c\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = a ∧ a = a",
-      "elapsed_ms": 2.2054580001622526,
+      "elapsed_ms": 1.6392759998780093,
       "on_proof_path": false
     },
     {
@@ -6076,7 +6076,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  b\nin the target expression\n  a = a ∧ a = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = a ∧ a = a",
-      "elapsed_ms": 1.0156380001262733,
+      "elapsed_ms": 0.8963680002125329,
       "on_proof_path": false
     },
     {
@@ -6091,7 +6091,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  c\nin the target expression\n  a = a ∧ a = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = a ∧ a = a",
-      "elapsed_ms": 0.9308310000051279,
+      "elapsed_ms": 0.8280659999400086,
       "on_proof_path": false
     },
     {
@@ -6106,7 +6106,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ c = c ∧ c = c",
-      "elapsed_ms": 0.6807239999488957,
+      "elapsed_ms": 0.6556759999511996,
       "on_proof_path": false
     },
     {
@@ -6265,7 +6265,7 @@
       "reason": "Split the goal into its components",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.1251739999806887,
+      "elapsed_ms": 1.1060040001211746,
       "on_proof_path": false
     },
     {
@@ -6280,7 +6280,7 @@
       "reason": "Check definitional equality",
       "status": "rejected",
       "error": "Tactic `rfl` failed: No `[refl]` lemma registered for relation\n  And\n\nHint: Add the `[refl]` attribute to reflexivity lemmas for `And` to use this tactic\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ c = c ∧ c = c",
-      "elapsed_ms": 1.379826999936995,
+      "elapsed_ms": 1.0361399999965215,
       "on_proof_path": false
     },
     {
@@ -6295,7 +6295,7 @@
       "reason": "Rewrite using a local equality",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  a\nin the target expression\n  c = c ∧ c = c\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ c = c ∧ c = c",
-      "elapsed_ms": 0.9030789999542321,
+      "elapsed_ms": 0.8151470001394046,
       "on_proof_path": false
     },
     {
@@ -6310,7 +6310,7 @@
       "reason": "Rewrite using a local equality",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  b\nin the target expression\n  c = c ∧ c = c\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ c = c ∧ c = c",
-      "elapsed_ms": 0.9533850000025268,
+      "elapsed_ms": 0.7729330000074697,
       "on_proof_path": false
     },
     {
@@ -6322,10 +6322,10 @@
       "category": "lemma",
       "lemma": "Eq.symm",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.symm`\n  ?b = ?a\nwith the goal\n  c = c ∧ c = c\n\nNote: The full type of `@Eq.symm` is\n  ∀ {α : Sort ?u.854} {a b : α}, a = b → b = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ c = c ∧ c = c",
-      "elapsed_ms": 1.6993070000808075,
+      "elapsed_ms": 1.5849799997340597,
       "on_proof_path": false
     },
     {
@@ -6337,10 +6337,10 @@
       "category": "lemma",
       "lemma": "Eq.trans",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.trans`\n  ?a = ?c\nwith the goal\n  c = c ∧ c = c\n\nNote: The full type of `@Eq.trans` is\n  ∀ {α : Sort ?u.867} {a b c : α}, a = b → b = c → a = c\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ c = c ∧ c = c",
-      "elapsed_ms": 1.7616610000459332,
+      "elapsed_ms": 1.6040340001381992,
       "on_proof_path": false
     },
     {
@@ -6355,7 +6355,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  b\nin the target expression\n  c = c ∧ c = c\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ c = c ∧ c = c",
-      "elapsed_ms": 1.020324999899458,
+      "elapsed_ms": 0.8505200003128266,
       "on_proof_path": false
     },
     {
@@ -6444,7 +6444,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.414108000062697,
+      "elapsed_ms": 1.2367609997454565,
       "on_proof_path": false
     },
     {
@@ -6459,7 +6459,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = a ∧ a = a",
-      "elapsed_ms": 0.8063929999480024,
+      "elapsed_ms": 0.6606590000046708,
       "on_proof_path": false
     },
     {
@@ -6618,7 +6618,7 @@
       "reason": "Split the goal into its components",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.1488789998566062,
+      "elapsed_ms": 1.0749580001174763,
       "on_proof_path": false
     },
     {
@@ -6633,7 +6633,7 @@
       "reason": "Check definitional equality",
       "status": "rejected",
       "error": "Tactic `rfl` failed: No `[refl]` lemma registered for relation\n  And\n\nHint: Add the `[refl]` attribute to reflexivity lemmas for `And` to use this tactic\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = a ∧ a = a",
-      "elapsed_ms": 1.0539659999722062,
+      "elapsed_ms": 1.3969219999125926,
       "on_proof_path": false
     },
     {
@@ -6722,7 +6722,7 @@
       "reason": "Rewrite using a local equality",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.7366940001011244,
+      "elapsed_ms": 1.2875429997620813,
       "on_proof_path": false
     },
     {
@@ -6737,7 +6737,7 @@
       "reason": "Rewrite using a local equality",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  b\nin the target expression\n  a = a ∧ a = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = a ∧ a = a",
-      "elapsed_ms": 1.0021180000876484,
+      "elapsed_ms": 0.8461029997306468,
       "on_proof_path": false
     },
     {
@@ -6749,10 +6749,10 @@
       "category": "lemma",
       "lemma": "Eq.symm",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.symm`\n  ?b = ?a\nwith the goal\n  a = a ∧ a = a\n\nNote: The full type of `@Eq.symm` is\n  ∀ {α : Sort ?u.912} {a b : α}, a = b → b = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = a ∧ a = a",
-      "elapsed_ms": 2.2781879999911325,
+      "elapsed_ms": 1.5853049999350333,
       "on_proof_path": false
     },
     {
@@ -6764,10 +6764,10 @@
       "category": "lemma",
       "lemma": "Eq.trans",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.trans`\n  ?a = ?c\nwith the goal\n  a = a ∧ a = a\n\nNote: The full type of `@Eq.trans` is\n  ∀ {α : Sort ?u.925} {a b c : α}, a = b → b = c → a = c\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = a ∧ a = a",
-      "elapsed_ms": 1.7653070001415472,
+      "elapsed_ms": 1.5480500001103792,
       "on_proof_path": false
     },
     {
@@ -6782,7 +6782,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  b\nin the target expression\n  a = a ∧ a = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = a ∧ a = a",
-      "elapsed_ms": 1.1554889999842999,
+      "elapsed_ms": 0.8173090000127559,
       "on_proof_path": false
     },
     {
@@ -6797,7 +6797,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  c\nin the target expression\n  a = a ∧ a = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = a ∧ a = a",
-      "elapsed_ms": 1.0202050000316376,
+      "elapsed_ms": 0.8165389999703621,
       "on_proof_path": false
     },
     {
@@ -6812,7 +6812,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = c ∧ c = b",
-      "elapsed_ms": 0.6751259998054593,
+      "elapsed_ms": 0.6747759998688707,
       "on_proof_path": false
     },
     {
@@ -6971,7 +6971,7 @@
       "reason": "Split the goal into its components",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.2449040000319656,
+      "elapsed_ms": 1.1828199999399658,
       "on_proof_path": false
     },
     {
@@ -6986,7 +6986,7 @@
       "reason": "Check definitional equality",
       "status": "rejected",
       "error": "Tactic `rfl` failed: The left-hand side\n  b = c\nis not definitionally equal to the right-hand side\n  c = b\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = c ∧ c = b",
-      "elapsed_ms": 1.4282699999057513,
+      "elapsed_ms": 1.1364450001565274,
       "on_proof_path": false
     },
     {
@@ -7001,7 +7001,7 @@
       "reason": "Rewrite using a local equality",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  a\nin the target expression\n  b = c ∧ c = b\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = c ∧ c = b",
-      "elapsed_ms": 1.0750779999852966,
+      "elapsed_ms": 0.8495189999848662,
       "on_proof_path": false
     },
     {
@@ -7090,7 +7090,7 @@
       "reason": "Rewrite using a local equality",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.4325550000648946,
+      "elapsed_ms": 1.256556000043929,
       "on_proof_path": false
     },
     {
@@ -7102,10 +7102,10 @@
       "category": "lemma",
       "lemma": "Eq.symm",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.symm`\n  ?b = ?a\nwith the goal\n  b = c ∧ c = b\n\nNote: The full type of `@Eq.symm` is\n  ∀ {α : Sort ?u.963} {a b : α}, a = b → b = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = c ∧ c = b",
-      "elapsed_ms": 1.7704750000575586,
+      "elapsed_ms": 1.5473180001208675,
       "on_proof_path": false
     },
     {
@@ -7117,10 +7117,10 @@
       "category": "lemma",
       "lemma": "Eq.trans",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.trans`\n  ?a = ?c\nwith the goal\n  b = c ∧ c = b\n\nNote: The full type of `@Eq.trans` is\n  ∀ {α : Sort ?u.976} {a b c : α}, a = b → b = c → a = c\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = c ∧ c = b",
-      "elapsed_ms": 1.8854369998280163,
+      "elapsed_ms": 1.5198870000858733,
       "on_proof_path": false
     },
     {
@@ -7209,7 +7209,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.412651000009646,
+      "elapsed_ms": 1.2541569999484636,
       "on_proof_path": false
     },
     {
@@ -7298,7 +7298,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.3449339999169752,
+      "elapsed_ms": 1.1494790001052024,
       "on_proof_path": false
     },
     {
@@ -7313,7 +7313,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = b ∧ b = a",
-      "elapsed_ms": 0.8461639999950421,
+      "elapsed_ms": 0.6516110001939523,
       "on_proof_path": false
     },
     {
@@ -7472,7 +7472,7 @@
       "reason": "Split the goal into its components",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.1747269998068077,
+      "elapsed_ms": 1.0789829998429923,
       "on_proof_path": false
     },
     {
@@ -7487,7 +7487,7 @@
       "reason": "Check definitional equality",
       "status": "rejected",
       "error": "Tactic `rfl` failed: The left-hand side\n  a = b\nis not definitionally equal to the right-hand side\n  b = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = b ∧ b = a",
-      "elapsed_ms": 1.5294720001293172,
+      "elapsed_ms": 1.0338749998481944,
       "on_proof_path": false
     },
     {
@@ -7576,7 +7576,7 @@
       "reason": "Rewrite using a local equality",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.462169999967955,
+      "elapsed_ms": 1.1304409999866039,
       "on_proof_path": false
     },
     {
@@ -7665,7 +7665,7 @@
       "reason": "Rewrite using a local equality",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.4047340000615804,
+      "elapsed_ms": 1.1803860002146394,
       "on_proof_path": false
     },
     {
@@ -7677,10 +7677,10 @@
       "category": "lemma",
       "lemma": "Eq.symm",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.symm`\n  ?b = ?a\nwith the goal\n  a = b ∧ b = a\n\nNote: The full type of `@Eq.symm` is\n  ∀ {α : Sort ?u.1035} {a b : α}, a = b → b = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = b ∧ b = a",
-      "elapsed_ms": 1.9761529999868799,
+      "elapsed_ms": 1.5511139999944135,
       "on_proof_path": false
     },
     {
@@ -7692,10 +7692,10 @@
       "category": "lemma",
       "lemma": "Eq.trans",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.trans`\n  ?a = ?c\nwith the goal\n  a = b ∧ b = a\n\nNote: The full type of `@Eq.trans` is\n  ∀ {α : Sort ?u.1048} {a b c : α}, a = b → b = c → a = c\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = b ∧ b = a",
-      "elapsed_ms": 1.7595480001091346,
+      "elapsed_ms": 1.6020759999264556,
       "on_proof_path": false
     },
     {
@@ -7784,7 +7784,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.4289200000803248,
+      "elapsed_ms": 1.2263849998817022,
       "on_proof_path": false
     },
     {
@@ -7799,7 +7799,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  c\nin the target expression\n  a = b ∧ b = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = b ∧ b = a",
-      "elapsed_ms": 0.946414000054574,
+      "elapsed_ms": 0.827073999971617,
       "on_proof_path": false
     },
     {
@@ -7814,7 +7814,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = b ∧ b = b",
-      "elapsed_ms": 0.868727999886687,
+      "elapsed_ms": 0.6516510002256837,
       "on_proof_path": false
     },
     {
@@ -7973,7 +7973,7 @@
       "reason": "Split the goal into its components",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.3314640000317013,
+      "elapsed_ms": 1.1023280003428226,
       "on_proof_path": false
     },
     {
@@ -7988,7 +7988,7 @@
       "reason": "Check definitional equality",
       "status": "rejected",
       "error": "Tactic `rfl` failed: No `[refl]` lemma registered for relation\n  And\n\nHint: Add the `[refl]` attribute to reflexivity lemmas for `And` to use this tactic\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = b ∧ b = b",
-      "elapsed_ms": 1.0902909998549148,
+      "elapsed_ms": 1.0473820002516732,
       "on_proof_path": false
     },
     {
@@ -8003,7 +8003,7 @@
       "reason": "Rewrite using a local equality",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  a\nin the target expression\n  b = b ∧ b = b\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = b ∧ b = b",
-      "elapsed_ms": 0.8868949998941389,
+      "elapsed_ms": 0.7998339997357107,
       "on_proof_path": false
     },
     {
@@ -8092,7 +8092,7 @@
       "reason": "Rewrite using a local equality",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.2774930000887252,
+      "elapsed_ms": 1.1063640004067565,
       "on_proof_path": false
     },
     {
@@ -8104,10 +8104,10 @@
       "category": "lemma",
       "lemma": "Eq.symm",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.symm`\n  ?b = ?a\nwith the goal\n  b = b ∧ b = b\n\nNote: The full type of `@Eq.symm` is\n  ∀ {α : Sort ?u.1093} {a b : α}, a = b → b = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = b ∧ b = b",
-      "elapsed_ms": 1.7599780001091858,
+      "elapsed_ms": 1.470442999561783,
       "on_proof_path": false
     },
     {
@@ -8119,10 +8119,10 @@
       "category": "lemma",
       "lemma": "Eq.trans",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.trans`\n  ?a = ?c\nwith the goal\n  b = b ∧ b = b\n\nNote: The full type of `@Eq.trans` is\n  ∀ {α : Sort ?u.1106} {a b c : α}, a = b → b = c → a = c\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = b ∧ b = b",
-      "elapsed_ms": 2.4167670001133956,
+      "elapsed_ms": 1.601805000063905,
       "on_proof_path": false
     },
     {
@@ -8211,7 +8211,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.8886919999658858,
+      "elapsed_ms": 1.1461549997875409,
       "on_proof_path": false
     },
     {
@@ -8226,7 +8226,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  c\nin the target expression\n  b = b ∧ b = b\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = b ∧ b = b",
-      "elapsed_ms": 1.4154450000205543,
+      "elapsed_ms": 0.7998139999472187,
       "on_proof_path": false
     },
     {
@@ -8241,7 +8241,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ c = c ∧ c = c",
-      "elapsed_ms": 1.1788740000611142,
+      "elapsed_ms": 0.7187920000433223,
       "on_proof_path": false
     },
     {
@@ -8400,7 +8400,7 @@
       "reason": "Split the goal into its components",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.2279979998766066,
+      "elapsed_ms": 1.9507500001054723,
       "on_proof_path": false
     },
     {
@@ -8415,7 +8415,7 @@
       "reason": "Check definitional equality",
       "status": "rejected",
       "error": "Tactic `rfl` failed: No `[refl]` lemma registered for relation\n  And\n\nHint: Add the `[refl]` attribute to reflexivity lemmas for `And` to use this tactic\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ c = c ∧ c = c",
-      "elapsed_ms": 1.0795639998377737,
+      "elapsed_ms": 1.0252729998683208,
       "on_proof_path": false
     },
     {
@@ -8430,7 +8430,7 @@
       "reason": "Rewrite using a local equality",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  a\nin the target expression\n  c = c ∧ c = c\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ c = c ∧ c = c",
-      "elapsed_ms": 0.8716419999927894,
+      "elapsed_ms": 0.9031889999278064,
       "on_proof_path": false
     },
     {
@@ -8445,7 +8445,7 @@
       "reason": "Rewrite using a local equality",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  b\nin the target expression\n  c = c ∧ c = c\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ c = c ∧ c = c",
-      "elapsed_ms": 0.9644110000408546,
+      "elapsed_ms": 0.8785220002209826,
       "on_proof_path": false
     },
     {
@@ -8457,10 +8457,10 @@
       "category": "lemma",
       "lemma": "Eq.symm",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.symm`\n  ?b = ?a\nwith the goal\n  c = c ∧ c = c\n\nNote: The full type of `@Eq.symm` is\n  ∀ {α : Sort ?u.1144} {a b : α}, a = b → b = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ c = c ∧ c = c",
-      "elapsed_ms": 2.3357149998446403,
+      "elapsed_ms": 1.8007300000135729,
       "on_proof_path": false
     },
     {
@@ -8472,10 +8472,10 @@
       "category": "lemma",
       "lemma": "Eq.trans",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.trans`\n  ?a = ?c\nwith the goal\n  c = c ∧ c = c\n\nNote: The full type of `@Eq.trans` is\n  ∀ {α : Sort ?u.1157} {a b c : α}, a = b → b = c → a = c\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ c = c ∧ c = c",
-      "elapsed_ms": 1.6684099998656166,
+      "elapsed_ms": 1.6673889999765379,
       "on_proof_path": false
     },
     {
@@ -8490,7 +8490,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  b\nin the target expression\n  c = c ∧ c = c\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ c = c ∧ c = c",
-      "elapsed_ms": 1.1758890000237443,
+      "elapsed_ms": 0.82986899997195,
       "on_proof_path": false
     },
     {
@@ -8579,7 +8579,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.3599870001144154,
+      "elapsed_ms": 1.248689000021841,
       "on_proof_path": false
     },
     {
@@ -8594,7 +8594,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = a ∧ a = a",
-      "elapsed_ms": 0.8276859998659347,
+      "elapsed_ms": 0.6743649996678869,
       "on_proof_path": false
     },
     {
@@ -8753,7 +8753,7 @@
       "reason": "Split the goal into its components",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.1770319999868661,
+      "elapsed_ms": 1.135328999680496,
       "on_proof_path": false
     },
     {
@@ -8768,7 +8768,7 @@
       "reason": "Check definitional equality",
       "status": "rejected",
       "error": "Tactic `rfl` failed: No `[refl]` lemma registered for relation\n  And\n\nHint: Add the `[refl]` attribute to reflexivity lemmas for `And` to use this tactic\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = a ∧ a = a",
-      "elapsed_ms": 1.1074159999679978,
+      "elapsed_ms": 1.0878670000238344,
       "on_proof_path": false
     },
     {
@@ -8857,7 +8857,7 @@
       "reason": "Rewrite using a local equality",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.2669269999605604,
+      "elapsed_ms": 1.1485280001579667,
       "on_proof_path": false
     },
     {
@@ -8872,7 +8872,7 @@
       "reason": "Rewrite using a local equality",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  b\nin the target expression\n  a = a ∧ a = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = a ∧ a = a",
-      "elapsed_ms": 0.9186729998873489,
+      "elapsed_ms": 0.8552770000278542,
       "on_proof_path": false
     },
     {
@@ -8884,10 +8884,10 @@
       "category": "lemma",
       "lemma": "Eq.symm",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.symm`\n  ?b = ?a\nwith the goal\n  a = a ∧ a = a\n\nNote: The full type of `@Eq.symm` is\n  ∀ {α : Sort ?u.1202} {a b : α}, a = b → b = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = a ∧ a = a",
-      "elapsed_ms": 2.441244000010556,
+      "elapsed_ms": 1.6849960002218722,
       "on_proof_path": false
     },
     {
@@ -8899,10 +8899,10 @@
       "category": "lemma",
       "lemma": "Eq.trans",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.trans`\n  ?a = ?c\nwith the goal\n  a = a ∧ a = a\n\nNote: The full type of `@Eq.trans` is\n  ∀ {α : Sort ?u.1215} {a b c : α}, a = b → b = c → a = c\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = a ∧ a = a",
-      "elapsed_ms": 2.5597419999030535,
+      "elapsed_ms": 1.6133270000864286,
       "on_proof_path": false
     },
     {
@@ -8917,7 +8917,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  b\nin the target expression\n  a = a ∧ a = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = a ∧ a = a",
-      "elapsed_ms": 0.8514920000379789,
+      "elapsed_ms": 0.9116119999816874,
       "on_proof_path": false
     },
     {
@@ -8932,7 +8932,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  c\nin the target expression\n  a = a ∧ a = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = a ∧ a = a",
-      "elapsed_ms": 1.4252940000005765,
+      "elapsed_ms": 0.812112000403431,
       "on_proof_path": false
     },
     {
@@ -8947,7 +8947,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ c = c ∧ c = c",
-      "elapsed_ms": 0.7192820000909705,
+      "elapsed_ms": 0.6898279998495127,
       "on_proof_path": false
     },
     {
@@ -9106,7 +9106,7 @@
       "reason": "Split the goal into its components",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.3000470000861242,
+      "elapsed_ms": 1.0564300000623916,
       "on_proof_path": false
     },
     {
@@ -9121,7 +9121,7 @@
       "reason": "Check definitional equality",
       "status": "rejected",
       "error": "Tactic `rfl` failed: No `[refl]` lemma registered for relation\n  And\n\nHint: Add the `[refl]` attribute to reflexivity lemmas for `And` to use this tactic\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ c = c ∧ c = c",
-      "elapsed_ms": 1.1207659999854513,
+      "elapsed_ms": 1.0449319997860584,
       "on_proof_path": false
     },
     {
@@ -9136,7 +9136,7 @@
       "reason": "Rewrite using a local equality",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  a\nin the target expression\n  c = c ∧ c = c\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ c = c ∧ c = c",
-      "elapsed_ms": 0.8413660000314849,
+      "elapsed_ms": 1.1085780001849344,
       "on_proof_path": false
     },
     {
@@ -9151,7 +9151,7 @@
       "reason": "Rewrite using a local equality",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  b\nin the target expression\n  c = c ∧ c = c\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ c = c ∧ c = c",
-      "elapsed_ms": 0.8793429999514046,
+      "elapsed_ms": 0.9244409998245828,
       "on_proof_path": false
     },
     {
@@ -9163,10 +9163,10 @@
       "category": "lemma",
       "lemma": "Eq.symm",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.symm`\n  ?b = ?a\nwith the goal\n  c = c ∧ c = c\n\nNote: The full type of `@Eq.symm` is\n  ∀ {α : Sort ?u.1246} {a b : α}, a = b → b = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ c = c ∧ c = c",
-      "elapsed_ms": 1.7247549999410694,
+      "elapsed_ms": 1.5603070000906882,
       "on_proof_path": false
     },
     {
@@ -9178,10 +9178,10 @@
       "category": "lemma",
       "lemma": "Eq.trans",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.trans`\n  ?a = ?c\nwith the goal\n  c = c ∧ c = c\n\nNote: The full type of `@Eq.trans` is\n  ∀ {α : Sort ?u.1259} {a b c : α}, a = b → b = c → a = c\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ c = c ∧ c = c",
-      "elapsed_ms": 1.9578960000217194,
+      "elapsed_ms": 1.7010799997478898,
       "on_proof_path": false
     },
     {
@@ -9196,7 +9196,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  b\nin the target expression\n  c = c ∧ c = c\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ c = c ∧ c = c",
-      "elapsed_ms": 0.8871149998412875,
+      "elapsed_ms": 0.8876860001691966,
       "on_proof_path": false
     },
     {
@@ -9285,7 +9285,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.2683889999607345,
+      "elapsed_ms": 1.3886300002923235,
       "on_proof_path": false
     },
     {
@@ -9300,7 +9300,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = c ∧ c = a",
-      "elapsed_ms": 0.7050710000839899,
+      "elapsed_ms": 0.7935339999676216,
       "on_proof_path": false
     },
     {
@@ -9459,7 +9459,7 @@
       "reason": "Split the goal into its components",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.0916430001088884,
+      "elapsed_ms": 1.0555789999671106,
       "on_proof_path": false
     },
     {
@@ -9474,7 +9474,7 @@
       "reason": "Check definitional equality",
       "status": "rejected",
       "error": "Tactic `rfl` failed: The left-hand side\n  a = c\nis not definitionally equal to the right-hand side\n  c = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = c ∧ c = a",
-      "elapsed_ms": 1.9126290001167945,
+      "elapsed_ms": 1.197200999740744,
       "on_proof_path": false
     },
     {
@@ -9563,7 +9563,7 @@
       "reason": "Rewrite using a local equality",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.9733200001610385,
+      "elapsed_ms": 1.4056949999030621,
       "on_proof_path": false
     },
     {
@@ -9578,7 +9578,7 @@
       "reason": "Rewrite using a local equality",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  b\nin the target expression\n  a = c ∧ c = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = c ∧ c = a",
-      "elapsed_ms": 1.1941770001158147,
+      "elapsed_ms": 0.9504399999968882,
       "on_proof_path": false
     },
     {
@@ -9590,10 +9590,10 @@
       "category": "lemma",
       "lemma": "Eq.symm",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.symm`\n  ?b = ?a\nwith the goal\n  a = c ∧ c = a\n\nNote: The full type of `@Eq.symm` is\n  ∀ {α : Sort ?u.1304} {a b : α}, a = b → b = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = c ∧ c = a",
-      "elapsed_ms": 1.8226329998469737,
+      "elapsed_ms": 1.5519849998781865,
       "on_proof_path": false
     },
     {
@@ -9605,10 +9605,10 @@
       "category": "lemma",
       "lemma": "Eq.trans",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.trans`\n  ?a = ?c\nwith the goal\n  a = c ∧ c = a\n\nNote: The full type of `@Eq.trans` is\n  ∀ {α : Sort ?u.1317} {a b c : α}, a = b → b = c → a = c\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = c ∧ c = a",
-      "elapsed_ms": 1.9263579999915237,
+      "elapsed_ms": 1.6480799999953888,
       "on_proof_path": false
     },
     {
@@ -9623,7 +9623,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  b\nin the target expression\n  a = c ∧ c = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = c ∧ c = a",
-      "elapsed_ms": 0.8920719999423454,
+      "elapsed_ms": 1.0887979997278308,
       "on_proof_path": false
     },
     {
@@ -9712,7 +9712,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.2823600000047009,
+      "elapsed_ms": 1.355909999801952,
       "on_proof_path": false
     },
     {
@@ -9727,7 +9727,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = b ∧ b = b",
-      "elapsed_ms": 0.8109650000278634,
+      "elapsed_ms": 0.6346449999909964,
       "on_proof_path": false
     },
     {
@@ -9886,7 +9886,7 @@
       "reason": "Split the goal into its components",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.6582850000759208,
+      "elapsed_ms": 1.104161000057502,
       "on_proof_path": false
     },
     {
@@ -9901,7 +9901,7 @@
       "reason": "Check definitional equality",
       "status": "rejected",
       "error": "Tactic `rfl` failed: No `[refl]` lemma registered for relation\n  And\n\nHint: Add the `[refl]` attribute to reflexivity lemmas for `And` to use this tactic\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = b ∧ b = b",
-      "elapsed_ms": 1.054586999998719,
+      "elapsed_ms": 1.0166299998672912,
       "on_proof_path": false
     },
     {
@@ -9916,7 +9916,7 @@
       "reason": "Rewrite using a local equality",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  a\nin the target expression\n  b = b ∧ b = b\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = b ∧ b = b",
-      "elapsed_ms": 1.2146879998908844,
+      "elapsed_ms": 0.7758870001453033,
       "on_proof_path": false
     },
     {
@@ -10005,7 +10005,7 @@
       "reason": "Rewrite using a local equality",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 2.829118000136077,
+      "elapsed_ms": 1.218394000261469,
       "on_proof_path": false
     },
     {
@@ -10017,10 +10017,10 @@
       "category": "lemma",
       "lemma": "Eq.symm",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.symm`\n  ?b = ?a\nwith the goal\n  b = b ∧ b = b\n\nNote: The full type of `@Eq.symm` is\n  ∀ {α : Sort ?u.1362} {a b : α}, a = b → b = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = b ∧ b = b",
-      "elapsed_ms": 4.825761999882161,
+      "elapsed_ms": 1.569301000017731,
       "on_proof_path": false
     },
     {
@@ -10032,10 +10032,10 @@
       "category": "lemma",
       "lemma": "Eq.trans",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.trans`\n  ?a = ?c\nwith the goal\n  b = b ∧ b = b\n\nNote: The full type of `@Eq.trans` is\n  ∀ {α : Sort ?u.1375} {a b c : α}, a = b → b = c → a = c\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = b ∧ b = b",
-      "elapsed_ms": 1.8095030000040424,
+      "elapsed_ms": 1.6490910002175951,
       "on_proof_path": false
     },
     {
@@ -10124,7 +10124,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.3556700000663113,
+      "elapsed_ms": 1.2048230000800686,
       "on_proof_path": false
     },
     {
@@ -10139,7 +10139,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  c\nin the target expression\n  b = b ∧ b = b\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = b ∧ b = b",
-      "elapsed_ms": 0.9262030000627419,
+      "elapsed_ms": 0.8467339998787793,
       "on_proof_path": false
     },
     {
@@ -10154,7 +10154,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = b ∧ b = b",
-      "elapsed_ms": 0.8399939999890194,
+      "elapsed_ms": 0.6392519999280921,
       "on_proof_path": false
     },
     {
@@ -10313,7 +10313,7 @@
       "reason": "Split the goal into its components",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.7094320000978769,
+      "elapsed_ms": 1.0949470001833106,
       "on_proof_path": false
     },
     {
@@ -10328,7 +10328,7 @@
       "reason": "Check definitional equality",
       "status": "rejected",
       "error": "Tactic `rfl` failed: No `[refl]` lemma registered for relation\n  And\n\nHint: Add the `[refl]` attribute to reflexivity lemmas for `And` to use this tactic\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = b ∧ b = b",
-      "elapsed_ms": 1.2586540001393587,
+      "elapsed_ms": 1.003519999812852,
       "on_proof_path": false
     },
     {
@@ -10343,7 +10343,7 @@
       "reason": "Rewrite using a local equality",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  a\nin the target expression\n  b = b ∧ b = b\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = b ∧ b = b",
-      "elapsed_ms": 0.9559380000609963,
+      "elapsed_ms": 0.8321719997184118,
       "on_proof_path": false
     },
     {
@@ -10432,7 +10432,7 @@
       "reason": "Rewrite using a local equality",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.4895609999712178,
+      "elapsed_ms": 1.1580929999581713,
       "on_proof_path": false
     },
     {
@@ -10444,10 +10444,10 @@
       "category": "lemma",
       "lemma": "Eq.symm",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.symm`\n  ?b = ?a\nwith the goal\n  b = b ∧ b = b\n\nNote: The full type of `@Eq.symm` is\n  ∀ {α : Sort ?u.1420} {a b : α}, a = b → b = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = b ∧ b = b",
-      "elapsed_ms": 1.800609999918379,
+      "elapsed_ms": 1.6416299999946204,
       "on_proof_path": false
     },
     {
@@ -10459,10 +10459,10 @@
       "category": "lemma",
       "lemma": "Eq.trans",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.trans`\n  ?a = ?c\nwith the goal\n  b = b ∧ b = b\n\nNote: The full type of `@Eq.trans` is\n  ∀ {α : Sort ?u.1433} {a b c : α}, a = b → b = c → a = c\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = b ∧ b = b",
-      "elapsed_ms": 2.1655890000147338,
+      "elapsed_ms": 1.532265000150801,
       "on_proof_path": false
     },
     {
@@ -10551,7 +10551,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.399715999923501,
+      "elapsed_ms": 1.1475269998300064,
       "on_proof_path": false
     },
     {
@@ -10566,7 +10566,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  c\nin the target expression\n  b = b ∧ b = b\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = b ∧ b = b",
-      "elapsed_ms": 1.100166000014724,
+      "elapsed_ms": 0.8572000001549895,
       "on_proof_path": false
     },
     {
@@ -10581,7 +10581,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = c ∧ c = a",
-      "elapsed_ms": 0.7027469998774905,
+      "elapsed_ms": 0.6028769998920325,
       "on_proof_path": false
     },
     {
@@ -10740,7 +10740,7 @@
       "reason": "Split the goal into its components",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.1463250000360858,
+      "elapsed_ms": 1.0167000000365078,
       "on_proof_path": false
     },
     {
@@ -10755,7 +10755,7 @@
       "reason": "Check definitional equality",
       "status": "rejected",
       "error": "Tactic `rfl` failed: The left-hand side\n  a = c\nis not definitionally equal to the right-hand side\n  c = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = c ∧ c = a",
-      "elapsed_ms": 1.2794960000519495,
+      "elapsed_ms": 1.0460940002303687,
       "on_proof_path": false
     },
     {
@@ -10844,7 +10844,7 @@
       "reason": "Rewrite using a local equality",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.3119939999342023,
+      "elapsed_ms": 1.2432710000211955,
       "on_proof_path": false
     },
     {
@@ -10859,7 +10859,7 @@
       "reason": "Rewrite using a local equality",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  b\nin the target expression\n  a = c ∧ c = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = c ∧ c = a",
-      "elapsed_ms": 2.321192999943378,
+      "elapsed_ms": 0.8096879996628559,
       "on_proof_path": false
     },
     {
@@ -10871,10 +10871,10 @@
       "category": "lemma",
       "lemma": "Eq.symm",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.symm`\n  ?b = ?a\nwith the goal\n  a = c ∧ c = a\n\nNote: The full type of `@Eq.symm` is\n  ∀ {α : Sort ?u.1478} {a b : α}, a = b → b = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = c ∧ c = a",
-      "elapsed_ms": 1.8504950000988174,
+      "elapsed_ms": 1.491855000040232,
       "on_proof_path": false
     },
     {
@@ -10886,10 +10886,10 @@
       "category": "lemma",
       "lemma": "Eq.trans",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.trans`\n  ?a = ?c\nwith the goal\n  a = c ∧ c = a\n\nNote: The full type of `@Eq.trans` is\n  ∀ {α : Sort ?u.1491} {a b c : α}, a = b → b = c → a = c\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = c ∧ c = a",
-      "elapsed_ms": 3.609040999890567,
+      "elapsed_ms": 1.684044000285212,
       "on_proof_path": false
     },
     {
@@ -10904,7 +10904,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  b\nin the target expression\n  a = c ∧ c = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = c ∧ c = a",
-      "elapsed_ms": 1.0989239999616984,
+      "elapsed_ms": 0.8265439996648638,
       "on_proof_path": false
     },
     {
@@ -10993,7 +10993,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.5887310000834987,
+      "elapsed_ms": 1.208112999847799,
       "on_proof_path": false
     },
     {
@@ -11008,7 +11008,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = a ∧ a = a",
-      "elapsed_ms": 0.827776000051017,
+      "elapsed_ms": 0.7146850002754945,
       "on_proof_path": false
     },
     {
@@ -11167,7 +11167,7 @@
       "reason": "Split the goal into its components",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 2.6723810001385573,
+      "elapsed_ms": 1.127977000123792,
       "on_proof_path": false
     },
     {
@@ -11182,7 +11182,7 @@
       "reason": "Check definitional equality",
       "status": "rejected",
       "error": "Tactic `rfl` failed: No `[refl]` lemma registered for relation\n  And\n\nHint: Add the `[refl]` attribute to reflexivity lemmas for `And` to use this tactic\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = a ∧ a = a",
-      "elapsed_ms": 1.6327329999512585,
+      "elapsed_ms": 1.244878000306926,
       "on_proof_path": false
     },
     {
@@ -11271,7 +11271,7 @@
       "reason": "Rewrite using a local equality",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.6752110000197717,
+      "elapsed_ms": 1.1721890000444546,
       "on_proof_path": false
     },
     {
@@ -11286,7 +11286,7 @@
       "reason": "Rewrite using a local equality",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  b\nin the target expression\n  a = a ∧ a = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = a ∧ a = a",
-      "elapsed_ms": 1.2459050001325522,
+      "elapsed_ms": 0.8023569998840685,
       "on_proof_path": false
     },
     {
@@ -11298,10 +11298,10 @@
       "category": "lemma",
       "lemma": "Eq.symm",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.symm`\n  ?b = ?a\nwith the goal\n  a = a ∧ a = a\n\nNote: The full type of `@Eq.symm` is\n  ∀ {α : Sort ?u.1536} {a b : α}, a = b → b = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = a ∧ a = a",
-      "elapsed_ms": 2.515205000008791,
+      "elapsed_ms": 1.5513939997617854,
       "on_proof_path": false
     },
     {
@@ -11313,10 +11313,10 @@
       "category": "lemma",
       "lemma": "Eq.trans",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.trans`\n  ?a = ?c\nwith the goal\n  a = a ∧ a = a\n\nNote: The full type of `@Eq.trans` is\n  ∀ {α : Sort ?u.1549} {a b c : α}, a = b → b = c → a = c\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = a ∧ a = a",
-      "elapsed_ms": 1.794569999901796,
+      "elapsed_ms": 1.5663469998798973,
       "on_proof_path": false
     },
     {
@@ -11331,7 +11331,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  b\nin the target expression\n  a = a ∧ a = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = a ∧ a = a",
-      "elapsed_ms": 1.093385999865859,
+      "elapsed_ms": 0.8151020001605502,
       "on_proof_path": false
     },
     {
@@ -11346,7 +11346,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  c\nin the target expression\n  a = a ∧ a = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = a ∧ a = a",
-      "elapsed_ms": 1.1309320000236767,
+      "elapsed_ms": 0.7675849997212936,
       "on_proof_path": false
     },
     {
@@ -11361,7 +11361,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = b ∧ b = b",
-      "elapsed_ms": 0.8182610001767898,
+      "elapsed_ms": 0.6089270000302349,
       "on_proof_path": false
     },
     {
@@ -11520,7 +11520,7 @@
       "reason": "Split the goal into its components",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.230772000099023,
+      "elapsed_ms": 1.1252580002292234,
       "on_proof_path": false
     },
     {
@@ -11535,7 +11535,7 @@
       "reason": "Check definitional equality",
       "status": "rejected",
       "error": "Tactic `rfl` failed: No `[refl]` lemma registered for relation\n  And\n\nHint: Add the `[refl]` attribute to reflexivity lemmas for `And` to use this tactic\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = b ∧ b = b",
-      "elapsed_ms": 1.2940669998897647,
+      "elapsed_ms": 1.043128999754117,
       "on_proof_path": false
     },
     {
@@ -11550,7 +11550,7 @@
       "reason": "Rewrite using a local equality",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  a\nin the target expression\n  b = b ∧ b = b\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = b ∧ b = b",
-      "elapsed_ms": 1.2808670001049904,
+      "elapsed_ms": 0.8302490000460239,
       "on_proof_path": false
     },
     {
@@ -11639,7 +11639,7 @@
       "reason": "Rewrite using a local equality",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.955972999894584,
+      "elapsed_ms": 1.136460999987321,
       "on_proof_path": false
     },
     {
@@ -11651,10 +11651,10 @@
       "category": "lemma",
       "lemma": "Eq.symm",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.symm`\n  ?b = ?a\nwith the goal\n  b = b ∧ b = b\n\nNote: The full type of `@Eq.symm` is\n  ∀ {α : Sort ?u.1587} {a b : α}, a = b → b = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = b ∧ b = b",
-      "elapsed_ms": 3.282749999925727,
+      "elapsed_ms": 1.5961619997142407,
       "on_proof_path": false
     },
     {
@@ -11666,10 +11666,10 @@
       "category": "lemma",
       "lemma": "Eq.trans",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.trans`\n  ?a = ?c\nwith the goal\n  b = b ∧ b = b\n\nNote: The full type of `@Eq.trans` is\n  ∀ {α : Sort ?u.1600} {a b c : α}, a = b → b = c → a = c\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = b ∧ b = b",
-      "elapsed_ms": 2.615615999957299,
+      "elapsed_ms": 1.5788259997862042,
       "on_proof_path": false
     },
     {
@@ -11758,7 +11758,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 2.260492000004888,
+      "elapsed_ms": 1.1852130000988836,
       "on_proof_path": false
     },
     {
@@ -11773,7 +11773,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  c\nin the target expression\n  b = b ∧ b = b\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = b ∧ b = b",
-      "elapsed_ms": 0.9643410000990116,
+      "elapsed_ms": 0.7971700001689896,
       "on_proof_path": false
     },
     {
@@ -11788,7 +11788,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = b ∧ b = b",
-      "elapsed_ms": 0.7391920000827668,
+      "elapsed_ms": 0.6609140000364278,
       "on_proof_path": false
     },
     {
@@ -11947,7 +11947,7 @@
       "reason": "Split the goal into its components",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.155057999994824,
+      "elapsed_ms": 1.0823839998010953,
       "on_proof_path": false
     },
     {
@@ -11962,7 +11962,7 @@
       "reason": "Check definitional equality",
       "status": "rejected",
       "error": "Tactic `rfl` failed: No `[refl]` lemma registered for relation\n  And\n\nHint: Add the `[refl]` attribute to reflexivity lemmas for `And` to use this tactic\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = b ∧ b = b",
-      "elapsed_ms": 1.4137879998088465,
+      "elapsed_ms": 1.0755640000752464,
       "on_proof_path": false
     },
     {
@@ -11977,7 +11977,7 @@
       "reason": "Rewrite using a local equality",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  a\nin the target expression\n  b = b ∧ b = b\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = b ∧ b = b",
-      "elapsed_ms": 1.0252829999899404,
+      "elapsed_ms": 0.9047219996318745,
       "on_proof_path": false
     },
     {
@@ -12066,7 +12066,7 @@
       "reason": "Rewrite using a local equality",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.3296509998781403,
+      "elapsed_ms": 1.1714829997799825,
       "on_proof_path": false
     },
     {
@@ -12078,10 +12078,10 @@
       "category": "lemma",
       "lemma": "Eq.symm",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.symm`\n  ?b = ?a\nwith the goal\n  b = b ∧ b = b\n\nNote: The full type of `@Eq.symm` is\n  ∀ {α : Sort ?u.1645} {a b : α}, a = b → b = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = b ∧ b = b",
-      "elapsed_ms": 1.8894729998919502,
+      "elapsed_ms": 1.6516900000169699,
       "on_proof_path": false
     },
     {
@@ -12093,10 +12093,10 @@
       "category": "lemma",
       "lemma": "Eq.trans",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.trans`\n  ?a = ?c\nwith the goal\n  b = b ∧ b = b\n\nNote: The full type of `@Eq.trans` is\n  ∀ {α : Sort ?u.1658} {a b c : α}, a = b → b = c → a = c\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = b ∧ b = b",
-      "elapsed_ms": 2.107021000028908,
+      "elapsed_ms": 1.5900630000942328,
       "on_proof_path": false
     },
     {
@@ -12185,7 +12185,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.6203190000396717,
+      "elapsed_ms": 1.1940670001422404,
       "on_proof_path": false
     },
     {
@@ -12200,7 +12200,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  c\nin the target expression\n  b = b ∧ b = b\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = b ∧ b = b",
-      "elapsed_ms": 1.4755709999008104,
+      "elapsed_ms": 0.8013460001166095,
       "on_proof_path": false
     },
     {
@@ -12215,7 +12215,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = b ∧ b = b",
-      "elapsed_ms": 0.6380199999966862,
+      "elapsed_ms": 0.6164080000417016,
       "on_proof_path": false
     },
     {
@@ -12374,7 +12374,7 @@
       "reason": "Split the goal into its components",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.065973999857306,
+      "elapsed_ms": 1.100406000205112,
       "on_proof_path": false
     },
     {
@@ -12389,7 +12389,7 @@
       "reason": "Check definitional equality",
       "status": "rejected",
       "error": "Tactic `rfl` failed: No `[refl]` lemma registered for relation\n  And\n\nHint: Add the `[refl]` attribute to reflexivity lemmas for `And` to use this tactic\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = b ∧ b = b",
-      "elapsed_ms": 1.3795459999528248,
+      "elapsed_ms": 1.1187529999006074,
       "on_proof_path": false
     },
     {
@@ -12404,7 +12404,7 @@
       "reason": "Rewrite using a local equality",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  a\nin the target expression\n  b = b ∧ b = b\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = b ∧ b = b",
-      "elapsed_ms": 0.8331829999406182,
+      "elapsed_ms": 0.7883059997766395,
       "on_proof_path": false
     },
     {
@@ -12493,7 +12493,7 @@
       "reason": "Rewrite using a local equality",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.223520999928951,
+      "elapsed_ms": 1.3463159998536867,
       "on_proof_path": false
     },
     {
@@ -12505,10 +12505,10 @@
       "category": "lemma",
       "lemma": "Eq.symm",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.symm`\n  ?b = ?a\nwith the goal\n  b = b ∧ b = b\n\nNote: The full type of `@Eq.symm` is\n  ∀ {α : Sort ?u.1703} {a b : α}, a = b → b = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = b ∧ b = b",
-      "elapsed_ms": 1.7104640000979998,
+      "elapsed_ms": 1.50502399992547,
       "on_proof_path": false
     },
     {
@@ -12520,10 +12520,10 @@
       "category": "lemma",
       "lemma": "Eq.trans",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.trans`\n  ?a = ?c\nwith the goal\n  b = b ∧ b = b\n\nNote: The full type of `@Eq.trans` is\n  ∀ {α : Sort ?u.1716} {a b c : α}, a = b → b = c → a = c\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = b ∧ b = b",
-      "elapsed_ms": 1.536643000008553,
+      "elapsed_ms": 1.68959199982055,
       "on_proof_path": false
     },
     {
@@ -12612,7 +12612,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.1713829999280279,
+      "elapsed_ms": 1.3981639999656181,
       "on_proof_path": false
     },
     {
@@ -12627,7 +12627,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  c\nin the target expression\n  b = b ∧ b = b\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = b ∧ b = b",
-      "elapsed_ms": 1.0588329998881818,
+      "elapsed_ms": 0.8603299997957947,
       "on_proof_path": false
     },
     {
@@ -12642,7 +12642,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = b ∧ b = b",
-      "elapsed_ms": 0.7474349999938568,
+      "elapsed_ms": 0.6300580002971401,
       "on_proof_path": false
     },
     {
@@ -12801,7 +12801,7 @@
       "reason": "Split the goal into its components",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.6538079999008914,
+      "elapsed_ms": 1.0837109998647065,
       "on_proof_path": false
     },
     {
@@ -12816,7 +12816,7 @@
       "reason": "Check definitional equality",
       "status": "rejected",
       "error": "Tactic `rfl` failed: No `[refl]` lemma registered for relation\n  And\n\nHint: Add the `[refl]` attribute to reflexivity lemmas for `And` to use this tactic\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = b ∧ b = b",
-      "elapsed_ms": 1.5555810000478232,
+      "elapsed_ms": 1.0460490002515144,
       "on_proof_path": false
     },
     {
@@ -12831,7 +12831,7 @@
       "reason": "Rewrite using a local equality",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  a\nin the target expression\n  b = b ∧ b = b\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = b ∧ b = b",
-      "elapsed_ms": 1.1715230000390875,
+      "elapsed_ms": 0.7903699997768854,
       "on_proof_path": false
     },
     {
@@ -12920,7 +12920,7 @@
       "reason": "Rewrite using a local equality",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.7206200000146055,
+      "elapsed_ms": 1.2545269996735442,
       "on_proof_path": false
     },
     {
@@ -12932,10 +12932,10 @@
       "category": "lemma",
       "lemma": "Eq.symm",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.symm`\n  ?b = ?a\nwith the goal\n  b = b ∧ b = b\n\nNote: The full type of `@Eq.symm` is\n  ∀ {α : Sort ?u.1761} {a b : α}, a = b → b = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = b ∧ b = b",
-      "elapsed_ms": 2.2417029999814986,
+      "elapsed_ms": 1.538795000215032,
       "on_proof_path": false
     },
     {
@@ -12947,10 +12947,10 @@
       "category": "lemma",
       "lemma": "Eq.trans",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.trans`\n  ?a = ?c\nwith the goal\n  b = b ∧ b = b\n\nNote: The full type of `@Eq.trans` is\n  ∀ {α : Sort ?u.1774} {a b c : α}, a = b → b = c → a = c\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = b ∧ b = b",
-      "elapsed_ms": 2.3801719999028137,
+      "elapsed_ms": 1.6312650000145368,
       "on_proof_path": false
     },
     {
@@ -13039,7 +13039,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.2897509998310852,
+      "elapsed_ms": 1.1700160002874327,
       "on_proof_path": false
     },
     {
@@ -13054,7 +13054,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  c\nin the target expression\n  b = b ∧ b = b\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = b ∧ b = b",
-      "elapsed_ms": 1.909652999984246,
+      "elapsed_ms": 0.8546609997210908,
       "on_proof_path": false
     },
     {
@@ -13069,7 +13069,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ c = c ∧ c = c",
-      "elapsed_ms": 1.1093789998994907,
+      "elapsed_ms": 0.6713299999319133,
       "on_proof_path": false
     },
     {
@@ -13228,7 +13228,7 @@
       "reason": "Split the goal into its components",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 2.742787999977736,
+      "elapsed_ms": 1.0396739999123383,
       "on_proof_path": false
     },
     {
@@ -13243,7 +13243,7 @@
       "reason": "Check definitional equality",
       "status": "rejected",
       "error": "Tactic `rfl` failed: No `[refl]` lemma registered for relation\n  And\n\nHint: Add the `[refl]` attribute to reflexivity lemmas for `And` to use this tactic\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ c = c ∧ c = c",
-      "elapsed_ms": 1.2708829999610316,
+      "elapsed_ms": 0.9973760002139898,
       "on_proof_path": false
     },
     {
@@ -13258,7 +13258,7 @@
       "reason": "Rewrite using a local equality",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  a\nin the target expression\n  c = c ∧ c = c\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ c = c ∧ c = c",
-      "elapsed_ms": 3.3512039999550325,
+      "elapsed_ms": 0.8109310001600534,
       "on_proof_path": false
     },
     {
@@ -13273,7 +13273,7 @@
       "reason": "Rewrite using a local equality",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  b\nin the target expression\n  c = c ∧ c = c\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ c = c ∧ c = c",
-      "elapsed_ms": 0.8023469999898225,
+      "elapsed_ms": 0.7554870003332326,
       "on_proof_path": false
     },
     {
@@ -13285,10 +13285,10 @@
       "category": "lemma",
       "lemma": "Eq.symm",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.symm`\n  ?b = ?a\nwith the goal\n  c = c ∧ c = c\n\nNote: The full type of `@Eq.symm` is\n  ∀ {α : Sort ?u.1812} {a b : α}, a = b → b = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ c = c ∧ c = c",
-      "elapsed_ms": 1.6297820000090724,
+      "elapsed_ms": 1.4433220003411407,
       "on_proof_path": false
     },
     {
@@ -13300,10 +13300,10 @@
       "category": "lemma",
       "lemma": "Eq.trans",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.trans`\n  ?a = ?c\nwith the goal\n  c = c ∧ c = c\n\nNote: The full type of `@Eq.trans` is\n  ∀ {α : Sort ?u.1825} {a b c : α}, a = b → b = c → a = c\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ c = c ∧ c = c",
-      "elapsed_ms": 2.390917999946396,
+      "elapsed_ms": 2.8229980002834054,
       "on_proof_path": false
     },
     {
@@ -13318,7 +13318,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  b\nin the target expression\n  c = c ∧ c = c\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ c = c ∧ c = c",
-      "elapsed_ms": 0.838241000110429,
+      "elapsed_ms": 1.3749490003647225,
       "on_proof_path": false
     },
     {
@@ -13407,7 +13407,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.3333160000001953,
+      "elapsed_ms": 2.25031600029979,
       "on_proof_path": false
     },
     {
@@ -13422,7 +13422,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = c ∧ c = a",
-      "elapsed_ms": 0.8781059998455021,
+      "elapsed_ms": 1.1218880003980303,
       "on_proof_path": false
     },
     {
@@ -13581,7 +13581,7 @@
       "reason": "Split the goal into its components",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.3076669999918522,
+      "elapsed_ms": 1.3474180000230263,
       "on_proof_path": false
     },
     {
@@ -13596,7 +13596,7 @@
       "reason": "Check definitional equality",
       "status": "rejected",
       "error": "Tactic `rfl` failed: The left-hand side\n  a = c\nis not definitionally equal to the right-hand side\n  c = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = c ∧ c = a",
-      "elapsed_ms": 1.0877170000185288,
+      "elapsed_ms": 1.4316390002022672,
       "on_proof_path": false
     },
     {
@@ -13685,7 +13685,7 @@
       "reason": "Rewrite using a local equality",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.3990710001507978,
+      "elapsed_ms": 1.3336060001165606,
       "on_proof_path": false
     },
     {
@@ -13700,7 +13700,7 @@
       "reason": "Rewrite using a local equality",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  b\nin the target expression\n  a = c ∧ c = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = c ∧ c = a",
-      "elapsed_ms": 0.8300389999931213,
+      "elapsed_ms": 0.9478370002398151,
       "on_proof_path": false
     },
     {
@@ -13712,10 +13712,10 @@
       "category": "lemma",
       "lemma": "Eq.symm",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.symm`\n  ?b = ?a\nwith the goal\n  a = c ∧ c = a\n\nNote: The full type of `@Eq.symm` is\n  ∀ {α : Sort ?u.1870} {a b : α}, a = b → b = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = c ∧ c = a",
-      "elapsed_ms": 1.710759999923539,
+      "elapsed_ms": 2.009754000027897,
       "on_proof_path": false
     },
     {
@@ -13727,10 +13727,10 @@
       "category": "lemma",
       "lemma": "Eq.trans",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.trans`\n  ?a = ?c\nwith the goal\n  a = c ∧ c = a\n\nNote: The full type of `@Eq.trans` is\n  ∀ {α : Sort ?u.1883} {a b c : α}, a = b → b = c → a = c\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = c ∧ c = a",
-      "elapsed_ms": 2.353841999820361,
+      "elapsed_ms": 1.8247759999212576,
       "on_proof_path": false
     },
     {
@@ -13745,7 +13745,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  b\nin the target expression\n  a = c ∧ c = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = c ∧ c = a",
-      "elapsed_ms": 0.8705899999768008,
+      "elapsed_ms": 1.0007659998336749,
       "on_proof_path": false
     },
     {
@@ -13834,7 +13834,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.3046930000655266,
+      "elapsed_ms": 1.6524070001651125,
       "on_proof_path": false
     },
     {
@@ -13849,7 +13849,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = b ∧ b = b",
-      "elapsed_ms": 0.6566680001469649,
+      "elapsed_ms": 0.7175399996413034,
       "on_proof_path": false
     },
     {
@@ -14008,7 +14008,7 @@
       "reason": "Split the goal into its components",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.0530639999615232,
+      "elapsed_ms": 1.1190240002179053,
       "on_proof_path": false
     },
     {
@@ -14023,7 +14023,7 @@
       "reason": "Check definitional equality",
       "status": "rejected",
       "error": "Tactic `rfl` failed: No `[refl]` lemma registered for relation\n  And\n\nHint: Add the `[refl]` attribute to reflexivity lemmas for `And` to use this tactic\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = b ∧ b = b",
-      "elapsed_ms": 1.0345370001232368,
+      "elapsed_ms": 1.052845000231173,
       "on_proof_path": false
     },
     {
@@ -14038,7 +14038,7 @@
       "reason": "Rewrite using a local equality",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  a\nin the target expression\n  b = b ∧ b = b\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = b ∧ b = b",
-      "elapsed_ms": 0.9028590000070835,
+      "elapsed_ms": 1.089589999992313,
       "on_proof_path": false
     },
     {
@@ -14127,7 +14127,7 @@
       "reason": "Rewrite using a local equality",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.1891100000411825,
+      "elapsed_ms": 1.1825400001725939,
       "on_proof_path": false
     },
     {
@@ -14139,10 +14139,10 @@
       "category": "lemma",
       "lemma": "Eq.symm",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.symm`\n  ?b = ?a\nwith the goal\n  b = b ∧ b = b\n\nNote: The full type of `@Eq.symm` is\n  ∀ {α : Sort ?u.1928} {a b : α}, a = b → b = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = b ∧ b = b",
-      "elapsed_ms": 1.5341079999871,
+      "elapsed_ms": 1.5964529998200305,
       "on_proof_path": false
     },
     {
@@ -14154,10 +14154,10 @@
       "category": "lemma",
       "lemma": "Eq.trans",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.trans`\n  ?a = ?c\nwith the goal\n  b = b ∧ b = b\n\nNote: The full type of `@Eq.trans` is\n  ∀ {α : Sort ?u.1941} {a b c : α}, a = b → b = c → a = c\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = b ∧ b = b",
-      "elapsed_ms": 1.644895000026736,
+      "elapsed_ms": 2.8309199997238466,
       "on_proof_path": false
     },
     {
@@ -14246,7 +14246,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.2303610001254128,
+      "elapsed_ms": 3.0660839997835865,
       "on_proof_path": false
     },
     {
@@ -14261,7 +14261,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  c\nin the target expression\n  b = b ∧ b = b\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = b ∧ b = b",
-      "elapsed_ms": 0.8093580001968803,
+      "elapsed_ms": 1.130310999997164,
       "on_proof_path": false
     },
     {
@@ -14276,7 +14276,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = b ∧ b = b",
-      "elapsed_ms": 0.6177200000365701,
+      "elapsed_ms": 0.7467030000043451,
       "on_proof_path": false
     },
     {
@@ -14435,7 +14435,7 @@
       "reason": "Split the goal into its components",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.4368920001288643,
+      "elapsed_ms": 1.3962409998384828,
       "on_proof_path": false
     },
     {
@@ -14450,7 +14450,7 @@
       "reason": "Check definitional equality",
       "status": "rejected",
       "error": "Tactic `rfl` failed: No `[refl]` lemma registered for relation\n  And\n\nHint: Add the `[refl]` attribute to reflexivity lemmas for `And` to use this tactic\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = b ∧ b = b",
-      "elapsed_ms": 1.1100599999736005,
+      "elapsed_ms": 1.2506620000749535,
       "on_proof_path": false
     },
     {
@@ -14465,7 +14465,7 @@
       "reason": "Rewrite using a local equality",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  a\nin the target expression\n  b = b ∧ b = b\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = b ∧ b = b",
-      "elapsed_ms": 0.9125130000029458,
+      "elapsed_ms": 1.3535369998862734,
       "on_proof_path": false
     },
     {
@@ -14554,7 +14554,7 @@
       "reason": "Rewrite using a local equality",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.7515649999495508,
+      "elapsed_ms": 1.4051390003260167,
       "on_proof_path": false
     },
     {
@@ -14566,10 +14566,10 @@
       "category": "lemma",
       "lemma": "Eq.symm",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.symm`\n  ?b = ?a\nwith the goal\n  b = b ∧ b = b\n\nNote: The full type of `@Eq.symm` is\n  ∀ {α : Sort ?u.1986} {a b : α}, a = b → b = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = b ∧ b = b",
-      "elapsed_ms": 2.0482620000166207,
+      "elapsed_ms": 2.076794999993581,
       "on_proof_path": false
     },
     {
@@ -14581,10 +14581,10 @@
       "category": "lemma",
       "lemma": "Eq.trans",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.trans`\n  ?a = ?c\nwith the goal\n  b = b ∧ b = b\n\nNote: The full type of `@Eq.trans` is\n  ∀ {α : Sort ?u.1999} {a b c : α}, a = b → b = c → a = c\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = b ∧ b = b",
-      "elapsed_ms": 1.7897889999858307,
+      "elapsed_ms": 2.0661889998336846,
       "on_proof_path": false
     },
     {
@@ -14673,7 +14673,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.3431110000965418,
+      "elapsed_ms": 1.704895999864675,
       "on_proof_path": false
     },
     {
@@ -14688,7 +14688,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  c\nin the target expression\n  b = b ∧ b = b\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = b ∧ b = b",
-      "elapsed_ms": 1.3810479999847303,
+      "elapsed_ms": 0.8984119999695395,
       "on_proof_path": false
     },
     {
@@ -14703,7 +14703,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = c ∧ c = a",
-      "elapsed_ms": 0.7834789998923952,
+      "elapsed_ms": 0.676828999985446,
       "on_proof_path": false
     },
     {
@@ -14862,7 +14862,7 @@
       "reason": "Split the goal into its components",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.2638820001029671,
+      "elapsed_ms": 1.156049999735842,
       "on_proof_path": false
     },
     {
@@ -14877,7 +14877,7 @@
       "reason": "Check definitional equality",
       "status": "rejected",
       "error": "Tactic `rfl` failed: The left-hand side\n  a = c\nis not definitionally equal to the right-hand side\n  c = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = c ∧ c = a",
-      "elapsed_ms": 1.1935459999676823,
+      "elapsed_ms": 1.329489999989164,
       "on_proof_path": false
     },
     {
@@ -14966,7 +14966,7 @@
       "reason": "Rewrite using a local equality",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.4071870000407216,
+      "elapsed_ms": 1.1682680001285917,
       "on_proof_path": false
     },
     {
@@ -14981,7 +14981,7 @@
       "reason": "Rewrite using a local equality",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  b\nin the target expression\n  a = c ∧ c = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = c ∧ c = a",
-      "elapsed_ms": 0.7988919999206701,
+      "elapsed_ms": 0.9075259999917762,
       "on_proof_path": false
     },
     {
@@ -14993,10 +14993,10 @@
       "category": "lemma",
       "lemma": "Eq.symm",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.symm`\n  ?b = ?a\nwith the goal\n  a = c ∧ c = a\n\nNote: The full type of `@Eq.symm` is\n  ∀ {α : Sort ?u.2044} {a b : α}, a = b → b = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = c ∧ c = a",
-      "elapsed_ms": 1.544142999819087,
+      "elapsed_ms": 2.1907069999542728,
       "on_proof_path": false
     },
     {
@@ -15008,10 +15008,10 @@
       "category": "lemma",
       "lemma": "Eq.trans",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.trans`\n  ?a = ?c\nwith the goal\n  a = c ∧ c = a\n\nNote: The full type of `@Eq.trans` is\n  ∀ {α : Sort ?u.2057} {a b c : α}, a = b → b = c → a = c\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = c ∧ c = a",
-      "elapsed_ms": 1.873860000159766,
+      "elapsed_ms": 1.5772639999340754,
       "on_proof_path": false
     },
     {
@@ -15026,7 +15026,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  b\nin the target expression\n  a = c ∧ c = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = c ∧ c = a",
-      "elapsed_ms": 0.8278000000245811,
+      "elapsed_ms": 0.8385120004277269,
       "on_proof_path": false
     },
     {
@@ -15115,7 +15115,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.2689139998656174,
+      "elapsed_ms": 1.2261649999345536,
       "on_proof_path": false
     },
     {
@@ -15130,7 +15130,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = a ∧ a = a",
-      "elapsed_ms": 0.7838689998607151,
+      "elapsed_ms": 0.6755660001545039,
       "on_proof_path": false
     },
     {
@@ -15289,7 +15289,7 @@
       "reason": "Split the goal into its components",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.0995549998824572,
+      "elapsed_ms": 1.0373209997851518,
       "on_proof_path": false
     },
     {
@@ -15304,7 +15304,7 @@
       "reason": "Check definitional equality",
       "status": "rejected",
       "error": "Tactic `rfl` failed: No `[refl]` lemma registered for relation\n  And\n\nHint: Add the `[refl]` attribute to reflexivity lemmas for `And` to use this tactic\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = a ∧ a = a",
-      "elapsed_ms": 1.0110009998243186,
+      "elapsed_ms": 1.1976270002378442,
       "on_proof_path": false
     },
     {
@@ -15393,7 +15393,7 @@
       "reason": "Rewrite using a local equality",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.322168999877249,
+      "elapsed_ms": 1.1200160001862969,
       "on_proof_path": false
     },
     {
@@ -15408,7 +15408,7 @@
       "reason": "Rewrite using a local equality",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  b\nin the target expression\n  a = a ∧ a = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = a ∧ a = a",
-      "elapsed_ms": 1.0672259998045774,
+      "elapsed_ms": 1.0101699999722769,
       "on_proof_path": false
     },
     {
@@ -15420,10 +15420,10 @@
       "category": "lemma",
       "lemma": "Eq.symm",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.symm`\n  ?b = ?a\nwith the goal\n  a = a ∧ a = a\n\nNote: The full type of `@Eq.symm` is\n  ∀ {α : Sort ?u.2102} {a b : α}, a = b → b = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = a ∧ a = a",
-      "elapsed_ms": 1.572586999827763,
+      "elapsed_ms": 1.731495000058203,
       "on_proof_path": false
     },
     {
@@ -15435,10 +15435,10 @@
       "category": "lemma",
       "lemma": "Eq.trans",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.trans`\n  ?a = ?c\nwith the goal\n  a = a ∧ a = a\n\nNote: The full type of `@Eq.trans` is\n  ∀ {α : Sort ?u.2115} {a b c : α}, a = b → b = c → a = c\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = a ∧ a = a",
-      "elapsed_ms": 1.7499440000392497,
+      "elapsed_ms": 1.7036140002346656,
       "on_proof_path": false
     },
     {
@@ -15453,7 +15453,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  b\nin the target expression\n  a = a ∧ a = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = a ∧ a = a",
-      "elapsed_ms": 1.4274679999743967,
+      "elapsed_ms": 0.8737650000512076,
       "on_proof_path": false
     },
     {
@@ -15468,7 +15468,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  c\nin the target expression\n  a = a ∧ a = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = a ∧ a = a",
-      "elapsed_ms": 1.068587999952797,
+      "elapsed_ms": 0.8310200000778423,
       "on_proof_path": false
     },
     {
@@ -15483,7 +15483,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ c = c ∧ c = c",
-      "elapsed_ms": 0.7470250000096712,
+      "elapsed_ms": 0.8271050000985269,
       "on_proof_path": false
     },
     {
@@ -15642,7 +15642,7 @@
       "reason": "Split the goal into its components",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.2161650001871749,
+      "elapsed_ms": 1.4168829998197907,
       "on_proof_path": false
     },
     {
@@ -15657,7 +15657,7 @@
       "reason": "Check definitional equality",
       "status": "rejected",
       "error": "Tactic `rfl` failed: No `[refl]` lemma registered for relation\n  And\n\nHint: Add the `[refl]` attribute to reflexivity lemmas for `And` to use this tactic\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ c = c ∧ c = c",
-      "elapsed_ms": 1.0362999998960731,
+      "elapsed_ms": 1.384504000270681,
       "on_proof_path": false
     },
     {
@@ -15672,7 +15672,7 @@
       "reason": "Rewrite using a local equality",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  a\nin the target expression\n  c = c ∧ c = c\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ c = c ∧ c = c",
-      "elapsed_ms": 0.8626089997960662,
+      "elapsed_ms": 1.0942570002043794,
       "on_proof_path": false
     },
     {
@@ -15687,7 +15687,7 @@
       "reason": "Rewrite using a local equality",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  b\nin the target expression\n  c = c ∧ c = c\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ c = c ∧ c = c",
-      "elapsed_ms": 0.9059039998646767,
+      "elapsed_ms": 1.0734960001173022,
       "on_proof_path": false
     },
     {
@@ -15699,10 +15699,10 @@
       "category": "lemma",
       "lemma": "Eq.symm",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.symm`\n  ?b = ?a\nwith the goal\n  c = c ∧ c = c\n\nNote: The full type of `@Eq.symm` is\n  ∀ {α : Sort ?u.2146} {a b : α}, a = b → b = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ c = c ∧ c = c",
-      "elapsed_ms": 1.5064920000895654,
+      "elapsed_ms": 2.04550799981007,
       "on_proof_path": false
     },
     {
@@ -15714,10 +15714,10 @@
       "category": "lemma",
       "lemma": "Eq.trans",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.trans`\n  ?a = ?c\nwith the goal\n  c = c ∧ c = c\n\nNote: The full type of `@Eq.trans` is\n  ∀ {α : Sort ?u.2159} {a b c : α}, a = b → b = c → a = c\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ c = c ∧ c = c",
-      "elapsed_ms": 1.6847750000579254,
+      "elapsed_ms": 1.6299330000038026,
       "on_proof_path": false
     },
     {
@@ -15732,7 +15732,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  b\nin the target expression\n  c = c ∧ c = c\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ c = c ∧ c = c",
-      "elapsed_ms": 0.8371290000468434,
+      "elapsed_ms": 0.8748170002945699,
       "on_proof_path": false
     },
     {
@@ -15821,7 +15821,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.6742889999932231,
+      "elapsed_ms": 1.366196000162745,
       "on_proof_path": false
     },
     {
@@ -15836,7 +15836,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = a ∧ a = a",
-      "elapsed_ms": 0.6710400000429217,
+      "elapsed_ms": 0.7226680004350783,
       "on_proof_path": false
     },
     {
@@ -15995,7 +15995,7 @@
       "reason": "Split the goal into its components",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.3096010000026581,
+      "elapsed_ms": 1.3354189995880006,
       "on_proof_path": false
     },
     {
@@ -16010,7 +16010,7 @@
       "reason": "Check definitional equality",
       "status": "rejected",
       "error": "Tactic `rfl` failed: No `[refl]` lemma registered for relation\n  And\n\nHint: Add the `[refl]` attribute to reflexivity lemmas for `And` to use this tactic\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = a ∧ a = a",
-      "elapsed_ms": 1.1319740001454193,
+      "elapsed_ms": 1.1835610002890462,
       "on_proof_path": false
     },
     {
@@ -16099,7 +16099,7 @@
       "reason": "Rewrite using a local equality",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.2784240000200953,
+      "elapsed_ms": 1.299930999721255,
       "on_proof_path": false
     },
     {
@@ -16114,7 +16114,7 @@
       "reason": "Rewrite using a local equality",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  b\nin the target expression\n  a = a ∧ a = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = a ∧ a = a",
-      "elapsed_ms": 0.8564340000702941,
+      "elapsed_ms": 0.9648019999985991,
       "on_proof_path": false
     },
     {
@@ -16126,10 +16126,10 @@
       "category": "lemma",
       "lemma": "Eq.symm",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.symm`\n  ?b = ?a\nwith the goal\n  a = a ∧ a = a\n\nNote: The full type of `@Eq.symm` is\n  ∀ {α : Sort ?u.2204} {a b : α}, a = b → b = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = a ∧ a = a",
-      "elapsed_ms": 1.6095619998850452,
+      "elapsed_ms": 1.778846999968664,
       "on_proof_path": false
     },
     {
@@ -16141,10 +16141,10 @@
       "category": "lemma",
       "lemma": "Eq.trans",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.trans`\n  ?a = ?c\nwith the goal\n  a = a ∧ a = a\n\nNote: The full type of `@Eq.trans` is\n  ∀ {α : Sort ?u.2217} {a b c : α}, a = b → b = c → a = c\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = a ∧ a = a",
-      "elapsed_ms": 1.8529480000779586,
+      "elapsed_ms": 1.8307350001123268,
       "on_proof_path": false
     },
     {
@@ -16159,7 +16159,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  b\nin the target expression\n  a = a ∧ a = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = a ∧ a = a",
-      "elapsed_ms": 0.8043310001539794,
+      "elapsed_ms": 0.8540950002497993,
       "on_proof_path": false
     },
     {
@@ -16174,7 +16174,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  c\nin the target expression\n  a = a ∧ a = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = a ∧ a = a",
-      "elapsed_ms": 0.7821269998657954,
+      "elapsed_ms": 1.0453429999870423,
       "on_proof_path": false
     },
     {
@@ -16189,7 +16189,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = b ∧ b = b",
-      "elapsed_ms": 0.638641000023199,
+      "elapsed_ms": 0.7386019997284166,
       "on_proof_path": false
     },
     {
@@ -16348,7 +16348,7 @@
       "reason": "Split the goal into its components",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.0583529999621533,
+      "elapsed_ms": 1.1701010002980183,
       "on_proof_path": false
     },
     {
@@ -16363,7 +16363,7 @@
       "reason": "Check definitional equality",
       "status": "rejected",
       "error": "Tactic `rfl` failed: No `[refl]` lemma registered for relation\n  And\n\nHint: Add the `[refl]` attribute to reflexivity lemmas for `And` to use this tactic\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = b ∧ b = b",
-      "elapsed_ms": 0.9500490000391437,
+      "elapsed_ms": 1.0020479999184317,
       "on_proof_path": false
     },
     {
@@ -16378,7 +16378,7 @@
       "reason": "Rewrite using a local equality",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  a\nin the target expression\n  b = b ∧ b = b\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = b ∧ b = b",
-      "elapsed_ms": 0.8419820001108747,
+      "elapsed_ms": 0.8415470001637004,
       "on_proof_path": false
     },
     {
@@ -16467,7 +16467,7 @@
       "reason": "Rewrite using a local equality",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.2026299998524337,
+      "elapsed_ms": 1.147847000083857,
       "on_proof_path": false
     },
     {
@@ -16479,10 +16479,10 @@
       "category": "lemma",
       "lemma": "Eq.symm",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.symm`\n  ?b = ?a\nwith the goal\n  b = b ∧ b = b\n\nNote: The full type of `@Eq.symm` is\n  ∀ {α : Sort ?u.2255} {a b : α}, a = b → b = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = b ∧ b = b",
-      "elapsed_ms": 1.4841130000604608,
+      "elapsed_ms": 1.7410499999641615,
       "on_proof_path": false
     },
     {
@@ -16494,10 +16494,10 @@
       "category": "lemma",
       "lemma": "Eq.trans",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.trans`\n  ?a = ?c\nwith the goal\n  b = b ∧ b = b\n\nNote: The full type of `@Eq.trans` is\n  ∀ {α : Sort ?u.2268} {a b c : α}, a = b → b = c → a = c\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = b ∧ b = b",
-      "elapsed_ms": 1.7525779999232327,
+      "elapsed_ms": 1.65579099984825,
       "on_proof_path": false
     },
     {
@@ -16586,7 +16586,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.190686999962054,
+      "elapsed_ms": 1.1834199999611883,
       "on_proof_path": false
     },
     {
@@ -16601,7 +16601,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  c\nin the target expression\n  b = b ∧ b = b\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = b ∧ b = b",
-      "elapsed_ms": 0.8314009999139671,
+      "elapsed_ms": 0.8231290003095637,
       "on_proof_path": false
     },
     {
@@ -16616,7 +16616,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = b ∧ b = b",
-      "elapsed_ms": 0.6952460000775318,
+      "elapsed_ms": 0.7474740000361635,
       "on_proof_path": false
     },
     {
@@ -16775,7 +16775,7 @@
       "reason": "Split the goal into its components",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.0507920001145976,
+      "elapsed_ms": 1.2115929998799402,
       "on_proof_path": false
     },
     {
@@ -16790,7 +16790,7 @@
       "reason": "Check definitional equality",
       "status": "rejected",
       "error": "Tactic `rfl` failed: No `[refl]` lemma registered for relation\n  And\n\nHint: Add the `[refl]` attribute to reflexivity lemmas for `And` to use this tactic\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = b ∧ b = b",
-      "elapsed_ms": 1.0005960000398773,
+      "elapsed_ms": 1.091122000161704,
       "on_proof_path": false
     },
     {
@@ -16805,7 +16805,7 @@
       "reason": "Rewrite using a local equality",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  a\nin the target expression\n  b = b ∧ b = b\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = b ∧ b = b",
-      "elapsed_ms": 0.9616570000616775,
+      "elapsed_ms": 0.8525530001861625,
       "on_proof_path": false
     },
     {
@@ -16894,7 +16894,7 @@
       "reason": "Rewrite using a local equality",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.3694550000309391,
+      "elapsed_ms": 1.3205669997660152,
       "on_proof_path": false
     },
     {
@@ -16906,10 +16906,10 @@
       "category": "lemma",
       "lemma": "Eq.symm",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.symm`\n  ?b = ?a\nwith the goal\n  b = b ∧ b = b\n\nNote: The full type of `@Eq.symm` is\n  ∀ {α : Sort ?u.2313} {a b : α}, a = b → b = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = b ∧ b = b",
-      "elapsed_ms": 1.9092229999841948,
+      "elapsed_ms": 1.7717860000630026,
       "on_proof_path": false
     },
     {
@@ -16921,10 +16921,10 @@
       "category": "lemma",
       "lemma": "Eq.trans",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.trans`\n  ?a = ?c\nwith the goal\n  b = b ∧ b = b\n\nNote: The full type of `@Eq.trans` is\n  ∀ {α : Sort ?u.2326} {a b c : α}, a = b → b = c → a = c\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = b ∧ b = b",
-      "elapsed_ms": 1.8217310000636644,
+      "elapsed_ms": 1.6772339999988617,
       "on_proof_path": false
     },
     {
@@ -17013,7 +17013,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.2089789997844491,
+      "elapsed_ms": 1.2545980002869328,
       "on_proof_path": false
     },
     {
@@ -17028,7 +17028,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  c\nin the target expression\n  b = b ∧ b = b\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = b ∧ b = b",
-      "elapsed_ms": 0.8992329999273352,
+      "elapsed_ms": 0.8577710000281513,
       "on_proof_path": false
     },
     {
@@ -17043,7 +17043,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = b ∧ b = b",
-      "elapsed_ms": 0.6246100001590094,
+      "elapsed_ms": 0.626343000021734,
       "on_proof_path": false
     },
     {
@@ -17202,7 +17202,7 @@
       "reason": "Split the goal into its components",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.2361849999251717,
+      "elapsed_ms": 1.1077469998781453,
       "on_proof_path": false
     },
     {
@@ -17217,7 +17217,7 @@
       "reason": "Check definitional equality",
       "status": "rejected",
       "error": "Tactic `rfl` failed: No `[refl]` lemma registered for relation\n  And\n\nHint: Add the `[refl]` attribute to reflexivity lemmas for `And` to use this tactic\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = b ∧ b = b",
-      "elapsed_ms": 1.0114670001257764,
+      "elapsed_ms": 1.0559090001152072,
       "on_proof_path": false
     },
     {
@@ -17232,7 +17232,7 @@
       "reason": "Rewrite using a local equality",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  a\nin the target expression\n  b = b ∧ b = b\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = b ∧ b = b",
-      "elapsed_ms": 0.858842000070581,
+      "elapsed_ms": 0.8743849998609221,
       "on_proof_path": false
     },
     {
@@ -17321,7 +17321,7 @@
       "reason": "Rewrite using a local equality",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.526196999975582,
+      "elapsed_ms": 1.1325740001666418,
       "on_proof_path": false
     },
     {
@@ -17333,10 +17333,10 @@
       "category": "lemma",
       "lemma": "Eq.symm",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.symm`\n  ?b = ?a\nwith the goal\n  b = b ∧ b = b\n\nNote: The full type of `@Eq.symm` is\n  ∀ {α : Sort ?u.2371} {a b : α}, a = b → b = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = b ∧ b = b",
-      "elapsed_ms": 1.6713850000087405,
+      "elapsed_ms": 1.6852660000949982,
       "on_proof_path": false
     },
     {
@@ -17348,10 +17348,10 @@
       "category": "lemma",
       "lemma": "Eq.trans",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.trans`\n  ?a = ?c\nwith the goal\n  b = b ∧ b = b\n\nNote: The full type of `@Eq.trans` is\n  ∀ {α : Sort ?u.2384} {a b c : α}, a = b → b = c → a = c\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = b ∧ b = b",
-      "elapsed_ms": 1.6113599999698636,
+      "elapsed_ms": 1.5988860000106797,
       "on_proof_path": false
     },
     {
@@ -17440,7 +17440,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.360536999982287,
+      "elapsed_ms": 1.3225799998508592,
       "on_proof_path": false
     },
     {
@@ -17455,7 +17455,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  c\nin the target expression\n  b = b ∧ b = b\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = b ∧ b = b",
-      "elapsed_ms": 0.8035690000269824,
+      "elapsed_ms": 1.0748370000328578,
       "on_proof_path": false
     },
     {
@@ -17470,7 +17470,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = c ∧ c = b",
-      "elapsed_ms": 0.6069529999876977,
+      "elapsed_ms": 0.9431490002498322,
       "on_proof_path": false
     },
     {
@@ -17629,7 +17629,7 @@
       "reason": "Split the goal into its components",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.0301999998318934,
+      "elapsed_ms": 1.4173429999573273,
       "on_proof_path": false
     },
     {
@@ -17644,7 +17644,7 @@
       "reason": "Check definitional equality",
       "status": "rejected",
       "error": "Tactic `rfl` failed: The left-hand side\n  b = c\nis not definitionally equal to the right-hand side\n  c = b\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = c ∧ c = b",
-      "elapsed_ms": 1.183281000066927,
+      "elapsed_ms": 1.22131799980707,
       "on_proof_path": false
     },
     {
@@ -17659,7 +17659,7 @@
       "reason": "Rewrite using a local equality",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  a\nin the target expression\n  b = c ∧ c = b\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = c ∧ c = b",
-      "elapsed_ms": 0.8149259999754577,
+      "elapsed_ms": 0.9054719998857763,
       "on_proof_path": false
     },
     {
@@ -17748,7 +17748,7 @@
       "reason": "Rewrite using a local equality",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.328088000036587,
+      "elapsed_ms": 1.4495810000880738,
       "on_proof_path": false
     },
     {
@@ -17760,10 +17760,10 @@
       "category": "lemma",
       "lemma": "Eq.symm",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.symm`\n  ?b = ?a\nwith the goal\n  b = c ∧ c = b\n\nNote: The full type of `@Eq.symm` is\n  ∀ {α : Sort ?u.2429} {a b : α}, a = b → b = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = c ∧ c = b",
-      "elapsed_ms": 1.56603699997504,
+      "elapsed_ms": 1.6744990002734994,
       "on_proof_path": false
     },
     {
@@ -17775,10 +17775,10 @@
       "category": "lemma",
       "lemma": "Eq.trans",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.trans`\n  ?a = ?c\nwith the goal\n  b = c ∧ c = b\n\nNote: The full type of `@Eq.trans` is\n  ∀ {α : Sort ?u.2442} {a b c : α}, a = b → b = c → a = c\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = c ∧ c = b",
-      "elapsed_ms": 1.5989159999207914,
+      "elapsed_ms": 1.608460000170453,
       "on_proof_path": false
     },
     {
@@ -17867,7 +17867,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.1893899998085544,
+      "elapsed_ms": 1.2638819998755935,
       "on_proof_path": false
     },
     {
@@ -17956,7 +17956,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.2238870001510804,
+      "elapsed_ms": 1.7086210000343272,
       "on_proof_path": false
     },
     {
@@ -17971,7 +17971,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = b ∧ b = a",
-      "elapsed_ms": 0.6696680000004562,
+      "elapsed_ms": 0.8345360001840163,
       "on_proof_path": false
     },
     {
@@ -18130,7 +18130,7 @@
       "reason": "Split the goal into its components",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.1457140001311927,
+      "elapsed_ms": 1.5743899998597044,
       "on_proof_path": false
     },
     {
@@ -18145,7 +18145,7 @@
       "reason": "Check definitional equality",
       "status": "rejected",
       "error": "Tactic `rfl` failed: The left-hand side\n  a = b\nis not definitionally equal to the right-hand side\n  b = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = b ∧ b = a",
-      "elapsed_ms": 1.173826000012923,
+      "elapsed_ms": 1.4199160000316624,
       "on_proof_path": false
     },
     {
@@ -18234,7 +18234,7 @@
       "reason": "Rewrite using a local equality",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.2670559999605757,
+      "elapsed_ms": 1.2375129999782075,
       "on_proof_path": false
     },
     {
@@ -18323,7 +18323,7 @@
       "reason": "Rewrite using a local equality",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.2303109999720618,
+      "elapsed_ms": 1.2370409999675758,
       "on_proof_path": false
     },
     {
@@ -18335,10 +18335,10 @@
       "category": "lemma",
       "lemma": "Eq.symm",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.symm`\n  ?b = ?a\nwith the goal\n  a = b ∧ b = a\n\nNote: The full type of `@Eq.symm` is\n  ∀ {α : Sort ?u.2501} {a b : α}, a = b → b = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = b ∧ b = a",
-      "elapsed_ms": 1.5821509998659167,
+      "elapsed_ms": 1.657955000155198,
       "on_proof_path": false
     },
     {
@@ -18350,10 +18350,10 @@
       "category": "lemma",
       "lemma": "Eq.trans",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.trans`\n  ?a = ?c\nwith the goal\n  a = b ∧ b = a\n\nNote: The full type of `@Eq.trans` is\n  ∀ {α : Sort ?u.2514} {a b c : α}, a = b → b = c → a = c\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = b ∧ b = a",
-      "elapsed_ms": 1.5639240000382415,
+      "elapsed_ms": 1.9603890000325919,
       "on_proof_path": false
     },
     {
@@ -18442,7 +18442,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.307417000134592,
+      "elapsed_ms": 1.7180260001623537,
       "on_proof_path": false
     },
     {
@@ -18457,7 +18457,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  c\nin the target expression\n  a = b ∧ b = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = b ∧ b = a",
-      "elapsed_ms": 1.3760159999947064,
+      "elapsed_ms": 0.8585519999542157,
       "on_proof_path": false
     },
     {
@@ -18472,7 +18472,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ c = c ∧ c = c",
-      "elapsed_ms": 0.6297330000961665,
+      "elapsed_ms": 0.7265140002346016,
       "on_proof_path": false
     },
     {
@@ -18631,7 +18631,7 @@
       "reason": "Split the goal into its components",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.2667060000239871,
+      "elapsed_ms": 1.433688000361144,
       "on_proof_path": false
     },
     {
@@ -18646,7 +18646,7 @@
       "reason": "Check definitional equality",
       "status": "rejected",
       "error": "Tactic `rfl` failed: No `[refl]` lemma registered for relation\n  And\n\nHint: Add the `[refl]` attribute to reflexivity lemmas for `And` to use this tactic\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ c = c ∧ c = c",
-      "elapsed_ms": 1.184942999998384,
+      "elapsed_ms": 1.3675580003109644,
       "on_proof_path": false
     },
     {
@@ -18661,7 +18661,7 @@
       "reason": "Rewrite using a local equality",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  a\nin the target expression\n  c = c ∧ c = c\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ c = c ∧ c = c",
-      "elapsed_ms": 0.890290000143068,
+      "elapsed_ms": 0.8233890002884436,
       "on_proof_path": false
     }
   ],
@@ -18673,11 +18673,11 @@
     "frontier": 83,
     "max_depth": 6,
     "proof_length": 0,
-    "elapsed_s": 2.530449835999889,
-    "lean_execution_s": 0.597725568999067,
-    "initialization_s": 1.8903274209999381,
+    "elapsed_s": 2.031177324000055,
+    "lean_execution_s": 0.4727204340069875,
+    "initialization_s": 1.5165265579998959,
     "verification_s": 0.0,
-    "planning_s": 0.013422399000546648
+    "planning_s": 0.01209257699929367
   },
   "proof": [],
   "lean_source": null,
@@ -18689,7 +18689,7 @@
     "source_sha256": null
   },
   "metadata": {
-    "code_commit": "a16b54fe84b719c9f109a758ccc2bb8dc717d267",
+    "code_commit": "45322e084527600b9706510fe421c26f3da7e5eb",
     "lean_version": "leanprover/lean4:v4.24.0",
     "mathlib_revision": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7",
     "python": "3.12.14",

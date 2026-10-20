@@ -98,7 +98,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\nR : Type\ninst✝ : Ring R\na : R\n⊢ 0 + a = a",
-      "elapsed_ms": 1.1214270000436954,
+      "elapsed_ms": 1.1104309996881057,
       "on_proof_path": false
     },
     {
@@ -113,7 +113,7 @@
       "reason": "Check definitional equality",
       "status": "rejected",
       "error": "Tactic `rfl` failed: The left-hand side\n  0 + a\nis not definitionally equal to the right-hand side\n  a\n\nR : Type\ninst✝ : Ring R\na : R\n⊢ 0 + a = a",
-      "elapsed_ms": 3.259233000107997,
+      "elapsed_ms": 3.4988749998774438,
       "on_proof_path": false
     },
     {
@@ -169,10 +169,10 @@
       "category": "lemma",
       "lemma": "Eq.symm",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 0.8411849998992693,
+      "elapsed_ms": 0.7239199999276025,
       "on_proof_path": false
     },
     {
@@ -308,10 +308,10 @@
       "category": "lemma",
       "lemma": "Eq.trans",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.2730749999718682,
+      "elapsed_ms": 1.2498800001594645,
       "on_proof_path": false
     },
     {
@@ -323,10 +323,10 @@
       "category": "lemma",
       "lemma": "add_zero",
       "provenance": "Mathlib.Algebra.Group.Defs",
-      "reason": "Type-feature match: ('+', '0')",
+      "reason": "Goal features: ('+', '0'); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@add_zero`\n  ?a + 0 = ?a\nwith the goal\n  0 + a = a\n\nNote: The full type of `@add_zero` is\n  ∀ {M : Type ?u.247} [inst : AddZeroClass M] (a : M), a + 0 = a\n\nR : Type\ninst✝ : Ring R\na : R\n⊢ 0 + a = a",
-      "elapsed_ms": 13.646047000065664,
+      "elapsed_ms": 13.608879000003071,
       "on_proof_path": false
     },
     {
@@ -341,10 +341,10 @@
       "category": "lemma",
       "lemma": "zero_add",
       "provenance": "Mathlib.Algebra.Group.Defs",
-      "reason": "Type-feature match: ('+', '0')",
+      "reason": "Goal features: ('+', '0'); context features: ()",
       "status": "solved",
       "error": null,
-      "elapsed_ms": 2.124685999888243,
+      "elapsed_ms": 2.0682620001934993,
       "on_proof_path": true
     }
   ],
@@ -356,11 +356,11 @@
     "frontier": 2,
     "max_depth": 1,
     "proof_length": 1,
-    "elapsed_s": 3.23214648499993,
-    "lean_execution_s": 0.022265652999976737,
-    "initialization_s": 1.5677047300000595,
-    "verification_s": 1.6221328609999546,
-    "planning_s": 0.0002857900001345115
+    "elapsed_s": 3.1649945690001005,
+    "lean_execution_s": 0.022260246999849187,
+    "initialization_s": 1.5815560580003876,
+    "verification_s": 1.5244076040003165,
+    "planning_s": 0.0002944130001196754
   },
   "proof": [
     "apply zero_add"
@@ -370,11 +370,11 @@
     "verified": true,
     "axioms": [],
     "error": null,
-    "elapsed_s": 1.6221328609999546,
+    "elapsed_s": 1.5244076040003165,
     "source_sha256": "2361873abb03ce9cbed79f18e69d79efb0ed1505567f6b2822da190f11bafa83"
   },
   "metadata": {
-    "code_commit": "a16b54fe84b719c9f109a758ccc2bb8dc717d267",
+    "code_commit": "45322e084527600b9706510fe421c26f3da7e5eb",
     "lean_version": "leanprover/lean4:v4.24.0",
     "mathlib_revision": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7",
     "python": "3.12.14",

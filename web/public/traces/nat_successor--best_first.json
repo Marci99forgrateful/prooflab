@@ -78,7 +78,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\nn : ℕ\n⊢ n ≤ n + 1",
-      "elapsed_ms": 1.8122059998404438,
+      "elapsed_ms": 2.3708779999651597,
       "on_proof_path": false
     },
     {
@@ -90,10 +90,10 @@
       "category": "lemma",
       "lemma": "le_refl",
       "provenance": "Mathlib.Order.Defs.PartialOrder",
-      "reason": "Type-feature match: ('≤',)",
+      "reason": "Goal features: ('≤',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@le_refl`\n  ?a ≤ ?a\nwith the goal\n  n ≤ n + 1\n\nNote: The full type of `@le_refl` is\n  ∀ {α : Type ?u.81} [inst : Preorder α] (a : α), a ≤ a\n\nn : ℕ\n⊢ n ≤ n + 1",
-      "elapsed_ms": 2.8144650000285765,
+      "elapsed_ms": 3.3366309999109944,
       "on_proof_path": false
     },
     {
@@ -169,10 +169,10 @@
       "category": "lemma",
       "lemma": "le_trans",
       "provenance": "Mathlib.Order.Defs.PartialOrder",
-      "reason": "Type-feature match: ('≤',)",
+      "reason": "Goal features: ('≤',); context features: ()",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.6408789999786677,
+      "elapsed_ms": 1.5032119999887072,
       "on_proof_path": false
     },
     {
@@ -184,10 +184,10 @@
       "category": "lemma",
       "lemma": "add_assoc",
       "provenance": "Mathlib.Algebra.Group.Defs",
-      "reason": "Type-feature match: ('+',)",
+      "reason": "Goal features: ('+',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@add_assoc`\n  ?a + ?b + ?c = ?a + (?b + ?c)\nwith the goal\n  n ≤ n + 1\n\nNote: The full type of `@add_assoc` is\n  ∀ {G : Type ?u.192} [inst : AddSemigroup G] (a b c : G), a + b + c = a + (b + c)\n\nn : ℕ\n⊢ n ≤ n + 1",
-      "elapsed_ms": 2.5856450001811027,
+      "elapsed_ms": 2.3299560000396013,
       "on_proof_path": false
     },
     {
@@ -199,10 +199,10 @@
       "category": "lemma",
       "lemma": "add_comm",
       "provenance": "Mathlib.Algebra.Group.Defs",
-      "reason": "Type-feature match: ('+',)",
+      "reason": "Goal features: ('+',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@add_comm`\n  ?a + ?b = ?b + ?a\nwith the goal\n  n ≤ n + 1\n\nNote: The full type of `@add_comm` is\n  ∀ {G : Type ?u.208} [inst : AddCommMagma G] (a b : G), a + b = b + a\n\nn : ℕ\n⊢ n ≤ n + 1",
-      "elapsed_ms": 2.1408009999959177,
+      "elapsed_ms": 1.8171650001477246,
       "on_proof_path": false
     },
     {
@@ -220,7 +220,7 @@
       "reason": "Presburger arithmetic (Lean omega)",
       "status": "solved",
       "error": null,
-      "elapsed_ms": 2.5158550001833646,
+      "elapsed_ms": 6.60002099994017,
       "on_proof_path": true
     }
   ],
@@ -232,11 +232,11 @@
     "frontier": 1,
     "max_depth": 1,
     "proof_length": 1,
-    "elapsed_s": 3.2509496269999545,
-    "lean_execution_s": 0.013509851000208073,
-    "initialization_s": 1.545800651000036,
-    "verification_s": 1.6592218650000632,
-    "planning_s": 0.0003122300001905387
+    "elapsed_s": 3.131939050000028,
+    "lean_execution_s": 0.017957862999992358,
+    "initialization_s": 1.5501984669999729,
+    "verification_s": 1.5474383349999243,
+    "planning_s": 0.0002709779998895101
   },
   "proof": [
     "omega"
@@ -249,11 +249,11 @@
       "Quot.sound"
     ],
     "error": null,
-    "elapsed_s": 1.6592218650000632,
+    "elapsed_s": 1.5474383349999243,
     "source_sha256": "f5bee3fb9cee3e9f0b1573fde0ecb58c1f73c5628ab136e83c52196444cc2dcf"
   },
   "metadata": {
-    "code_commit": "a16b54fe84b719c9f109a758ccc2bb8dc717d267",
+    "code_commit": "45322e084527600b9706510fe421c26f3da7e5eb",
     "lean_version": "leanprover/lean4:v4.24.0",
     "mathlib_revision": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7",
     "python": "3.12.14",

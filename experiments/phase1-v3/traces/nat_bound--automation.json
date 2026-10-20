@@ -1,0 +1,141 @@
+{
+  "schema_version": 1,
+  "task": {
+    "id": "nat_bound",
+    "title": "Arithmetic upper bound",
+    "domain": "order",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(n m : Nat) (h : n ≤ m)",
+    "target": "n ≤ m + 2",
+    "display": "n ≤ m ⊢ n ≤ m + 2",
+    "description": "Arithmetic upper bound. Search uses the same candidate generator as all other tasks.",
+    "origin": "Original benchmark statement; mathematical result is not claimed novel.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  "algorithm": "automation",
+  "budget": {
+    "max_depth": 7,
+    "max_expansions": 60,
+    "max_candidates": 24,
+    "max_attempts": 400,
+    "timeout_s": 12.0,
+    "tactic_timeout_s": 3.0
+  },
+  "status": "not_found_within_budget",
+  "termination": "search_exhausted",
+  "nodes": [
+    {
+      "id": 0,
+      "parent": null,
+      "depth": 0,
+      "state": {
+        "state_id": 0,
+        "goals": [
+          {
+            "id": "_uniq.88",
+            "target": {
+              "text": "n ≤ m + 2",
+              "head": "Nat.le",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "n",
+                "id": "_uniq.85",
+                "type": {
+                  "text": "ℕ",
+                  "head": "Nat",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "m",
+                "id": "_uniq.86",
+                "type": {
+                  "text": "ℕ",
+                  "head": "Nat",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "h",
+                "id": "_uniq.87",
+                "type": {
+                  "text": "n ≤ m",
+                  "head": "Nat.le",
+                  "forall": false
+                },
+                "is_proof": true
+              }
+            ]
+          }
+        ]
+      },
+      "tactic": null,
+      "category": null,
+      "lemma": null,
+      "provenance": null,
+      "reason": "Initial Lean goal",
+      "status": "root",
+      "error": null,
+      "elapsed_ms": 0.0,
+      "on_proof_path": false
+    },
+    {
+      "id": 1,
+      "parent": 0,
+      "depth": 1,
+      "state": null,
+      "tactic": "aesop",
+      "category": "reference",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Native Aesop baseline; not a ProofLab algorithm",
+      "status": "rejected",
+      "error": "tactic 'aesop' failed, made no progress\nInitial goal:\n  n m : ℕ\n  h : n ≤ m\n  ⊢ n ≤ m + 2",
+      "elapsed_ms": 24.05533099999957,
+      "on_proof_path": false
+    }
+  ],
+  "metrics": {
+    "attempted_candidates": 1,
+    "accepted_transitions": 0,
+    "rejected_candidates": 1,
+    "expanded_states": 1,
+    "frontier": 0,
+    "max_depth": 1,
+    "proof_length": 0,
+    "elapsed_s": 1.5528287740000906,
+    "lean_execution_s": 0.02405533099999957,
+    "initialization_s": 1.5128115699999398,
+    "verification_s": 0.0,
+    "planning_s": 0.00034408700003041304
+  },
+  "proof": [],
+  "lean_source": null,
+  "verification": {
+    "verified": false,
+    "axioms": [],
+    "error": null,
+    "elapsed_s": 0.0,
+    "source_sha256": null
+  },
+  "metadata": {
+    "code_commit": "45322e084527600b9706510fe421c26f3da7e5eb",
+    "lean_version": "leanprover/lean4:v4.24.0",
+    "mathlib_revision": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7",
+    "python": "3.12.14",
+    "platform": "Linux-6.18.55-x86_64-with-glibc2.41",
+    "machine": "x86_64",
+    "processor": "",
+    "seed": "0 (deterministic)",
+    "state_identity": "Exact tactic prefix within one native session; no semantic merging"
+  },
+  "error": null,
+  "proof_origin": null
+}

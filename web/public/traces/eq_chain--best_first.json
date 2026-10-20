@@ -128,7 +128,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\nα : Type\na b c : α\nhab : a = b\nhbc : b = c\n⊢ a = c",
-      "elapsed_ms": 4.503553999938958,
+      "elapsed_ms": 2.220030999978917,
       "on_proof_path": false
     },
     {
@@ -143,7 +143,7 @@
       "reason": "Check definitional equality",
       "status": "rejected",
       "error": "Tactic `rfl` failed: The left-hand side\n  a\nis not definitionally equal to the right-hand side\n  c\n\nα : Type\na b c : α\nhab : a = b\nhbc : b = c\n⊢ a = c",
-      "elapsed_ms": 1.8634339999152871,
+      "elapsed_ms": 1.305023999975674,
       "on_proof_path": false
     },
     {
@@ -232,7 +232,7 @@
       "reason": "Rewrite using a local equality",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.473096000154328,
+      "elapsed_ms": 1.3818190000165487,
       "on_proof_path": true
     },
     {
@@ -247,7 +247,7 @@
       "reason": "Rewrite using a local equality",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  b\nin the target expression\n  a = c\n\nα : Type\na b c : α\nhab : a = b\nhbc : b = c\n⊢ a = c",
-      "elapsed_ms": 0.9384919999320118,
+      "elapsed_ms": 0.6431080000766087,
       "on_proof_path": false
     },
     {
@@ -333,10 +333,10 @@
       "category": "lemma",
       "lemma": "Eq.symm",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.0599139998248575,
+      "elapsed_ms": 0.7015959999989718,
       "on_proof_path": false
     },
     {
@@ -562,10 +562,10 @@
       "category": "lemma",
       "lemma": "Eq.trans",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 2.0083419999537,
+      "elapsed_ms": 1.612857000054646,
       "on_proof_path": false
     },
     {
@@ -580,7 +580,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  b\nin the target expression\n  a = c\n\nα : Type\na b c : α\nhab : a = b\nhbc : b = c\n⊢ a = c",
-      "elapsed_ms": 0.9960229999705916,
+      "elapsed_ms": 0.6559170001310122,
       "on_proof_path": false
     },
     {
@@ -669,7 +669,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.2711919998764643,
+      "elapsed_ms": 1.0921640000560728,
       "on_proof_path": false
     },
     {
@@ -687,7 +687,7 @@
       "reason": "Match the goal against the local context",
       "status": "solved",
       "error": null,
-      "elapsed_ms": 0.1733700000841054,
+      "elapsed_ms": 0.14745199996468727,
       "on_proof_path": true
     }
   ],
@@ -699,11 +699,11 @@
     "frontier": 3,
     "max_depth": 2,
     "proof_length": 2,
-    "elapsed_s": 3.9057429520000824,
-    "lean_execution_s": 0.014287416999650304,
-    "initialization_s": 1.923281384999882,
-    "verification_s": 1.9349552740000036,
-    "planning_s": 0.0005825359999107604
+    "elapsed_s": 3.5315277189997687,
+    "lean_execution_s": 0.009759968000253139,
+    "initialization_s": 1.6368495820001954,
+    "verification_s": 1.8617010639995897,
+    "planning_s": 0.0006959869997444912
   },
   "proof": [
     "rw [hab]",
@@ -714,11 +714,11 @@
     "verified": true,
     "axioms": [],
     "error": null,
-    "elapsed_s": 1.9349552740000036,
+    "elapsed_s": 1.8617010639995897,
     "source_sha256": "9a200b31bfda00b818c44f8d57a6340d49fd94c7c0e65ba5abdb5270c3b965f2"
   },
   "metadata": {
-    "code_commit": "a16b54fe84b719c9f109a758ccc2bb8dc717d267",
+    "code_commit": "45322e084527600b9706510fe421c26f3da7e5eb",
     "lean_version": "leanprover/lean4:v4.24.0",
     "mathlib_revision": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7",
     "python": "3.12.14",

@@ -128,7 +128,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\nα : Type\na b c : α\nhab : a = b\nhbc : b = c\n⊢ a = c",
-      "elapsed_ms": 2.6442180001140514,
+      "elapsed_ms": 2.1512769999390002,
       "on_proof_path": false
     },
     {
@@ -143,7 +143,7 @@
       "reason": "Check definitional equality",
       "status": "rejected",
       "error": "Tactic `rfl` failed: The left-hand side\n  a\nis not definitionally equal to the right-hand side\n  c\n\nα : Type\na b c : α\nhab : a = b\nhbc : b = c\n⊢ a = c",
-      "elapsed_ms": 1.297962000080588,
+      "elapsed_ms": 1.1598149999372254,
       "on_proof_path": false
     },
     {
@@ -232,7 +232,7 @@
       "reason": "Rewrite using a local equality",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.810903999967195,
+      "elapsed_ms": 1.5920050000204355,
       "on_proof_path": true
     },
     {
@@ -247,7 +247,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  b\nin the target expression\n  a = c\n\nα : Type\na b c : α\nhab : a = b\nhbc : b = c\n⊢ a = c",
-      "elapsed_ms": 0.9516220000023168,
+      "elapsed_ms": 0.8651009998175141,
       "on_proof_path": false
     },
     {
@@ -262,7 +262,7 @@
       "reason": "Rewrite using a local equality",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  b\nin the target expression\n  a = c\n\nα : Type\na b c : α\nhab : a = b\nhbc : b = c\n⊢ a = c",
-      "elapsed_ms": 0.8488869998473092,
+      "elapsed_ms": 0.8213559999603604,
       "on_proof_path": false
     },
     {
@@ -351,7 +351,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.411522999887893,
+      "elapsed_ms": 1.3230310000835743,
       "on_proof_path": false
     },
     {
@@ -437,10 +437,10 @@
       "category": "lemma",
       "lemma": "Eq.symm",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.0372300000653922,
+      "elapsed_ms": 0.9625990001040918,
       "on_proof_path": false
     },
     {
@@ -666,10 +666,10 @@
       "category": "lemma",
       "lemma": "Eq.trans",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 2.017835000060586,
+      "elapsed_ms": 1.7895529999805149,
       "on_proof_path": false
     },
     {
@@ -687,7 +687,7 @@
       "reason": "Match the goal against the local context",
       "status": "solved",
       "error": null,
-      "elapsed_ms": 0.1495449998856202,
+      "elapsed_ms": 1.6052850000960461,
       "on_proof_path": true
     }
   ],
@@ -699,11 +699,11 @@
     "frontier": 3,
     "max_depth": 2,
     "proof_length": 2,
-    "elapsed_s": 3.8220302000001993,
-    "lean_execution_s": 0.012169725999910952,
-    "initialization_s": 1.8430274920001466,
-    "verification_s": 1.9497533910000584,
-    "planning_s": 0.0005873339998743177
+    "elapsed_s": 3.6575081419996422,
+    "lean_execution_s": 0.012270021999938763,
+    "initialization_s": 1.7870414019998861,
+    "verification_s": 1.825363502000073,
+    "planning_s": 0.0005105280001771462
   },
   "proof": [
     "rw [hab]",
@@ -714,11 +714,11 @@
     "verified": true,
     "axioms": [],
     "error": null,
-    "elapsed_s": 1.9497533910000584,
+    "elapsed_s": 1.825363502000073,
     "source_sha256": "9a200b31bfda00b818c44f8d57a6340d49fd94c7c0e65ba5abdb5270c3b965f2"
   },
   "metadata": {
-    "code_commit": "a16b54fe84b719c9f109a758ccc2bb8dc717d267",
+    "code_commit": "45322e084527600b9706510fe421c26f3da7e5eb",
     "lean_version": "leanprover/lean4:v4.24.0",
     "mathlib_revision": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7",
     "python": "3.12.14",

@@ -98,7 +98,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\nn m : ℕ\nh : n + 3 ≤ m\n⊢ n ≤ m",
-      "elapsed_ms": 2.7916199999253877,
+      "elapsed_ms": 2.713893000191092,
       "on_proof_path": false
     },
     {
@@ -110,10 +110,10 @@
       "category": "lemma",
       "lemma": "le_refl",
       "provenance": "Mathlib.Order.Defs.PartialOrder",
-      "reason": "Type-feature match: ('≤',)",
+      "reason": "Goal features: ('≤',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@le_refl`\n  ?a ≤ ?a\nwith the goal\n  n ≤ m\n\nNote: The full type of `@le_refl` is\n  ∀ {α : Type ?u.104} [inst : Preorder α] (a : α), a ≤ a\n\nn m : ℕ\nh : n + 3 ≤ m\n⊢ n ≤ m",
-      "elapsed_ms": 3.1714050001028227,
+      "elapsed_ms": 3.16463199987993,
       "on_proof_path": false
     },
     {
@@ -249,10 +249,10 @@
       "category": "lemma",
       "lemma": "le_trans",
       "provenance": "Mathlib.Order.Defs.PartialOrder",
-      "reason": "Type-feature match: ('≤',)",
+      "reason": "Goal features: ('≤',); context features: ()",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 2.488473000084923,
+      "elapsed_ms": 2.8531729999485833,
       "on_proof_path": false
     },
     {
@@ -270,7 +270,7 @@
       "reason": "Presburger arithmetic (Lean omega)",
       "status": "solved",
       "error": null,
-      "elapsed_ms": 3.012325999861787,
+      "elapsed_ms": 2.6960870000038994,
       "on_proof_path": true
     }
   ],
@@ -282,11 +282,11 @@
     "frontier": 1,
     "max_depth": 1,
     "proof_length": 1,
-    "elapsed_s": 4.012626914000066,
-    "lean_execution_s": 0.01146382399997492,
-    "initialization_s": 2.01197037299994,
-    "verification_s": 1.9730309359999865,
-    "planning_s": 0.00029423199998745986
+    "elapsed_s": 3.4524778939999123,
+    "lean_execution_s": 0.011427785000023505,
+    "initialization_s": 1.6118198939998365,
+    "verification_s": 1.8159441530001459,
+    "planning_s": 0.00039481399994656385
   },
   "proof": [
     "omega"
@@ -299,11 +299,11 @@
       "Quot.sound"
     ],
     "error": null,
-    "elapsed_s": 1.9730309359999865,
+    "elapsed_s": 1.8159441530001459,
     "source_sha256": "f76925126cff24f265db4a8e2f89ecda38440f41a04cc6e439ed33e19639b2a5"
   },
   "metadata": {
-    "code_commit": "a16b54fe84b719c9f109a758ccc2bb8dc717d267",
+    "code_commit": "45322e084527600b9706510fe421c26f3da7e5eb",
     "lean_version": "leanprover/lean4:v4.24.0",
     "mathlib_revision": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7",
     "python": "3.12.14",

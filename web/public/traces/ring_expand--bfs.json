@@ -108,7 +108,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\nR : Type\ninst✝ : CommRing R\na b : R\n⊢ (a + b) ^ 2 = a ^ 2 + 2 * a * b + b ^ 2",
-      "elapsed_ms": 1.5650139998797385,
+      "elapsed_ms": 1.5201069995782746,
       "on_proof_path": false
     },
     {
@@ -123,7 +123,7 @@
       "reason": "Check definitional equality",
       "status": "rejected",
       "error": "Tactic `rfl` failed: The left-hand side\n  (a + b) ^ 2\nis not definitionally equal to the right-hand side\n  a ^ 2 + 2 * a * b + b ^ 2\n\nR : Type\ninst✝ : CommRing R\na b : R\n⊢ (a + b) ^ 2 = a ^ 2 + 2 * a * b + b ^ 2",
-      "elapsed_ms": 6.027417000041169,
+      "elapsed_ms": 6.062862999897334,
       "on_proof_path": false
     },
     {
@@ -189,10 +189,10 @@
       "category": "lemma",
       "lemma": "Eq.symm",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.2097199999061559,
+      "elapsed_ms": 1.1961000000155764,
       "on_proof_path": false
     },
     {
@@ -358,10 +358,10 @@
       "category": "lemma",
       "lemma": "Eq.trans",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.6654060000291793,
+      "elapsed_ms": 1.6373039998143213,
       "on_proof_path": false
     },
     {
@@ -373,10 +373,10 @@
       "category": "lemma",
       "lemma": "mul_assoc",
       "provenance": "Mathlib.Algebra.Group.Defs",
-      "reason": "Type-feature match: ('*',)",
+      "reason": "Goal features: ('*',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@mul_assoc`\n  ?a * ?b * ?c = ?a * (?b * ?c)\nwith the goal\n  (a + b) ^ 2 = a ^ 2 + 2 * a * b + b ^ 2\n\nNote: The full type of `@mul_assoc` is\n  ∀ {G : Type ?u.1429} [inst : Semigroup G] (a b c : G), a * b * c = a * (b * c)\n\nR : Type\ninst✝ : CommRing R\na b : R\n⊢ (a + b) ^ 2 = a ^ 2 + 2 * a * b + b ^ 2",
-      "elapsed_ms": 10.131710999985444,
+      "elapsed_ms": 10.227189000033832,
       "on_proof_path": false
     },
     {
@@ -388,10 +388,10 @@
       "category": "lemma",
       "lemma": "mul_comm",
       "provenance": "Mathlib.Algebra.Group.Defs",
-      "reason": "Type-feature match: ('*',)",
+      "reason": "Goal features: ('*',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@mul_comm`\n  ?a * ?b = ?b * ?a\nwith the goal\n  (a + b) ^ 2 = a ^ 2 + 2 * a * b + b ^ 2\n\nNote: The full type of `@mul_comm` is\n  ∀ {G : Type ?u.1473} [inst : CommMagma G] (a b : G), a * b = b * a\n\nR : Type\ninst✝ : CommRing R\na b : R\n⊢ (a + b) ^ 2 = a ^ 2 + 2 * a * b + b ^ 2",
-      "elapsed_ms": 8.99779400015177,
+      "elapsed_ms": 9.236018000137847,
       "on_proof_path": false
     },
     {
@@ -403,10 +403,10 @@
       "category": "lemma",
       "lemma": "add_assoc",
       "provenance": "Mathlib.Algebra.Group.Defs",
-      "reason": "Type-feature match: ('+',)",
+      "reason": "Goal features: ('+',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@add_assoc`\n  ?a + ?b + ?c = ?a + (?b + ?c)\nwith the goal\n  (a + b) ^ 2 = a ^ 2 + 2 * a * b + b ^ 2\n\nNote: The full type of `@add_assoc` is\n  ∀ {G : Type ?u.1504} [inst : AddSemigroup G] (a b c : G), a + b + c = a + (b + c)\n\nR : Type\ninst✝ : CommRing R\na b : R\n⊢ (a + b) ^ 2 = a ^ 2 + 2 * a * b + b ^ 2",
-      "elapsed_ms": 18.338988000095924,
+      "elapsed_ms": 20.99355900008959,
       "on_proof_path": false
     },
     {
@@ -418,10 +418,10 @@
       "category": "lemma",
       "lemma": "add_comm",
       "provenance": "Mathlib.Algebra.Group.Defs",
-      "reason": "Type-feature match: ('+',)",
+      "reason": "Goal features: ('+',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@add_comm`\n  ?a + ?b = ?b + ?a\nwith the goal\n  (a + b) ^ 2 = a ^ 2 + 2 * a * b + b ^ 2\n\nNote: The full type of `@add_comm` is\n  ∀ {G : Type ?u.1557} [inst : AddCommMagma G] (a b : G), a + b = b + a\n\nR : Type\ninst✝ : CommRing R\na b : R\n⊢ (a + b) ^ 2 = a ^ 2 + 2 * a * b + b ^ 2",
-      "elapsed_ms": 10.776160999967033,
+      "elapsed_ms": 11.98316199997862,
       "on_proof_path": false
     },
     {
@@ -433,10 +433,10 @@
       "category": "lemma",
       "lemma": "mul_add",
       "provenance": "Mathlib.Algebra.Ring.Defs",
-      "reason": "Type-feature match: ('*', '+')",
+      "reason": "Goal features: ('*', '+'); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@mul_add`\n  ?a * (?b + ?c) = ?a * ?b + ?a * ?c\nwith the goal\n  (a + b) ^ 2 = a ^ 2 + 2 * a * b + b ^ 2\n\nNote: The full type of `@mul_add` is\n  ∀ {R : Type ?u.1612} [inst : Mul R] [inst_1 : Add R] [LeftDistribClass R] (a b c : R), a * (b + c) = a * b + a * c\n\nR : Type\ninst✝ : CommRing R\na b : R\n⊢ (a + b) ^ 2 = a ^ 2 + 2 * a * b + b ^ 2",
-      "elapsed_ms": 21.123084999999264,
+      "elapsed_ms": 22.06195300004765,
       "on_proof_path": false
     },
     {
@@ -448,10 +448,10 @@
       "category": "lemma",
       "lemma": "add_mul",
       "provenance": "Mathlib.Algebra.Ring.Defs",
-      "reason": "Type-feature match: ('*', '+')",
+      "reason": "Goal features: ('*', '+'); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@add_mul`\n  (?a + ?b) * ?c = ?a * ?c + ?b * ?c\nwith the goal\n  (a + b) ^ 2 = a ^ 2 + 2 * a * b + b ^ 2\n\nNote: The full type of `@add_mul` is\n  ∀ {R : Type ?u.1665} [inst : Mul R] [inst_1 : Add R] [RightDistribClass R] (a b c : R), (a + b) * c = a * c + b * c\n\nR : Type\ninst✝ : CommRing R\na b : R\n⊢ (a + b) ^ 2 = a ^ 2 + 2 * a * b + b ^ 2",
-      "elapsed_ms": 20.680159000221465,
+      "elapsed_ms": 22.432720999859157,
       "on_proof_path": false
     },
     {
@@ -469,7 +469,7 @@
       "reason": "Normalize a polynomial equality (Mathlib ring)",
       "status": "solved",
       "error": null,
-      "elapsed_ms": 14.608015000021624,
+      "elapsed_ms": 14.645948000179487,
       "on_proof_path": true
     }
   ],
@@ -481,11 +481,11 @@
     "frontier": 2,
     "max_depth": 1,
     "proof_length": 1,
-    "elapsed_s": 3.333280731000059,
-    "lean_execution_s": 0.11512347000029877,
-    "initialization_s": 1.594525429000214,
-    "verification_s": 1.60703241300007,
-    "planning_s": 0.0003219949999220262
+    "elapsed_s": 3.2795469239999875,
+    "lean_execution_s": 0.12199692399963169,
+    "initialization_s": 1.4828546820003794,
+    "verification_s": 1.6571939010000278,
+    "planning_s": 0.00041638599986981717
   },
   "proof": [
     "ring"
@@ -499,11 +499,11 @@
       "Quot.sound"
     ],
     "error": null,
-    "elapsed_s": 1.60703241300007,
+    "elapsed_s": 1.6571939010000278,
     "source_sha256": "2ab90e32cecb31c0d3c875530eb39695a9642462f0bb49cc4df5904de5ac6a45"
   },
   "metadata": {
-    "code_commit": "a16b54fe84b719c9f109a758ccc2bb8dc717d267",
+    "code_commit": "45322e084527600b9706510fe421c26f3da7e5eb",
     "lean_version": "leanprover/lean4:v4.24.0",
     "mathlib_revision": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7",
     "python": "3.12.14",

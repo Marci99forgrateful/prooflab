@@ -93,6 +93,13 @@ def test_replay_pause_step_speed_zoom_and_theme(page: Page) -> None:
     expected = page.locator("#timeline").get_attribute("max")
     assert expected is not None
     expect(page.locator("#timeline")).to_have_value(expected)
+    assert page.evaluate("""() => {
+        const area = document.querySelector('#tree-svg').getBoundingClientRect();
+        return [...document.querySelectorAll('#tree-svg .tree-node circle')].every(circle => {
+            const box = circle.getBoundingClientRect();
+            return box.left >= area.left && box.right <= area.right;
+        });
+    }""")
     before = page.locator("#tree-transform").get_attribute("transform")
     page.locator("#zoom-in").click()
     assert before != page.locator("#tree-transform").get_attribute("transform")

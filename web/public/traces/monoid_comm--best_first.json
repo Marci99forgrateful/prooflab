@@ -108,7 +108,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\nM : Type\ninst✝ : CommMonoid M\na b : M\n⊢ a * b = b * a",
-      "elapsed_ms": 1.1747369999284274,
+      "elapsed_ms": 1.1958499999309424,
       "on_proof_path": false
     },
     {
@@ -123,7 +123,7 @@
       "reason": "Check definitional equality",
       "status": "rejected",
       "error": "Tactic `rfl` failed: The left-hand side\n  a * b\nis not definitionally equal to the right-hand side\n  b * a\n\nM : Type\ninst✝ : CommMonoid M\na b : M\n⊢ a * b = b * a",
-      "elapsed_ms": 1.7109240000081627,
+      "elapsed_ms": 2.0690739997917262,
       "on_proof_path": false
     },
     {
@@ -189,10 +189,10 @@
       "category": "lemma",
       "lemma": "Eq.symm",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 0.8572600002025865,
+      "elapsed_ms": 0.9168299998236762,
       "on_proof_path": false
     },
     {
@@ -358,10 +358,10 @@
       "category": "lemma",
       "lemma": "Eq.trans",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.7002179999963118,
+      "elapsed_ms": 1.5042139998513449,
       "on_proof_path": false
     },
     {
@@ -373,10 +373,10 @@
       "category": "lemma",
       "lemma": "mul_assoc",
       "provenance": "Mathlib.Algebra.Group.Defs",
-      "reason": "Type-feature match: ('*',)",
+      "reason": "Goal features: ('*',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@mul_assoc`\n  ?a * ?b * ?c = ?a * (?b * ?c)\nwith the goal\n  a * b = b * a\n\nNote: The full type of `@mul_assoc` is\n  ∀ {G : Type ?u.843} [inst : Semigroup G] (a b c : G), a * b * c = a * (b * c)\n\nM : Type\ninst✝ : CommMonoid M\na b : M\n⊢ a * b = b * a",
-      "elapsed_ms": 12.977211000134048,
+      "elapsed_ms": 15.945174000080442,
       "on_proof_path": false
     },
     {
@@ -391,10 +391,10 @@
       "category": "lemma",
       "lemma": "mul_comm",
       "provenance": "Mathlib.Algebra.Group.Defs",
-      "reason": "Type-feature match: ('*',)",
+      "reason": "Goal features: ('*',); context features: ()",
       "status": "solved",
       "error": null,
-      "elapsed_ms": 2.979721999963658,
+      "elapsed_ms": 3.6194469998918066,
       "on_proof_path": true
     }
   ],
@@ -406,11 +406,11 @@
     "frontier": 2,
     "max_depth": 1,
     "proof_length": 1,
-    "elapsed_s": 4.251546377000068,
-    "lean_execution_s": 0.021400072000233195,
-    "initialization_s": 2.185163074000002,
-    "verification_s": 2.024544505999984,
-    "planning_s": 0.000400982999963162
+    "elapsed_s": 3.428915952999887,
+    "lean_execution_s": 0.02525058899936994,
+    "initialization_s": 1.5993312929999774,
+    "verification_s": 1.7880674660000295,
+    "planning_s": 0.00030431799996222253
   },
   "proof": [
     "apply mul_comm"
@@ -420,11 +420,11 @@
     "verified": true,
     "axioms": [],
     "error": null,
-    "elapsed_s": 2.024544505999984,
+    "elapsed_s": 1.7880674660000295,
     "source_sha256": "3f28f7d11fed43616de307b22d27714096c4cc3c2cb7ceb04f3394b886859396"
   },
   "metadata": {
-    "code_commit": "a16b54fe84b719c9f109a758ccc2bb8dc717d267",
+    "code_commit": "45322e084527600b9706510fe421c26f3da7e5eb",
     "lean_version": "leanprover/lean4:v4.24.0",
     "mathlib_revision": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7",
     "python": "3.12.14",

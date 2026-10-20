@@ -192,7 +192,7 @@
       "reason": "Introduce a binder or implication premise",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 3.0181890001586,
+      "elapsed_ms": 2.0937099998263875,
       "on_proof_path": true
     },
     {
@@ -207,7 +207,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\nP Q R : Prop\nhpq : P → Q\nhqr : Q → R\n⊢ P → R",
-      "elapsed_ms": 1.6923050000059447,
+      "elapsed_ms": 0.6902090001403849,
       "on_proof_path": false
     },
     {
@@ -222,7 +222,7 @@
       "reason": "Use implication or function hpq",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the type of `hpq`\n  P → Q\nwith the goal\n  P → R\n\nP Q R : Prop\nhpq : P → Q\nhqr : Q → R\n⊢ P → R",
-      "elapsed_ms": 2.512839000019085,
+      "elapsed_ms": 0.5575789998601977,
       "on_proof_path": false
     },
     {
@@ -237,7 +237,7 @@
       "reason": "Use implication or function hqr",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the type of `hqr`\n  Q → R\nwith the goal\n  P → R\n\nP Q R : Prop\nhpq : P → Q\nhqr : Q → R\n⊢ P → R",
-      "elapsed_ms": 0.8674949999658566,
+      "elapsed_ms": 0.5155359999662323,
       "on_proof_path": false
     },
     {
@@ -252,7 +252,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\nP Q R : Prop\nhpq : P → Q\nhqr : Q → R\nh0 : P\n⊢ R",
-      "elapsed_ms": 0.4939429998103151,
+      "elapsed_ms": 0.5825360001381341,
       "on_proof_path": false
     },
     {
@@ -267,7 +267,7 @@
       "reason": "Use implication or function hpq",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `hpq`\n  Q\nwith the goal\n  R\n\nNote: The full type of `hpq` is\n  P → Q\n\nP Q R : Prop\nhpq : P → Q\nhqr : Q → R\nh0 : P\n⊢ R",
-      "elapsed_ms": 2.2093520001362776,
+      "elapsed_ms": 0.6908290001774731,
       "on_proof_path": false
     },
     {
@@ -356,7 +356,7 @@
       "reason": "Use implication or function hqr",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 0.6214449999788485,
+      "elapsed_ms": 0.4622760000074777,
       "on_proof_path": true
     },
     {
@@ -371,7 +371,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\nP Q R : Prop\nhpq : P → Q\nhqr : Q → R\nh0 : P\n⊢ Q",
-      "elapsed_ms": 0.47897099989313574,
+      "elapsed_ms": 0.6498479999663687,
       "on_proof_path": false
     },
     {
@@ -460,7 +460,7 @@
       "reason": "Use implication or function hpq",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 0.5696559999250894,
+      "elapsed_ms": 0.5052609999438573,
       "on_proof_path": true
     },
     {
@@ -475,7 +475,7 @@
       "reason": "Use implication or function hqr",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `hqr`\n  R\nwith the goal\n  Q\n\nNote: The full type of `hqr` is\n  Q → R\n\nP Q R : Prop\nhpq : P → Q\nhqr : Q → R\nh0 : P\n⊢ Q",
-      "elapsed_ms": 0.8031180000216409,
+      "elapsed_ms": 0.6005440000080853,
       "on_proof_path": false
     },
     {
@@ -493,7 +493,7 @@
       "reason": "Match the goal against the local context",
       "status": "solved",
       "error": null,
-      "elapsed_ms": 0.19385100017643708,
+      "elapsed_ms": 0.1812330001484952,
       "on_proof_path": true
     }
   ],
@@ -505,11 +505,11 @@
     "frontier": 0,
     "max_depth": 4,
     "proof_length": 4,
-    "elapsed_s": 3.754136025999969,
-    "lean_execution_s": 0.01346116400009123,
-    "initialization_s": 1.7837711570000465,
-    "verification_s": 1.9212007649998668,
-    "planning_s": 0.0014036800000667427
+    "elapsed_s": 3.382278144000111,
+    "lean_execution_s": 0.007529561000183094,
+    "initialization_s": 1.6332871860001887,
+    "verification_s": 1.7069291180000619,
+    "planning_s": 0.0014894000000822416
   },
   "proof": [
     "intro h0",
@@ -522,11 +522,11 @@
     "verified": true,
     "axioms": [],
     "error": null,
-    "elapsed_s": 1.9212007649998668,
+    "elapsed_s": 1.7069291180000619,
     "source_sha256": "03225b039fb396dd24c34327a84ef76e4c0d34c871189ed3d89a571a09307054"
   },
   "metadata": {
-    "code_commit": "a16b54fe84b719c9f109a758ccc2bb8dc717d267",
+    "code_commit": "45322e084527600b9706510fe421c26f3da7e5eb",
     "lean_version": "leanprover/lean4:v4.24.0",
     "mathlib_revision": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7",
     "python": "3.12.14",

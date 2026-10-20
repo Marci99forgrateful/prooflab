@@ -272,7 +272,7 @@
       "reason": "Split the goal into its components",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 2.7764079998178204,
+      "elapsed_ms": 2.4745840000832686,
       "on_proof_path": false
     },
     {
@@ -287,7 +287,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = c ∧ c = a",
-      "elapsed_ms": 5.901605000190102,
+      "elapsed_ms": 0.8485419998578436,
       "on_proof_path": false
     },
     {
@@ -302,7 +302,7 @@
       "reason": "Check definitional equality",
       "status": "rejected",
       "error": "Tactic `rfl` failed: The left-hand side\n  a = c\nis not definitionally equal to the right-hand side\n  c = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = c ∧ c = a",
-      "elapsed_ms": 4.033629999867117,
+      "elapsed_ms": 1.4708530002280895,
       "on_proof_path": false
     },
     {
@@ -391,7 +391,7 @@
       "reason": "Rewrite using a local equality",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.97685500006628,
+      "elapsed_ms": 1.3730560003750725,
       "on_proof_path": true
     },
     {
@@ -406,7 +406,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  b\nin the target expression\n  a = c ∧ c = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = c ∧ c = a",
-      "elapsed_ms": 1.2944279999373975,
+      "elapsed_ms": 0.8535639999536215,
       "on_proof_path": false
     },
     {
@@ -421,7 +421,7 @@
       "reason": "Rewrite using a local equality",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  b\nin the target expression\n  a = c ∧ c = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = c ∧ c = a",
-      "elapsed_ms": 1.1724039998171065,
+      "elapsed_ms": 0.8365640001102292,
       "on_proof_path": false
     },
     {
@@ -510,7 +510,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.6883010000583454,
+      "elapsed_ms": 1.4276590000008582,
       "on_proof_path": false
     },
     {
@@ -522,10 +522,10 @@
       "category": "lemma",
       "lemma": "Eq.symm",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.symm`\n  ?b = ?a\nwith the goal\n  a = c ∧ c = a\n\nNote: The full type of `@Eq.symm` is\n  ∀ {α : Sort ?u.56} {a b : α}, a = b → b = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = c ∧ c = a",
-      "elapsed_ms": 2.541313999927297,
+      "elapsed_ms": 1.737784999932046,
       "on_proof_path": false
     },
     {
@@ -537,10 +537,10 @@
       "category": "lemma",
       "lemma": "Eq.trans",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.trans`\n  ?a = ?c\nwith the goal\n  a = c ∧ c = a\n\nNote: The full type of `@Eq.trans` is\n  ∀ {α : Sort ?u.69} {a b c : α}, a = b → b = c → a = c\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = c ∧ c = a",
-      "elapsed_ms": 2.4567169998590543,
+      "elapsed_ms": 1.5216550000332063,
       "on_proof_path": false
     },
     {
@@ -555,7 +555,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\ncase left\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = c",
-      "elapsed_ms": 0.8328730000357609,
+      "elapsed_ms": 0.5775690001428302,
       "on_proof_path": false
     },
     {
@@ -570,7 +570,7 @@
       "reason": "Check definitional equality",
       "status": "rejected",
       "error": "Tactic `rfl` failed: The left-hand side\n  a\nis not definitionally equal to the right-hand side\n  c\n\ncase left\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = c",
-      "elapsed_ms": 1.1378620001778472,
+      "elapsed_ms": 0.9018569999170722,
       "on_proof_path": false
     },
     {
@@ -729,7 +729,7 @@
       "reason": "Rewrite using a local equality",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 2.1623739999085956,
+      "elapsed_ms": 1.5317750003305264,
       "on_proof_path": false
     },
     {
@@ -744,7 +744,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  b\nin the target expression\n  a = c\n\ncase left\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = c",
-      "elapsed_ms": 0.8973999999852822,
+      "elapsed_ms": 0.6402630001502985,
       "on_proof_path": false
     },
     {
@@ -759,7 +759,7 @@
       "reason": "Rewrite using a local equality",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  b\nin the target expression\n  a = c\n\ncase left\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = c",
-      "elapsed_ms": 0.8441200000106619,
+      "elapsed_ms": 0.618420000137121,
       "on_proof_path": false
     },
     {
@@ -918,7 +918,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 2.110136000055718,
+      "elapsed_ms": 1.4892919998601428,
       "on_proof_path": false
     },
     {
@@ -1074,10 +1074,10 @@
       "category": "lemma",
       "lemma": "Eq.symm",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.64921200007484,
+      "elapsed_ms": 1.111191999825678,
       "on_proof_path": false
     },
     {
@@ -1373,10 +1373,10 @@
       "category": "lemma",
       "lemma": "Eq.trans",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 2.541193999832103,
+      "elapsed_ms": 2.129233999767166,
       "on_proof_path": false
     },
     {
@@ -1535,7 +1535,7 @@
       "reason": "Split the goal into its components",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.3172320000194304,
+      "elapsed_ms": 1.0893700000451645,
       "on_proof_path": true
     },
     {
@@ -1550,7 +1550,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = c ∧ c = b",
-      "elapsed_ms": 1.0776419999274367,
+      "elapsed_ms": 0.6509800000458199,
       "on_proof_path": false
     },
     {
@@ -1565,7 +1565,7 @@
       "reason": "Check definitional equality",
       "status": "rejected",
       "error": "Tactic `rfl` failed: The left-hand side\n  b = c\nis not definitionally equal to the right-hand side\n  c = b\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = c ∧ c = b",
-      "elapsed_ms": 4.321322999885524,
+      "elapsed_ms": 1.0503809999136138,
       "on_proof_path": false
     },
     {
@@ -1580,7 +1580,7 @@
       "reason": "Rewrite using a local equality",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  a\nin the target expression\n  b = c ∧ c = b\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = c ∧ c = b",
-      "elapsed_ms": 1.0870659998545307,
+      "elapsed_ms": 0.9601249998922867,
       "on_proof_path": false
     },
     {
@@ -1669,7 +1669,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.6337889999249455,
+      "elapsed_ms": 1.1940869999307324,
       "on_proof_path": false
     },
     {
@@ -1758,7 +1758,7 @@
       "reason": "Rewrite using a local equality",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.6290110002046276,
+      "elapsed_ms": 1.1899810001523292,
       "on_proof_path": false
     },
     {
@@ -1847,7 +1847,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.4263860000482964,
+      "elapsed_ms": 1.0999149999406654,
       "on_proof_path": false
     },
     {
@@ -1859,10 +1859,10 @@
       "category": "lemma",
       "lemma": "Eq.symm",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.symm`\n  ?b = ?a\nwith the goal\n  b = c ∧ c = b\n\nNote: The full type of `@Eq.symm` is\n  ∀ {α : Sort ?u.167} {a b : α}, a = b → b = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = c ∧ c = b",
-      "elapsed_ms": 2.308113000026424,
+      "elapsed_ms": 1.5602680000483815,
       "on_proof_path": false
     },
     {
@@ -1874,10 +1874,10 @@
       "category": "lemma",
       "lemma": "Eq.trans",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.trans`\n  ?a = ?c\nwith the goal\n  b = c ∧ c = b\n\nNote: The full type of `@Eq.trans` is\n  ∀ {α : Sort ?u.180} {a b c : α}, a = b → b = c → a = c\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = c ∧ c = b",
-      "elapsed_ms": 2.3188390000541403,
+      "elapsed_ms": 1.5293510000446986,
       "on_proof_path": false
     },
     {
@@ -2036,7 +2036,7 @@
       "reason": "Split the goal into its components",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.4329670000279293,
+      "elapsed_ms": 1.1939070000153151,
       "on_proof_path": false
     },
     {
@@ -2051,7 +2051,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = b ∧ b = a",
-      "elapsed_ms": 0.7812960000137537,
+      "elapsed_ms": 0.671299999794428,
       "on_proof_path": false
     },
     {
@@ -2066,7 +2066,7 @@
       "reason": "Check definitional equality",
       "status": "rejected",
       "error": "Tactic `rfl` failed: The left-hand side\n  a = b\nis not definitionally equal to the right-hand side\n  b = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = b ∧ b = a",
-      "elapsed_ms": 1.4236029999210587,
+      "elapsed_ms": 1.0351979999541072,
       "on_proof_path": false
     },
     {
@@ -2155,7 +2155,7 @@
       "reason": "Rewrite using a local equality",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.5617710000697116,
+      "elapsed_ms": 1.1240110002290749,
       "on_proof_path": false
     },
     {
@@ -2244,7 +2244,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.5121750000162137,
+      "elapsed_ms": 1.1964899999838963,
       "on_proof_path": false
     },
     {
@@ -2333,7 +2333,7 @@
       "reason": "Rewrite using a local equality",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.6448960000161605,
+      "elapsed_ms": 1.1767910000344273,
       "on_proof_path": false
     },
     {
@@ -2348,7 +2348,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  c\nin the target expression\n  a = b ∧ b = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = b ∧ b = a",
-      "elapsed_ms": 1.0793950000334007,
+      "elapsed_ms": 0.7792030000928207,
       "on_proof_path": false
     },
     {
@@ -2360,10 +2360,10 @@
       "category": "lemma",
       "lemma": "Eq.symm",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.symm`\n  ?b = ?a\nwith the goal\n  a = b ∧ b = a\n\nNote: The full type of `@Eq.symm` is\n  ∀ {α : Sort ?u.232} {a b : α}, a = b → b = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = b ∧ b = a",
-      "elapsed_ms": 2.224608000005901,
+      "elapsed_ms": 1.469561999783764,
       "on_proof_path": false
     },
     {
@@ -2375,10 +2375,10 @@
       "category": "lemma",
       "lemma": "Eq.trans",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.trans`\n  ?a = ?c\nwith the goal\n  a = b ∧ b = a\n\nNote: The full type of `@Eq.trans` is\n  ∀ {α : Sort ?u.245} {a b c : α}, a = b → b = c → a = c\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = b ∧ b = a",
-      "elapsed_ms": 2.0576259998961177,
+      "elapsed_ms": 1.5203080001811031,
       "on_proof_path": false
     },
     {
@@ -2467,7 +2467,7 @@
       "reason": "Match the goal against the local context",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 0.7306490001610655,
+      "elapsed_ms": 0.5944640001871448,
       "on_proof_path": false
     },
     {
@@ -2482,7 +2482,7 @@
       "reason": "Check definitional equality",
       "status": "rejected",
       "error": "Tactic `rfl` failed: The left-hand side\n  b\nis not definitionally equal to the right-hand side\n  c\n\ncase left\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = c",
-      "elapsed_ms": 1.3230209999619547,
+      "elapsed_ms": 0.7969890002641478,
       "on_proof_path": false
     },
     {
@@ -2497,7 +2497,7 @@
       "reason": "Rewrite using a local equality",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  a\nin the target expression\n  b = c\n\ncase left\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = c",
-      "elapsed_ms": 0.8378300001368189,
+      "elapsed_ms": 0.5893770003240206,
       "on_proof_path": false
     },
     {
@@ -2656,7 +2656,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 2.748045000089405,
+      "elapsed_ms": 1.5296020001187571,
       "on_proof_path": false
     },
     {
@@ -2745,7 +2745,7 @@
       "reason": "Rewrite using a local equality",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.1454039999989618,
+      "elapsed_ms": 1.0035300001618452,
       "on_proof_path": false
     },
     {
@@ -2834,7 +2834,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 9.086093999940204,
+      "elapsed_ms": 0.9750979997988907,
       "on_proof_path": false
     },
     {
@@ -2990,10 +2990,10 @@
       "category": "lemma",
       "lemma": "Eq.symm",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.5166730001965334,
+      "elapsed_ms": 1.0910010000770853,
       "on_proof_path": false
     },
     {
@@ -3289,10 +3289,10 @@
       "category": "lemma",
       "lemma": "Eq.trans",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 2.4039570000695676,
+      "elapsed_ms": 1.8378550003035343,
       "on_proof_path": false
     },
     {
@@ -3381,7 +3381,7 @@
       "reason": "Match the goal against the local context",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.0037899999133515,
+      "elapsed_ms": 0.6165980003061122,
       "on_proof_path": false
     },
     {
@@ -3396,7 +3396,7 @@
       "reason": "Check definitional equality",
       "status": "rejected",
       "error": "Tactic `rfl` failed: The left-hand side\n  a\nis not definitionally equal to the right-hand side\n  b\n\ncase left\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = b",
-      "elapsed_ms": 1.1737160000393487,
+      "elapsed_ms": 0.7768489999762096,
       "on_proof_path": false
     },
     {
@@ -3485,7 +3485,7 @@
       "reason": "Rewrite using a local equality",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.5762319999339525,
+      "elapsed_ms": 1.0282570001436397,
       "on_proof_path": false
     },
     {
@@ -3574,7 +3574,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.4284390001648717,
+      "elapsed_ms": 0.9713620002003154,
       "on_proof_path": false
     },
     {
@@ -3733,7 +3733,7 @@
       "reason": "Rewrite using a local equality",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 2.0096939999803,
+      "elapsed_ms": 1.3840130000062345,
       "on_proof_path": false
     },
     {
@@ -3748,7 +3748,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  c\nin the target expression\n  a = b\n\ncase left\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = b",
-      "elapsed_ms": 1.1067749999256193,
+      "elapsed_ms": 0.643398000192974,
       "on_proof_path": false
     },
     {
@@ -3904,10 +3904,10 @@
       "category": "lemma",
       "lemma": "Eq.symm",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.987851999956547,
+      "elapsed_ms": 1.1640920001809718,
       "on_proof_path": false
     },
     {
@@ -4203,10 +4203,10 @@
       "category": "lemma",
       "lemma": "Eq.trans",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 3.029368999932558,
+      "elapsed_ms": 1.8466490000719205,
       "on_proof_path": false
     },
     {
@@ -4221,7 +4221,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\ncase left.h\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ c = a",
-      "elapsed_ms": 1.2070459999904415,
+      "elapsed_ms": 0.584309999794641,
       "on_proof_path": false
     },
     {
@@ -4236,7 +4236,7 @@
       "reason": "Check definitional equality",
       "status": "rejected",
       "error": "Tactic `rfl` failed: The left-hand side\n  c\nis not definitionally equal to the right-hand side\n  a\n\ncase left.h\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ c = a",
-      "elapsed_ms": 1.395539999975881,
+      "elapsed_ms": 0.7707800000389398,
       "on_proof_path": false
     },
     {
@@ -4395,7 +4395,7 @@
       "reason": "Rewrite using a local equality",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 2.4688849998710793,
+      "elapsed_ms": 1.5086499997778446,
       "on_proof_path": false
     },
     {
@@ -4410,7 +4410,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  b\nin the target expression\n  c = a\n\ncase left.h\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ c = a",
-      "elapsed_ms": 1.0435809999762569,
+      "elapsed_ms": 0.6431480001083401,
       "on_proof_path": false
     },
     {
@@ -4425,7 +4425,7 @@
       "reason": "Rewrite using a local equality",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  b\nin the target expression\n  c = a\n\ncase left.h\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ c = a",
-      "elapsed_ms": 1.0304810000434372,
+      "elapsed_ms": 0.6280060001699894,
       "on_proof_path": false
     },
     {
@@ -4584,7 +4584,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 2.3185089999060438,
+      "elapsed_ms": 1.4383149996319844,
       "on_proof_path": false
     },
     {
@@ -4740,10 +4740,10 @@
       "category": "lemma",
       "lemma": "Eq.symm",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.2741969999296998,
+      "elapsed_ms": 1.2434919999577687,
       "on_proof_path": false
     },
     {
@@ -5039,10 +5039,10 @@
       "category": "lemma",
       "lemma": "Eq.trans",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.9527689998994902,
+      "elapsed_ms": 2.0052280001436884,
       "on_proof_path": false
     },
     {
@@ -5201,7 +5201,7 @@
       "reason": "Match the goal against the local context",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.6958820001491404,
+      "elapsed_ms": 1.2044729996887327,
       "on_proof_path": false
     },
     {
@@ -5360,7 +5360,7 @@
       "reason": "Check definitional equality",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 2.320993000012095,
+      "elapsed_ms": 1.5042340000945842,
       "on_proof_path": false
     },
     {
@@ -5519,7 +5519,7 @@
       "reason": "Rewrite using a local equality",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 2.482475999840972,
+      "elapsed_ms": 1.4156510001157585,
       "on_proof_path": false
     },
     {
@@ -5534,7 +5534,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  b\nin the target expression\n  a = ?left.b\n\ncase left.h₁\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = ?left.b",
-      "elapsed_ms": 1.1140859999159147,
+      "elapsed_ms": 0.8848710003803717,
       "on_proof_path": false
     },
     {
@@ -5549,7 +5549,7 @@
       "reason": "Rewrite using a local equality",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  b\nin the target expression\n  a = ?left.b\n\ncase left.h₁\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = ?left.b",
-      "elapsed_ms": 1.1061739999149722,
+      "elapsed_ms": 0.6888709999657294,
       "on_proof_path": false
     },
     {
@@ -5564,7 +5564,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  c\nin the target expression\n  a = ?left.b\n\ncase left.h₁\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = ?left.b",
-      "elapsed_ms": 1.0342170000967599,
+      "elapsed_ms": 0.6918409999343567,
       "on_proof_path": false
     },
     {
@@ -5860,10 +5860,10 @@
       "category": "lemma",
       "lemma": "Eq.symm",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 3.37154399994688,
+      "elapsed_ms": 1.8048860001727007,
       "on_proof_path": false
     },
     {
@@ -6299,10 +6299,10 @@
       "category": "lemma",
       "lemma": "Eq.trans",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 4.483096999820191,
+      "elapsed_ms": 2.874625999993441,
       "on_proof_path": false
     },
     {
@@ -6391,7 +6391,7 @@
       "reason": "Match the goal against the local context",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 0.9500300000127027,
+      "elapsed_ms": 0.5921419997321209,
       "on_proof_path": true
     },
     {
@@ -6406,7 +6406,7 @@
       "reason": "Check definitional equality",
       "status": "rejected",
       "error": "Tactic `rfl` failed: The left-hand side\n  b\nis not definitionally equal to the right-hand side\n  c\n\ncase left\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = c",
-      "elapsed_ms": 1.589521999903809,
+      "elapsed_ms": 0.900895000086166,
       "on_proof_path": false
     },
     {
@@ -6421,7 +6421,7 @@
       "reason": "Rewrite using a local equality",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  a\nin the target expression\n  b = c\n\ncase left\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = c",
-      "elapsed_ms": 1.356491000024107,
+      "elapsed_ms": 0.6578550000995165,
       "on_proof_path": false
     },
     {
@@ -6580,7 +6580,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 2.850549999948271,
+      "elapsed_ms": 1.524354000139283,
       "on_proof_path": false
     },
     {
@@ -6669,7 +6669,7 @@
       "reason": "Rewrite using a local equality",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.582310999992842,
+      "elapsed_ms": 1.0101809998559474,
       "on_proof_path": false
     },
     {
@@ -6758,7 +6758,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.5831230000458163,
+      "elapsed_ms": 1.0386129997641547,
       "on_proof_path": false
     },
     {
@@ -6914,10 +6914,10 @@
       "category": "lemma",
       "lemma": "Eq.symm",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.8163439999625552,
+      "elapsed_ms": 1.2147980000918324,
       "on_proof_path": false
     },
     {
@@ -7213,10 +7213,10 @@
       "category": "lemma",
       "lemma": "Eq.trans",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 3.010951000078421,
+      "elapsed_ms": 1.871224999831611,
       "on_proof_path": false
     },
     {
@@ -7375,7 +7375,7 @@
       "reason": "Split the goal into its components",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.6755419999299193,
+      "elapsed_ms": 1.045894000071712,
       "on_proof_path": false
     },
     {
@@ -7390,7 +7390,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = c ∧ c = a",
-      "elapsed_ms": 0.9204760001466639,
+      "elapsed_ms": 0.7026870002846408,
       "on_proof_path": false
     },
     {
@@ -7405,7 +7405,7 @@
       "reason": "Check definitional equality",
       "status": "rejected",
       "error": "Tactic `rfl` failed: The left-hand side\n  a = c\nis not definitionally equal to the right-hand side\n  c = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = c ∧ c = a",
-      "elapsed_ms": 1.7116460001034284,
+      "elapsed_ms": 1.0630699998728232,
       "on_proof_path": false
     },
     {
@@ -7494,7 +7494,7 @@
       "reason": "Rewrite using a local equality",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.8476399998235138,
+      "elapsed_ms": 1.3085790001241548,
       "on_proof_path": false
     },
     {
@@ -7509,7 +7509,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  b\nin the target expression\n  a = c ∧ c = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = c ∧ c = a",
-      "elapsed_ms": 1.5527259999998932,
+      "elapsed_ms": 0.767455000186601,
       "on_proof_path": false
     },
     {
@@ -7524,7 +7524,7 @@
       "reason": "Rewrite using a local equality",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  b\nin the target expression\n  a = c ∧ c = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = c ∧ c = a",
-      "elapsed_ms": 0.9383419999267062,
+      "elapsed_ms": 0.7995629998731602,
       "on_proof_path": false
     },
     {
@@ -7613,7 +7613,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.9027729999834264,
+      "elapsed_ms": 1.1360999997123145,
       "on_proof_path": false
     },
     {
@@ -7625,10 +7625,10 @@
       "category": "lemma",
       "lemma": "Eq.symm",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.symm`\n  ?b = ?a\nwith the goal\n  a = c ∧ c = a\n\nNote: The full type of `@Eq.symm` is\n  ∀ {α : Sort ?u.534} {a b : α}, a = b → b = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = c ∧ c = a",
-      "elapsed_ms": 2.1272409999255615,
+      "elapsed_ms": 1.8353119999119372,
       "on_proof_path": false
     },
     {
@@ -7640,10 +7640,10 @@
       "category": "lemma",
       "lemma": "Eq.trans",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.trans`\n  ?a = ?c\nwith the goal\n  a = c ∧ c = a\n\nNote: The full type of `@Eq.trans` is\n  ∀ {α : Sort ?u.547} {a b c : α}, a = b → b = c → a = c\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = c ∧ c = a",
-      "elapsed_ms": 2.318258000059359,
+      "elapsed_ms": 1.634299000215833,
       "on_proof_path": false
     },
     {
@@ -7802,7 +7802,7 @@
       "reason": "Split the goal into its components",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.6067880001173762,
+      "elapsed_ms": 1.0624390001794382,
       "on_proof_path": false
     },
     {
@@ -7817,7 +7817,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ c = c ∧ c = c",
-      "elapsed_ms": 0.9420180001598055,
+      "elapsed_ms": 0.6327220003186085,
       "on_proof_path": false
     },
     {
@@ -7832,7 +7832,7 @@
       "reason": "Check definitional equality",
       "status": "rejected",
       "error": "Tactic `rfl` failed: No `[refl]` lemma registered for relation\n  And\n\nHint: Add the `[refl]` attribute to reflexivity lemmas for `And` to use this tactic\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ c = c ∧ c = c",
-      "elapsed_ms": 1.5942899999572546,
+      "elapsed_ms": 1.0235800000373274,
       "on_proof_path": false
     },
     {
@@ -7847,7 +7847,7 @@
       "reason": "Rewrite using a local equality",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  a\nin the target expression\n  c = c ∧ c = c\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ c = c ∧ c = c",
-      "elapsed_ms": 1.250271000117209,
+      "elapsed_ms": 0.9499090001554578,
       "on_proof_path": false
     },
     {
@@ -7862,7 +7862,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  b\nin the target expression\n  c = c ∧ c = c\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ c = c ∧ c = c",
-      "elapsed_ms": 4.444728999942527,
+      "elapsed_ms": 0.8457930002805369,
       "on_proof_path": false
     },
     {
@@ -7877,7 +7877,7 @@
       "reason": "Rewrite using a local equality",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  b\nin the target expression\n  c = c ∧ c = c\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ c = c ∧ c = c",
-      "elapsed_ms": 8.47275000000991,
+      "elapsed_ms": 1.0728239999480138,
       "on_proof_path": false
     },
     {
@@ -7966,7 +7966,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 5.905416999894442,
+      "elapsed_ms": 1.1889689999406983,
       "on_proof_path": false
     },
     {
@@ -7978,10 +7978,10 @@
       "category": "lemma",
       "lemma": "Eq.symm",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.symm`\n  ?b = ?a\nwith the goal\n  c = c ∧ c = c\n\nNote: The full type of `@Eq.symm` is\n  ∀ {α : Sort ?u.585} {a b : α}, a = b → b = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ c = c ∧ c = c",
-      "elapsed_ms": 2.1250479999253002,
+      "elapsed_ms": 1.5496720002374786,
       "on_proof_path": false
     },
     {
@@ -7993,10 +7993,10 @@
       "category": "lemma",
       "lemma": "Eq.trans",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.trans`\n  ?a = ?c\nwith the goal\n  c = c ∧ c = c\n\nNote: The full type of `@Eq.trans` is\n  ∀ {α : Sort ?u.598} {a b c : α}, a = b → b = c → a = c\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ c = c ∧ c = c",
-      "elapsed_ms": 4.188523000038913,
+      "elapsed_ms": 1.5197769998849253,
       "on_proof_path": false
     },
     {
@@ -8155,7 +8155,7 @@
       "reason": "Split the goal into its components",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 2.421824000066408,
+      "elapsed_ms": 1.1821590001090954,
       "on_proof_path": false
     },
     {
@@ -8170,7 +8170,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = b ∧ b = b",
-      "elapsed_ms": 1.80983399991419,
+      "elapsed_ms": 1.107706999846414,
       "on_proof_path": false
     },
     {
@@ -8185,7 +8185,7 @@
       "reason": "Check definitional equality",
       "status": "rejected",
       "error": "Tactic `rfl` failed: No `[refl]` lemma registered for relation\n  And\n\nHint: Add the `[refl]` attribute to reflexivity lemmas for `And` to use this tactic\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = b ∧ b = b",
-      "elapsed_ms": 1.414628000020457,
+      "elapsed_ms": 1.3766319998467225,
       "on_proof_path": false
     },
     {
@@ -8200,7 +8200,7 @@
       "reason": "Rewrite using a local equality",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  a\nin the target expression\n  b = b ∧ b = b\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = b ∧ b = b",
-      "elapsed_ms": 1.195949999782897,
+      "elapsed_ms": 1.068388000021514,
       "on_proof_path": false
     },
     {
@@ -8289,7 +8289,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.8111960000624094,
+      "elapsed_ms": 1.5725660000498465,
       "on_proof_path": false
     },
     {
@@ -8378,7 +8378,7 @@
       "reason": "Rewrite using a local equality",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.6343990000677877,
+      "elapsed_ms": 1.2977029996363854,
       "on_proof_path": false
     },
     {
@@ -8393,7 +8393,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  c\nin the target expression\n  b = b ∧ b = b\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = b ∧ b = b",
-      "elapsed_ms": 1.3242830000308459,
+      "elapsed_ms": 0.9582519996911287,
       "on_proof_path": false
     },
     {
@@ -8405,10 +8405,10 @@
       "category": "lemma",
       "lemma": "Eq.symm",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.symm`\n  ?b = ?a\nwith the goal\n  b = b ∧ b = b\n\nNote: The full type of `@Eq.symm` is\n  ∀ {α : Sort ?u.643} {a b : α}, a = b → b = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = b ∧ b = b",
-      "elapsed_ms": 2.4170369999865216,
+      "elapsed_ms": 1.8697539999266155,
       "on_proof_path": false
     },
     {
@@ -8420,10 +8420,10 @@
       "category": "lemma",
       "lemma": "Eq.trans",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.trans`\n  ?a = ?c\nwith the goal\n  b = b ∧ b = b\n\nNote: The full type of `@Eq.trans` is\n  ∀ {α : Sort ?u.656} {a b c : α}, a = b → b = c → a = c\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = b ∧ b = b",
-      "elapsed_ms": 3.030960999922172,
+      "elapsed_ms": 1.8308150001757895,
       "on_proof_path": false
     },
     {
@@ -8512,7 +8512,7 @@
       "reason": "Match the goal against the local context",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.1604759999954695,
+      "elapsed_ms": 0.8816670001579041,
       "on_proof_path": false
     },
     {
@@ -8527,7 +8527,7 @@
       "reason": "Check definitional equality",
       "status": "rejected",
       "error": "Tactic `rfl` failed: The left-hand side\n  a\nis not definitionally equal to the right-hand side\n  b\n\ncase left\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = b",
-      "elapsed_ms": 1.607618999969418,
+      "elapsed_ms": 1.1617679997470987,
       "on_proof_path": false
     },
     {
@@ -8616,7 +8616,7 @@
       "reason": "Rewrite using a local equality",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.7357019999053591,
+      "elapsed_ms": 1.3915539998379245,
       "on_proof_path": false
     },
     {
@@ -8705,7 +8705,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 2.585490999990725,
+      "elapsed_ms": 1.3656650003213144,
       "on_proof_path": false
     },
     {
@@ -8864,7 +8864,7 @@
       "reason": "Rewrite using a local equality",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 2.024326999844561,
+      "elapsed_ms": 2.404888999990362,
       "on_proof_path": false
     },
     {
@@ -8879,7 +8879,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  c\nin the target expression\n  a = b\n\ncase left\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = b",
-      "elapsed_ms": 1.0378110000601737,
+      "elapsed_ms": 0.881948000369448,
       "on_proof_path": false
     },
     {
@@ -9035,10 +9035,10 @@
       "category": "lemma",
       "lemma": "Eq.symm",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.6881100000318838,
+      "elapsed_ms": 1.2610479998329538,
       "on_proof_path": false
     },
     {
@@ -9334,10 +9334,10 @@
       "category": "lemma",
       "lemma": "Eq.trans",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 2.8558779999912076,
+      "elapsed_ms": 2.1934010001132265,
       "on_proof_path": false
     },
     {
@@ -9496,7 +9496,7 @@
       "reason": "Split the goal into its components",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.5265380000073492,
+      "elapsed_ms": 1.162849999673199,
       "on_proof_path": false
     },
     {
@@ -9511,7 +9511,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = b ∧ b = b",
-      "elapsed_ms": 0.8863430000474182,
+      "elapsed_ms": 0.8107100002234802,
       "on_proof_path": false
     },
     {
@@ -9526,7 +9526,7 @@
       "reason": "Check definitional equality",
       "status": "rejected",
       "error": "Tactic `rfl` failed: No `[refl]` lemma registered for relation\n  And\n\nHint: Add the `[refl]` attribute to reflexivity lemmas for `And` to use this tactic\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = b ∧ b = b",
-      "elapsed_ms": 1.1788340000293829,
+      "elapsed_ms": 1.0973109997394204,
       "on_proof_path": false
     },
     {
@@ -9541,7 +9541,7 @@
       "reason": "Rewrite using a local equality",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  a\nin the target expression\n  b = b ∧ b = b\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = b ∧ b = b",
-      "elapsed_ms": 0.9001040000384819,
+      "elapsed_ms": 0.9119229998759693,
       "on_proof_path": false
     },
     {
@@ -9630,7 +9630,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.2414980001267395,
+      "elapsed_ms": 1.5286599996215955,
       "on_proof_path": false
     },
     {
@@ -9719,7 +9719,7 @@
       "reason": "Rewrite using a local equality",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.3205869997818809,
+      "elapsed_ms": 1.6782759998932306,
       "on_proof_path": false
     },
     {
@@ -9734,7 +9734,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  c\nin the target expression\n  b = b ∧ b = b\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = b ∧ b = b",
-      "elapsed_ms": 0.9096589999444404,
+      "elapsed_ms": 1.0998650000146881,
       "on_proof_path": false
     },
     {
@@ -9746,10 +9746,10 @@
       "category": "lemma",
       "lemma": "Eq.symm",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.symm`\n  ?b = ?a\nwith the goal\n  b = b ∧ b = b\n\nNote: The full type of `@Eq.symm` is\n  ∀ {α : Sort ?u.754} {a b : α}, a = b → b = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = b ∧ b = b",
-      "elapsed_ms": 1.8825529998593993,
+      "elapsed_ms": 2.167310999993788,
       "on_proof_path": false
     },
     {
@@ -9761,10 +9761,10 @@
       "category": "lemma",
       "lemma": "Eq.trans",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.trans`\n  ?a = ?c\nwith the goal\n  b = b ∧ b = b\n\nNote: The full type of `@Eq.trans` is\n  ∀ {α : Sort ?u.767} {a b c : α}, a = b → b = c → a = c\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = b ∧ b = b",
-      "elapsed_ms": 1.9713970000339032,
+      "elapsed_ms": 2.0984180000596098,
       "on_proof_path": false
     },
     {
@@ -9923,7 +9923,7 @@
       "reason": "Split the goal into its components",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.4303830000699236,
+      "elapsed_ms": 1.1635959999694023,
       "on_proof_path": false
     },
     {
@@ -9938,7 +9938,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = a ∧ a = a",
-      "elapsed_ms": 0.9103899999445275,
+      "elapsed_ms": 0.7847009997021814,
       "on_proof_path": false
     },
     {
@@ -9953,7 +9953,7 @@
       "reason": "Check definitional equality",
       "status": "rejected",
       "error": "Tactic `rfl` failed: No `[refl]` lemma registered for relation\n  And\n\nHint: Add the `[refl]` attribute to reflexivity lemmas for `And` to use this tactic\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = a ∧ a = a",
-      "elapsed_ms": 1.2127249999593914,
+      "elapsed_ms": 1.277581999602262,
       "on_proof_path": false
     },
     {
@@ -10042,7 +10042,7 @@
       "reason": "Rewrite using a local equality",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.7002889999275794,
+      "elapsed_ms": 1.1919240000679565,
       "on_proof_path": false
     },
     {
@@ -10057,7 +10057,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  b\nin the target expression\n  a = a ∧ a = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = a ∧ a = a",
-      "elapsed_ms": 1.3327649999155256,
+      "elapsed_ms": 0.7968390000314685,
       "on_proof_path": false
     },
     {
@@ -10072,7 +10072,7 @@
       "reason": "Rewrite using a local equality",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  b\nin the target expression\n  a = a ∧ a = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = a ∧ a = a",
-      "elapsed_ms": 1.311092999912944,
+      "elapsed_ms": 1.3656249998348358,
       "on_proof_path": false
     },
     {
@@ -10087,7 +10087,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  c\nin the target expression\n  a = a ∧ a = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = a ∧ a = a",
-      "elapsed_ms": 1.3815590000376687,
+      "elapsed_ms": 1.1094800001956173,
       "on_proof_path": false
     },
     {
@@ -10099,10 +10099,10 @@
       "category": "lemma",
       "lemma": "Eq.symm",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.symm`\n  ?b = ?a\nwith the goal\n  a = a ∧ a = a\n\nNote: The full type of `@Eq.symm` is\n  ∀ {α : Sort ?u.805} {a b : α}, a = b → b = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = a ∧ a = a",
-      "elapsed_ms": 2.5523310000608035,
+      "elapsed_ms": 1.825252000344335,
       "on_proof_path": false
     },
     {
@@ -10114,10 +10114,10 @@
       "category": "lemma",
       "lemma": "Eq.trans",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.trans`\n  ?a = ?c\nwith the goal\n  a = a ∧ a = a\n\nNote: The full type of `@Eq.trans` is\n  ∀ {α : Sort ?u.818} {a b c : α}, a = b → b = c → a = c\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = a ∧ a = a",
-      "elapsed_ms": 1.8006800000875955,
+      "elapsed_ms": 1.6230569999606814,
       "on_proof_path": false
     },
     {
@@ -10276,7 +10276,7 @@
       "reason": "Split the goal into its components",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.9341699999131379,
+      "elapsed_ms": 1.186785999834683,
       "on_proof_path": false
     },
     {
@@ -10291,7 +10291,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = c ∧ c = a",
-      "elapsed_ms": 1.015306999988752,
+      "elapsed_ms": 0.6389469999703579,
       "on_proof_path": false
     },
     {
@@ -10306,7 +10306,7 @@
       "reason": "Check definitional equality",
       "status": "rejected",
       "error": "Tactic `rfl` failed: The left-hand side\n  a = c\nis not definitionally equal to the right-hand side\n  c = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = c ∧ c = a",
-      "elapsed_ms": 1.8147099999623606,
+      "elapsed_ms": 1.1289590001979377,
       "on_proof_path": false
     },
     {
@@ -10395,7 +10395,7 @@
       "reason": "Rewrite using a local equality",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.7917259999649104,
+      "elapsed_ms": 1.1994050000794232,
       "on_proof_path": false
     },
     {
@@ -10410,7 +10410,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  b\nin the target expression\n  a = c ∧ c = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = c ∧ c = a",
-      "elapsed_ms": 1.1844319999454456,
+      "elapsed_ms": 1.0171559997615987,
       "on_proof_path": false
     },
     {
@@ -10425,7 +10425,7 @@
       "reason": "Rewrite using a local equality",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  b\nin the target expression\n  a = c ∧ c = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = c ∧ c = a",
-      "elapsed_ms": 1.1089089998677082,
+      "elapsed_ms": 0.8168590002242127,
       "on_proof_path": false
     },
     {
@@ -10514,7 +10514,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.666827999997622,
+      "elapsed_ms": 1.2077380001755955,
       "on_proof_path": false
     },
     {
@@ -10526,10 +10526,10 @@
       "category": "lemma",
       "lemma": "Eq.symm",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.symm`\n  ?b = ?a\nwith the goal\n  a = c ∧ c = a\n\nNote: The full type of `@Eq.symm` is\n  ∀ {α : Sort ?u.863} {a b : α}, a = b → b = a\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = c ∧ c = a",
-      "elapsed_ms": 2.454342999953951,
+      "elapsed_ms": 1.5181439998741553,
       "on_proof_path": false
     },
     {
@@ -10541,10 +10541,10 @@
       "category": "lemma",
       "lemma": "Eq.trans",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.trans`\n  ?a = ?c\nwith the goal\n  a = c ∧ c = a\n\nNote: The full type of `@Eq.trans` is\n  ∀ {α : Sort ?u.876} {a b c : α}, a = b → b = c → a = c\n\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = c ∧ c = a",
-      "elapsed_ms": 2.197616999865204,
+      "elapsed_ms": 1.6285199999401812,
       "on_proof_path": false
     },
     {
@@ -10559,7 +10559,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\ncase right\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ c = a",
-      "elapsed_ms": 0.6748450000486628,
+      "elapsed_ms": 0.622848000148224,
       "on_proof_path": false
     },
     {
@@ -10574,7 +10574,7 @@
       "reason": "Check definitional equality",
       "status": "rejected",
       "error": "Tactic `rfl` failed: The left-hand side\n  c\nis not definitionally equal to the right-hand side\n  a\n\ncase right\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ c = a",
-      "elapsed_ms": 1.107497000020885,
+      "elapsed_ms": 0.9885280001071806,
       "on_proof_path": false
     },
     {
@@ -10663,7 +10663,7 @@
       "reason": "Rewrite using a local equality",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 9.109507999937705,
+      "elapsed_ms": 1.226364999638463,
       "on_proof_path": false
     },
     {
@@ -10678,7 +10678,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  b\nin the target expression\n  c = a\n\ncase right\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ c = a",
-      "elapsed_ms": 1.176510000050257,
+      "elapsed_ms": 0.8844009998938418,
       "on_proof_path": false
     },
     {
@@ -10693,7 +10693,7 @@
       "reason": "Rewrite using a local equality",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  b\nin the target expression\n  c = a\n\ncase right\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ c = a",
-      "elapsed_ms": 0.9040400000230875,
+      "elapsed_ms": 0.7359730002463039,
       "on_proof_path": false
     },
     {
@@ -10782,7 +10782,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.4341989999593352,
+      "elapsed_ms": 1.0714619997997943,
       "on_proof_path": false
     },
     {
@@ -10868,10 +10868,10 @@
       "category": "lemma",
       "lemma": "Eq.symm",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.0071760000300856,
+      "elapsed_ms": 0.8254220001617796,
       "on_proof_path": false
     },
     {
@@ -11097,10 +11097,10 @@
       "category": "lemma",
       "lemma": "Eq.trans",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.6890720000901638,
+      "elapsed_ms": 1.7258329999094713,
       "on_proof_path": false
     },
     {
@@ -11115,7 +11115,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\ncase left\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = c",
-      "elapsed_ms": 0.5619660000775184,
+      "elapsed_ms": 0.567804000183969,
       "on_proof_path": false
     },
     {
@@ -11130,7 +11130,7 @@
       "reason": "Check definitional equality",
       "status": "rejected",
       "error": "Tactic `rfl` failed: The left-hand side\n  a\nis not definitionally equal to the right-hand side\n  c\n\ncase left\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = c",
-      "elapsed_ms": 0.8554170001389139,
+      "elapsed_ms": 0.8670740003253741,
       "on_proof_path": false
     },
     {
@@ -11289,7 +11289,7 @@
       "reason": "Rewrite using a local equality",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.5970130000368954,
+      "elapsed_ms": 1.5596769999319804,
       "on_proof_path": false
     },
     {
@@ -11304,7 +11304,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  b\nin the target expression\n  a = c\n\ncase left\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = c",
-      "elapsed_ms": 0.8973409999271098,
+      "elapsed_ms": 0.6557870001415722,
       "on_proof_path": false
     },
     {
@@ -11319,7 +11319,7 @@
       "reason": "Rewrite using a local equality",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  b\nin the target expression\n  a = c\n\ncase left\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = c",
-      "elapsed_ms": 0.7528130001901445,
+      "elapsed_ms": 0.5787109998891538,
       "on_proof_path": false
     },
     {
@@ -11478,7 +11478,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.8271690000801755,
+      "elapsed_ms": 1.516852999884577,
       "on_proof_path": false
     },
     {
@@ -11634,10 +11634,10 @@
       "category": "lemma",
       "lemma": "Eq.symm",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.5417290001096262,
+      "elapsed_ms": 1.1448270001892524,
       "on_proof_path": false
     },
     {
@@ -11933,10 +11933,10 @@
       "category": "lemma",
       "lemma": "Eq.trans",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 2.482085000110601,
+      "elapsed_ms": 1.8520369999350805,
       "on_proof_path": false
     },
     {
@@ -11951,7 +11951,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\ncase right\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ c = a",
-      "elapsed_ms": 0.6707000000005792,
+      "elapsed_ms": 0.5858620002072712,
       "on_proof_path": false
     },
     {
@@ -11966,7 +11966,7 @@
       "reason": "Check definitional equality",
       "status": "rejected",
       "error": "Tactic `rfl` failed: The left-hand side\n  c\nis not definitionally equal to the right-hand side\n  a\n\ncase right\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ c = a",
-      "elapsed_ms": 0.9489680001024681,
+      "elapsed_ms": 0.8786319999671832,
       "on_proof_path": false
     },
     {
@@ -12055,7 +12055,7 @@
       "reason": "Rewrite using a local equality",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.3101920001190592,
+      "elapsed_ms": 1.042678999965574,
       "on_proof_path": false
     },
     {
@@ -12070,7 +12070,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  b\nin the target expression\n  c = a\n\ncase right\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ c = a",
-      "elapsed_ms": 0.8462129999315948,
+      "elapsed_ms": 0.7893779998084938,
       "on_proof_path": false
     },
     {
@@ -12085,7 +12085,7 @@
       "reason": "Rewrite using a local equality",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  b\nin the target expression\n  c = a\n\ncase right\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ c = a",
-      "elapsed_ms": 0.6848300001820462,
+      "elapsed_ms": 0.7288970000445261,
       "on_proof_path": false
     },
     {
@@ -12174,7 +12174,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.2457049999738956,
+      "elapsed_ms": 1.148438000200258,
       "on_proof_path": false
     },
     {
@@ -12260,10 +12260,10 @@
       "category": "lemma",
       "lemma": "Eq.symm",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 0.9535449999020784,
+      "elapsed_ms": 0.7773500001349021,
       "on_proof_path": false
     },
     {
@@ -12489,10 +12489,10 @@
       "category": "lemma",
       "lemma": "Eq.trans",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.6657870000926778,
+      "elapsed_ms": 1.4513840001200151,
       "on_proof_path": false
     },
     {
@@ -12507,7 +12507,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\ncase right\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ c = a",
-      "elapsed_ms": 0.6005539999023313,
+      "elapsed_ms": 0.5634179997286992,
       "on_proof_path": false
     },
     {
@@ -12522,7 +12522,7 @@
       "reason": "Check definitional equality",
       "status": "rejected",
       "error": "Tactic `rfl` failed: The left-hand side\n  c\nis not definitionally equal to the right-hand side\n  a\n\ncase right\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ c = a",
-      "elapsed_ms": 1.1823700001514226,
+      "elapsed_ms": 0.8551920000172686,
       "on_proof_path": false
     },
     {
@@ -12611,7 +12611,7 @@
       "reason": "Rewrite using a local equality",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.2230710001404077,
+      "elapsed_ms": 1.0230999996565515,
       "on_proof_path": false
     },
     {
@@ -12626,7 +12626,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  b\nin the target expression\n  c = a\n\ncase right\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ c = a",
-      "elapsed_ms": 0.7723819999227999,
+      "elapsed_ms": 0.6418860002668225,
       "on_proof_path": false
     },
     {
@@ -12641,7 +12641,7 @@
       "reason": "Rewrite using a local equality",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  b\nin the target expression\n  c = a\n\ncase right\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ c = a",
-      "elapsed_ms": 0.8091580000382237,
+      "elapsed_ms": 0.5839390000801359,
       "on_proof_path": false
     },
     {
@@ -12730,7 +12730,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.4408689999072521,
+      "elapsed_ms": 1.0436410002512275,
       "on_proof_path": false
     },
     {
@@ -12816,10 +12816,10 @@
       "category": "lemma",
       "lemma": "Eq.symm",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 0.8561889999327832,
+      "elapsed_ms": 0.7148059999053658,
       "on_proof_path": false
     },
     {
@@ -13045,10 +13045,10 @@
       "category": "lemma",
       "lemma": "Eq.trans",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.568841000107568,
+      "elapsed_ms": 1.394568999785406,
       "on_proof_path": false
     },
     {
@@ -13063,7 +13063,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\ncase left.h\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ c = b",
-      "elapsed_ms": 0.7723829999122245,
+      "elapsed_ms": 0.6554060000780737,
       "on_proof_path": false
     },
     {
@@ -13078,7 +13078,7 @@
       "reason": "Check definitional equality",
       "status": "rejected",
       "error": "Tactic `rfl` failed: The left-hand side\n  c\nis not definitionally equal to the right-hand side\n  b\n\ncase left.h\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ c = b",
-      "elapsed_ms": 0.9625779998714279,
+      "elapsed_ms": 0.7744949998595985,
       "on_proof_path": false
     },
     {
@@ -13093,7 +13093,7 @@
       "reason": "Rewrite using a local equality",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  a\nin the target expression\n  c = b\n\ncase left.h\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ c = b",
-      "elapsed_ms": 0.9895390001020132,
+      "elapsed_ms": 0.6831079999756184,
       "on_proof_path": false
     },
     {
@@ -13252,7 +13252,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 2.001431000053344,
+      "elapsed_ms": 1.4147789997878135,
       "on_proof_path": false
     },
     {
@@ -13341,7 +13341,7 @@
       "reason": "Rewrite using a local equality",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.0952380000617268,
+      "elapsed_ms": 0.9843409998211428,
       "on_proof_path": false
     },
     {
@@ -13430,7 +13430,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.1281879999387456,
+      "elapsed_ms": 0.9554480002407217,
       "on_proof_path": false
     },
     {
@@ -13586,10 +13586,10 @@
       "category": "lemma",
       "lemma": "Eq.symm",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.2501310000061494,
+      "elapsed_ms": 1.2980239998796606,
       "on_proof_path": false
     },
     {
@@ -13885,10 +13885,10 @@
       "category": "lemma",
       "lemma": "Eq.trans",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 2.0577269999648706,
+      "elapsed_ms": 1.8516059999456047,
       "on_proof_path": false
     },
     {
@@ -14047,7 +14047,7 @@
       "reason": "Match the goal against the local context",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.3638929999615357,
+      "elapsed_ms": 1.1034509998353315,
       "on_proof_path": false
     },
     {
@@ -14206,7 +14206,7 @@
       "reason": "Check definitional equality",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.5214000000014494,
+      "elapsed_ms": 1.2983040001017798,
       "on_proof_path": false
     },
     {
@@ -14221,7 +14221,7 @@
       "reason": "Rewrite using a local equality",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  a\nin the target expression\n  b = ?left.b\n\ncase left.h₁\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = ?left.b",
-      "elapsed_ms": 0.7787920001192106,
+      "elapsed_ms": 0.6604539998988912,
       "on_proof_path": false
     },
     {
@@ -14380,7 +14380,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.7336290000002919,
+      "elapsed_ms": 1.46160999975109,
       "on_proof_path": false
     },
     {
@@ -14539,7 +14539,7 @@
       "reason": "Rewrite using a local equality",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.633388000072955,
+      "elapsed_ms": 1.404824000019289,
       "on_proof_path": false
     },
     {
@@ -14554,7 +14554,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  c\nin the target expression\n  b = ?left.b\n\ncase left.h₁\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = ?left.b",
-      "elapsed_ms": 0.8050809999531339,
+      "elapsed_ms": 0.6966389996705402,
       "on_proof_path": false
     },
     {
@@ -14850,10 +14850,10 @@
       "category": "lemma",
       "lemma": "Eq.symm",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 2.0309860001361812,
+      "elapsed_ms": 1.863855000010517,
       "on_proof_path": false
     },
     {
@@ -15289,10 +15289,10 @@
       "category": "lemma",
       "lemma": "Eq.trans",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 3.0587630001264188,
+      "elapsed_ms": 2.78598199975022,
       "on_proof_path": false
     },
     {
@@ -15307,7 +15307,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\ncase right\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ c = a",
-      "elapsed_ms": 0.6957069999771193,
+      "elapsed_ms": 0.6255919997784076,
       "on_proof_path": false
     },
     {
@@ -15322,7 +15322,7 @@
       "reason": "Check definitional equality",
       "status": "rejected",
       "error": "Tactic `rfl` failed: The left-hand side\n  c\nis not definitionally equal to the right-hand side\n  a\n\ncase right\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ c = a",
-      "elapsed_ms": 0.8311910000884382,
+      "elapsed_ms": 1.0697600000639795,
       "on_proof_path": false
     },
     {
@@ -15411,7 +15411,7 @@
       "reason": "Rewrite using a local equality",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.3521439998385176,
+      "elapsed_ms": 1.0683379996407893,
       "on_proof_path": false
     },
     {
@@ -15426,7 +15426,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  b\nin the target expression\n  c = a\n\ncase right\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ c = a",
-      "elapsed_ms": 0.7827479998923081,
+      "elapsed_ms": 0.7526219997089356,
       "on_proof_path": false
     },
     {
@@ -15441,7 +15441,7 @@
       "reason": "Rewrite using a local equality",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  b\nin the target expression\n  c = a\n\ncase right\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ c = a",
-      "elapsed_ms": 0.8523830001649912,
+      "elapsed_ms": 0.6391420001818915,
       "on_proof_path": false
     },
     {
@@ -15530,7 +15530,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.3615289999506786,
+      "elapsed_ms": 1.3663710001310392,
       "on_proof_path": false
     },
     {
@@ -15616,10 +15616,10 @@
       "category": "lemma",
       "lemma": "Eq.symm",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 0.8534240000699356,
+      "elapsed_ms": 0.7064830001581868,
       "on_proof_path": false
     },
     {
@@ -15845,10 +15845,10 @@
       "category": "lemma",
       "lemma": "Eq.trans",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.7057070001555985,
+      "elapsed_ms": 1.5775339998072013,
       "on_proof_path": false
     },
     {
@@ -15863,7 +15863,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\ncase right\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ c = a",
-      "elapsed_ms": 0.7070540000313486,
+      "elapsed_ms": 0.6273540002439404,
       "on_proof_path": false
     },
     {
@@ -15878,7 +15878,7 @@
       "reason": "Check definitional equality",
       "status": "rejected",
       "error": "Tactic `rfl` failed: The left-hand side\n  c\nis not definitionally equal to the right-hand side\n  a\n\ncase right\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ c = a",
-      "elapsed_ms": 0.9327939999366208,
+      "elapsed_ms": 0.8331539997925574,
       "on_proof_path": false
     },
     {
@@ -15967,7 +15967,7 @@
       "reason": "Rewrite using a local equality",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.3661959999353712,
+      "elapsed_ms": 1.1994149999736692,
       "on_proof_path": false
     },
     {
@@ -15982,7 +15982,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  b\nin the target expression\n  c = a\n\ncase right\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ c = a",
-      "elapsed_ms": 0.7424769999033742,
+      "elapsed_ms": 0.6449000002248795,
       "on_proof_path": false
     },
     {
@@ -15997,7 +15997,7 @@
       "reason": "Rewrite using a local equality",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  b\nin the target expression\n  c = a\n\ncase right\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ c = a",
-      "elapsed_ms": 0.6985509999140049,
+      "elapsed_ms": 0.5860319997736951,
       "on_proof_path": false
     },
     {
@@ -16086,7 +16086,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.2927360000958288,
+      "elapsed_ms": 1.1277470002823975,
       "on_proof_path": false
     },
     {
@@ -16172,10 +16172,10 @@
       "category": "lemma",
       "lemma": "Eq.symm",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.1184429999957501,
+      "elapsed_ms": 0.8384210000258463,
       "on_proof_path": false
     },
     {
@@ -16401,10 +16401,10 @@
       "category": "lemma",
       "lemma": "Eq.trans",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.6092309999748977,
+      "elapsed_ms": 1.5540789995611703,
       "on_proof_path": false
     },
     {
@@ -16419,7 +16419,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\ncase right\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ c = a",
-      "elapsed_ms": 0.6083959999614308,
+      "elapsed_ms": 0.6286359998739499,
       "on_proof_path": false
     },
     {
@@ -16434,7 +16434,7 @@
       "reason": "Check definitional equality",
       "status": "rejected",
       "error": "Tactic `rfl` failed: The left-hand side\n  c\nis not definitionally equal to the right-hand side\n  a\n\ncase right\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ c = a",
-      "elapsed_ms": 1.0773210001389089,
+      "elapsed_ms": 0.8055620000959607,
       "on_proof_path": false
     },
     {
@@ -16523,7 +16523,7 @@
       "reason": "Rewrite using a local equality",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.1081269999522192,
+      "elapsed_ms": 1.0374109997428604,
       "on_proof_path": false
     },
     {
@@ -16538,7 +16538,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  b\nin the target expression\n  c = a\n\ncase right\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ c = a",
-      "elapsed_ms": 0.6890770000609336,
+      "elapsed_ms": 0.6030580002516217,
       "on_proof_path": false
     },
     {
@@ -16553,7 +16553,7 @@
       "reason": "Rewrite using a local equality",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  b\nin the target expression\n  c = a\n\ncase right\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ c = a",
-      "elapsed_ms": 0.5947349998223217,
+      "elapsed_ms": 0.6043589996806986,
       "on_proof_path": false
     },
     {
@@ -16642,7 +16642,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.037471000017831,
+      "elapsed_ms": 1.0586629996396368,
       "on_proof_path": false
     },
     {
@@ -16728,10 +16728,10 @@
       "category": "lemma",
       "lemma": "Eq.symm",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 0.9022079998430854,
+      "elapsed_ms": 0.6908089999342337,
       "on_proof_path": false
     },
     {
@@ -16957,10 +16957,10 @@
       "category": "lemma",
       "lemma": "Eq.trans",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.4427209998757462,
+      "elapsed_ms": 1.4086699998188124,
       "on_proof_path": false
     },
     {
@@ -16975,7 +16975,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\ncase left\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = c",
-      "elapsed_ms": 0.6522609999137785,
+      "elapsed_ms": 0.5956360000709537,
       "on_proof_path": false
     },
     {
@@ -16990,7 +16990,7 @@
       "reason": "Check definitional equality",
       "status": "rejected",
       "error": "Tactic `rfl` failed: The left-hand side\n  a\nis not definitionally equal to the right-hand side\n  c\n\ncase left\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = c",
-      "elapsed_ms": 0.8732750000035594,
+      "elapsed_ms": 0.86703499982832,
       "on_proof_path": false
     },
     {
@@ -17149,7 +17149,7 @@
       "reason": "Rewrite using a local equality",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.4348189999964234,
+      "elapsed_ms": 1.5842139996493643,
       "on_proof_path": false
     },
     {
@@ -17164,7 +17164,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  b\nin the target expression\n  a = c\n\ncase left\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = c",
-      "elapsed_ms": 0.6399030000920902,
+      "elapsed_ms": 0.7385220001197013,
       "on_proof_path": false
     },
     {
@@ -17179,7 +17179,7 @@
       "reason": "Rewrite using a local equality",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  b\nin the target expression\n  a = c\n\ncase left\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = c",
-      "elapsed_ms": 1.0148069998194842,
+      "elapsed_ms": 0.6587820003005618,
       "on_proof_path": false
     },
     {
@@ -17338,7 +17338,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.6037240000059683,
+      "elapsed_ms": 1.6564120001021365,
       "on_proof_path": false
     },
     {
@@ -17494,10 +17494,10 @@
       "category": "lemma",
       "lemma": "Eq.symm",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.11292500014315,
+      "elapsed_ms": 1.118984000186174,
       "on_proof_path": false
     },
     {
@@ -17793,10 +17793,10 @@
       "category": "lemma",
       "lemma": "Eq.trans",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.8356130001393467,
+      "elapsed_ms": 2.0046260001436167,
       "on_proof_path": false
     },
     {
@@ -17811,7 +17811,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\ncase left.h\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = a",
-      "elapsed_ms": 0.6132230000730488,
+      "elapsed_ms": 0.6098879998717166,
       "on_proof_path": false
     },
     {
@@ -17826,7 +17826,7 @@
       "reason": "Check definitional equality",
       "status": "rejected",
       "error": "Tactic `rfl` failed: The left-hand side\n  b\nis not definitionally equal to the right-hand side\n  a\n\ncase left.h\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = a",
-      "elapsed_ms": 0.7818160001988872,
+      "elapsed_ms": 0.8048810000218509,
       "on_proof_path": false
     },
     {
@@ -17915,7 +17915,7 @@
       "reason": "Rewrite using a local equality",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.0085179999350657,
+      "elapsed_ms": 1.0316719999536872,
       "on_proof_path": false
     },
     {
@@ -18004,7 +18004,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.0594049999781419,
+      "elapsed_ms": 1.05772100005197,
       "on_proof_path": false
     },
     {
@@ -18163,7 +18163,7 @@
       "reason": "Rewrite using a local equality",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.5465579999727197,
+      "elapsed_ms": 1.4902530001563719,
       "on_proof_path": false
     },
     {
@@ -18178,7 +18178,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  c\nin the target expression\n  b = a\n\ncase left.h\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = a",
-      "elapsed_ms": 0.6728129999373778,
+      "elapsed_ms": 0.660884999888367,
       "on_proof_path": false
     },
     {
@@ -18334,10 +18334,10 @@
       "category": "lemma",
       "lemma": "Eq.symm",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.1310520001188706,
+      "elapsed_ms": 1.2325849997978366,
       "on_proof_path": false
     },
     {
@@ -18633,10 +18633,10 @@
       "category": "lemma",
       "lemma": "Eq.trans",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 2.192608999848744,
+      "elapsed_ms": 1.857599999766535,
       "on_proof_path": false
     },
     {
@@ -18795,7 +18795,7 @@
       "reason": "Match the goal against the local context",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.1514730001636053,
+      "elapsed_ms": 1.0754979998637282,
       "on_proof_path": false
     },
     {
@@ -18954,7 +18954,7 @@
       "reason": "Check definitional equality",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.6088710001440631,
+      "elapsed_ms": 1.3244930000837485,
       "on_proof_path": false
     },
     {
@@ -19113,7 +19113,7 @@
       "reason": "Rewrite using a local equality",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.6536480000013398,
+      "elapsed_ms": 1.6469680003865506,
       "on_proof_path": false
     },
     {
@@ -19128,7 +19128,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  b\nin the target expression\n  a = ?left.b\n\ncase left.h₁\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = ?left.b",
-      "elapsed_ms": 0.7993020001322293,
+      "elapsed_ms": 0.8038099999794213,
       "on_proof_path": false
     },
     {
@@ -19143,7 +19143,7 @@
       "reason": "Rewrite using a local equality",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  b\nin the target expression\n  a = ?left.b\n\ncase left.h₁\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = ?left.b",
-      "elapsed_ms": 0.7988719999048044,
+      "elapsed_ms": 0.6574190001629177,
       "on_proof_path": false
     },
     {
@@ -19158,7 +19158,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  c\nin the target expression\n  a = ?left.b\n\ncase left.h₁\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = ?left.b",
-      "elapsed_ms": 0.791681000009703,
+      "elapsed_ms": 0.7255620002979413,
       "on_proof_path": false
     },
     {
@@ -19454,10 +19454,10 @@
       "category": "lemma",
       "lemma": "Eq.symm",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 2.045947999931741,
+      "elapsed_ms": 1.8782060001285572,
       "on_proof_path": false
     },
     {
@@ -19893,10 +19893,10 @@
       "category": "lemma",
       "lemma": "Eq.trans",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 3.2573220000813308,
+      "elapsed_ms": 2.9142359999241307,
       "on_proof_path": false
     },
     {
@@ -19911,7 +19911,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\ncase left.h\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ c = b",
-      "elapsed_ms": 0.604099999918617,
+      "elapsed_ms": 0.594714999806456,
       "on_proof_path": false
     },
     {
@@ -19926,7 +19926,7 @@
       "reason": "Check definitional equality",
       "status": "rejected",
       "error": "Tactic `rfl` failed: The left-hand side\n  c\nis not definitionally equal to the right-hand side\n  b\n\ncase left.h\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ c = b",
-      "elapsed_ms": 0.9679069999037893,
+      "elapsed_ms": 0.8797440000307688,
       "on_proof_path": false
     },
     {
@@ -19941,7 +19941,7 @@
       "reason": "Rewrite using a local equality",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  a\nin the target expression\n  c = b\n\ncase left.h\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ c = b",
-      "elapsed_ms": 0.7949270000153774,
+      "elapsed_ms": 0.6834889995843696,
       "on_proof_path": false
     },
     {
@@ -20100,7 +20100,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.582842000061646,
+      "elapsed_ms": 1.4577530000678962,
       "on_proof_path": false
     },
     {
@@ -20189,7 +20189,7 @@
       "reason": "Rewrite using a local equality",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.1634709999270854,
+      "elapsed_ms": 0.9804349997466488,
       "on_proof_path": false
     },
     {
@@ -20278,7 +20278,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.1038109998935397,
+      "elapsed_ms": 0.9973710002668668,
       "on_proof_path": false
     },
     {
@@ -20434,10 +20434,10 @@
       "category": "lemma",
       "lemma": "Eq.symm",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.1658650000754278,
+      "elapsed_ms": 1.0787329997583583,
       "on_proof_path": false
     },
     {
@@ -20733,10 +20733,10 @@
       "category": "lemma",
       "lemma": "Eq.trans",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.9886229999883653,
+      "elapsed_ms": 1.7848560000857105,
       "on_proof_path": false
     },
     {
@@ -20751,7 +20751,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\ncase left.h\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = a",
-      "elapsed_ms": 0.6414449999283534,
+      "elapsed_ms": 0.5801030001748586,
       "on_proof_path": false
     },
     {
@@ -20766,7 +20766,7 @@
       "reason": "Check definitional equality",
       "status": "rejected",
       "error": "Tactic `rfl` failed: The left-hand side\n  b\nis not definitionally equal to the right-hand side\n  a\n\ncase left.h\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = a",
-      "elapsed_ms": 0.8598039999014873,
+      "elapsed_ms": 0.7836690001568059,
       "on_proof_path": false
     },
     {
@@ -20855,7 +20855,7 @@
       "reason": "Rewrite using a local equality",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.2619389999599662,
+      "elapsed_ms": 0.9878860000753775,
       "on_proof_path": false
     },
     {
@@ -20944,7 +20944,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.342861000011908,
+      "elapsed_ms": 0.9636699996917741,
       "on_proof_path": false
     },
     {
@@ -21103,7 +21103,7 @@
       "reason": "Rewrite using a local equality",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.678455000046597,
+      "elapsed_ms": 1.5061459998833016,
       "on_proof_path": false
     },
     {
@@ -21118,7 +21118,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  c\nin the target expression\n  b = a\n\ncase left.h\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = a",
-      "elapsed_ms": 0.7305199999336764,
+      "elapsed_ms": 0.6395220002559654,
       "on_proof_path": false
     },
     {
@@ -21274,10 +21274,10 @@
       "category": "lemma",
       "lemma": "Eq.symm",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.250151000022015,
+      "elapsed_ms": 1.101125999866781,
       "on_proof_path": false
     },
     {
@@ -21573,10 +21573,10 @@
       "category": "lemma",
       "lemma": "Eq.trans",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 2.217817000200739,
+      "elapsed_ms": 1.8510910003897152,
       "on_proof_path": false
     },
     {
@@ -21591,7 +21591,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\ncase left.h.h\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = c",
-      "elapsed_ms": 0.8934549998684815,
+      "elapsed_ms": 0.5849909998687508,
       "on_proof_path": false
     },
     {
@@ -21606,7 +21606,7 @@
       "reason": "Check definitional equality",
       "status": "rejected",
       "error": "Tactic `rfl` failed: The left-hand side\n  a\nis not definitionally equal to the right-hand side\n  c\n\ncase left.h.h\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = c",
-      "elapsed_ms": 0.9707510000680486,
+      "elapsed_ms": 0.8073349999904167,
       "on_proof_path": false
     },
     {
@@ -21765,7 +21765,7 @@
       "reason": "Rewrite using a local equality",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.7713459999413317,
+      "elapsed_ms": 1.4444990001720726,
       "on_proof_path": false
     },
     {
@@ -21780,7 +21780,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  b\nin the target expression\n  a = c\n\ncase left.h.h\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = c",
-      "elapsed_ms": 0.6333430001177476,
+      "elapsed_ms": 0.6721519998791337,
       "on_proof_path": false
     },
     {
@@ -21795,7 +21795,7 @@
       "reason": "Rewrite using a local equality",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  b\nin the target expression\n  a = c\n\ncase left.h.h\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = c",
-      "elapsed_ms": 0.7818169999609381,
+      "elapsed_ms": 0.6423270001505443,
       "on_proof_path": false
     },
     {
@@ -21954,7 +21954,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.600157999973817,
+      "elapsed_ms": 1.4205580000634654,
       "on_proof_path": false
     },
     {
@@ -22110,10 +22110,10 @@
       "category": "lemma",
       "lemma": "Eq.symm",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.1141969998789136,
+      "elapsed_ms": 1.1278580000180227,
       "on_proof_path": false
     },
     {
@@ -22409,10 +22409,10 @@
       "category": "lemma",
       "lemma": "Eq.trans",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 2.2610829998939153,
+      "elapsed_ms": 1.8038550001620024,
       "on_proof_path": false
     },
     {
@@ -22427,7 +22427,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\ncase left.h.h₁\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ c = ?left.h.b",
-      "elapsed_ms": 0.6751759999588103,
+      "elapsed_ms": 0.6029270002727571,
       "on_proof_path": false
     },
     {
@@ -22586,7 +22586,7 @@
       "reason": "Check definitional equality",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.357352000013634,
+      "elapsed_ms": 1.4438429998335778,
       "on_proof_path": false
     },
     {
@@ -22601,7 +22601,7 @@
       "reason": "Rewrite using a local equality",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  a\nin the target expression\n  c = ?left.h.b\n\ncase left.h.h₁\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ c = ?left.h.b",
-      "elapsed_ms": 0.868015999913041,
+      "elapsed_ms": 0.7340950000980229,
       "on_proof_path": false
     },
     {
@@ -22616,7 +22616,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  b\nin the target expression\n  c = ?left.h.b\n\ncase left.h.h₁\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ c = ?left.h.b",
-      "elapsed_ms": 0.7368290000613342,
+      "elapsed_ms": 0.6651909998254268,
       "on_proof_path": false
     },
     {
@@ -22631,7 +22631,7 @@
       "reason": "Rewrite using a local equality",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  b\nin the target expression\n  c = ?left.h.b\n\ncase left.h.h₁\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ c = ?left.h.b",
-      "elapsed_ms": 0.7951059999413701,
+      "elapsed_ms": 0.6828179998592532,
       "on_proof_path": false
     },
     {
@@ -22790,7 +22790,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.8930080000245653,
+      "elapsed_ms": 2.0576269998855423,
       "on_proof_path": false
     },
     {
@@ -23086,10 +23086,10 @@
       "category": "lemma",
       "lemma": "Eq.symm",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.8880319998970663,
+      "elapsed_ms": 1.8942000001516135,
       "on_proof_path": false
     },
     {
@@ -23525,10 +23525,10 @@
       "category": "lemma",
       "lemma": "Eq.trans",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 3.35656100014603,
+      "elapsed_ms": 2.797480000026553,
       "on_proof_path": false
     },
     {
@@ -23617,7 +23617,7 @@
       "reason": "Match the goal against the local context",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 0.735636999934286,
+      "elapsed_ms": 0.8691180000823806,
       "on_proof_path": false
     },
     {
@@ -23632,7 +23632,7 @@
       "reason": "Check definitional equality",
       "status": "rejected",
       "error": "Tactic `rfl` failed: The left-hand side\n  b\nis not definitionally equal to the right-hand side\n  c\n\ncase left.h₂\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = c",
-      "elapsed_ms": 0.9060930001396628,
+      "elapsed_ms": 0.9519219997855544,
       "on_proof_path": false
     },
     {
@@ -23647,7 +23647,7 @@
       "reason": "Rewrite using a local equality",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  a\nin the target expression\n  b = c\n\ncase left.h₂\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = c",
-      "elapsed_ms": 0.9098289999656117,
+      "elapsed_ms": 0.7315100001505925,
       "on_proof_path": false
     },
     {
@@ -23806,7 +23806,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.5186050000011164,
+      "elapsed_ms": 1.4609290001317277,
       "on_proof_path": false
     },
     {
@@ -23895,7 +23895,7 @@
       "reason": "Rewrite using a local equality",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.174667999976009,
+      "elapsed_ms": 1.1795850000453356,
       "on_proof_path": false
     },
     {
@@ -23984,7 +23984,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.0651620000317052,
+      "elapsed_ms": 0.9909720001815003,
       "on_proof_path": false
     },
     {
@@ -24140,10 +24140,10 @@
       "category": "lemma",
       "lemma": "Eq.symm",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.1121430000002874,
+      "elapsed_ms": 1.1388240000087535,
       "on_proof_path": false
     },
     {
@@ -24439,10 +24439,10 @@
       "category": "lemma",
       "lemma": "Eq.trans",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.980150000008507,
+      "elapsed_ms": 1.9039650001104746,
       "on_proof_path": false
     },
     {
@@ -24457,7 +24457,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\ncase left.h₂\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = c",
-      "elapsed_ms": 0.6151160000626987,
+      "elapsed_ms": 0.6270540002333291,
       "on_proof_path": false
     },
     {
@@ -24472,7 +24472,7 @@
       "reason": "Check definitional equality",
       "status": "rejected",
       "error": "Tactic `rfl` failed: The left-hand side\n  a\nis not definitionally equal to the right-hand side\n  c\n\ncase left.h₂\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = c",
-      "elapsed_ms": 0.8611959999598184,
+      "elapsed_ms": 1.011411999570555,
       "on_proof_path": false
     },
     {
@@ -24631,7 +24631,7 @@
       "reason": "Rewrite using a local equality",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.6993069998534338,
+      "elapsed_ms": 1.6121560001920443,
       "on_proof_path": false
     },
     {
@@ -24646,7 +24646,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  b\nin the target expression\n  a = c\n\ncase left.h₂\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = c",
-      "elapsed_ms": 0.7325320000290958,
+      "elapsed_ms": 0.6620459998885053,
       "on_proof_path": false
     },
     {
@@ -24661,7 +24661,7 @@
       "reason": "Rewrite using a local equality",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  b\nin the target expression\n  a = c\n\ncase left.h₂\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = c",
-      "elapsed_ms": 0.6008939999446739,
+      "elapsed_ms": 0.642167000023619,
       "on_proof_path": false
     },
     {
@@ -24820,7 +24820,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.7279899998356996,
+      "elapsed_ms": 1.8773450001390302,
       "on_proof_path": false
     },
     {
@@ -24976,10 +24976,10 @@
       "category": "lemma",
       "lemma": "Eq.symm",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.177161999976306,
+      "elapsed_ms": 1.276166000025114,
       "on_proof_path": false
     },
     {
@@ -25275,10 +25275,10 @@
       "category": "lemma",
       "lemma": "Eq.trans",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.842463000002681,
+      "elapsed_ms": 2.0057530000485713,
       "on_proof_path": false
     },
     {
@@ -25367,7 +25367,7 @@
       "reason": "Match the goal against the local context",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 0.6611149999571353,
+      "elapsed_ms": 0.6293469996307977,
       "on_proof_path": false
     },
     {
@@ -25382,7 +25382,7 @@
       "reason": "Check definitional equality",
       "status": "rejected",
       "error": "Tactic `rfl` failed: The left-hand side\n  b\nis not definitionally equal to the right-hand side\n  c\n\ncase left.h₂\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = c",
-      "elapsed_ms": 0.9453220000068541,
+      "elapsed_ms": 0.8840400000735826,
       "on_proof_path": false
     },
     {
@@ -25397,7 +25397,7 @@
       "reason": "Rewrite using a local equality",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  a\nin the target expression\n  b = c\n\ncase left.h₂\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ b = c",
-      "elapsed_ms": 0.7063329999255075,
+      "elapsed_ms": 0.7362330002251838,
       "on_proof_path": false
     },
     {
@@ -25556,7 +25556,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.448579999987487,
+      "elapsed_ms": 1.5616099999533617,
       "on_proof_path": false
     },
     {
@@ -25645,7 +25645,7 @@
       "reason": "Rewrite using a local equality",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.0713120000218623,
+      "elapsed_ms": 1.115948999995453,
       "on_proof_path": false
     },
     {
@@ -25734,7 +25734,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.150230999883206,
+      "elapsed_ms": 1.0176460000366205,
       "on_proof_path": false
     },
     {
@@ -25890,10 +25890,10 @@
       "category": "lemma",
       "lemma": "Eq.symm",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.1035410000204138,
+      "elapsed_ms": 1.1677369998324139,
       "on_proof_path": false
     },
     {
@@ -26189,10 +26189,10 @@
       "category": "lemma",
       "lemma": "Eq.trans",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 2.094591999821205,
+      "elapsed_ms": 1.8374050000602438,
       "on_proof_path": false
     },
     {
@@ -26207,7 +26207,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\ncase left.h₁.h\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ ?left.b = a",
-      "elapsed_ms": 0.7168989998262987,
+      "elapsed_ms": 0.6901090000610566,
       "on_proof_path": false
     },
     {
@@ -26366,7 +26366,7 @@
       "reason": "Check definitional equality",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.3673569999355095,
+      "elapsed_ms": 1.269741000214708,
       "on_proof_path": false
     },
     {
@@ -26525,7 +26525,7 @@
       "reason": "Rewrite using a local equality",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.8758630001229903,
+      "elapsed_ms": 1.4389849998224236,
       "on_proof_path": false
     },
     {
@@ -26540,7 +26540,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  b\nin the target expression\n  ?left.b = a\n\ncase left.h₁.h\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ ?left.b = a",
-      "elapsed_ms": 0.7484760001261748,
+      "elapsed_ms": 0.6710000002385641,
       "on_proof_path": false
     },
     {
@@ -26555,7 +26555,7 @@
       "reason": "Rewrite using a local equality",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  b\nin the target expression\n  ?left.b = a\n\ncase left.h₁.h\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ ?left.b = a",
-      "elapsed_ms": 0.8303300000989111,
+      "elapsed_ms": 0.6871440000395523,
       "on_proof_path": false
     },
     {
@@ -26570,7 +26570,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  c\nin the target expression\n  ?left.b = a\n\ncase left.h₁.h\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ ?left.b = a",
-      "elapsed_ms": 0.8370389998617611,
+      "elapsed_ms": 0.7428980002259777,
       "on_proof_path": false
     },
     {
@@ -26866,10 +26866,10 @@
       "category": "lemma",
       "lemma": "Eq.symm",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 2.300471999888032,
+      "elapsed_ms": 2.2153239997351193,
       "on_proof_path": false
     },
     {
@@ -27305,10 +27305,10 @@
       "category": "lemma",
       "lemma": "Eq.trans",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 2.7962970000317,
+      "elapsed_ms": 2.671840999937558,
       "on_proof_path": false
     },
     {
@@ -27607,7 +27607,7 @@
       "reason": "Match the goal against the local context",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 3.2564910000019154,
+      "elapsed_ms": 1.8549810001786682,
       "on_proof_path": false
     },
     {
@@ -27906,7 +27906,7 @@
       "reason": "Check definitional equality",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 3.8326480000705487,
+      "elapsed_ms": 2.0343020000836987,
       "on_proof_path": false
     },
     {
@@ -28205,7 +28205,7 @@
       "reason": "Rewrite using a local equality",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 2.885963000153424,
+      "elapsed_ms": 2.424598999823502,
       "on_proof_path": false
     },
     {
@@ -28220,7 +28220,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  b\nin the target expression\n  a = ?left.h₁.b\n\ncase left.h₁.h₁\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = ?left.h₁.b",
-      "elapsed_ms": 0.7772599999498198,
+      "elapsed_ms": 0.7236689998535439,
       "on_proof_path": false
     },
     {
@@ -28235,7 +28235,7 @@
       "reason": "Rewrite using a local equality",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  b\nin the target expression\n  a = ?left.h₁.b\n\ncase left.h₁.h₁\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = ?left.h₁.b",
-      "elapsed_ms": 0.9136950000083743,
+      "elapsed_ms": 0.6254810000427824,
       "on_proof_path": false
     },
     {
@@ -28250,7 +28250,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  c\nin the target expression\n  a = ?left.h₁.b\n\ncase left.h₁.h₁\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ a = ?left.h₁.b",
-      "elapsed_ms": 0.7799130000876175,
+      "elapsed_ms": 0.6735229999321746,
       "on_proof_path": false
     },
     {
@@ -28686,10 +28686,10 @@
       "category": "lemma",
       "lemma": "Eq.symm",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 3.525785999954678,
+      "elapsed_ms": 2.959913999802666,
       "on_proof_path": false
     },
     {
@@ -29265,10 +29265,10 @@
       "category": "lemma",
       "lemma": "Eq.trans",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 3.572445999907359,
+      "elapsed_ms": 3.496256000289577,
       "on_proof_path": false
     },
     {
@@ -29283,7 +29283,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\ncase right\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ c = b",
-      "elapsed_ms": 0.6482649998815759,
+      "elapsed_ms": 0.6632489998992241,
       "on_proof_path": false
     },
     {
@@ -29298,7 +29298,7 @@
       "reason": "Check definitional equality",
       "status": "rejected",
       "error": "Tactic `rfl` failed: The left-hand side\n  c\nis not definitionally equal to the right-hand side\n  b\n\ncase right\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ c = b",
-      "elapsed_ms": 0.9286580000207323,
+      "elapsed_ms": 0.8464640000056534,
       "on_proof_path": false
     },
     {
@@ -29313,7 +29313,7 @@
       "reason": "Rewrite using a local equality",
       "status": "rejected",
       "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  a\nin the target expression\n  c = b\n\ncase right\nα : Type\na b c : α\nh : a = b\nk : b = c\n⊢ c = b",
-      "elapsed_ms": 0.7474550000097224,
+      "elapsed_ms": 0.8783809998931247,
       "on_proof_path": false
     },
     {
@@ -29402,7 +29402,7 @@
       "reason": "Explore reverse equality rewriting",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.1610379999638099,
+      "elapsed_ms": 3.8133630000629637,
       "on_proof_path": false
     },
     {
@@ -29420,7 +29420,7 @@
       "reason": "Rewrite using a local equality",
       "status": "solved",
       "error": null,
-      "elapsed_ms": 0.6379100000231119,
+      "elapsed_ms": 0.6932629999027995,
       "on_proof_path": true
     }
   ],
@@ -29432,11 +29432,11 @@
     "frontier": 124,
     "max_depth": 4,
     "proof_length": 4,
-    "elapsed_s": 4.204490807999946,
-    "lean_execution_s": 0.48905339599855324,
-    "initialization_s": 1.8630934780001098,
-    "verification_s": 1.792196019999892,
-    "planning_s": 0.011689290999584045
+    "elapsed_s": 3.7399810450001496,
+    "lean_execution_s": 0.3637726670012853,
+    "initialization_s": 1.7180697479998344,
+    "verification_s": 1.6010959130003357,
+    "planning_s": 0.010259101000883675
   },
   "proof": [
     "rw [h]",
@@ -29449,11 +29449,11 @@
     "verified": true,
     "axioms": [],
     "error": null,
-    "elapsed_s": 1.792196019999892,
+    "elapsed_s": 1.6010959130003357,
     "source_sha256": "017ac958bf57053cf950f00251b8b6436339a02ed5bf41b541f74c16e101c2e1"
   },
   "metadata": {
-    "code_commit": "a16b54fe84b719c9f109a758ccc2bb8dc717d267",
+    "code_commit": "45322e084527600b9706510fe421c26f3da7e5eb",
     "lean_version": "leanprover/lean4:v4.24.0",
     "mathlib_revision": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7",
     "python": "3.12.14",

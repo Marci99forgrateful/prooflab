@@ -118,7 +118,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\nα : Type\nA B : Set α\nhab : A ⊆ B\nhba : B ⊆ A\n⊢ A = B",
-      "elapsed_ms": 2.1535399998811044,
+      "elapsed_ms": 1.3662059996022435,
       "on_proof_path": false
     },
     {
@@ -133,7 +133,7 @@
       "reason": "Check definitional equality",
       "status": "rejected",
       "error": "Tactic `rfl` failed: The left-hand side\n  A\nis not definitionally equal to the right-hand side\n  B\n\nα : Type\nA B : Set α\nhab : A ⊆ B\nhba : B ⊆ A\n⊢ A = B",
-      "elapsed_ms": 1.454444000046351,
+      "elapsed_ms": 0.97498800005269,
       "on_proof_path": false
     },
     {
@@ -148,7 +148,7 @@
       "reason": "Use implication or function hab",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `hab`\n  ?a ∈ B\nwith the goal\n  A = B\n\nNote: The full type of `hab` is\n  A ⊆ B\n\nα : Type\nA B : Set α\nhab : A ⊆ B\nhba : B ⊆ A\n⊢ A = B",
-      "elapsed_ms": 1.924505000033605,
+      "elapsed_ms": 1.3551490001191269,
       "on_proof_path": false
     },
     {
@@ -163,7 +163,7 @@
       "reason": "Use implication or function hba",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `hba`\n  ?a ∈ A\nwith the goal\n  A = B\n\nNote: The full type of `hba` is\n  B ⊆ A\n\nα : Type\nA B : Set α\nhab : A ⊆ B\nhba : B ⊆ A\n⊢ A = B",
-      "elapsed_ms": 1.753216999986762,
+      "elapsed_ms": 1.013645000057295,
       "on_proof_path": false
     },
     {
@@ -239,10 +239,10 @@
       "category": "lemma",
       "lemma": "Eq.symm",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.343652000059592,
+      "elapsed_ms": 0.987406000149349,
       "on_proof_path": false
     },
     {
@@ -438,10 +438,10 @@
       "category": "lemma",
       "lemma": "Eq.trans",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 3.483280999944327,
+      "elapsed_ms": 2.298989999871992,
       "on_proof_path": false
     },
     {
@@ -577,10 +577,10 @@
       "category": "lemma",
       "lemma": "Set.Subset.antisymm",
       "provenance": "Mathlib.Data.Set.Basic",
-      "reason": "Type-feature match: ('=', 'Set')",
+      "reason": "Goal features: ('=',); context features: ('Set',)",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 2.6794210000389285,
+      "elapsed_ms": 1.6489510003339092,
       "on_proof_path": true
     },
     {
@@ -595,7 +595,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\ncase h\nα : Type\nA B : Set α\nhab : A ⊆ B\nhba : B ⊆ A\n⊢ B = A",
-      "elapsed_ms": 1.1592729999847506,
+      "elapsed_ms": 0.867135000135022,
       "on_proof_path": false
     },
     {
@@ -610,7 +610,7 @@
       "reason": "Check definitional equality",
       "status": "rejected",
       "error": "Tactic `rfl` failed: The left-hand side\n  B\nis not definitionally equal to the right-hand side\n  A\n\ncase h\nα : Type\nA B : Set α\nhab : A ⊆ B\nhba : B ⊆ A\n⊢ B = A",
-      "elapsed_ms": 1.3748789999681321,
+      "elapsed_ms": 0.9278070001528249,
       "on_proof_path": false
     },
     {
@@ -625,7 +625,7 @@
       "reason": "Use implication or function hab",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `hab`\n  ?a ∈ B\nwith the goal\n  B = A\n\nNote: The full type of `hab` is\n  A ⊆ B\n\ncase h\nα : Type\nA B : Set α\nhab : A ⊆ B\nhba : B ⊆ A\n⊢ B = A",
-      "elapsed_ms": 1.6435620000265772,
+      "elapsed_ms": 1.0178710003856395,
       "on_proof_path": false
     },
     {
@@ -640,7 +640,7 @@
       "reason": "Use implication or function hba",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `hba`\n  ?a ∈ A\nwith the goal\n  B = A\n\nNote: The full type of `hba` is\n  B ⊆ A\n\ncase h\nα : Type\nA B : Set α\nhab : A ⊆ B\nhba : B ⊆ A\n⊢ B = A",
-      "elapsed_ms": 1.601098000037382,
+      "elapsed_ms": 1.0085180001624394,
       "on_proof_path": false
     },
     {
@@ -716,10 +716,10 @@
       "category": "lemma",
       "lemma": "Eq.symm",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.3153989998500037,
+      "elapsed_ms": 1.0129439997399459,
       "on_proof_path": false
     },
     {
@@ -915,10 +915,10 @@
       "category": "lemma",
       "lemma": "Eq.trans",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 3.3100499999818567,
+      "elapsed_ms": 2.2354640000230575,
       "on_proof_path": false
     },
     {
@@ -1054,10 +1054,10 @@
       "category": "lemma",
       "lemma": "Set.Subset.antisymm",
       "provenance": "Mathlib.Data.Set.Basic",
-      "reason": "Type-feature match: ('=', 'Set')",
+      "reason": "Goal features: ('=',); context features: ('Set',)",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 2.8869130001112353,
+      "elapsed_ms": 1.6513350001332583,
       "on_proof_path": false
     },
     {
@@ -1072,7 +1072,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\ncase h₁\nα : Type\nA B : Set α\nhab : A ⊆ B\nhba : B ⊆ A\n⊢ A = ?b",
-      "elapsed_ms": 1.1976109999523032,
+      "elapsed_ms": 0.7936290003272006,
       "on_proof_path": false
     },
     {
@@ -1151,7 +1151,7 @@
       "reason": "Check definitional equality",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.663501999928485,
+      "elapsed_ms": 1.1369700000614102,
       "on_proof_path": false
     },
     {
@@ -1166,7 +1166,7 @@
       "reason": "Use implication or function hab",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `hab`\n  ?a ∈ B\nwith the goal\n  A = ?b\n\nNote: The full type of `hab` is\n  A ⊆ B\n\ncase h₁\nα : Type\nA B : Set α\nhab : A ⊆ B\nhba : B ⊆ A\n⊢ A = ?b",
-      "elapsed_ms": 1.7063719999441673,
+      "elapsed_ms": 1.1222279999856255,
       "on_proof_path": false
     },
     {
@@ -1181,7 +1181,7 @@
       "reason": "Use implication or function hba",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `hba`\n  ?a ∈ A\nwith the goal\n  A = ?b\n\nNote: The full type of `hba` is\n  B ⊆ A\n\ncase h₁\nα : Type\nA B : Set α\nhab : A ⊆ B\nhba : B ⊆ A\n⊢ A = ?b",
-      "elapsed_ms": 1.7189960001360305,
+      "elapsed_ms": 1.1022190001312993,
       "on_proof_path": false
     },
     {
@@ -1377,10 +1377,10 @@
       "category": "lemma",
       "lemma": "Eq.symm",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 3.2671750000190514,
+      "elapsed_ms": 2.1406309997473727,
       "on_proof_path": false
     },
     {
@@ -1696,10 +1696,10 @@
       "category": "lemma",
       "lemma": "Eq.trans",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 5.719904999978098,
+      "elapsed_ms": 3.5337580002305913,
       "on_proof_path": false
     },
     {
@@ -1955,10 +1955,10 @@
       "category": "lemma",
       "lemma": "Set.Subset.antisymm",
       "provenance": "Mathlib.Data.Set.Basic",
-      "reason": "Type-feature match: ('=', 'Set')",
+      "reason": "Goal features: ('=',); context features: ('Set',)",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 4.534272000000783,
+      "elapsed_ms": 2.953533999971114,
       "on_proof_path": false
     },
     {
@@ -2107,7 +2107,7 @@
       "reason": "Introduce a binder or implication premise",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 3.0892219999714143,
+      "elapsed_ms": 2.3914579996926477,
       "on_proof_path": false
     },
     {
@@ -2186,7 +2186,7 @@
       "reason": "Match the goal against the local context",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.7591360001460998,
+      "elapsed_ms": 1.162639000085619,
       "on_proof_path": true
     },
     {
@@ -2265,7 +2265,7 @@
       "reason": "Use implication or function hab",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.452104000009058,
+      "elapsed_ms": 1.1452829999143432,
       "on_proof_path": false
     },
     {
@@ -2280,7 +2280,7 @@
       "reason": "Use implication or function hba",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the type of `hba`\n  B ⊆ A\nwith the goal\n  A ⊆ B\n\ncase h₁\nα : Type\nA B : Set α\nhab : A ⊆ B\nhba : B ⊆ A\n⊢ A ⊆ B",
-      "elapsed_ms": 2.249925000114672,
+      "elapsed_ms": 1.4984039999035303,
       "on_proof_path": false
     },
     {
@@ -2536,10 +2536,10 @@
       "category": "lemma",
       "lemma": "Set.Subset.trans",
       "provenance": "Mathlib.Data.Set.Basic",
-      "reason": "Type-feature match: ('⊆',)",
+      "reason": "Goal features: ('⊆',); context features: ()",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 4.729766000082236,
+      "elapsed_ms": 3.0762389997107675,
       "on_proof_path": false
     },
     {
@@ -2554,7 +2554,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\ncase h.h\nα : Type\nA B : Set α\nhab : A ⊆ B\nhba : B ⊆ A\n⊢ A = B",
-      "elapsed_ms": 1.198017999968215,
+      "elapsed_ms": 0.7871439997870766,
       "on_proof_path": false
     },
     {
@@ -2569,7 +2569,7 @@
       "reason": "Check definitional equality",
       "status": "rejected",
       "error": "Tactic `rfl` failed: The left-hand side\n  A\nis not definitionally equal to the right-hand side\n  B\n\ncase h.h\nα : Type\nA B : Set α\nhab : A ⊆ B\nhba : B ⊆ A\n⊢ A = B",
-      "elapsed_ms": 1.448058000050878,
+      "elapsed_ms": 1.083339999695454,
       "on_proof_path": false
     },
     {
@@ -2584,7 +2584,7 @@
       "reason": "Use implication or function hab",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `hab`\n  ?a ∈ B\nwith the goal\n  A = B\n\nNote: The full type of `hab` is\n  A ⊆ B\n\ncase h.h\nα : Type\nA B : Set α\nhab : A ⊆ B\nhba : B ⊆ A\n⊢ A = B",
-      "elapsed_ms": 1.7127119999713614,
+      "elapsed_ms": 1.26799800000299,
       "on_proof_path": false
     },
     {
@@ -2599,7 +2599,7 @@
       "reason": "Use implication or function hba",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `hba`\n  ?a ∈ A\nwith the goal\n  A = B\n\nNote: The full type of `hba` is\n  B ⊆ A\n\ncase h.h\nα : Type\nA B : Set α\nhab : A ⊆ B\nhba : B ⊆ A\n⊢ A = B",
-      "elapsed_ms": 1.635439999972732,
+      "elapsed_ms": 1.4272580001488677,
       "on_proof_path": false
     },
     {
@@ -2675,10 +2675,10 @@
       "category": "lemma",
       "lemma": "Eq.symm",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.3234110001576482,
+      "elapsed_ms": 1.0468460000083724,
       "on_proof_path": false
     },
     {
@@ -2874,10 +2874,10 @@
       "category": "lemma",
       "lemma": "Eq.trans",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 3.306494000071325,
+      "elapsed_ms": 2.2038470001461974,
       "on_proof_path": false
     },
     {
@@ -3013,10 +3013,10 @@
       "category": "lemma",
       "lemma": "Set.Subset.antisymm",
       "provenance": "Mathlib.Data.Set.Basic",
-      "reason": "Type-feature match: ('=', 'Set')",
+      "reason": "Goal features: ('=',); context features: ('Set',)",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 2.7119839999159012,
+      "elapsed_ms": 1.6335180002897687,
       "on_proof_path": false
     },
     {
@@ -3031,7 +3031,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\ncase h.h₁\nα : Type\nA B : Set α\nhab : A ⊆ B\nhba : B ⊆ A\n⊢ B = ?h.b",
-      "elapsed_ms": 1.158062000058635,
+      "elapsed_ms": 0.7819669999662437,
       "on_proof_path": false
     },
     {
@@ -3110,7 +3110,7 @@
       "reason": "Check definitional equality",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.4388740000867983,
+      "elapsed_ms": 1.1434199996074312,
       "on_proof_path": false
     },
     {
@@ -3125,7 +3125,7 @@
       "reason": "Use implication or function hab",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `hab`\n  ?a ∈ B\nwith the goal\n  B = ?h.b\n\nNote: The full type of `hab` is\n  A ⊆ B\n\ncase h.h₁\nα : Type\nA B : Set α\nhab : A ⊆ B\nhba : B ⊆ A\n⊢ B = ?h.b",
-      "elapsed_ms": 1.6304630000831821,
+      "elapsed_ms": 1.0940570000457228,
       "on_proof_path": false
     },
     {
@@ -3140,7 +3140,7 @@
       "reason": "Use implication or function hba",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `hba`\n  ?a ∈ A\nwith the goal\n  B = ?h.b\n\nNote: The full type of `hba` is\n  B ⊆ A\n\ncase h.h₁\nα : Type\nA B : Set α\nhab : A ⊆ B\nhba : B ⊆ A\n⊢ B = ?h.b",
-      "elapsed_ms": 1.3187039999138506,
+      "elapsed_ms": 1.0622790000525129,
       "on_proof_path": false
     },
     {
@@ -3336,10 +3336,10 @@
       "category": "lemma",
       "lemma": "Eq.symm",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 2.3289690000183327,
+      "elapsed_ms": 2.204437999807851,
       "on_proof_path": false
     },
     {
@@ -3655,10 +3655,10 @@
       "category": "lemma",
       "lemma": "Eq.trans",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 3.9743740001085825,
+      "elapsed_ms": 3.367297000295366,
       "on_proof_path": false
     },
     {
@@ -3914,10 +3914,10 @@
       "category": "lemma",
       "lemma": "Set.Subset.antisymm",
       "provenance": "Mathlib.Data.Set.Basic",
-      "reason": "Type-feature match: ('=', 'Set')",
+      "reason": "Goal features: ('=',); context features: ('Set',)",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 3.6859859999367472,
+      "elapsed_ms": 2.885872000206291,
       "on_proof_path": false
     },
     {
@@ -4066,7 +4066,7 @@
       "reason": "Introduce a binder or implication premise",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 2.2171549999256968,
+      "elapsed_ms": 1.997395000216784,
       "on_proof_path": false
     },
     {
@@ -4145,7 +4145,7 @@
       "reason": "Match the goal against the local context",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 0.9228379999512981,
+      "elapsed_ms": 0.8541460001652013,
       "on_proof_path": false
     },
     {
@@ -4160,7 +4160,7 @@
       "reason": "Use implication or function hab",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the type of `hab`\n  A ⊆ B\nwith the goal\n  B ⊆ A\n\ncase h.h₁\nα : Type\nA B : Set α\nhab : A ⊆ B\nhba : B ⊆ A\n⊢ B ⊆ A",
-      "elapsed_ms": 1.9728279999071674,
+      "elapsed_ms": 1.4826309998170473,
       "on_proof_path": false
     },
     {
@@ -4239,7 +4239,7 @@
       "reason": "Use implication or function hba",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.132213000119009,
+      "elapsed_ms": 1.1844220002785733,
       "on_proof_path": false
     },
     {
@@ -4495,10 +4495,10 @@
       "category": "lemma",
       "lemma": "Set.Subset.trans",
       "provenance": "Mathlib.Data.Set.Basic",
-      "reason": "Type-feature match: ('⊆',)",
+      "reason": "Goal features: ('⊆',); context features: ()",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 3.4370109999599663,
+      "elapsed_ms": 3.709432000050583,
       "on_proof_path": false
     },
     {
@@ -4513,7 +4513,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\ncase h₂\nα : Type\nA B : Set α\nhab : A ⊆ B\nhba : B ⊆ A\n⊢ A = B",
-      "elapsed_ms": 0.9479960001499421,
+      "elapsed_ms": 0.7733140000709682,
       "on_proof_path": false
     },
     {
@@ -4528,7 +4528,7 @@
       "reason": "Check definitional equality",
       "status": "rejected",
       "error": "Tactic `rfl` failed: The left-hand side\n  A\nis not definitionally equal to the right-hand side\n  B\n\ncase h₂\nα : Type\nA B : Set α\nhab : A ⊆ B\nhba : B ⊆ A\n⊢ A = B",
-      "elapsed_ms": 0.9927930000230845,
+      "elapsed_ms": 0.9118520001720753,
       "on_proof_path": false
     },
     {
@@ -4543,7 +4543,7 @@
       "reason": "Use implication or function hab",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `hab`\n  ?a ∈ B\nwith the goal\n  A = B\n\nNote: The full type of `hab` is\n  A ⊆ B\n\ncase h₂\nα : Type\nA B : Set α\nhab : A ⊆ B\nhba : B ⊆ A\n⊢ A = B",
-      "elapsed_ms": 1.1201049999272072,
+      "elapsed_ms": 1.11533800009056,
       "on_proof_path": false
     },
     {
@@ -4558,7 +4558,7 @@
       "reason": "Use implication or function hba",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `hba`\n  ?a ∈ A\nwith the goal\n  A = B\n\nNote: The full type of `hba` is\n  B ⊆ A\n\ncase h₂\nα : Type\nA B : Set α\nhab : A ⊆ B\nhba : B ⊆ A\n⊢ A = B",
-      "elapsed_ms": 1.179764999960753,
+      "elapsed_ms": 1.0640310001690523,
       "on_proof_path": false
     },
     {
@@ -4634,10 +4634,10 @@
       "category": "lemma",
       "lemma": "Eq.symm",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.0339509999539587,
+      "elapsed_ms": 0.8993129999907978,
       "on_proof_path": false
     },
     {
@@ -4833,10 +4833,10 @@
       "category": "lemma",
       "lemma": "Eq.trans",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 2.2904449999714416,
+      "elapsed_ms": 2.2599109997827327,
       "on_proof_path": false
     },
     {
@@ -4972,10 +4972,10 @@
       "category": "lemma",
       "lemma": "Set.Subset.antisymm",
       "provenance": "Mathlib.Data.Set.Basic",
-      "reason": "Type-feature match: ('=', 'Set')",
+      "reason": "Goal features: ('=',); context features: ('Set',)",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.805025000066962,
+      "elapsed_ms": 2.0009909999316733,
       "on_proof_path": false
     },
     {
@@ -4990,7 +4990,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\ncase h₁.h\nα : Type\nA B : Set α\nhab : A ⊆ B\nhba : B ⊆ A\n⊢ ?b = A",
-      "elapsed_ms": 0.7650500001545879,
+      "elapsed_ms": 0.9114609997595835,
       "on_proof_path": false
     },
     {
@@ -5069,7 +5069,7 @@
       "reason": "Check definitional equality",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.1781719999817142,
+      "elapsed_ms": 1.2532959999589366,
       "on_proof_path": false
     },
     {
@@ -5084,7 +5084,7 @@
       "reason": "Use implication or function hab",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `hab`\n  ?a ∈ B\nwith the goal\n  ?b = A\n\nNote: The full type of `hab` is\n  A ⊆ B\n\ncase h₁.h\nα : Type\nA B : Set α\nhab : A ⊆ B\nhba : B ⊆ A\n⊢ ?b = A",
-      "elapsed_ms": 1.2201860001823661,
+      "elapsed_ms": 1.301818999763782,
       "on_proof_path": false
     },
     {
@@ -5099,7 +5099,7 @@
       "reason": "Use implication or function hba",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `hba`\n  ?a ∈ A\nwith the goal\n  ?b = A\n\nNote: The full type of `hba` is\n  B ⊆ A\n\ncase h₁.h\nα : Type\nA B : Set α\nhab : A ⊆ B\nhba : B ⊆ A\n⊢ ?b = A",
-      "elapsed_ms": 1.1053830000946618,
+      "elapsed_ms": 1.2002860003121896,
       "on_proof_path": false
     },
     {
@@ -5295,10 +5295,10 @@
       "category": "lemma",
       "lemma": "Eq.symm",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 2.341954000030455,
+      "elapsed_ms": 2.4299369997606846,
       "on_proof_path": false
     },
     {
@@ -5614,10 +5614,10 @@
       "category": "lemma",
       "lemma": "Eq.trans",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 3.3380320001015207,
+      "elapsed_ms": 3.517212999668118,
       "on_proof_path": false
     },
     {
@@ -5873,10 +5873,10 @@
       "category": "lemma",
       "lemma": "Set.Subset.antisymm",
       "provenance": "Mathlib.Data.Set.Basic",
-      "reason": "Type-feature match: ('=', 'Set')",
+      "reason": "Goal features: ('=',); context features: ('Set',)",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 2.904265000097439,
+      "elapsed_ms": 3.478323999843269,
       "on_proof_path": false
     },
     {
@@ -5891,7 +5891,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\ncase h₁.h₁\nα : Type\nA B : Set α\nhab : A ⊆ B\nhba : B ⊆ A\n⊢ A = ?h₁.b",
-      "elapsed_ms": 0.8557470000596368,
+      "elapsed_ms": 0.794216000031156,
       "on_proof_path": false
     },
     {
@@ -6090,7 +6090,7 @@
       "reason": "Check definitional equality",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 2.3501649998252105,
+      "elapsed_ms": 2.765041000202473,
       "on_proof_path": false
     },
     {
@@ -6105,7 +6105,7 @@
       "reason": "Use implication or function hab",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `hab`\n  ?a ∈ B\nwith the goal\n  A = ?h₁.b\n\nNote: The full type of `hab` is\n  A ⊆ B\n\ncase h₁.h₁\nα : Type\nA B : Set α\nhab : A ⊆ B\nhba : B ⊆ A\n⊢ A = ?h₁.b",
-      "elapsed_ms": 1.11398600006396,
+      "elapsed_ms": 1.2421590004123573,
       "on_proof_path": false
     },
     {
@@ -6120,7 +6120,7 @@
       "reason": "Use implication or function hba",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `hba`\n  ?a ∈ A\nwith the goal\n  A = ?h₁.b\n\nNote: The full type of `hba` is\n  B ⊆ A\n\ncase h₁.h₁\nα : Type\nA B : Set α\nhab : A ⊆ B\nhba : B ⊆ A\n⊢ A = ?h₁.b",
-      "elapsed_ms": 1.0902299998178933,
+      "elapsed_ms": 1.0819680001077359,
       "on_proof_path": false
     },
     {
@@ -6436,10 +6436,10 @@
       "category": "lemma",
       "lemma": "Eq.symm",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 3.342448000012155,
+      "elapsed_ms": 3.588029999718856,
       "on_proof_path": false
     },
     {
@@ -6875,10 +6875,10 @@
       "category": "lemma",
       "lemma": "Eq.trans",
       "provenance": "Init.Prelude",
-      "reason": "Type-feature match: ('=',)",
+      "reason": "Goal features: ('=',); context features: ()",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 4.77755699989757,
+      "elapsed_ms": 4.871339999681368,
       "on_proof_path": false
     },
     {
@@ -7254,10 +7254,10 @@
       "category": "lemma",
       "lemma": "Set.Subset.antisymm",
       "provenance": "Mathlib.Data.Set.Basic",
-      "reason": "Type-feature match: ('=', 'Set')",
+      "reason": "Goal features: ('=',); context features: ('Set',)",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 7.304929999918386,
+      "elapsed_ms": 4.32323599989104,
       "on_proof_path": false
     },
     {
@@ -7526,7 +7526,7 @@
       "reason": "Introduce a binder or implication premise",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 4.516845000125613,
+      "elapsed_ms": 3.108137000253919,
       "on_proof_path": false
     },
     {
@@ -7665,7 +7665,7 @@
       "reason": "Match the goal against the local context",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 2.6427049999711016,
+      "elapsed_ms": 1.8274199996994867,
       "on_proof_path": false
     },
     {
@@ -7804,7 +7804,7 @@
       "reason": "Use implication or function hab",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 2.255623000110063,
+      "elapsed_ms": 1.6325269998560543,
       "on_proof_path": false
     },
     {
@@ -7819,7 +7819,7 @@
       "reason": "Use implication or function hba",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the type of `hba`\n  B ⊆ A\nwith the goal\n  A ⊆ ?b\n\ncase h₁.h₁\nα : Type\nA B : Set α\nhab : A ⊆ B\nhba : B ⊆ A\n⊢ A ⊆ ?b",
-      "elapsed_ms": 2.0836450000842888,
+      "elapsed_ms": 1.4117040000201087,
       "on_proof_path": false
     },
     {
@@ -8195,10 +8195,10 @@
       "category": "lemma",
       "lemma": "Set.Subset.trans",
       "provenance": "Mathlib.Data.Set.Basic",
-      "reason": "Type-feature match: ('⊆',)",
+      "reason": "Goal features: ('⊆',); context features: ()",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 5.949590999989596,
+      "elapsed_ms": 4.54854500003421,
       "on_proof_path": false
     },
     {
@@ -8357,7 +8357,7 @@
       "reason": "Introduce a binder or implication premise",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 2.363065000054121,
+      "elapsed_ms": 1.7300439999416994,
       "on_proof_path": false
     },
     {
@@ -8372,7 +8372,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\ncase h₁\nα : Type\nA B : Set α\nhab : A ⊆ B\nhba : B ⊆ A\nh0 : α\n⊢ h0 ∈ A → h0 ∈ B",
-      "elapsed_ms": 1.5218400001231203,
+      "elapsed_ms": 1.1970409996138187,
       "on_proof_path": false
     },
     {
@@ -8451,7 +8451,7 @@
       "reason": "Use implication or function hab",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.4764509999167785,
+      "elapsed_ms": 1.081597999927908,
       "on_proof_path": false
     },
     {
@@ -8466,7 +8466,7 @@
       "reason": "Use implication or function hba",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `hba`\n  ?a ∈ B → ?a ∈ A\nwith the goal\n  h0 ∈ A → h0 ∈ B\n\nNote: The full type of `hba` is\n  B ⊆ A\n\ncase h₁\nα : Type\nA B : Set α\nhab : A ⊆ B\nhba : B ⊆ A\nh0 : α\n⊢ h0 ∈ A → h0 ∈ B",
-      "elapsed_ms": 2.6471119999769144,
+      "elapsed_ms": 2.192429000388074,
       "on_proof_path": false
     },
     {
@@ -8555,7 +8555,7 @@
       "reason": "Introduce a binder or implication premise",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 1.4422890001242195,
+      "elapsed_ms": 1.4772929998798645,
       "on_proof_path": false
     },
     {
@@ -8573,7 +8573,7 @@
       "reason": "Match the goal against the local context",
       "status": "solved",
       "error": null,
-      "elapsed_ms": 0.24791300006654637,
+      "elapsed_ms": 0.33113800009232364,
       "on_proof_path": true
     }
   ],
@@ -8585,11 +8585,11 @@
     "frontier": 31,
     "max_depth": 3,
     "proof_length": 3,
-    "elapsed_s": 3.4528162490000796,
-    "lean_execution_s": 0.1699300780012436,
-    "initialization_s": 1.6094295579998743,
-    "verification_s": 1.6541965709998294,
-    "planning_s": 0.003593115999819929
+    "elapsed_s": 3.406291128000248,
+    "lean_execution_s": 0.13396166000029552,
+    "initialization_s": 1.5556206800001746,
+    "verification_s": 1.6781138050000663,
+    "planning_s": 0.0034621199997673102
   },
   "proof": [
     "apply Set.Subset.antisymm",
@@ -8604,11 +8604,11 @@
       "propext"
     ],
     "error": null,
-    "elapsed_s": 1.6541965709998294,
+    "elapsed_s": 1.6781138050000663,
     "source_sha256": "2d3119dd7e3f1fc4a43a18445fcfc2f89b4b8ac64042e98bc2be88e961cd7d70"
   },
   "metadata": {
-    "code_commit": "a16b54fe84b719c9f109a758ccc2bb8dc717d267",
+    "code_commit": "45322e084527600b9706510fe421c26f3da7e5eb",
     "lean_version": "leanprover/lean4:v4.24.0",
     "mathlib_revision": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7",
     "python": "3.12.14",

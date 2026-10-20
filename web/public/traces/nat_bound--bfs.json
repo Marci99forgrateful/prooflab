@@ -98,7 +98,7 @@
       "reason": "Match the goal against the local context",
       "status": "rejected",
       "error": "Tactic `assumption` failed\n\nn m : ℕ\nh : n ≤ m\n⊢ n ≤ m + 2",
-      "elapsed_ms": 1.4407769999706943,
+      "elapsed_ms": 1.5786559999924066,
       "on_proof_path": false
     },
     {
@@ -110,10 +110,10 @@
       "category": "lemma",
       "lemma": "le_refl",
       "provenance": "Mathlib.Order.Defs.PartialOrder",
-      "reason": "Type-feature match: ('≤',)",
+      "reason": "Goal features: ('≤',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@le_refl`\n  ?a ≤ ?a\nwith the goal\n  n ≤ m + 2\n\nNote: The full type of `@le_refl` is\n  ∀ {α : Type ?u.96} [inst : Preorder α] (a : α), a ≤ a\n\nn m : ℕ\nh : n ≤ m\n⊢ n ≤ m + 2",
-      "elapsed_ms": 2.862475000029008,
+      "elapsed_ms": 2.964891999909014,
       "on_proof_path": false
     },
     {
@@ -249,10 +249,10 @@
       "category": "lemma",
       "lemma": "le_trans",
       "provenance": "Mathlib.Order.Defs.PartialOrder",
-      "reason": "Type-feature match: ('≤',)",
+      "reason": "Goal features: ('≤',); context features: ()",
       "status": "accepted",
       "error": null,
-      "elapsed_ms": 2.0681109999713954,
+      "elapsed_ms": 2.1619429999191198,
       "on_proof_path": false
     },
     {
@@ -264,10 +264,10 @@
       "category": "lemma",
       "lemma": "add_assoc",
       "provenance": "Mathlib.Algebra.Group.Defs",
-      "reason": "Type-feature match: ('+',)",
+      "reason": "Goal features: ('+',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@add_assoc`\n  ?a + ?b + ?c = ?a + (?b + ?c)\nwith the goal\n  n ≤ m + 2\n\nNote: The full type of `@add_assoc` is\n  ∀ {G : Type ?u.207} [inst : AddSemigroup G] (a b c : G), a + b + c = a + (b + c)\n\nn m : ℕ\nh : n ≤ m\n⊢ n ≤ m + 2",
-      "elapsed_ms": 3.0831070000658656,
+      "elapsed_ms": 2.1901059999436256,
       "on_proof_path": false
     },
     {
@@ -279,10 +279,10 @@
       "category": "lemma",
       "lemma": "add_comm",
       "provenance": "Mathlib.Algebra.Group.Defs",
-      "reason": "Type-feature match: ('+',)",
+      "reason": "Goal features: ('+',); context features: ()",
       "status": "rejected",
       "error": "Tactic `apply` failed: could not unify the conclusion of `@add_comm`\n  ?a + ?b = ?b + ?a\nwith the goal\n  n ≤ m + 2\n\nNote: The full type of `@add_comm` is\n  ∀ {G : Type ?u.223} [inst : AddCommMagma G] (a b : G), a + b = b + a\n\nn m : ℕ\nh : n ≤ m\n⊢ n ≤ m + 2",
-      "elapsed_ms": 1.9405589998768846,
+      "elapsed_ms": 1.6994369998428738,
       "on_proof_path": false
     },
     {
@@ -300,7 +300,7 @@
       "reason": "Presburger arithmetic (Lean omega)",
       "status": "solved",
       "error": null,
-      "elapsed_ms": 2.7964869998413633,
+      "elapsed_ms": 3.0023179999716376,
       "on_proof_path": true
     }
   ],
@@ -312,11 +312,11 @@
     "frontier": 1,
     "max_depth": 1,
     "proof_length": 1,
-    "elapsed_s": 3.4122968230001334,
-    "lean_execution_s": 0.014191515999755211,
-    "initialization_s": 1.5746299249999538,
-    "verification_s": 1.7488523050001277,
-    "planning_s": 0.00029594500006169255
+    "elapsed_s": 3.0959941100002197,
+    "lean_execution_s": 0.013597351999578677,
+    "initialization_s": 1.502554917999987,
+    "verification_s": 1.5633500799999638,
+    "planning_s": 0.0002765060000911035
   },
   "proof": [
     "omega"
@@ -329,11 +329,11 @@
       "Quot.sound"
     ],
     "error": null,
-    "elapsed_s": 1.7488523050001277,
+    "elapsed_s": 1.5633500799999638,
     "source_sha256": "8b5553d38a5bac0b71ab6328a0d1f1f0df7beab54914ef8d139f3af225625e25"
   },
   "metadata": {
-    "code_commit": "a16b54fe84b719c9f109a758ccc2bb8dc717d267",
+    "code_commit": "45322e084527600b9706510fe421c26f3da7e5eb",
     "lean_version": "leanprover/lean4:v4.24.0",
     "mathlib_revision": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7",
     "python": "3.12.14",
