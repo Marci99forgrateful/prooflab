@@ -1,0 +1,53 @@
+# Phase 5 — Focused retrieval and mathematical generation study
+
+This extends the [29-system Phase 4 survey](phase-4-related-work.md); it does not repeat or supersede that evidence. Access date: 2026-10-20. `research/phase5/sources.json` pins the actually installed Lean 4.24.0, Mathlib and Aesop modules, with file hashes. The Phase 4 bibliography retains the inspected ReProver, LeanHammer, Duper, TacticToe and other source revisions and license distinctions. No external implementation, model or benchmark proof is copied.
+
+## From symbolic indexes to checked applicability
+
+**Source observation — Aesop.** `Aesop/Index/Basic.lean` distinguishes target, hypothesis, unindexed and combined rule indexing. `targetMatchingConclusion` builds discrimination-tree keys from a rule conclusion; `hypsMatchingConst` runs under `withoutModifyingState`. The index produces candidate matches, not proofs. `RuleTac/Apply.lean` then constructs native rule applications and restores the initial metavariable state between alternatives (`applyExpr`, `applyConsts`). Saved post-states and generated proof script steps are separate from matching. These are materially stronger mechanisms than ProofLab's old token-overlap corpus.
+
+**Source observation — native Lean.** `forallMetaTelescope` introduces fresh argument metavariables without indiscriminately reducing the final proposition into extra binders; its reducing counterpart has different semantics. `mkConstWithFreshMVarLevels` is necessary before comparing polymorphic declarations with a concrete target: declaration universe parameters must not be treated as rigid user-level universes. `isDefEq` can check conclusion compatibility, and `synthInstance?` separately checks required typeclass availability. Neither establishes that a particular tactic invocation will succeed or that its remaining obligations are useful.
+
+`Lean/Meta/AppBuilder.lean`'s `mkAppM'` inserts implicit arguments, synthesizes instance arguments and checks explicit argument types. Its finalization rejects unresolved expression metavariables. This supports bounded in-scope function applications such as `f a`, with actual types, instead of arbitrary printed expression concatenation. `MVarId.rewrite` performs native matching and returns a rewritten expression/proof plus obligations without assigning the input goal; all probing must still restore the complete surrounding state.
+
+**Source observation — Mathlib.** `Lean/Meta/RefinedDiscrTree/Lookup.lean` describes unification across stored metavariable patterns and consistency of repeated assignments. This is a scalable discrimination index, not a proof-search policy. Phase 5 instead uses a small, fixed, inspectable declaration corpus and bounded native checks: simpler on CPU, less scalable, and without a claim to reproduce Mathlib's optimized index. Only declarations accessible through the unchanged selective Bridge imports enter the corpus. Missing requested seeds are explicitly recorded, not silently assumed available or imported through all of Mathlib.
+
+## Retrieval learning versus stronger proving
+
+**Published/source evidence reused from Phase 4 — LeanDojo/ReProver.** A learned premise retriever scores accessible declarations; the tactic model and best-first proof search are additional components. Recall, ranking accuracy, actual Lean applicability and theorem success are distinct quantities. Its dense pretrained models are neither installed nor reproduced here. ProofLab can adopt strict visibility, theorem-level development separation, per-query rankings and independent complete-proof verification with a transparent CPU pairwise model.
+
+**Reused evidence — LeanHammer and Duper.** Hammer-style premise selection supplies facts to powerful downstream provers and reconstructors; a better selection metric does not by itself isolate downstream proof gains. Duper's active/passive clause processing and literal selection also distinguish relevance, admissible inference and saturation utility. Their architectural lessons support recording required premises, unresolved parameters, typeclass compatibility and resource use. They do not justify hiding a full engine inside a newly named learned generator. No hosted selector or external ATP is used at runtime.
+
+**Reused evidence — TacticToe.** Learning from real tactic/library traces supports locally trainable selection, but supervision must reflect observed actions and verified outcomes. Unexplored or bounded-failure alternatives are not mathematical falsehoods. ProofLab will separate actual incompatible typing probes, compatible-but-rejected tactics, valid unknown outcomes and independently verified continuation costs. A ranker's effect is the changed fixed-cap pool, not an unexplained end-to-end percentage.
+
+## Additional focused source checks
+
+The Phase 5 supplement `research/phase5/focused-sources.json` pins seven additional/revisited source files. These checks extend the previous survey rather than adding more systems to its count.
+
+At the pinned ReProver revision, `retrieval/model.py` normalizes pooled encoder vectors, computes cosine similarities by matrix multiplication and uses `F.mse_loss(similarity, label)` in the retriever's contrastive supervision path. Its validation computes Recall@K and reciprocal rank against the known positive premise set, skipping contexts with no known positive premise. `retrieval/datamodule.py` samples in-file and other accessible premises and checks whether another example's sampled negative is a known positive. Those are retrieval-supervision labels, not a proof that every unused theorem is mathematically irrelevant. `retrieval/index.py` constructs serialized corpus embeddings and explicitly supports a slow CPU path, but loads an existing checkpoint. ProofLab does not load it, reproduce its dense encoder or adopt its sampled unused-premise negatives. Our pairwise linear objective and actually executed rejection/cost labels are independently defined.
+
+LeanHammer's inspected `Hammer/Options.lean` assigns separate premise counts to Aesop, short/long Duper, grind and SMT backends; its documented defaults distinguish 32, 16/100, 100 and 16 premises respectively. Its README explains the premise-selection server and cached embeddings. `Hammer/HammerCore.lean` separately collects assumptions and reconstructs useful unsatisfiable-core facts. This supports separating selector costs and downstream backend work; matching a single number of premises would not reproduce its portfolio. The source revision targets a newer Lean release than our pinned runtime and is studied, not imported.
+
+Duper's `Duper/Selection.lean` implements first maximal/minimal negative-literal choices, groundness and term-size-difference alternatives, explicitly attributing ideas to E/Zipperposition. Here “negative literal” is a logical sign inside a clause, not a machine-learning failure label. This independently motivates exposing unresolved metavariables and structural relevance; ProofLab implements neither superposition nor these selection functions.
+
+TacticToe's `tttLearn.sml` calls tactic/theorem k-nearest-neighbour predictors and orders alternatives using tactic coverage (`pred_stac`, `pred_thmid`, `order_stac`), with separate term-argument instantiation. ProofLab borrows the general selection/real-trace principle, not the k-NN implementation, HOL4 feature representation or theorem data. These source distinctions prevent treating all “learned retrieval” systems as interchangeable algorithms. The repository API's HOL license classification is NOASSERTION; the Phase 4 individually checked license/access record is retained, and no HOL source is copied or redistributed here.
+
+## Normalization and expressiveness
+
+Lean's simplification, ring and omega are mathematical algorithms with internal work. A group normalizer must respect noncommutativity: associativity, identities and inverse cancellation cannot assume `mul_comm`. Polynomial normalization applies under appropriate commutative semiring/ring structures, not arbitrary groups. Set/lattice and logical expressions have different structural proof operations. Type/head information can justify proposing a family, but actual execution remains authoritative.
+
+The Phase 4 expanded `simp_all` arm both improves aggregate coverage and loses a cubic conjunction theorem. A single accepted simplifier call may do many internal inferences or merely leave a residual goal. Phase 5 therefore keeps original generation, broad generation, filtered/relevance-selected pools and strong-automation references separately identifiable. Native heartbeat-allocation deltas, wall time, child CPU and peak RSS are useful resource observations; they are not counts of mathematical inference steps.
+
+## Independent ProofLab choices
+
+| Idea | Original source tradition | Feasible independent implementation | Explicit limit |
+|---|---|---|---|
+| Conclusion/type matching | Aesop, Lean, Mathlib discrimination indexes | Fresh-universe native unification and instance checks over a bounded public corpus | Potential compatibility, not a proof or semantic usefulness |
+| Context and premises | Aesop hypotheses, hammers, Duper | Inspect native required propositions, unresolved data and available structure | No complete premise selection over all Mathlib |
+| Structured witnesses | Lean application elaboration | In-scope terms, ≤2 typed local-function applications, bounded pairs/Nat literals | No unrestricted term enumeration or answer templates |
+| Rewrite direction | Lean native rewrite | Bounded native occurrence probes with saved-state restoration | Probing cost counted; actual tactic can still fail |
+| Candidate allocation | Constrained ranking / beam principles | Fixed cap with documented original/structural protection and novelty lanes | Useful actions may still be displaced |
+| Learned retrieval | ReProver/TacticToe selection principles | Deterministic CPU pairwise ranking from actual development probes and verified rollouts | No pretrained model, no censored mathematical negatives |
+| Expensive automation | simp/ring/omega/Aesop/grind | Explicitly labelled candidates/normalizers/references | Invocation units never equated to primitive proof effort |
+
+These are adaptations of established algorithmic ideas through independently written code using public Lean APIs. The declaration index, finite allocation policy, genuine collection/experiments and integrated Explorer are ProofLab engineering. Generalization and efficiency remain empirical questions; the Phase 4 30/32 exploratory generator result is not an expected Phase 5 score.

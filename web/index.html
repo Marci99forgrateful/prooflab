@@ -61,7 +61,7 @@
           ></a>
           <div>
             <span class="status-dot"></span> Lean 4 · Mathlib
-            <span class="version">v0.4</span>
+            <span class="version">v0.5</span>
           </div>
         </div>
       </aside>
@@ -102,7 +102,7 @@
             <div class="page-heading">
               <div>
                 <div class="eyebrow">
-                  <span></span> PHASE 4 · SEARCH ARCHITECTURE EXPLORER
+                  <span></span> PHASE 4 / 5 · SEARCH & PREMISE EXPLORER
                 </div>
                 <h1>Choose the next frontier<span>.</span></h1>
                 <p>
@@ -111,7 +111,7 @@
                 </p>
               </div>
             </div>
-            <div class="card arch-intro">
+            <div class="card arch-intro" id="arch-intro">
               <p>
                 32 original held-out statements · eight mathematical families ·
                 two recorded runs per architecture. All trees, states, proofs
@@ -133,7 +133,15 @@
             </details>
             <div class="card arch-controls">
               <label
-                >Phase 4 theorem<select
+                >Experiment<select id="arch-dataset">
+                  <option value="phase4">Phase 4 · Search architecture</option>
+                  <option value="phase5">
+                    Phase 5 · Premise & Candidate Explorer
+                  </option>
+                </select></label
+              >
+              <label
+                >Theorem<select
                   id="arch-task"
                   aria-label="Architecture theorem"
                 ></select></label
@@ -146,10 +154,15 @@
                 >Left architecture<select id="arch-policy-a"></select></label
               ><label
                 >Right architecture<select id="arch-policy-b"></select></label
+              ><button class="text-button" id="arch-local">
+                Run left policy locally</button
+              ><button class="text-button" id="arch-cancel" hidden>
+                Cancel local run</button
               ><button class="text-button" id="arch-export">
                 Export actual comparison JSON ↗
               </button>
             </div>
+            <div id="arch-cases" class="card" hidden></div>
             <pre id="arch-statement" class="card continuation-code"></pre>
             <p id="arch-notice" role="status"></p>
             <div class="card arch-playback">

@@ -107,7 +107,7 @@ def extract_features(state: ProofState, candidate: Candidate) -> dict[str, float
         "conjunction_context": float(any(h.type.head == "And" for h in context)),
         "existential_context": float(any(h.type.head == "Exists" for h in context)),
     }
-    if candidate.lemma:
+    if candidate.lemma and "lemma:" + candidate.lemma in FEATURE_NAMES:
         result["lemma:" + candidate.lemma] = 1.0
     # Resolve only a local name into its actual Lean-returned type. The name
     # itself never enters the feature vector or artifact vocabulary.

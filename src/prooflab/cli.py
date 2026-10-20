@@ -8,9 +8,13 @@ from typing import cast
 from prooflab.benchmark import Algorithm, run_benchmark
 from prooflab.dataset import get_task, load_tasks
 from prooflab.frontier import FrontierModel
+from prooflab.lean import LeanSession
 from prooflab.learning import DEFAULT_MODEL, LearnedRanking
 from prooflab.models import Budget
+from prooflab.native_retrieval import RetrievalSession
 from prooflab.outcome import MODELS, OutcomeRanking
+from prooflab.retrieval import MODES as GENERATORS
+from prooflab.retrieval import TypedProvider
 from prooflab.search import search
 
 
@@ -38,6 +42,7 @@ def main() -> None:
         ],
         default="best_first",
     )
+    solve.add_argument("--generator", choices=GENERATORS, default="original")
     solve.add_argument("--output", type=Path)
     solve.add_argument("--frontier-model", type=Path, help="Local JSON frontier weights")
     solve.add_argument("--model", type=Path, help="Local JSON weights for learned search")
@@ -173,7 +178,14 @@ def main() -> None:
                 ranking=outcome if outcome is not None else ranker,
                 comparison_ranker=ranker,
                 comparison_frontier=state_model,
+                provider=TypedProvider(args.generator)
+                if args.generator != "original" or args.task.startswith("p5_")
+                else None,
+                session_factory=RetrievalSession
+                if args.generator != "original" or args.task.startswith("p5_")
+                else LeanSession,
             )
+            result.metadata["generator_mode"] = args.generator
             data = result.model_dump_json(indent=2)
             if args.output:
                 args.output.parent.mkdir(parents=True, exist_ok=True)

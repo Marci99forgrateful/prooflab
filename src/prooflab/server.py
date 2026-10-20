@@ -21,13 +21,16 @@ from prooflab.dataset import (
     load_phase2_tasks,
     load_phase3_tasks,
     load_phase4_tasks,
+    load_phase5_tasks,
     load_tasks,
 )
 from prooflab.frontier import FrontierModel
-from prooflab.lean import ROOT
+from prooflab.lean import ROOT, LeanSession
 from prooflab.learning import LearnedRanking
-from prooflab.models import Budget, Model, Trace
+from prooflab.models import Budget, Model, SearchAlgorithm, Trace
+from prooflab.native_retrieval import RetrievalSession, declarations
 from prooflab.outcome import MODELS, OutcomeRanking
+from prooflab.retrieval import RetrievalRanker, TypedProvider
 from prooflab.search import search
 
 
@@ -37,7 +40,7 @@ async def lifespan(_: FastAPI) -> AsyncIterator[None]:
     shutdown()
 
 
-app = FastAPI(title="ProofLab", version="0.4.0", docs_url=None, redoc_url=None, lifespan=lifespan)
+app = FastAPI(title="ProofLab", version="0.5.0", docs_url=None, redoc_url=None, lifespan=lifespan)
 app.add_middleware(TrustedHostMiddleware, allowed_hosts=["127.0.0.1", "localhost", "testserver"])
 pool = ThreadPoolExecutor(max_workers=2, thread_name_prefix="prooflab")
 lock = threading.Lock()
@@ -56,10 +59,18 @@ jobs: dict[str, Job] = {}
 
 class SearchRequest(Model):
     task_id: str
-    algorithm: Literal["bfs", "best_first", "learned", "outcome", "frontier", "joint", "beam"] = (
-        "best_first"
-    )
+    algorithm: SearchAlgorithm = "best_first"
     budget: Budget = Budget()
+    generator_mode: Literal[
+        "original",
+        "phase4",
+        "broad",
+        "type_filtered",
+        "typed",
+        "learned",
+        "no_witness",
+        "no_normalize",
+    ] = "original"
 
 
 @app.middleware("http")
@@ -92,13 +103,14 @@ def health() -> dict[str, object]:
 
 @app.get("/api/tasks")
 def tasks(
-    dataset: Literal["phase1", "phase2", "phase3", "phase4"] = "phase1",
+    dataset: Literal["phase1", "phase2", "phase3", "phase4", "phase5"] = "phase1",
 ) -> list[dict[str, object]]:
     loader = {
         "phase1": load_tasks,
         "phase2": load_phase2_tasks,
         "phase3": load_phase3_tasks,
         "phase4": load_phase4_tasks,
+        "phase5": load_phase5_tasks,
     }[dataset]
     return [t.model_dump() for t in loader()]
 
@@ -115,6 +127,17 @@ def model(
 def state_model() -> dict[str, object]:
     state_ranker = FrontierModel()
     return {"sha256": state_ranker.sha256, **state_ranker.artifact.model_dump()}
+
+
+@app.get("/api/retrieval-model")
+def retrieval_model() -> dict[str, object]:
+    retriever = RetrievalRanker()
+    return {"sha256": retriever.sha256, **retriever.artifact}
+
+
+@app.get("/api/declarations")
+def declaration_index() -> list[dict[str, object]]:
+    return declarations()
 
 
 @app.get("/api/continuations")
@@ -146,9 +169,18 @@ def execute(job: Job, body: SearchRequest) -> None:
             comparison_ranker=LearnedRanking(),
             comparison_outcome=OutcomeRanking(),
             comparison_frontier=FrontierModel()
-            if body.algorithm in ("frontier", "joint", "beam")
+            if body.algorithm in ("frontier", "joint", "beam", "linear_frontier")
+            or body.generator_mode != "original"
+            or body.task_id.startswith("p5_")
             else None,
+            provider=TypedProvider(body.generator_mode)
+            if body.generator_mode != "original" or body.task_id.startswith("p5_")
+            else None,
+            session_factory=RetrievalSession
+            if body.generator_mode != "original" or body.task_id.startswith("p5_")
+            else LeanSession,
         )
+        job.trace.metadata["generator_mode"] = body.generator_mode
         job.state = "completed"
     except Exception as error:
         job.error = str(error)

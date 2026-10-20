@@ -1,4 +1,5 @@
 import { escapeHtml as esc, layoutTree, treeMarkup } from "./tree.js";
+import { renderPremises } from "./premises.js";
 
 const $ = (s) => document.querySelector(s);
 export const policyNames = {
@@ -13,12 +14,15 @@ export const policyNames = {
   automation: "Native Aesop reference",
   grind: "Native grind reference",
 };
+let dataset = "phase4";
+let labels = policyNames;
 let base = "",
   manifest = [],
   index = null,
   traces = [],
   epoch = 0;
 let wholeTrees = [false, false];
+let localJob = null;
 let selected = [0, 0],
   currentStep = 0;
 
@@ -36,6 +40,20 @@ export function prefixOf(trace, id) {
     result.unshift(n.tactic);
   return result;
 }
+export async function recordedJson(response, url) {
+  if (!url.endsWith(".gz")) return response.json();
+  const bytes = new Uint8Array(await response.arrayBuffer());
+  // Fetch may already decode Content-Encoding. Inspect actual bytes rather
+  // than assuming a particular static host's .gz MIME/encoding policy.
+  if (bytes[0] === 31 && bytes[1] === 139) {
+    const plain = new Blob([bytes])
+      .stream()
+      .pipeThrough(new DecompressionStream("gzip"));
+    return new Response(plain).json();
+  }
+  return JSON.parse(new TextDecoder().decode(bytes));
+}
+
 function download(name, value) {
   const url = URL.createObjectURL(
     new Blob([JSON.stringify(value, null, 2)], { type: "application/json" }),
@@ -73,13 +91,23 @@ function showState(side, id) {
       .join("\n\n") || "No remaining native goals";
   container.querySelector(".arch-error").textContent = node.error || "";
   container.querySelector(".arch-value").innerHTML = value
-    ? `<p>Insertion priority <strong>${value.priority.toFixed(6)}</strong> · predicted log continuation cost <strong>${value.learned_value.toFixed(6)}</strong> · original heuristic ${value.heuristic_priority.toFixed(3)}.</p><p class="method-note">Actual policy: ${esc(policyNames[trace.algorithm])}. Lower priority is selected first; only learned-frontier policies use the model value for scheduling. Their priority is clamped log-cost plus 0.15 × depth. The predicted value is conditional on successful development continuations; it is not a probability or certificate.</p><p class="method-note">Top eight weighted, standardized feature contributions:</p><div class="arch-terms">${value.contributions.map(([n, v]) => `<span><code>${esc(n)}</code> ${v >= 0 ? "+" : ""}${v.toFixed(5)}</span>`).join("")}</div>`
+    ? `<p>Insertion priority <strong>${value.priority.toFixed(6)}</strong> · predicted log continuation cost <strong>${value.learned_value.toFixed(6)}</strong> · original heuristic ${value.heuristic_priority.toFixed(3)}.</p><p class="method-note">Actual policy: ${esc(labels[trace.metadata.arm] || labels[trace.algorithm])}. Lower priority is selected first; only learned-frontier policies use the model value for scheduling. Their priority is clamped log-cost plus 0.15 × depth. The predicted value is conditional on successful development continuations; it is not a probability or certificate.</p><p class="method-note">Top eight weighted, standardized feature contributions:</p><div class="arch-terms">${value.contributions.map(([n, v]) => `<span><code>${esc(n)}</code> ${v >= 0 ? "+" : ""}${v.toFixed(5)}</span>`).join("")}</div>`
     : "<p>Rejected/closed states are not inserted into the frontier; no state value is recorded for them.</p>";
+  if (dataset === "phase5" && value) {
+    const panel = container.querySelector(".arch-value");
+    panel.innerHTML = `<details><summary>Frontier score and contributions</summary>${panel.innerHTML}</details>`;
+  }
   container.querySelector(".arch-path").textContent =
     prefixOf(trace, id).join("\n") || "Initial native state";
   container.querySelector(".arch-candidates").innerHTML = ranking
     ? `<table><thead><tr><th>Actual rank</th><th>Tactic</th><th>Handcrafted</th><th>Phase 2</th><th>Phase 3</th></tr></thead><tbody>${ranking.candidates.map((c) => `<tr><td>${c.actual_rank}</td><td><code>${esc(c.tactic)}</code></td><td>${c.heuristic_score}</td><td>${c.learned_score?.toFixed(5) ?? "—"}</td><td>${c.outcome_score?.toFixed(5) ?? "—"}</td></tr>`).join("")}</tbody></table><p class="method-note">This is the complete bounded pool generated from the inspected native state. Absence from this pool is a generator limitation, not evidence that a tactic is impossible. Larger candidate scores rank first; frontier scores use the opposite direction.</p>`
     : "<p>This state was not expanded, or this reference delegates its internal candidate search.</p>";
+  renderPremises(
+    container.querySelector(".arch-premises"),
+    trace,
+    sourceNode,
+    index?.declarations || [],
+  );
   const repeat = $(`#arch-repeat`).value,
     key = `${trace.task.id}--${trace.algorithm}--r${repeat}.json.gz`;
   const native = index?.native?.[key],
@@ -211,8 +239,9 @@ function renderSide(side) {
     'class="tree-node ',
     'class="tree-node arch-node ',
   );
-  container.innerHTML = `<div class="card-top"><h2>${esc(policyNames[t.algorithm])}</h2><span class="pill">${esc(t.status)}</span></div>
+  container.innerHTML = `<div class="card-top"><h2>${esc(labels[t.metadata.arm] || labels[t.algorithm])}</h2><span class="pill">${esc(t.status)}</span></div>
     <div class="arch-metrics"><span><b>${m.attempted_candidates}</b>attempts</span><span><b>${m.expanded_states}</b>expanded</span><span><b>${t.nodes.length}</b>tree nodes</span><span><b>${m.elapsed_s.toFixed(3)}s</b>wall</span><span><b>${m.lean_execution_s.toFixed(3)}s</b>Lean</span><span><b>${m.planning_s.toFixed(3)}s</b>planning</span><span><b>${m.model_inference_s.toFixed(3)}s</b>scores/explanations</span><span><b>${t.beam_evictions?.length || 0}</b>beam evictions</span></div>
+    ${t.retrievals?.length ? `<p class="method-note">Retrieval ${m.retrieval_s.toFixed(4)}s · ${m.retrieval_queries} native queries · ${m.declaration_probes} declaration probes · ${m.term_constructions} term construction attempts · ${m.retrieval_heartbeats} retrieval / ${m.tactic_heartbeats} tactic allocation heartbeats. Session CPU ${m.session_cpu_s?.toFixed(3) ?? "unavailable"}s · summed process RSS high-water bound ${m.session_peak_rss_kib ?? "unavailable"} KiB; independent audit resources excluded.</p>` : ""}
     <p class="method-note">${esc(t.termination)} · ${m.proof_length} proof steps · source ${esc(t.metadata.code_commit.slice(0, 12))}. ${["automation", "grind"].includes(t.algorithm) ? "External tactic reference: internal state/candidate work is not comparable to ProofLab counts." : "Candidate cap and native search budgets are identical across controlled policies."}</p>
     <div class="arch-tree-controls"><button class="text-button arch-zoom-in">Zoom +</button><button class="text-button arch-zoom-out">Zoom −</button><button class="text-button arch-fit">Fit all</button><button class="text-button arch-whole">Complete tree</button><button class="text-button arch-focus">Focus inspected state</button></div>
     <div class="tree-container arch-tree"><svg viewBox="0 0 700 360" aria-label="Actual search architecture tree"><g class="arch-transform">${markup}</g></svg></div>
@@ -220,6 +249,7 @@ function renderSide(side) {
     <details open><summary class="arch-state-title">Native state</summary><div class="arch-value"></div><pre class="arch-state continuation-code"></pre><pre class="arch-error continuation-code"></pre></details>
     <details><summary>Actual path to inspected state</summary><pre class="arch-path continuation-code"></pre></details>
     <details><summary>Candidate availability and policy rankings</summary><div class="arch-candidates table-scroll"></div></details>
+    <details open><summary>Premise & Candidate Explorer</summary><div class="arch-premises"></div></details>
     <details><summary>Beam eviction decisions</summary><p class="method-note">Removed from the bounded queue, not rejected by Lean: ${t.beam_evictions?.join(", ") || "none"}. Evicted nodes and all executed transitions remain in this tree and export. Beam truncation may discard the only proof.</p></details>
     <details><summary>Repeated-state relationships · diagnostics only</summary><p class="arch-repeats method-note"></p></details>
     <details><summary>Complete independently verified proof / audit</summary><pre class="continuation-code">${esc(t.lean_source || "No independently verified complete proof found within this budget.")}</pre><p class="method-note">${t.verification.verified ? "Fresh Lean audit passed. Axioms: " + esc(t.verification.axioms.join(", ") || "none") + ". Source SHA-256: " + esc(t.verification.source_sha256) : "No successful complete-proof audit. Bounded failure is not mathematical impossibility."}</p></details>`;
@@ -266,13 +296,15 @@ async function loadComparison() {
         const e = manifest.find(
           (e) =>
             e.task_id === task &&
-            e.algorithm === algorithm &&
+            (dataset === "phase5"
+              ? e.arm === algorithm
+              : e.algorithm === algorithm) &&
             e.repeat === repeat,
         );
         if (!e) throw new Error("This execution is unavailable");
         const response = await fetch(base + e.url);
         if (!response.ok) throw new Error("Recorded trace could not be loaded");
-        return response.json();
+        return recordedJson(response, e.url);
       }),
     );
     if (token !== epoch) return;
@@ -292,7 +324,9 @@ async function loadComparison() {
     const limitation = index?.limitations?.[task];
     $("#arch-limitations").textContent =
       limitation ||
-      "Original fixed candidate generator: at most 24 tactics from a 24-lemma index and structural/local-context proposals. The separate generator investigation changes candidate availability and is excluded from these primary traces.";
+      (dataset === "phase5"
+        ? "Fixed cap 24; original and novel allocation are recorded in every expanded state. Type probes and construction costs count toward the same wall budget. Learned retrieval selects availability; Phase 3 scores order the selected actions. No Aesop/grind inside ProofLab policies."
+        : "Original fixed candidate generator: at most 24 tactics from a 24-lemma index and structural/local-context proposals. The separate generator investigation changes candidate availability and is excluded from these primary traces.");
   } catch (error) {
     $("#arch-notice").textContent = error.message;
   }
@@ -300,24 +334,65 @@ async function loadComparison() {
 export async function openArchitecture() {
   if (manifest.length) return;
   try {
-    const result = await fetch(base + "phase4/explorer.json");
+    const requestedDataset = dataset;
+    const result = await fetch(base + requestedDataset + "/explorer.json");
     if (!result.ok)
       throw new Error(
         "Phase 4 assets are not exported. Run the documented Phase 4 export command.",
       );
-    index = await result.json();
-    $("#arch-summary").innerHTML =
-      `<table><thead><tr><th>Architecture</th><th>Verified runs</th><th>Mean attempts</th><th>Mean expanded</th><th>Mean wall</th><th>Resource limits</th></tr></thead><tbody>${Object.entries(
-        index.summary.results,
-      )
-        .map(
-          ([name, row]) =>
-            `<tr><td>${esc(policyNames[name])}</td><td>${row.verified}/${row.attempted}</td><td>${["automation", "grind"].includes(name) ? "1 external call" : row.mean_candidates.toFixed(2)}</td><td>${["automation", "grind"].includes(name) ? "internal work separate" : row.mean_expansions.toFixed(2)}</td><td>${row.mean_wall_s.toFixed(3)}s</td><td>${row.resource_limits}</td></tr>`,
+    const received = await result.json();
+    if (requestedDataset !== dataset) return;
+    index = received;
+    labels = index.policy_names || policyNames;
+    if (dataset === "phase5")
+      $("#arch-intro").innerHTML =
+        `<p>40 original held-out statements · ten families · 1120 actual runs across candidate generation and search scheduling. Inspect native types, typed witnesses, capped selection and actual Lean outcomes in each state below.</p><p class="method-note">Primary arms have two recorded runs, ablations one. Native Aesop/grind are separate references. Compatibility and accepted transitions do not establish useful proof progress; only fresh audited complete paths are verified.</p>`;
+    else
+      $("#arch-intro").innerHTML =
+        `<p>32 original held-out statements · eight mathematical families · two recorded runs per architecture. Every displayed state, tree, proof and metric derives from genuine execution.</p><p class="method-note">Original fixed candidate set. Learned values do not certify proofs. Select Phase 5 above for the integrated Premise & Candidate Explorer.</p>`;
+    if (dataset === "phase5") {
+      $("#arch-summary").innerHTML =
+        `<table><thead><tr><th>Generator × scheduler</th><th>Verified</th><th>Mean attempts</th><th>Mean wall</th><th>Mean retrieval</th></tr></thead><tbody>${Object.entries(
+          index.summary.results,
         )
-        .join(
-          "",
-        )}</tbody></table><p class="method-note">Each theorem has two repeated runs. Learned frontier loses a theorem relative to handcrafted scheduling. These all-run effort means mix successes and bounded failures; see the research report for common-success subsets and theorem/family uncertainty. The linear control duplicates the selected linear model and is not independent evidence.</p>`;
+          .map(
+            ([name, row]) =>
+              `<tr><td>${esc(labels[name])}</td><td>${row.verified}/${row.runs}</td><td>${["automation", "grind"].includes(name) ? "external call" : row.metrics.attempted_candidates.mean.toFixed(2)}</td><td>${row.metrics.elapsed_s.mean.toFixed(3)}s</td><td>${row.metrics.retrieval_s.mean.toFixed(3)}s</td></tr>`,
+          )
+          .join(
+            "",
+          )}</tbody></table><p class="method-note">All-run effort combines successes and bounded failures. Confidence intervals, paired common-verified comparisons, family analysis and negative results are in the Phase 5 report.</p>`;
+    } else {
+      $("#arch-summary").innerHTML =
+        `<table><thead><tr><th>Architecture</th><th>Verified runs</th><th>Mean attempts</th><th>Mean expanded</th><th>Mean wall</th><th>Resource limits</th></tr></thead><tbody>${Object.entries(
+          index.summary.results,
+        )
+          .map(
+            ([name, row]) =>
+              `<tr><td>${esc(policyNames[name])}</td><td>${row.verified}/${row.attempted}</td><td>${["automation", "grind"].includes(name) ? "1 external call" : row.mean_candidates.toFixed(2)}</td><td>${["automation", "grind"].includes(name) ? "internal work separate" : row.mean_expansions.toFixed(2)}</td><td>${row.mean_wall_s.toFixed(3)}s</td><td>${row.resource_limits}</td></tr>`,
+          )
+          .join(
+            "",
+          )}</tbody></table><p class="method-note">Each theorem has two repeated runs. Learned frontier loses a theorem relative to handcrafted scheduling. These all-run effort means mix successes and bounded failures; see the research report for common-success subsets and theorem/family uncertainty. The linear control duplicates the selected linear model and is not independent evidence.</p>`;
+    }
 
+    const casePanel = $("#arch-cases");
+    casePanel.hidden = dataset !== "phase5";
+    casePanel.innerHTML =
+      dataset === "phase5"
+        ? `<details><summary>Actual gains and regressions · inspect recorded examples</summary><p class="method-note">Examples selected after evaluation for inspection; they never changed the frozen model or search. Each button loads the actual compared executions, including failed trees. Native-reference attempt counts mean external calls with different internal work.</p><div class="arch-examples">${(index.examples || []).map((e, i) => `<article><h3>${esc(e.title)}</h3><p class="method-note">${esc(e.task_id)} · ${esc(e.family)}<br/>${esc(labels[e.left])}: ${e.left_verified}/${e.repetitions} verified<br/>${esc(labels[e.right])}: ${e.right_verified}/${e.repetitions} verified${e.left_attempt_mean !== undefined ? `<br/>Mean attempts/calls ${e.left_attempt_mean.toFixed(2)} / ${e.right_attempt_mean.toFixed(2)}` : ""}</p><button class="text-button arch-example" data-example="${i}">Inspect genuine comparison ↗</button></article>`).join("")}</div></details>`
+        : "";
+    casePanel.querySelectorAll(".arch-example").forEach(
+      (el) =>
+        (el.onclick = async () => {
+          const example = index.examples[Number(el.dataset.example)];
+          $("#arch-task").value = example.task_id;
+          $("#arch-policy-a").value = example.left;
+          $("#arch-policy-b").value = example.right;
+          $("#arch-repeat").value = 0;
+          await loadComparison();
+        }),
+    );
     manifest = index.manifest;
     $("#arch-task").innerHTML = index.tasks
       .map(
@@ -326,11 +401,12 @@ export async function openArchitecture() {
       )
       .join("");
     for (const side of ["a", "b"])
-      $("#arch-policy-" + side).innerHTML = Object.entries(policyNames)
+      $("#arch-policy-" + side).innerHTML = Object.entries(labels)
         .map(([id, name]) => `<option value="${id}">${esc(name)}</option>`)
         .join("");
-    $("#arch-policy-a").value = "best_first";
-    $("#arch-policy-b").value = "joint";
+    $("#arch-policy-a").value =
+      dataset === "phase5" ? "original_p3" : "best_first";
+    $("#arch-policy-b").value = dataset === "phase5" ? "learned_p3" : "joint";
     $("#arch-research").innerHTML = index.research
       .map(
         (r) =>
@@ -346,6 +422,110 @@ export async function openArchitecture() {
 }
 export function initializeArchitecture(assetBase) {
   base = assetBase;
+  $("#arch-dataset").onchange = async () => {
+    dataset = $("#arch-dataset").value;
+    ++epoch;
+    manifest = [];
+    index = null;
+    await openArchitecture();
+  };
+  $("#arch-local").onclick = async () => {
+    const notice = $("#arch-notice");
+    $("#arch-local").disabled = true;
+    document
+      .querySelectorAll(".arch-controls select")
+      .forEach((el) => (el.disabled = true));
+    try {
+      const health = await fetch(base + "api/health");
+      if (
+        !health.ok ||
+        !health.headers.get("content-type")?.includes("application/json") ||
+        !(await health.json()).service
+      )
+        throw new Error(
+          "Local computation needs the loopback ProofLab server; recorded replay remains available.",
+        );
+      const chosen = $("#arch-policy-a").value;
+      const arm = index?.protocol?.arms?.find((a) => a.id === chosen);
+      const response = await fetch(base + "api/search", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          task_id: $("#arch-task").value,
+          algorithm: arm?.algorithm || chosen,
+          generator_mode: arm?.generator || "original",
+          budget: index?.protocol?.budget ||
+            traces[0]?.budget || {
+              max_depth: 12,
+              max_expansions: 80,
+              max_candidates: 24,
+              max_attempts: 600,
+              timeout_s: 18,
+              tactic_timeout_s: 2,
+            },
+        }),
+      });
+      if (!response.ok)
+        throw new Error(`Local search could not start (${response.status})`);
+      localJob = (await response.json()).job_id;
+      $("#arch-local").disabled = true;
+      document
+        .querySelectorAll(".arch-controls select")
+        .forEach((el) => (el.disabled = true));
+      $("#arch-cancel").hidden = false;
+      notice.textContent =
+        "Running genuine local Lean search for the left policy…";
+      const poll = async () => {
+        try {
+          const result = await (
+            await fetch(base + "api/jobs/" + localJob)
+          ).json();
+          if (result.state === "running") {
+            setTimeout(poll, 400);
+            return;
+          }
+          if (!result.trace)
+            throw new Error(
+              result.error || "Local execution returned no trace",
+            );
+          traces[0] = result.trace;
+          traces[0].metadata.arm = chosen;
+          selected[0] = 0;
+          wholeTrees[0] = false;
+          renderSide(0);
+          $("#arch-step").max = Math.max(
+            0,
+            ...traces.map((t) => t.frontier_decisions.length - 1),
+          );
+          $("#arch-step").value = 0;
+          renderDecisions();
+          notice.textContent = `Actual local run: ${result.trace.status} · ${result.trace.metrics.attempted_candidates} attempts. The right side remains the recorded execution. Export includes both sources.`;
+        } catch (error) {
+          notice.textContent = error.message;
+        } finally {
+          if (!notice.textContent.startsWith("Running")) {
+            localJob = null;
+            $("#arch-local").disabled = false;
+            document
+              .querySelectorAll(".arch-controls select")
+              .forEach((el) => (el.disabled = false));
+            $("#arch-cancel").hidden = true;
+          }
+        }
+      };
+      setTimeout(poll, 400);
+    } catch (error) {
+      notice.textContent = error.message;
+      $("#arch-local").disabled = false;
+      document
+        .querySelectorAll(".arch-controls select")
+        .forEach((el) => (el.disabled = false));
+    }
+  };
+  $("#arch-cancel").onclick = async () => {
+    if (localJob)
+      await fetch(base + "api/jobs/" + localJob, { method: "DELETE" });
+  };
   $("#arch-step").oninput = renderDecisions;
   $("#arch-next").onclick = () => {
     $("#arch-step").value = Math.min(

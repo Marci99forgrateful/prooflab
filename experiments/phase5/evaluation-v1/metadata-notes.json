@@ -1,0 +1,9 @@
+{
+  "scope": "Legacy field interpretation; raw executed traces remain unchanged",
+  "authoritative_generation": "metadata.arm, metadata.generator_mode and each retrievals[].mode identify actual generation and selection",
+  "legacy_generator": "metadata.generator records the fallback callback argument of the backward-compatible search API; TypedProvider overrides that callback in Phase 5 arms",
+  "legacy_model_sha256": "metadata.model_sha256 and learned_scores_used_for_scheduling describe the frozen Phase 2 comparison ranker, not the new retrieval model",
+  "retrieval_model": "retrievals[].model_sha256 and models/phase5/frozen.json identify the actual Phase 5 model; learned modes use it for novelty selection and stable downstream ties",
+  "frontier_model": "The Phase 4 model is also scored for annotations. Trace.algorithm, frontier_policy and actual frontier decisions identify whether it schedules states",
+  "provenance": "The frozen protocol and per-run arm IDs separate generators, schedulers and external engines; no mathematical claim derives from a legacy annotation field"
+}

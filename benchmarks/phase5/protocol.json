@@ -1,0 +1,185 @@
+{
+  "schema_version": 1,
+  "budget": {
+    "max_depth": 12,
+    "max_expansions": 80,
+    "max_candidates": 24,
+    "max_attempts": 600,
+    "timeout_s": 18,
+    "tactic_timeout_s": 2
+  },
+  "workers": 2,
+  "arms": [
+    {
+      "id": "original_hand",
+      "generator": "original",
+      "algorithm": "best_first",
+      "repetitions": 2
+    },
+    {
+      "id": "original_p3",
+      "generator": "original",
+      "algorithm": "outcome",
+      "repetitions": 2
+    },
+    {
+      "id": "phase4_hand",
+      "generator": "phase4",
+      "algorithm": "best_first",
+      "repetitions": 2
+    },
+    {
+      "id": "phase4_p3",
+      "generator": "phase4",
+      "algorithm": "outcome",
+      "repetitions": 2
+    },
+    {
+      "id": "typed_hand",
+      "generator": "typed",
+      "algorithm": "best_first",
+      "repetitions": 2
+    },
+    {
+      "id": "typed_p3",
+      "generator": "typed",
+      "algorithm": "outcome",
+      "repetitions": 2
+    },
+    {
+      "id": "learned_hand",
+      "generator": "learned",
+      "algorithm": "best_first",
+      "repetitions": 2
+    },
+    {
+      "id": "learned_p3",
+      "generator": "learned",
+      "algorithm": "outcome",
+      "repetitions": 2
+    },
+    {
+      "id": "typed_joint",
+      "generator": "typed",
+      "algorithm": "joint",
+      "repetitions": 2
+    },
+    {
+      "id": "learned_joint",
+      "generator": "learned",
+      "algorithm": "joint",
+      "repetitions": 2
+    },
+    {
+      "id": "automation",
+      "generator": "original",
+      "algorithm": "automation",
+      "repetitions": 2
+    },
+    {
+      "id": "grind",
+      "generator": "original",
+      "algorithm": "grind",
+      "repetitions": 2
+    },
+    {
+      "id": "broad_hand",
+      "generator": "broad",
+      "algorithm": "best_first",
+      "repetitions": 1
+    },
+    {
+      "id": "type_filtered_hand",
+      "generator": "type_filtered",
+      "algorithm": "best_first",
+      "repetitions": 1
+    },
+    {
+      "id": "no_witness_hand",
+      "generator": "no_witness",
+      "algorithm": "best_first",
+      "repetitions": 1
+    },
+    {
+      "id": "no_normalize_hand",
+      "generator": "no_normalize",
+      "algorithm": "best_first",
+      "repetitions": 1
+    }
+  ],
+  "target": "learned_p3",
+  "primary_symbolic": "typed_p3",
+  "primary_old": "original_p3",
+  "bootstrap_samples": 10000,
+  "bootstrap_seed": 2718,
+  "uncertainty": "Paired theorem repeat averages; bootstrap theorems and ten family clusters; common-verified effort separately; no success-conditioned causal claim.",
+  "selection": "48 original Phase 1 development IDs exclusively. Twelve order development IDs for hyperparameter selection; final refit on permitted development. Pilots excluded from training; all Phase 1\u20134 held-out material diagnosis only.",
+  "retrieval": {
+    "declarations": 128,
+    "rewrite_directions": 16,
+    "function_applications": 32,
+    "total_constructions_with_products": 48,
+    "construction_depth": 2,
+    "original_lane": 16,
+    "query_timeout_s": 2,
+    "allocation": "Protect up to 16 original candidates, goal/specialized first then original stable order; remaining slots for novelty, original backfill. All typed variants share pool/universe/gate/cap except explicit ablations. Learned retrieval selects availability; final scheduling remains separate."
+  },
+  "training": {
+    "max_states_per_theorem": 3,
+    "max_executed_per_state": 36,
+    "max_rollouts_per_state": 3,
+    "rollout_budget": {
+      "max_depth": 6,
+      "max_expansions": 16,
+      "max_candidates": 24,
+      "max_attempts": 64,
+      "timeout_s": 4,
+      "tactic_timeout_s": 2
+    },
+    "audit_timeout_s": 20,
+    "pair_labels": "Verified-path actions over actually rejected applications; verified-vs-verified unequal fixed-continuation attempt costs. Accepted/censored/unselected are never negatives.",
+    "objective": "Pairwise logistic loss plus L2; pre-execution native and frozen P3 structural features, no theorem IDs/answers/successor features.",
+    "l2": [
+      0.01,
+      0.1
+    ],
+    "epochs": 250,
+    "learning_rate": 0.15,
+    "seed": 0,
+    "minimum_preferences": 50,
+    "minimum_training_theorems": 10,
+    "fallback": "If insufficient, learned arms are explicitly unavailable; deterministic remains primary and no fictitious scores."
+  },
+  "automation": "Aesop/grind external single-call references; ring/omega original specialized actions; group and set simp-only explicit normalizers, separate no_normalize ablation. Native allocation heartbeats are not inference counts.",
+  "metrics": [
+    "verified_success",
+    "attempted_candidates",
+    "expanded_states",
+    "proof_length",
+    "elapsed_s",
+    "lean_execution_s",
+    "initialization_s",
+    "verification_s",
+    "planning_s",
+    "model_inference_s",
+    "retrieval_s",
+    "declaration_probes",
+    "rewrite_probes",
+    "term_constructions",
+    "retrieval_heartbeats",
+    "tactic_heartbeats",
+    "coordinator_cpu_s",
+    "session_cpu_s",
+    "session_peak_rss_kib",
+    "displaced",
+    "entered",
+    "actual_applicability",
+    "compatible_but_rejected",
+    "proof_path_availability",
+    "resource_limits",
+    "execution_errors"
+  ],
+  "pilot": "Six independent development-only pilots. Original solved 2/6; deterministic typed 4/6, losing logical-choice pilot. Lattice pilot unsolved in both. All ten final families retained; no changes following test execution.",
+  "frontier_subset": "Frozen Phase 4 joint only: isolates learned queue with P3 action scheduling; selected linear artifact already duplicates linear control; beam changes frontier pruning and is excluded to control matrix size.",
+  "freeze": "Statements, index, training boundaries, full arms, caps, metrics frozen before model selection. Execution code/model additionally hashed and committed before test runs; no test retuning."
+}

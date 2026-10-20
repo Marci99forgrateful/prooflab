@@ -15,7 +15,13 @@ def load_tasks() -> list[Task]:
 
 
 def get_task(ident: str) -> Task:
-    for loader in (load_tasks, load_phase2_tasks, load_phase3_tasks, load_phase4_tasks):
+    for loader in (
+        load_tasks,
+        load_phase2_tasks,
+        load_phase3_tasks,
+        load_phase4_tasks,
+        load_phase5_tasks,
+    ):
         for task in loader():
             if task.id == ident:
                 return task
@@ -43,4 +49,12 @@ def load_phase4_tasks() -> list[Task]:
     tasks = [Task.model_validate(row) for row in rows]
     if len({task.id for task in tasks}) != len(tasks):
         raise ValueError("Duplicate Phase 4 task IDs")
+    return tasks
+
+
+def load_phase5_tasks() -> list[Task]:
+    rows = json.loads((ROOT / "benchmarks/phase5/evaluation.json").read_text())
+    tasks = [Task.model_validate(row) for row in rows]
+    if len({task.id for task in tasks}) != len(tasks):
+        raise ValueError("Duplicate Phase 5 task IDs")
     return tasks
