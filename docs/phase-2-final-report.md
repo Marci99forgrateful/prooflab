@@ -116,8 +116,18 @@ Local validation completed successfully:
   exact isomorphism is used after hash prefiltering. Neither is a test failure.
 
 [Machine-readable local validation and source hashes](../artifacts/phase2-validation.json).
-Hosted CI is investigated on the draft feature PR separately; its observed
-status is added below after the run is available.
+Draft review PR: [#1](https://github.com/Marci99forgrateful/prooflab/pull/1).
+The [actual PR CI run](https://github.com/Marci99forgrateful/prooflab/actions/runs/39404396680)
+reports failure **before any job step starts** (empty runner name and empty step
+list). Its GitHub check annotation states: “The job was not started because
+recent account payments have failed or your spending limit needs to be
+increased. Please check the 'Billing & plans' section in your settings”.
+
+This is an account/billing infrastructure block, not evidence of a code/test
+failure, and hosted CI is **not claimed passing**. No billing settings are
+changed and no paid service is enabled. The exact observed check metadata is
+saved in [hosted CI evidence](../artifacts/phase2-hosted-ci.json). The feature
+branch remains a draft for review; `main` is still the v0.1.0 base revision.
 
 ## Remaining limitations and interpretation
 
