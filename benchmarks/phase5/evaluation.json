@@ -1,0 +1,602 @@
+[
+  {
+    "id": "p5_compose_terminal",
+    "title": "Compose terminal",
+    "domain": "logic",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(α β γ : Type) (f : α → β) (g : β → γ) (P : γ → Prop) (a : α) (h : P (g (f a)))",
+    "target": "∃ z, P z ∧ z = g (f a)",
+    "display": "∃ z, P z ∧ z = g (f a)",
+    "description": "Phase 5 · heterogeneous composition witness",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ],
+    "origin": "Original Phase 5 statement; shared elementary primitives, no mathematical novelty claimed."
+  },
+  {
+    "id": "p5_compose_pair",
+    "title": "Compose pair",
+    "domain": "logic",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(α β γ : Type) (f : α → β) (g : β → γ) (P Q : γ → Prop) (a : α) (h : P (g (f a))) (k : Q (g (f a)))",
+    "target": "∃ z, Q z ∧ P z",
+    "display": "∃ z, Q z ∧ P z",
+    "description": "Phase 5 · heterogeneous composition witness",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ],
+    "origin": "Original Phase 5 statement; shared elementary primitives, no mathematical novelty claimed."
+  },
+  {
+    "id": "p5_compose_conditional",
+    "title": "Compose conditional",
+    "domain": "logic",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(α β γ : Type) (f : α → β) (g : β → γ) (P : α → Prop) (Q : γ → Prop) (a : α) (h : P a) (t : ∀ x, P x → Q (g (f x)))",
+    "target": "∃ z, Q z ∨ False",
+    "display": "∃ z, Q z ∨ False",
+    "description": "Phase 5 · heterogeneous composition witness",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ],
+    "origin": "Original Phase 5 statement; shared elementary primitives, no mathematical novelty claimed."
+  },
+  {
+    "id": "p5_compose_disjunction",
+    "title": "Compose disjunction",
+    "domain": "logic",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(α β γ : Type) (f : α → β) (g : β → γ) (P Q : γ → Prop) (a : α) (h : P (g (f a)) ∨ Q (g (f a)))",
+    "target": "∃ z, Q z ∨ P z",
+    "display": "∃ z, Q z ∨ P z",
+    "description": "Phase 5 · heterogeneous composition witness",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ],
+    "origin": "Original Phase 5 statement; shared elementary primitives, no mathematical novelty claimed."
+  },
+  {
+    "id": "p5_product_graph",
+    "title": "Product graph",
+    "domain": "logic",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(α β : Type) (a : α) (b : β)",
+    "target": "∃ z : α × β, z.1 = a ∧ z.2 = b",
+    "display": "∃ z : α × β, z.1 = a ∧ z.2 = b",
+    "description": "Phase 5 · typed product construction",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ],
+    "origin": "Original Phase 5 statement; shared elementary primitives, no mathematical novelty claimed."
+  },
+  {
+    "id": "p5_product_predicate",
+    "title": "Product predicate",
+    "domain": "logic",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(α β : Type) (a : α) (b : β) (R : α → β → Prop) (h : R a b)",
+    "target": "∃ z : α × β, R z.1 z.2",
+    "display": "∃ z : α × β, R z.1 z.2",
+    "description": "Phase 5 · typed product construction",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ],
+    "origin": "Original Phase 5 statement; shared elementary primitives, no mathematical novelty claimed."
+  },
+  {
+    "id": "p5_product_function",
+    "title": "Product function",
+    "domain": "logic",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(α β γ : Type) (a : α) (b : β) (f : α × β → γ) (P : γ → Prop) (h : P (f (a,b)))",
+    "target": "∃ z : α × β, P (f z) ∧ z.1 = a",
+    "display": "∃ z : α × β, P (f z) ∧ z.1 = a",
+    "description": "Phase 5 · typed product construction",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ],
+    "origin": "Original Phase 5 statement; shared elementary primitives, no mathematical novelty claimed."
+  },
+  {
+    "id": "p5_product_two_properties",
+    "title": "Product two properties",
+    "domain": "logic",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(α β : Type) (a : α) (b : β) (P : α → Prop) (Q : β → Prop) (h : P a) (k : Q b)",
+    "target": "∃ z : α × β, Q z.2 ∧ P z.1",
+    "display": "∃ z : α × β, Q z.2 ∧ P z.1",
+    "description": "Phase 5 · typed product construction",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ],
+    "origin": "Original Phase 5 statement; shared elementary primitives, no mathematical novelty claimed."
+  },
+  {
+    "id": "p5_left_inverse_injective",
+    "title": "Left inverse injective",
+    "domain": "logic",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(α β : Type) (f : α → β) (g : β → α) (h : Function.LeftInverse g f) (a b : α)",
+    "target": "f a = f b → a = b",
+    "display": "f a = f b → a = b",
+    "description": "Phase 5 · inverse function consequences",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ],
+    "origin": "Original Phase 5 statement; shared elementary primitives, no mathematical novelty claimed."
+  },
+  {
+    "id": "p5_right_inverse_witness",
+    "title": "Right inverse witness",
+    "domain": "logic",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(α β : Type) (f : α → β) (g : β → α) (h : Function.RightInverse g f) (b : β)",
+    "target": "∃ a, f a = b ∧ g (f a) = g b",
+    "display": "∃ a, f a = b ∧ g (f a) = g b",
+    "description": "Phase 5 · inverse function consequences",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ],
+    "origin": "Original Phase 5 statement; shared elementary primitives, no mathematical novelty claimed."
+  },
+  {
+    "id": "p5_inverse_unique",
+    "title": "Inverse unique",
+    "domain": "logic",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(α β : Type) (f : α → β) (g : β → α) (h : Function.LeftInverse g f) (a b : α) (k : f a = f b)",
+    "target": "a = b ∧ g (f a) = b",
+    "display": "a = b ∧ g (f a) = b",
+    "description": "Phase 5 · inverse function consequences",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ],
+    "origin": "Original Phase 5 statement; shared elementary primitives, no mathematical novelty claimed."
+  },
+  {
+    "id": "p5_inverse_transport",
+    "title": "Inverse transport",
+    "domain": "logic",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(α β : Type) (f : α → β) (g : β → α) (h : Function.RightInverse g f) (P : β → Prop) (b : β) (p : P b)",
+    "target": "∃ a, P (f a) ∧ f a = b",
+    "display": "∃ a, P (f a) ∧ f a = b",
+    "description": "Phase 5 · inverse function consequences",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ],
+    "origin": "Original Phase 5 statement; shared elementary primitives, no mathematical novelty claimed."
+  },
+  {
+    "id": "p5_conjugate_identity",
+    "title": "Conjugate identity",
+    "domain": "algebra",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(G : Type) [Group G] (a b : G)",
+    "target": "a * (b * b⁻¹) * a⁻¹ = 1",
+    "display": "a * (b * b⁻¹) * a⁻¹ = 1",
+    "description": "Phase 5 · noncommutative conjugation",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ],
+    "origin": "Original Phase 5 statement; shared elementary primitives, no mathematical novelty claimed."
+  },
+  {
+    "id": "p5_conjugate_context",
+    "title": "Conjugate context",
+    "domain": "algebra",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(G : Type) [Group G] (a b c : G) (h : a*b = c)",
+    "target": "a⁻¹ * c * b⁻¹ = 1",
+    "display": "a⁻¹ * c * b⁻¹ = 1",
+    "description": "Phase 5 · noncommutative conjugation",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ],
+    "origin": "Original Phase 5 statement; shared elementary primitives, no mathematical novelty claimed."
+  },
+  {
+    "id": "p5_conjugate_cancel",
+    "title": "Conjugate cancel",
+    "domain": "algebra",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(G : Type) [Group G] (a b c : G)",
+    "target": "(a*b*a⁻¹) * (a*c*a⁻¹) = a*(b*c)*a⁻¹",
+    "display": "(a*b*a⁻¹) * (a*c*a⁻¹) = a*(b*c)*a⁻¹",
+    "description": "Phase 5 · noncommutative conjugation",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ],
+    "origin": "Original Phase 5 statement; shared elementary primitives, no mathematical novelty claimed."
+  },
+  {
+    "id": "p5_inverse_equality",
+    "title": "Inverse equality",
+    "domain": "algebra",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(G : Type) [Group G] (a b c : G) (h : a*b = c)",
+    "target": "b = a⁻¹*c ∧ a = c*b⁻¹",
+    "display": "b = a⁻¹*c ∧ a = c*b⁻¹",
+    "description": "Phase 5 · noncommutative conjugation",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ],
+    "origin": "Original Phase 5 statement; shared elementary primitives, no mathematical novelty claimed."
+  },
+  {
+    "id": "p5_sandwich_eq",
+    "title": "Sandwich eq",
+    "domain": "order",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(α : Type) [Lattice α] (a b c : α) (h : a ≤ b) (k : b ≤ c) (t : c ≤ a)",
+    "target": "(a ⊔ b) ⊓ c = a",
+    "display": "(a ⊔ b) ⊓ c = a",
+    "description": "Phase 5 · lattice sandwich constraints",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ],
+    "origin": "Original Phase 5 statement; shared elementary primitives, no mathematical novelty claimed."
+  },
+  {
+    "id": "p5_join_upper",
+    "title": "Join upper",
+    "domain": "order",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(α : Type) [Lattice α] (a b c d : α) (h : a ≤ c) (k : b ≤ c) (t : c ≤ d)",
+    "target": "a ⊔ b ≤ c ⊓ d",
+    "display": "a ⊔ b ≤ c ⊓ d",
+    "description": "Phase 5 · lattice sandwich constraints",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ],
+    "origin": "Original Phase 5 statement; shared elementary primitives, no mathematical novelty claimed."
+  },
+  {
+    "id": "p5_meet_lower",
+    "title": "Meet lower",
+    "domain": "order",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(α : Type) [Lattice α] (a b c d : α) (h : a ≤ b) (k : a ≤ c) (t : d ≤ a)",
+    "target": "a ⊔ d ≤ b ⊓ c",
+    "display": "a ⊔ d ≤ b ⊓ c",
+    "description": "Phase 5 · lattice sandwich constraints",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ],
+    "origin": "Original Phase 5 statement; shared elementary primitives, no mathematical novelty claimed."
+  },
+  {
+    "id": "p5_two_sided_lattice",
+    "title": "Two sided lattice",
+    "domain": "order",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(α : Type) [Lattice α] (a b c d : α) (h : a ≤ b) (k : c ≤ d)",
+    "target": "a ⊓ c ≤ b ⊔ d ∧ a ⊓ c ≤ b",
+    "display": "a ⊓ c ≤ b ⊔ d ∧ a ⊓ c ≤ b",
+    "description": "Phase 5 · lattice sandwich constraints",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ],
+    "origin": "Original Phase 5 statement; shared elementary primitives, no mathematical novelty claimed."
+  },
+  {
+    "id": "p5_image_witness",
+    "title": "Image witness",
+    "domain": "sets",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(α β : Type) (f : α → β) (A : Set α) (a : α) (h : a ∈ A)",
+    "target": "∃ y, y ∈ f '' A ∧ y = f a",
+    "display": "∃ y, y ∈ f '' A ∧ y = f a",
+    "description": "Phase 5 · image preimage roundtrip",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ],
+    "origin": "Original Phase 5 statement; shared elementary primitives, no mathematical novelty claimed."
+  },
+  {
+    "id": "p5_image_preimage_element",
+    "title": "Image preimage element",
+    "domain": "sets",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(α β : Type) (f : α → β) (A : Set α) (B : Set β) (h : ∀ x, x ∈ A → f x ∈ B) (a : α) (k : a ∈ A)",
+    "target": "f a ∈ f '' A ∩ B",
+    "display": "f a ∈ f '' A ∩ B",
+    "description": "Phase 5 · image preimage roundtrip",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ],
+    "origin": "Original Phase 5 statement; shared elementary primitives, no mathematical novelty claimed."
+  },
+  {
+    "id": "p5_preimage_witness",
+    "title": "Preimage witness",
+    "domain": "sets",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(α β : Type) (f : α → β) (B : Set β) (a : α) (h : f a ∈ B)",
+    "target": "∃ x, x ∈ f ⁻¹' B ∧ f x ∈ B",
+    "display": "∃ x, x ∈ f ⁻¹' B ∧ f x ∈ B",
+    "description": "Phase 5 · image preimage roundtrip",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ],
+    "origin": "Original Phase 5 statement; shared elementary primitives, no mathematical novelty claimed."
+  },
+  {
+    "id": "p5_image_injective_back",
+    "title": "Image injective back",
+    "domain": "sets",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(α β : Type) (f : α → β) (A : Set α) (h : Function.Injective f) (a : α) (k : f a ∈ f '' A)",
+    "target": "a ∈ A",
+    "display": "a ∈ A",
+    "description": "Phase 5 · image preimage roundtrip",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ],
+    "origin": "Original Phase 5 statement; shared elementary primitives, no mathematical novelty claimed."
+  },
+  {
+    "id": "p5_exclusion_transport",
+    "title": "Exclusion transport",
+    "domain": "sets",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(α : Type) (A B C : Set α) (a : α) (h : A ⊆ B) (k : a ∈ A \\ C)",
+    "target": "a ∈ B ∧ a ∉ C",
+    "display": "a ∈ B ∧ a ∉ C",
+    "description": "Phase 5 · pointwise set exclusion",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ],
+    "origin": "Original Phase 5 statement; shared elementary primitives, no mathematical novelty claimed."
+  },
+  {
+    "id": "p5_exclusion_choice",
+    "title": "Exclusion choice",
+    "domain": "sets",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(α : Type) (A B C : Set α) (a : α) (h : a ∈ A ∪ B) (k : a ∉ C)",
+    "target": "a ∈ (A \\ C) ∪ (B \\ C)",
+    "display": "a ∈ (A \\ C) ∪ (B \\ C)",
+    "description": "Phase 5 · pointwise set exclusion",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ],
+    "origin": "Original Phase 5 statement; shared elementary primitives, no mathematical novelty claimed."
+  },
+  {
+    "id": "p5_complement_contradiction",
+    "title": "Complement contradiction",
+    "domain": "sets",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(α : Type) (A B : Set α) (a : α) (h : a ∈ A ∩ Bᶜ)",
+    "target": "a ∉ B ∧ a ∈ A",
+    "display": "a ∉ B ∧ a ∈ A",
+    "description": "Phase 5 · pointwise set exclusion",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ],
+    "origin": "Original Phase 5 statement; shared elementary primitives, no mathematical novelty claimed."
+  },
+  {
+    "id": "p5_exclusion_disjoint",
+    "title": "Exclusion disjoint",
+    "domain": "sets",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(α : Type) (A B : Set α) (a : α) (h : a ∈ A \\ B)",
+    "target": "¬ (a ∈ B ∧ a ∈ A)",
+    "display": "¬ (a ∈ B ∧ a ∈ A)",
+    "description": "Phase 5 · pointwise set exclusion",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ],
+    "origin": "Original Phase 5 statement; shared elementary primitives, no mathematical novelty claimed."
+  },
+  {
+    "id": "p5_choice_shared",
+    "title": "Choice shared",
+    "domain": "logic",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(α : Type) (P Q R : α → Prop) (a : α) (h : P a ∨ Q a) (f : ∀ x, P x → R x) (g : ∀ x, Q x → R x)",
+    "target": "∃ x, R x ∧ (P x ∨ Q x)",
+    "display": "∃ x, R x ∧ (P x ∨ Q x)",
+    "description": "Phase 5 · quantified choice context",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ],
+    "origin": "Original Phase 5 statement; shared elementary primitives, no mathematical novelty claimed."
+  },
+  {
+    "id": "p5_choice_refutation",
+    "title": "Choice refutation",
+    "domain": "logic",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(α : Type) (P Q : α → Prop) (a : α) (h : P a ∨ Q a) (k : ¬ P a)",
+    "target": "∃ x, Q x",
+    "display": "∃ x, Q x",
+    "description": "Phase 5 · quantified choice context",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ],
+    "origin": "Original Phase 5 statement; shared elementary primitives, no mathematical novelty claimed."
+  },
+  {
+    "id": "p5_choice_all",
+    "title": "Choice all",
+    "domain": "logic",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(α : Type) (P Q R : α → Prop) (h : ∀ x, P x ∨ Q x) (f : ∀ x, P x → R x) (g : ∀ x, Q x → R x)",
+    "target": "∀ x, R x ∧ (Q x ∨ P x)",
+    "display": "∀ x, R x ∧ (Q x ∨ P x)",
+    "description": "Phase 5 · quantified choice context",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ],
+    "origin": "Original Phase 5 statement; shared elementary primitives, no mathematical novelty claimed."
+  },
+  {
+    "id": "p5_choice_exists",
+    "title": "Choice exists",
+    "domain": "logic",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(α : Type) (P Q R : α → Prop) (h : ∃ x, P x ∨ Q x) (f : ∀ x, P x → R x) (g : ∀ x, Q x → R x)",
+    "target": "∃ x, R x ∨ False",
+    "display": "∃ x, R x ∨ False",
+    "description": "Phase 5 · quantified choice context",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ],
+    "origin": "Original Phase 5 statement; shared elementary primitives, no mathematical novelty claimed."
+  },
+  {
+    "id": "p5_relation_middle",
+    "title": "Relation middle",
+    "domain": "order",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(α : Type) (R S : α → α → Prop) (a b c : α) (h : R a b) (k : S b c)",
+    "target": "∃ x, R a x ∧ S x c",
+    "display": "∃ x, R a x ∧ S x c",
+    "description": "Phase 5 · relational intermediate witness",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ],
+    "origin": "Original Phase 5 statement; shared elementary primitives, no mathematical novelty claimed."
+  },
+  {
+    "id": "p5_relation_composed",
+    "title": "Relation composed",
+    "domain": "order",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(α β : Type) (R : α → α → Prop) (S : β → β → Prop) (f : α → β) (a b c : α) (h : R a b) (k : R b c) (t : ∀ x y, R x y → S (f x) (f y))",
+    "target": "∃ y, S (f a) y ∧ S y (f c)",
+    "display": "∃ y, S (f a) y ∧ S y (f c)",
+    "description": "Phase 5 · relational intermediate witness",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ],
+    "origin": "Original Phase 5 statement; shared elementary primitives, no mathematical novelty claimed."
+  },
+  {
+    "id": "p5_relation_reverse_middle",
+    "title": "Relation reverse middle",
+    "domain": "order",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(α : Type) (R : α → α → Prop) (a b c : α) (h : R a b) (k : R b c) (s : ∀ x y, R x y → R y x)",
+    "target": "∃ x, R c x ∧ R x a",
+    "display": "∃ x, R c x ∧ R x a",
+    "description": "Phase 5 · relational intermediate witness",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ],
+    "origin": "Original Phase 5 statement; shared elementary primitives, no mathematical novelty claimed."
+  },
+  {
+    "id": "p5_relation_diagonal",
+    "title": "Relation diagonal",
+    "domain": "order",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(α : Type) (R : α → α → Prop) (a b : α) (h : R a b) (s : ∀ x y, R x y → R y x) (t : ∀ x y z, R x y → R y z → R x z)",
+    "target": "∃ x, R x x ∧ R a x",
+    "display": "∃ x, R x x ∧ R a x",
+    "description": "Phase 5 · relational intermediate witness",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ],
+    "origin": "Original Phase 5 statement; shared elementary primitives, no mathematical novelty claimed."
+  },
+  {
+    "id": "p5_binary_congruence",
+    "title": "Binary congruence",
+    "domain": "logic",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(α β γ : Type) (f : α → β → γ) (a a' : α) (b b' : β) (h : a = a') (k : b = b')",
+    "target": "f a b = f a' b' ∧ f a' b = f a b'",
+    "display": "f a b = f a' b' ∧ f a' b = f a b'",
+    "description": "Phase 5 · heterogeneous binary congruence",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ],
+    "origin": "Original Phase 5 statement; shared elementary primitives, no mathematical novelty claimed."
+  },
+  {
+    "id": "p5_binary_predicate",
+    "title": "Binary predicate",
+    "domain": "logic",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(α β : Type) (R : α → β → Prop) (a a' : α) (b b' : β) (h : a = a') (k : b = b') (r : R a b)",
+    "target": "R a' b' ∧ R a b'",
+    "display": "R a' b' ∧ R a b'",
+    "description": "Phase 5 · heterogeneous binary congruence",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ],
+    "origin": "Original Phase 5 statement; shared elementary primitives, no mathematical novelty claimed."
+  },
+  {
+    "id": "p5_binary_graph_exists",
+    "title": "Binary graph exists",
+    "domain": "logic",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(α β γ : Type) (f : α → β → γ) (a : α) (b : β)",
+    "target": "∃ z, z = f a b ∧ f a b = z",
+    "display": "∃ z, z = f a b ∧ f a b = z",
+    "description": "Phase 5 · heterogeneous binary congruence",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ],
+    "origin": "Original Phase 5 statement; shared elementary primitives, no mathematical novelty claimed."
+  },
+  {
+    "id": "p5_congruence_chain",
+    "title": "Congruence chain",
+    "domain": "logic",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(α β γ : Type) (f : α → β) (g : β → γ) (a b : α) (h : f a = f b)",
+    "target": "g (f a) = g (f b) ∧ g (f b) = g (f a)",
+    "display": "g (f a) = g (f b) ∧ g (f b) = g (f a)",
+    "description": "Phase 5 · heterogeneous binary congruence",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ],
+    "origin": "Original Phase 5 statement; shared elementary primitives, no mathematical novelty claimed."
+  }
+]

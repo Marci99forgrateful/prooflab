@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import Literal
+from typing import Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
@@ -96,6 +96,8 @@ class Node(Model):
     error: str | None = None
     elapsed_ms: float = 0
     on_proof_path: bool = False
+    native_heartbeats: int | None = None
+    native_elapsed_s: float | None = None
 
 
 class Metrics(Model):
@@ -112,6 +114,16 @@ class Metrics(Model):
     verification_s: float = 0
     planning_s: float = 0
     model_inference_s: float = 0
+    retrieval_s: float = 0
+    retrieval_queries: int = 0
+    declaration_probes: int = 0
+    rewrite_probes: int = 0
+    term_constructions: int = 0
+    retrieval_heartbeats: int = 0
+    tactic_heartbeats: int = 0
+    coordinator_cpu_s: float = 0
+    session_cpu_s: float | None = None
+    session_peak_rss_kib: int | None = None
 
 
 class CandidateRanking(Model):
@@ -175,3 +187,4 @@ class Trace(Model):
     state_values: list[FrontierValue] = Field(default_factory=list)
     frontier_decisions: list[FrontierDecision] = Field(default_factory=list)
     beam_evictions: list[int] = Field(default_factory=list)
+    retrievals: list[dict[str, Any]] = Field(default_factory=list)

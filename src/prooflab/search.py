@@ -9,6 +9,7 @@ import time
 from collections import deque
 from collections.abc import Callable
 from threading import Event
+from typing import Any, Protocol
 
 from prooflab.candidates import (
     HeuristicRanking,
@@ -41,6 +42,17 @@ from prooflab.models import (
     Trace,
 )
 from prooflab.outcome import MODELS, OutcomeRanking
+
+
+class CandidateProvider(Protocol):
+    def generate(
+        self,
+        lean: LeanSession,
+        state: ProofState,
+        limit: int,
+        forbidden: frozenset[str],
+        timeout: float,
+    ) -> tuple[list[Candidate], dict[str, Any]]: ...
 
 
 def metadata() -> dict[str, str]:
@@ -84,10 +96,14 @@ def search(
     comparison_frontier: FrontierModel | None = None,
     beam_width: int = 12,
     generator: Callable[[ProofState, int, frozenset[str]], list[Candidate]] = generate_candidates,
+    provider: CandidateProvider | None = None,
+    session_factory: type[LeanSession] = LeanSession,
 ) -> Trace:
     budget = budget or Budget()
     trace = Trace(task=task, algorithm=algorithm, budget=budget, metadata=metadata())
     start = time.monotonic()
+    cpu_start = time.thread_time()
+    lean_ref: LeanSession | None = None
     deadline = start + budget.timeout_s
     policy: RankingPolicy = ranking or (
         HeuristicRanking() if algorithm in ("best_first", "learned") else UniformRanking()
@@ -193,7 +209,8 @@ def search(
             return state_priority
 
         init_start = time.monotonic()
-        with LeanSession(task, timeout=min(20, remaining()), cancel=cancel) as lean:
+        with session_factory(task, timeout=min(20, remaining()), cancel=cancel) as lean:
+            lean_ref = lean
             trace.metrics.initialization_s = time.monotonic() - init_start
             trace.nodes.append(
                 Node(
@@ -234,11 +251,35 @@ def search(
                     continue
                 trace.metrics.expanded_states += 1
                 plan_start = time.monotonic()
-                candidates = generator(
-                    node.state,
-                    budget.max_candidates,
-                    frozenset(task.forbidden_lemmas),
-                )
+                retrieval_wall = 0.0
+                if provider is not None and algorithm not in ("automation", "grind"):
+                    candidates, observation = provider.generate(
+                        lean,
+                        node.state,
+                        budget.max_candidates,
+                        frozenset(task.forbidden_lemmas),
+                        min(budget.tactic_timeout_s, remaining()),
+                    )
+                    observation["node_id"] = current
+                    trace.retrievals.append(observation)
+                    retrieval_wall = observation.get("query_wall_s", 0.0)
+                    trace.metrics.retrieval_s += retrieval_wall
+                    trace.metrics.lean_execution_s += retrieval_wall
+                    trace.metrics.retrieval_queries += int(bool(observation.get("native")))
+                    native = observation.get("native", {})
+                    for field in ("declaration_probes", "rewrite_probes", "term_constructions"):
+                        setattr(
+                            trace.metrics,
+                            field,
+                            getattr(trace.metrics, field) + native.get(field, 0),
+                        )
+                    trace.metrics.retrieval_heartbeats += native.get("heartbeats", 0)
+                else:
+                    candidates = generator(
+                        node.state,
+                        budget.max_candidates,
+                        frozenset(task.forbidden_lemmas),
+                    )
                 if algorithm in ("automation", "grind"):
                     candidates = [
                         Candidate(
@@ -290,7 +331,7 @@ def search(
                         )
                     )
                     trace.metrics.model_inference_s += time.monotonic() - inference_tick
-                trace.metrics.planning_s += time.monotonic() - plan_start
+                trace.metrics.planning_s += max(0, time.monotonic() - plan_start - retrieval_wall)
                 for candidate in candidates:
                     if cancel is not None and cancel.is_set():
                         raise Cancelled("Search cancelled")
@@ -332,6 +373,7 @@ def search(
                         raise
                     elapsed = time.monotonic() - tick
                     trace.metrics.lean_execution_s += elapsed
+                    trace.metrics.tactic_heartbeats += message.get("native_heartbeats", 0)
                     accepted = message.get("status") == "accepted"
                     if message.get("status") == "execution_error":
                         raise LeanError(str(message))
@@ -360,6 +402,12 @@ def search(
                         status="solved" if solved else "accepted" if accepted else "rejected",
                         error=message.get("error"),
                         elapsed_ms=elapsed * 1000,
+                        native_heartbeats=message.get("native_heartbeats"),
+                        native_elapsed_s=(
+                            message["native_elapsed_ns"] / 1e9
+                            if "native_elapsed_ns" in message
+                            else None
+                        ),
                     )
                     trace.nodes.append(successor)
                     trace.metrics.max_depth = max(trace.metrics.max_depth, successor.depth)
@@ -418,6 +466,11 @@ def search(
         trace.termination = "execution_error"
         trace.error = str(error)
     finally:
+        trace.metrics.coordinator_cpu_s = time.thread_time() - cpu_start
+        if lean_ref is not None:
+            usage = getattr(lean_ref, "resource_usage", {})
+            trace.metrics.session_cpu_s = usage.get("cpu_s")
+            trace.metrics.session_peak_rss_kib = usage.get("peak_rss_kib")
         trace.metrics.elapsed_s = time.monotonic() - start
         trace.metrics.frontier = len(priority) if use_heap else len(fifo)
     return trace

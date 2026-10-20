@@ -1,0 +1,282 @@
+{
+  "schema_version": 1,
+  "task": {
+    "id": "p5_pilot_pair",
+    "title": "Pilot pair",
+    "domain": "logic",
+    "difficulty": "challenge",
+    "split": "development",
+    "binders": "(α β : Type) (a : α) (b : β)",
+    "target": "∃ z : α × β, z.1 = a",
+    "display": "∃ z : α × β, z.1 = a",
+    "description": "Phase 5 · development pilot",
+    "origin": "Original Phase 5 statement; shared elementary primitives, no mathematical novelty claimed.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  "algorithm": "best_first",
+  "budget": {
+    "max_depth": 12,
+    "max_expansions": 80,
+    "max_candidates": 24,
+    "max_attempts": 600,
+    "timeout_s": 18.0,
+    "tactic_timeout_s": 2.0
+  },
+  "status": "not_found_within_budget",
+  "termination": "search_exhausted",
+  "nodes": [
+    {
+      "id": 0,
+      "parent": null,
+      "depth": 0,
+      "state": {
+        "state_id": 0,
+        "goals": [
+          {
+            "id": "_uniq.29",
+            "target": {
+              "text": "∃ z, z.1 = a",
+              "head": "Exists",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.25",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "β",
+                "id": "_uniq.26",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "a",
+                "id": "_uniq.27",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "b",
+                "id": "_uniq.28",
+                "type": {
+                  "text": "β",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              }
+            ]
+          }
+        ]
+      },
+      "tactic": null,
+      "category": null,
+      "lemma": null,
+      "provenance": null,
+      "reason": "Initial Lean goal",
+      "status": "root",
+      "error": null,
+      "elapsed_ms": 0.0,
+      "on_proof_path": false,
+      "native_heartbeats": null,
+      "native_elapsed_s": null
+    },
+    {
+      "id": 1,
+      "parent": 0,
+      "depth": 1,
+      "state": null,
+      "tactic": "assumption",
+      "category": "goal",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Match the goal against the local context",
+      "status": "rejected",
+      "error": "Tactic `assumption` failed\n\nα β : Type\na : α\nb : β\n⊢ ∃ z, z.1 = a",
+      "elapsed_ms": 1.8134819983970374,
+      "on_proof_path": false,
+      "native_heartbeats": 7376,
+      "native_elapsed_s": 0.001179327
+    },
+    {
+      "id": 2,
+      "parent": 0,
+      "depth": 1,
+      "state": null,
+      "tactic": "rfl",
+      "category": "goal",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Check definitional equality",
+      "status": "rejected",
+      "error": "Tactic `rfl` failed: The left-hand side\n  α × β\nis not definitionally equal to the right-hand side\n  fun z => z.1 = a\n\nα β : Type\na : α\nb : β\n⊢ ∃ z, z.1 = a",
+      "elapsed_ms": 1.5169660036917776,
+      "on_proof_path": false,
+      "native_heartbeats": 15777,
+      "native_elapsed_s": 0.001372367
+    },
+    {
+      "id": 3,
+      "parent": 0,
+      "depth": 1,
+      "state": null,
+      "tactic": "apply Eq.symm",
+      "category": "lemma",
+      "lemma": "Eq.symm",
+      "provenance": "Init.Prelude",
+      "reason": "Goal features: ('=',); context features: ()",
+      "status": "rejected",
+      "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.symm`\n  ?b = ?a\nwith the goal\n  ∃ z, z.1 = a\n\nNote: The full type of `@Eq.symm` is\n  ∀ {α : Sort ?u.34} {a b : α}, a = b → b = a\n\nα β : Type\na : α\nb : β\n⊢ ∃ z, z.1 = a",
+      "elapsed_ms": 1.922426003147848,
+      "on_proof_path": false,
+      "native_heartbeats": 21093,
+      "native_elapsed_s": 0.001780402
+    },
+    {
+      "id": 4,
+      "parent": 0,
+      "depth": 1,
+      "state": null,
+      "tactic": "apply Eq.trans",
+      "category": "lemma",
+      "lemma": "Eq.trans",
+      "provenance": "Init.Prelude",
+      "reason": "Goal features: ('=',); context features: ()",
+      "status": "rejected",
+      "error": "Tactic `apply` failed: could not unify the conclusion of `@Eq.trans`\n  ?a = ?c\nwith the goal\n  ∃ z, z.1 = a\n\nNote: The full type of `@Eq.trans` is\n  ∀ {α : Sort ?u.47} {a b c : α}, a = b → b = c → a = c\n\nα β : Type\na : α\nb : β\n⊢ ∃ z, z.1 = a",
+      "elapsed_ms": 1.9759760034503415,
+      "on_proof_path": false,
+      "native_heartbeats": 23152,
+      "native_elapsed_s": 0.001709906
+    },
+    {
+      "id": 5,
+      "parent": 0,
+      "depth": 1,
+      "state": null,
+      "tactic": "exists a",
+      "category": "goal",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Try a witness from the local context",
+      "status": "rejected",
+      "error": "Application type mismatch: The argument\n  a\nhas type\n  α\nbut is expected to have type\n  α × β\nin the application\n  Exists.intro a",
+      "elapsed_ms": 6.65131100686267,
+      "on_proof_path": false,
+      "native_heartbeats": 85238,
+      "native_elapsed_s": 0.006503367
+    },
+    {
+      "id": 6,
+      "parent": 0,
+      "depth": 1,
+      "state": null,
+      "tactic": "exists b",
+      "category": "goal",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Try a witness from the local context",
+      "status": "rejected",
+      "error": "Application type mismatch: The argument\n  b\nhas type\n  β\nbut is expected to have type\n  α × β\nin the application\n  Exists.intro b",
+      "elapsed_ms": 4.423448990564793,
+      "on_proof_path": false,
+      "native_heartbeats": 82614,
+      "native_elapsed_s": 0.004242711
+    }
+  ],
+  "metrics": {
+    "attempted_candidates": 6,
+    "accepted_transitions": 0,
+    "rejected_candidates": 6,
+    "expanded_states": 1,
+    "frontier": 0,
+    "max_depth": 1,
+    "proof_length": 0,
+    "elapsed_s": 2.2398673619900364,
+    "lean_execution_s": 0.018303610006114468,
+    "initialization_s": 2.204641869000625,
+    "verification_s": 0.0,
+    "planning_s": 0.0007972809835337102,
+    "model_inference_s": 0.0,
+    "retrieval_s": 0.0,
+    "retrieval_queries": 0,
+    "declaration_probes": 0,
+    "rewrite_probes": 0,
+    "term_constructions": 0,
+    "retrieval_heartbeats": 0,
+    "tactic_heartbeats": 235250,
+    "coordinator_cpu_s": 0.0070149320000000015,
+    "session_cpu_s": null,
+    "session_peak_rss_kib": null
+  },
+  "proof": [],
+  "lean_source": null,
+  "verification": {
+    "verified": false,
+    "axioms": [],
+    "error": null,
+    "elapsed_s": 0.0,
+    "source_sha256": null
+  },
+  "metadata": {
+    "code_commit": "2df4d3d03b1968a490dff8725cca39f70f55faca",
+    "lean_version": "leanprover/lean4:v4.24.0",
+    "mathlib_revision": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7",
+    "python": "3.12.14",
+    "platform": "Linux-6.18.55-x86_64-with-glibc2.41",
+    "machine": "x86_64",
+    "processor": "",
+    "seed": "0 (deterministic)",
+    "state_identity": "Exact tactic prefix within one native session; no semantic merging",
+    "generator": "prooflab.candidates.generate_candidates",
+    "generator_mode": "original"
+  },
+  "error": null,
+  "proof_origin": null,
+  "rankings": [],
+  "state_values": [],
+  "frontier_decisions": [],
+  "beam_evictions": [],
+  "retrievals": [
+    {
+      "mode": "original",
+      "selected": [
+        "assumption",
+        "rfl",
+        "apply Eq.symm",
+        "apply Eq.trans",
+        "exists a",
+        "exists b"
+      ],
+      "original": [
+        "assumption",
+        "rfl",
+        "apply Eq.symm",
+        "apply Eq.trans",
+        "exists a",
+        "exists b"
+      ],
+      "displaced": [],
+      "query_wall_s": 0,
+      "pool": [],
+      "node_id": 0
+    }
+  ]
+}
