@@ -1,0 +1,149 @@
+{
+  "schema_version": 1,
+  "task": {
+    "id": "set_inter_comm",
+    "title": "Intersection commutativity",
+    "domain": "sets",
+    "difficulty": "moderate",
+    "split": "development",
+    "binders": "(α : Type) (A B : Set α)",
+    "target": "A ∩ B = B ∩ A",
+    "display": "A ∩ B = B ∩ A",
+    "description": "Intersection commutativity. Search uses the same candidate generator as all other tasks.",
+    "origin": "Original benchmark statement; mathematical result is not claimed novel.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  "algorithm": "automation",
+  "budget": {
+    "max_depth": 7,
+    "max_expansions": 60,
+    "max_candidates": 24,
+    "max_attempts": 400,
+    "timeout_s": 12.0,
+    "tactic_timeout_s": 3.0
+  },
+  "status": "verified",
+  "termination": "verified",
+  "nodes": [
+    {
+      "id": 0,
+      "parent": null,
+      "depth": 0,
+      "state": {
+        "state_id": 0,
+        "goals": [
+          {
+            "id": "_uniq.31",
+            "target": {
+              "text": "A ∩ B = B ∩ A",
+              "head": "Eq",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.28",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "A",
+                "id": "_uniq.29",
+                "type": {
+                  "text": "Set α",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "B",
+                "id": "_uniq.30",
+                "type": {
+                  "text": "Set α",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              }
+            ]
+          }
+        ]
+      },
+      "tactic": null,
+      "category": null,
+      "lemma": null,
+      "provenance": null,
+      "reason": "Initial Lean goal",
+      "status": "root",
+      "error": null,
+      "elapsed_ms": 0.0,
+      "on_proof_path": true
+    },
+    {
+      "id": 1,
+      "parent": 0,
+      "depth": 1,
+      "state": {
+        "state_id": 1,
+        "goals": []
+      },
+      "tactic": "aesop",
+      "category": "reference",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Native Aesop baseline; not a ProofLab algorithm",
+      "status": "solved",
+      "error": null,
+      "elapsed_ms": 48.91608200000519,
+      "on_proof_path": true
+    }
+  ],
+  "metrics": {
+    "attempted_candidates": 1,
+    "accepted_transitions": 1,
+    "rejected_candidates": 0,
+    "expanded_states": 1,
+    "frontier": 0,
+    "max_depth": 1,
+    "proof_length": 1,
+    "elapsed_s": 3.553300600000057,
+    "lean_execution_s": 0.04891608200000519,
+    "initialization_s": 1.6556556319999345,
+    "verification_s": 1.8265782819999004,
+    "planning_s": 0.00040161500010071904
+  },
+  "proof": [
+    "aesop"
+  ],
+  "lean_source": "import ProofLab.Bridge\n\nset_option maxHeartbeats 300000\ntheorem prooflab_result (α : Type) (A B : Set α) : A ∩ B = B ∩ A := by\n  aesop\n\n#prooflab_audit prooflab_result\n",
+  "verification": {
+    "verified": true,
+    "axioms": [
+      "Quot.sound",
+      "propext"
+    ],
+    "error": null,
+    "elapsed_s": 1.8265782819999004,
+    "source_sha256": "60f03125941c0c70c1573f761b75558f780918690e4d9d1ccc2f0513b9124d72"
+  },
+  "metadata": {
+    "code_commit": "f91bb03a141dfca5a34b3e12880a80837724aa00",
+    "lean_version": "leanprover/lean4:v4.24.0",
+    "mathlib_revision": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7",
+    "python": "3.12.14",
+    "platform": "Linux-6.18.55-x86_64-with-glibc2.41",
+    "machine": "x86_64",
+    "processor": "",
+    "seed": "0 (deterministic)",
+    "state_identity": "Exact tactic prefix within one native session; no semantic merging"
+  },
+  "error": null,
+  "proof_origin": "native_automation"
+}

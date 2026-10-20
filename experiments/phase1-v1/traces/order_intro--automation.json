@@ -1,0 +1,156 @@
+{
+  "schema_version": 1,
+  "task": {
+    "id": "order_intro",
+    "title": "Reflexive implication",
+    "domain": "order",
+    "difficulty": "moderate",
+    "split": "development",
+    "binders": "(α : Type) [PartialOrder α] (a b : α)",
+    "target": "a ≤ b → a ≤ b",
+    "display": "(a ≤ b) → (a ≤ b)",
+    "description": "Reflexive implication. Search uses the same candidate generator as all other tasks.",
+    "origin": "Original benchmark statement; mathematical result is not claimed novel.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  "algorithm": "automation",
+  "budget": {
+    "max_depth": 7,
+    "max_expansions": 60,
+    "max_candidates": 24,
+    "max_attempts": 400,
+    "timeout_s": 12.0,
+    "tactic_timeout_s": 3.0
+  },
+  "status": "verified",
+  "termination": "verified",
+  "nodes": [
+    {
+      "id": 0,
+      "parent": null,
+      "depth": 0,
+      "state": {
+        "state_id": 0,
+        "goals": [
+          {
+            "id": "_uniq.40",
+            "target": {
+              "text": "a ≤ b → a ≤ b",
+              "head": "[anonymous]",
+              "forall": true
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.36",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "inst._@._stdin.2021293395._hygCtx._hyg.3",
+                "id": "_uniq.37",
+                "type": {
+                  "text": "PartialOrder α",
+                  "head": "PartialOrder",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "a",
+                "id": "_uniq.38",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "b",
+                "id": "_uniq.39",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              }
+            ]
+          }
+        ]
+      },
+      "tactic": null,
+      "category": null,
+      "lemma": null,
+      "provenance": null,
+      "reason": "Initial Lean goal",
+      "status": "root",
+      "error": null,
+      "elapsed_ms": 0.0,
+      "on_proof_path": true
+    },
+    {
+      "id": 1,
+      "parent": 0,
+      "depth": 1,
+      "state": {
+        "state_id": 1,
+        "goals": []
+      },
+      "tactic": "aesop",
+      "category": "reference",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Native Aesop baseline; not a ProofLab algorithm",
+      "status": "solved",
+      "error": null,
+      "elapsed_ms": 23.673371000086263,
+      "on_proof_path": true
+    }
+  ],
+  "metrics": {
+    "attempted_candidates": 1,
+    "accepted_transitions": 1,
+    "rejected_candidates": 0,
+    "expanded_states": 1,
+    "frontier": 0,
+    "max_depth": 1,
+    "proof_length": 1,
+    "elapsed_s": 3.3437441849998777,
+    "lean_execution_s": 0.023673371000086263,
+    "initialization_s": 1.672221774999798,
+    "verification_s": 1.6292487020000408,
+    "planning_s": 0.00044023300006301724
+  },
+  "proof": [
+    "aesop"
+  ],
+  "lean_source": "import ProofLab.Bridge\n\nset_option maxHeartbeats 300000\ntheorem prooflab_result (α : Type) [PartialOrder α] (a b : α) : a ≤ b → a ≤ b := by\n  aesop\n\n#prooflab_audit prooflab_result\n",
+  "verification": {
+    "verified": true,
+    "axioms": [],
+    "error": null,
+    "elapsed_s": 1.6292487020000408,
+    "source_sha256": "2743e7c54cbb5e22489a108f2812bf9c2787421ea8a577374a5f7fc00493eed3"
+  },
+  "metadata": {
+    "code_commit": "f91bb03a141dfca5a34b3e12880a80837724aa00",
+    "lean_version": "leanprover/lean4:v4.24.0",
+    "mathlib_revision": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7",
+    "python": "3.12.14",
+    "platform": "Linux-6.18.55-x86_64-with-glibc2.41",
+    "machine": "x86_64",
+    "processor": "",
+    "seed": "0 (deterministic)",
+    "state_identity": "Exact tactic prefix within one native session; no semantic merging"
+  },
+  "error": null,
+  "proof_origin": "native_automation"
+}

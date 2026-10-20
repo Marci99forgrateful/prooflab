@@ -79,6 +79,27 @@ def test_target_filter_applies_to_the_retrieval_corpus() -> None:
     assert "le_refl" in names
 
 
+def test_natural_number_detection_uses_lean_constant_not_pretty_notation() -> None:
+    state = ProofState(
+        state_id=0,
+        goals=[
+            Goal(
+                id="nat_goal",
+                target=Expression(text="n ≤ n + 1", head="Nat.le", forall=False),
+                hypotheses=[
+                    Hypothesis(
+                        name="n",
+                        id="n0",
+                        is_proof=False,
+                        type=Expression(text="ℕ", head="Nat", forall=False),
+                    )
+                ],
+            )
+        ],
+    )
+    assert "omega" in {c.tactic for c in candidates.generate_candidates(state)}
+
+
 @pytest.mark.parametrize(
     "values", [{"max_depth": 0}, {"max_attempts": 10001}, {"timeout_s": 0}, {"max_candidates": 65}]
 )

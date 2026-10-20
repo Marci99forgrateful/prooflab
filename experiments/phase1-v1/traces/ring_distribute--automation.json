@@ -1,0 +1,161 @@
+{
+  "schema_version": 1,
+  "task": {
+    "id": "ring_distribute",
+    "title": "Distributivity",
+    "domain": "algebra",
+    "difficulty": "moderate",
+    "split": "development",
+    "binders": "(R : Type) [Ring R] (a b c : R)",
+    "target": "a * (b + c) = a*b + a*c",
+    "display": "a(b + c) = ab + ac",
+    "description": "Distributivity. Search uses the same candidate generator as all other tasks.",
+    "origin": "Original benchmark statement; mathematical result is not claimed novel.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  "algorithm": "automation",
+  "budget": {
+    "max_depth": 7,
+    "max_expansions": 60,
+    "max_candidates": 24,
+    "max_attempts": 400,
+    "timeout_s": 12.0,
+    "tactic_timeout_s": 3.0
+  },
+  "status": "not_found_within_budget",
+  "termination": "search_exhausted",
+  "nodes": [
+    {
+      "id": 0,
+      "parent": null,
+      "depth": 0,
+      "state": {
+        "state_id": 0,
+        "goals": [
+          {
+            "id": "_uniq.437",
+            "target": {
+              "text": "a * (b + c) = a * b + a * c",
+              "head": "Eq",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "R",
+                "id": "_uniq.432",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "inst._@._stdin.2021293395._hygCtx._hyg.3",
+                "id": "_uniq.433",
+                "type": {
+                  "text": "Ring R",
+                  "head": "Ring",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "a",
+                "id": "_uniq.434",
+                "type": {
+                  "text": "R",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "b",
+                "id": "_uniq.435",
+                "type": {
+                  "text": "R",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "c",
+                "id": "_uniq.436",
+                "type": {
+                  "text": "R",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              }
+            ]
+          }
+        ]
+      },
+      "tactic": null,
+      "category": null,
+      "lemma": null,
+      "provenance": null,
+      "reason": "Initial Lean goal",
+      "status": "root",
+      "error": null,
+      "elapsed_ms": 0.0,
+      "on_proof_path": false
+    },
+    {
+      "id": 1,
+      "parent": 0,
+      "depth": 1,
+      "state": null,
+      "tactic": "aesop",
+      "category": "reference",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Native Aesop baseline; not a ProofLab algorithm",
+      "status": "rejected",
+      "error": "tactic 'aesop' failed, made no progress\nInitial goal:\n  R : Type\n  inst✝ : Ring R\n  a b c : R\n  ⊢ a * (b + c) = a * b + a * c",
+      "elapsed_ms": 34.50438499999109,
+      "on_proof_path": false
+    }
+  ],
+  "metrics": {
+    "attempted_candidates": 1,
+    "accepted_transitions": 0,
+    "rejected_candidates": 1,
+    "expanded_states": 1,
+    "frontier": 0,
+    "max_depth": 1,
+    "proof_length": 0,
+    "elapsed_s": 1.6013295379998453,
+    "lean_execution_s": 0.03450438499999109,
+    "initialization_s": 1.5504625660000784,
+    "verification_s": 0.0,
+    "planning_s": 0.0002849089999017451
+  },
+  "proof": [],
+  "lean_source": null,
+  "verification": {
+    "verified": false,
+    "axioms": [],
+    "error": null,
+    "elapsed_s": 0.0,
+    "source_sha256": null
+  },
+  "metadata": {
+    "code_commit": "f91bb03a141dfca5a34b3e12880a80837724aa00",
+    "lean_version": "leanprover/lean4:v4.24.0",
+    "mathlib_revision": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7",
+    "python": "3.12.14",
+    "platform": "Linux-6.18.55-x86_64-with-glibc2.41",
+    "machine": "x86_64",
+    "processor": "",
+    "seed": "0 (deterministic)",
+    "state_identity": "Exact tactic prefix within one native session; no semantic merging"
+  },
+  "error": null,
+  "proof_origin": null
+}

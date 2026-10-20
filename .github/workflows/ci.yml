@@ -1,0 +1,43 @@
+name: Verify ProofLab
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          version: "0.12.23"
+          python-version: "3.12"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+      - name: Restore pinned Lean and Mathlib
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cache/prooflab-tools/elan
+            ~/.cache/mathlib
+            .lake
+          key: lean-${{ runner.os }}-${{ hashFiles('lean-toolchain', 'lake-manifest.json', 'ProofLab/**/*.lean') }}
+      - run: bash scripts/bootstrap.sh
+      - run: uv run --frozen ruff check src scripts tests
+      - run: uv run --frozen ruff format --check src scripts tests
+      - run: uv run --frozen mypy src/prooflab
+      - run: npm --prefix web test
+      - run: uv run --frozen playwright install --with-deps chromium
+      - run: uv run --frozen pytest -q --junitxml=artifacts/local/pytest.xml
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: test-evidence
+          path: artifacts/local/

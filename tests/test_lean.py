@@ -123,3 +123,10 @@ def test_cancellation_closes_native_process() -> None:
         with pytest.raises(Cancelled):
             lean.step(0, "apply hqr", 3)
     assert lean.process is not None and lean.process.poll() is not None
+
+
+def test_natural_arithmetic_specialization_is_rechecked() -> None:
+    result = search(get_task("nat_successor"), "best_first", Budget(timeout_s=15))
+    assert result.status == "verified", result.error
+    assert "omega" in result.proof
+    assert result.proof_origin == "specialized_tactic"

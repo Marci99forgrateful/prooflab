@@ -39,8 +39,14 @@ class Cancelled(LeanError):
 def lean_environment() -> dict[str, str]:
     result = dict(os.environ)
     # Prefer an explicitly configured toolchain, then this cloud's retained local toolchain.
-    local = Path("/workspace/.toolchains/elan")
-    if "ELAN_HOME" not in result and local.is_dir():
+    cloud = Path("/workspace/.toolchains/elan")
+    portable = Path(result.get("XDG_CACHE_HOME", str(Path.home() / ".cache")))
+    local = (
+        Path(result["ELAN_HOME"])
+        if "ELAN_HOME" in result
+        else (cloud if cloud.is_dir() else portable / "prooflab-tools/elan")
+    )
+    if local.is_dir():
         result["ELAN_HOME"] = str(local)
         result["PATH"] = str(local / "bin") + os.pathsep + result.get("PATH", "")
     return result

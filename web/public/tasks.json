@@ -1,0 +1,962 @@
+[
+  {
+    "id": "imp_chain",
+    "title": "Implication chain",
+    "domain": "logic",
+    "difficulty": "easy",
+    "split": "development",
+    "binders": "(P Q R : Prop) (hpq : P → Q) (hqr : Q → R) (hp : P)",
+    "target": "R",
+    "display": "P → Q, Q → R, P ⊢ R",
+    "description": "Implication chain. Search uses the same candidate generator as all other tasks.",
+    "origin": "Original benchmark statement; mathematical result is not claimed novel.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "and_swap",
+    "title": "Conjunction symmetry",
+    "domain": "logic",
+    "difficulty": "easy",
+    "split": "development",
+    "binders": "(P Q : Prop) (h : P ∧ Q)",
+    "target": "Q ∧ P",
+    "display": "P ∧ Q ⊢ Q ∧ P",
+    "description": "Conjunction symmetry. Search uses the same candidate generator as all other tasks.",
+    "origin": "Original benchmark statement; mathematical result is not claimed novel.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "imp_intro",
+    "title": "Identity implication",
+    "domain": "logic",
+    "difficulty": "easy",
+    "split": "development",
+    "binders": "(P : Prop)",
+    "target": "P → P",
+    "display": "P → P",
+    "description": "Identity implication. Search uses the same candidate generator as all other tasks.",
+    "origin": "Original benchmark statement; mathematical result is not claimed novel.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "and_build",
+    "title": "Conjunction introduction",
+    "domain": "logic",
+    "difficulty": "easy",
+    "split": "development",
+    "binders": "(P Q : Prop) (hp : P) (hq : Q)",
+    "target": "P ∧ Q",
+    "display": "P, Q ⊢ P ∧ Q",
+    "description": "Conjunction introduction. Search uses the same candidate generator as all other tasks.",
+    "origin": "Original benchmark statement; mathematical result is not claimed novel.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "or_right",
+    "title": "Right disjunction",
+    "domain": "logic",
+    "difficulty": "easy",
+    "split": "development",
+    "binders": "(P Q : Prop) (hq : Q)",
+    "target": "P ∨ Q",
+    "display": "Q ⊢ P ∨ Q",
+    "description": "Right disjunction. Search uses the same candidate generator as all other tasks.",
+    "origin": "Original benchmark statement; mathematical result is not claimed novel.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "or_left",
+    "title": "Left disjunction",
+    "domain": "logic",
+    "difficulty": "easy",
+    "split": "development",
+    "binders": "(P Q : Prop) (hp : P)",
+    "target": "P ∨ Q",
+    "display": "P ⊢ P ∨ Q",
+    "description": "Left disjunction. Search uses the same candidate generator as all other tasks.",
+    "origin": "Original benchmark statement; mathematical result is not claimed novel.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "and_project",
+    "title": "Nested conjunction",
+    "domain": "logic",
+    "difficulty": "moderate",
+    "split": "development",
+    "binders": "(P Q R : Prop) (h : P ∧ Q ∧ R)",
+    "target": "R",
+    "display": "P ∧ (Q ∧ R) ⊢ R",
+    "description": "Nested conjunction. Search uses the same candidate generator as all other tasks.",
+    "origin": "Original benchmark statement; mathematical result is not claimed novel.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "compose",
+    "title": "Compose two implications",
+    "domain": "logic",
+    "difficulty": "moderate",
+    "split": "development",
+    "binders": "(P Q R : Prop) (hpq : P → Q) (hqr : Q → R)",
+    "target": "P → R",
+    "display": "(P → Q) → (Q → R) → P → R",
+    "description": "Compose two implications. Search uses the same candidate generator as all other tasks.",
+    "origin": "Original benchmark statement; mathematical result is not claimed novel.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "curry",
+    "title": "Curry a premise",
+    "domain": "logic",
+    "difficulty": "moderate",
+    "split": "development",
+    "binders": "(P Q R : Prop) (h : P ∧ Q → R)",
+    "target": "P → Q → R",
+    "display": "(P ∧ Q → R) ⊢ P → Q → R",
+    "description": "Curry a premise. Search uses the same candidate generator as all other tasks.",
+    "origin": "Original benchmark statement; mathematical result is not claimed novel.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "uncurry",
+    "title": "Uncurry a premise",
+    "domain": "logic",
+    "difficulty": "moderate",
+    "split": "development",
+    "binders": "(P Q R : Prop) (h : P → Q → R)",
+    "target": "P ∧ Q → R",
+    "display": "(P → Q → R) ⊢ P ∧ Q → R",
+    "description": "Uncurry a premise. Search uses the same candidate generator as all other tasks.",
+    "origin": "Original benchmark statement; mathematical result is not claimed novel.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "contrapositive",
+    "title": "Contraposition",
+    "domain": "logic",
+    "difficulty": "moderate",
+    "split": "development",
+    "binders": "(P Q : Prop) (hpq : P → Q) (hnq : ¬ Q)",
+    "target": "¬ P",
+    "display": "P → Q, ¬Q ⊢ ¬P",
+    "description": "Contraposition. Search uses the same candidate generator as all other tasks.",
+    "origin": "Original benchmark statement; mathematical result is not claimed novel.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "iff_intro",
+    "title": "Logical equivalence",
+    "domain": "logic",
+    "difficulty": "moderate",
+    "split": "development",
+    "binders": "(P Q : Prop) (hpq : P → Q) (hqp : Q → P)",
+    "target": "P ↔ Q",
+    "display": "P → Q, Q → P ⊢ P ↔ Q",
+    "description": "Logical equivalence. Search uses the same candidate generator as all other tasks.",
+    "origin": "Original benchmark statement; mathematical result is not claimed novel.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "or_elim",
+    "title": "Disjunction elimination",
+    "domain": "logic",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(P Q R : Prop) (h : P ∨ Q) (hp : P → R) (hq : Q → R)",
+    "target": "R",
+    "display": "P ∨ Q, P → R, Q → R ⊢ R",
+    "description": "Disjunction elimination. Search uses the same candidate generator as all other tasks.",
+    "origin": "Original benchmark statement; mathematical result is not claimed novel.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "forall_use",
+    "title": "Universal specialization",
+    "domain": "logic",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(α : Type) (P : α → Prop) (h : ∀ x, P x) (a : α)",
+    "target": "P a",
+    "display": "(∀ x, P(x)) ⊢ P(a)",
+    "description": "Universal specialization. Search uses the same candidate generator as all other tasks.",
+    "origin": "Original benchmark statement; mathematical result is not claimed novel.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "forall_intro",
+    "title": "Universal construction",
+    "domain": "logic",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(α : Type) (P Q : α → Prop) (h : ∀ x, P x → Q x) (hp : ∀ x, P x)",
+    "target": "∀ x, Q x",
+    "display": "(∀ x, P(x) → Q(x)), (∀ x, P(x)) ⊢ ∀ x, Q(x)",
+    "description": "Universal construction. Search uses the same candidate generator as all other tasks.",
+    "origin": "Original benchmark statement; mathematical result is not claimed novel.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "distribute",
+    "title": "Distribute conjunction",
+    "domain": "logic",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(P Q R : Prop) (h : P ∧ (Q ∨ R))",
+    "target": "(P ∧ Q) ∨ (P ∧ R)",
+    "display": "P ∧ (Q ∨ R) ⊢ (P ∧ Q) ∨ (P ∧ R)",
+    "description": "Distribute conjunction. Search uses the same candidate generator as all other tasks.",
+    "origin": "Original benchmark statement; mathematical result is not claimed novel.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "order_refl",
+    "title": "Order reflexivity",
+    "domain": "order",
+    "difficulty": "easy",
+    "split": "development",
+    "binders": "(α : Type) [PartialOrder α] (a : α)",
+    "target": "a ≤ a",
+    "display": "a ≤ a",
+    "description": "Order reflexivity. Search uses the same candidate generator as all other tasks.",
+    "origin": "Original benchmark statement; mathematical result is not claimed novel.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "order_chain",
+    "title": "Two-step inequality",
+    "domain": "order",
+    "difficulty": "easy",
+    "split": "development",
+    "binders": "(α : Type) [PartialOrder α] (a b c : α) (hab : a ≤ b) (hbc : b ≤ c)",
+    "target": "a ≤ c",
+    "display": "a ≤ b ≤ c ⊢ a ≤ c",
+    "description": "Two-step inequality. Search uses the same candidate generator as all other tasks.",
+    "origin": "Original benchmark statement; mathematical result is not claimed novel.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "order_antisymm",
+    "title": "Antisymmetry",
+    "domain": "order",
+    "difficulty": "easy",
+    "split": "development",
+    "binders": "(α : Type) [PartialOrder α] (a b : α) (hab : a ≤ b) (hba : b ≤ a)",
+    "target": "a = b",
+    "display": "a ≤ b, b ≤ a ⊢ a = b",
+    "description": "Antisymmetry. Search uses the same candidate generator as all other tasks.",
+    "origin": "Original benchmark statement; mathematical result is not claimed novel.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "lt_chain",
+    "title": "Strict transitivity",
+    "domain": "order",
+    "difficulty": "easy",
+    "split": "development",
+    "binders": "(α : Type) [PartialOrder α] (a b c : α) (hab : a < b) (hbc : b < c)",
+    "target": "a < c",
+    "display": "a < b < c ⊢ a < c",
+    "description": "Strict transitivity. Search uses the same candidate generator as all other tasks.",
+    "origin": "Original benchmark statement; mathematical result is not claimed novel.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "mixed_left",
+    "title": "Strict then weak",
+    "domain": "order",
+    "difficulty": "easy",
+    "split": "development",
+    "binders": "(α : Type) [PartialOrder α] (a b c : α) (hab : a < b) (hbc : b ≤ c)",
+    "target": "a < c",
+    "display": "a < b ≤ c ⊢ a < c",
+    "description": "Strict then weak. Search uses the same candidate generator as all other tasks.",
+    "origin": "Original benchmark statement; mathematical result is not claimed novel.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "mixed_right",
+    "title": "Weak then strict",
+    "domain": "order",
+    "difficulty": "easy",
+    "split": "development",
+    "binders": "(α : Type) [PartialOrder α] (a b c : α) (hab : a ≤ b) (hbc : b < c)",
+    "target": "a < c",
+    "display": "a ≤ b < c ⊢ a < c",
+    "description": "Weak then strict. Search uses the same candidate generator as all other tasks.",
+    "origin": "Original benchmark statement; mathematical result is not claimed novel.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "order_pair",
+    "title": "Construct an order pair",
+    "domain": "order",
+    "difficulty": "moderate",
+    "split": "development",
+    "binders": "(α : Type) [PartialOrder α] (a b : α) (h : a ≤ b)",
+    "target": "a ≤ b ∧ b ≤ b",
+    "display": "a ≤ b ⊢ (a ≤ b) ∧ (b ≤ b)",
+    "description": "Construct an order pair. Search uses the same candidate generator as all other tasks.",
+    "origin": "Original benchmark statement; mathematical result is not claimed novel.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "order_intro",
+    "title": "Reflexive implication",
+    "domain": "order",
+    "difficulty": "moderate",
+    "split": "development",
+    "binders": "(α : Type) [PartialOrder α] (a b : α)",
+    "target": "a ≤ b → a ≤ b",
+    "display": "(a ≤ b) → (a ≤ b)",
+    "description": "Reflexive implication. Search uses the same candidate generator as all other tasks.",
+    "origin": "Original benchmark statement; mathematical result is not claimed novel.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "chain_three",
+    "title": "Three-step inequality",
+    "domain": "order",
+    "difficulty": "moderate",
+    "split": "development",
+    "binders": "(α : Type) [PartialOrder α] (a b c d : α) (hab : a ≤ b) (hbc : b ≤ c) (hcd : c ≤ d)",
+    "target": "a ≤ d",
+    "display": "a ≤ b ≤ c ≤ d ⊢ a ≤ d",
+    "description": "Three-step inequality. Search uses the same candidate generator as all other tasks.",
+    "origin": "Original benchmark statement; mathematical result is not claimed novel.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "symmetric_chain",
+    "title": "Inequalities give equality",
+    "domain": "order",
+    "difficulty": "moderate",
+    "split": "development",
+    "binders": "(α : Type) [PartialOrder α] (a b c : α) (hab : a ≤ b) (hbc : b ≤ c) (hca : c ≤ a)",
+    "target": "a = c",
+    "display": "a ≤ b ≤ c ≤ a ⊢ a = c",
+    "description": "Inequalities give equality. Search uses the same candidate generator as all other tasks.",
+    "origin": "Original benchmark statement; mathematical result is not claimed novel.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "chain_conjunction",
+    "title": "Parallel order conclusions",
+    "domain": "order",
+    "difficulty": "moderate",
+    "split": "development",
+    "binders": "(α : Type) [PartialOrder α] (a b c : α) (hab : a ≤ b) (hbc : b ≤ c)",
+    "target": "a ≤ c ∧ a ≤ b",
+    "display": "a ≤ b ≤ c ⊢ (a ≤ c) ∧ (a ≤ b)",
+    "description": "Parallel order conclusions. Search uses the same candidate generator as all other tasks.",
+    "origin": "Original benchmark statement; mathematical result is not claimed novel.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "nat_successor",
+    "title": "Natural successor",
+    "domain": "order",
+    "difficulty": "moderate",
+    "split": "development",
+    "binders": "(n : Nat)",
+    "target": "n ≤ n + 1",
+    "display": "n ≤ n + 1",
+    "description": "Natural successor. Search uses the same candidate generator as all other tasks.",
+    "origin": "Original benchmark statement; mathematical result is not claimed novel.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "nat_bound",
+    "title": "Arithmetic upper bound",
+    "domain": "order",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(n m : Nat) (h : n ≤ m)",
+    "target": "n ≤ m + 2",
+    "display": "n ≤ m ⊢ n ≤ m + 2",
+    "description": "Arithmetic upper bound. Search uses the same candidate generator as all other tasks.",
+    "origin": "Original benchmark statement; mathematical result is not claimed novel.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "nat_interval",
+    "title": "Natural interval",
+    "domain": "order",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(n : Nat) (h : n < 4)",
+    "target": "n ≤ 3",
+    "display": "n < 4 ⊢ n ≤ 3",
+    "description": "Natural interval. Search uses the same candidate generator as all other tasks.",
+    "origin": "Original benchmark statement; mathematical result is not claimed novel.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "nat_shift",
+    "title": "Shift an inequality",
+    "domain": "order",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(n m : Nat) (h : n + 3 ≤ m)",
+    "target": "n ≤ m",
+    "display": "n + 3 ≤ m ⊢ n ≤ m",
+    "description": "Shift an inequality. Search uses the same candidate generator as all other tasks.",
+    "origin": "Original benchmark statement; mathematical result is not claimed novel.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "order_quantified",
+    "title": "Quantified transitivity",
+    "domain": "order",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(α : Type) [PartialOrder α] (a b : α) (hab : a ≤ b)",
+    "target": "∀ c, b ≤ c → a ≤ c",
+    "display": "a ≤ b ⊢ ∀ c, b ≤ c → a ≤ c",
+    "description": "Quantified transitivity. Search uses the same candidate generator as all other tasks.",
+    "origin": "Original benchmark statement; mathematical result is not claimed novel.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "eq_symmetry",
+    "title": "Equality symmetry",
+    "domain": "algebra",
+    "difficulty": "easy",
+    "split": "development",
+    "binders": "(α : Type) (a b : α) (h : a = b)",
+    "target": "b = a",
+    "display": "a = b ⊢ b = a",
+    "description": "Equality symmetry. Search uses the same candidate generator as all other tasks.",
+    "origin": "Original benchmark statement; mathematical result is not claimed novel.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "eq_chain",
+    "title": "Equality transitivity",
+    "domain": "algebra",
+    "difficulty": "easy",
+    "split": "development",
+    "binders": "(α : Type) (a b c : α) (hab : a = b) (hbc : b = c)",
+    "target": "a = c",
+    "display": "a = b = c ⊢ a = c",
+    "description": "Equality transitivity. Search uses the same candidate generator as all other tasks.",
+    "origin": "Original benchmark statement; mathematical result is not claimed novel.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "monoid_right",
+    "title": "Right identity",
+    "domain": "algebra",
+    "difficulty": "easy",
+    "split": "development",
+    "binders": "(M : Type) [Monoid M] (a : M)",
+    "target": "a * 1 = a",
+    "display": "a · 1 = a",
+    "description": "Right identity. Search uses the same candidate generator as all other tasks.",
+    "origin": "Original benchmark statement; mathematical result is not claimed novel.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "monoid_left",
+    "title": "Left identity",
+    "domain": "algebra",
+    "difficulty": "easy",
+    "split": "development",
+    "binders": "(M : Type) [Monoid M] (a : M)",
+    "target": "1 * a = a",
+    "display": "1 · a = a",
+    "description": "Left identity. Search uses the same candidate generator as all other tasks.",
+    "origin": "Original benchmark statement; mathematical result is not claimed novel.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "monoid_assoc",
+    "title": "Associativity",
+    "domain": "algebra",
+    "difficulty": "easy",
+    "split": "development",
+    "binders": "(M : Type) [Monoid M] (a b c : M)",
+    "target": "(a * b) * c = a * (b * c)",
+    "display": "(a · b) · c = a · (b · c)",
+    "description": "Associativity. Search uses the same candidate generator as all other tasks.",
+    "origin": "Original benchmark statement; mathematical result is not claimed novel.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "monoid_comm",
+    "title": "Commutative multiplication",
+    "domain": "algebra",
+    "difficulty": "easy",
+    "split": "development",
+    "binders": "(M : Type) [CommMonoid M] (a b : M)",
+    "target": "a * b = b * a",
+    "display": "a · b = b · a",
+    "description": "Commutative multiplication. Search uses the same candidate generator as all other tasks.",
+    "origin": "Original benchmark statement; mathematical result is not claimed novel.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "additive_zero",
+    "title": "Additive identity",
+    "domain": "algebra",
+    "difficulty": "moderate",
+    "split": "development",
+    "binders": "(R : Type) [Ring R] (a : R)",
+    "target": "a + 0 = a",
+    "display": "a + 0 = a",
+    "description": "Additive identity. Search uses the same candidate generator as all other tasks.",
+    "origin": "Original benchmark statement; mathematical result is not claimed novel.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "zero_additive",
+    "title": "Left additive identity",
+    "domain": "algebra",
+    "difficulty": "moderate",
+    "split": "development",
+    "binders": "(R : Type) [Ring R] (a : R)",
+    "target": "0 + a = a",
+    "display": "0 + a = a",
+    "description": "Left additive identity. Search uses the same candidate generator as all other tasks.",
+    "origin": "Original benchmark statement; mathematical result is not claimed novel.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "ring_expand",
+    "title": "Binomial expansion",
+    "domain": "algebra",
+    "difficulty": "moderate",
+    "split": "development",
+    "binders": "(R : Type) [CommRing R] (a b : R)",
+    "target": "(a + b)^2 = a^2 + 2*a*b + b^2",
+    "display": "(a + b)² = a² + 2ab + b²",
+    "description": "Binomial expansion. Search uses the same candidate generator as all other tasks.",
+    "origin": "Original benchmark statement; mathematical result is not claimed novel.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "ring_distribute",
+    "title": "Distributivity",
+    "domain": "algebra",
+    "difficulty": "moderate",
+    "split": "development",
+    "binders": "(R : Type) [Ring R] (a b c : R)",
+    "target": "a * (b + c) = a*b + a*c",
+    "display": "a(b + c) = ab + ac",
+    "description": "Distributivity. Search uses the same candidate generator as all other tasks.",
+    "origin": "Original benchmark statement; mathematical result is not claimed novel.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "rewrite_product",
+    "title": "Rewrite inside a product",
+    "domain": "algebra",
+    "difficulty": "moderate",
+    "split": "development",
+    "binders": "(M : Type) [Monoid M] (a b c : M) (h : a = b)",
+    "target": "a * c = b * c",
+    "display": "a = b ⊢ a · c = b · c",
+    "description": "Rewrite inside a product. Search uses the same candidate generator as all other tasks.",
+    "origin": "Original benchmark statement; mathematical result is not claimed novel.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "rewrite_sum",
+    "title": "Rewrite inside a sum",
+    "domain": "algebra",
+    "difficulty": "moderate",
+    "split": "development",
+    "binders": "(R : Type) [Ring R] (a b c : R) (h : a = b)",
+    "target": "c + a = c + b",
+    "display": "a = b ⊢ c + a = c + b",
+    "description": "Rewrite inside a sum. Search uses the same candidate generator as all other tasks.",
+    "origin": "Original benchmark statement; mathematical result is not claimed novel.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "ring_cube",
+    "title": "Cube identity",
+    "domain": "algebra",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(R : Type) [CommRing R] (a b : R)",
+    "target": "(a+b)^3 = a^3 + 3*a^2*b + 3*a*b^2 + b^3",
+    "display": "(a + b)³ = a³ + 3a²b + 3ab² + b³",
+    "description": "Cube identity. Search uses the same candidate generator as all other tasks.",
+    "origin": "Original benchmark statement; mathematical result is not claimed novel.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "ring_difference",
+    "title": "Difference of squares",
+    "domain": "algebra",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(R : Type) [CommRing R] (a b : R)",
+    "target": "(a-b)*(a+b) = a^2-b^2",
+    "display": "(a − b)(a + b) = a² − b²",
+    "description": "Difference of squares. Search uses the same candidate generator as all other tasks.",
+    "origin": "Original benchmark statement; mathematical result is not claimed novel.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "eq_pair",
+    "title": "Two equality conclusions",
+    "domain": "algebra",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(α : Type) (a b c : α) (h : a = b) (k : b = c)",
+    "target": "a = c ∧ c = a",
+    "display": "a = b = c ⊢ (a = c) ∧ (c = a)",
+    "description": "Two equality conclusions. Search uses the same candidate generator as all other tasks.",
+    "origin": "Original benchmark statement; mathematical result is not claimed novel.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "rewrite_identity",
+    "title": "Rewrite then use identity",
+    "domain": "algebra",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(M : Type) [Monoid M] (a b : M) (h : a = b)",
+    "target": "a * 1 = b",
+    "display": "a = b ⊢ a · 1 = b",
+    "description": "Rewrite then use identity. Search uses the same candidate generator as all other tasks.",
+    "origin": "Original benchmark statement; mathematical result is not claimed novel.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "set_inter_left",
+    "title": "Intersection projection",
+    "domain": "sets",
+    "difficulty": "easy",
+    "split": "development",
+    "binders": "(α : Type) (A B : Set α)",
+    "target": "A ∩ B ⊆ A",
+    "display": "A ∩ B ⊆ A",
+    "description": "Intersection projection. Search uses the same candidate generator as all other tasks.",
+    "origin": "Original benchmark statement; mathematical result is not claimed novel.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "set_inter_right",
+    "title": "Other intersection projection",
+    "domain": "sets",
+    "difficulty": "easy",
+    "split": "development",
+    "binders": "(α : Type) (A B : Set α)",
+    "target": "A ∩ B ⊆ B",
+    "display": "A ∩ B ⊆ B",
+    "description": "Other intersection projection. Search uses the same candidate generator as all other tasks.",
+    "origin": "Original benchmark statement; mathematical result is not claimed novel.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "set_union_left",
+    "title": "Union inclusion",
+    "domain": "sets",
+    "difficulty": "easy",
+    "split": "development",
+    "binders": "(α : Type) (A B : Set α)",
+    "target": "A ⊆ A ∪ B",
+    "display": "A ⊆ A ∪ B",
+    "description": "Union inclusion. Search uses the same candidate generator as all other tasks.",
+    "origin": "Original benchmark statement; mathematical result is not claimed novel.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "set_union_right",
+    "title": "Other union inclusion",
+    "domain": "sets",
+    "difficulty": "easy",
+    "split": "development",
+    "binders": "(α : Type) (A B : Set α)",
+    "target": "B ⊆ A ∪ B",
+    "display": "B ⊆ A ∪ B",
+    "description": "Other union inclusion. Search uses the same candidate generator as all other tasks.",
+    "origin": "Original benchmark statement; mathematical result is not claimed novel.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "set_refl",
+    "title": "Subset reflexivity",
+    "domain": "sets",
+    "difficulty": "easy",
+    "split": "development",
+    "binders": "(α : Type) (A : Set α)",
+    "target": "A ⊆ A",
+    "display": "A ⊆ A",
+    "description": "Subset reflexivity. Search uses the same candidate generator as all other tasks.",
+    "origin": "Original benchmark statement; mathematical result is not claimed novel.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "set_chain",
+    "title": "Subset transitivity",
+    "domain": "sets",
+    "difficulty": "easy",
+    "split": "development",
+    "binders": "(α : Type) (A B C : Set α) (hab : A ⊆ B) (hbc : B ⊆ C)",
+    "target": "A ⊆ C",
+    "display": "A ⊆ B ⊆ C ⊢ A ⊆ C",
+    "description": "Subset transitivity. Search uses the same candidate generator as all other tasks.",
+    "origin": "Original benchmark statement; mathematical result is not claimed novel.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "set_antisymm",
+    "title": "Set extensional equality",
+    "domain": "sets",
+    "difficulty": "moderate",
+    "split": "development",
+    "binders": "(α : Type) (A B : Set α) (hab : A ⊆ B) (hba : B ⊆ A)",
+    "target": "A = B",
+    "display": "A ⊆ B, B ⊆ A ⊢ A = B",
+    "description": "Set extensional equality. Search uses the same candidate generator as all other tasks.",
+    "origin": "Original benchmark statement; mathematical result is not claimed novel.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "set_membership",
+    "title": "Membership transport",
+    "domain": "sets",
+    "difficulty": "moderate",
+    "split": "development",
+    "binders": "(α : Type) (A B : Set α) (x : α) (h : A ⊆ B) (hx : x ∈ A)",
+    "target": "x ∈ B",
+    "display": "A ⊆ B, x ∈ A ⊢ x ∈ B",
+    "description": "Membership transport. Search uses the same candidate generator as all other tasks.",
+    "origin": "Original benchmark statement; mathematical result is not claimed novel.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "set_inter_member",
+    "title": "Construct intersection membership",
+    "domain": "sets",
+    "difficulty": "moderate",
+    "split": "development",
+    "binders": "(α : Type) (A B : Set α) (x : α) (ha : x ∈ A) (hb : x ∈ B)",
+    "target": "x ∈ A ∩ B",
+    "display": "x ∈ A, x ∈ B ⊢ x ∈ A ∩ B",
+    "description": "Construct intersection membership. Search uses the same candidate generator as all other tasks.",
+    "origin": "Original benchmark statement; mathematical result is not claimed novel.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "set_inter_comm",
+    "title": "Intersection commutativity",
+    "domain": "sets",
+    "difficulty": "moderate",
+    "split": "development",
+    "binders": "(α : Type) (A B : Set α)",
+    "target": "A ∩ B = B ∩ A",
+    "display": "A ∩ B = B ∩ A",
+    "description": "Intersection commutativity. Search uses the same candidate generator as all other tasks.",
+    "origin": "Original benchmark statement; mathematical result is not claimed novel.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "set_union_member",
+    "title": "Construct union membership",
+    "domain": "sets",
+    "difficulty": "moderate",
+    "split": "development",
+    "binders": "(α : Type) (A B : Set α) (x : α) (hb : x ∈ B)",
+    "target": "x ∈ A ∪ B",
+    "display": "x ∈ B ⊢ x ∈ A ∪ B",
+    "description": "Construct union membership. Search uses the same candidate generator as all other tasks.",
+    "origin": "Original benchmark statement; mathematical result is not claimed novel.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "set_inter_monotone",
+    "title": "Intersection monotonicity",
+    "domain": "sets",
+    "difficulty": "moderate",
+    "split": "development",
+    "binders": "(α : Type) (A B C : Set α) (h : A ⊆ B)",
+    "target": "A ∩ C ⊆ B ∩ C",
+    "display": "A ⊆ B ⊢ A ∩ C ⊆ B ∩ C",
+    "description": "Intersection monotonicity. Search uses the same candidate generator as all other tasks.",
+    "origin": "Original benchmark statement; mathematical result is not claimed novel.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "set_union_elim",
+    "title": "Union elimination",
+    "domain": "sets",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(α : Type) (A B C : Set α) (ha : A ⊆ C) (hb : B ⊆ C)",
+    "target": "A ∪ B ⊆ C",
+    "display": "A ⊆ C, B ⊆ C ⊢ A ∪ B ⊆ C",
+    "description": "Union elimination. Search uses the same candidate generator as all other tasks.",
+    "origin": "Original benchmark statement; mathematical result is not claimed novel.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "set_nested",
+    "title": "Nested intersection",
+    "domain": "sets",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(α : Type) (A B C : Set α)",
+    "target": "A ∩ (B ∩ C) ⊆ C",
+    "display": "A ∩ (B ∩ C) ⊆ C",
+    "description": "Nested intersection. Search uses the same candidate generator as all other tasks.",
+    "origin": "Original benchmark statement; mathematical result is not claimed novel.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "set_distribute",
+    "title": "Distribute intersection over union",
+    "domain": "sets",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(α : Type) (A B C : Set α)",
+    "target": "A ∩ (B ∪ C) ⊆ (A ∩ B) ∪ (A ∩ C)",
+    "display": "A ∩ (B ∪ C) ⊆ (A ∩ B) ∪ (A ∩ C)",
+    "description": "Distribute intersection over union. Search uses the same candidate generator as all other tasks.",
+    "origin": "Original benchmark statement; mathematical result is not claimed novel.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "set_chain_three",
+    "title": "Three-step subset chain",
+    "domain": "sets",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(α : Type) (A B C D : Set α) (hab : A ⊆ B) (hbc : B ⊆ C) (hcd : C ⊆ D)",
+    "target": "A ⊆ D",
+    "display": "A ⊆ B ⊆ C ⊆ D ⊢ A ⊆ D",
+    "description": "Three-step subset chain. Search uses the same candidate generator as all other tasks.",
+    "origin": "Original benchmark statement; mathematical result is not claimed novel.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  }
+]

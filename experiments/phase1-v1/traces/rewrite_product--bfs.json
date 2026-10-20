@@ -1,0 +1,206 @@
+{
+  "schema_version": 1,
+  "task": {
+    "id": "rewrite_product",
+    "title": "Rewrite inside a product",
+    "domain": "algebra",
+    "difficulty": "moderate",
+    "split": "development",
+    "binders": "(M : Type) [Monoid M] (a b c : M) (h : a = b)",
+    "target": "a * c = b * c",
+    "display": "a = b ⊢ a · c = b · c",
+    "description": "Rewrite inside a product. Search uses the same candidate generator as all other tasks.",
+    "origin": "Original benchmark statement; mathematical result is not claimed novel.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  "algorithm": "bfs",
+  "budget": {
+    "max_depth": 7,
+    "max_expansions": 60,
+    "max_candidates": 24,
+    "max_attempts": 400,
+    "timeout_s": 12.0,
+    "tactic_timeout_s": 3.0
+  },
+  "status": "verified",
+  "termination": "verified",
+  "nodes": [
+    {
+      "id": 0,
+      "parent": null,
+      "depth": 0,
+      "state": {
+        "state_id": 0,
+        "goals": [
+          {
+            "id": "_uniq.655",
+            "target": {
+              "text": "a * c = b * c",
+              "head": "Eq",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "M",
+                "id": "_uniq.649",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "inst._@._stdin.2021293395._hygCtx._hyg.3",
+                "id": "_uniq.650",
+                "type": {
+                  "text": "Monoid M",
+                  "head": "Monoid",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "a",
+                "id": "_uniq.651",
+                "type": {
+                  "text": "M",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "b",
+                "id": "_uniq.652",
+                "type": {
+                  "text": "M",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "c",
+                "id": "_uniq.653",
+                "type": {
+                  "text": "M",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "h",
+                "id": "_uniq.654",
+                "type": {
+                  "text": "a = b",
+                  "head": "Eq",
+                  "forall": false
+                },
+                "is_proof": true
+              }
+            ]
+          }
+        ]
+      },
+      "tactic": null,
+      "category": null,
+      "lemma": null,
+      "provenance": null,
+      "reason": "Initial Lean goal",
+      "status": "root",
+      "error": null,
+      "elapsed_ms": 0.0,
+      "on_proof_path": true
+    },
+    {
+      "id": 1,
+      "parent": 0,
+      "depth": 1,
+      "state": null,
+      "tactic": "assumption",
+      "category": "goal",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Match the goal against the local context",
+      "status": "rejected",
+      "error": "Tactic `assumption` failed\n\nM : Type\ninst✝ : Monoid M\na b c : M\nh : a = b\n⊢ a * c = b * c",
+      "elapsed_ms": 1.5235280000069906,
+      "on_proof_path": false
+    },
+    {
+      "id": 2,
+      "parent": 0,
+      "depth": 1,
+      "state": null,
+      "tactic": "rfl",
+      "category": "goal",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Check definitional equality",
+      "status": "rejected",
+      "error": "Tactic `rfl` failed: The left-hand side\n  a * c\nis not definitionally equal to the right-hand side\n  b * c\n\nM : Type\ninst✝ : Monoid M\na b c : M\nh : a = b\n⊢ a * c = b * c",
+      "elapsed_ms": 1.6220410000187258,
+      "on_proof_path": false
+    },
+    {
+      "id": 3,
+      "parent": 0,
+      "depth": 1,
+      "state": {
+        "state_id": 1,
+        "goals": []
+      },
+      "tactic": "rw [h]",
+      "category": "hypothesis",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Rewrite using a local equality",
+      "status": "solved",
+      "error": null,
+      "elapsed_ms": 0.9115320001455984,
+      "on_proof_path": true
+    }
+  ],
+  "metrics": {
+    "attempted_candidates": 3,
+    "accepted_transitions": 1,
+    "rejected_candidates": 2,
+    "expanded_states": 1,
+    "frontier": 0,
+    "max_depth": 1,
+    "proof_length": 1,
+    "elapsed_s": 3.2323623039999347,
+    "lean_execution_s": 0.004057101000171315,
+    "initialization_s": 1.600197449999996,
+    "verification_s": 1.5958898520000275,
+    "planning_s": 0.00029566500006694696
+  },
+  "proof": [
+    "rw [h]"
+  ],
+  "lean_source": "import ProofLab.Bridge\n\nset_option maxHeartbeats 300000\ntheorem prooflab_result (M : Type) [Monoid M] (a b c : M) (h : a = b) : a * c = b * c := by\n  rw [h]\n\n#prooflab_audit prooflab_result\n",
+  "verification": {
+    "verified": true,
+    "axioms": [],
+    "error": null,
+    "elapsed_s": 1.5958898520000275,
+    "source_sha256": "317ee9d5c460a813b9e9994378ae1729f342d858bd1061c34f307ac9a90b4857"
+  },
+  "metadata": {
+    "code_commit": "f91bb03a141dfca5a34b3e12880a80837724aa00",
+    "lean_version": "leanprover/lean4:v4.24.0",
+    "mathlib_revision": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7",
+    "python": "3.12.14",
+    "platform": "Linux-6.18.55-x86_64-with-glibc2.41",
+    "machine": "x86_64",
+    "processor": "",
+    "seed": "0 (deterministic)",
+    "state_identity": "Exact tactic prefix within one native session; no semantic merging"
+  },
+  "error": null,
+  "proof_origin": "constructed_derivation"
+}

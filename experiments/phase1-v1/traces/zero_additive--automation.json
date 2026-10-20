@@ -1,0 +1,148 @@
+{
+  "schema_version": 1,
+  "task": {
+    "id": "zero_additive",
+    "title": "Left additive identity",
+    "domain": "algebra",
+    "difficulty": "moderate",
+    "split": "development",
+    "binders": "(R : Type) [Ring R] (a : R)",
+    "target": "0 + a = a",
+    "display": "0 + a = a",
+    "description": "Left additive identity. Search uses the same candidate generator as all other tasks.",
+    "origin": "Original benchmark statement; mathematical result is not claimed novel.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  "algorithm": "automation",
+  "budget": {
+    "max_depth": 7,
+    "max_expansions": 60,
+    "max_candidates": 24,
+    "max_attempts": 400,
+    "timeout_s": 12.0,
+    "tactic_timeout_s": 3.0
+  },
+  "status": "verified",
+  "termination": "verified",
+  "nodes": [
+    {
+      "id": 0,
+      "parent": null,
+      "depth": 0,
+      "state": {
+        "state_id": 0,
+        "goals": [
+          {
+            "id": "_uniq.210",
+            "target": {
+              "text": "0 + a = a",
+              "head": "Eq",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "R",
+                "id": "_uniq.207",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "inst._@._stdin.2021293395._hygCtx._hyg.3",
+                "id": "_uniq.208",
+                "type": {
+                  "text": "Ring R",
+                  "head": "Ring",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "a",
+                "id": "_uniq.209",
+                "type": {
+                  "text": "R",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              }
+            ]
+          }
+        ]
+      },
+      "tactic": null,
+      "category": null,
+      "lemma": null,
+      "provenance": null,
+      "reason": "Initial Lean goal",
+      "status": "root",
+      "error": null,
+      "elapsed_ms": 0.0,
+      "on_proof_path": true
+    },
+    {
+      "id": 1,
+      "parent": 0,
+      "depth": 1,
+      "state": {
+        "state_id": 1,
+        "goals": []
+      },
+      "tactic": "aesop",
+      "category": "reference",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Native Aesop baseline; not a ProofLab algorithm",
+      "status": "solved",
+      "error": null,
+      "elapsed_ms": 19.398192000153358,
+      "on_proof_path": true
+    }
+  ],
+  "metrics": {
+    "attempted_candidates": 1,
+    "accepted_transitions": 1,
+    "rejected_candidates": 0,
+    "expanded_states": 1,
+    "frontier": 0,
+    "max_depth": 1,
+    "proof_length": 1,
+    "elapsed_s": 3.379196849999971,
+    "lean_execution_s": 0.019398192000153358,
+    "initialization_s": 1.641528008000023,
+    "verification_s": 1.7017914089999522,
+    "planning_s": 0.00043486399999892456
+  },
+  "proof": [
+    "aesop"
+  ],
+  "lean_source": "import ProofLab.Bridge\n\nset_option maxHeartbeats 300000\ntheorem prooflab_result (R : Type) [Ring R] (a : R) : 0 + a = a := by\n  aesop\n\n#prooflab_audit prooflab_result\n",
+  "verification": {
+    "verified": true,
+    "axioms": [
+      "propext"
+    ],
+    "error": null,
+    "elapsed_s": 1.7017914089999522,
+    "source_sha256": "2238032bafcb486617e8bfb13a40f4052a220a3864f94f9bf578a63f387f19b1"
+  },
+  "metadata": {
+    "code_commit": "f91bb03a141dfca5a34b3e12880a80837724aa00",
+    "lean_version": "leanprover/lean4:v4.24.0",
+    "mathlib_revision": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7",
+    "python": "3.12.14",
+    "platform": "Linux-6.18.55-x86_64-with-glibc2.41",
+    "machine": "x86_64",
+    "processor": "",
+    "seed": "0 (deterministic)",
+    "state_identity": "Exact tactic prefix within one native session; no semantic merging"
+  },
+  "error": null,
+  "proof_origin": "native_automation"
+}

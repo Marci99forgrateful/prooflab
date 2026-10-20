@@ -1,0 +1,191 @@
+{
+  "schema_version": 1,
+  "task": {
+    "id": "set_chain_three",
+    "title": "Three-step subset chain",
+    "domain": "sets",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(α : Type) (A B C D : Set α) (hab : A ⊆ B) (hbc : B ⊆ C) (hcd : C ⊆ D)",
+    "target": "A ⊆ D",
+    "display": "A ⊆ B ⊆ C ⊆ D ⊢ A ⊆ D",
+    "description": "Three-step subset chain. Search uses the same candidate generator as all other tasks.",
+    "origin": "Original benchmark statement; mathematical result is not claimed novel.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  "algorithm": "automation",
+  "budget": {
+    "max_depth": 7,
+    "max_expansions": 60,
+    "max_candidates": 24,
+    "max_attempts": 400,
+    "timeout_s": 12.0,
+    "tactic_timeout_s": 3.0
+  },
+  "status": "not_found_within_budget",
+  "termination": "search_exhausted",
+  "nodes": [
+    {
+      "id": 0,
+      "parent": null,
+      "depth": 0,
+      "state": {
+        "state_id": 0,
+        "goals": [
+          {
+            "id": "_uniq.82",
+            "target": {
+              "text": "A ⊆ D",
+              "head": "[anonymous]",
+              "forall": true
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.74",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "A",
+                "id": "_uniq.75",
+                "type": {
+                  "text": "Set α",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "B",
+                "id": "_uniq.76",
+                "type": {
+                  "text": "Set α",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "C",
+                "id": "_uniq.77",
+                "type": {
+                  "text": "Set α",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "D",
+                "id": "_uniq.78",
+                "type": {
+                  "text": "Set α",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "hab",
+                "id": "_uniq.79",
+                "type": {
+                  "text": "A ⊆ B",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": true
+              },
+              {
+                "name": "hbc",
+                "id": "_uniq.80",
+                "type": {
+                  "text": "B ⊆ C",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": true
+              },
+              {
+                "name": "hcd",
+                "id": "_uniq.81",
+                "type": {
+                  "text": "C ⊆ D",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": true
+              }
+            ]
+          }
+        ]
+      },
+      "tactic": null,
+      "category": null,
+      "lemma": null,
+      "provenance": null,
+      "reason": "Initial Lean goal",
+      "status": "root",
+      "error": null,
+      "elapsed_ms": 0.0,
+      "on_proof_path": false
+    },
+    {
+      "id": 1,
+      "parent": 0,
+      "depth": 1,
+      "state": null,
+      "tactic": "aesop",
+      "category": "reference",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Native Aesop baseline; not a ProofLab algorithm",
+      "status": "rejected",
+      "error": "tactic 'aesop' failed, made no progress\nInitial goal:\n  α : Type\n  A B C D : Set α\n  hab : A ⊆ B\n  hbc : B ⊆ C\n  hcd : C ⊆ D\n  ⊢ A ⊆ D",
+      "elapsed_ms": 23.958042999993268,
+      "on_proof_path": false
+    }
+  ],
+  "metrics": {
+    "attempted_candidates": 1,
+    "accepted_transitions": 0,
+    "rejected_candidates": 1,
+    "expanded_states": 1,
+    "frontier": 0,
+    "max_depth": 1,
+    "proof_length": 0,
+    "elapsed_s": 1.62792323199983,
+    "lean_execution_s": 0.023958042999993268,
+    "initialization_s": 1.58695289100001,
+    "verification_s": 0.0,
+    "planning_s": 0.0003873129999192315
+  },
+  "proof": [],
+  "lean_source": null,
+  "verification": {
+    "verified": false,
+    "axioms": [],
+    "error": null,
+    "elapsed_s": 0.0,
+    "source_sha256": null
+  },
+  "metadata": {
+    "code_commit": "f91bb03a141dfca5a34b3e12880a80837724aa00",
+    "lean_version": "leanprover/lean4:v4.24.0",
+    "mathlib_revision": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7",
+    "python": "3.12.14",
+    "platform": "Linux-6.18.55-x86_64-with-glibc2.41",
+    "machine": "x86_64",
+    "processor": "",
+    "seed": "0 (deterministic)",
+    "state_identity": "Exact tactic prefix within one native session; no semantic merging"
+  },
+  "error": null,
+  "proof_origin": null
+}

@@ -144,6 +144,7 @@ def run_benchmark(
     with (destination / "results.csv").open("w", newline="") as output:
         writer = csv.DictWriter(
             output,
+            lineterminator="\n",
             fieldnames=[
                 "task",
                 "domain",

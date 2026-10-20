@@ -1,0 +1,178 @@
+{
+  "schema_version": 1,
+  "task": {
+    "id": "rewrite_product",
+    "title": "Rewrite inside a product",
+    "domain": "algebra",
+    "difficulty": "moderate",
+    "split": "development",
+    "binders": "(M : Type) [Monoid M] (a b c : M) (h : a = b)",
+    "target": "a * c = b * c",
+    "display": "a = b ⊢ a · c = b · c",
+    "description": "Rewrite inside a product. Search uses the same candidate generator as all other tasks.",
+    "origin": "Original benchmark statement; mathematical result is not claimed novel.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  "algorithm": "automation",
+  "budget": {
+    "max_depth": 7,
+    "max_expansions": 60,
+    "max_candidates": 24,
+    "max_attempts": 400,
+    "timeout_s": 12.0,
+    "tactic_timeout_s": 3.0
+  },
+  "status": "verified",
+  "termination": "verified",
+  "nodes": [
+    {
+      "id": 0,
+      "parent": null,
+      "depth": 0,
+      "state": {
+        "state_id": 0,
+        "goals": [
+          {
+            "id": "_uniq.655",
+            "target": {
+              "text": "a * c = b * c",
+              "head": "Eq",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "M",
+                "id": "_uniq.649",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "inst._@._stdin.2021293395._hygCtx._hyg.3",
+                "id": "_uniq.650",
+                "type": {
+                  "text": "Monoid M",
+                  "head": "Monoid",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "a",
+                "id": "_uniq.651",
+                "type": {
+                  "text": "M",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "b",
+                "id": "_uniq.652",
+                "type": {
+                  "text": "M",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "c",
+                "id": "_uniq.653",
+                "type": {
+                  "text": "M",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "h",
+                "id": "_uniq.654",
+                "type": {
+                  "text": "a = b",
+                  "head": "Eq",
+                  "forall": false
+                },
+                "is_proof": true
+              }
+            ]
+          }
+        ]
+      },
+      "tactic": null,
+      "category": null,
+      "lemma": null,
+      "provenance": null,
+      "reason": "Initial Lean goal",
+      "status": "root",
+      "error": null,
+      "elapsed_ms": 0.0,
+      "on_proof_path": true
+    },
+    {
+      "id": 1,
+      "parent": 0,
+      "depth": 1,
+      "state": {
+        "state_id": 1,
+        "goals": []
+      },
+      "tactic": "aesop",
+      "category": "reference",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Native Aesop baseline; not a ProofLab algorithm",
+      "status": "solved",
+      "error": null,
+      "elapsed_ms": 23.599183999976958,
+      "on_proof_path": true
+    }
+  ],
+  "metrics": {
+    "attempted_candidates": 1,
+    "accepted_transitions": 1,
+    "rejected_candidates": 0,
+    "expanded_states": 1,
+    "frontier": 0,
+    "max_depth": 1,
+    "proof_length": 1,
+    "elapsed_s": 3.618311156000118,
+    "lean_execution_s": 0.023599183999976958,
+    "initialization_s": 1.6304967649998616,
+    "verification_s": 1.931959506000112,
+    "planning_s": 0.0003177180001330271
+  },
+  "proof": [
+    "aesop"
+  ],
+  "lean_source": "import ProofLab.Bridge\n\nset_option maxHeartbeats 300000\ntheorem prooflab_result (M : Type) [Monoid M] (a b c : M) (h : a = b) : a * c = b * c := by\n  aesop\n\n#prooflab_audit prooflab_result\n",
+  "verification": {
+    "verified": true,
+    "axioms": [
+      "propext"
+    ],
+    "error": null,
+    "elapsed_s": 1.931959506000112,
+    "source_sha256": "e6dc40a1733fd07e861129151bb40c33a5141cd6aa97e32c4bc3d0a1be6a426b"
+  },
+  "metadata": {
+    "code_commit": "f91bb03a141dfca5a34b3e12880a80837724aa00",
+    "lean_version": "leanprover/lean4:v4.24.0",
+    "mathlib_revision": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7",
+    "python": "3.12.14",
+    "platform": "Linux-6.18.55-x86_64-with-glibc2.41",
+    "machine": "x86_64",
+    "processor": "",
+    "seed": "0 (deterministic)",
+    "state_identity": "Exact tactic prefix within one native session; no semantic merging"
+  },
+  "error": null,
+  "proof_origin": "native_automation"
+}

@@ -1,0 +1,141 @@
+{
+  "schema_version": 1,
+  "task": {
+    "id": "nat_shift",
+    "title": "Shift an inequality",
+    "domain": "order",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(n m : Nat) (h : n + 3 ≤ m)",
+    "target": "n ≤ m",
+    "display": "n + 3 ≤ m ⊢ n ≤ m",
+    "description": "Shift an inequality. Search uses the same candidate generator as all other tasks.",
+    "origin": "Original benchmark statement; mathematical result is not claimed novel.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  "algorithm": "automation",
+  "budget": {
+    "max_depth": 7,
+    "max_expansions": 60,
+    "max_candidates": 24,
+    "max_attempts": 400,
+    "timeout_s": 12.0,
+    "tactic_timeout_s": 3.0
+  },
+  "status": "not_found_within_budget",
+  "termination": "search_exhausted",
+  "nodes": [
+    {
+      "id": 0,
+      "parent": null,
+      "depth": 0,
+      "state": {
+        "state_id": 0,
+        "goals": [
+          {
+            "id": "_uniq.96",
+            "target": {
+              "text": "n ≤ m",
+              "head": "Nat.le",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "n",
+                "id": "_uniq.93",
+                "type": {
+                  "text": "ℕ",
+                  "head": "Nat",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "m",
+                "id": "_uniq.94",
+                "type": {
+                  "text": "ℕ",
+                  "head": "Nat",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "h",
+                "id": "_uniq.95",
+                "type": {
+                  "text": "n + 3 ≤ m",
+                  "head": "Nat.le",
+                  "forall": false
+                },
+                "is_proof": true
+              }
+            ]
+          }
+        ]
+      },
+      "tactic": null,
+      "category": null,
+      "lemma": null,
+      "provenance": null,
+      "reason": "Initial Lean goal",
+      "status": "root",
+      "error": null,
+      "elapsed_ms": 0.0,
+      "on_proof_path": false
+    },
+    {
+      "id": 1,
+      "parent": 0,
+      "depth": 1,
+      "state": null,
+      "tactic": "aesop",
+      "category": "reference",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Native Aesop baseline; not a ProofLab algorithm",
+      "status": "rejected",
+      "error": "tactic 'aesop' failed, made no progress\nInitial goal:\n  n m : ℕ\n  h : n + 3 ≤ m\n  ⊢ n ≤ m",
+      "elapsed_ms": 23.666162999916196,
+      "on_proof_path": false
+    }
+  ],
+  "metrics": {
+    "attempted_candidates": 1,
+    "accepted_transitions": 0,
+    "rejected_candidates": 1,
+    "expanded_states": 1,
+    "frontier": 0,
+    "max_depth": 1,
+    "proof_length": 0,
+    "elapsed_s": 1.5275087339998663,
+    "lean_execution_s": 0.023666162999916196,
+    "initialization_s": 1.4878988079999544,
+    "verification_s": 0.0,
+    "planning_s": 0.00036731299996972666
+  },
+  "proof": [],
+  "lean_source": null,
+  "verification": {
+    "verified": false,
+    "axioms": [],
+    "error": null,
+    "elapsed_s": 0.0,
+    "source_sha256": null
+  },
+  "metadata": {
+    "code_commit": "f91bb03a141dfca5a34b3e12880a80837724aa00",
+    "lean_version": "leanprover/lean4:v4.24.0",
+    "mathlib_revision": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7",
+    "python": "3.12.14",
+    "platform": "Linux-6.18.55-x86_64-with-glibc2.41",
+    "machine": "x86_64",
+    "processor": "",
+    "seed": "0 (deterministic)",
+    "state_identity": "Exact tactic prefix within one native session; no semantic merging"
+  },
+  "error": null,
+  "proof_origin": null
+}

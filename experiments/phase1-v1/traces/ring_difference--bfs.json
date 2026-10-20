@@ -1,0 +1,517 @@
+{
+  "schema_version": 1,
+  "task": {
+    "id": "ring_difference",
+    "title": "Difference of squares",
+    "domain": "algebra",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(R : Type) [CommRing R] (a b : R)",
+    "target": "(a-b)*(a+b) = a^2-b^2",
+    "display": "(a − b)(a + b) = a² − b²",
+    "description": "Difference of squares. Search uses the same candidate generator as all other tasks.",
+    "origin": "Original benchmark statement; mathematical result is not claimed novel.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  "algorithm": "bfs",
+  "budget": {
+    "max_depth": 7,
+    "max_expansions": 60,
+    "max_candidates": 24,
+    "max_attempts": 400,
+    "timeout_s": 12.0,
+    "tactic_timeout_s": 3.0
+  },
+  "status": "verified",
+  "termination": "verified",
+  "nodes": [
+    {
+      "id": 0,
+      "parent": null,
+      "depth": 0,
+      "state": {
+        "state_id": 0,
+        "goals": [
+          {
+            "id": "_uniq.812",
+            "target": {
+              "text": "(a - b) * (a + b) = a ^ 2 - b ^ 2",
+              "head": "Eq",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "R",
+                "id": "_uniq.808",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "inst._@._stdin.2021293395._hygCtx._hyg.3",
+                "id": "_uniq.809",
+                "type": {
+                  "text": "CommRing R",
+                  "head": "CommRing",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "a",
+                "id": "_uniq.810",
+                "type": {
+                  "text": "R",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "b",
+                "id": "_uniq.811",
+                "type": {
+                  "text": "R",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              }
+            ]
+          }
+        ]
+      },
+      "tactic": null,
+      "category": null,
+      "lemma": null,
+      "provenance": null,
+      "reason": "Initial Lean goal",
+      "status": "root",
+      "error": null,
+      "elapsed_ms": 0.0,
+      "on_proof_path": true
+    },
+    {
+      "id": 1,
+      "parent": 0,
+      "depth": 1,
+      "state": null,
+      "tactic": "assumption",
+      "category": "goal",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Match the goal against the local context",
+      "status": "rejected",
+      "error": "Tactic `assumption` failed\n\nR : Type\ninst✝ : CommRing R\na b : R\n⊢ (a - b) * (a + b) = a ^ 2 - b ^ 2",
+      "elapsed_ms": 1.5361509999820555,
+      "on_proof_path": false
+    },
+    {
+      "id": 2,
+      "parent": 0,
+      "depth": 1,
+      "state": null,
+      "tactic": "rfl",
+      "category": "goal",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Check definitional equality",
+      "status": "rejected",
+      "error": "Tactic `rfl` failed: The left-hand side\n  (a - b) * (a + b)\nis not definitionally equal to the right-hand side\n  a ^ 2 - b ^ 2\n\nR : Type\ninst✝ : CommRing R\na b : R\n⊢ (a - b) * (a + b) = a ^ 2 - b ^ 2",
+      "elapsed_ms": 3.693459000032817,
+      "on_proof_path": false
+    },
+    {
+      "id": 3,
+      "parent": 0,
+      "depth": 1,
+      "state": {
+        "state_id": 1,
+        "goals": [
+          {
+            "id": "_uniq.825",
+            "target": {
+              "text": "a ^ 2 - b ^ 2 = (a - b) * (a + b)",
+              "head": "Eq",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "R",
+                "id": "_uniq.808",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "inst._@._stdin.2021293395._hygCtx._hyg.3",
+                "id": "_uniq.809",
+                "type": {
+                  "text": "CommRing R",
+                  "head": "CommRing",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "a",
+                "id": "_uniq.810",
+                "type": {
+                  "text": "R",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "b",
+                "id": "_uniq.811",
+                "type": {
+                  "text": "R",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              }
+            ]
+          }
+        ]
+      },
+      "tactic": "apply Eq.symm",
+      "category": "lemma",
+      "lemma": "Eq.symm",
+      "provenance": "Init.Prelude",
+      "reason": "Type-feature match: ('=',)",
+      "status": "accepted",
+      "error": null,
+      "elapsed_ms": 1.1520040000050358,
+      "on_proof_path": false
+    },
+    {
+      "id": 4,
+      "parent": 0,
+      "depth": 1,
+      "state": {
+        "state_id": 2,
+        "goals": [
+          {
+            "id": "_uniq.840",
+            "target": {
+              "text": "(a - b) * (a + b) = ?b",
+              "head": "Eq",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "R",
+                "id": "_uniq.808",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "inst._@._stdin.2021293395._hygCtx._hyg.3",
+                "id": "_uniq.809",
+                "type": {
+                  "text": "CommRing R",
+                  "head": "CommRing",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "a",
+                "id": "_uniq.810",
+                "type": {
+                  "text": "R",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "b",
+                "id": "_uniq.811",
+                "type": {
+                  "text": "R",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              }
+            ]
+          },
+          {
+            "id": "_uniq.841",
+            "target": {
+              "text": "?b = a ^ 2 - b ^ 2",
+              "head": "Eq",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "R",
+                "id": "_uniq.808",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "inst._@._stdin.2021293395._hygCtx._hyg.3",
+                "id": "_uniq.809",
+                "type": {
+                  "text": "CommRing R",
+                  "head": "CommRing",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "a",
+                "id": "_uniq.810",
+                "type": {
+                  "text": "R",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "b",
+                "id": "_uniq.811",
+                "type": {
+                  "text": "R",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              }
+            ]
+          },
+          {
+            "id": "_uniq.838",
+            "target": {
+              "text": "R",
+              "head": "[anonymous]",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "R",
+                "id": "_uniq.808",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "inst._@._stdin.2021293395._hygCtx._hyg.3",
+                "id": "_uniq.809",
+                "type": {
+                  "text": "CommRing R",
+                  "head": "CommRing",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "a",
+                "id": "_uniq.810",
+                "type": {
+                  "text": "R",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "b",
+                "id": "_uniq.811",
+                "type": {
+                  "text": "R",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              }
+            ]
+          }
+        ]
+      },
+      "tactic": "apply Eq.trans",
+      "category": "lemma",
+      "lemma": "Eq.trans",
+      "provenance": "Init.Prelude",
+      "reason": "Type-feature match: ('=',)",
+      "status": "accepted",
+      "error": null,
+      "elapsed_ms": 1.581370000167226,
+      "on_proof_path": false
+    },
+    {
+      "id": 5,
+      "parent": 0,
+      "depth": 1,
+      "state": null,
+      "tactic": "apply mul_assoc",
+      "category": "lemma",
+      "lemma": "mul_assoc",
+      "provenance": "Mathlib.Algebra.Group.Defs",
+      "reason": "Type-feature match: ('*',)",
+      "status": "rejected",
+      "error": "Tactic `apply` failed: could not unify the conclusion of `@mul_assoc`\n  ?a * ?b * ?c = ?a * (?b * ?c)\nwith the goal\n  (a - b) * (a + b) = a ^ 2 - b ^ 2\n\nNote: The full type of `@mul_assoc` is\n  ∀ {G : Type ?u.845} [inst : Semigroup G] (a b c : G), a * b * c = a * (b * c)\n\nR : Type\ninst✝ : CommRing R\na b : R\n⊢ (a - b) * (a + b) = a ^ 2 - b ^ 2",
+      "elapsed_ms": 20.976507000113997,
+      "on_proof_path": false
+    },
+    {
+      "id": 6,
+      "parent": 0,
+      "depth": 1,
+      "state": null,
+      "tactic": "apply mul_comm",
+      "category": "lemma",
+      "lemma": "mul_comm",
+      "provenance": "Mathlib.Algebra.Group.Defs",
+      "reason": "Type-feature match: ('*',)",
+      "status": "rejected",
+      "error": "Tactic `apply` failed: could not unify the conclusion of `@mul_comm`\n  ?a * ?b = ?b * ?a\nwith the goal\n  (a - b) * (a + b) = a ^ 2 - b ^ 2\n\nNote: The full type of `@mul_comm` is\n  ∀ {G : Type ?u.893} [inst : CommMagma G] (a b : G), a * b = b * a\n\nR : Type\ninst✝ : CommRing R\na b : R\n⊢ (a - b) * (a + b) = a ^ 2 - b ^ 2",
+      "elapsed_ms": 6.058665999944424,
+      "on_proof_path": false
+    },
+    {
+      "id": 7,
+      "parent": 0,
+      "depth": 1,
+      "state": null,
+      "tactic": "apply add_assoc",
+      "category": "lemma",
+      "lemma": "add_assoc",
+      "provenance": "Mathlib.Algebra.Group.Defs",
+      "reason": "Type-feature match: ('+',)",
+      "status": "rejected",
+      "error": "Tactic `apply` failed: could not unify the conclusion of `@add_assoc`\n  ?a + ?b + ?c = ?a + (?b + ?c)\nwith the goal\n  (a - b) * (a + b) = a ^ 2 - b ^ 2\n\nNote: The full type of `@add_assoc` is\n  ∀ {G : Type ?u.924} [inst : AddSemigroup G] (a b c : G), a + b + c = a + (b + c)\n\nR : Type\ninst✝ : CommRing R\na b : R\n⊢ (a - b) * (a + b) = a ^ 2 - b ^ 2",
+      "elapsed_ms": 15.843111999856774,
+      "on_proof_path": false
+    },
+    {
+      "id": 8,
+      "parent": 0,
+      "depth": 1,
+      "state": null,
+      "tactic": "apply add_comm",
+      "category": "lemma",
+      "lemma": "add_comm",
+      "provenance": "Mathlib.Algebra.Group.Defs",
+      "reason": "Type-feature match: ('+',)",
+      "status": "rejected",
+      "error": "Tactic `apply` failed: could not unify the conclusion of `@add_comm`\n  ?a + ?b = ?b + ?a\nwith the goal\n  (a - b) * (a + b) = a ^ 2 - b ^ 2\n\nNote: The full type of `@add_comm` is\n  ∀ {G : Type ?u.977} [inst : AddCommMagma G] (a b : G), a + b = b + a\n\nR : Type\ninst✝ : CommRing R\na b : R\n⊢ (a - b) * (a + b) = a ^ 2 - b ^ 2",
+      "elapsed_ms": 22.873071000049094,
+      "on_proof_path": false
+    },
+    {
+      "id": 9,
+      "parent": 0,
+      "depth": 1,
+      "state": null,
+      "tactic": "apply mul_add",
+      "category": "lemma",
+      "lemma": "mul_add",
+      "provenance": "Mathlib.Algebra.Ring.Defs",
+      "reason": "Type-feature match: ('*', '+')",
+      "status": "rejected",
+      "error": "Tactic `apply` failed: could not unify the conclusion of `@mul_add`\n  ?a * (?b + ?c) = ?a * ?b + ?a * ?c\nwith the goal\n  (a - b) * (a + b) = a ^ 2 - b ^ 2\n\nNote: The full type of `@mul_add` is\n  ∀ {R : Type ?u.1032} [inst : Mul R] [inst_1 : Add R] [LeftDistribClass R] (a b c : R), a * (b + c) = a * b + a * c\n\nR : Type\ninst✝ : CommRing R\na b : R\n⊢ (a - b) * (a + b) = a ^ 2 - b ^ 2",
+      "elapsed_ms": 12.145948000124918,
+      "on_proof_path": false
+    },
+    {
+      "id": 10,
+      "parent": 0,
+      "depth": 1,
+      "state": null,
+      "tactic": "apply add_mul",
+      "category": "lemma",
+      "lemma": "add_mul",
+      "provenance": "Mathlib.Algebra.Ring.Defs",
+      "reason": "Type-feature match: ('*', '+')",
+      "status": "rejected",
+      "error": "Tactic `apply` failed: could not unify the conclusion of `@add_mul`\n  (?a + ?b) * ?c = ?a * ?c + ?b * ?c\nwith the goal\n  (a - b) * (a + b) = a ^ 2 - b ^ 2\n\nNote: The full type of `@add_mul` is\n  ∀ {R : Type ?u.1061} [inst : Mul R] [inst_1 : Add R] [RightDistribClass R] (a b c : R), (a + b) * c = a * c + b * c\n\nR : Type\ninst✝ : CommRing R\na b : R\n⊢ (a - b) * (a + b) = a ^ 2 - b ^ 2",
+      "elapsed_ms": 46.13890300015555,
+      "on_proof_path": false
+    },
+    {
+      "id": 11,
+      "parent": 0,
+      "depth": 1,
+      "state": {
+        "state_id": 3,
+        "goals": []
+      },
+      "tactic": "ring",
+      "category": "specialized",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Normalize a polynomial equality (Mathlib ring)",
+      "status": "solved",
+      "error": null,
+      "elapsed_ms": 12.457586999971682,
+      "on_proof_path": true
+    }
+  ],
+  "metrics": {
+    "attempted_candidates": 11,
+    "accepted_transitions": 3,
+    "rejected_candidates": 8,
+    "expanded_states": 1,
+    "frontier": 2,
+    "max_depth": 1,
+    "proof_length": 1,
+    "elapsed_s": 3.5865391129998443,
+    "lean_execution_s": 0.14445677800040357,
+    "initialization_s": 1.8152117060001274,
+    "verification_s": 1.6076431929998307,
+    "planning_s": 0.0002805419999276637
+  },
+  "proof": [
+    "ring"
+  ],
+  "lean_source": "import ProofLab.Bridge\n\nset_option maxHeartbeats 300000\ntheorem prooflab_result (R : Type) [CommRing R] (a b : R) : (a-b)*(a+b) = a^2-b^2 := by\n  ring\n\n#prooflab_audit prooflab_result\n",
+  "verification": {
+    "verified": true,
+    "axioms": [
+      "propext",
+      "Quot.sound"
+    ],
+    "error": null,
+    "elapsed_s": 1.6076431929998307,
+    "source_sha256": "1510e71dc51a9bdd24b2634ac72020273b539ae37a62bd308c67048b5db8ca48"
+  },
+  "metadata": {
+    "code_commit": "f91bb03a141dfca5a34b3e12880a80837724aa00",
+    "lean_version": "leanprover/lean4:v4.24.0",
+    "mathlib_revision": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7",
+    "python": "3.12.14",
+    "platform": "Linux-6.18.55-x86_64-with-glibc2.41",
+    "machine": "x86_64",
+    "processor": "",
+    "seed": "0 (deterministic)",
+    "state_identity": "Exact tactic prefix within one native session; no semantic merging"
+  },
+  "error": null,
+  "proof_origin": "specialized_tactic"
+}

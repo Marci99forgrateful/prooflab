@@ -1,0 +1,225 @@
+{
+  "schema_version": 1,
+  "task": {
+    "id": "set_inter_monotone",
+    "title": "Intersection monotonicity",
+    "domain": "sets",
+    "difficulty": "moderate",
+    "split": "development",
+    "binders": "(α : Type) (A B C : Set α) (h : A ⊆ B)",
+    "target": "A ∩ C ⊆ B ∩ C",
+    "display": "A ⊆ B ⊢ A ∩ C ⊆ B ∩ C",
+    "description": "Intersection monotonicity. Search uses the same candidate generator as all other tasks.",
+    "origin": "Original benchmark statement; mathematical result is not claimed novel.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  "algorithm": "automation",
+  "budget": {
+    "max_depth": 7,
+    "max_expansions": 60,
+    "max_candidates": 24,
+    "max_attempts": 400,
+    "timeout_s": 12.0,
+    "tactic_timeout_s": 3.0
+  },
+  "status": "not_found_within_budget",
+  "termination": "search_exhausted",
+  "nodes": [
+    {
+      "id": 0,
+      "parent": null,
+      "depth": 0,
+      "state": {
+        "state_id": 0,
+        "goals": [
+          {
+            "id": "_uniq.72",
+            "target": {
+              "text": "A ∩ C ⊆ B ∩ C",
+              "head": "[anonymous]",
+              "forall": true
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.67",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "A",
+                "id": "_uniq.68",
+                "type": {
+                  "text": "Set α",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "B",
+                "id": "_uniq.69",
+                "type": {
+                  "text": "Set α",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "C",
+                "id": "_uniq.70",
+                "type": {
+                  "text": "Set α",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "h",
+                "id": "_uniq.71",
+                "type": {
+                  "text": "A ⊆ B",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": true
+              }
+            ]
+          }
+        ]
+      },
+      "tactic": null,
+      "category": null,
+      "lemma": null,
+      "provenance": null,
+      "reason": "Initial Lean goal",
+      "status": "root",
+      "error": null,
+      "elapsed_ms": 0.0,
+      "on_proof_path": false
+    },
+    {
+      "id": 1,
+      "parent": 0,
+      "depth": 1,
+      "state": {
+        "state_id": 1,
+        "goals": [
+          {
+            "id": "_uniq.265",
+            "target": {
+              "text": "A ∩ C ⊆ B",
+              "head": "[anonymous]",
+              "forall": true
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.67",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "A",
+                "id": "_uniq.68",
+                "type": {
+                  "text": "Set α",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "B",
+                "id": "_uniq.69",
+                "type": {
+                  "text": "Set α",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "C",
+                "id": "_uniq.70",
+                "type": {
+                  "text": "Set α",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "h",
+                "id": "_uniq.71",
+                "type": {
+                  "text": "A ⊆ B",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": true
+              }
+            ]
+          }
+        ]
+      },
+      "tactic": "aesop",
+      "category": "reference",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Native Aesop baseline; not a ProofLab algorithm",
+      "status": "accepted",
+      "error": null,
+      "elapsed_ms": 32.71882899980483,
+      "on_proof_path": false
+    }
+  ],
+  "metrics": {
+    "attempted_candidates": 1,
+    "accepted_transitions": 1,
+    "rejected_candidates": 0,
+    "expanded_states": 1,
+    "frontier": 1,
+    "max_depth": 1,
+    "proof_length": 0,
+    "elapsed_s": 1.7439488429999983,
+    "lean_execution_s": 0.03271882899980483,
+    "initialization_s": 1.679117892000022,
+    "verification_s": 0.0,
+    "planning_s": 0.00028537999992295227
+  },
+  "proof": [],
+  "lean_source": null,
+  "verification": {
+    "verified": false,
+    "axioms": [],
+    "error": null,
+    "elapsed_s": 0.0,
+    "source_sha256": null
+  },
+  "metadata": {
+    "code_commit": "f91bb03a141dfca5a34b3e12880a80837724aa00",
+    "lean_version": "leanprover/lean4:v4.24.0",
+    "mathlib_revision": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7",
+    "python": "3.12.14",
+    "platform": "Linux-6.18.55-x86_64-with-glibc2.41",
+    "machine": "x86_64",
+    "processor": "",
+    "seed": "0 (deterministic)",
+    "state_identity": "Exact tactic prefix within one native session; no semantic merging"
+  },
+  "error": null,
+  "proof_origin": null
+}

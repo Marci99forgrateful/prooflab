@@ -1,0 +1,441 @@
+{
+  "schema_version": 1,
+  "task": {
+    "id": "set_inter_member",
+    "title": "Construct intersection membership",
+    "domain": "sets",
+    "difficulty": "moderate",
+    "split": "development",
+    "binders": "(α : Type) (A B : Set α) (x : α) (ha : x ∈ A) (hb : x ∈ B)",
+    "target": "x ∈ A ∩ B",
+    "display": "x ∈ A, x ∈ B ⊢ x ∈ A ∩ B",
+    "description": "Construct intersection membership. Search uses the same candidate generator as all other tasks.",
+    "origin": "Original benchmark statement; mathematical result is not claimed novel.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  "algorithm": "best_first",
+  "budget": {
+    "max_depth": 7,
+    "max_expansions": 60,
+    "max_candidates": 24,
+    "max_attempts": 400,
+    "timeout_s": 12.0,
+    "tactic_timeout_s": 3.0
+  },
+  "status": "verified",
+  "termination": "verified",
+  "nodes": [
+    {
+      "id": 0,
+      "parent": null,
+      "depth": 0,
+      "state": {
+        "state_id": 0,
+        "goals": [
+          {
+            "id": "_uniq.157",
+            "target": {
+              "text": "x ∈ A ∩ B",
+              "head": "And",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.151",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "A",
+                "id": "_uniq.152",
+                "type": {
+                  "text": "Set α",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "B",
+                "id": "_uniq.153",
+                "type": {
+                  "text": "Set α",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "x",
+                "id": "_uniq.154",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "ha",
+                "id": "_uniq.155",
+                "type": {
+                  "text": "x ∈ A",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              },
+              {
+                "name": "hb",
+                "id": "_uniq.156",
+                "type": {
+                  "text": "x ∈ B",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              }
+            ]
+          }
+        ]
+      },
+      "tactic": null,
+      "category": null,
+      "lemma": null,
+      "provenance": null,
+      "reason": "Initial Lean goal",
+      "status": "root",
+      "error": null,
+      "elapsed_ms": 0.0,
+      "on_proof_path": true
+    },
+    {
+      "id": 1,
+      "parent": 0,
+      "depth": 1,
+      "state": null,
+      "tactic": "assumption",
+      "category": "goal",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Match the goal against the local context",
+      "status": "rejected",
+      "error": "Tactic `assumption` failed\n\nα : Type\nA B : Set α\nx : α\nha : x ∈ A\nhb : x ∈ B\n⊢ x ∈ A ∩ B",
+      "elapsed_ms": 1.7867080000542046,
+      "on_proof_path": false
+    },
+    {
+      "id": 2,
+      "parent": 0,
+      "depth": 1,
+      "state": {
+        "state_id": 1,
+        "goals": [
+          {
+            "id": "_uniq.164",
+            "target": {
+              "text": "x ∈ A",
+              "head": "[anonymous]",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.151",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "A",
+                "id": "_uniq.152",
+                "type": {
+                  "text": "Set α",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "B",
+                "id": "_uniq.153",
+                "type": {
+                  "text": "Set α",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "x",
+                "id": "_uniq.154",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "ha",
+                "id": "_uniq.155",
+                "type": {
+                  "text": "x ∈ A",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              },
+              {
+                "name": "hb",
+                "id": "_uniq.156",
+                "type": {
+                  "text": "x ∈ B",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              }
+            ]
+          },
+          {
+            "id": "_uniq.165",
+            "target": {
+              "text": "x ∈ B",
+              "head": "[anonymous]",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.151",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "A",
+                "id": "_uniq.152",
+                "type": {
+                  "text": "Set α",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "B",
+                "id": "_uniq.153",
+                "type": {
+                  "text": "Set α",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "x",
+                "id": "_uniq.154",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "ha",
+                "id": "_uniq.155",
+                "type": {
+                  "text": "x ∈ A",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              },
+              {
+                "name": "hb",
+                "id": "_uniq.156",
+                "type": {
+                  "text": "x ∈ B",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              }
+            ]
+          }
+        ]
+      },
+      "tactic": "constructor",
+      "category": "goal",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Split the goal into its components",
+      "status": "accepted",
+      "error": null,
+      "elapsed_ms": 2.2259290001329646,
+      "on_proof_path": true
+    },
+    {
+      "id": 3,
+      "parent": 2,
+      "depth": 2,
+      "state": {
+        "state_id": 2,
+        "goals": [
+          {
+            "id": "_uniq.165",
+            "target": {
+              "text": "x ∈ B",
+              "head": "[anonymous]",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.151",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "A",
+                "id": "_uniq.152",
+                "type": {
+                  "text": "Set α",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "B",
+                "id": "_uniq.153",
+                "type": {
+                  "text": "Set α",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "x",
+                "id": "_uniq.154",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "ha",
+                "id": "_uniq.155",
+                "type": {
+                  "text": "x ∈ A",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              },
+              {
+                "name": "hb",
+                "id": "_uniq.156",
+                "type": {
+                  "text": "x ∈ B",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              }
+            ]
+          }
+        ]
+      },
+      "tactic": "assumption",
+      "category": "goal",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Match the goal against the local context",
+      "status": "accepted",
+      "error": null,
+      "elapsed_ms": 1.0643919999893114,
+      "on_proof_path": true
+    },
+    {
+      "id": 4,
+      "parent": 3,
+      "depth": 3,
+      "state": {
+        "state_id": 3,
+        "goals": []
+      },
+      "tactic": "assumption",
+      "category": "goal",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Match the goal against the local context",
+      "status": "solved",
+      "error": null,
+      "elapsed_ms": 0.1430649999747402,
+      "on_proof_path": true
+    }
+  ],
+  "metrics": {
+    "attempted_candidates": 4,
+    "accepted_transitions": 3,
+    "rejected_candidates": 1,
+    "expanded_states": 3,
+    "frontier": 0,
+    "max_depth": 3,
+    "proof_length": 3,
+    "elapsed_s": 3.384473694999997,
+    "lean_execution_s": 0.005220094000151221,
+    "initialization_s": 1.7231301189999613,
+    "verification_s": 1.6356068289999257,
+    "planning_s": 0.0006839000000127271
+  },
+  "proof": [
+    "constructor",
+    "assumption",
+    "assumption"
+  ],
+  "lean_source": "import ProofLab.Bridge\n\nset_option maxHeartbeats 300000\ntheorem prooflab_result (α : Type) (A B : Set α) (x : α) (ha : x ∈ A) (hb : x ∈ B) : x ∈ A ∩ B := by\n  constructor\n  assumption\n  assumption\n\n#prooflab_audit prooflab_result\n",
+  "verification": {
+    "verified": true,
+    "axioms": [],
+    "error": null,
+    "elapsed_s": 1.6356068289999257,
+    "source_sha256": "fc5ff124f69640f9c279d592cffec0ee2ce89d2a5512153bd41e5d4cf4f17ea6"
+  },
+  "metadata": {
+    "code_commit": "f91bb03a141dfca5a34b3e12880a80837724aa00",
+    "lean_version": "leanprover/lean4:v4.24.0",
+    "mathlib_revision": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7",
+    "python": "3.12.14",
+    "platform": "Linux-6.18.55-x86_64-with-glibc2.41",
+    "machine": "x86_64",
+    "processor": "",
+    "seed": "0 (deterministic)",
+    "state_identity": "Exact tactic prefix within one native session; no semantic merging"
+  },
+  "error": null,
+  "proof_origin": "constructed_derivation"
+}

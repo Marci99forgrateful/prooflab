@@ -1,0 +1,3799 @@
+{
+  "schema_version": 1,
+  "task": {
+    "id": "chain_conjunction",
+    "title": "Parallel order conclusions",
+    "domain": "order",
+    "difficulty": "moderate",
+    "split": "development",
+    "binders": "(α : Type) [PartialOrder α] (a b c : α) (hab : a ≤ b) (hbc : b ≤ c)",
+    "target": "a ≤ c ∧ a ≤ b",
+    "display": "a ≤ b ≤ c ⊢ (a ≤ c) ∧ (a ≤ b)",
+    "description": "Parallel order conclusions. Search uses the same candidate generator as all other tasks.",
+    "origin": "Original benchmark statement; mathematical result is not claimed novel.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  "algorithm": "bfs",
+  "budget": {
+    "max_depth": 7,
+    "max_expansions": 60,
+    "max_candidates": 24,
+    "max_attempts": 400,
+    "timeout_s": 12.0,
+    "tactic_timeout_s": 3.0
+  },
+  "status": "verified",
+  "termination": "verified",
+  "nodes": [
+    {
+      "id": 0,
+      "parent": null,
+      "depth": 0,
+      "state": {
+        "state_id": 0,
+        "goals": [
+          {
+            "id": "_uniq.48",
+            "target": {
+              "text": "a ≤ c ∧ a ≤ b",
+              "head": "And",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.41",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "inst._@._stdin.2021293395._hygCtx._hyg.3",
+                "id": "_uniq.42",
+                "type": {
+                  "text": "PartialOrder α",
+                  "head": "PartialOrder",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "a",
+                "id": "_uniq.43",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "b",
+                "id": "_uniq.44",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "c",
+                "id": "_uniq.45",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "hab",
+                "id": "_uniq.46",
+                "type": {
+                  "text": "a ≤ b",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              },
+              {
+                "name": "hbc",
+                "id": "_uniq.47",
+                "type": {
+                  "text": "b ≤ c",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              }
+            ]
+          }
+        ]
+      },
+      "tactic": null,
+      "category": null,
+      "lemma": null,
+      "provenance": null,
+      "reason": "Initial Lean goal",
+      "status": "root",
+      "error": null,
+      "elapsed_ms": 0.0,
+      "on_proof_path": true
+    },
+    {
+      "id": 1,
+      "parent": 0,
+      "depth": 1,
+      "state": {
+        "state_id": 1,
+        "goals": [
+          {
+            "id": "_uniq.55",
+            "target": {
+              "text": "a ≤ c",
+              "head": "[anonymous]",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.41",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "inst._@._stdin.2021293395._hygCtx._hyg.3",
+                "id": "_uniq.42",
+                "type": {
+                  "text": "PartialOrder α",
+                  "head": "PartialOrder",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "a",
+                "id": "_uniq.43",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "b",
+                "id": "_uniq.44",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "c",
+                "id": "_uniq.45",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "hab",
+                "id": "_uniq.46",
+                "type": {
+                  "text": "a ≤ b",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              },
+              {
+                "name": "hbc",
+                "id": "_uniq.47",
+                "type": {
+                  "text": "b ≤ c",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              }
+            ]
+          },
+          {
+            "id": "_uniq.56",
+            "target": {
+              "text": "a ≤ b",
+              "head": "[anonymous]",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.41",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "inst._@._stdin.2021293395._hygCtx._hyg.3",
+                "id": "_uniq.42",
+                "type": {
+                  "text": "PartialOrder α",
+                  "head": "PartialOrder",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "a",
+                "id": "_uniq.43",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "b",
+                "id": "_uniq.44",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "c",
+                "id": "_uniq.45",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "hab",
+                "id": "_uniq.46",
+                "type": {
+                  "text": "a ≤ b",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              },
+              {
+                "name": "hbc",
+                "id": "_uniq.47",
+                "type": {
+                  "text": "b ≤ c",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              }
+            ]
+          }
+        ]
+      },
+      "tactic": "constructor",
+      "category": "goal",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Split the goal into its components",
+      "status": "accepted",
+      "error": null,
+      "elapsed_ms": 2.2318589999485994,
+      "on_proof_path": true
+    },
+    {
+      "id": 2,
+      "parent": 0,
+      "depth": 1,
+      "state": null,
+      "tactic": "assumption",
+      "category": "goal",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Match the goal against the local context",
+      "status": "rejected",
+      "error": "Tactic `assumption` failed\n\nα : Type\ninst✝ : PartialOrder α\na b c : α\nhab : a ≤ b\nhbc : b ≤ c\n⊢ a ≤ c ∧ a ≤ b",
+      "elapsed_ms": 1.1731150000287016,
+      "on_proof_path": false
+    },
+    {
+      "id": 3,
+      "parent": 0,
+      "depth": 1,
+      "state": null,
+      "tactic": "apply le_refl",
+      "category": "lemma",
+      "lemma": "le_refl",
+      "provenance": "Mathlib.Order.Defs.PartialOrder",
+      "reason": "Type-feature match: ('≤',)",
+      "status": "rejected",
+      "error": "Tactic `apply` failed: could not unify the conclusion of `@le_refl`\n  ?a ≤ ?a\nwith the goal\n  a ≤ c ∧ a ≤ b\n\nNote: The full type of `@le_refl` is\n  ∀ {α : Type ?u.57} [inst : Preorder α] (a : α), a ≤ a\n\nα : Type\ninst✝ : PartialOrder α\na b c : α\nhab : a ≤ b\nhbc : b ≤ c\n⊢ a ≤ c ∧ a ≤ b",
+      "elapsed_ms": 2.357467000138058,
+      "on_proof_path": false
+    },
+    {
+      "id": 4,
+      "parent": 0,
+      "depth": 1,
+      "state": null,
+      "tactic": "apply le_trans",
+      "category": "lemma",
+      "lemma": "le_trans",
+      "provenance": "Mathlib.Order.Defs.PartialOrder",
+      "reason": "Type-feature match: ('≤',)",
+      "status": "rejected",
+      "error": "Tactic `apply` failed: could not unify the conclusion of `@le_trans`\n  ?a ≤ ?c\nwith the goal\n  a ≤ c ∧ a ≤ b\n\nNote: The full type of `@le_trans` is\n  ∀ {α : Type ?u.134} [inst : Preorder α] {a b c : α}, a ≤ b → b ≤ c → a ≤ c\n\nα : Type\ninst✝ : PartialOrder α\na b c : α\nhab : a ≤ b\nhbc : b ≤ c\n⊢ a ≤ c ∧ a ≤ b",
+      "elapsed_ms": 2.9667539999991277,
+      "on_proof_path": false
+    },
+    {
+      "id": 5,
+      "parent": 1,
+      "depth": 2,
+      "state": null,
+      "tactic": "assumption",
+      "category": "goal",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Match the goal against the local context",
+      "status": "rejected",
+      "error": "Tactic `assumption` failed\n\ncase left\nα : Type\ninst✝ : PartialOrder α\na b c : α\nhab : a ≤ b\nhbc : b ≤ c\n⊢ a ≤ c",
+      "elapsed_ms": 1.4398260000234586,
+      "on_proof_path": false
+    },
+    {
+      "id": 6,
+      "parent": 1,
+      "depth": 2,
+      "state": null,
+      "tactic": "apply le_refl",
+      "category": "lemma",
+      "lemma": "le_refl",
+      "provenance": "Mathlib.Order.Defs.PartialOrder",
+      "reason": "Type-feature match: ('≤',)",
+      "status": "rejected",
+      "error": "Tactic `apply` failed: could not unify the conclusion of `@le_refl`\n  ?a ≤ ?a\nwith the goal\n  a ≤ c\n\nNote: The full type of `@le_refl` is\n  ∀ {α : Type ?u.225} [inst : Preorder α] (a : α), a ≤ a\n\ncase left\nα : Type\ninst✝ : PartialOrder α\na b c : α\nhab : a ≤ b\nhbc : b ≤ c\n⊢ a ≤ c",
+      "elapsed_ms": 2.195502999938981,
+      "on_proof_path": false
+    },
+    {
+      "id": 7,
+      "parent": 1,
+      "depth": 2,
+      "state": {
+        "state_id": 2,
+        "goals": [
+          {
+            "id": "_uniq.301",
+            "target": {
+              "text": "a ≤ ?left.b",
+              "head": "[anonymous]",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.41",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "inst._@._stdin.2021293395._hygCtx._hyg.3",
+                "id": "_uniq.42",
+                "type": {
+                  "text": "PartialOrder α",
+                  "head": "PartialOrder",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "a",
+                "id": "_uniq.43",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "b",
+                "id": "_uniq.44",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "c",
+                "id": "_uniq.45",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "hab",
+                "id": "_uniq.46",
+                "type": {
+                  "text": "a ≤ b",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              },
+              {
+                "name": "hbc",
+                "id": "_uniq.47",
+                "type": {
+                  "text": "b ≤ c",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              }
+            ]
+          },
+          {
+            "id": "_uniq.302",
+            "target": {
+              "text": "?left.b ≤ c",
+              "head": "[anonymous]",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.41",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "inst._@._stdin.2021293395._hygCtx._hyg.3",
+                "id": "_uniq.42",
+                "type": {
+                  "text": "PartialOrder α",
+                  "head": "PartialOrder",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "a",
+                "id": "_uniq.43",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "b",
+                "id": "_uniq.44",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "c",
+                "id": "_uniq.45",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "hab",
+                "id": "_uniq.46",
+                "type": {
+                  "text": "a ≤ b",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              },
+              {
+                "name": "hbc",
+                "id": "_uniq.47",
+                "type": {
+                  "text": "b ≤ c",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              }
+            ]
+          },
+          {
+            "id": "_uniq.299",
+            "target": {
+              "text": "α",
+              "head": "[anonymous]",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.41",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "inst._@._stdin.2021293395._hygCtx._hyg.3",
+                "id": "_uniq.42",
+                "type": {
+                  "text": "PartialOrder α",
+                  "head": "PartialOrder",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "a",
+                "id": "_uniq.43",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "b",
+                "id": "_uniq.44",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "c",
+                "id": "_uniq.45",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "hab",
+                "id": "_uniq.46",
+                "type": {
+                  "text": "a ≤ b",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              },
+              {
+                "name": "hbc",
+                "id": "_uniq.47",
+                "type": {
+                  "text": "b ≤ c",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              }
+            ]
+          },
+          {
+            "id": "_uniq.56",
+            "target": {
+              "text": "a ≤ b",
+              "head": "[anonymous]",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.41",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "inst._@._stdin.2021293395._hygCtx._hyg.3",
+                "id": "_uniq.42",
+                "type": {
+                  "text": "PartialOrder α",
+                  "head": "PartialOrder",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "a",
+                "id": "_uniq.43",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "b",
+                "id": "_uniq.44",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "c",
+                "id": "_uniq.45",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "hab",
+                "id": "_uniq.46",
+                "type": {
+                  "text": "a ≤ b",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              },
+              {
+                "name": "hbc",
+                "id": "_uniq.47",
+                "type": {
+                  "text": "b ≤ c",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              }
+            ]
+          }
+        ]
+      },
+      "tactic": "apply le_trans",
+      "category": "lemma",
+      "lemma": "le_trans",
+      "provenance": "Mathlib.Order.Defs.PartialOrder",
+      "reason": "Type-feature match: ('≤',)",
+      "status": "accepted",
+      "error": null,
+      "elapsed_ms": 3.36111699994035,
+      "on_proof_path": true
+    },
+    {
+      "id": 8,
+      "parent": 7,
+      "depth": 3,
+      "state": {
+        "state_id": 3,
+        "goals": [
+          {
+            "id": "_uniq.302",
+            "target": {
+              "text": "b ≤ c",
+              "head": "[anonymous]",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.41",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "inst._@._stdin.2021293395._hygCtx._hyg.3",
+                "id": "_uniq.42",
+                "type": {
+                  "text": "PartialOrder α",
+                  "head": "PartialOrder",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "a",
+                "id": "_uniq.43",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "b",
+                "id": "_uniq.44",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "c",
+                "id": "_uniq.45",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "hab",
+                "id": "_uniq.46",
+                "type": {
+                  "text": "a ≤ b",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              },
+              {
+                "name": "hbc",
+                "id": "_uniq.47",
+                "type": {
+                  "text": "b ≤ c",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              }
+            ]
+          },
+          {
+            "id": "_uniq.56",
+            "target": {
+              "text": "a ≤ b",
+              "head": "[anonymous]",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.41",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "inst._@._stdin.2021293395._hygCtx._hyg.3",
+                "id": "_uniq.42",
+                "type": {
+                  "text": "PartialOrder α",
+                  "head": "PartialOrder",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "a",
+                "id": "_uniq.43",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "b",
+                "id": "_uniq.44",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "c",
+                "id": "_uniq.45",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "hab",
+                "id": "_uniq.46",
+                "type": {
+                  "text": "a ≤ b",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              },
+              {
+                "name": "hbc",
+                "id": "_uniq.47",
+                "type": {
+                  "text": "b ≤ c",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              }
+            ]
+          }
+        ]
+      },
+      "tactic": "assumption",
+      "category": "goal",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Match the goal against the local context",
+      "status": "accepted",
+      "error": null,
+      "elapsed_ms": 1.8790069998431136,
+      "on_proof_path": true
+    },
+    {
+      "id": 9,
+      "parent": 7,
+      "depth": 3,
+      "state": {
+        "state_id": 4,
+        "goals": [
+          {
+            "id": "_uniq.302",
+            "target": {
+              "text": "a ≤ c",
+              "head": "[anonymous]",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.41",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "inst._@._stdin.2021293395._hygCtx._hyg.3",
+                "id": "_uniq.42",
+                "type": {
+                  "text": "PartialOrder α",
+                  "head": "PartialOrder",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "a",
+                "id": "_uniq.43",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "b",
+                "id": "_uniq.44",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "c",
+                "id": "_uniq.45",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "hab",
+                "id": "_uniq.46",
+                "type": {
+                  "text": "a ≤ b",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              },
+              {
+                "name": "hbc",
+                "id": "_uniq.47",
+                "type": {
+                  "text": "b ≤ c",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              }
+            ]
+          },
+          {
+            "id": "_uniq.56",
+            "target": {
+              "text": "a ≤ b",
+              "head": "[anonymous]",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.41",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "inst._@._stdin.2021293395._hygCtx._hyg.3",
+                "id": "_uniq.42",
+                "type": {
+                  "text": "PartialOrder α",
+                  "head": "PartialOrder",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "a",
+                "id": "_uniq.43",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "b",
+                "id": "_uniq.44",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "c",
+                "id": "_uniq.45",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "hab",
+                "id": "_uniq.46",
+                "type": {
+                  "text": "a ≤ b",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              },
+              {
+                "name": "hbc",
+                "id": "_uniq.47",
+                "type": {
+                  "text": "b ≤ c",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              }
+            ]
+          }
+        ]
+      },
+      "tactic": "apply le_refl",
+      "category": "lemma",
+      "lemma": "le_refl",
+      "provenance": "Mathlib.Order.Defs.PartialOrder",
+      "reason": "Type-feature match: ('≤',)",
+      "status": "accepted",
+      "error": null,
+      "elapsed_ms": 1.5216099998269783,
+      "on_proof_path": false
+    },
+    {
+      "id": 10,
+      "parent": 7,
+      "depth": 3,
+      "state": {
+        "state_id": 5,
+        "goals": [
+          {
+            "id": "_uniq.345",
+            "target": {
+              "text": "a ≤ ?left.a.b",
+              "head": "[anonymous]",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.41",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "inst._@._stdin.2021293395._hygCtx._hyg.3",
+                "id": "_uniq.42",
+                "type": {
+                  "text": "PartialOrder α",
+                  "head": "PartialOrder",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "a",
+                "id": "_uniq.43",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "b",
+                "id": "_uniq.44",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "c",
+                "id": "_uniq.45",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "hab",
+                "id": "_uniq.46",
+                "type": {
+                  "text": "a ≤ b",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              },
+              {
+                "name": "hbc",
+                "id": "_uniq.47",
+                "type": {
+                  "text": "b ≤ c",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              }
+            ]
+          },
+          {
+            "id": "_uniq.346",
+            "target": {
+              "text": "?left.a.b ≤ ?left.b",
+              "head": "[anonymous]",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.41",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "inst._@._stdin.2021293395._hygCtx._hyg.3",
+                "id": "_uniq.42",
+                "type": {
+                  "text": "PartialOrder α",
+                  "head": "PartialOrder",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "a",
+                "id": "_uniq.43",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "b",
+                "id": "_uniq.44",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "c",
+                "id": "_uniq.45",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "hab",
+                "id": "_uniq.46",
+                "type": {
+                  "text": "a ≤ b",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              },
+              {
+                "name": "hbc",
+                "id": "_uniq.47",
+                "type": {
+                  "text": "b ≤ c",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              }
+            ]
+          },
+          {
+            "id": "_uniq.343",
+            "target": {
+              "text": "α",
+              "head": "[anonymous]",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.41",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "inst._@._stdin.2021293395._hygCtx._hyg.3",
+                "id": "_uniq.42",
+                "type": {
+                  "text": "PartialOrder α",
+                  "head": "PartialOrder",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "a",
+                "id": "_uniq.43",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "b",
+                "id": "_uniq.44",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "c",
+                "id": "_uniq.45",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "hab",
+                "id": "_uniq.46",
+                "type": {
+                  "text": "a ≤ b",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              },
+              {
+                "name": "hbc",
+                "id": "_uniq.47",
+                "type": {
+                  "text": "b ≤ c",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              }
+            ]
+          },
+          {
+            "id": "_uniq.302",
+            "target": {
+              "text": "?left.b ≤ c",
+              "head": "[anonymous]",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.41",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "inst._@._stdin.2021293395._hygCtx._hyg.3",
+                "id": "_uniq.42",
+                "type": {
+                  "text": "PartialOrder α",
+                  "head": "PartialOrder",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "a",
+                "id": "_uniq.43",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "b",
+                "id": "_uniq.44",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "c",
+                "id": "_uniq.45",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "hab",
+                "id": "_uniq.46",
+                "type": {
+                  "text": "a ≤ b",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              },
+              {
+                "name": "hbc",
+                "id": "_uniq.47",
+                "type": {
+                  "text": "b ≤ c",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              }
+            ]
+          },
+          {
+            "id": "_uniq.299",
+            "target": {
+              "text": "α",
+              "head": "[anonymous]",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.41",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "inst._@._stdin.2021293395._hygCtx._hyg.3",
+                "id": "_uniq.42",
+                "type": {
+                  "text": "PartialOrder α",
+                  "head": "PartialOrder",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "a",
+                "id": "_uniq.43",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "b",
+                "id": "_uniq.44",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "c",
+                "id": "_uniq.45",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "hab",
+                "id": "_uniq.46",
+                "type": {
+                  "text": "a ≤ b",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              },
+              {
+                "name": "hbc",
+                "id": "_uniq.47",
+                "type": {
+                  "text": "b ≤ c",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              }
+            ]
+          },
+          {
+            "id": "_uniq.56",
+            "target": {
+              "text": "a ≤ b",
+              "head": "[anonymous]",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.41",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "inst._@._stdin.2021293395._hygCtx._hyg.3",
+                "id": "_uniq.42",
+                "type": {
+                  "text": "PartialOrder α",
+                  "head": "PartialOrder",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "a",
+                "id": "_uniq.43",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "b",
+                "id": "_uniq.44",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "c",
+                "id": "_uniq.45",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "hab",
+                "id": "_uniq.46",
+                "type": {
+                  "text": "a ≤ b",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              },
+              {
+                "name": "hbc",
+                "id": "_uniq.47",
+                "type": {
+                  "text": "b ≤ c",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              }
+            ]
+          }
+        ]
+      },
+      "tactic": "apply le_trans",
+      "category": "lemma",
+      "lemma": "le_trans",
+      "provenance": "Mathlib.Order.Defs.PartialOrder",
+      "reason": "Type-feature match: ('≤',)",
+      "status": "accepted",
+      "error": null,
+      "elapsed_ms": 3.921109999964756,
+      "on_proof_path": false
+    },
+    {
+      "id": 11,
+      "parent": 8,
+      "depth": 4,
+      "state": {
+        "state_id": 6,
+        "goals": [
+          {
+            "id": "_uniq.56",
+            "target": {
+              "text": "a ≤ b",
+              "head": "[anonymous]",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.41",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "inst._@._stdin.2021293395._hygCtx._hyg.3",
+                "id": "_uniq.42",
+                "type": {
+                  "text": "PartialOrder α",
+                  "head": "PartialOrder",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "a",
+                "id": "_uniq.43",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "b",
+                "id": "_uniq.44",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "c",
+                "id": "_uniq.45",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "hab",
+                "id": "_uniq.46",
+                "type": {
+                  "text": "a ≤ b",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              },
+              {
+                "name": "hbc",
+                "id": "_uniq.47",
+                "type": {
+                  "text": "b ≤ c",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              }
+            ]
+          }
+        ]
+      },
+      "tactic": "assumption",
+      "category": "goal",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Match the goal against the local context",
+      "status": "accepted",
+      "error": null,
+      "elapsed_ms": 0.814766000075906,
+      "on_proof_path": true
+    },
+    {
+      "id": 12,
+      "parent": 8,
+      "depth": 4,
+      "state": null,
+      "tactic": "apply le_refl",
+      "category": "lemma",
+      "lemma": "le_refl",
+      "provenance": "Mathlib.Order.Defs.PartialOrder",
+      "reason": "Type-feature match: ('≤',)",
+      "status": "rejected",
+      "error": "Tactic `apply` failed: could not unify the conclusion of `@le_refl`\n  ?a ≤ ?a\nwith the goal\n  b ≤ c\n\nNote: The full type of `@le_refl` is\n  ∀ {α : Type ?u.351} [inst : Preorder α] (a : α), a ≤ a\n\ncase left.a\nα : Type\ninst✝ : PartialOrder α\na b c : α\nhab : a ≤ b\nhbc : b ≤ c\n⊢ b ≤ c",
+      "elapsed_ms": 2.229875000011816,
+      "on_proof_path": false
+    },
+    {
+      "id": 13,
+      "parent": 8,
+      "depth": 4,
+      "state": {
+        "state_id": 7,
+        "goals": [
+          {
+            "id": "_uniq.427",
+            "target": {
+              "text": "b ≤ ?left.a.b",
+              "head": "[anonymous]",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.41",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "inst._@._stdin.2021293395._hygCtx._hyg.3",
+                "id": "_uniq.42",
+                "type": {
+                  "text": "PartialOrder α",
+                  "head": "PartialOrder",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "a",
+                "id": "_uniq.43",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "b",
+                "id": "_uniq.44",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "c",
+                "id": "_uniq.45",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "hab",
+                "id": "_uniq.46",
+                "type": {
+                  "text": "a ≤ b",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              },
+              {
+                "name": "hbc",
+                "id": "_uniq.47",
+                "type": {
+                  "text": "b ≤ c",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              }
+            ]
+          },
+          {
+            "id": "_uniq.428",
+            "target": {
+              "text": "?left.a.b ≤ c",
+              "head": "[anonymous]",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.41",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "inst._@._stdin.2021293395._hygCtx._hyg.3",
+                "id": "_uniq.42",
+                "type": {
+                  "text": "PartialOrder α",
+                  "head": "PartialOrder",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "a",
+                "id": "_uniq.43",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "b",
+                "id": "_uniq.44",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "c",
+                "id": "_uniq.45",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "hab",
+                "id": "_uniq.46",
+                "type": {
+                  "text": "a ≤ b",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              },
+              {
+                "name": "hbc",
+                "id": "_uniq.47",
+                "type": {
+                  "text": "b ≤ c",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              }
+            ]
+          },
+          {
+            "id": "_uniq.425",
+            "target": {
+              "text": "α",
+              "head": "[anonymous]",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.41",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "inst._@._stdin.2021293395._hygCtx._hyg.3",
+                "id": "_uniq.42",
+                "type": {
+                  "text": "PartialOrder α",
+                  "head": "PartialOrder",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "a",
+                "id": "_uniq.43",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "b",
+                "id": "_uniq.44",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "c",
+                "id": "_uniq.45",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "hab",
+                "id": "_uniq.46",
+                "type": {
+                  "text": "a ≤ b",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              },
+              {
+                "name": "hbc",
+                "id": "_uniq.47",
+                "type": {
+                  "text": "b ≤ c",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              }
+            ]
+          },
+          {
+            "id": "_uniq.56",
+            "target": {
+              "text": "a ≤ b",
+              "head": "[anonymous]",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.41",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "inst._@._stdin.2021293395._hygCtx._hyg.3",
+                "id": "_uniq.42",
+                "type": {
+                  "text": "PartialOrder α",
+                  "head": "PartialOrder",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "a",
+                "id": "_uniq.43",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "b",
+                "id": "_uniq.44",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "c",
+                "id": "_uniq.45",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "hab",
+                "id": "_uniq.46",
+                "type": {
+                  "text": "a ≤ b",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              },
+              {
+                "name": "hbc",
+                "id": "_uniq.47",
+                "type": {
+                  "text": "b ≤ c",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              }
+            ]
+          }
+        ]
+      },
+      "tactic": "apply le_trans",
+      "category": "lemma",
+      "lemma": "le_trans",
+      "provenance": "Mathlib.Order.Defs.PartialOrder",
+      "reason": "Type-feature match: ('≤',)",
+      "status": "accepted",
+      "error": null,
+      "elapsed_ms": 3.8376739998966514,
+      "on_proof_path": false
+    },
+    {
+      "id": 14,
+      "parent": 9,
+      "depth": 4,
+      "state": null,
+      "tactic": "assumption",
+      "category": "goal",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Match the goal against the local context",
+      "status": "rejected",
+      "error": "Tactic `assumption` failed\n\ncase left.a\nα : Type\ninst✝ : PartialOrder α\na b c : α\nhab : a ≤ b\nhbc : b ≤ c\n⊢ a ≤ c",
+      "elapsed_ms": 2.7209889999539882,
+      "on_proof_path": false
+    },
+    {
+      "id": 15,
+      "parent": 9,
+      "depth": 4,
+      "state": null,
+      "tactic": "apply le_refl",
+      "category": "lemma",
+      "lemma": "le_refl",
+      "provenance": "Mathlib.Order.Defs.PartialOrder",
+      "reason": "Type-feature match: ('≤',)",
+      "status": "rejected",
+      "error": "Tactic `apply` failed: could not unify the conclusion of `@le_refl`\n  ?a ≤ ?a\nwith the goal\n  a ≤ c\n\nNote: The full type of `@le_refl` is\n  ∀ {α : Type ?u.433} [inst : Preorder α] (a : α), a ≤ a\n\ncase left.a\nα : Type\ninst✝ : PartialOrder α\na b c : α\nhab : a ≤ b\nhbc : b ≤ c\n⊢ a ≤ c",
+      "elapsed_ms": 3.9917020001212222,
+      "on_proof_path": false
+    },
+    {
+      "id": 16,
+      "parent": 9,
+      "depth": 4,
+      "state": {
+        "state_id": 8,
+        "goals": [
+          {
+            "id": "_uniq.509",
+            "target": {
+              "text": "a ≤ ?left.a.b",
+              "head": "[anonymous]",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.41",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "inst._@._stdin.2021293395._hygCtx._hyg.3",
+                "id": "_uniq.42",
+                "type": {
+                  "text": "PartialOrder α",
+                  "head": "PartialOrder",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "a",
+                "id": "_uniq.43",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "b",
+                "id": "_uniq.44",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "c",
+                "id": "_uniq.45",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "hab",
+                "id": "_uniq.46",
+                "type": {
+                  "text": "a ≤ b",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              },
+              {
+                "name": "hbc",
+                "id": "_uniq.47",
+                "type": {
+                  "text": "b ≤ c",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              }
+            ]
+          },
+          {
+            "id": "_uniq.510",
+            "target": {
+              "text": "?left.a.b ≤ c",
+              "head": "[anonymous]",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.41",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "inst._@._stdin.2021293395._hygCtx._hyg.3",
+                "id": "_uniq.42",
+                "type": {
+                  "text": "PartialOrder α",
+                  "head": "PartialOrder",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "a",
+                "id": "_uniq.43",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "b",
+                "id": "_uniq.44",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "c",
+                "id": "_uniq.45",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "hab",
+                "id": "_uniq.46",
+                "type": {
+                  "text": "a ≤ b",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              },
+              {
+                "name": "hbc",
+                "id": "_uniq.47",
+                "type": {
+                  "text": "b ≤ c",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              }
+            ]
+          },
+          {
+            "id": "_uniq.507",
+            "target": {
+              "text": "α",
+              "head": "[anonymous]",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.41",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "inst._@._stdin.2021293395._hygCtx._hyg.3",
+                "id": "_uniq.42",
+                "type": {
+                  "text": "PartialOrder α",
+                  "head": "PartialOrder",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "a",
+                "id": "_uniq.43",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "b",
+                "id": "_uniq.44",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "c",
+                "id": "_uniq.45",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "hab",
+                "id": "_uniq.46",
+                "type": {
+                  "text": "a ≤ b",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              },
+              {
+                "name": "hbc",
+                "id": "_uniq.47",
+                "type": {
+                  "text": "b ≤ c",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              }
+            ]
+          },
+          {
+            "id": "_uniq.56",
+            "target": {
+              "text": "a ≤ b",
+              "head": "[anonymous]",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.41",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "inst._@._stdin.2021293395._hygCtx._hyg.3",
+                "id": "_uniq.42",
+                "type": {
+                  "text": "PartialOrder α",
+                  "head": "PartialOrder",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "a",
+                "id": "_uniq.43",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "b",
+                "id": "_uniq.44",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "c",
+                "id": "_uniq.45",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "hab",
+                "id": "_uniq.46",
+                "type": {
+                  "text": "a ≤ b",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              },
+              {
+                "name": "hbc",
+                "id": "_uniq.47",
+                "type": {
+                  "text": "b ≤ c",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              }
+            ]
+          }
+        ]
+      },
+      "tactic": "apply le_trans",
+      "category": "lemma",
+      "lemma": "le_trans",
+      "provenance": "Mathlib.Order.Defs.PartialOrder",
+      "reason": "Type-feature match: ('≤',)",
+      "status": "accepted",
+      "error": null,
+      "elapsed_ms": 4.209994000120787,
+      "on_proof_path": false
+    },
+    {
+      "id": 17,
+      "parent": 10,
+      "depth": 4,
+      "state": {
+        "state_id": 9,
+        "goals": [
+          {
+            "id": "_uniq.346",
+            "target": {
+              "text": "b ≤ ?left.b",
+              "head": "[anonymous]",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.41",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "inst._@._stdin.2021293395._hygCtx._hyg.3",
+                "id": "_uniq.42",
+                "type": {
+                  "text": "PartialOrder α",
+                  "head": "PartialOrder",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "a",
+                "id": "_uniq.43",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "b",
+                "id": "_uniq.44",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "c",
+                "id": "_uniq.45",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "hab",
+                "id": "_uniq.46",
+                "type": {
+                  "text": "a ≤ b",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              },
+              {
+                "name": "hbc",
+                "id": "_uniq.47",
+                "type": {
+                  "text": "b ≤ c",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              }
+            ]
+          },
+          {
+            "id": "_uniq.302",
+            "target": {
+              "text": "?left.b ≤ c",
+              "head": "[anonymous]",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.41",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "inst._@._stdin.2021293395._hygCtx._hyg.3",
+                "id": "_uniq.42",
+                "type": {
+                  "text": "PartialOrder α",
+                  "head": "PartialOrder",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "a",
+                "id": "_uniq.43",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "b",
+                "id": "_uniq.44",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "c",
+                "id": "_uniq.45",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "hab",
+                "id": "_uniq.46",
+                "type": {
+                  "text": "a ≤ b",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              },
+              {
+                "name": "hbc",
+                "id": "_uniq.47",
+                "type": {
+                  "text": "b ≤ c",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              }
+            ]
+          },
+          {
+            "id": "_uniq.299",
+            "target": {
+              "text": "α",
+              "head": "[anonymous]",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.41",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "inst._@._stdin.2021293395._hygCtx._hyg.3",
+                "id": "_uniq.42",
+                "type": {
+                  "text": "PartialOrder α",
+                  "head": "PartialOrder",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "a",
+                "id": "_uniq.43",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "b",
+                "id": "_uniq.44",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "c",
+                "id": "_uniq.45",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "hab",
+                "id": "_uniq.46",
+                "type": {
+                  "text": "a ≤ b",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              },
+              {
+                "name": "hbc",
+                "id": "_uniq.47",
+                "type": {
+                  "text": "b ≤ c",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              }
+            ]
+          },
+          {
+            "id": "_uniq.56",
+            "target": {
+              "text": "a ≤ b",
+              "head": "[anonymous]",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.41",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "inst._@._stdin.2021293395._hygCtx._hyg.3",
+                "id": "_uniq.42",
+                "type": {
+                  "text": "PartialOrder α",
+                  "head": "PartialOrder",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "a",
+                "id": "_uniq.43",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "b",
+                "id": "_uniq.44",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "c",
+                "id": "_uniq.45",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "hab",
+                "id": "_uniq.46",
+                "type": {
+                  "text": "a ≤ b",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              },
+              {
+                "name": "hbc",
+                "id": "_uniq.47",
+                "type": {
+                  "text": "b ≤ c",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              }
+            ]
+          }
+        ]
+      },
+      "tactic": "assumption",
+      "category": "goal",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Match the goal against the local context",
+      "status": "accepted",
+      "error": null,
+      "elapsed_ms": 3.1203450000703015,
+      "on_proof_path": false
+    },
+    {
+      "id": 18,
+      "parent": 10,
+      "depth": 4,
+      "state": {
+        "state_id": 10,
+        "goals": [
+          {
+            "id": "_uniq.346",
+            "target": {
+              "text": "a ≤ ?left.b",
+              "head": "[anonymous]",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.41",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "inst._@._stdin.2021293395._hygCtx._hyg.3",
+                "id": "_uniq.42",
+                "type": {
+                  "text": "PartialOrder α",
+                  "head": "PartialOrder",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "a",
+                "id": "_uniq.43",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "b",
+                "id": "_uniq.44",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "c",
+                "id": "_uniq.45",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "hab",
+                "id": "_uniq.46",
+                "type": {
+                  "text": "a ≤ b",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              },
+              {
+                "name": "hbc",
+                "id": "_uniq.47",
+                "type": {
+                  "text": "b ≤ c",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              }
+            ]
+          },
+          {
+            "id": "_uniq.302",
+            "target": {
+              "text": "?left.b ≤ c",
+              "head": "[anonymous]",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.41",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "inst._@._stdin.2021293395._hygCtx._hyg.3",
+                "id": "_uniq.42",
+                "type": {
+                  "text": "PartialOrder α",
+                  "head": "PartialOrder",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "a",
+                "id": "_uniq.43",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "b",
+                "id": "_uniq.44",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "c",
+                "id": "_uniq.45",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "hab",
+                "id": "_uniq.46",
+                "type": {
+                  "text": "a ≤ b",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              },
+              {
+                "name": "hbc",
+                "id": "_uniq.47",
+                "type": {
+                  "text": "b ≤ c",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              }
+            ]
+          },
+          {
+            "id": "_uniq.299",
+            "target": {
+              "text": "α",
+              "head": "[anonymous]",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.41",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "inst._@._stdin.2021293395._hygCtx._hyg.3",
+                "id": "_uniq.42",
+                "type": {
+                  "text": "PartialOrder α",
+                  "head": "PartialOrder",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "a",
+                "id": "_uniq.43",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "b",
+                "id": "_uniq.44",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "c",
+                "id": "_uniq.45",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "hab",
+                "id": "_uniq.46",
+                "type": {
+                  "text": "a ≤ b",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              },
+              {
+                "name": "hbc",
+                "id": "_uniq.47",
+                "type": {
+                  "text": "b ≤ c",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              }
+            ]
+          },
+          {
+            "id": "_uniq.56",
+            "target": {
+              "text": "a ≤ b",
+              "head": "[anonymous]",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.41",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "inst._@._stdin.2021293395._hygCtx._hyg.3",
+                "id": "_uniq.42",
+                "type": {
+                  "text": "PartialOrder α",
+                  "head": "PartialOrder",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "a",
+                "id": "_uniq.43",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "b",
+                "id": "_uniq.44",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "c",
+                "id": "_uniq.45",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "hab",
+                "id": "_uniq.46",
+                "type": {
+                  "text": "a ≤ b",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              },
+              {
+                "name": "hbc",
+                "id": "_uniq.47",
+                "type": {
+                  "text": "b ≤ c",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              }
+            ]
+          }
+        ]
+      },
+      "tactic": "apply le_refl",
+      "category": "lemma",
+      "lemma": "le_refl",
+      "provenance": "Mathlib.Order.Defs.PartialOrder",
+      "reason": "Type-feature match: ('≤',)",
+      "status": "accepted",
+      "error": null,
+      "elapsed_ms": 4.260120000026291,
+      "on_proof_path": false
+    },
+    {
+      "id": 19,
+      "parent": 10,
+      "depth": 4,
+      "state": {
+        "state_id": 11,
+        "goals": [
+          {
+            "id": "_uniq.539",
+            "target": {
+              "text": "a ≤ ?left.a.a.b",
+              "head": "[anonymous]",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.41",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "inst._@._stdin.2021293395._hygCtx._hyg.3",
+                "id": "_uniq.42",
+                "type": {
+                  "text": "PartialOrder α",
+                  "head": "PartialOrder",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "a",
+                "id": "_uniq.43",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "b",
+                "id": "_uniq.44",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "c",
+                "id": "_uniq.45",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "hab",
+                "id": "_uniq.46",
+                "type": {
+                  "text": "a ≤ b",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              },
+              {
+                "name": "hbc",
+                "id": "_uniq.47",
+                "type": {
+                  "text": "b ≤ c",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              }
+            ]
+          },
+          {
+            "id": "_uniq.540",
+            "target": {
+              "text": "?left.a.a.b ≤ ?left.a.b",
+              "head": "[anonymous]",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.41",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "inst._@._stdin.2021293395._hygCtx._hyg.3",
+                "id": "_uniq.42",
+                "type": {
+                  "text": "PartialOrder α",
+                  "head": "PartialOrder",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "a",
+                "id": "_uniq.43",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "b",
+                "id": "_uniq.44",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "c",
+                "id": "_uniq.45",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "hab",
+                "id": "_uniq.46",
+                "type": {
+                  "text": "a ≤ b",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              },
+              {
+                "name": "hbc",
+                "id": "_uniq.47",
+                "type": {
+                  "text": "b ≤ c",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              }
+            ]
+          },
+          {
+            "id": "_uniq.537",
+            "target": {
+              "text": "α",
+              "head": "[anonymous]",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.41",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "inst._@._stdin.2021293395._hygCtx._hyg.3",
+                "id": "_uniq.42",
+                "type": {
+                  "text": "PartialOrder α",
+                  "head": "PartialOrder",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "a",
+                "id": "_uniq.43",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "b",
+                "id": "_uniq.44",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "c",
+                "id": "_uniq.45",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "hab",
+                "id": "_uniq.46",
+                "type": {
+                  "text": "a ≤ b",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              },
+              {
+                "name": "hbc",
+                "id": "_uniq.47",
+                "type": {
+                  "text": "b ≤ c",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              }
+            ]
+          },
+          {
+            "id": "_uniq.346",
+            "target": {
+              "text": "?left.a.b ≤ ?left.b",
+              "head": "[anonymous]",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.41",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "inst._@._stdin.2021293395._hygCtx._hyg.3",
+                "id": "_uniq.42",
+                "type": {
+                  "text": "PartialOrder α",
+                  "head": "PartialOrder",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "a",
+                "id": "_uniq.43",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "b",
+                "id": "_uniq.44",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "c",
+                "id": "_uniq.45",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "hab",
+                "id": "_uniq.46",
+                "type": {
+                  "text": "a ≤ b",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              },
+              {
+                "name": "hbc",
+                "id": "_uniq.47",
+                "type": {
+                  "text": "b ≤ c",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              }
+            ]
+          },
+          {
+            "id": "_uniq.343",
+            "target": {
+              "text": "α",
+              "head": "[anonymous]",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.41",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "inst._@._stdin.2021293395._hygCtx._hyg.3",
+                "id": "_uniq.42",
+                "type": {
+                  "text": "PartialOrder α",
+                  "head": "PartialOrder",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "a",
+                "id": "_uniq.43",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "b",
+                "id": "_uniq.44",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "c",
+                "id": "_uniq.45",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "hab",
+                "id": "_uniq.46",
+                "type": {
+                  "text": "a ≤ b",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              },
+              {
+                "name": "hbc",
+                "id": "_uniq.47",
+                "type": {
+                  "text": "b ≤ c",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              }
+            ]
+          },
+          {
+            "id": "_uniq.302",
+            "target": {
+              "text": "?left.b ≤ c",
+              "head": "[anonymous]",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.41",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "inst._@._stdin.2021293395._hygCtx._hyg.3",
+                "id": "_uniq.42",
+                "type": {
+                  "text": "PartialOrder α",
+                  "head": "PartialOrder",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "a",
+                "id": "_uniq.43",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "b",
+                "id": "_uniq.44",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "c",
+                "id": "_uniq.45",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "hab",
+                "id": "_uniq.46",
+                "type": {
+                  "text": "a ≤ b",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              },
+              {
+                "name": "hbc",
+                "id": "_uniq.47",
+                "type": {
+                  "text": "b ≤ c",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              }
+            ]
+          },
+          {
+            "id": "_uniq.299",
+            "target": {
+              "text": "α",
+              "head": "[anonymous]",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.41",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "inst._@._stdin.2021293395._hygCtx._hyg.3",
+                "id": "_uniq.42",
+                "type": {
+                  "text": "PartialOrder α",
+                  "head": "PartialOrder",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "a",
+                "id": "_uniq.43",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "b",
+                "id": "_uniq.44",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "c",
+                "id": "_uniq.45",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "hab",
+                "id": "_uniq.46",
+                "type": {
+                  "text": "a ≤ b",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              },
+              {
+                "name": "hbc",
+                "id": "_uniq.47",
+                "type": {
+                  "text": "b ≤ c",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              }
+            ]
+          },
+          {
+            "id": "_uniq.56",
+            "target": {
+              "text": "a ≤ b",
+              "head": "[anonymous]",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.41",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "inst._@._stdin.2021293395._hygCtx._hyg.3",
+                "id": "_uniq.42",
+                "type": {
+                  "text": "PartialOrder α",
+                  "head": "PartialOrder",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "a",
+                "id": "_uniq.43",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "b",
+                "id": "_uniq.44",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "c",
+                "id": "_uniq.45",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "hab",
+                "id": "_uniq.46",
+                "type": {
+                  "text": "a ≤ b",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              },
+              {
+                "name": "hbc",
+                "id": "_uniq.47",
+                "type": {
+                  "text": "b ≤ c",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              }
+            ]
+          }
+        ]
+      },
+      "tactic": "apply le_trans",
+      "category": "lemma",
+      "lemma": "le_trans",
+      "provenance": "Mathlib.Order.Defs.PartialOrder",
+      "reason": "Type-feature match: ('≤',)",
+      "status": "accepted",
+      "error": null,
+      "elapsed_ms": 8.064205000209768,
+      "on_proof_path": false
+    },
+    {
+      "id": 20,
+      "parent": 11,
+      "depth": 5,
+      "state": {
+        "state_id": 12,
+        "goals": []
+      },
+      "tactic": "assumption",
+      "category": "goal",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Match the goal against the local context",
+      "status": "solved",
+      "error": null,
+      "elapsed_ms": 1.384372999837069,
+      "on_proof_path": true
+    }
+  ],
+  "metrics": {
+    "attempted_candidates": 20,
+    "accepted_transitions": 12,
+    "rejected_candidates": 8,
+    "expanded_states": 7,
+    "frontier": 5,
+    "max_depth": 5,
+    "proof_length": 5,
+    "elapsed_s": 3.2386395750002066,
+    "lean_execution_s": 0.057681410999975924,
+    "initialization_s": 1.5836180720000357,
+    "verification_s": 1.572229840000091,
+    "planning_s": 0.00184510699978091
+  },
+  "proof": [
+    "constructor",
+    "apply le_trans",
+    "assumption",
+    "assumption",
+    "assumption"
+  ],
+  "lean_source": "import ProofLab.Bridge\n\nset_option maxHeartbeats 300000\ntheorem prooflab_result (α : Type) [PartialOrder α] (a b c : α) (hab : a ≤ b) (hbc : b ≤ c) : a ≤ c ∧ a ≤ b := by\n  constructor\n  apply le_trans\n  assumption\n  assumption\n  assumption\n\n#prooflab_audit prooflab_result\n",
+  "verification": {
+    "verified": true,
+    "axioms": [],
+    "error": null,
+    "elapsed_s": 1.572229840000091,
+    "source_sha256": "030db8c5e6366b8fd0ebdfb0ef1aba9e8888cb2d2a4c7836a357e5c86c11ff65"
+  },
+  "metadata": {
+    "code_commit": "f91bb03a141dfca5a34b3e12880a80837724aa00",
+    "lean_version": "leanprover/lean4:v4.24.0",
+    "mathlib_revision": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7",
+    "python": "3.12.14",
+    "platform": "Linux-6.18.55-x86_64-with-glibc2.41",
+    "machine": "x86_64",
+    "processor": "",
+    "seed": "0 (deterministic)",
+    "state_identity": "Exact tactic prefix within one native session; no semantic merging"
+  },
+  "error": null,
+  "proof_origin": "constructed_derivation"
+}

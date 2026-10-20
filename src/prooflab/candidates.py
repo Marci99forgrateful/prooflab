@@ -131,7 +131,8 @@ def generate_candidates(
         )
     if target.head == "Eq" and any(t in target.text for t in ("+", "*", "^")):
         add("ring", "specialized", "Normalize a polynomial equality (Mathlib ring)", 2)
-    if "Nat" in context and any(t in target.text for t in ("≤", "<", "=")):
+    natural_context = any(h.type.head == "Nat" for h in goal.hypotheses)
+    if natural_context and any(t in target.text for t in ("≤", "<", "=")):
         add("omega", "specialized", "Presburger arithmetic (Lean omega)", 2)
     if target.head == "Exists":
         terms = [
