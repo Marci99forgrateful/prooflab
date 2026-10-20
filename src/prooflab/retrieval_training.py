@@ -16,7 +16,7 @@ from prooflab.models import Budget, Candidate, ProofState
 from prooflab.native_retrieval import RetrievalSession
 from prooflab.phase3_data import digest
 from prooflab.phase5_data import DIRECTORY, check_freeze
-from prooflab.research_io import read_json, compact, trace_paths
+from prooflab.research_io import compact, read_json, trace_paths
 from prooflab.retrieval import VERSION, TypedProvider, features
 from prooflab.search import metadata
 from prooflab.training import demonstration
@@ -232,12 +232,12 @@ def pairs(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
 
 
 def loss(examples: list[dict[str, Any]], weights: dict[str, float]) -> float:
-    total = sum(p["weight"] for p in examples)
+    total = sum(float(p["weight"]) for p in examples)
     if not total:
         return 0.0
     return (
         sum(
-            p["weight"]
+            float(p["weight"])
             * math.log1p(
                 math.exp(
                     max(
@@ -254,7 +254,7 @@ def loss(examples: list[dict[str, Any]], weights: dict[str, float]) -> float:
 
 def fit(examples: list[dict[str, Any]], l2: float, epochs: int, rate: float) -> dict[str, float]:
     weights = {n: 0.0 for p in examples for n in p["difference"]}
-    total = sum(p["weight"] for p in examples)
+    total = sum(float(p["weight"]) for p in examples)
     for epoch in range(epochs):
         gradient = {n: l2 * v for n, v in weights.items()}
         for p in examples:
@@ -269,7 +269,7 @@ def fit(examples: list[dict[str, Any]], l2: float, epochs: int, rate: float) -> 
     return dict(sorted(weights.items()))
 
 
-def train(data: Path = DATA) -> dict[str, Any]:
+def train(data: Path = DATA, destination: Path = MODELS) -> dict[str, Any]:
     frozen = check_freeze()
     protocol = read_json(DIRECTORY / "protocol.json")
     config = protocol["training"]
@@ -299,7 +299,10 @@ def train(data: Path = DATA) -> dict[str, Any]:
     artifact = dict(
         schema_version=1,
         feature_version=VERSION,
-        architecture="linear pairwise logistic CPU ranker, fixed native compatibility gate; shared symbolic and learned universe/quota",
+        architecture=(
+            "linear pairwise logistic CPU ranker, fixed native compatibility "
+            "gate; shared symbolic and learned universe/quota"
+        ),
         weights=weights,
         l2=selected["l2"],
         epochs=config["epochs"],
@@ -312,9 +315,9 @@ def train(data: Path = DATA) -> dict[str, Any]:
         index_sha256=digest(DIRECTORY / "declarations.json"),
         data_provenance_sha256=digest(data / "provenance.json"),
     )
-    MODELS.mkdir(parents=True, exist_ok=False)
-    (MODELS / "retrieval.json").write_text(json.dumps(artifact, indent=2) + "\n")
-    (MODELS / "preferences.json").write_text(json.dumps(examples, indent=2) + "\n")
+    destination.mkdir(parents=True, exist_ok=False)
+    (destination / "retrieval.json").write_text(json.dumps(artifact, indent=2) + "\n")
+    (destination / "preferences.json").write_text(json.dumps(examples, indent=2) + "\n")
     report = dict(
         preferences=len(examples),
         cost_preferences=sum(p["kind"] == "verified_lower_continuation_cost" for p in examples),
@@ -338,7 +341,12 @@ def train(data: Path = DATA) -> dict[str, Any]:
                 "tool_error_unknown",
             )
         },
-        limitations="Source-path/rejection and bounded-policy evidence, not mathematical incorrectness. Source traces overrepresent original actions; generic unification may admit useless branches. No superiority assumed.",
+        limitations=(
+            "Source-path/rejection and bounded-policy evidence, not "
+            "mathematical incorrectness. Source traces overrepresent original "
+            "actions; generic unification may admit useless branches. No "
+            "superiority assumed."
+        ),
     )
-    (MODELS / "training-report.json").write_text(json.dumps(report, indent=2) + "\n")
+    (destination / "training-report.json").write_text(json.dumps(report, indent=2) + "\n")
     return report

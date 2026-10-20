@@ -36,7 +36,8 @@ class RetrievalSession(LeanSession):
         source.write_text(
             "import ProofLab.Retrieval\nset_option maxHeartbeats 300000\n"
             f"example {task.binders} : {task.target} := by\n"
-            f"  prooflab_retrieval_session {json.dumps(str(requests))} {json.dumps(str(responses))}\n"
+            f"  prooflab_retrieval_session {json.dumps(str(requests))} "
+            f"{json.dumps(str(responses))}\n"
         )
         try:
             for path in (requests, responses):
@@ -91,7 +92,10 @@ class RetrievalSession(LeanSession):
                     cpu_s=sum(processes[p][1] for p in family if p in processes),
                     peak_rss_kib=sum(processes[p][2] for p in family if p in processes),
                     process_count=len(family),
-                    scope="live session tree CPU; sum of process HWM bounds, not simultaneous peak; independent audits excluded",
+                    scope=(
+                        "live session tree CPU; sum of process HWM bounds, not "
+                        "simultaneous peak; independent audits excluded"
+                    ),
                 )
             except (OSError, ValueError, IndexError):
                 pass

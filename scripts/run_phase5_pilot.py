@@ -2,11 +2,12 @@
 
 import json
 from concurrent.futures import ThreadPoolExecutor, as_completed
+
 from prooflab.lean import ROOT
-from prooflab.models import Task, Budget
-from prooflab.search import search
-from prooflab.retrieval import TypedProvider
+from prooflab.models import Budget, Task
 from prooflab.native_retrieval import RetrievalSession
+from prooflab.retrieval import TypedProvider
+from prooflab.search import search
 
 
 def main():

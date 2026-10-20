@@ -13,11 +13,13 @@ from pathlib import Path
 from typing import Any
 
 from prooflab.candidates import generate_candidates
+from prooflab.features import compact
 from prooflab.generator_study import extended_candidates
 from prooflab.lean import ROOT, LeanSession
 from prooflab.models import Candidate, ProofState
 from prooflab.native_retrieval import INDEX, RetrievalSession, declarations
-from prooflab.outcome_features import compact, features as old_features, similarity
+from prooflab.outcome_features import features as old_features
+from prooflab.outcome_features import similarity
 from prooflab.phase3_data import digest
 
 MODEL = ROOT / "models/phase5/retrieval.json"
@@ -73,7 +75,10 @@ def features(state: ProofState, candidate: Candidate, row: dict[str, Any]) -> di
 
 def relevance(state: ProofState, candidate: Candidate, row: dict[str, Any]) -> float:
     f = features(state, candidate, row)
-    r = lambda name: f.get("retrieval:" + name, 0)  # noqa: E731
+
+    def r(name: str) -> float:
+        return f.get("retrieval:" + name, 0)
+
     return (
         8 * r("compatible")
         + 5 * r("family:witness")
@@ -161,7 +166,10 @@ class TypedProvider:
             if "tactic" not in item:
                 continue
             info = self.index.get(item.get("declaration"), {})
-            rows.append({**info, **item})
+            # Canonical native AST lives once in declarations.json. Query rows
+            # retain exact pretty type and a hash-addressed index reference.
+            context = {k: v for k, v in info.items() if k != "native_type"}
+            rows.append({**context, **item})
         # Strong symbolic work is explicit and separately ablated. No Aesop/grind.
         classes = native["classes"]
         if (
@@ -171,7 +179,10 @@ class TypedProvider:
         ):
             rows.append(
                 dict(
-                    tactic="simp only [mul_assoc, mul_one, one_mul, mul_inv_cancel, inv_mul_cancel, mul_inv_cancel_left, mul_inv_cancel_right] at *",
+                    tactic=(
+                        "simp only [mul_assoc, mul_one, one_mul, mul_inv_cancel, "
+                        "inv_mul_cancel, mul_inv_cancel_left, mul_inv_cancel_right] at *"
+                    ),
                     family="normalizer",
                     compatible=True,
                     compatibility_kind="structure-gated proposal; actual tactic may reject",
@@ -230,19 +241,22 @@ class TypedProvider:
             additions.append(candidate)
         additions = list({c.tactic: c for c in additions}.values())
         scored = []
+        model_s = 0.0
         for candidate in [*original, *additions]:
             row = all_rows.get(candidate.tactic, dict(family="original"))
             score = relevance(state, candidate, row)
+            model_tick = time.monotonic()
             learned = self.ranker.score(state, candidate, row) if self.ranker else None
+            terms = self.ranker.explain(state, candidate, row) if self.ranker else []
+            if self.ranker:
+                model_s += time.monotonic() - model_tick
             scored.append(
                 dict(
                     candidate=candidate.model_dump(),
                     **row,
                     deterministic_score=score,
                     learned_score=learned,
-                    learned_contributions=self.ranker.explain(state, candidate, row)
-                    if self.ranker
-                    else [],
+                    learned_contributions=terms,
                 )
             )
         score_map = {r["candidate"]["tactic"]: r for r in scored}
@@ -278,10 +292,14 @@ class TypedProvider:
             model_sha256=self.ranker.sha256 if self.ranker else None,
             native=native,
             query_wall_s=query_wall,
+            model_inference_s=model_s,
             pool=scored,
             selected=[c.tactic for c in chosen],
             original=[c.tactic for c in original],
             displaced=[c.tactic for c in original if c.tactic not in selected],
             entered=[c.tactic for c in chosen if c.tactic not in {x.tactic for x in original}],
-            allocation="up to 16 original structural/specialized-first; remaining novelty; original backfill; stable ties",
+            allocation=(
+                "up to 16 original structural/specialized-first; remaining "
+                "novelty; original backfill; stable ties"
+            ),
         )

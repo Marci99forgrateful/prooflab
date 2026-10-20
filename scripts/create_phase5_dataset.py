@@ -2,7 +2,9 @@
 """Original Phase 5 statements; no proof scripts. Refuses a frozen rewrite."""
 
 from __future__ import annotations
+
 import json
+
 from prooflab.lean import ROOT
 
 FAMILIES = {

@@ -45,7 +45,11 @@ def main():
         excluded_after_cap=[r["name"] for r in rows if "error" not in r][128:],
         native_module_sha256=digest(ROOT / "ProofLab/Retrieval.lean"),
         seed_sha256=digest(seed),
-        policy="Only explicit general mathematical declarations already imported by the unchanged Bridge. Native types and source modules; no whole-Mathlib import or proof corpus.",
+        policy=(
+            "Only explicit general mathematical declarations already imported "
+            "by the unchanged Bridge. Native types and source modules; no "
+            "whole-Mathlib import or proof corpus."
+        ),
     )
     destination.write_text(json.dumps(output, indent=2, ensure_ascii=False) + "\n")
     print("Indexed", len(good), "native declarations; unavailable", [(r["name"]) for r in bad])

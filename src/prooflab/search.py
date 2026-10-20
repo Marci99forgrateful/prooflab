@@ -262,6 +262,7 @@ def search(
                     )
                     observation["node_id"] = current
                     trace.retrievals.append(observation)
+                    trace.metrics.model_inference_s += observation.get("model_inference_s", 0.0)
                     retrieval_wall = observation.get("query_wall_s", 0.0)
                     trace.metrics.retrieval_s += retrieval_wall
                     trace.metrics.lean_execution_s += retrieval_wall

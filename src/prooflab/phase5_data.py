@@ -1,14 +1,17 @@
 """New typed benchmark and immutable Phase 1–4 evidence boundary."""
 
 from __future__ import annotations
+
 import json
 from typing import Any
-from prooflab.dataset import load_tasks, load_phase2_tasks, load_phase3_tasks
+
+from prooflab.dataset import load_phase2_tasks, load_phase3_tasks, load_tasks
 from prooflab.lean import ROOT
 from prooflab.models import Task
 from prooflab.phase3_data import digest
-from prooflab.phase4_data import check_freeze as check_previous, read_tasks as phase4_tasks
-from prooflab.splits import native_structures, graph_hash, equivalent
+from prooflab.phase4_data import check_freeze as check_previous
+from prooflab.phase4_data import read_tasks as phase4_tasks
+from prooflab.splits import equivalent, graph_hash, native_structures
 
 DIRECTORY = ROOT / "benchmarks/phase5"
 
@@ -77,7 +80,11 @@ def freeze() -> dict[str, Any]:
         expression_trees=trees,
         graph_hashes=hashes,
         duplicate_pairs=[],
-        limits="Reducible native typed graph isomorphism with binder permutations, not arbitrary semantic equivalence. Manual family review in docs/phase-5-data.md; shared primitives expected.",
+        limits=(
+            "Reducible native typed graph isomorphism with binder "
+            "permutations, not arbitrary semantic equivalence. Manual family "
+            "review in docs/phase-5-data.md; shared primitives expected."
+        ),
     )
     (DIRECTORY / "frozen.json").write_text(json.dumps(data, indent=2) + "\n")
     return data
