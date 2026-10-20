@@ -1,0 +1,2197 @@
+{
+  "task_id": "zero_additive",
+  "split": "development",
+  "domain": "algebra",
+  "demonstration_trace": "experiments/phase1-v3/traces/zero_additive--best_first.json",
+  "demonstration_sha256": "ba36a990ab95fc5bd7e0ff9f14a8deedc4f7f90953aa0e44ced3cad503db6541",
+  "source_verification": {
+    "verified": true,
+    "axioms": [],
+    "error": null,
+    "elapsed_s": 2.1700434670055984,
+    "source_sha256": "2361873abb03ce9cbed79f18e69d79efb0ed1505567f6b2822da190f11bafa83"
+  },
+  "states": [
+    {
+      "task_id": "zero_additive",
+      "split": "development",
+      "domain": "algebra",
+      "depth": 0,
+      "prefix": [],
+      "positive_tactic": "apply zero_add",
+      "state": {
+        "state_id": 0,
+        "goals": [
+          {
+            "id": "_uniq.210",
+            "target": {
+              "text": "0 + a = a",
+              "head": "Eq",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "R",
+                "id": "_uniq.207",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "inst._@._stdin.2021293395._hygCtx._hyg.3",
+                "id": "_uniq.208",
+                "type": {
+                  "text": "Ring R",
+                  "head": "Ring",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "a",
+                "id": "_uniq.209",
+                "type": {
+                  "text": "R",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              }
+            ]
+          }
+        ]
+      },
+      "observations": [
+        {
+          "candidate": {
+            "tactic": "assumption",
+            "category": "goal",
+            "reason": "Match the goal against the local context",
+            "prior": 10.0,
+            "lemma": null,
+            "provenance": null
+          },
+          "status": "invalid_candidate",
+          "successor": null,
+          "elapsed_s": 0.0014805480022914708,
+          "error": "Tactic `assumption` failed\n\nR : Type\ninst✝ : Ring R\na : R\n⊢ 0 + a = a",
+          "continuation": null,
+          "exploration": "not_selected"
+        },
+        {
+          "candidate": {
+            "tactic": "rfl",
+            "category": "goal",
+            "reason": "Check definitional equality",
+            "prior": 8.0,
+            "lemma": null,
+            "provenance": null
+          },
+          "status": "invalid_candidate",
+          "successor": null,
+          "elapsed_s": 0.003923172000213526,
+          "error": "Tactic `rfl` failed: The left-hand side\n  0 + a\nis not definitionally equal to the right-hand side\n  a\n\nR : Type\ninst✝ : Ring R\na : R\n⊢ 0 + a = a",
+          "continuation": null,
+          "exploration": "not_selected"
+        },
+        {
+          "candidate": {
+            "tactic": "apply Eq.symm",
+            "category": "lemma",
+            "reason": "Goal features: ('=',); context features: ()",
+            "prior": 4.0,
+            "lemma": "Eq.symm",
+            "provenance": "Init.Prelude"
+          },
+          "status": "accepted",
+          "successor": {
+            "state_id": 1,
+            "goals": [
+              {
+                "id": "_uniq.227",
+                "target": {
+                  "text": "a = 0 + a",
+                  "head": "Eq",
+                  "forall": false
+                },
+                "hypotheses": [
+                  {
+                    "name": "R",
+                    "id": "_uniq.207",
+                    "type": {
+                      "text": "Type",
+                      "head": "[anonymous]",
+                      "forall": false
+                    },
+                    "is_proof": false
+                  },
+                  {
+                    "name": "inst._@._stdin.2021293395._hygCtx._hyg.3",
+                    "id": "_uniq.208",
+                    "type": {
+                      "text": "Ring R",
+                      "head": "Ring",
+                      "forall": false
+                    },
+                    "is_proof": false
+                  },
+                  {
+                    "name": "a",
+                    "id": "_uniq.209",
+                    "type": {
+                      "text": "R",
+                      "head": "[anonymous]",
+                      "forall": false
+                    },
+                    "is_proof": false
+                  }
+                ]
+              }
+            ]
+          },
+          "elapsed_s": 0.001003929995931685,
+          "error": null,
+          "continuation": {
+            "status": "verified",
+            "termination": "verified",
+            "first_action": "apply Eq.symm",
+            "prefix": [],
+            "nodes": [
+              {
+                "id": 0,
+                "parent": null,
+                "depth": 0,
+                "state": {
+                  "state_id": 1,
+                  "goals": [
+                    {
+                      "id": "_uniq.227",
+                      "target": {
+                        "text": "a = 0 + a",
+                        "head": "Eq",
+                        "forall": false
+                      },
+                      "hypotheses": [
+                        {
+                          "name": "R",
+                          "id": "_uniq.207",
+                          "type": {
+                            "text": "Type",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "inst._@._stdin.2021293395._hygCtx._hyg.3",
+                          "id": "_uniq.208",
+                          "type": {
+                            "text": "Ring R",
+                            "head": "Ring",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "a",
+                          "id": "_uniq.209",
+                          "type": {
+                            "text": "R",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "tactic": null,
+                "category": null,
+                "lemma": null,
+                "provenance": null,
+                "reason": "Initial Lean goal",
+                "status": "root",
+                "error": null,
+                "elapsed_ms": 0,
+                "on_proof_path": true
+              },
+              {
+                "id": 1,
+                "parent": 0,
+                "depth": 1,
+                "state": null,
+                "tactic": "assumption",
+                "category": "goal",
+                "lemma": null,
+                "provenance": null,
+                "reason": "Initial Lean goal",
+                "status": "rejected",
+                "error": "Tactic `assumption` failed\n\ncase h\nR : Type\ninst✝ : Ring R\na : R\n⊢ a = 0 + a",
+                "elapsed_ms": 3.5540080061764456,
+                "on_proof_path": false
+              },
+              {
+                "id": 2,
+                "parent": 0,
+                "depth": 1,
+                "state": null,
+                "tactic": "rfl",
+                "category": "goal",
+                "lemma": null,
+                "provenance": null,
+                "reason": "Initial Lean goal",
+                "status": "rejected",
+                "error": "Tactic `rfl` failed: The left-hand side\n  a\nis not definitionally equal to the right-hand side\n  0 + a\n\ncase h\nR : Type\ninst✝ : Ring R\na : R\n⊢ a = 0 + a",
+                "elapsed_ms": 3.6792159953620285,
+                "on_proof_path": false
+              },
+              {
+                "id": 3,
+                "parent": 0,
+                "depth": 1,
+                "state": {
+                  "state_id": 4,
+                  "goals": [
+                    {
+                      "id": "_uniq.604",
+                      "target": {
+                        "text": "0 + a = a",
+                        "head": "Eq",
+                        "forall": false
+                      },
+                      "hypotheses": [
+                        {
+                          "name": "R",
+                          "id": "_uniq.207",
+                          "type": {
+                            "text": "Type",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "inst._@._stdin.2021293395._hygCtx._hyg.3",
+                          "id": "_uniq.208",
+                          "type": {
+                            "text": "Ring R",
+                            "head": "Ring",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "a",
+                          "id": "_uniq.209",
+                          "type": {
+                            "text": "R",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "tactic": "apply Eq.symm",
+                "category": "lemma",
+                "lemma": null,
+                "provenance": null,
+                "reason": "Initial Lean goal",
+                "status": "accepted",
+                "error": null,
+                "elapsed_ms": 1.02893899747869,
+                "on_proof_path": true
+              },
+              {
+                "id": 4,
+                "parent": 0,
+                "depth": 1,
+                "state": {
+                  "state_id": 5,
+                  "goals": [
+                    {
+                      "id": "_uniq.619",
+                      "target": {
+                        "text": "a = ?h.b",
+                        "head": "Eq",
+                        "forall": false
+                      },
+                      "hypotheses": [
+                        {
+                          "name": "R",
+                          "id": "_uniq.207",
+                          "type": {
+                            "text": "Type",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "inst._@._stdin.2021293395._hygCtx._hyg.3",
+                          "id": "_uniq.208",
+                          "type": {
+                            "text": "Ring R",
+                            "head": "Ring",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "a",
+                          "id": "_uniq.209",
+                          "type": {
+                            "text": "R",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        }
+                      ]
+                    },
+                    {
+                      "id": "_uniq.620",
+                      "target": {
+                        "text": "?h.b = 0 + a",
+                        "head": "Eq",
+                        "forall": false
+                      },
+                      "hypotheses": [
+                        {
+                          "name": "R",
+                          "id": "_uniq.207",
+                          "type": {
+                            "text": "Type",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "inst._@._stdin.2021293395._hygCtx._hyg.3",
+                          "id": "_uniq.208",
+                          "type": {
+                            "text": "Ring R",
+                            "head": "Ring",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "a",
+                          "id": "_uniq.209",
+                          "type": {
+                            "text": "R",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        }
+                      ]
+                    },
+                    {
+                      "id": "_uniq.617",
+                      "target": {
+                        "text": "R",
+                        "head": "[anonymous]",
+                        "forall": false
+                      },
+                      "hypotheses": [
+                        {
+                          "name": "R",
+                          "id": "_uniq.207",
+                          "type": {
+                            "text": "Type",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "inst._@._stdin.2021293395._hygCtx._hyg.3",
+                          "id": "_uniq.208",
+                          "type": {
+                            "text": "Ring R",
+                            "head": "Ring",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "a",
+                          "id": "_uniq.209",
+                          "type": {
+                            "text": "R",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "tactic": "apply Eq.trans",
+                "category": "lemma",
+                "lemma": null,
+                "provenance": null,
+                "reason": "Initial Lean goal",
+                "status": "accepted",
+                "error": null,
+                "elapsed_ms": 1.6538880008738488,
+                "on_proof_path": false
+              },
+              {
+                "id": 5,
+                "parent": 0,
+                "depth": 1,
+                "state": null,
+                "tactic": "apply add_zero",
+                "category": "lemma",
+                "lemma": null,
+                "provenance": null,
+                "reason": "Initial Lean goal",
+                "status": "rejected",
+                "error": "Tactic `apply` failed: could not unify the conclusion of `@add_zero`\n  ?a + 0 = ?a\nwith the goal\n  a = 0 + a\n\nNote: The full type of `@add_zero` is\n  ∀ {M : Type ?u.624} [inst : AddZeroClass M] (a : M), a + 0 = a\n\ncase h\nR : Type\ninst✝ : Ring R\na : R\n⊢ a = 0 + a",
+                "elapsed_ms": 6.757483002729714,
+                "on_proof_path": false
+              },
+              {
+                "id": 6,
+                "parent": 0,
+                "depth": 1,
+                "state": null,
+                "tactic": "apply zero_add",
+                "category": "lemma",
+                "lemma": null,
+                "provenance": null,
+                "reason": "Initial Lean goal",
+                "status": "rejected",
+                "error": "Tactic `apply` failed: could not unify the conclusion of `@zero_add`\n  0 + ?a = ?a\nwith the goal\n  a = 0 + a\n\nNote: The full type of `@zero_add` is\n  ∀ {M : Type ?u.660} [inst : AddZeroClass M] (a : M), 0 + a = a\n\ncase h\nR : Type\ninst✝ : Ring R\na : R\n⊢ a = 0 + a",
+                "elapsed_ms": 4.068350994202774,
+                "on_proof_path": false
+              },
+              {
+                "id": 7,
+                "parent": 0,
+                "depth": 1,
+                "state": null,
+                "tactic": "apply add_assoc",
+                "category": "lemma",
+                "lemma": null,
+                "provenance": null,
+                "reason": "Initial Lean goal",
+                "status": "rejected",
+                "error": "Tactic `apply` failed: could not unify the conclusion of `@add_assoc`\n  ?a + ?b + ?c = ?a + (?b + ?c)\nwith the goal\n  a = 0 + a\n\nNote: The full type of `@add_assoc` is\n  ∀ {G : Type ?u.675} [inst : AddSemigroup G] (a b c : G), a + b + c = a + (b + c)\n\ncase h\nR : Type\ninst✝ : Ring R\na : R\n⊢ a = 0 + a",
+                "elapsed_ms": 10.086520000186283,
+                "on_proof_path": false
+              },
+              {
+                "id": 8,
+                "parent": 0,
+                "depth": 1,
+                "state": null,
+                "tactic": "apply add_comm",
+                "category": "lemma",
+                "lemma": null,
+                "provenance": null,
+                "reason": "Initial Lean goal",
+                "status": "rejected",
+                "error": "Tactic `apply` failed: could not unify the conclusion of `@add_comm`\n  ?a + ?b = ?b + ?a\nwith the goal\n  a = 0 + a\n\nNote: The full type of `@add_comm` is\n  ∀ {G : Type ?u.720} [inst : AddCommMagma G] (a b : G), a + b = b + a\n\ncase h\nR : Type\ninst✝ : Ring R\na : R\n⊢ a = 0 + a",
+                "elapsed_ms": 8.247249003034085,
+                "on_proof_path": false
+              },
+              {
+                "id": 9,
+                "parent": 0,
+                "depth": 1,
+                "state": null,
+                "tactic": "ring",
+                "category": "specialized",
+                "lemma": null,
+                "provenance": null,
+                "reason": "Initial Lean goal",
+                "status": "rejected",
+                "error": "ring_nf made no progress on goal",
+                "elapsed_ms": 7.295565999811515,
+                "on_proof_path": false
+              },
+              {
+                "id": 10,
+                "parent": 3,
+                "depth": 2,
+                "state": null,
+                "tactic": "assumption",
+                "category": "goal",
+                "lemma": null,
+                "provenance": null,
+                "reason": "Initial Lean goal",
+                "status": "rejected",
+                "error": "Tactic `assumption` failed\n\ncase h.h\nR : Type\ninst✝ : Ring R\na : R\n⊢ 0 + a = a",
+                "elapsed_ms": 0.8142750011757016,
+                "on_proof_path": false
+              },
+              {
+                "id": 11,
+                "parent": 3,
+                "depth": 2,
+                "state": null,
+                "tactic": "rfl",
+                "category": "goal",
+                "lemma": null,
+                "provenance": null,
+                "reason": "Initial Lean goal",
+                "status": "rejected",
+                "error": "Tactic `rfl` failed: The left-hand side\n  0 + a\nis not definitionally equal to the right-hand side\n  a\n\ncase h.h\nR : Type\ninst✝ : Ring R\na : R\n⊢ 0 + a = a",
+                "elapsed_ms": 4.021600994747132,
+                "on_proof_path": false
+              },
+              {
+                "id": 12,
+                "parent": 3,
+                "depth": 2,
+                "state": {
+                  "state_id": 6,
+                  "goals": [
+                    {
+                      "id": "_uniq.934",
+                      "target": {
+                        "text": "a = 0 + a",
+                        "head": "Eq",
+                        "forall": false
+                      },
+                      "hypotheses": [
+                        {
+                          "name": "R",
+                          "id": "_uniq.207",
+                          "type": {
+                            "text": "Type",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "inst._@._stdin.2021293395._hygCtx._hyg.3",
+                          "id": "_uniq.208",
+                          "type": {
+                            "text": "Ring R",
+                            "head": "Ring",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "a",
+                          "id": "_uniq.209",
+                          "type": {
+                            "text": "R",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "tactic": "apply Eq.symm",
+                "category": "lemma",
+                "lemma": null,
+                "provenance": null,
+                "reason": "Initial Lean goal",
+                "status": "accepted",
+                "error": null,
+                "elapsed_ms": 0.8732439964660443,
+                "on_proof_path": false
+              },
+              {
+                "id": 13,
+                "parent": 3,
+                "depth": 2,
+                "state": {
+                  "state_id": 7,
+                  "goals": [
+                    {
+                      "id": "_uniq.949",
+                      "target": {
+                        "text": "0 + a = ?h.h.b",
+                        "head": "Eq",
+                        "forall": false
+                      },
+                      "hypotheses": [
+                        {
+                          "name": "R",
+                          "id": "_uniq.207",
+                          "type": {
+                            "text": "Type",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "inst._@._stdin.2021293395._hygCtx._hyg.3",
+                          "id": "_uniq.208",
+                          "type": {
+                            "text": "Ring R",
+                            "head": "Ring",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "a",
+                          "id": "_uniq.209",
+                          "type": {
+                            "text": "R",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        }
+                      ]
+                    },
+                    {
+                      "id": "_uniq.950",
+                      "target": {
+                        "text": "?h.h.b = a",
+                        "head": "Eq",
+                        "forall": false
+                      },
+                      "hypotheses": [
+                        {
+                          "name": "R",
+                          "id": "_uniq.207",
+                          "type": {
+                            "text": "Type",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "inst._@._stdin.2021293395._hygCtx._hyg.3",
+                          "id": "_uniq.208",
+                          "type": {
+                            "text": "Ring R",
+                            "head": "Ring",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "a",
+                          "id": "_uniq.209",
+                          "type": {
+                            "text": "R",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        }
+                      ]
+                    },
+                    {
+                      "id": "_uniq.947",
+                      "target": {
+                        "text": "R",
+                        "head": "[anonymous]",
+                        "forall": false
+                      },
+                      "hypotheses": [
+                        {
+                          "name": "R",
+                          "id": "_uniq.207",
+                          "type": {
+                            "text": "Type",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "inst._@._stdin.2021293395._hygCtx._hyg.3",
+                          "id": "_uniq.208",
+                          "type": {
+                            "text": "Ring R",
+                            "head": "Ring",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "a",
+                          "id": "_uniq.209",
+                          "type": {
+                            "text": "R",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "tactic": "apply Eq.trans",
+                "category": "lemma",
+                "lemma": null,
+                "provenance": null,
+                "reason": "Initial Lean goal",
+                "status": "accepted",
+                "error": null,
+                "elapsed_ms": 1.3294199961819686,
+                "on_proof_path": false
+              },
+              {
+                "id": 14,
+                "parent": 3,
+                "depth": 2,
+                "state": null,
+                "tactic": "apply add_zero",
+                "category": "lemma",
+                "lemma": null,
+                "provenance": null,
+                "reason": "Initial Lean goal",
+                "status": "rejected",
+                "error": "Tactic `apply` failed: could not unify the conclusion of `@add_zero`\n  ?a + 0 = ?a\nwith the goal\n  0 + a = a\n\nNote: The full type of `@add_zero` is\n  ∀ {M : Type ?u.954} [inst : AddZeroClass M] (a : M), a + 0 = a\n\ncase h.h\nR : Type\ninst✝ : Ring R\na : R\n⊢ 0 + a = a",
+                "elapsed_ms": 14.010070000949781,
+                "on_proof_path": false
+              },
+              {
+                "id": 15,
+                "parent": 3,
+                "depth": 2,
+                "state": {
+                  "state_id": 8,
+                  "goals": []
+                },
+                "tactic": "apply zero_add",
+                "category": "lemma",
+                "lemma": null,
+                "provenance": null,
+                "reason": "Initial Lean goal",
+                "status": "solved",
+                "error": null,
+                "elapsed_ms": 2.2527600012836047,
+                "on_proof_path": true
+              }
+            ],
+            "pools": [
+              {
+                "node_id": 0,
+                "generated": [
+                  {
+                    "tactic": "assumption",
+                    "category": "goal",
+                    "reason": "Match the goal against the local context",
+                    "prior": 10.0,
+                    "lemma": null,
+                    "provenance": null
+                  },
+                  {
+                    "tactic": "rfl",
+                    "category": "goal",
+                    "reason": "Check definitional equality",
+                    "prior": 8.0,
+                    "lemma": null,
+                    "provenance": null
+                  },
+                  {
+                    "tactic": "apply Eq.symm",
+                    "category": "lemma",
+                    "reason": "Goal features: ('=',); context features: ()",
+                    "prior": 4.0,
+                    "lemma": "Eq.symm",
+                    "provenance": "Init.Prelude"
+                  },
+                  {
+                    "tactic": "apply Eq.trans",
+                    "category": "lemma",
+                    "reason": "Goal features: ('=',); context features: ()",
+                    "prior": 4.0,
+                    "lemma": "Eq.trans",
+                    "provenance": "Init.Prelude"
+                  },
+                  {
+                    "tactic": "apply add_zero",
+                    "category": "lemma",
+                    "reason": "Goal features: ('+', '0'); context features: ()",
+                    "prior": 4.0,
+                    "lemma": "add_zero",
+                    "provenance": "Mathlib.Algebra.Group.Defs"
+                  },
+                  {
+                    "tactic": "apply zero_add",
+                    "category": "lemma",
+                    "reason": "Goal features: ('+', '0'); context features: ()",
+                    "prior": 4.0,
+                    "lemma": "zero_add",
+                    "provenance": "Mathlib.Algebra.Group.Defs"
+                  },
+                  {
+                    "tactic": "apply add_assoc",
+                    "category": "lemma",
+                    "reason": "Goal features: ('+',); context features: ()",
+                    "prior": 4.0,
+                    "lemma": "add_assoc",
+                    "provenance": "Mathlib.Algebra.Group.Defs"
+                  },
+                  {
+                    "tactic": "apply add_comm",
+                    "category": "lemma",
+                    "reason": "Goal features: ('+',); context features: ()",
+                    "prior": 4.0,
+                    "lemma": "add_comm",
+                    "provenance": "Mathlib.Algebra.Group.Defs"
+                  },
+                  {
+                    "tactic": "ring",
+                    "category": "specialized",
+                    "reason": "Normalize a polynomial equality (Mathlib ring)",
+                    "prior": 2.0,
+                    "lemma": null,
+                    "provenance": null
+                  }
+                ],
+                "actual_order": [
+                  "assumption",
+                  "rfl",
+                  "apply Eq.symm",
+                  "apply Eq.trans",
+                  "apply add_zero",
+                  "apply zero_add",
+                  "apply add_assoc",
+                  "apply add_comm",
+                  "ring"
+                ]
+              },
+              {
+                "node_id": 3,
+                "generated": [
+                  {
+                    "tactic": "assumption",
+                    "category": "goal",
+                    "reason": "Match the goal against the local context",
+                    "prior": 10.0,
+                    "lemma": null,
+                    "provenance": null
+                  },
+                  {
+                    "tactic": "rfl",
+                    "category": "goal",
+                    "reason": "Check definitional equality",
+                    "prior": 8.0,
+                    "lemma": null,
+                    "provenance": null
+                  },
+                  {
+                    "tactic": "apply Eq.symm",
+                    "category": "lemma",
+                    "reason": "Goal features: ('=',); context features: ()",
+                    "prior": 4.0,
+                    "lemma": "Eq.symm",
+                    "provenance": "Init.Prelude"
+                  },
+                  {
+                    "tactic": "apply Eq.trans",
+                    "category": "lemma",
+                    "reason": "Goal features: ('=',); context features: ()",
+                    "prior": 4.0,
+                    "lemma": "Eq.trans",
+                    "provenance": "Init.Prelude"
+                  },
+                  {
+                    "tactic": "apply add_zero",
+                    "category": "lemma",
+                    "reason": "Goal features: ('+', '0'); context features: ()",
+                    "prior": 4.0,
+                    "lemma": "add_zero",
+                    "provenance": "Mathlib.Algebra.Group.Defs"
+                  },
+                  {
+                    "tactic": "apply zero_add",
+                    "category": "lemma",
+                    "reason": "Goal features: ('+', '0'); context features: ()",
+                    "prior": 4.0,
+                    "lemma": "zero_add",
+                    "provenance": "Mathlib.Algebra.Group.Defs"
+                  },
+                  {
+                    "tactic": "apply add_assoc",
+                    "category": "lemma",
+                    "reason": "Goal features: ('+',); context features: ()",
+                    "prior": 4.0,
+                    "lemma": "add_assoc",
+                    "provenance": "Mathlib.Algebra.Group.Defs"
+                  },
+                  {
+                    "tactic": "apply add_comm",
+                    "category": "lemma",
+                    "reason": "Goal features: ('+',); context features: ()",
+                    "prior": 4.0,
+                    "lemma": "add_comm",
+                    "provenance": "Mathlib.Algebra.Group.Defs"
+                  },
+                  {
+                    "tactic": "ring",
+                    "category": "specialized",
+                    "reason": "Normalize a polynomial equality (Mathlib ring)",
+                    "prior": 2.0,
+                    "lemma": null,
+                    "provenance": null
+                  }
+                ],
+                "actual_order": [
+                  "assumption",
+                  "rfl",
+                  "apply Eq.symm",
+                  "apply Eq.trans",
+                  "apply add_zero",
+                  "apply zero_add",
+                  "apply add_assoc",
+                  "apply add_comm",
+                  "ring"
+                ]
+              }
+            ],
+            "proof": [
+              "apply Eq.symm",
+              "apply Eq.symm",
+              "apply zero_add"
+            ],
+            "verification": {
+              "verified": true,
+              "axioms": [],
+              "error": null,
+              "elapsed_s": 2.0427938180000638,
+              "source_sha256": "323888631a519099926b0d5594f4b50177b9ba0f944e595f6f8796c660c18f06"
+            },
+            "metrics": {
+              "attempted_candidates": 16,
+              "expanded_states": 2,
+              "proof_length": 3,
+              "suffix_length": 3,
+              "elapsed_s": 2.1142589730006875,
+              "lean_execution_s": 0.0706765199865913,
+              "verification_s": 2.0427938180000638,
+              "search_s": 0.07146549600292929,
+              "initial_action_s": 0.001003929995931685
+            },
+            "label_policy": "Only verified-vs-verified cost differences are preferences; unresolved is censored"
+          },
+          "exploration": "bounded_rollout"
+        },
+        {
+          "candidate": {
+            "tactic": "apply Eq.trans",
+            "category": "lemma",
+            "reason": "Goal features: ('=',); context features: ()",
+            "prior": 4.0,
+            "lemma": "Eq.trans",
+            "provenance": "Init.Prelude"
+          },
+          "status": "accepted",
+          "successor": {
+            "state_id": 2,
+            "goals": [
+              {
+                "id": "_uniq.242",
+                "target": {
+                  "text": "0 + a = ?b",
+                  "head": "Eq",
+                  "forall": false
+                },
+                "hypotheses": [
+                  {
+                    "name": "R",
+                    "id": "_uniq.207",
+                    "type": {
+                      "text": "Type",
+                      "head": "[anonymous]",
+                      "forall": false
+                    },
+                    "is_proof": false
+                  },
+                  {
+                    "name": "inst._@._stdin.2021293395._hygCtx._hyg.3",
+                    "id": "_uniq.208",
+                    "type": {
+                      "text": "Ring R",
+                      "head": "Ring",
+                      "forall": false
+                    },
+                    "is_proof": false
+                  },
+                  {
+                    "name": "a",
+                    "id": "_uniq.209",
+                    "type": {
+                      "text": "R",
+                      "head": "[anonymous]",
+                      "forall": false
+                    },
+                    "is_proof": false
+                  }
+                ]
+              },
+              {
+                "id": "_uniq.243",
+                "target": {
+                  "text": "?b = a",
+                  "head": "Eq",
+                  "forall": false
+                },
+                "hypotheses": [
+                  {
+                    "name": "R",
+                    "id": "_uniq.207",
+                    "type": {
+                      "text": "Type",
+                      "head": "[anonymous]",
+                      "forall": false
+                    },
+                    "is_proof": false
+                  },
+                  {
+                    "name": "inst._@._stdin.2021293395._hygCtx._hyg.3",
+                    "id": "_uniq.208",
+                    "type": {
+                      "text": "Ring R",
+                      "head": "Ring",
+                      "forall": false
+                    },
+                    "is_proof": false
+                  },
+                  {
+                    "name": "a",
+                    "id": "_uniq.209",
+                    "type": {
+                      "text": "R",
+                      "head": "[anonymous]",
+                      "forall": false
+                    },
+                    "is_proof": false
+                  }
+                ]
+              },
+              {
+                "id": "_uniq.240",
+                "target": {
+                  "text": "R",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "hypotheses": [
+                  {
+                    "name": "R",
+                    "id": "_uniq.207",
+                    "type": {
+                      "text": "Type",
+                      "head": "[anonymous]",
+                      "forall": false
+                    },
+                    "is_proof": false
+                  },
+                  {
+                    "name": "inst._@._stdin.2021293395._hygCtx._hyg.3",
+                    "id": "_uniq.208",
+                    "type": {
+                      "text": "Ring R",
+                      "head": "Ring",
+                      "forall": false
+                    },
+                    "is_proof": false
+                  },
+                  {
+                    "name": "a",
+                    "id": "_uniq.209",
+                    "type": {
+                      "text": "R",
+                      "head": "[anonymous]",
+                      "forall": false
+                    },
+                    "is_proof": false
+                  }
+                ]
+              }
+            ]
+          },
+          "elapsed_s": 0.0012904420000268146,
+          "error": null,
+          "continuation": {
+            "status": "verified",
+            "termination": "verified",
+            "first_action": "apply Eq.trans",
+            "prefix": [],
+            "nodes": [
+              {
+                "id": 0,
+                "parent": null,
+                "depth": 0,
+                "state": {
+                  "state_id": 2,
+                  "goals": [
+                    {
+                      "id": "_uniq.242",
+                      "target": {
+                        "text": "0 + a = ?b",
+                        "head": "Eq",
+                        "forall": false
+                      },
+                      "hypotheses": [
+                        {
+                          "name": "R",
+                          "id": "_uniq.207",
+                          "type": {
+                            "text": "Type",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "inst._@._stdin.2021293395._hygCtx._hyg.3",
+                          "id": "_uniq.208",
+                          "type": {
+                            "text": "Ring R",
+                            "head": "Ring",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "a",
+                          "id": "_uniq.209",
+                          "type": {
+                            "text": "R",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        }
+                      ]
+                    },
+                    {
+                      "id": "_uniq.243",
+                      "target": {
+                        "text": "?b = a",
+                        "head": "Eq",
+                        "forall": false
+                      },
+                      "hypotheses": [
+                        {
+                          "name": "R",
+                          "id": "_uniq.207",
+                          "type": {
+                            "text": "Type",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "inst._@._stdin.2021293395._hygCtx._hyg.3",
+                          "id": "_uniq.208",
+                          "type": {
+                            "text": "Ring R",
+                            "head": "Ring",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "a",
+                          "id": "_uniq.209",
+                          "type": {
+                            "text": "R",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        }
+                      ]
+                    },
+                    {
+                      "id": "_uniq.240",
+                      "target": {
+                        "text": "R",
+                        "head": "[anonymous]",
+                        "forall": false
+                      },
+                      "hypotheses": [
+                        {
+                          "name": "R",
+                          "id": "_uniq.207",
+                          "type": {
+                            "text": "Type",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "inst._@._stdin.2021293395._hygCtx._hyg.3",
+                          "id": "_uniq.208",
+                          "type": {
+                            "text": "Ring R",
+                            "head": "Ring",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "a",
+                          "id": "_uniq.209",
+                          "type": {
+                            "text": "R",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "tactic": null,
+                "category": null,
+                "lemma": null,
+                "provenance": null,
+                "reason": "Initial Lean goal",
+                "status": "root",
+                "error": null,
+                "elapsed_ms": 0,
+                "on_proof_path": true
+              },
+              {
+                "id": 1,
+                "parent": 0,
+                "depth": 1,
+                "state": null,
+                "tactic": "assumption",
+                "category": "goal",
+                "lemma": null,
+                "provenance": null,
+                "reason": "Initial Lean goal",
+                "status": "rejected",
+                "error": "Tactic `assumption` failed\n\ncase h₁\nR : Type\ninst✝ : Ring R\na : R\n⊢ 0 + a = ?b",
+                "elapsed_ms": 1.450032003049273,
+                "on_proof_path": false
+              },
+              {
+                "id": 2,
+                "parent": 0,
+                "depth": 1,
+                "state": {
+                  "state_id": 9,
+                  "goals": [
+                    {
+                      "id": "_uniq.243",
+                      "target": {
+                        "text": "0 + a = a",
+                        "head": "Eq",
+                        "forall": false
+                      },
+                      "hypotheses": [
+                        {
+                          "name": "R",
+                          "id": "_uniq.207",
+                          "type": {
+                            "text": "Type",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "inst._@._stdin.2021293395._hygCtx._hyg.3",
+                          "id": "_uniq.208",
+                          "type": {
+                            "text": "Ring R",
+                            "head": "Ring",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "a",
+                          "id": "_uniq.209",
+                          "type": {
+                            "text": "R",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "tactic": "rfl",
+                "category": "goal",
+                "lemma": null,
+                "provenance": null,
+                "reason": "Initial Lean goal",
+                "status": "accepted",
+                "error": null,
+                "elapsed_ms": 1.102839996747207,
+                "on_proof_path": false
+              },
+              {
+                "id": 3,
+                "parent": 0,
+                "depth": 1,
+                "state": {
+                  "state_id": 10,
+                  "goals": [
+                    {
+                      "id": "_uniq.1039",
+                      "target": {
+                        "text": "?b = 0 + a",
+                        "head": "Eq",
+                        "forall": false
+                      },
+                      "hypotheses": [
+                        {
+                          "name": "R",
+                          "id": "_uniq.207",
+                          "type": {
+                            "text": "Type",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "inst._@._stdin.2021293395._hygCtx._hyg.3",
+                          "id": "_uniq.208",
+                          "type": {
+                            "text": "Ring R",
+                            "head": "Ring",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "a",
+                          "id": "_uniq.209",
+                          "type": {
+                            "text": "R",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        }
+                      ]
+                    },
+                    {
+                      "id": "_uniq.243",
+                      "target": {
+                        "text": "?b = a",
+                        "head": "Eq",
+                        "forall": false
+                      },
+                      "hypotheses": [
+                        {
+                          "name": "R",
+                          "id": "_uniq.207",
+                          "type": {
+                            "text": "Type",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "inst._@._stdin.2021293395._hygCtx._hyg.3",
+                          "id": "_uniq.208",
+                          "type": {
+                            "text": "Ring R",
+                            "head": "Ring",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "a",
+                          "id": "_uniq.209",
+                          "type": {
+                            "text": "R",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        }
+                      ]
+                    },
+                    {
+                      "id": "_uniq.240",
+                      "target": {
+                        "text": "R",
+                        "head": "[anonymous]",
+                        "forall": false
+                      },
+                      "hypotheses": [
+                        {
+                          "name": "R",
+                          "id": "_uniq.207",
+                          "type": {
+                            "text": "Type",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "inst._@._stdin.2021293395._hygCtx._hyg.3",
+                          "id": "_uniq.208",
+                          "type": {
+                            "text": "Ring R",
+                            "head": "Ring",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "a",
+                          "id": "_uniq.209",
+                          "type": {
+                            "text": "R",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "tactic": "apply Eq.symm",
+                "category": "lemma",
+                "lemma": null,
+                "provenance": null,
+                "reason": "Initial Lean goal",
+                "status": "accepted",
+                "error": null,
+                "elapsed_ms": 2.0524380015558563,
+                "on_proof_path": false
+              },
+              {
+                "id": 4,
+                "parent": 0,
+                "depth": 1,
+                "state": {
+                  "state_id": 11,
+                  "goals": [
+                    {
+                      "id": "_uniq.1054",
+                      "target": {
+                        "text": "0 + a = ?h₁.b",
+                        "head": "Eq",
+                        "forall": false
+                      },
+                      "hypotheses": [
+                        {
+                          "name": "R",
+                          "id": "_uniq.207",
+                          "type": {
+                            "text": "Type",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "inst._@._stdin.2021293395._hygCtx._hyg.3",
+                          "id": "_uniq.208",
+                          "type": {
+                            "text": "Ring R",
+                            "head": "Ring",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "a",
+                          "id": "_uniq.209",
+                          "type": {
+                            "text": "R",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        }
+                      ]
+                    },
+                    {
+                      "id": "_uniq.1055",
+                      "target": {
+                        "text": "?h₁.b = ?b",
+                        "head": "Eq",
+                        "forall": false
+                      },
+                      "hypotheses": [
+                        {
+                          "name": "R",
+                          "id": "_uniq.207",
+                          "type": {
+                            "text": "Type",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "inst._@._stdin.2021293395._hygCtx._hyg.3",
+                          "id": "_uniq.208",
+                          "type": {
+                            "text": "Ring R",
+                            "head": "Ring",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "a",
+                          "id": "_uniq.209",
+                          "type": {
+                            "text": "R",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        }
+                      ]
+                    },
+                    {
+                      "id": "_uniq.1052",
+                      "target": {
+                        "text": "R",
+                        "head": "[anonymous]",
+                        "forall": false
+                      },
+                      "hypotheses": [
+                        {
+                          "name": "R",
+                          "id": "_uniq.207",
+                          "type": {
+                            "text": "Type",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "inst._@._stdin.2021293395._hygCtx._hyg.3",
+                          "id": "_uniq.208",
+                          "type": {
+                            "text": "Ring R",
+                            "head": "Ring",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "a",
+                          "id": "_uniq.209",
+                          "type": {
+                            "text": "R",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        }
+                      ]
+                    },
+                    {
+                      "id": "_uniq.243",
+                      "target": {
+                        "text": "?b = a",
+                        "head": "Eq",
+                        "forall": false
+                      },
+                      "hypotheses": [
+                        {
+                          "name": "R",
+                          "id": "_uniq.207",
+                          "type": {
+                            "text": "Type",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "inst._@._stdin.2021293395._hygCtx._hyg.3",
+                          "id": "_uniq.208",
+                          "type": {
+                            "text": "Ring R",
+                            "head": "Ring",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "a",
+                          "id": "_uniq.209",
+                          "type": {
+                            "text": "R",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        }
+                      ]
+                    },
+                    {
+                      "id": "_uniq.240",
+                      "target": {
+                        "text": "R",
+                        "head": "[anonymous]",
+                        "forall": false
+                      },
+                      "hypotheses": [
+                        {
+                          "name": "R",
+                          "id": "_uniq.207",
+                          "type": {
+                            "text": "Type",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "inst._@._stdin.2021293395._hygCtx._hyg.3",
+                          "id": "_uniq.208",
+                          "type": {
+                            "text": "Ring R",
+                            "head": "Ring",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "a",
+                          "id": "_uniq.209",
+                          "type": {
+                            "text": "R",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "tactic": "apply Eq.trans",
+                "category": "lemma",
+                "lemma": null,
+                "provenance": null,
+                "reason": "Initial Lean goal",
+                "status": "accepted",
+                "error": null,
+                "elapsed_ms": 1.7646249980316497,
+                "on_proof_path": false
+              },
+              {
+                "id": 5,
+                "parent": 0,
+                "depth": 1,
+                "state": null,
+                "tactic": "apply add_zero",
+                "category": "lemma",
+                "lemma": null,
+                "provenance": null,
+                "reason": "Initial Lean goal",
+                "status": "rejected",
+                "error": "Tactic `apply` failed: could not unify the conclusion of `@add_zero`\n  ?a + 0 = ?a\nwith the goal\n  0 + a = ?b\n\nNote: The full type of `@add_zero` is\n  ∀ {M : Type ?u.1059} [inst : AddZeroClass M] (a : M), a + 0 = a\n\ncase h₁\nR : Type\ninst✝ : Ring R\na : R\n⊢ 0 + a = ?b",
+                "elapsed_ms": 16.072550999524537,
+                "on_proof_path": false
+              },
+              {
+                "id": 6,
+                "parent": 0,
+                "depth": 1,
+                "state": {
+                  "state_id": 12,
+                  "goals": [
+                    {
+                      "id": "_uniq.243",
+                      "target": {
+                        "text": "a = a",
+                        "head": "Eq",
+                        "forall": false
+                      },
+                      "hypotheses": [
+                        {
+                          "name": "R",
+                          "id": "_uniq.207",
+                          "type": {
+                            "text": "Type",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "inst._@._stdin.2021293395._hygCtx._hyg.3",
+                          "id": "_uniq.208",
+                          "type": {
+                            "text": "Ring R",
+                            "head": "Ring",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "a",
+                          "id": "_uniq.209",
+                          "type": {
+                            "text": "R",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "tactic": "apply zero_add",
+                "category": "lemma",
+                "lemma": null,
+                "provenance": null,
+                "reason": "Initial Lean goal",
+                "status": "accepted",
+                "error": null,
+                "elapsed_ms": 2.488434001861606,
+                "on_proof_path": true
+              },
+              {
+                "id": 7,
+                "parent": 0,
+                "depth": 1,
+                "state": null,
+                "tactic": "apply add_assoc",
+                "category": "lemma",
+                "lemma": null,
+                "provenance": null,
+                "reason": "Initial Lean goal",
+                "status": "rejected",
+                "error": "Tactic `apply` failed: could not unify the conclusion of `@add_assoc`\n  ?a + ?b + ?c = ?a + (?b + ?c)\nwith the goal\n  0 + a = ?b\n\nNote: The full type of `@add_assoc` is\n  ∀ {G : Type ?u.1088} [inst : AddSemigroup G] (a b c : G), a + b + c = a + (b + c)\n\ncase h₁\nR : Type\ninst✝ : Ring R\na : R\n⊢ 0 + a = ?b",
+                "elapsed_ms": 24.163030000636354,
+                "on_proof_path": false
+              },
+              {
+                "id": 8,
+                "parent": 0,
+                "depth": 1,
+                "state": {
+                  "state_id": 13,
+                  "goals": [
+                    {
+                      "id": "_uniq.243",
+                      "target": {
+                        "text": "a + 0 = a",
+                        "head": "Eq",
+                        "forall": false
+                      },
+                      "hypotheses": [
+                        {
+                          "name": "R",
+                          "id": "_uniq.207",
+                          "type": {
+                            "text": "Type",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "inst._@._stdin.2021293395._hygCtx._hyg.3",
+                          "id": "_uniq.208",
+                          "type": {
+                            "text": "Ring R",
+                            "head": "Ring",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "a",
+                          "id": "_uniq.209",
+                          "type": {
+                            "text": "R",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "tactic": "apply add_comm",
+                "category": "lemma",
+                "lemma": null,
+                "provenance": null,
+                "reason": "Initial Lean goal",
+                "status": "accepted",
+                "error": null,
+                "elapsed_ms": 4.972746995917987,
+                "on_proof_path": false
+              },
+              {
+                "id": 9,
+                "parent": 0,
+                "depth": 1,
+                "state": null,
+                "tactic": "ring",
+                "category": "specialized",
+                "lemma": null,
+                "provenance": null,
+                "reason": "Initial Lean goal",
+                "status": "rejected",
+                "error": "ring_nf made no progress on goal",
+                "elapsed_ms": 4.186514001048636,
+                "on_proof_path": false
+              },
+              {
+                "id": 10,
+                "parent": 6,
+                "depth": 2,
+                "state": null,
+                "tactic": "assumption",
+                "category": "goal",
+                "lemma": null,
+                "provenance": null,
+                "reason": "Initial Lean goal",
+                "status": "rejected",
+                "error": "Tactic `assumption` failed\n\ncase h₂\nR : Type\ninst✝ : Ring R\na : R\n⊢ a = a",
+                "elapsed_ms": 1.3794149999739602,
+                "on_proof_path": false
+              },
+              {
+                "id": 11,
+                "parent": 6,
+                "depth": 2,
+                "state": {
+                  "state_id": 14,
+                  "goals": []
+                },
+                "tactic": "rfl",
+                "category": "goal",
+                "lemma": null,
+                "provenance": null,
+                "reason": "Initial Lean goal",
+                "status": "solved",
+                "error": null,
+                "elapsed_ms": 0.7258830009959638,
+                "on_proof_path": true
+              }
+            ],
+            "pools": [
+              {
+                "node_id": 0,
+                "generated": [
+                  {
+                    "tactic": "assumption",
+                    "category": "goal",
+                    "reason": "Match the goal against the local context",
+                    "prior": 10.0,
+                    "lemma": null,
+                    "provenance": null
+                  },
+                  {
+                    "tactic": "rfl",
+                    "category": "goal",
+                    "reason": "Check definitional equality",
+                    "prior": 8.0,
+                    "lemma": null,
+                    "provenance": null
+                  },
+                  {
+                    "tactic": "apply Eq.symm",
+                    "category": "lemma",
+                    "reason": "Goal features: ('=',); context features: ()",
+                    "prior": 4.0,
+                    "lemma": "Eq.symm",
+                    "provenance": "Init.Prelude"
+                  },
+                  {
+                    "tactic": "apply Eq.trans",
+                    "category": "lemma",
+                    "reason": "Goal features: ('=',); context features: ()",
+                    "prior": 4.0,
+                    "lemma": "Eq.trans",
+                    "provenance": "Init.Prelude"
+                  },
+                  {
+                    "tactic": "apply add_zero",
+                    "category": "lemma",
+                    "reason": "Goal features: ('+', '0'); context features: ()",
+                    "prior": 4.0,
+                    "lemma": "add_zero",
+                    "provenance": "Mathlib.Algebra.Group.Defs"
+                  },
+                  {
+                    "tactic": "apply zero_add",
+                    "category": "lemma",
+                    "reason": "Goal features: ('+', '0'); context features: ()",
+                    "prior": 4.0,
+                    "lemma": "zero_add",
+                    "provenance": "Mathlib.Algebra.Group.Defs"
+                  },
+                  {
+                    "tactic": "apply add_assoc",
+                    "category": "lemma",
+                    "reason": "Goal features: ('+',); context features: ()",
+                    "prior": 4.0,
+                    "lemma": "add_assoc",
+                    "provenance": "Mathlib.Algebra.Group.Defs"
+                  },
+                  {
+                    "tactic": "apply add_comm",
+                    "category": "lemma",
+                    "reason": "Goal features: ('+',); context features: ()",
+                    "prior": 4.0,
+                    "lemma": "add_comm",
+                    "provenance": "Mathlib.Algebra.Group.Defs"
+                  },
+                  {
+                    "tactic": "ring",
+                    "category": "specialized",
+                    "reason": "Normalize a polynomial equality (Mathlib ring)",
+                    "prior": 2.0,
+                    "lemma": null,
+                    "provenance": null
+                  }
+                ],
+                "actual_order": [
+                  "assumption",
+                  "rfl",
+                  "apply Eq.symm",
+                  "apply Eq.trans",
+                  "apply add_zero",
+                  "apply zero_add",
+                  "apply add_assoc",
+                  "apply add_comm",
+                  "ring"
+                ]
+              },
+              {
+                "node_id": 6,
+                "generated": [
+                  {
+                    "tactic": "assumption",
+                    "category": "goal",
+                    "reason": "Match the goal against the local context",
+                    "prior": 10.0,
+                    "lemma": null,
+                    "provenance": null
+                  },
+                  {
+                    "tactic": "rfl",
+                    "category": "goal",
+                    "reason": "Check definitional equality",
+                    "prior": 8.0,
+                    "lemma": null,
+                    "provenance": null
+                  },
+                  {
+                    "tactic": "apply Eq.symm",
+                    "category": "lemma",
+                    "reason": "Goal features: ('=',); context features: ()",
+                    "prior": 4.0,
+                    "lemma": "Eq.symm",
+                    "provenance": "Init.Prelude"
+                  },
+                  {
+                    "tactic": "apply Eq.trans",
+                    "category": "lemma",
+                    "reason": "Goal features: ('=',); context features: ()",
+                    "prior": 4.0,
+                    "lemma": "Eq.trans",
+                    "provenance": "Init.Prelude"
+                  }
+                ],
+                "actual_order": [
+                  "assumption",
+                  "rfl",
+                  "apply Eq.symm",
+                  "apply Eq.trans"
+                ]
+              }
+            ],
+            "proof": [
+              "apply Eq.trans",
+              "apply zero_add",
+              "rfl"
+            ],
+            "verification": {
+              "verified": true,
+              "axioms": [],
+              "error": null,
+              "elapsed_s": 1.8565921139961574,
+              "source_sha256": "45821f2928cfd87b35154ec904f6a2f5a4bc7fe344e07c105906fc5602f99a3e"
+            },
+            "metrics": {
+              "attempted_candidates": 12,
+              "expanded_states": 2,
+              "proof_length": 3,
+              "suffix_length": 3,
+              "elapsed_s": 1.9189619480021065,
+              "lean_execution_s": 0.061648950999369845,
+              "verification_s": 1.8565921139961574,
+              "search_s": 0.06237005500588566,
+              "initial_action_s": 0.0012904420000268146
+            },
+            "label_policy": "Only verified-vs-verified cost differences are preferences; unresolved is censored"
+          },
+          "exploration": "bounded_rollout"
+        },
+        {
+          "candidate": {
+            "tactic": "apply add_zero",
+            "category": "lemma",
+            "reason": "Goal features: ('+', '0'); context features: ()",
+            "prior": 4.0,
+            "lemma": "add_zero",
+            "provenance": "Mathlib.Algebra.Group.Defs"
+          },
+          "status": "invalid_candidate",
+          "successor": null,
+          "elapsed_s": 0.015579980004986282,
+          "error": "Tactic `apply` failed: could not unify the conclusion of `@add_zero`\n  ?a + 0 = ?a\nwith the goal\n  0 + a = a\n\nNote: The full type of `@add_zero` is\n  ∀ {M : Type ?u.247} [inst : AddZeroClass M] (a : M), a + 0 = a\n\nR : Type\ninst✝ : Ring R\na : R\n⊢ 0 + a = a",
+          "continuation": null,
+          "exploration": "not_selected"
+        },
+        {
+          "candidate": {
+            "tactic": "apply zero_add",
+            "category": "lemma",
+            "reason": "Goal features: ('+', '0'); context features: ()",
+            "prior": 4.0,
+            "lemma": "zero_add",
+            "provenance": "Mathlib.Algebra.Group.Defs"
+          },
+          "status": "accepted",
+          "successor": {
+            "state_id": 3,
+            "goals": []
+          },
+          "elapsed_s": 0.0025236770015908405,
+          "error": null,
+          "continuation": {
+            "status": "verified",
+            "termination": "verified",
+            "first_action": "apply zero_add",
+            "prefix": [],
+            "nodes": [
+              {
+                "id": 0,
+                "parent": null,
+                "depth": 0,
+                "state": {
+                  "state_id": 3,
+                  "goals": []
+                },
+                "tactic": null,
+                "category": null,
+                "lemma": null,
+                "provenance": null,
+                "reason": "Initial Lean goal",
+                "status": "root",
+                "error": null,
+                "elapsed_ms": 0,
+                "on_proof_path": true
+              }
+            ],
+            "pools": [],
+            "proof": [
+              "apply zero_add"
+            ],
+            "verification": {
+              "verified": true,
+              "axioms": [],
+              "error": null,
+              "elapsed_s": 2.057525185002305,
+              "source_sha256": "2361873abb03ce9cbed79f18e69d79efb0ed1505567f6b2822da190f11bafa83"
+            },
+            "metrics": {
+              "attempted_candidates": 1,
+              "expanded_states": 0,
+              "proof_length": 1,
+              "suffix_length": 1,
+              "elapsed_s": 2.057732806999411,
+              "lean_execution_s": 0.0025236770015908405,
+              "verification_s": 2.057525185002305,
+              "search_s": 0.00020780300110345706,
+              "initial_action_s": 0.0025236770015908405
+            },
+            "label_policy": "Only verified-vs-verified cost differences are preferences; unresolved is censored"
+          },
+          "exploration": "bounded_rollout"
+        },
+        {
+          "candidate": {
+            "tactic": "apply add_assoc",
+            "category": "lemma",
+            "reason": "Goal features: ('+',); context features: ()",
+            "prior": 4.0,
+            "lemma": "add_assoc",
+            "provenance": "Mathlib.Algebra.Group.Defs"
+          },
+          "status": "invalid_candidate",
+          "successor": null,
+          "elapsed_s": 0.022091968996392097,
+          "error": "Tactic `apply` failed: could not unify the conclusion of `@add_assoc`\n  ?a + ?b + ?c = ?a + (?b + ?c)\nwith the goal\n  0 + a = a\n\nNote: The full type of `@add_assoc` is\n  ∀ {G : Type ?u.320} [inst : AddSemigroup G] (a b c : G), a + b + c = a + (b + c)\n\nR : Type\ninst✝ : Ring R\na : R\n⊢ 0 + a = a",
+          "continuation": null,
+          "exploration": "not_selected"
+        },
+        {
+          "candidate": {
+            "tactic": "apply add_comm",
+            "category": "lemma",
+            "reason": "Goal features: ('+',); context features: ()",
+            "prior": 4.0,
+            "lemma": "add_comm",
+            "provenance": "Mathlib.Algebra.Group.Defs"
+          },
+          "status": "invalid_candidate",
+          "successor": null,
+          "elapsed_s": 0.010081007996632252,
+          "error": "Tactic `apply` failed: could not unify the conclusion of `@add_comm`\n  ?a + ?b = ?b + ?a\nwith the goal\n  0 + a = a\n\nNote: The full type of `@add_comm` is\n  ∀ {G : Type ?u.377} [inst : AddCommMagma G] (a b : G), a + b = b + a\n\nR : Type\ninst✝ : Ring R\na : R\n⊢ 0 + a = a",
+          "continuation": null,
+          "exploration": "not_selected"
+        },
+        {
+          "candidate": {
+            "tactic": "ring",
+            "category": "specialized",
+            "reason": "Normalize a polynomial equality (Mathlib ring)",
+            "prior": 2.0,
+            "lemma": null,
+            "provenance": null
+          },
+          "status": "invalid_candidate",
+          "successor": null,
+          "elapsed_s": 0.008468179999908898,
+          "error": "ring_nf made no progress on goal",
+          "continuation": null,
+          "exploration": "not_selected"
+        }
+      ]
+    }
+  ]
+}

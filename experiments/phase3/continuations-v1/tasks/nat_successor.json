@@ -1,0 +1,832 @@
+{
+  "task_id": "nat_successor",
+  "split": "development",
+  "domain": "order",
+  "demonstration_trace": "experiments/phase1-v3/traces/nat_successor--best_first.json",
+  "demonstration_sha256": "029ca95161918eb67056714b0041a68d464da2bbbc360ca03c91e6440430a6c0",
+  "source_verification": {
+    "verified": true,
+    "axioms": [
+      "propext",
+      "Quot.sound"
+    ],
+    "error": null,
+    "elapsed_s": 2.5322378180062515,
+    "source_sha256": "f5bee3fb9cee3e9f0b1573fde0ecb58c1f73c5628ab136e83c52196444cc2dcf"
+  },
+  "states": [
+    {
+      "task_id": "nat_successor",
+      "split": "development",
+      "domain": "order",
+      "depth": 0,
+      "prefix": [],
+      "positive_tactic": "omega",
+      "state": {
+        "state_id": 0,
+        "goals": [
+          {
+            "id": "_uniq.80",
+            "target": {
+              "text": "n ≤ n + 1",
+              "head": "Nat.le",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "n",
+                "id": "_uniq.79",
+                "type": {
+                  "text": "ℕ",
+                  "head": "Nat",
+                  "forall": false
+                },
+                "is_proof": false
+              }
+            ]
+          }
+        ]
+      },
+      "observations": [
+        {
+          "candidate": {
+            "tactic": "assumption",
+            "category": "goal",
+            "reason": "Match the goal against the local context",
+            "prior": 10.0,
+            "lemma": null,
+            "provenance": null
+          },
+          "status": "invalid_candidate",
+          "successor": null,
+          "elapsed_s": 0.0020811020003748126,
+          "error": "Tactic `assumption` failed\n\nn : ℕ\n⊢ n ≤ n + 1",
+          "continuation": null,
+          "exploration": "not_selected"
+        },
+        {
+          "candidate": {
+            "tactic": "apply le_refl",
+            "category": "lemma",
+            "reason": "Goal features: ('≤',); context features: ()",
+            "prior": 4.0,
+            "lemma": "le_refl",
+            "provenance": "Mathlib.Order.Defs.PartialOrder"
+          },
+          "status": "invalid_candidate",
+          "successor": null,
+          "elapsed_s": 0.004551186997559853,
+          "error": "Tactic `apply` failed: could not unify the conclusion of `@le_refl`\n  ?a ≤ ?a\nwith the goal\n  n ≤ n + 1\n\nNote: The full type of `@le_refl` is\n  ∀ {α : Type ?u.81} [inst : Preorder α] (a : α), a ≤ a\n\nn : ℕ\n⊢ n ≤ n + 1",
+          "continuation": null,
+          "exploration": "not_selected"
+        },
+        {
+          "candidate": {
+            "tactic": "apply le_trans",
+            "category": "lemma",
+            "reason": "Goal features: ('≤',); context features: ()",
+            "prior": 4.0,
+            "lemma": "le_trans",
+            "provenance": "Mathlib.Order.Defs.PartialOrder"
+          },
+          "status": "accepted",
+          "successor": {
+            "state_id": 1,
+            "goals": [
+              {
+                "id": "_uniq.182",
+                "target": {
+                  "text": "n ≤ ?b",
+                  "head": "Nat.le",
+                  "forall": false
+                },
+                "hypotheses": [
+                  {
+                    "name": "n",
+                    "id": "_uniq.79",
+                    "type": {
+                      "text": "ℕ",
+                      "head": "Nat",
+                      "forall": false
+                    },
+                    "is_proof": false
+                  }
+                ]
+              },
+              {
+                "id": "_uniq.183",
+                "target": {
+                  "text": "?b ≤ n + 1",
+                  "head": "Nat.le",
+                  "forall": false
+                },
+                "hypotheses": [
+                  {
+                    "name": "n",
+                    "id": "_uniq.79",
+                    "type": {
+                      "text": "ℕ",
+                      "head": "Nat",
+                      "forall": false
+                    },
+                    "is_proof": false
+                  }
+                ]
+              },
+              {
+                "id": "_uniq.180",
+                "target": {
+                  "text": "ℕ",
+                  "head": "Nat",
+                  "forall": false
+                },
+                "hypotheses": [
+                  {
+                    "name": "n",
+                    "id": "_uniq.79",
+                    "type": {
+                      "text": "ℕ",
+                      "head": "Nat",
+                      "forall": false
+                    },
+                    "is_proof": false
+                  }
+                ]
+              }
+            ]
+          },
+          "elapsed_s": 0.002447172002575826,
+          "error": null,
+          "continuation": {
+            "status": "verified",
+            "termination": "verified",
+            "first_action": "apply le_trans",
+            "prefix": [],
+            "nodes": [
+              {
+                "id": 0,
+                "parent": null,
+                "depth": 0,
+                "state": {
+                  "state_id": 1,
+                  "goals": [
+                    {
+                      "id": "_uniq.182",
+                      "target": {
+                        "text": "n ≤ ?b",
+                        "head": "Nat.le",
+                        "forall": false
+                      },
+                      "hypotheses": [
+                        {
+                          "name": "n",
+                          "id": "_uniq.79",
+                          "type": {
+                            "text": "ℕ",
+                            "head": "Nat",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        }
+                      ]
+                    },
+                    {
+                      "id": "_uniq.183",
+                      "target": {
+                        "text": "?b ≤ n + 1",
+                        "head": "Nat.le",
+                        "forall": false
+                      },
+                      "hypotheses": [
+                        {
+                          "name": "n",
+                          "id": "_uniq.79",
+                          "type": {
+                            "text": "ℕ",
+                            "head": "Nat",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        }
+                      ]
+                    },
+                    {
+                      "id": "_uniq.180",
+                      "target": {
+                        "text": "ℕ",
+                        "head": "Nat",
+                        "forall": false
+                      },
+                      "hypotheses": [
+                        {
+                          "name": "n",
+                          "id": "_uniq.79",
+                          "type": {
+                            "text": "ℕ",
+                            "head": "Nat",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "tactic": null,
+                "category": null,
+                "lemma": null,
+                "provenance": null,
+                "reason": "Initial Lean goal",
+                "status": "root",
+                "error": null,
+                "elapsed_ms": 0,
+                "on_proof_path": true
+              },
+              {
+                "id": 1,
+                "parent": 0,
+                "depth": 1,
+                "state": null,
+                "tactic": "assumption",
+                "category": "goal",
+                "lemma": null,
+                "provenance": null,
+                "reason": "Initial Lean goal",
+                "status": "rejected",
+                "error": "Tactic `assumption` failed\n\ncase a\nn : ℕ\n⊢ n ≤ ?b",
+                "elapsed_ms": 1.2072570025338791,
+                "on_proof_path": false
+              },
+              {
+                "id": 2,
+                "parent": 0,
+                "depth": 1,
+                "state": {
+                  "state_id": 3,
+                  "goals": [
+                    {
+                      "id": "_uniq.183",
+                      "target": {
+                        "text": "n ≤ n + 1",
+                        "head": "Nat.le",
+                        "forall": false
+                      },
+                      "hypotheses": [
+                        {
+                          "name": "n",
+                          "id": "_uniq.79",
+                          "type": {
+                            "text": "ℕ",
+                            "head": "Nat",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "tactic": "apply le_refl",
+                "category": "lemma",
+                "lemma": null,
+                "provenance": null,
+                "reason": "Initial Lean goal",
+                "status": "accepted",
+                "error": null,
+                "elapsed_ms": 1.7557009996380657,
+                "on_proof_path": true
+              },
+              {
+                "id": 3,
+                "parent": 0,
+                "depth": 1,
+                "state": {
+                  "state_id": 4,
+                  "goals": [
+                    {
+                      "id": "_uniq.300",
+                      "target": {
+                        "text": "n ≤ ?a.b✝",
+                        "head": "Nat.le",
+                        "forall": false
+                      },
+                      "hypotheses": [
+                        {
+                          "name": "n",
+                          "id": "_uniq.79",
+                          "type": {
+                            "text": "ℕ",
+                            "head": "Nat",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        }
+                      ]
+                    },
+                    {
+                      "id": "_uniq.301",
+                      "target": {
+                        "text": "?a.b✝ ≤ ?b",
+                        "head": "Nat.le",
+                        "forall": false
+                      },
+                      "hypotheses": [
+                        {
+                          "name": "n",
+                          "id": "_uniq.79",
+                          "type": {
+                            "text": "ℕ",
+                            "head": "Nat",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        }
+                      ]
+                    },
+                    {
+                      "id": "_uniq.298",
+                      "target": {
+                        "text": "ℕ",
+                        "head": "Nat",
+                        "forall": false
+                      },
+                      "hypotheses": [
+                        {
+                          "name": "n",
+                          "id": "_uniq.79",
+                          "type": {
+                            "text": "ℕ",
+                            "head": "Nat",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        }
+                      ]
+                    },
+                    {
+                      "id": "_uniq.183",
+                      "target": {
+                        "text": "?b ≤ n + 1",
+                        "head": "Nat.le",
+                        "forall": false
+                      },
+                      "hypotheses": [
+                        {
+                          "name": "n",
+                          "id": "_uniq.79",
+                          "type": {
+                            "text": "ℕ",
+                            "head": "Nat",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        }
+                      ]
+                    },
+                    {
+                      "id": "_uniq.180",
+                      "target": {
+                        "text": "ℕ",
+                        "head": "Nat",
+                        "forall": false
+                      },
+                      "hypotheses": [
+                        {
+                          "name": "n",
+                          "id": "_uniq.79",
+                          "type": {
+                            "text": "ℕ",
+                            "head": "Nat",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "tactic": "apply le_trans",
+                "category": "lemma",
+                "lemma": null,
+                "provenance": null,
+                "reason": "Initial Lean goal",
+                "status": "accepted",
+                "error": null,
+                "elapsed_ms": 2.6280250021955,
+                "on_proof_path": false
+              },
+              {
+                "id": 4,
+                "parent": 0,
+                "depth": 1,
+                "state": null,
+                "tactic": "omega",
+                "category": "specialized",
+                "lemma": null,
+                "provenance": null,
+                "reason": "Initial Lean goal",
+                "status": "rejected",
+                "error": "omega could not prove the goal:\na possible counterexample may satisfy the constraints\n  b ≥ 0\n  a ≥ 0\n  a - b ≥ 1\nwhere\n a := ↑n\n b := ↑?b",
+                "elapsed_ms": 1.798126002540812,
+                "on_proof_path": false
+              },
+              {
+                "id": 5,
+                "parent": 2,
+                "depth": 2,
+                "state": null,
+                "tactic": "assumption",
+                "category": "goal",
+                "lemma": null,
+                "provenance": null,
+                "reason": "Initial Lean goal",
+                "status": "rejected",
+                "error": "Tactic `assumption` failed\n\ncase a\nn : ℕ\n⊢ n ≤ n + 1",
+                "elapsed_ms": 1.0552480016485788,
+                "on_proof_path": false
+              },
+              {
+                "id": 6,
+                "parent": 2,
+                "depth": 2,
+                "state": null,
+                "tactic": "apply le_refl",
+                "category": "lemma",
+                "lemma": null,
+                "provenance": null,
+                "reason": "Initial Lean goal",
+                "status": "rejected",
+                "error": "Tactic `apply` failed: could not unify the conclusion of `@le_refl`\n  ?a ≤ ?a\nwith the goal\n  n ≤ n + 1\n\nNote: The full type of `@le_refl` is\n  ∀ {α : Type ?u.322} [inst : Preorder α] (a : α), a ≤ a\n\ncase a\nn : ℕ\n⊢ n ≤ n + 1",
+                "elapsed_ms": 3.5444339955574833,
+                "on_proof_path": false
+              },
+              {
+                "id": 7,
+                "parent": 2,
+                "depth": 2,
+                "state": {
+                  "state_id": 5,
+                  "goals": [
+                    {
+                      "id": "_uniq.423",
+                      "target": {
+                        "text": "n ≤ ?a.b✝",
+                        "head": "Nat.le",
+                        "forall": false
+                      },
+                      "hypotheses": [
+                        {
+                          "name": "n",
+                          "id": "_uniq.79",
+                          "type": {
+                            "text": "ℕ",
+                            "head": "Nat",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        }
+                      ]
+                    },
+                    {
+                      "id": "_uniq.424",
+                      "target": {
+                        "text": "?a.b✝ ≤ n + 1",
+                        "head": "Nat.le",
+                        "forall": false
+                      },
+                      "hypotheses": [
+                        {
+                          "name": "n",
+                          "id": "_uniq.79",
+                          "type": {
+                            "text": "ℕ",
+                            "head": "Nat",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        }
+                      ]
+                    },
+                    {
+                      "id": "_uniq.421",
+                      "target": {
+                        "text": "ℕ",
+                        "head": "Nat",
+                        "forall": false
+                      },
+                      "hypotheses": [
+                        {
+                          "name": "n",
+                          "id": "_uniq.79",
+                          "type": {
+                            "text": "ℕ",
+                            "head": "Nat",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "tactic": "apply le_trans",
+                "category": "lemma",
+                "lemma": null,
+                "provenance": null,
+                "reason": "Initial Lean goal",
+                "status": "accepted",
+                "error": null,
+                "elapsed_ms": 1.6251849956461228,
+                "on_proof_path": false
+              },
+              {
+                "id": 8,
+                "parent": 2,
+                "depth": 2,
+                "state": null,
+                "tactic": "apply add_assoc",
+                "category": "lemma",
+                "lemma": null,
+                "provenance": null,
+                "reason": "Initial Lean goal",
+                "status": "rejected",
+                "error": "Tactic `apply` failed: could not unify the conclusion of `@add_assoc`\n  ?a + ?b + ?c = ?a + (?b + ?c)\nwith the goal\n  n ≤ n + 1\n\nNote: The full type of `@add_assoc` is\n  ∀ {G : Type ?u.429} [inst : AddSemigroup G] (a b c : G), a + b + c = a + (b + c)\n\ncase a\nn : ℕ\n⊢ n ≤ n + 1",
+                "elapsed_ms": 2.6512690019444562,
+                "on_proof_path": false
+              },
+              {
+                "id": 9,
+                "parent": 2,
+                "depth": 2,
+                "state": null,
+                "tactic": "apply add_comm",
+                "category": "lemma",
+                "lemma": null,
+                "provenance": null,
+                "reason": "Initial Lean goal",
+                "status": "rejected",
+                "error": "Tactic `apply` failed: could not unify the conclusion of `@add_comm`\n  ?a + ?b = ?b + ?a\nwith the goal\n  n ≤ n + 1\n\nNote: The full type of `@add_comm` is\n  ∀ {G : Type ?u.445} [inst : AddCommMagma G] (a b : G), a + b = b + a\n\ncase a\nn : ℕ\n⊢ n ≤ n + 1",
+                "elapsed_ms": 2.3724999991827644,
+                "on_proof_path": false
+              },
+              {
+                "id": 10,
+                "parent": 2,
+                "depth": 2,
+                "state": {
+                  "state_id": 6,
+                  "goals": []
+                },
+                "tactic": "omega",
+                "category": "specialized",
+                "lemma": null,
+                "provenance": null,
+                "reason": "Initial Lean goal",
+                "status": "solved",
+                "error": null,
+                "elapsed_ms": 2.6985110016539693,
+                "on_proof_path": true
+              }
+            ],
+            "pools": [
+              {
+                "node_id": 0,
+                "generated": [
+                  {
+                    "tactic": "assumption",
+                    "category": "goal",
+                    "reason": "Match the goal against the local context",
+                    "prior": 10.0,
+                    "lemma": null,
+                    "provenance": null
+                  },
+                  {
+                    "tactic": "apply le_refl",
+                    "category": "lemma",
+                    "reason": "Goal features: ('≤',); context features: ()",
+                    "prior": 4.0,
+                    "lemma": "le_refl",
+                    "provenance": "Mathlib.Order.Defs.PartialOrder"
+                  },
+                  {
+                    "tactic": "apply le_trans",
+                    "category": "lemma",
+                    "reason": "Goal features: ('≤',); context features: ()",
+                    "prior": 4.0,
+                    "lemma": "le_trans",
+                    "provenance": "Mathlib.Order.Defs.PartialOrder"
+                  },
+                  {
+                    "tactic": "omega",
+                    "category": "specialized",
+                    "reason": "Presburger arithmetic (Lean omega)",
+                    "prior": 2.0,
+                    "lemma": null,
+                    "provenance": null
+                  }
+                ],
+                "actual_order": [
+                  "assumption",
+                  "apply le_refl",
+                  "apply le_trans",
+                  "omega"
+                ]
+              },
+              {
+                "node_id": 2,
+                "generated": [
+                  {
+                    "tactic": "assumption",
+                    "category": "goal",
+                    "reason": "Match the goal against the local context",
+                    "prior": 10.0,
+                    "lemma": null,
+                    "provenance": null
+                  },
+                  {
+                    "tactic": "apply le_refl",
+                    "category": "lemma",
+                    "reason": "Goal features: ('≤',); context features: ()",
+                    "prior": 4.0,
+                    "lemma": "le_refl",
+                    "provenance": "Mathlib.Order.Defs.PartialOrder"
+                  },
+                  {
+                    "tactic": "apply le_trans",
+                    "category": "lemma",
+                    "reason": "Goal features: ('≤',); context features: ()",
+                    "prior": 4.0,
+                    "lemma": "le_trans",
+                    "provenance": "Mathlib.Order.Defs.PartialOrder"
+                  },
+                  {
+                    "tactic": "apply add_assoc",
+                    "category": "lemma",
+                    "reason": "Goal features: ('+',); context features: ()",
+                    "prior": 4.0,
+                    "lemma": "add_assoc",
+                    "provenance": "Mathlib.Algebra.Group.Defs"
+                  },
+                  {
+                    "tactic": "apply add_comm",
+                    "category": "lemma",
+                    "reason": "Goal features: ('+',); context features: ()",
+                    "prior": 4.0,
+                    "lemma": "add_comm",
+                    "provenance": "Mathlib.Algebra.Group.Defs"
+                  },
+                  {
+                    "tactic": "omega",
+                    "category": "specialized",
+                    "reason": "Presburger arithmetic (Lean omega)",
+                    "prior": 2.0,
+                    "lemma": null,
+                    "provenance": null
+                  }
+                ],
+                "actual_order": [
+                  "assumption",
+                  "apply le_refl",
+                  "apply le_trans",
+                  "apply add_assoc",
+                  "apply add_comm",
+                  "omega"
+                ]
+              }
+            ],
+            "proof": [
+              "apply le_trans",
+              "apply le_refl",
+              "omega"
+            ],
+            "verification": {
+              "verified": true,
+              "axioms": [
+                "propext",
+                "Quot.sound"
+              ],
+              "error": null,
+              "elapsed_s": 2.3045863570005167,
+              "source_sha256": "da0be34563be6f0bf72073829b7a1cd901b89966312a5087bd1b0630de8ce3dc"
+            },
+            "metrics": {
+              "attempted_candidates": 11,
+              "expanded_states": 2,
+              "proof_length": 3,
+              "suffix_length": 3,
+              "elapsed_s": 2.3276260839993483,
+              "lean_execution_s": 0.023783428005117457,
+              "verification_s": 2.3045863570005167,
+              "search_s": 0.023039996995066758,
+              "initial_action_s": 0.002447172002575826
+            },
+            "label_policy": "Only verified-vs-verified cost differences are preferences; unresolved is censored"
+          },
+          "exploration": "bounded_rollout"
+        },
+        {
+          "candidate": {
+            "tactic": "apply add_assoc",
+            "category": "lemma",
+            "reason": "Goal features: ('+',); context features: ()",
+            "prior": 4.0,
+            "lemma": "add_assoc",
+            "provenance": "Mathlib.Algebra.Group.Defs"
+          },
+          "status": "invalid_candidate",
+          "successor": null,
+          "elapsed_s": 0.00301001899788389,
+          "error": "Tactic `apply` failed: could not unify the conclusion of `@add_assoc`\n  ?a + ?b + ?c = ?a + (?b + ?c)\nwith the goal\n  n ≤ n + 1\n\nNote: The full type of `@add_assoc` is\n  ∀ {G : Type ?u.192} [inst : AddSemigroup G] (a b c : G), a + b + c = a + (b + c)\n\nn : ℕ\n⊢ n ≤ n + 1",
+          "continuation": null,
+          "exploration": "not_selected"
+        },
+        {
+          "candidate": {
+            "tactic": "apply add_comm",
+            "category": "lemma",
+            "reason": "Goal features: ('+',); context features: ()",
+            "prior": 4.0,
+            "lemma": "add_comm",
+            "provenance": "Mathlib.Algebra.Group.Defs"
+          },
+          "status": "invalid_candidate",
+          "successor": null,
+          "elapsed_s": 0.0024462000001221895,
+          "error": "Tactic `apply` failed: could not unify the conclusion of `@add_comm`\n  ?a + ?b = ?b + ?a\nwith the goal\n  n ≤ n + 1\n\nNote: The full type of `@add_comm` is\n  ∀ {G : Type ?u.208} [inst : AddCommMagma G] (a b : G), a + b = b + a\n\nn : ℕ\n⊢ n ≤ n + 1",
+          "continuation": null,
+          "exploration": "not_selected"
+        },
+        {
+          "candidate": {
+            "tactic": "omega",
+            "category": "specialized",
+            "reason": "Presburger arithmetic (Lean omega)",
+            "prior": 2.0,
+            "lemma": null,
+            "provenance": null
+          },
+          "status": "accepted",
+          "successor": {
+            "state_id": 2,
+            "goals": []
+          },
+          "elapsed_s": 0.0030041699938010424,
+          "error": null,
+          "continuation": {
+            "status": "verified",
+            "termination": "verified",
+            "first_action": "omega",
+            "prefix": [],
+            "nodes": [
+              {
+                "id": 0,
+                "parent": null,
+                "depth": 0,
+                "state": {
+                  "state_id": 2,
+                  "goals": []
+                },
+                "tactic": null,
+                "category": null,
+                "lemma": null,
+                "provenance": null,
+                "reason": "Initial Lean goal",
+                "status": "root",
+                "error": null,
+                "elapsed_ms": 0,
+                "on_proof_path": true
+              }
+            ],
+            "pools": [],
+            "proof": [
+              "omega"
+            ],
+            "verification": {
+              "verified": true,
+              "axioms": [
+                "propext",
+                "Quot.sound"
+              ],
+              "error": null,
+              "elapsed_s": 2.260798347000673,
+              "source_sha256": "f5bee3fb9cee3e9f0b1573fde0ecb58c1f73c5628ab136e83c52196444cc2dcf"
+            },
+            "metrics": {
+              "attempted_candidates": 1,
+              "expanded_states": 0,
+              "proof_length": 1,
+              "suffix_length": 1,
+              "elapsed_s": 2.2610905969995656,
+              "lean_execution_s": 0.0030041699938010424,
+              "verification_s": 2.260798347000673,
+              "search_s": 0.0002926599991042167,
+              "initial_action_s": 0.0030041699938010424
+            },
+            "label_policy": "Only verified-vs-verified cost differences are preferences; unresolved is censored"
+          },
+          "exploration": "bounded_rollout"
+        }
+      ]
+    }
+  ]
+}

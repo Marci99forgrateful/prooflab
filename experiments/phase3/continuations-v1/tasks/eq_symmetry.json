@@ -1,0 +1,1645 @@
+{
+  "task_id": "eq_symmetry",
+  "split": "development",
+  "domain": "algebra",
+  "demonstration_trace": "experiments/phase1-v3/traces/eq_symmetry--best_first.json",
+  "demonstration_sha256": "ff20b752e65cac54f51e21d87c1156ec09a0d2b58ae20940bf0a80f74727fe75",
+  "source_verification": {
+    "verified": true,
+    "axioms": [],
+    "error": null,
+    "elapsed_s": 1.8074522680035443,
+    "source_sha256": "a2b260f5f2d8b28a4823712c9a0963d1a753de813789134f5f9b3dc6334f0b68"
+  },
+  "states": [
+    {
+      "task_id": "eq_symmetry",
+      "split": "development",
+      "domain": "algebra",
+      "depth": 0,
+      "prefix": [],
+      "positive_tactic": "rw [h]",
+      "state": {
+        "state_id": 0,
+        "goals": [
+          {
+            "id": "_uniq.19",
+            "target": {
+              "text": "b = a",
+              "head": "Eq",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.15",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "a",
+                "id": "_uniq.16",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "b",
+                "id": "_uniq.17",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "h",
+                "id": "_uniq.18",
+                "type": {
+                  "text": "a = b",
+                  "head": "Eq",
+                  "forall": false
+                },
+                "is_proof": true
+              }
+            ]
+          }
+        ]
+      },
+      "observations": [
+        {
+          "candidate": {
+            "tactic": "assumption",
+            "category": "goal",
+            "reason": "Match the goal against the local context",
+            "prior": 10.0,
+            "lemma": null,
+            "provenance": null
+          },
+          "status": "invalid_candidate",
+          "successor": null,
+          "elapsed_s": 0.001803883998945821,
+          "error": "Tactic `assumption` failed\n\nα : Type\na b : α\nh : a = b\n⊢ b = a",
+          "continuation": null,
+          "exploration": "not_selected"
+        },
+        {
+          "candidate": {
+            "tactic": "rfl",
+            "category": "goal",
+            "reason": "Check definitional equality",
+            "prior": 8.0,
+            "lemma": null,
+            "provenance": null
+          },
+          "status": "invalid_candidate",
+          "successor": null,
+          "elapsed_s": 0.0008245100034400821,
+          "error": "Tactic `rfl` failed: The left-hand side\n  b\nis not definitionally equal to the right-hand side\n  a\n\nα : Type\na b : α\nh : a = b\n⊢ b = a",
+          "continuation": null,
+          "exploration": "not_selected"
+        },
+        {
+          "candidate": {
+            "tactic": "rw [h]",
+            "category": "hypothesis",
+            "reason": "Rewrite using a local equality",
+            "prior": 6.0,
+            "lemma": null,
+            "provenance": null
+          },
+          "status": "accepted",
+          "successor": {
+            "state_id": 1,
+            "goals": []
+          },
+          "elapsed_s": 0.0008226680001826026,
+          "error": null,
+          "continuation": {
+            "status": "verified",
+            "termination": "verified",
+            "first_action": "rw [h]",
+            "prefix": [],
+            "nodes": [
+              {
+                "id": 0,
+                "parent": null,
+                "depth": 0,
+                "state": {
+                  "state_id": 1,
+                  "goals": []
+                },
+                "tactic": null,
+                "category": null,
+                "lemma": null,
+                "provenance": null,
+                "reason": "Initial Lean goal",
+                "status": "root",
+                "error": null,
+                "elapsed_ms": 0,
+                "on_proof_path": true
+              }
+            ],
+            "pools": [],
+            "proof": [
+              "rw [h]"
+            ],
+            "verification": {
+              "verified": true,
+              "axioms": [],
+              "error": null,
+              "elapsed_s": 1.8493516680027824,
+              "source_sha256": "a2b260f5f2d8b28a4823712c9a0963d1a753de813789134f5f9b3dc6334f0b68"
+            },
+            "metrics": {
+              "attempted_candidates": 1,
+              "expanded_states": 0,
+              "proof_length": 1,
+              "suffix_length": 1,
+              "elapsed_s": 1.8496149139973568,
+              "lean_execution_s": 0.0008226680001826026,
+              "verification_s": 1.8493516680027824,
+              "search_s": 0.00026380700001027435,
+              "initial_action_s": 0.0008226680001826026
+            },
+            "label_policy": "Only verified-vs-verified cost differences are preferences; unresolved is censored"
+          },
+          "exploration": "bounded_rollout"
+        },
+        {
+          "candidate": {
+            "tactic": "rw [← h]",
+            "category": "hypothesis",
+            "reason": "Explore reverse equality rewriting",
+            "prior": 3.0,
+            "lemma": null,
+            "provenance": null
+          },
+          "status": "accepted",
+          "successor": {
+            "state_id": 2,
+            "goals": []
+          },
+          "elapsed_s": 0.0005695569998351857,
+          "error": null,
+          "continuation": {
+            "status": "verified",
+            "termination": "verified",
+            "first_action": "rw [← h]",
+            "prefix": [],
+            "nodes": [
+              {
+                "id": 0,
+                "parent": null,
+                "depth": 0,
+                "state": {
+                  "state_id": 2,
+                  "goals": []
+                },
+                "tactic": null,
+                "category": null,
+                "lemma": null,
+                "provenance": null,
+                "reason": "Initial Lean goal",
+                "status": "root",
+                "error": null,
+                "elapsed_ms": 0,
+                "on_proof_path": true
+              }
+            ],
+            "pools": [],
+            "proof": [
+              "rw [← h]"
+            ],
+            "verification": {
+              "verified": true,
+              "axioms": [],
+              "error": null,
+              "elapsed_s": 1.7117295369971544,
+              "source_sha256": "ecf605e9a047280dfec1a234f5c931f1ba926db731abe36a247f7ab0448d9fb1"
+            },
+            "metrics": {
+              "attempted_candidates": 1,
+              "expanded_states": 0,
+              "proof_length": 1,
+              "suffix_length": 1,
+              "elapsed_s": 1.7119799840002088,
+              "lean_execution_s": 0.0005695569998351857,
+              "verification_s": 1.7117295369971544,
+              "search_s": 0.0002511790007702075,
+              "initial_action_s": 0.0005695569998351857
+            },
+            "label_policy": "Only verified-vs-verified cost differences are preferences; unresolved is censored"
+          },
+          "exploration": "bounded_rollout"
+        },
+        {
+          "candidate": {
+            "tactic": "apply Eq.symm",
+            "category": "lemma",
+            "reason": "Goal features: ('=',); context features: ()",
+            "prior": 4.0,
+            "lemma": "Eq.symm",
+            "provenance": "Init.Prelude"
+          },
+          "status": "accepted",
+          "successor": {
+            "state_id": 3,
+            "goals": [
+              {
+                "id": "_uniq.46",
+                "target": {
+                  "text": "a = b",
+                  "head": "Eq",
+                  "forall": false
+                },
+                "hypotheses": [
+                  {
+                    "name": "α",
+                    "id": "_uniq.15",
+                    "type": {
+                      "text": "Type",
+                      "head": "[anonymous]",
+                      "forall": false
+                    },
+                    "is_proof": false
+                  },
+                  {
+                    "name": "a",
+                    "id": "_uniq.16",
+                    "type": {
+                      "text": "α",
+                      "head": "[anonymous]",
+                      "forall": false
+                    },
+                    "is_proof": false
+                  },
+                  {
+                    "name": "b",
+                    "id": "_uniq.17",
+                    "type": {
+                      "text": "α",
+                      "head": "[anonymous]",
+                      "forall": false
+                    },
+                    "is_proof": false
+                  },
+                  {
+                    "name": "h",
+                    "id": "_uniq.18",
+                    "type": {
+                      "text": "a = b",
+                      "head": "Eq",
+                      "forall": false
+                    },
+                    "is_proof": true
+                  }
+                ]
+              }
+            ]
+          },
+          "elapsed_s": 0.0007449199983966537,
+          "error": null,
+          "continuation": {
+            "status": "verified",
+            "termination": "verified",
+            "first_action": "apply Eq.symm",
+            "prefix": [],
+            "nodes": [
+              {
+                "id": 0,
+                "parent": null,
+                "depth": 0,
+                "state": {
+                  "state_id": 3,
+                  "goals": [
+                    {
+                      "id": "_uniq.46",
+                      "target": {
+                        "text": "a = b",
+                        "head": "Eq",
+                        "forall": false
+                      },
+                      "hypotheses": [
+                        {
+                          "name": "α",
+                          "id": "_uniq.15",
+                          "type": {
+                            "text": "Type",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "a",
+                          "id": "_uniq.16",
+                          "type": {
+                            "text": "α",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "b",
+                          "id": "_uniq.17",
+                          "type": {
+                            "text": "α",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "h",
+                          "id": "_uniq.18",
+                          "type": {
+                            "text": "a = b",
+                            "head": "Eq",
+                            "forall": false
+                          },
+                          "is_proof": true
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "tactic": null,
+                "category": null,
+                "lemma": null,
+                "provenance": null,
+                "reason": "Initial Lean goal",
+                "status": "root",
+                "error": null,
+                "elapsed_ms": 0,
+                "on_proof_path": true
+              },
+              {
+                "id": 1,
+                "parent": 0,
+                "depth": 1,
+                "state": {
+                  "state_id": 5,
+                  "goals": []
+                },
+                "tactic": "assumption",
+                "category": "goal",
+                "lemma": null,
+                "provenance": null,
+                "reason": "Initial Lean goal",
+                "status": "solved",
+                "error": null,
+                "elapsed_ms": 0.48289600090356544,
+                "on_proof_path": true
+              }
+            ],
+            "pools": [
+              {
+                "node_id": 0,
+                "generated": [
+                  {
+                    "tactic": "assumption",
+                    "category": "goal",
+                    "reason": "Match the goal against the local context",
+                    "prior": 10.0,
+                    "lemma": null,
+                    "provenance": null
+                  },
+                  {
+                    "tactic": "rfl",
+                    "category": "goal",
+                    "reason": "Check definitional equality",
+                    "prior": 8.0,
+                    "lemma": null,
+                    "provenance": null
+                  },
+                  {
+                    "tactic": "rw [h]",
+                    "category": "hypothesis",
+                    "reason": "Rewrite using a local equality",
+                    "prior": 6.0,
+                    "lemma": null,
+                    "provenance": null
+                  },
+                  {
+                    "tactic": "rw [← h]",
+                    "category": "hypothesis",
+                    "reason": "Explore reverse equality rewriting",
+                    "prior": 3.0,
+                    "lemma": null,
+                    "provenance": null
+                  },
+                  {
+                    "tactic": "apply Eq.symm",
+                    "category": "lemma",
+                    "reason": "Goal features: ('=',); context features: ()",
+                    "prior": 4.0,
+                    "lemma": "Eq.symm",
+                    "provenance": "Init.Prelude"
+                  },
+                  {
+                    "tactic": "apply Eq.trans",
+                    "category": "lemma",
+                    "reason": "Goal features: ('=',); context features: ()",
+                    "prior": 4.0,
+                    "lemma": "Eq.trans",
+                    "provenance": "Init.Prelude"
+                  }
+                ],
+                "actual_order": [
+                  "assumption",
+                  "rfl",
+                  "rw [h]",
+                  "apply Eq.symm",
+                  "apply Eq.trans",
+                  "rw [← h]"
+                ]
+              }
+            ],
+            "proof": [
+              "apply Eq.symm",
+              "assumption"
+            ],
+            "verification": {
+              "verified": true,
+              "axioms": [],
+              "error": null,
+              "elapsed_s": 1.761488019998069,
+              "source_sha256": "326aec404493825ed113f90259e19195b581d7d90613a4009d2d5a8c6605648e"
+            },
+            "metrics": {
+              "attempted_candidates": 2,
+              "expanded_states": 1,
+              "proof_length": 2,
+              "suffix_length": 2,
+              "elapsed_s": 1.7626536740062875,
+              "lean_execution_s": 0.0012278159993002191,
+              "verification_s": 1.761488019998069,
+              "search_s": 0.0011661450043902732,
+              "initial_action_s": 0.0007449199983966537
+            },
+            "label_policy": "Only verified-vs-verified cost differences are preferences; unresolved is censored"
+          },
+          "exploration": "bounded_rollout"
+        },
+        {
+          "candidate": {
+            "tactic": "apply Eq.trans",
+            "category": "lemma",
+            "reason": "Goal features: ('=',); context features: ()",
+            "prior": 4.0,
+            "lemma": "Eq.trans",
+            "provenance": "Init.Prelude"
+          },
+          "status": "accepted",
+          "successor": {
+            "state_id": 4,
+            "goals": [
+              {
+                "id": "_uniq.61",
+                "target": {
+                  "text": "b = ?b",
+                  "head": "Eq",
+                  "forall": false
+                },
+                "hypotheses": [
+                  {
+                    "name": "α",
+                    "id": "_uniq.15",
+                    "type": {
+                      "text": "Type",
+                      "head": "[anonymous]",
+                      "forall": false
+                    },
+                    "is_proof": false
+                  },
+                  {
+                    "name": "a",
+                    "id": "_uniq.16",
+                    "type": {
+                      "text": "α",
+                      "head": "[anonymous]",
+                      "forall": false
+                    },
+                    "is_proof": false
+                  },
+                  {
+                    "name": "b",
+                    "id": "_uniq.17",
+                    "type": {
+                      "text": "α",
+                      "head": "[anonymous]",
+                      "forall": false
+                    },
+                    "is_proof": false
+                  },
+                  {
+                    "name": "h",
+                    "id": "_uniq.18",
+                    "type": {
+                      "text": "a = b",
+                      "head": "Eq",
+                      "forall": false
+                    },
+                    "is_proof": true
+                  }
+                ]
+              },
+              {
+                "id": "_uniq.62",
+                "target": {
+                  "text": "?b = a",
+                  "head": "Eq",
+                  "forall": false
+                },
+                "hypotheses": [
+                  {
+                    "name": "α",
+                    "id": "_uniq.15",
+                    "type": {
+                      "text": "Type",
+                      "head": "[anonymous]",
+                      "forall": false
+                    },
+                    "is_proof": false
+                  },
+                  {
+                    "name": "a",
+                    "id": "_uniq.16",
+                    "type": {
+                      "text": "α",
+                      "head": "[anonymous]",
+                      "forall": false
+                    },
+                    "is_proof": false
+                  },
+                  {
+                    "name": "b",
+                    "id": "_uniq.17",
+                    "type": {
+                      "text": "α",
+                      "head": "[anonymous]",
+                      "forall": false
+                    },
+                    "is_proof": false
+                  },
+                  {
+                    "name": "h",
+                    "id": "_uniq.18",
+                    "type": {
+                      "text": "a = b",
+                      "head": "Eq",
+                      "forall": false
+                    },
+                    "is_proof": true
+                  }
+                ]
+              },
+              {
+                "id": "_uniq.59",
+                "target": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "hypotheses": [
+                  {
+                    "name": "α",
+                    "id": "_uniq.15",
+                    "type": {
+                      "text": "Type",
+                      "head": "[anonymous]",
+                      "forall": false
+                    },
+                    "is_proof": false
+                  },
+                  {
+                    "name": "a",
+                    "id": "_uniq.16",
+                    "type": {
+                      "text": "α",
+                      "head": "[anonymous]",
+                      "forall": false
+                    },
+                    "is_proof": false
+                  },
+                  {
+                    "name": "b",
+                    "id": "_uniq.17",
+                    "type": {
+                      "text": "α",
+                      "head": "[anonymous]",
+                      "forall": false
+                    },
+                    "is_proof": false
+                  },
+                  {
+                    "name": "h",
+                    "id": "_uniq.18",
+                    "type": {
+                      "text": "a = b",
+                      "head": "Eq",
+                      "forall": false
+                    },
+                    "is_proof": true
+                  }
+                ]
+              }
+            ]
+          },
+          "elapsed_s": 0.0011703209966071881,
+          "error": null,
+          "continuation": {
+            "status": "verified",
+            "termination": "verified",
+            "first_action": "apply Eq.trans",
+            "prefix": [],
+            "nodes": [
+              {
+                "id": 0,
+                "parent": null,
+                "depth": 0,
+                "state": {
+                  "state_id": 4,
+                  "goals": [
+                    {
+                      "id": "_uniq.61",
+                      "target": {
+                        "text": "b = ?b",
+                        "head": "Eq",
+                        "forall": false
+                      },
+                      "hypotheses": [
+                        {
+                          "name": "α",
+                          "id": "_uniq.15",
+                          "type": {
+                            "text": "Type",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "a",
+                          "id": "_uniq.16",
+                          "type": {
+                            "text": "α",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "b",
+                          "id": "_uniq.17",
+                          "type": {
+                            "text": "α",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "h",
+                          "id": "_uniq.18",
+                          "type": {
+                            "text": "a = b",
+                            "head": "Eq",
+                            "forall": false
+                          },
+                          "is_proof": true
+                        }
+                      ]
+                    },
+                    {
+                      "id": "_uniq.62",
+                      "target": {
+                        "text": "?b = a",
+                        "head": "Eq",
+                        "forall": false
+                      },
+                      "hypotheses": [
+                        {
+                          "name": "α",
+                          "id": "_uniq.15",
+                          "type": {
+                            "text": "Type",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "a",
+                          "id": "_uniq.16",
+                          "type": {
+                            "text": "α",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "b",
+                          "id": "_uniq.17",
+                          "type": {
+                            "text": "α",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "h",
+                          "id": "_uniq.18",
+                          "type": {
+                            "text": "a = b",
+                            "head": "Eq",
+                            "forall": false
+                          },
+                          "is_proof": true
+                        }
+                      ]
+                    },
+                    {
+                      "id": "_uniq.59",
+                      "target": {
+                        "text": "α",
+                        "head": "[anonymous]",
+                        "forall": false
+                      },
+                      "hypotheses": [
+                        {
+                          "name": "α",
+                          "id": "_uniq.15",
+                          "type": {
+                            "text": "Type",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "a",
+                          "id": "_uniq.16",
+                          "type": {
+                            "text": "α",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "b",
+                          "id": "_uniq.17",
+                          "type": {
+                            "text": "α",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "h",
+                          "id": "_uniq.18",
+                          "type": {
+                            "text": "a = b",
+                            "head": "Eq",
+                            "forall": false
+                          },
+                          "is_proof": true
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "tactic": null,
+                "category": null,
+                "lemma": null,
+                "provenance": null,
+                "reason": "Initial Lean goal",
+                "status": "root",
+                "error": null,
+                "elapsed_ms": 0,
+                "on_proof_path": true
+              },
+              {
+                "id": 1,
+                "parent": 0,
+                "depth": 1,
+                "state": null,
+                "tactic": "assumption",
+                "category": "goal",
+                "lemma": null,
+                "provenance": null,
+                "reason": "Initial Lean goal",
+                "status": "rejected",
+                "error": "Tactic `assumption` failed\n\ncase h₁\nα : Type\na b : α\nh : a = b\n⊢ b = ?b",
+                "elapsed_ms": 1.578274997882545,
+                "on_proof_path": false
+              },
+              {
+                "id": 2,
+                "parent": 0,
+                "depth": 1,
+                "state": {
+                  "state_id": 6,
+                  "goals": [
+                    {
+                      "id": "_uniq.62",
+                      "target": {
+                        "text": "b = a",
+                        "head": "Eq",
+                        "forall": false
+                      },
+                      "hypotheses": [
+                        {
+                          "name": "α",
+                          "id": "_uniq.15",
+                          "type": {
+                            "text": "Type",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "a",
+                          "id": "_uniq.16",
+                          "type": {
+                            "text": "α",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "b",
+                          "id": "_uniq.17",
+                          "type": {
+                            "text": "α",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "h",
+                          "id": "_uniq.18",
+                          "type": {
+                            "text": "a = b",
+                            "head": "Eq",
+                            "forall": false
+                          },
+                          "is_proof": true
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "tactic": "rfl",
+                "category": "goal",
+                "lemma": null,
+                "provenance": null,
+                "reason": "Initial Lean goal",
+                "status": "accepted",
+                "error": null,
+                "elapsed_ms": 1.3942079967819154,
+                "on_proof_path": true
+              },
+              {
+                "id": 3,
+                "parent": 0,
+                "depth": 1,
+                "state": null,
+                "tactic": "rw [h]",
+                "category": "hypothesis",
+                "lemma": null,
+                "provenance": null,
+                "reason": "Initial Lean goal",
+                "status": "rejected",
+                "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  a\nin the target expression\n  b = ?b\n\ncase h₁\nα : Type\na b : α\nh : a = b\n⊢ b = ?b",
+                "elapsed_ms": 0.8724130020709708,
+                "on_proof_path": false
+              },
+              {
+                "id": 4,
+                "parent": 0,
+                "depth": 1,
+                "state": {
+                  "state_id": 7,
+                  "goals": [
+                    {
+                      "id": "_uniq.78",
+                      "target": {
+                        "text": "?b = b",
+                        "head": "Eq",
+                        "forall": false
+                      },
+                      "hypotheses": [
+                        {
+                          "name": "α",
+                          "id": "_uniq.15",
+                          "type": {
+                            "text": "Type",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "a",
+                          "id": "_uniq.16",
+                          "type": {
+                            "text": "α",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "b",
+                          "id": "_uniq.17",
+                          "type": {
+                            "text": "α",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "h",
+                          "id": "_uniq.18",
+                          "type": {
+                            "text": "a = b",
+                            "head": "Eq",
+                            "forall": false
+                          },
+                          "is_proof": true
+                        }
+                      ]
+                    },
+                    {
+                      "id": "_uniq.62",
+                      "target": {
+                        "text": "?b = a",
+                        "head": "Eq",
+                        "forall": false
+                      },
+                      "hypotheses": [
+                        {
+                          "name": "α",
+                          "id": "_uniq.15",
+                          "type": {
+                            "text": "Type",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "a",
+                          "id": "_uniq.16",
+                          "type": {
+                            "text": "α",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "b",
+                          "id": "_uniq.17",
+                          "type": {
+                            "text": "α",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "h",
+                          "id": "_uniq.18",
+                          "type": {
+                            "text": "a = b",
+                            "head": "Eq",
+                            "forall": false
+                          },
+                          "is_proof": true
+                        }
+                      ]
+                    },
+                    {
+                      "id": "_uniq.59",
+                      "target": {
+                        "text": "α",
+                        "head": "[anonymous]",
+                        "forall": false
+                      },
+                      "hypotheses": [
+                        {
+                          "name": "α",
+                          "id": "_uniq.15",
+                          "type": {
+                            "text": "Type",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "a",
+                          "id": "_uniq.16",
+                          "type": {
+                            "text": "α",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "b",
+                          "id": "_uniq.17",
+                          "type": {
+                            "text": "α",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "h",
+                          "id": "_uniq.18",
+                          "type": {
+                            "text": "a = b",
+                            "head": "Eq",
+                            "forall": false
+                          },
+                          "is_proof": true
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "tactic": "apply Eq.symm",
+                "category": "lemma",
+                "lemma": null,
+                "provenance": null,
+                "reason": "Initial Lean goal",
+                "status": "accepted",
+                "error": null,
+                "elapsed_ms": 1.3335469993762672,
+                "on_proof_path": false
+              },
+              {
+                "id": 5,
+                "parent": 0,
+                "depth": 1,
+                "state": {
+                  "state_id": 8,
+                  "goals": [
+                    {
+                      "id": "_uniq.93",
+                      "target": {
+                        "text": "b = ?h₁.b",
+                        "head": "Eq",
+                        "forall": false
+                      },
+                      "hypotheses": [
+                        {
+                          "name": "α",
+                          "id": "_uniq.15",
+                          "type": {
+                            "text": "Type",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "a",
+                          "id": "_uniq.16",
+                          "type": {
+                            "text": "α",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "b",
+                          "id": "_uniq.17",
+                          "type": {
+                            "text": "α",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "h",
+                          "id": "_uniq.18",
+                          "type": {
+                            "text": "a = b",
+                            "head": "Eq",
+                            "forall": false
+                          },
+                          "is_proof": true
+                        }
+                      ]
+                    },
+                    {
+                      "id": "_uniq.94",
+                      "target": {
+                        "text": "?h₁.b = ?b",
+                        "head": "Eq",
+                        "forall": false
+                      },
+                      "hypotheses": [
+                        {
+                          "name": "α",
+                          "id": "_uniq.15",
+                          "type": {
+                            "text": "Type",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "a",
+                          "id": "_uniq.16",
+                          "type": {
+                            "text": "α",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "b",
+                          "id": "_uniq.17",
+                          "type": {
+                            "text": "α",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "h",
+                          "id": "_uniq.18",
+                          "type": {
+                            "text": "a = b",
+                            "head": "Eq",
+                            "forall": false
+                          },
+                          "is_proof": true
+                        }
+                      ]
+                    },
+                    {
+                      "id": "_uniq.91",
+                      "target": {
+                        "text": "α",
+                        "head": "[anonymous]",
+                        "forall": false
+                      },
+                      "hypotheses": [
+                        {
+                          "name": "α",
+                          "id": "_uniq.15",
+                          "type": {
+                            "text": "Type",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "a",
+                          "id": "_uniq.16",
+                          "type": {
+                            "text": "α",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "b",
+                          "id": "_uniq.17",
+                          "type": {
+                            "text": "α",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "h",
+                          "id": "_uniq.18",
+                          "type": {
+                            "text": "a = b",
+                            "head": "Eq",
+                            "forall": false
+                          },
+                          "is_proof": true
+                        }
+                      ]
+                    },
+                    {
+                      "id": "_uniq.62",
+                      "target": {
+                        "text": "?b = a",
+                        "head": "Eq",
+                        "forall": false
+                      },
+                      "hypotheses": [
+                        {
+                          "name": "α",
+                          "id": "_uniq.15",
+                          "type": {
+                            "text": "Type",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "a",
+                          "id": "_uniq.16",
+                          "type": {
+                            "text": "α",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "b",
+                          "id": "_uniq.17",
+                          "type": {
+                            "text": "α",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "h",
+                          "id": "_uniq.18",
+                          "type": {
+                            "text": "a = b",
+                            "head": "Eq",
+                            "forall": false
+                          },
+                          "is_proof": true
+                        }
+                      ]
+                    },
+                    {
+                      "id": "_uniq.59",
+                      "target": {
+                        "text": "α",
+                        "head": "[anonymous]",
+                        "forall": false
+                      },
+                      "hypotheses": [
+                        {
+                          "name": "α",
+                          "id": "_uniq.15",
+                          "type": {
+                            "text": "Type",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "a",
+                          "id": "_uniq.16",
+                          "type": {
+                            "text": "α",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "b",
+                          "id": "_uniq.17",
+                          "type": {
+                            "text": "α",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "h",
+                          "id": "_uniq.18",
+                          "type": {
+                            "text": "a = b",
+                            "head": "Eq",
+                            "forall": false
+                          },
+                          "is_proof": true
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "tactic": "apply Eq.trans",
+                "category": "lemma",
+                "lemma": null,
+                "provenance": null,
+                "reason": "Initial Lean goal",
+                "status": "accepted",
+                "error": null,
+                "elapsed_ms": 1.7550609991303645,
+                "on_proof_path": false
+              },
+              {
+                "id": 6,
+                "parent": 0,
+                "depth": 1,
+                "state": {
+                  "state_id": 9,
+                  "goals": [
+                    {
+                      "id": "_uniq.62",
+                      "target": {
+                        "text": "a = a",
+                        "head": "Eq",
+                        "forall": false
+                      },
+                      "hypotheses": [
+                        {
+                          "name": "α",
+                          "id": "_uniq.15",
+                          "type": {
+                            "text": "Type",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "a",
+                          "id": "_uniq.16",
+                          "type": {
+                            "text": "α",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "b",
+                          "id": "_uniq.17",
+                          "type": {
+                            "text": "α",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "h",
+                          "id": "_uniq.18",
+                          "type": {
+                            "text": "a = b",
+                            "head": "Eq",
+                            "forall": false
+                          },
+                          "is_proof": true
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "tactic": "rw [← h]",
+                "category": "hypothesis",
+                "lemma": null,
+                "provenance": null,
+                "reason": "Initial Lean goal",
+                "status": "accepted",
+                "error": null,
+                "elapsed_ms": 1.1218479994568042,
+                "on_proof_path": false
+              },
+              {
+                "id": 7,
+                "parent": 2,
+                "depth": 2,
+                "state": null,
+                "tactic": "assumption",
+                "category": "goal",
+                "lemma": null,
+                "provenance": null,
+                "reason": "Initial Lean goal",
+                "status": "rejected",
+                "error": "Tactic `assumption` failed\n\ncase h₂\nα : Type\na b : α\nh : a = b\n⊢ b = a",
+                "elapsed_ms": 0.6320710017462261,
+                "on_proof_path": false
+              },
+              {
+                "id": 8,
+                "parent": 2,
+                "depth": 2,
+                "state": null,
+                "tactic": "rfl",
+                "category": "goal",
+                "lemma": null,
+                "provenance": null,
+                "reason": "Initial Lean goal",
+                "status": "rejected",
+                "error": "Tactic `rfl` failed: The left-hand side\n  b\nis not definitionally equal to the right-hand side\n  a\n\ncase h₂\nα : Type\na b : α\nh : a = b\n⊢ b = a",
+                "elapsed_ms": 0.7884560036472976,
+                "on_proof_path": false
+              },
+              {
+                "id": 9,
+                "parent": 2,
+                "depth": 2,
+                "state": {
+                  "state_id": 10,
+                  "goals": []
+                },
+                "tactic": "rw [h]",
+                "category": "hypothesis",
+                "lemma": null,
+                "provenance": null,
+                "reason": "Initial Lean goal",
+                "status": "solved",
+                "error": null,
+                "elapsed_ms": 0.6317910010693595,
+                "on_proof_path": true
+              }
+            ],
+            "pools": [
+              {
+                "node_id": 0,
+                "generated": [
+                  {
+                    "tactic": "assumption",
+                    "category": "goal",
+                    "reason": "Match the goal against the local context",
+                    "prior": 10.0,
+                    "lemma": null,
+                    "provenance": null
+                  },
+                  {
+                    "tactic": "rfl",
+                    "category": "goal",
+                    "reason": "Check definitional equality",
+                    "prior": 8.0,
+                    "lemma": null,
+                    "provenance": null
+                  },
+                  {
+                    "tactic": "rw [h]",
+                    "category": "hypothesis",
+                    "reason": "Rewrite using a local equality",
+                    "prior": 6.0,
+                    "lemma": null,
+                    "provenance": null
+                  },
+                  {
+                    "tactic": "rw [← h]",
+                    "category": "hypothesis",
+                    "reason": "Explore reverse equality rewriting",
+                    "prior": 3.0,
+                    "lemma": null,
+                    "provenance": null
+                  },
+                  {
+                    "tactic": "apply Eq.symm",
+                    "category": "lemma",
+                    "reason": "Goal features: ('=',); context features: ()",
+                    "prior": 4.0,
+                    "lemma": "Eq.symm",
+                    "provenance": "Init.Prelude"
+                  },
+                  {
+                    "tactic": "apply Eq.trans",
+                    "category": "lemma",
+                    "reason": "Goal features: ('=',); context features: ()",
+                    "prior": 4.0,
+                    "lemma": "Eq.trans",
+                    "provenance": "Init.Prelude"
+                  }
+                ],
+                "actual_order": [
+                  "assumption",
+                  "rfl",
+                  "rw [h]",
+                  "apply Eq.symm",
+                  "apply Eq.trans",
+                  "rw [← h]"
+                ]
+              },
+              {
+                "node_id": 2,
+                "generated": [
+                  {
+                    "tactic": "assumption",
+                    "category": "goal",
+                    "reason": "Match the goal against the local context",
+                    "prior": 10.0,
+                    "lemma": null,
+                    "provenance": null
+                  },
+                  {
+                    "tactic": "rfl",
+                    "category": "goal",
+                    "reason": "Check definitional equality",
+                    "prior": 8.0,
+                    "lemma": null,
+                    "provenance": null
+                  },
+                  {
+                    "tactic": "rw [h]",
+                    "category": "hypothesis",
+                    "reason": "Rewrite using a local equality",
+                    "prior": 6.0,
+                    "lemma": null,
+                    "provenance": null
+                  },
+                  {
+                    "tactic": "rw [← h]",
+                    "category": "hypothesis",
+                    "reason": "Explore reverse equality rewriting",
+                    "prior": 3.0,
+                    "lemma": null,
+                    "provenance": null
+                  },
+                  {
+                    "tactic": "apply Eq.symm",
+                    "category": "lemma",
+                    "reason": "Goal features: ('=',); context features: ()",
+                    "prior": 4.0,
+                    "lemma": "Eq.symm",
+                    "provenance": "Init.Prelude"
+                  },
+                  {
+                    "tactic": "apply Eq.trans",
+                    "category": "lemma",
+                    "reason": "Goal features: ('=',); context features: ()",
+                    "prior": 4.0,
+                    "lemma": "Eq.trans",
+                    "provenance": "Init.Prelude"
+                  }
+                ],
+                "actual_order": [
+                  "assumption",
+                  "rfl",
+                  "rw [h]",
+                  "apply Eq.symm",
+                  "apply Eq.trans",
+                  "rw [← h]"
+                ]
+              }
+            ],
+            "proof": [
+              "apply Eq.trans",
+              "rfl",
+              "rw [h]"
+            ],
+            "verification": {
+              "verified": true,
+              "axioms": [],
+              "error": null,
+              "elapsed_s": 1.8053742720003356,
+              "source_sha256": "20a91c46bc7af4df152b4cfc7596912eeaa4fc11ca31a6faadeb0926071ed12c"
+            },
+            "metrics": {
+              "attempted_candidates": 10,
+              "expanded_states": 2,
+              "proof_length": 3,
+              "suffix_length": 3,
+              "elapsed_s": 1.8170208470037323,
+              "lean_execution_s": 0.011277990997768939,
+              "verification_s": 1.8053742720003356,
+              "search_s": 0.011646715000097174,
+              "initial_action_s": 0.0011703209966071881
+            },
+            "label_policy": "Only verified-vs-verified cost differences are preferences; unresolved is censored"
+          },
+          "exploration": "bounded_rollout"
+        }
+      ]
+    }
+  ]
+}

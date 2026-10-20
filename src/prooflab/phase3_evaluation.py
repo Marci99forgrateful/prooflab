@@ -5,6 +5,7 @@ from __future__ import annotations
 import csv
 import json
 import os
+import statistics
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import UTC, datetime
 from pathlib import Path
@@ -143,6 +144,18 @@ def run(destination: Path) -> dict[str, Any]:
         "evaluation_families": json.loads((DIRECTORY / "families.json").read_text()),
     }
     report = {"provenance": provenance, **summarize(traces, summary_protocol)}
+    for algorithm, group in report["results"].items():
+        values = [
+            max(0, t.metrics.elapsed_s - t.metrics.initialization_s - t.metrics.verification_s)
+            for t in traces
+            if t.algorithm == algorithm
+        ]
+        group["metrics"]["search_s"] = {
+            "mean": statistics.mean(values),
+            "median": statistics.median(values),
+            "min": min(values),
+            "max": max(values),
+        }
     report["training"] = json.loads((MODELS / "training-report.json").read_text())
     (destination / "summary.json").write_text(json.dumps(report, indent=2) + "\n")
     with (destination / "results.csv").open("w", newline="") as out:
