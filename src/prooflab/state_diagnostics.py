@@ -161,7 +161,11 @@ def run(experiment: Path, destination: Path, workers: int = 2) -> dict[str, Any]
         results = list(pool.map(work, groups.items()))
     report = dict(
         metadata=metadata(),
-        source=str(experiment.relative_to(ROOT)),
+        source=(
+            str(experiment.relative_to(ROOT))
+            if experiment.is_relative_to(ROOT)
+            else str(experiment.resolve())
+        ),
         inspector_sha256=digest(ROOT / "ProofLab/Inspect.lean"),
         tasks=results,
         purpose=(

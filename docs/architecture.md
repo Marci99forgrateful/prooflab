@@ -1,6 +1,41 @@
 # Architecture — decision record 001
 
-## Current Phase 3 dataflow
+## Current Phase 4 architecture
+
+```mermaid
+flowchart LR
+  D[Permitted genuine development continuations] --> V[Verified nonterminal successors and observed costs]
+  V --> T[CPU linear versus quadratic state-cost fitting]
+  T --> M[Frozen frontier model]
+  S[Complete native saved Lean state and actual parent] --> F[Pre-decision state features]
+  F --> M
+  M --> Q[Stable priority frontier or bounded beam]
+  Q --> C[Unchanged generator and selected candidate ranker]
+  C --> L[Native Lean action and restored elaboration snapshot]
+  L --> S
+  L --> K[Fresh full-proof reconstruction and axiom audit]
+  Q --> E[Actual queue decisions and insertion values]
+  E --> U[Search Architecture Explorer]
+  L --> R[Offline native expression replay diagnostics]
+  R --> U
+```
+
+`frontier.py` and `frontier_training.py` independently estimate the continuation
+cost of expanding a complete proof state. They do not generate tactics, query
+Lean during scoring, decide state equivalence or certify proofs. `search.py`
+separates candidate ordering from state scheduling. The bounded beam logs every
+eviction and makes no completeness claim. `state_diagnostics.py` and
+`ProofLab/Inspect.lean` group native sequent shapes offline; the search never
+merges these groups. Earlier protected generator, verifier and bridge hashes
+remain unchanged.
+
+The frozen benchmark/protocol precedes fitting; the selected model and execution
+source precede final evaluation. [Measured results](phase-4-results.md) preserve
+the frontier success regression. [Related work](phase-4-related-work.md) records
+algorithm attribution, licenses and versioned source observations.
+
+## Phase 3 dataflow (preserved foundation)
+
 
 ```mermaid
 flowchart LR

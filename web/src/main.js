@@ -1,3 +1,4 @@
+import { initializeArchitecture, openArchitecture } from "./architecture.js";
 import katex from "katex";
 import "./style.css";
 import {
@@ -448,10 +449,15 @@ function showView(view) {
     benchmarks: "Benchmarks",
     about: "Inside the lab",
     continuations: "Alternative continuations",
+    architecture: "Search Architecture Explorer",
   }[view];
   if (view === "continuations") openContinuations();
+  if (view === "architecture") openArchitecture();
   if (view === "compare") compare();
   if (view === "benchmarks") benchmarks();
+  $("#dataset-select").hidden = view === "architecture";
+  $("#mode-toggle").hidden =
+    view === "architecture" || !$("#mode-toggle").dataset.available;
   location.hash = view;
 }
 
@@ -692,16 +698,28 @@ async function boot() {
       manifest: phase3[1] || [],
       summary: phase3[2],
     };
+  initializeArchitecture(base);
   await initializeContinuations(base);
   await chooseDataset("phase1");
   const view = location.hash.slice(1);
-  if (["lab", "compare", "benchmarks", "about", "continuations"].includes(view))
+  if (
+    [
+      "lab",
+      "compare",
+      "benchmarks",
+      "about",
+      "continuations",
+      "architecture",
+    ].includes(view)
+  )
     showView(view);
   if (["localhost", "127.0.0.1"].includes(location.hostname)) {
     try {
       const r = await fetch("/api/health");
-      if (r.ok && (await r.json()).service === "prooflab")
-        $("#mode-toggle").hidden = false;
+      if (r.ok && (await r.json()).service === "prooflab") {
+        $("#mode-toggle").dataset.available = "true";
+        $("#mode-toggle").hidden = location.hash === "#architecture";
+      }
     } catch {
       /* Static replay needs no backend. */
     }

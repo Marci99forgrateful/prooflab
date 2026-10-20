@@ -1,0 +1,342 @@
+{
+  "task": {
+    "id": "p3_order_routes",
+    "title": "Order routes",
+    "domain": "order",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(\u03b1 : Type) [PartialOrder \u03b1] (a b c d e : \u03b1) (ab : a \u2264 b) (bc : b \u2264 c) (cd : c \u2264 d) (ae : a \u2264 e) (ed : e \u2264 d)",
+    "target": "a \u2264 d \u2227 a \u2264 c",
+    "display": "a \u2264 d \u2227 a \u2264 c",
+    "description": "Phase 3 \u00b7 ordered route products",
+    "origin": "Original Phase 3 statement; no mathematical novelty claimed.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  "source": "experiments/phase3/evaluation-v1/traces/p3_order_routes--best_first--r0.json.gz",
+  "source_sha256": "7d5d8391a82e09566318fca6b17af45ccd27e3e529f6b176e69bc40b5b67714b",
+  "original_metrics": {
+    "attempted_candidates": 211,
+    "accepted_transitions": 140,
+    "rejected_candidates": 71,
+    "expanded_states": 70,
+    "frontier": 39,
+    "max_depth": 10,
+    "proof_length": 0,
+    "elapsed_s": 2.911360660000355,
+    "lean_execution_s": 0.7990900210061227,
+    "initialization_s": 2.0030848030000925,
+    "verification_s": 0.0,
+    "planning_s": 0.052364173003297765,
+    "model_inference_s": 0.027383680004277267
+  },
+  "termination": "resource_limit:expansions",
+  "extended": {
+    "status": "not_found_within_budget",
+    "termination": "resource_limit:expansions",
+    "metrics": {
+      "attempted_candidates": 481,
+      "accepted_transitions": 295,
+      "rejected_candidates": 186,
+      "expanded_states": 160,
+      "frontier": 84,
+      "max_depth": 14,
+      "proof_length": 0,
+      "elapsed_s": 4.366114093994838,
+      "lean_execution_s": 2.0875205749398447,
+      "initialization_s": 2.1267751099949237,
+      "verification_s": 0,
+      "planning_s": 0.06564208797499305,
+      "model_inference_s": 0
+    }
+  },
+  "probes": [
+    {
+      "tactic": "simp_all",
+      "response": {
+        "error": "simp_all made no progress",
+        "status": "invalid_candidate"
+      },
+      "audit": null
+    },
+    {
+      "tactic": "grind",
+      "response": {
+        "error": "`grind` failed\ncase grind.1\n\u03b1 : Type\ninst : PartialOrder \u03b1\na b c d e : \u03b1\nab : a \u2264 b\nbc : b \u2264 c\ncd : c \u2264 d\nae : a \u2264 e\ned : e \u2264 d\nh_1 : \u00aca \u2264 d\n\u22a2 False\n[grind] Goal diagnostics\n  [facts] Asserted facts\n    [prop] a \u2264 b\n    [prop] b \u2264 c\n    [prop] c \u2264 d\n    [prop] a \u2264 e\n    [prop] e \u2264 d\n    [prop] \u00aca \u2264 d \u2228 \u00aca \u2264 c\n    [prop] \u00aca \u2264 d\n  [eqc] True propositions\n    [prop] \u00aca \u2264 d\n    [prop] \u00aca \u2264 d \u2228 \u00aca \u2264 c\n    [prop] a \u2264 b\n    [prop] a \u2264 e\n    [prop] b \u2264 c\n    [prop] c \u2264 d\n    [prop] e \u2264 d\n  [eqc] False propositions\n    [prop] a \u2264 d\n  [cases] Case analyses\n    [cases] [1/2]: \u00aca \u2264 d \u2228 \u00aca \u2264 c\n      [cases] source: Initial goal\n[grind] Issues\n  [issue] type has `LE`, but is not a linear order, failed to synthesize\n        Std.IsLinearOrder \u03b1",
+        "status": "invalid_candidate"
+      },
+      "audit": null
+    },
+    {
+      "tactic": "aesop",
+      "response": {
+        "goals": [
+          {
+            "hypotheses": [
+              {
+                "id": "_uniq.60",
+                "is_proof": false,
+                "name": "\u03b1",
+                "type": {
+                  "forall": false,
+                  "head": "[anonymous]",
+                  "text": "Type"
+                }
+              },
+              {
+                "id": "_uniq.61",
+                "is_proof": false,
+                "name": "inst",
+                "type": {
+                  "forall": false,
+                  "head": "PartialOrder",
+                  "text": "PartialOrder \u03b1"
+                }
+              },
+              {
+                "id": "_uniq.62",
+                "is_proof": false,
+                "name": "a",
+                "type": {
+                  "forall": false,
+                  "head": "[anonymous]",
+                  "text": "\u03b1"
+                }
+              },
+              {
+                "id": "_uniq.63",
+                "is_proof": false,
+                "name": "b",
+                "type": {
+                  "forall": false,
+                  "head": "[anonymous]",
+                  "text": "\u03b1"
+                }
+              },
+              {
+                "id": "_uniq.64",
+                "is_proof": false,
+                "name": "c",
+                "type": {
+                  "forall": false,
+                  "head": "[anonymous]",
+                  "text": "\u03b1"
+                }
+              },
+              {
+                "id": "_uniq.65",
+                "is_proof": false,
+                "name": "d",
+                "type": {
+                  "forall": false,
+                  "head": "[anonymous]",
+                  "text": "\u03b1"
+                }
+              },
+              {
+                "id": "_uniq.66",
+                "is_proof": false,
+                "name": "e",
+                "type": {
+                  "forall": false,
+                  "head": "[anonymous]",
+                  "text": "\u03b1"
+                }
+              },
+              {
+                "id": "_uniq.67",
+                "is_proof": true,
+                "name": "ab",
+                "type": {
+                  "forall": false,
+                  "head": "[anonymous]",
+                  "text": "a \u2264 b"
+                }
+              },
+              {
+                "id": "_uniq.68",
+                "is_proof": true,
+                "name": "bc",
+                "type": {
+                  "forall": false,
+                  "head": "[anonymous]",
+                  "text": "b \u2264 c"
+                }
+              },
+              {
+                "id": "_uniq.69",
+                "is_proof": true,
+                "name": "cd",
+                "type": {
+                  "forall": false,
+                  "head": "[anonymous]",
+                  "text": "c \u2264 d"
+                }
+              },
+              {
+                "id": "_uniq.70",
+                "is_proof": true,
+                "name": "ae",
+                "type": {
+                  "forall": false,
+                  "head": "[anonymous]",
+                  "text": "a \u2264 e"
+                }
+              },
+              {
+                "id": "_uniq.71",
+                "is_proof": true,
+                "name": "ed",
+                "type": {
+                  "forall": false,
+                  "head": "[anonymous]",
+                  "text": "e \u2264 d"
+                }
+              }
+            ],
+            "id": "_uniq.1699",
+            "target": {
+              "forall": false,
+              "head": "[anonymous]",
+              "text": "a \u2264 d"
+            }
+          },
+          {
+            "hypotheses": [
+              {
+                "id": "_uniq.60",
+                "is_proof": false,
+                "name": "\u03b1",
+                "type": {
+                  "forall": false,
+                  "head": "[anonymous]",
+                  "text": "Type"
+                }
+              },
+              {
+                "id": "_uniq.61",
+                "is_proof": false,
+                "name": "inst",
+                "type": {
+                  "forall": false,
+                  "head": "PartialOrder",
+                  "text": "PartialOrder \u03b1"
+                }
+              },
+              {
+                "id": "_uniq.62",
+                "is_proof": false,
+                "name": "a",
+                "type": {
+                  "forall": false,
+                  "head": "[anonymous]",
+                  "text": "\u03b1"
+                }
+              },
+              {
+                "id": "_uniq.63",
+                "is_proof": false,
+                "name": "b",
+                "type": {
+                  "forall": false,
+                  "head": "[anonymous]",
+                  "text": "\u03b1"
+                }
+              },
+              {
+                "id": "_uniq.64",
+                "is_proof": false,
+                "name": "c",
+                "type": {
+                  "forall": false,
+                  "head": "[anonymous]",
+                  "text": "\u03b1"
+                }
+              },
+              {
+                "id": "_uniq.65",
+                "is_proof": false,
+                "name": "d",
+                "type": {
+                  "forall": false,
+                  "head": "[anonymous]",
+                  "text": "\u03b1"
+                }
+              },
+              {
+                "id": "_uniq.66",
+                "is_proof": false,
+                "name": "e",
+                "type": {
+                  "forall": false,
+                  "head": "[anonymous]",
+                  "text": "\u03b1"
+                }
+              },
+              {
+                "id": "_uniq.67",
+                "is_proof": true,
+                "name": "ab",
+                "type": {
+                  "forall": false,
+                  "head": "[anonymous]",
+                  "text": "a \u2264 b"
+                }
+              },
+              {
+                "id": "_uniq.68",
+                "is_proof": true,
+                "name": "bc",
+                "type": {
+                  "forall": false,
+                  "head": "[anonymous]",
+                  "text": "b \u2264 c"
+                }
+              },
+              {
+                "id": "_uniq.69",
+                "is_proof": true,
+                "name": "cd",
+                "type": {
+                  "forall": false,
+                  "head": "[anonymous]",
+                  "text": "c \u2264 d"
+                }
+              },
+              {
+                "id": "_uniq.70",
+                "is_proof": true,
+                "name": "ae",
+                "type": {
+                  "forall": false,
+                  "head": "[anonymous]",
+                  "text": "a \u2264 e"
+                }
+              },
+              {
+                "id": "_uniq.71",
+                "is_proof": true,
+                "name": "ed",
+                "type": {
+                  "forall": false,
+                  "head": "[anonymous]",
+                  "text": "e \u2264 d"
+                }
+              }
+            ],
+            "id": "_uniq.1700",
+            "target": {
+              "forall": false,
+              "head": "[anonymous]",
+              "text": "a \u2264 c"
+            }
+          }
+        ],
+        "state_id": 1,
+        "status": "accepted"
+      },
+      "audit": null
+    }
+  ]
+}

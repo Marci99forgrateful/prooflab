@@ -87,3 +87,23 @@ def test_training_refuses_overwrite(tmp_path: Path):
 
     with pytest.raises(ValueError, match="new frontier"):
         train(tmp_path)
+
+
+@pytest.mark.integration
+def test_native_inspector_preserves_unintroduced_target_binders():
+    from prooflab.dataset import get_task
+    from prooflab.lean import LeanSession
+    from prooflab.state_diagnostics import binder_count, inspect
+
+    task = get_task("compose")
+    assert binder_count(task.binders) == 5
+    native = inspect(task, [[], ["intro h0"]])
+    with LeanSession(task) as lean:
+        actual = lean.step(lean.initial.state_id, "intro h0", 3)
+        assert len(lean.initial.goals) == len(native["0"]["goals"]) == 1
+        assert len(actual["goals"]) == len(native["1"]["goals"]) == 1
+    # The target P → R stays an obligation: only the declared task parameters open.
+    assert "h0" not in native["0"]["goals"][0]["native_repr"]
+    assert "h0" in native["1"]["goals"][0]["native_repr"]
+    # Closing the context as forall can erase the intro boundary in normalized
+    # sequent shapes; this is another reason these groups never justify merging.

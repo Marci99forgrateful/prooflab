@@ -48,6 +48,7 @@ def extra_metrics(t: Trace) -> dict[str, float]:
     return dict(
         search_tree_size=len(t.nodes),
         described_states=len(states),
+        distinct_native_handles=len({n.state.state_id for n in states if n.state is not None}),
         distinct_descriptions=distinct,
         repeated_descriptions=len(states) - distinct,
         beam_evictions=len(t.beam_evictions),
@@ -58,7 +59,20 @@ def extra_metrics(t: Trace) -> dict[str, float]:
 
 
 def report(traces: list[Trace], protocol: dict[str, Any]) -> dict[str, Any]:
-    result = summarize(traces, protocol)
+    compatible = {
+        **protocol,
+        "uncertainty": {
+            "seed": protocol["bootstrap_seed"],
+            "bootstrap_samples": protocol["bootstrap_samples"],
+        },
+    }
+    result = summarize(traces, compatible)
+    for reference in ("automation", "grind"):
+        comparison = result["paired_differences"].get(reference, {})
+        for metric in ("attempted_candidates", "expanded_states"):
+            comparison.pop(metric, None)
+            comparison.get("common_verified_mean_differences", {}).pop(metric, None)
+        comparison["internal_work_note"] = "External tactic work units differ; counts not compared"
     for algorithm, group in result["results"].items():
         subset = [t for t in traces if t.algorithm == algorithm]
         for name in extra_metrics(subset[0]):

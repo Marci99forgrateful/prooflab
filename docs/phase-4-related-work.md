@@ -240,7 +240,7 @@ We started with the user's named systems, followed implementation references to 
 
 ### Goedel-Prover V2
 
-**Objective, authors and publication:** Goedel-LM research team, Goedel-Prover-V2, arXiv:2508.03613, 2025. Scaffolded synthesis, verifier self-correction and model averaging.
+**Objective, authors and publication:** Yong Lin, Shange Tang, Bohan Lyu, Ziran Yang, Jui-Hui Chung and coauthors (repository citation), Goedel-Prover-V2, arXiv:2508.03613, 2025. Scaffolded synthesis, verifier self-correction and model averaging.
 
 **R — architecture, states and scheduling:** Whole-proof generation followed by compiler-feedback revisions; does not imply an independent fixed-candidate state-value search.
 
@@ -256,7 +256,7 @@ We started with the user's named systems, followed implementation references to 
 
 ### TacticToe
 
-**Objective, authors and publication:** Thibault Gauthier, Cezary Kaliszyk and Josef Urban, TacticToe: Learning to Prove with Tactics, arXiv:1804.00596, 2018. HOL4 learned tactic search.
+**Objective, authors and publication:** Thibault Gauthier, Cezary Kaliszyk, Josef Urban, Ramana Kumar and Michael Norrish, TacticToe: Learning to Prove with Tactics, arXiv:1804.00596, 2018. HOL4 learned tactic search.
 
 **R — architecture, states and scheduling:** Recorded tactic applications and HOL goals; learned policy/value guidance and tree backups over subgoals. Current source has evolved beyond the original paper.
 
@@ -415,3 +415,33 @@ ENIGMA-style clause usefulness and TacticToe/HTPS value learning suggest a small
 Phase 2 and 3 both achieved 23/32 Phase 3 theorems under the fixed generator, with no established Phase 3 advantage over the handcrafted policy. Candidate ordering is only one lever. We select a separately trained scalar frontier-cost estimator with interpretable features, compare linear and fixed quadratic feature models on permitted development theorems, and perform a factorial scheduling/candidate comparison. A bounded beam arm tests a different memory/search-space policy. The primary generator and verification bridge remain unchanged. A separate local normalization/retrieval diagnostic investigates expressiveness; its results cannot be attributed to ML scheduling.
 
 This is original ProofLab implementation and original controlled experiments using established ideas, not a new proof-search theory. MCTS, certified AND/OR transpositions, large-model self-improvement and library-wide neural retrieval remain untested alternatives. Current 2026 LeanHammer, LeanExplore and Lean core changes are included as checked source developments; we do not invent a comprehensive list of every 2026 paper.
+
+## Individually checked license matrix
+
+This matrix interprets the **actual pinned license text**, rather than relying on a GitHub badge or assuming public access grants reuse. No external algorithm implementation or model artifact was copied. Bibliographic descriptions and independent implementations are distinguished from code adaptation.
+
+| Artifact / owner | Checked terms at recorded version | Compatibility decision |
+|---|---|---|
+| Aesop; Lean core; Mathlib; Duper; Lean-auto; LeanHammer | Each repository's own Apache-2.0 LICENSE | Conceptual adaptation / installed Lean dependencies; no new vendored code |
+| ReProver; LeanDojo; Lean Copilot | Each repository's own MIT LICENSE | Attribution and methodology comparison; no weights/code imported |
+| Pantograph; PyPantograph | Each repository's own Apache-2.0 LICENSE | Interface comparison only |
+| InternLM-Math | Apache-2.0 LICENCE; included MiniF2F has separate license | No model/data import; do not extend source terms to all weights |
+| DeepSeek V1.5 | MIT LICENSE-CODE; distinct LICENSE-MODEL agreement | No code/weights imported; model terms not conflated |
+| DeepSeek V2 | README points to LICENSE-MODEL, absent in this inspected repository; code badge links another repository | Actual model permission unresolved here; paper/README comparison only |
+| Goedel V2 | README Apache badge, no repository LICENSE found | Permission unresolved; no code/weights imported |
+| HOL4 / TacticToe | Root COPYRIGHT: BSD-style three-clause terms | Conceptual independent work; example subdirectories' licenses are not substituted for the root |
+| Evariste / HTPS | Main LICENSE CC-BY-NC-4.0; selected Lean subtree Apache-2.0 | No MCTS code copied into this Apache project |
+| Deepmath / DeepHOL | Apache-2.0 LICENSE | Source/methodology comparison only |
+| Isabelle | Root COPYRIGHT: BSD-style three-clause terms | Conceptual reconstruction/relevance comparison |
+| CoqHammer | LGPL-2.1 license text | No source adaptation or linking |
+| E | COPYING describes GPL-2.0-or-later / LGPL-2.1-or-later release terms and version caveat | No source import; separate conceptual saturation comparison |
+| Vampire | LICENCE explicitly BSD-3-Clause | No source import |
+| Lean REPL | Apache-2.0 | Interface comparison only |
+| LeanExplore | Apache-2.0 LICENSE | No hosted service or local ML dependency installed |
+| ProofNet | MIT LICENSE | Documentation only; no benchmark proofs imported |
+| Original MiniF2F | Lean/Isabelle Apache-2.0; HOL Light has separately read BSD-style terms; Metamath has MIT terms | Per-system terms, no assumed single root license; no task solutions imported |
+| MiniF2F Lean 4 port | MIT LICENSE at this port | Version-specific methodology only |
+| PutnamBench | Individually checked lean4/LICENSE and isabelle/LICENSE: Apache-2.0; coq/LICENSE: MIT | No solutions/formalizations imported; informal statements have separate MAA permission |
+| Kimina Lean server | MIT LICENSE | Infrastructure comparison only |
+
+The final license-file check extends the initial pre-implementation survey with explicit Lean/Metamath benchmark subdirectory checks; it changes no selected algorithm, model or evaluation dataset.

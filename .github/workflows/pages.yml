@@ -24,6 +24,7 @@ jobs:
           python-version: "3.12"
       - run: uv sync --frozen
       - run: uv run --frozen python scripts/export_phase3.py
+      - run: uv run --frozen python scripts/export_phase4.py
       - run: npm --prefix web ci --no-audit --no-fund
       - run: npm --prefix web test
       - run: npm --prefix web run build

@@ -30,6 +30,9 @@
           <button class="nav-item" data-view="continuations">
             <span class="nav-icon">⌥</span> Alternative continuations
           </button>
+          <button class="nav-item" data-view="architecture">
+            <span class="nav-icon">⌬</span> Search architectures
+          </button>
           <button class="nav-item" data-view="benchmarks">
             <span class="nav-icon">▥</span> Benchmarks
           </button>
@@ -58,7 +61,7 @@
           ></a>
           <div>
             <span class="status-dot"></span> Lean 4 · Mathlib
-            <span class="version">v0.3</span>
+            <span class="version">v0.4</span>
           </div>
         </div>
       </aside>
@@ -95,6 +98,95 @@
           </div>
         </header>
         <main>
+          <section id="architecture-view" class="view" hidden>
+            <div class="page-heading">
+              <div>
+                <div class="eyebrow">
+                  <span></span> PHASE 4 · SEARCH ARCHITECTURE EXPLORER
+                </div>
+                <h1>Choose the next frontier<span>.</span></h1>
+                <p>
+                  Inspect actual native executions. Separate candidate ordering,
+                  state values and search-space management.
+                </p>
+              </div>
+            </div>
+            <div class="card arch-intro">
+              <p>
+                32 original held-out statements · eight mathematical families ·
+                two recorded runs per architecture. All trees, states, proofs
+                and measurements come from execution. Predicted values are
+                learned estimates; only Lean verifies proofs.
+              </p>
+              <p class="method-note">
+                This dedicated explorer uses the frozen Phase 4 dataset below.
+                Earlier datasets remain available in the other views. Native
+                Aesop and grind have different internal search units. Lower
+                attempt counts on failed runs do not establish an improvement.
+              </p>
+            </div>
+            <details class="card arch-overview">
+              <summary>
+                Measured architecture results · success and search effort
+              </summary>
+              <div id="arch-summary" class="table-scroll"></div>
+            </details>
+            <div class="card arch-controls">
+              <label
+                >Phase 4 theorem<select
+                  id="arch-task"
+                  aria-label="Architecture theorem"
+                ></select></label
+              ><label
+                >Recorded run<select id="arch-repeat">
+                  <option value="0">Run 1</option>
+                  <option value="1">Run 2</option>
+                </select></label
+              ><label
+                >Left architecture<select id="arch-policy-a"></select></label
+              ><label
+                >Right architecture<select id="arch-policy-b"></select></label
+              ><button class="text-button" id="arch-export">
+                Export actual comparison JSON ↗
+              </button>
+            </div>
+            <pre id="arch-statement" class="card continuation-code"></pre>
+            <p id="arch-notice" role="status"></p>
+            <div class="card arch-playback">
+              <label id="arch-step-label" for="arch-step"
+                >Expansion decision</label
+              ><input
+                id="arch-step"
+                type="range"
+                min="0"
+                max="0"
+                value="0"
+              /><button id="arch-next" class="text-button">
+                Next decision →
+              </button>
+              <p id="arch-divergence" class="method-note"></p>
+            </div>
+            <div class="arch-comparison">
+              <article class="card" id="arch-side-0"></article>
+              <article class="card" id="arch-side-1"></article>
+            </div>
+            <div class="card">
+              <h2>Candidate-generation limits</h2>
+              <p id="arch-limitations" class="method-note"></p>
+            </div>
+            <div class="page-heading">
+              <div>
+                <div class="eyebrow">RESEARCH CONNECTIONS</div>
+                <h2>Ideas behind the architecture</h2>
+                <p>
+                  Source-confirmed observations and independent ProofLab
+                  engineering. These systems are not numerically comparable on
+                  different libraries and resources.
+                </p>
+              </div>
+            </div>
+            <div id="arch-research" class="arch-research"></div>
+          </section>
           <section id="lab-view" class="view">
             <div class="page-heading">
               <div>

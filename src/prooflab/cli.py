@@ -7,6 +7,7 @@ from typing import cast
 
 from prooflab.benchmark import Algorithm, run_benchmark
 from prooflab.dataset import get_task, load_tasks
+from prooflab.frontier import FrontierModel
 from prooflab.learning import DEFAULT_MODEL, LearnedRanking
 from prooflab.models import Budget
 from prooflab.outcome import MODELS, OutcomeRanking
@@ -29,10 +30,16 @@ def main() -> None:
             "automation",
             "applicability_only",
             "old_features_outcome",
+            "frontier",
+            "joint",
+            "beam",
+            "linear_frontier",
+            "grind",
         ],
         default="best_first",
     )
     solve.add_argument("--output", type=Path)
+    solve.add_argument("--frontier-model", type=Path, help="Local JSON frontier weights")
     solve.add_argument("--model", type=Path, help="Local JSON weights for learned search")
     benchmark = sub.add_parser("benchmark", help="Run real comparative experiments")
     benchmark.add_argument("--output", type=Path, required=True)
@@ -66,6 +73,15 @@ def main() -> None:
     train3.add_argument("--output", type=Path, required=True)
     evaluate3 = sub.add_parser("evaluate-phase3", help="Run frozen Phase 3 controlled evaluation")
     evaluate3.add_argument("--output", type=Path, required=True)
+    train4 = sub.add_parser("train-frontier", help="Fit permitted development state-cost models")
+    train4.add_argument("--output", type=Path, required=True)
+    evaluate4 = sub.add_parser(
+        "evaluate-phase4", help="Run the frozen Phase 4 architecture protocol"
+    )
+    evaluate4.add_argument("--output", type=Path, required=True)
+    inspect4 = sub.add_parser("inspect-states", help="Offline native state diagnostics; no merging")
+    inspect4.add_argument("--experiment", type=Path, required=True)
+    inspect4.add_argument("--output", type=Path, required=True)
     compact_parser = sub.add_parser("compact-traces", help="Losslessly archive actual JSON traces")
     compact_parser.add_argument("--experiment", type=Path, required=True)
     unpack_parser = sub.add_parser("unpack-traces", help="Restore exact original trace bytes")
@@ -90,6 +106,18 @@ def main() -> None:
         from prooflab.evaluation import run_evaluation
 
         run_evaluation(args.output, args.model)
+    elif args.command == "train-frontier":
+        from prooflab.frontier_training import train as train_frontier
+
+        train_frontier(args.output)
+    elif args.command == "evaluate-phase4":
+        from prooflab.phase4_evaluation import run as run_phase4
+
+        run_phase4(args.output)
+    elif args.command == "inspect-states":
+        from prooflab.state_diagnostics import run as inspect_states
+
+        inspect_states(args.experiment, args.output)
     elif args.command == "compact-traces":
         from prooflab.research_io import compact
 
@@ -125,13 +153,26 @@ def main() -> None:
                 if is_outcome
                 else None
             )
-            ranker = LearnedRanking(args.model) if args.model and not is_outcome else None
+            is_frontier = args.algorithm in ("frontier", "joint", "beam", "linear_frontier")
+            if args.algorithm in ("joint", "beam", "linear_frontier"):
+                outcome = OutcomeRanking(args.model) if args.model else OutcomeRanking()
+            ranker = (
+                LearnedRanking(args.model) if args.model and args.algorithm == "learned" else None
+            )
+            state_model = (
+                FrontierModel(args.frontier_model)
+                if args.frontier_model
+                else FrontierModel()
+                if is_frontier
+                else None
+            )
             result = search(
                 get_task(args.task),
                 cast(Algorithm, args.algorithm),
                 budget,
-                ranking=outcome if is_outcome else ranker if args.algorithm == "learned" else None,
+                ranking=outcome if outcome is not None else ranker,
                 comparison_ranker=ranker,
+                comparison_frontier=state_model,
             )
             data = result.model_dump_json(indent=2)
             if args.output:

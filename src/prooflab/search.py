@@ -155,6 +155,12 @@ def search(
             trace.metadata["beam_width"] = (
                 str(beam_width) if algorithm == "beam" else "unbounded within budget"
             )
+        if algorithm in ("automation", "grind"):
+            trace.metadata["frontier_policy"] = (
+                "Native external reference; internal scheduler opaque"
+            )
+        elif algorithm == "bfs":
+            trace.metadata["frontier_policy"] = "FIFO breadth-first; model values are annotations"
         trace.metadata["generator"] = generator.__module__ + "." + generator.__name__
 
         def record_value(
