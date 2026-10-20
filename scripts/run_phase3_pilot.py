@@ -34,7 +34,10 @@ with ThreadPoolExecutor(max_workers=2) as pool:
         {
             "metadata": metadata(),
             "budget": budget.model_dump(),
-            "purpose": "Development-only difficulty calibration; no final evaluation searches or model comparison",
+            "purpose": (
+                "Development-only difficulty calibration; "
+                "no final evaluation searches or model comparison"
+            ),
             "tasks": len(tasks),
         },
         indent=2,
