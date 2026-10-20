@@ -1751,3 +1751,125 @@ h2 {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }
+
+.premise-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 14px 0;
+  align-items: center;
+}
+.premise-controls label {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-size: 12px;
+}
+.premise-picked {
+  background: rgba(190, 223, 167, 0.12);
+}
+.premise-table table {
+  min-width: 850px;
+}
+.premise-table td {
+  vertical-align: top;
+  max-width: 280px;
+}
+.premise-table pre {
+  max-width: 270px;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.arch-premises {
+  min-width: 0;
+}
+@media (max-width: 700px) {
+  .premise-controls {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+.arch-examples {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 18px;
+}
+.arch-examples article {
+  border: 1px solid var(--border);
+  padding: 14px;
+  border-radius: 8px;
+}
+.arch-examples h3 {
+  font-size: 13px;
+  margin: 0;
+}
+#arch-cases {
+  padding: 20px;
+  margin-bottom: 18px;
+}
+
+.premise-table table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+.premise-table th,
+.premise-table td {
+  padding: 10px;
+  border-bottom: 1px solid #e3e9e2;
+  text-align: left;
+  line-height: 1.5;
+}
+.premise-table details {
+  padding: 0;
+  margin: 6px 0;
+  border: 0;
+}
+.premise-table .continuation-code {
+  padding: 8px;
+  margin: 6px 0;
+  font-size: 11px;
+  line-height: 1.5;
+}
+.premise-table .method-note {
+  padding: 0;
+  margin: 5px 0;
+}
+.arch-premises > .method-note {
+  margin: 10px 0;
+}
+@media (max-width: 700px) {
+  .premise-table table {
+    min-width: 0;
+  }
+  .premise-table thead {
+    display: none;
+  }
+  .premise-table tbody,
+  .premise-table tr,
+  .premise-table td {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .premise-table tr {
+    border: 1px solid #e3e9e2;
+    margin-bottom: 12px;
+  }
+  .premise-table td {
+    max-width: none;
+    border: 0;
+  }
+  .premise-table td::before {
+    content: attr(data-label);
+    display: block;
+    color: #66776c;
+    font-size: 10px;
+    font-weight: 600;
+    margin-bottom: 5px;
+  }
+  .premise-table pre {
+    max-width: 100%;
+  }
+}

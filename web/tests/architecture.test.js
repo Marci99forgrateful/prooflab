@@ -46,3 +46,19 @@ test("neighborhood is a labelled projection of genuine recorded nodes", () => {
   ))
     assert.ok(projected.includes(child));
 });
+
+test("recorded JSON decodes canonical gzip and already decoded host responses", async () => {
+  const { recordedJson } = await import("../src/architecture.js");
+  const { gzipSync } = await import("node:zlib");
+  const data = { task: "transport utility test", values: [1, 2, 3] };
+  const raw = JSON.stringify(data);
+  assert.deepEqual(
+    await recordedJson(new Response(gzipSync(raw)), "trace.json.gz"),
+    data,
+  );
+  assert.deepEqual(
+    await recordedJson(new Response(raw), "trace.json.gz"),
+    data,
+  );
+  assert.deepEqual(await recordedJson(new Response(raw), "trace.json"), data);
+});

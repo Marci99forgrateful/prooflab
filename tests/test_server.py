@@ -81,3 +81,20 @@ def test_phase4_finite_dataset_and_frontier_model():
     model = client.get("/api/state-model").json()
     assert model["mode"] == "linear" and len(model["sha256"]) == 64
     assert not model["provenance"]["evaluation_accessed"]
+
+
+def test_phase5_typed_retrieval_metadata_and_finite_generator_choices() -> None:
+    tasks = client.get("/api/tasks?dataset=phase5").json()
+    assert len(tasks) == 40 and all(t["id"].startswith("p5_") for t in tasks)
+    model = client.get("/api/retrieval-model").json()
+    assert len(model["weights"]) == 130 and not model["evaluation_accessed"]
+    declarations = client.get("/api/declarations").json()
+    assert len(declarations) == 116
+    assert all(r["type"] and r["native_type"] and r["source_module"] for r in declarations)
+    assert (
+        client.post(
+            "/api/search",
+            json={"task_id": "p5_product_graph", "generator_mode": "run_tac arbitrary"},
+        ).status_code
+        == 422
+    )

@@ -1,0 +1,98 @@
+[
+  {
+    "task_id": "p5_compose_terminal",
+    "arm": "typed_p3",
+    "source": "examples/phase5/p5_compose_terminal--typed_p3.lean",
+    "source_sha256": "3258c6eda282751c906baa8e9b8214d11bc2b7ee57206ff435823278081532c3",
+    "trace": "experiments/phase5/evaluation-v1/traces/p5_compose_terminal--typed_p3--r0.json.gz",
+    "trace_sha256": "b19ca5984ee9503873ffd359cec04e4a0fdde5d422fd8fdcac00ee46f584a182",
+    "original_audit": {
+      "verified": true,
+      "axioms": [],
+      "error": null,
+      "elapsed_s": 1.8589421149954433,
+      "source_sha256": "17bf163dff423fe35058fe06684a75e10b4e33d3815869cb6d0c64875ab85508"
+    },
+    "proof": [
+      "exists (g (f a))"
+    ]
+  },
+  {
+    "task_id": "p5_product_graph",
+    "arm": "learned_p3",
+    "source": "examples/phase5/p5_product_graph--learned_p3.lean",
+    "source_sha256": "1d336d0d0795f0ddeb2ffa4ce7372a94404106017bba57d425f753e5b7b26176",
+    "trace": "experiments/phase5/evaluation-v1/traces/p5_product_graph--learned_p3--r0.json.gz",
+    "trace_sha256": "29e32bb165f10eeccda4d742c8b3e631adb40c4fa2ff582d1346a05441dbec10",
+    "original_audit": {
+      "verified": true,
+      "axioms": [],
+      "error": null,
+      "elapsed_s": 1.808651279003243,
+      "source_sha256": "8d24bcacfd3afe8ca794f1aa3f12215842aeff294aea2b5886017bf3bd074fd8"
+    },
+    "proof": [
+      "exists ((a, b))"
+    ]
+  },
+  {
+    "task_id": "p5_conjugate_identity",
+    "arm": "typed_hand",
+    "source": "examples/phase5/p5_conjugate_identity--typed_hand.lean",
+    "source_sha256": "3f16138b286306e959a6317f36fd77d092640c6770d93f7757fd638ad3b34452",
+    "trace": "experiments/phase5/evaluation-v1/traces/p5_conjugate_identity--typed_hand--r0.json.gz",
+    "trace_sha256": "f0fe7540a1ea789bdd4a686153c61238d161e13535dfb3d8c121d48d55fc5423",
+    "original_audit": {
+      "verified": true,
+      "axioms": [
+        "propext"
+      ],
+      "error": null,
+      "elapsed_s": 1.8045680049981456,
+      "source_sha256": "68fd9b30e80200cac575c2dca2a267ab61bf66cea77e64de80587e6163585b4c"
+    },
+    "proof": [
+      "simp only [mul_assoc, mul_one, one_mul, mul_inv_cancel, inv_mul_cancel, mul_inv_cancel_left, mul_inv_cancel_right] at *"
+    ]
+  },
+  {
+    "task_id": "p5_relation_middle",
+    "arm": "learned_p3",
+    "source": "examples/phase5/p5_relation_middle--learned_p3.lean",
+    "source_sha256": "f14b95db1cf2a744a9348831a7b2d47de653f8651986a1d947b03b035aa22e1e",
+    "trace": "experiments/phase5/evaluation-v1/traces/p5_relation_middle--learned_p3--r0.json.gz",
+    "trace_sha256": "8fc028dd1dfa2d46d661d5447da9caf80b4e2279b1155992e988cc9445e4744f",
+    "original_audit": {
+      "verified": true,
+      "axioms": [],
+      "error": null,
+      "elapsed_s": 1.9093588480027393,
+      "source_sha256": "92e099ff0ae91c4f7d45cdeaf3fa3d6e5c7eab80c786f2a3b37009055656b55b"
+    },
+    "proof": [
+      "exists b"
+    ]
+  },
+  {
+    "task_id": "p5_exclusion_transport",
+    "arm": "phase4_p3",
+    "source": "examples/phase5/p5_exclusion_transport--phase4_p3.lean",
+    "source_sha256": "acb9b6526635c83d864ad6eefd9b6cba92bb175c0553e5514a9b9db3985f4165",
+    "trace": "experiments/phase5/evaluation-v1/traces/p5_exclusion_transport--phase4_p3--r0.json.gz",
+    "trace_sha256": "1285e64390e4a426cc86d4c9d946543171050feddc67c668a438cb0c578ec253",
+    "original_audit": {
+      "verified": true,
+      "axioms": [
+        "propext"
+      ],
+      "error": null,
+      "elapsed_s": 1.6795325339917326,
+      "source_sha256": "b3fbfe4726bfa13b8bd3ceddc08f100b38b842ee1d0eec07c7e56646b6e3243a"
+    },
+    "proof": [
+      "simp_all",
+      "apply h",
+      "exact k.1"
+    ]
+  }
+]

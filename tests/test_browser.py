@@ -384,3 +384,79 @@ def test_architecture_negative_result_and_mobile_layout(page: Page) -> None:
     assert page.locator("#dataset-select").is_hidden()
     page.locator('[data-view="lab"]').click()
     expect(page.locator("#dataset-select")).to_be_visible()
+
+
+def test_phase5_native_products_real_scores_and_export(page: Page) -> None:
+    page.locator('[data-view="architecture"]').click()
+    expect(page.locator("#arch-side-1 .arch-state-title")).to_contain_text("State 0")
+    page.locator("#arch-dataset").select_option("phase5")
+    expect(page.locator('#arch-task option[value="p5_product_graph"]')).to_have_count(1)
+    page.locator("#arch-task").select_option("p5_product_graph")
+    expect(page.locator("#arch-side-1 .pill")).to_have_text("verified")
+    expect(page.locator("#arch-side-0 .pill")).to_have_text("not_found_within_budget")
+    expect(page.locator("#arch-side-1 .arch-premises")).to_contain_text("exists ((a, b))")
+    expect(page.locator("#arch-side-1 .arch-premises")).to_contain_text("allocation heartbeats")
+    expect(page.locator("#arch-side-1 .premise-table")).to_contain_text(
+        "verified complete proof path"
+    )
+    page.locator("#arch-side-1 .premise-family").select_option("witness")
+    page.locator("#arch-side-1 .premise-table details summary").first.click()
+    expect(page.locator("#arch-side-1 .premise-table")).to_contain_text(
+        "typed product construction"
+    )
+    with page.expect_download() as download:
+        page.locator("#arch-export").click()
+    payload = json.loads(download.value.path().read_text())
+    right = payload["traces"][1]
+    assert right["task"]["id"] == "p5_product_graph" and right["verification"]["verified"]
+    assert right["metadata"]["arm"] == "learned_p3"
+    assert right["retrievals"][0]["native"]["term_constructions"] <= 48
+    assert any(r["learned_score"] is not None for r in right["retrievals"][0]["pool"])
+    page.set_viewport_size({"width": 390, "height": 844})
+    assert page.evaluate("document.documentElement.scrollWidth <= innerWidth + 1")
+
+
+def test_phase5_unexplored_candidates_stay_unknown_and_phase4_return(page: Page) -> None:
+    page.locator('[data-view="architecture"]').click()
+    expect(page.locator("#arch-side-1 .arch-state-title")).to_contain_text("State 0")
+    page.locator("#arch-dataset").select_option("phase5")
+    expect(page.locator('#arch-task option[value="p5_product_graph"]')).to_have_count(1)
+    page.locator("#arch-task").select_option("p5_product_graph")
+    expect(page.locator("#arch-side-1 .pill")).to_have_text("verified")
+    page.locator("#arch-side-1 .premise-all").check()
+    expect(page.locator("#arch-side-1 .premise-table")).to_contain_text(
+        "Unexplored in this execution"
+    )
+    expect(page.locator("#arch-side-1 .premise-table")).to_contain_text("Potentially compatible")
+    expect(page.locator("#arch-research article")).to_have_count(5)
+    page.locator("#arch-cases summary").click()
+    regression = page.locator("#arch-cases article").filter(has_text="Typed generator regression")
+    expect(regression).to_have_count(1)
+    regression.locator("button").click()
+    expect(page.locator("#arch-side-0 .pill")).to_have_text("not_found_within_budget")
+    expect(page.locator("#arch-side-1 .pill")).to_have_text("verified")
+    page.locator("#arch-dataset").select_option("phase4")
+    expect(page.locator('#arch-task option[value="p4_cubic_pair"]')).to_have_count(1)
+    expect(page.locator("#arch-research article")).to_have_count(9)
+    expect(page.locator("#arch-policy-a")).to_have_value("best_first")
+
+
+def test_phase5_local_typed_computation_is_a_new_audited_run(page: Page) -> None:
+    page.locator('[data-view="architecture"]').click()
+    expect(page.locator("#arch-side-1 .arch-state-title")).to_contain_text("State 0")
+    page.locator("#arch-dataset").select_option("phase5")
+    expect(page.locator('#arch-task option[value="p5_product_graph"]')).to_have_count(1)
+    page.locator("#arch-task").select_option("p5_product_graph")
+    page.locator("#arch-policy-a").select_option("typed_hand")
+    expect(page.locator("#arch-side-0 h2")).to_contain_text("Deterministic typed")
+    page.locator("#arch-local").click()
+    expect(page.locator("#arch-notice")).to_contain_text(
+        "Actual local run: verified", timeout=45000
+    )
+    with page.expect_download() as download:
+        page.locator("#arch-export").click()
+    left = json.loads(download.value.path().read_text())["traces"][0]
+    assert left["metadata"]["generator_mode"] == "typed"
+    assert left["verification"]["verified"] and left["retrievals"]
+    assert "repeat" not in left["metadata"]
+    expect(page.locator("#arch-dataset")).to_be_enabled()

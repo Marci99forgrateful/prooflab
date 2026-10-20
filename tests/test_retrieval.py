@@ -148,3 +148,74 @@ def test_censored_and_unexplored_are_never_negative_and_cpu_fit_deterministic() 
     assert (
         pairs([dict(task_id="dev", states=[dict(depth=0, observations=[censored, unknown])])]) == []
     )
+
+
+@pytest.mark.integration
+def test_native_order_intermediate_and_rewrite_direction_are_real() -> None:
+    task = get_task("p4_lattice_meet")
+    with RetrievalSession(task) as lean:
+        message = lean.step(0, "apply le_trans", 2)
+        assert message["status"] == "accepted"
+        intermediate = message["state_id"]
+        data = lean.retrieve(intermediate, ["inf_le_left"])
+        assert data["rows"][0]["compatible"]
+        step = lean.step(intermediate, "apply inf_le_left", 2)
+        assert step["status"] == "accepted"
+        last = lean.step(step["state_id"], "assumption", 2)
+        assert last["status"] == "accepted" and not last["goals"]
+    assert verify(task, ["apply le_trans", "apply inf_le_left", "assumption"]).verified
+
+    from prooflab.models import Task
+
+    rewrite = Task(
+        id="retrieval_rewrite_probe",
+        title="Native rewrite probe",
+        domain="algebra",
+        difficulty="easy",
+        split="development",
+        binders="(M : Type) [Monoid M] (a b : M)",
+        target="(a*b)*1 = a*b",
+        display="(a*b)*1 = a*b",
+        description="Independent API regression",
+    )
+    with RetrievalSession(rewrite) as lean:
+        data = lean.retrieve(0, ["mul_one"])
+        forward = next(r for r in data["rows"] if r.get("family") == "rewrite" and not r["reverse"])
+        assert forward["compatible"] and forward["rewritten_target"]
+        assert lean.step(0, "rw [mul_one]", 2)["status"] == "accepted"
+    assert verify(rewrite, ["rw [mul_one]"]).verified
+
+
+@pytest.mark.integration
+def test_set_normalization_and_learned_symbolic_universe_match() -> None:
+    from prooflab.models import Task
+    from prooflab.retrieval import RetrievalRanker
+
+    task = Task(
+        id="retrieval_set_probe",
+        title="Native set normalization",
+        domain="sets",
+        difficulty="easy",
+        split="development",
+        binders="(α : Type) (A : Set α) (x : α) (h : x ∈ A)",
+        target="x ∈ A ∩ A",
+        display="x ∈ A ∩ A",
+        description="Independent set-family regression",
+    )
+    ranker = RetrievalRanker()
+    with RetrievalSession(task) as lean:
+        symbolic, a = TypedProvider("typed", ranker).generate(
+            lean, lean.initial, 24, frozenset(), 2
+        )
+        learned, b = TypedProvider("learned", ranker).generate(
+            lean, lean.initial, 24, frozenset(), 2
+        )
+        universe_a = {r["candidate"]["tactic"]: r["candidate"] for r in a["pool"]}
+        universe_b = {r["candidate"]["tactic"]: r["candidate"] for r in b["pool"]}
+        assert universe_a == universe_b
+        assert len(symbolic) <= 24 and len(learned) <= 24
+        normalizer = next(r for r in a["pool"] if r["family"] == "normalizer")
+        result = lean.step(0, normalizer["candidate"]["tactic"], 2)
+        assert result["status"] == "accepted"
+        assert result["native_heartbeats"] >= 0
+        assert all(r["learned_score"] is not None for r in b["pool"])

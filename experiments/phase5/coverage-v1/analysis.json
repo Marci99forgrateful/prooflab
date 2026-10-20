@@ -1,0 +1,458 @@
+{
+  "cases": [
+    {
+      "task_id": "p4_witness_transport",
+      "reference_proof": [
+        "exists (f a)",
+        "apply h",
+        "assumption"
+      ],
+      "observed_reference_path_coverage": [
+        {
+          "mode": "original",
+          "prefix": [],
+          "reference_action": "exists (f a)",
+          "state_reached": true,
+          "state_expanded": true,
+          "action_available": false,
+          "actual_statuses": []
+        },
+        {
+          "mode": "original",
+          "prefix": [
+            "exists (f a)"
+          ],
+          "reference_action": "apply h",
+          "state_reached": false,
+          "state_expanded": false,
+          "action_available": null,
+          "actual_statuses": []
+        },
+        {
+          "mode": "original",
+          "prefix": [
+            "exists (f a)",
+            "apply h"
+          ],
+          "reference_action": "assumption",
+          "state_reached": false,
+          "state_expanded": false,
+          "action_available": null,
+          "actual_statuses": []
+        },
+        {
+          "mode": "phase4",
+          "prefix": [],
+          "reference_action": "exists (f a)",
+          "state_reached": true,
+          "state_expanded": true,
+          "action_available": false,
+          "actual_statuses": []
+        },
+        {
+          "mode": "phase4",
+          "prefix": [
+            "exists (f a)"
+          ],
+          "reference_action": "apply h",
+          "state_reached": false,
+          "state_expanded": false,
+          "action_available": null,
+          "actual_statuses": []
+        },
+        {
+          "mode": "phase4",
+          "prefix": [
+            "exists (f a)",
+            "apply h"
+          ],
+          "reference_action": "assumption",
+          "state_reached": false,
+          "state_expanded": false,
+          "action_available": null,
+          "actual_statuses": []
+        },
+        {
+          "mode": "typed",
+          "prefix": [],
+          "reference_action": "exists (f a)",
+          "state_reached": true,
+          "state_expanded": true,
+          "action_available": true,
+          "actual_statuses": [
+            "accepted"
+          ]
+        },
+        {
+          "mode": "typed",
+          "prefix": [
+            "exists (f a)"
+          ],
+          "reference_action": "apply h",
+          "state_reached": true,
+          "state_expanded": true,
+          "action_available": true,
+          "actual_statuses": [
+            "accepted"
+          ]
+        },
+        {
+          "mode": "typed",
+          "prefix": [
+            "exists (f a)",
+            "apply h"
+          ],
+          "reference_action": "assumption",
+          "state_reached": true,
+          "state_expanded": true,
+          "action_available": true,
+          "actual_statuses": [
+            "solved"
+          ]
+        }
+      ],
+      "trace_sha256": {
+        "original": "53c71f5cba817f9a8eb5003791cec19bbff8477e12136887bf26b11bacb47bab",
+        "phase4": "086df39c35b07572a0c1fff0707c0e1a945af91145047ec622a87ecb9dadf6e1",
+        "typed": "85a4357f6745bb1d6f2bcd89d0f2c3a2e4c8ab17527f036cde7644d82c9ed021"
+      }
+    },
+    {
+      "task_id": "p4_cubic_pair",
+      "reference_proof": [
+        "rw [h]",
+        "constructor",
+        "ring",
+        "ring"
+      ],
+      "observed_reference_path_coverage": [
+        {
+          "mode": "original",
+          "prefix": [],
+          "reference_action": "rw [h]",
+          "state_reached": true,
+          "state_expanded": true,
+          "action_available": true,
+          "actual_statuses": [
+            "accepted"
+          ]
+        },
+        {
+          "mode": "original",
+          "prefix": [
+            "rw [h]"
+          ],
+          "reference_action": "constructor",
+          "state_reached": true,
+          "state_expanded": true,
+          "action_available": true,
+          "actual_statuses": [
+            "accepted"
+          ]
+        },
+        {
+          "mode": "original",
+          "prefix": [
+            "rw [h]",
+            "constructor"
+          ],
+          "reference_action": "ring",
+          "state_reached": true,
+          "state_expanded": true,
+          "action_available": true,
+          "actual_statuses": [
+            "accepted"
+          ]
+        },
+        {
+          "mode": "original",
+          "prefix": [
+            "rw [h]",
+            "constructor",
+            "ring"
+          ],
+          "reference_action": "ring",
+          "state_reached": true,
+          "state_expanded": true,
+          "action_available": true,
+          "actual_statuses": [
+            "solved"
+          ]
+        },
+        {
+          "mode": "phase4",
+          "prefix": [],
+          "reference_action": "rw [h]",
+          "state_reached": true,
+          "state_expanded": true,
+          "action_available": true,
+          "actual_statuses": [
+            "accepted"
+          ]
+        },
+        {
+          "mode": "phase4",
+          "prefix": [
+            "rw [h]"
+          ],
+          "reference_action": "constructor",
+          "state_reached": true,
+          "state_expanded": true,
+          "action_available": true,
+          "actual_statuses": [
+            "accepted"
+          ]
+        },
+        {
+          "mode": "phase4",
+          "prefix": [
+            "rw [h]",
+            "constructor"
+          ],
+          "reference_action": "ring",
+          "state_reached": true,
+          "state_expanded": false,
+          "action_available": null,
+          "actual_statuses": []
+        },
+        {
+          "mode": "phase4",
+          "prefix": [
+            "rw [h]",
+            "constructor",
+            "ring"
+          ],
+          "reference_action": "ring",
+          "state_reached": false,
+          "state_expanded": false,
+          "action_available": null,
+          "actual_statuses": []
+        },
+        {
+          "mode": "typed",
+          "prefix": [],
+          "reference_action": "rw [h]",
+          "state_reached": true,
+          "state_expanded": true,
+          "action_available": true,
+          "actual_statuses": [
+            "accepted"
+          ]
+        },
+        {
+          "mode": "typed",
+          "prefix": [
+            "rw [h]"
+          ],
+          "reference_action": "constructor",
+          "state_reached": true,
+          "state_expanded": true,
+          "action_available": true,
+          "actual_statuses": [
+            "accepted"
+          ]
+        },
+        {
+          "mode": "typed",
+          "prefix": [
+            "rw [h]",
+            "constructor"
+          ],
+          "reference_action": "ring",
+          "state_reached": true,
+          "state_expanded": false,
+          "action_available": null,
+          "actual_statuses": []
+        },
+        {
+          "mode": "typed",
+          "prefix": [
+            "rw [h]",
+            "constructor",
+            "ring"
+          ],
+          "reference_action": "ring",
+          "state_reached": false,
+          "state_expanded": false,
+          "action_available": null,
+          "actual_statuses": []
+        }
+      ],
+      "trace_sha256": {
+        "original": "29dcfea7084679e40caa6ccada8732e146275797322a0c05650d00cf5d0f0d52",
+        "phase4": "fcfbd9b6bcf5a28bdcb75a9f16fd319e928d792742ee8787f442e785025e3bda",
+        "typed": "06ca9866b1a8374171502bb41f579c673ba94d8aabdc6240ded238428771494e"
+      }
+    },
+    {
+      "task_id": "p4_inverse_right",
+      "reference_proof": [
+        "simp_all"
+      ],
+      "observed_reference_path_coverage": [
+        {
+          "mode": "original",
+          "prefix": [],
+          "reference_action": "simp_all",
+          "state_reached": true,
+          "state_expanded": true,
+          "action_available": false,
+          "actual_statuses": []
+        },
+        {
+          "mode": "phase4",
+          "prefix": [],
+          "reference_action": "simp_all",
+          "state_reached": true,
+          "state_expanded": true,
+          "action_available": true,
+          "actual_statuses": [
+            "solved"
+          ]
+        },
+        {
+          "mode": "typed",
+          "prefix": [],
+          "reference_action": "simp_all",
+          "state_reached": true,
+          "state_expanded": true,
+          "action_available": false,
+          "actual_statuses": []
+        }
+      ],
+      "trace_sha256": {
+        "original": "ab28a483e8b8de08b4a601c0ec0765babb98767df6205efbca55bcf42abc0253",
+        "phase4": "d0f642823ea494d047486b21eb9788ca0293aee7168eb970174ab8e60c490aea",
+        "typed": "90dfa7e6ad012c982b716593dc0e4ff29438297ce38e7516a9a9389bf8478b6e"
+      }
+    },
+    {
+      "task_id": "p4_lattice_meet",
+      "reference_proof": [
+        "apply le_trans",
+        "apply inf_le_left",
+        "assumption"
+      ],
+      "observed_reference_path_coverage": [
+        {
+          "mode": "original",
+          "prefix": [],
+          "reference_action": "apply le_trans",
+          "state_reached": true,
+          "state_expanded": true,
+          "action_available": true,
+          "actual_statuses": [
+            "accepted"
+          ]
+        },
+        {
+          "mode": "original",
+          "prefix": [
+            "apply le_trans"
+          ],
+          "reference_action": "apply inf_le_left",
+          "state_reached": true,
+          "state_expanded": true,
+          "action_available": false,
+          "actual_statuses": []
+        },
+        {
+          "mode": "original",
+          "prefix": [
+            "apply le_trans",
+            "apply inf_le_left"
+          ],
+          "reference_action": "assumption",
+          "state_reached": false,
+          "state_expanded": false,
+          "action_available": null,
+          "actual_statuses": []
+        },
+        {
+          "mode": "phase4",
+          "prefix": [],
+          "reference_action": "apply le_trans",
+          "state_reached": true,
+          "state_expanded": true,
+          "action_available": true,
+          "actual_statuses": [
+            "accepted"
+          ]
+        },
+        {
+          "mode": "phase4",
+          "prefix": [
+            "apply le_trans"
+          ],
+          "reference_action": "apply inf_le_left",
+          "state_reached": true,
+          "state_expanded": true,
+          "action_available": true,
+          "actual_statuses": [
+            "accepted"
+          ]
+        },
+        {
+          "mode": "phase4",
+          "prefix": [
+            "apply le_trans",
+            "apply inf_le_left"
+          ],
+          "reference_action": "assumption",
+          "state_reached": true,
+          "state_expanded": true,
+          "action_available": true,
+          "actual_statuses": [
+            "solved"
+          ]
+        },
+        {
+          "mode": "typed",
+          "prefix": [],
+          "reference_action": "apply le_trans",
+          "state_reached": true,
+          "state_expanded": true,
+          "action_available": true,
+          "actual_statuses": [
+            "accepted"
+          ]
+        },
+        {
+          "mode": "typed",
+          "prefix": [
+            "apply le_trans"
+          ],
+          "reference_action": "apply inf_le_left",
+          "state_reached": true,
+          "state_expanded": false,
+          "action_available": null,
+          "actual_statuses": []
+        },
+        {
+          "mode": "typed",
+          "prefix": [
+            "apply le_trans",
+            "apply inf_le_left"
+          ],
+          "reference_action": "assumption",
+          "state_reached": false,
+          "state_expanded": false,
+          "action_available": null,
+          "actual_statuses": []
+        }
+      ],
+      "trace_sha256": {
+        "original": "e7537b25e80a158081798080fa2d52a1944bd932ebb742e1c60aa43985ef19bd",
+        "phase4": "9f7b9382e0aa40bc0e20463e9459b57168abcd64418030a015bd5d59aa2caae1",
+        "typed": "a164a7c52bbefd273e4d538a4bf6e770dc4fcdbeed893b55b90be7fbd45f45c1"
+      }
+    }
+  ],
+  "observations": {
+    "p4_witness_transport": "Original/expanded exhaust after 6/7 attempts without f a. Typed native application construction emits f a, yielding an independently audited three-step proof in 37 attempts. Native Aesop/grind historical successes are separately linked.",
+    "p4_cubic_pair": "Original verifies rw[h],constructor,ring,ring in 386 attempts/26 expansions. Expanded and typed both exhaust 600 attempts (36/49 expansions). Root original actions are not displaced in typed. Additional rewrite/generic-logic branches and ordering change exploration; no evidence that the baseline proof becomes mathematically invalid.",
+    "p4_inverse_right": "Typed bounded noncommutative group normalization plus assumption verifies in 22 attempts. Expanded simp_all verifies in 2; original exhausts 600. This is stronger symbolic coverage, not a learned scheduling result.",
+    "p4_lattice_meet": "Expanded le_trans,inf_le_left,assumption verifies in 13 attempts. Original uses 80 expansions/240 attempts without a proof; typed exhausts 600/56. The index contains lattice rules but generic compatible branches and constrained selection do not supply an efficient successful sequence."
+  },
+  "interpretations": "Availability gaps are demonstrated by actual candidate pools; branching/priority contributions are mechanistic interpretations, not randomized causal attributions. New frozen evaluation remains separate. No diagnostic theorem trains the model."
+}
