@@ -16,7 +16,14 @@ from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 from starlette.middleware.trustedhost import TrustedHostMiddleware
 
-from prooflab.dataset import get_task, load_phase2_tasks, load_phase3_tasks, load_tasks
+from prooflab.dataset import (
+    get_task,
+    load_phase2_tasks,
+    load_phase3_tasks,
+    load_phase4_tasks,
+    load_tasks,
+)
+from prooflab.frontier import FrontierModel
 from prooflab.lean import ROOT
 from prooflab.learning import LearnedRanking
 from prooflab.models import Budget, Model, Trace
@@ -30,7 +37,7 @@ async def lifespan(_: FastAPI) -> AsyncIterator[None]:
     shutdown()
 
 
-app = FastAPI(title="ProofLab", version="0.3.0", docs_url=None, redoc_url=None, lifespan=lifespan)
+app = FastAPI(title="ProofLab", version="0.4.0", docs_url=None, redoc_url=None, lifespan=lifespan)
 app.add_middleware(TrustedHostMiddleware, allowed_hosts=["127.0.0.1", "localhost", "testserver"])
 pool = ThreadPoolExecutor(max_workers=2, thread_name_prefix="prooflab")
 lock = threading.Lock()
@@ -49,7 +56,9 @@ jobs: dict[str, Job] = {}
 
 class SearchRequest(Model):
     task_id: str
-    algorithm: Literal["bfs", "best_first", "learned", "outcome"] = "best_first"
+    algorithm: Literal["bfs", "best_first", "learned", "outcome", "frontier", "joint", "beam"] = (
+        "best_first"
+    )
     budget: Budget = Budget()
 
 
@@ -82,10 +91,15 @@ def health() -> dict[str, object]:
 
 
 @app.get("/api/tasks")
-def tasks(dataset: Literal["phase1", "phase2", "phase3"] = "phase1") -> list[dict[str, object]]:
-    loader = {"phase1": load_tasks, "phase2": load_phase2_tasks, "phase3": load_phase3_tasks}[
-        dataset
-    ]
+def tasks(
+    dataset: Literal["phase1", "phase2", "phase3", "phase4"] = "phase1",
+) -> list[dict[str, object]]:
+    loader = {
+        "phase1": load_tasks,
+        "phase2": load_phase2_tasks,
+        "phase3": load_phase3_tasks,
+        "phase4": load_phase4_tasks,
+    }[dataset]
     return [t.model_dump() for t in loader()]
 
 
@@ -95,6 +109,12 @@ def model(
 ) -> dict[str, object]:
     ranker = LearnedRanking() if variant == "phase2" else OutcomeRanking(MODELS / f"{variant}.json")
     return {"sha256": ranker.model_hash, **ranker.model.model_dump()}
+
+
+@app.get("/api/state-model")
+def state_model() -> dict[str, object]:
+    state_ranker = FrontierModel()
+    return {"sha256": state_ranker.sha256, **state_ranker.artifact.model_dump()}
 
 
 @app.get("/api/continuations")
@@ -125,6 +145,9 @@ def execute(job: Job, body: SearchRequest) -> None:
             job.cancel,
             comparison_ranker=LearnedRanking(),
             comparison_outcome=OutcomeRanking(),
+            comparison_frontier=FrontierModel()
+            if body.algorithm in ("frontier", "joint", "beam")
+            else None,
         )
         job.state = "completed"
     except Exception as error:

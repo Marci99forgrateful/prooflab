@@ -345,3 +345,42 @@ def test_live_outcome_search_keeps_independent_verification(page: Page) -> None:
     )
     expect(page.locator("#proof-method")).to_contain_text("Outcome-aware")
     expect(page.locator("#outcome-ranking-header")).to_be_visible()
+
+
+def test_architecture_actual_frontier_and_comparison_export(page: Page) -> None:
+    page.locator('[data-view="architecture"]').click()
+    expect(page.locator("#arch-side-1 .arch-state-title")).to_contain_text("State 0")
+    page.locator("#arch-task").select_option("p4_cubic_pair")
+    expect(page.locator("#arch-side-1 .arch-metrics span").first).to_contain_text("146")
+    page.locator("#arch-step").fill("6")
+    expect(page.locator("#arch-divergence")).to_contain_text("Different actual prefixes")
+    expect(page.locator("#arch-side-1 .arch-value")).to_contain_text(
+        "predicted log continuation cost"
+    )
+    expect(page.locator("#arch-side-1 .arch-tree-note")).to_contain_text("Actual neighborhood")
+    page.locator("#arch-side-1 .arch-whole").click()
+    expect(page.locator("#arch-side-1 .arch-node")).to_have_count(147)
+    page.locator("#arch-side-1 summary", has_text="Repeated-state relationships").click()
+    expect(page.locator("#arch-side-1 .arch-repeats")).to_contain_text("Offline native diagnostics")
+    with page.expect_download() as download:
+        page.locator("#arch-export").click()
+    payload = json.loads(download.value.path().read_text())
+    assert len(payload["traces"]) == 2
+    assert payload["traces"][1]["verification"]["verified"]
+    assert payload["traces"][1]["metrics"]["attempted_candidates"] == 146
+    assert payload["traces"][1]["frontier_decisions"]
+
+
+def test_architecture_negative_result_and_mobile_layout(page: Page) -> None:
+    page.set_viewport_size({"width": 390, "height": 844})
+    page.locator('[data-view="architecture"]').click()
+    expect(page.locator("#arch-side-1 .arch-state-title")).to_contain_text("State 0")
+    page.locator("#arch-task").select_option("p4_contra_disj")
+    expect(page.locator("#arch-side-1 .pill")).to_have_text("not_found_within_budget")
+    expect(page.locator("#arch-side-0 .pill")).to_have_text("verified")
+    expect(page.locator("#arch-side-1")).to_contain_text("resource_limit:expansions")
+    expect(page.locator("#arch-research article")).to_have_count(9)
+    assert page.evaluate("document.documentElement.scrollWidth <= window.innerWidth + 1")
+    assert page.locator("#dataset-select").is_hidden()
+    page.locator('[data-view="lab"]').click()
+    expect(page.locator("#dataset-select")).to_be_visible()

@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "selection": "Original Phase 1 development IDs only; all order theorems held apart; refit only after selection. Phase 3 held-out diagnostics never train.",
+  "models": {"modes": ["linear", "quadratic"], "l2": [0.01, 0.1], "epochs": 400, "learning_rate": 0.08, "seed": 0, "objective": "squared error of log1p observed remaining candidate attempts, verified nonterminal continuations only", "selection_metric": "whole-order-development mean squared error", "depth_penalty": 0.15},
+  "budget": {"max_depth": 12, "max_expansions": 80, "max_candidates": 24, "max_attempts": 600, "timeout_s": 15, "tactic_timeout_s": 2},
+  "beam_width": 12,
+  "algorithms": ["bfs", "best_first", "learned", "outcome", "frontier", "joint", "beam", "linear_frontier", "automation", "grind"],
+  "target_algorithm": "joint",
+  "comparison_baselines": ["bfs", "best_first", "learned", "outcome", "frontier", "beam", "linear_frontier", "automation", "grind"],
+  "workers": 2,
+  "repetitions": 2,
+  "bootstrap_samples": 10000,
+  "bootstrap_seed": 2718,
+  "uncertainty": "Paired theorem-cluster bootstrap of repeat averages; eight-family cluster sensitivity. Common-verified comparisons separately, no failure-as-efficiency claim.",
+  "generator": "Protected original generate_candidates; separate exploratory extended-generator runs are excluded from primary summary.",
+  "repeated_states": "Native expression replay diagnostics only, no semantic merges or pruning. Beam eviction is explicit search-space management, never equivalence.",
+  "secondary_references": "Native Aesop and installed grind: one external call, incomparable internal candidate/state units. No unsupported reproduction of other published results.",
+  "pilot": "Six original development-only tasks, BFS and handcrafted, before freeze. No learned scoring or final-test outcomes used in difficulty selection. 4/6 solved; lattice/inverse fail; all final families retained."
+}

@@ -14,6 +14,11 @@ SearchAlgorithm = Literal[
     "automation",
     "applicability_only",
     "old_features_outcome",
+    "frontier",
+    "joint",
+    "beam",
+    "linear_frontier",
+    "grind",
 ]
 
 
@@ -135,6 +140,20 @@ class Verification(Model):
     source_sha256: str | None = None
 
 
+class FrontierValue(Model):
+    node_id: int
+    priority: float
+    learned_value: float
+    heuristic_priority: float
+    contributions: list[tuple[str, float]] = Field(default_factory=list)
+
+
+class FrontierDecision(Model):
+    selected: int
+    attempted_candidates: int
+    frontier: list[tuple[float, int]]
+
+
 class Trace(Model):
     schema_version: int = 1
     task: Task
@@ -153,3 +172,6 @@ class Trace(Model):
     error: str | None = None
     proof_origin: str | None = None
     rankings: list[StateRanking] = Field(default_factory=list)
+    state_values: list[FrontierValue] = Field(default_factory=list)
+    frontier_decisions: list[FrontierDecision] = Field(default_factory=list)
+    beam_evictions: list[int] = Field(default_factory=list)

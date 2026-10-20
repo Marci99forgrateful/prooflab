@@ -1,0 +1,91 @@
+{
+  "task": {
+    "id": "p3_set_complement_product",
+    "title": "Set complement product",
+    "domain": "sets",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(\u03b1 : Type) (A B C : Set \u03b1)",
+    "target": "A \u2229 B\u1d9c \u2229 C\u1d9c \u2286 A \\ (B \u222a C)",
+    "display": "A \u2229 B\u1d9c \u2229 C\u1d9c \u2286 A \\ (B \u222a C)",
+    "description": "Phase 3 \u00b7 set exclusion routes",
+    "origin": "Original Phase 3 statement; no mathematical novelty claimed.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  "source": "experiments/phase3/evaluation-v1/traces/p3_set_complement_product--best_first--r0.json.gz",
+  "source_sha256": "f4a541a794f874d851d8607a4e7e3dbc46fc5ddbc88540fc8cea069bcd092614",
+  "original_metrics": {
+    "attempted_candidates": 410,
+    "accepted_transitions": 143,
+    "rejected_candidates": 267,
+    "expanded_states": 70,
+    "frontier": 74,
+    "max_depth": 10,
+    "proof_length": 0,
+    "elapsed_s": 2.96870830199623,
+    "lean_execution_s": 0.9586658429543604,
+    "initialization_s": 1.8885825609977474,
+    "verification_s": 0.0,
+    "planning_s": 0.08645927200268488,
+    "model_inference_s": 0.05852768394834129
+  },
+  "termination": "resource_limit:expansions",
+  "extended": {
+    "status": "verified",
+    "termination": "verified",
+    "metrics": {
+      "attempted_candidates": 843,
+      "accepted_transitions": 297,
+      "rejected_candidates": 546,
+      "expanded_states": 158,
+      "frontier": 139,
+      "max_depth": 11,
+      "proof_length": 11,
+      "elapsed_s": 6.3849857580062235,
+      "lean_execution_s": 2.120789450906159,
+      "initialization_s": 1.950280101998942,
+      "verification_s": 1.976626365998527,
+      "planning_s": 0.05828351493255468,
+      "model_inference_s": 0
+    }
+  },
+  "probes": [
+    {
+      "tactic": "simp_all",
+      "response": {
+        "error": "simp_all made no progress",
+        "status": "invalid_candidate"
+      },
+      "audit": null
+    },
+    {
+      "tactic": "grind",
+      "response": {
+        "goals": [],
+        "state_id": 1,
+        "status": "accepted"
+      },
+      "audit": {
+        "verified": true,
+        "axioms": [
+          "Classical.choice",
+          "propext",
+          "Quot.sound"
+        ],
+        "error": null,
+        "elapsed_s": 2.1185396190048777,
+        "source_sha256": "8b1815b3e2a665fd5a24955f44bb9164bc2fc81d6939cd8d746e419fa80bda7d"
+      }
+    },
+    {
+      "tactic": "aesop",
+      "response": {
+        "error": "tactic 'aesop' failed, made no progress\nInitial goal:\n  \u03b1 : Type\n  A B C : Set \u03b1\n  \u22a2 A \u2229 B\u1d9c \u2229 C\u1d9c \u2286 A \\ (B \u222a C)",
+        "status": "invalid_candidate"
+      },
+      "audit": null
+    }
+  ]
+}

@@ -4,14 +4,21 @@
 
 An interactive machine-learning and symbolic proof-search laboratory built on Lean 4 and
 Mathlib. ProofLab **constructs proof paths** using breadth-first, handcrafted
-best-first and locally learned candidate ranking, visualizes actual tactic attempts, and
+best-first, locally learned candidate ranking and learned frontier scheduling, visualizes actual tactic attempts, and
 rechecks every successful proof in a separate Lean process.
 
-**v0.3.0 review candidate:** outcome-aware learning from multiple valid proof
-continuations, a harder frozen 32-task benchmark, controlled ablations, and an
-interactive continuation laboratory. The [Phase 3 report](docs/phase-3-final-report.md)
-separates actual functionality, measured findings and remaining limits. Phase 2
-review/results remain intact; the Phase 3 draft PR targets the Phase 2 branch.
+**v0.4.0 review candidate:** trained CPU frontier-state values, controlled search
+architecture comparisons and an interactive **Search Architecture Explorer**.
+The [Phase 4 report](docs/phase-4-final-report.md) links the pinned
+[related-work/source study](docs/phase-4-related-work.md),
+[frozen benchmark](docs/phase-4-data.md), [model](docs/phase-4-model.md) and
+[real results](docs/phase-4-results.md).
+
+**Measured negative result:** the learned frontier solves **21/32** new theorems;
+handcrafted and Phase 3 scheduling solve **22/32**. All 640 executions are retained.
+A separate broader-generator arm solves 30/32; that is not an ML scheduling gain.
+Earlier Phase 1–3 artifacts and review branches remain intact. This draft targets
+`feature/phase3-outcome-aware`; it is not merged into `main`.
 
 No paid model, API key, external inference service, or GPU is required.
 
@@ -32,13 +39,21 @@ example (P Q R : Prop) (hpq : P → Q) (hqr : Q → R) (hp : P) : R := by
 This is a genuine search output, independently checked by Lean. The candidate
 generator does not contain per-task answer scripts.
 
+The Search Architecture Explorer replays complete actual trees, queue selections,
+state/candidate scores, feature contributions, native repeated-shape diagnostics,
+verified proofs and failures side by side. It has a labelled neighborhood view,
+complete-tree mode, zoom/pan and full-data exports. Prior live search and replay
+views remain available. See [reproduction commands](docs/phase-4-reproducibility.md).
+
+![Actual Phase 4 measurements, including the lost theorem and uncertainty](docs/assets/phase4-results.png)
+
 ## Quick start
 
 Prerequisites: Linux, Python 3.12+, [uv](https://docs.astral.sh/uv/), Node.js
 20.19+ (or 22.12+), npm, Git, curl. Allow several GB for Lean and Mathlib.
 
 ```bash
-git clone --branch feature/phase3-outcome-aware https://github.com/Marci99forgrateful/prooflab.git
+git clone --branch feature/phase4-search-architecture https://github.com/Marci99forgrateful/prooflab.git
 cd prooflab
 bash scripts/bootstrap.sh
 uv run --frozen prooflab serve

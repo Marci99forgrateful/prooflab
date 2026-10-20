@@ -1580,3 +1580,174 @@ h2 {
   font-size: 11px;
   cursor: pointer;
 }
+
+/* Dedicated recorded search architecture workspace. */
+.arch-intro {
+  margin-bottom: 18px;
+}
+.arch-controls {
+  display: grid;
+  grid-template-columns: 2fr 0.7fr 1.5fr 1.5fr;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+.arch-controls label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 12px;
+  min-width: 0;
+}
+.arch-controls select {
+  max-width: 100%;
+  width: 100%;
+}
+.arch-comparison {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 20px;
+  margin: 20px 0;
+}
+.arch-comparison .card {
+  min-width: 0;
+  padding: 20px;
+}
+.arch-comparison .card-top {
+  align-items: start;
+  gap: 10px;
+}
+.arch-comparison h2 {
+  font-size: 19px;
+}
+.arch-comparison details {
+  border-top: 1px solid var(--line);
+  padding: 15px 0;
+}
+.arch-comparison summary {
+  cursor: pointer;
+  line-height: 1.7;
+  font-weight: 600;
+}
+.arch-state,
+.arch-path,
+#arch-statement {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.arch-state {
+  max-height: 360px;
+  overflow-y: auto;
+}
+.arch-error:empty {
+  display: none;
+}
+.arch-tree {
+  height: 360px;
+  margin-top: 12px;
+  touch-action: none;
+}
+.arch-tree svg {
+  width: 100%;
+  height: 100%;
+}
+.arch-tree-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.arch-metrics {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin: 18px 0;
+}
+.arch-metrics span {
+  color: var(--muted);
+  font-size: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.arch-metrics b {
+  font-size: 18px;
+  color: var(--text);
+  font-family: var(--mono);
+}
+.arch-queue {
+  max-height: 210px;
+  overflow: auto;
+  margin-bottom: 15px;
+}
+.arch-picked {
+  background: var(--accent-soft);
+}
+.arch-terms {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 11px;
+}
+.arch-terms span {
+  border: 1px solid var(--line);
+  padding: 6px;
+  border-radius: 5px;
+}
+.arch-playback {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 16px;
+  align-items: center;
+}
+.arch-playback p {
+  grid-column: 1 / -1;
+}
+.arch-playback input {
+  width: 100%;
+}
+.arch-research {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+.arch-research article {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 22px;
+}
+.arch-research p {
+  font-size: 13px;
+  line-height: 1.8;
+}
+.arch-research h3 {
+  margin: 0;
+}
+.arch-research a {
+  font-size: 12px;
+  color: var(--accent);
+}
+@media (max-width: 1100px) {
+  .arch-controls {
+    grid-template-columns: 1fr 1fr;
+  }
+  .arch-research {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 760px) {
+  .arch-comparison,
+  .arch-controls,
+  .arch-research {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .arch-playback {
+    grid-template-columns: 1fr auto;
+  }
+  .arch-playback label {
+    grid-column: 1 / -1;
+  }
+  .arch-metrics {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}

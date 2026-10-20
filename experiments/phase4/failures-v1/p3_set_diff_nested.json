@@ -1,0 +1,91 @@
+{
+  "task": {
+    "id": "p3_set_diff_nested",
+    "title": "Set diff nested",
+    "domain": "sets",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(\u03b1 : Type) (A B C D : Set \u03b1) (ab : A \u2286 B)",
+    "target": "(A \\ C) \u2229 D \u2286 (B \u2229 D) \\ C",
+    "display": "(A \\ C) \u2229 D \u2286 (B \u2229 D) \\ C",
+    "description": "Phase 3 \u00b7 set exclusion routes",
+    "origin": "Original Phase 3 statement; no mathematical novelty claimed.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  "source": "experiments/phase3/evaluation-v1/traces/p3_set_diff_nested--best_first--r0.json.gz",
+  "source_sha256": "deb5303f9343076898970dc8f306758aba76d7f502c25398e25a095e343c7e0f",
+  "original_metrics": {
+    "attempted_candidates": 343,
+    "accepted_transitions": 130,
+    "rejected_candidates": 213,
+    "expanded_states": 70,
+    "frontier": 61,
+    "max_depth": 10,
+    "proof_length": 0,
+    "elapsed_s": 3.0447884509994765,
+    "lean_execution_s": 0.9562128270263202,
+    "initialization_s": 1.9739465009988635,
+    "verification_s": 0.0,
+    "planning_s": 0.07393815001705661,
+    "model_inference_s": 0.04647237201425014
+  },
+  "termination": "resource_limit:expansions",
+  "extended": {
+    "status": "verified",
+    "termination": "verified",
+    "metrics": {
+      "attempted_candidates": 701,
+      "accepted_transitions": 256,
+      "rejected_candidates": 445,
+      "expanded_states": 157,
+      "frontier": 99,
+      "max_depth": 11,
+      "proof_length": 9,
+      "elapsed_s": 6.036368269997183,
+      "lean_execution_s": 2.0198028560334933,
+      "initialization_s": 1.8775399070000276,
+      "verification_s": 1.998461748000409,
+      "planning_s": 0.06829020194709301,
+      "model_inference_s": 0
+    }
+  },
+  "probes": [
+    {
+      "tactic": "simp_all",
+      "response": {
+        "error": "simp_all made no progress",
+        "status": "invalid_candidate"
+      },
+      "audit": null
+    },
+    {
+      "tactic": "grind",
+      "response": {
+        "goals": [],
+        "state_id": 1,
+        "status": "accepted"
+      },
+      "audit": {
+        "verified": true,
+        "axioms": [
+          "Classical.choice",
+          "propext",
+          "Quot.sound"
+        ],
+        "error": null,
+        "elapsed_s": 2.1816352140012896,
+        "source_sha256": "39d902f15342de351744f4373f02d1adf42b0e8b3459cafea8853fb0b39b7005"
+      }
+    },
+    {
+      "tactic": "aesop",
+      "response": {
+        "error": "tactic 'aesop' failed, made no progress\nInitial goal:\n  \u03b1 : Type\n  A B C D : Set \u03b1\n  ab : A \u2286 B\n  \u22a2 A \\ C \u2229 D \u2286 (B \u2229 D) \\ C",
+        "status": "invalid_candidate"
+      },
+      "audit": null
+    }
+  ]
+}

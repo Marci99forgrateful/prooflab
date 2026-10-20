@@ -22,7 +22,8 @@ command -v uv >/dev/null || { echo 'Install uv: https://docs.astral.sh/uv/' >&2;
 command -v npm >/dev/null || { echo 'Node.js 20.19+ and npm are required.' >&2; exit 1; }
 export XDG_CACHE_HOME="${XDG_CACHE_HOME:-$HOME/.cache}"
 export UV_CACHE_DIR="${UV_CACHE_DIR:-$XDG_CACHE_HOME/uv}"
-mkdir -p "$XDG_CACHE_HOME" "$UV_CACHE_DIR"
+export npm_config_cache="${npm_config_cache:-$XDG_CACHE_HOME/npm}"
+mkdir -p "$XDG_CACHE_HOME" "$UV_CACHE_DIR" "$npm_config_cache"
 lean --version
 uv sync --frozen --extra dev
 # Lake uses the committed manifest to restore pinned Git dependencies.
@@ -31,5 +32,6 @@ lake exe cache get Mathlib.Data.Set.Basic Mathlib.Algebra.Group.Basic \
 lake build ProofLab
 npm --prefix web ci --no-audit --no-fund
 uv run --frozen python scripts/export_phase3.py
+uv run --frozen python scripts/export_phase4.py
 npm --prefix web run build
 echo 'ProofLab installed. Start: uv run --frozen prooflab serve'

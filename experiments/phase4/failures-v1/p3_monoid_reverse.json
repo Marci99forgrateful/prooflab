@@ -1,0 +1,98 @@
+{
+  "task": {
+    "id": "p3_monoid_reverse",
+    "title": "Monoid reverse",
+    "domain": "algebra",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(M : Type) [Monoid M] (a b c d : M) (h : b = a) (k : c = b)",
+    "target": "a * (d * 1) = c * d",
+    "display": "a * (d * 1) = c * d",
+    "description": "Phase 3 \u00b7 noncommutative rewrite routes",
+    "origin": "Original Phase 3 statement; no mathematical novelty claimed.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  "source": "experiments/phase3/evaluation-v1/traces/p3_monoid_reverse--best_first--r0.json.gz",
+  "source_sha256": "f5b7f3764e1b32a331fe8688ef533aec3edbe739837ebc756f7539d8a828273f",
+  "original_metrics": {
+    "attempted_candidates": 500,
+    "accepted_transitions": 160,
+    "rejected_candidates": 340,
+    "expanded_states": 39,
+    "frontier": 122,
+    "max_depth": 4,
+    "proof_length": 0,
+    "elapsed_s": 4.656989095004974,
+    "lean_execution_s": 2.43414689405472,
+    "initialization_s": 2.1035724350003875,
+    "verification_s": 0.0,
+    "planning_s": 0.07895234598254319,
+    "model_inference_s": 0.06177820300217718
+  },
+  "termination": "resource_limit:attempts",
+  "extended": {
+    "status": "not_found_within_budget",
+    "termination": "resource_limit:attempts",
+    "metrics": {
+      "attempted_candidates": 1200,
+      "accepted_transitions": 365,
+      "rejected_candidates": 835,
+      "expanded_states": 93,
+      "frontier": 273,
+      "max_depth": 5,
+      "proof_length": 0,
+      "elapsed_s": 10.333004320003965,
+      "lean_execution_s": 7.9266240630313405,
+      "initialization_s": 2.2397354300046572,
+      "verification_s": 0,
+      "planning_s": 0.05488326994236559,
+      "model_inference_s": 0
+    }
+  },
+  "probes": [
+    {
+      "tactic": "simp_all",
+      "response": {
+        "goals": [],
+        "state_id": 1,
+        "status": "accepted"
+      },
+      "audit": {
+        "verified": true,
+        "axioms": [
+          "propext"
+        ],
+        "error": null,
+        "elapsed_s": 2.972402441999293,
+        "source_sha256": "7002ae2d4d2492260699e3550ddf8ace14e98197c6b5fcfb91e538a72354e2fe"
+      }
+    },
+    {
+      "tactic": "grind",
+      "response": {
+        "error": "`grind` failed\ncase grind\nM : Type\ninst : Monoid M\na b c d : M\nh : b = a\nk : c = b\nh_1 : \u00aca * (d * 1) = c * d\n\u22a2 False\n[grind] Goal diagnostics\n  [facts] Asserted facts\n    [prop] b = a\n    [prop] c = b\n    [prop] \u00aca * (d * 1) = c * d\n  [eqc] False propositions\n    [prop] a * (d * 1) = c * d\n  [eqc] Equivalence classes\n    [eqc] {a, b, c}\n  [assoc] Operator `HMul.hMul`\n    [basis] Basis\n      [_] c = a\n    [diseqs] Disequalities\n      [_] a * (d * 1) \u2260 a * d",
+        "status": "invalid_candidate"
+      },
+      "audit": null
+    },
+    {
+      "tactic": "aesop",
+      "response": {
+        "goals": [],
+        "state_id": 2,
+        "status": "accepted"
+      },
+      "audit": {
+        "verified": true,
+        "axioms": [
+          "propext"
+        ],
+        "error": null,
+        "elapsed_s": 2.728435762001027,
+        "source_sha256": "a147faf986207d0bc4202b994aa106f9c81ce82363d4de30f1ef53e0a543bf97"
+      }
+    }
+  ]
+}

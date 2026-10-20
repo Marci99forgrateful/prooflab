@@ -73,3 +73,11 @@ def test_phase3_model_and_finite_continuation_records() -> None:
     assert bundle["record"]["source_verification"]["verified"]
     assert bundle["annotations"]["0"]
     assert client.get("/api/continuations/development/unknown").status_code == 404
+
+
+def test_phase4_finite_dataset_and_frontier_model():
+    tasks = client.get("/api/tasks?dataset=phase4")
+    assert tasks.status_code == 200 and len(tasks.json()) == 32
+    model = client.get("/api/state-model").json()
+    assert model["mode"] == "linear" and len(model["sha256"]) == 64
+    assert not model["provenance"]["evaluation_accessed"]

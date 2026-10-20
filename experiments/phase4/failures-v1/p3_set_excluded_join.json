@@ -1,0 +1,335 @@
+{
+  "task": {
+    "id": "p3_set_excluded_join",
+    "title": "Set excluded join",
+    "domain": "sets",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(\u03b1 : Type) (A B C D : Set \u03b1) (ad : A \u2286 D) (bd : B \u2286 D)",
+    "target": "(A \\ C) \u222a (B \\ C) \u2286 D \\ C",
+    "display": "(A \\ C) \u222a (B \\ C) \u2286 D \\ C",
+    "description": "Phase 3 \u00b7 set exclusion routes",
+    "origin": "Original Phase 3 statement; no mathematical novelty claimed.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  "source": "experiments/phase3/evaluation-v1/traces/p3_set_excluded_join--best_first--r0.json.gz",
+  "source_sha256": "8664f92e44632375b21092d5615ff3a033c6ec29381da8f3094794bbfa486675",
+  "original_metrics": {
+    "attempted_candidates": 368,
+    "accepted_transitions": 115,
+    "rejected_candidates": 253,
+    "expanded_states": 70,
+    "frontier": 45,
+    "max_depth": 10,
+    "proof_length": 0,
+    "elapsed_s": 2.9214887479975005,
+    "lean_execution_s": 1.0115329049731372,
+    "initialization_s": 1.7981455190019915,
+    "verification_s": 0.0,
+    "planning_s": 0.07399464699119562,
+    "model_inference_s": 0.05133148999448167
+  },
+  "termination": "resource_limit:expansions",
+  "extended": {
+    "status": "verified",
+    "termination": "verified",
+    "metrics": {
+      "attempted_candidates": 423,
+      "accepted_transitions": 131,
+      "rejected_candidates": 292,
+      "expanded_states": 82,
+      "frontier": 49,
+      "max_depth": 11,
+      "proof_length": 11,
+      "elapsed_s": 5.193802366004093,
+      "lean_execution_s": 1.1822079929625033,
+      "initialization_s": 1.8920183400041424,
+      "verification_s": 2.012845950004703,
+      "planning_s": 0.03573570799926529,
+      "model_inference_s": 0
+    }
+  },
+  "probes": [
+    {
+      "tactic": "simp_all",
+      "response": {
+        "goals": [
+          {
+            "hypotheses": [
+              {
+                "id": "_uniq.153",
+                "is_proof": false,
+                "name": "\u03b1",
+                "type": {
+                  "forall": false,
+                  "head": "[anonymous]",
+                  "text": "Type"
+                }
+              },
+              {
+                "id": "_uniq.154",
+                "is_proof": false,
+                "name": "A",
+                "type": {
+                  "forall": true,
+                  "head": "[anonymous]",
+                  "text": "Set \u03b1"
+                }
+              },
+              {
+                "id": "_uniq.155",
+                "is_proof": false,
+                "name": "B",
+                "type": {
+                  "forall": true,
+                  "head": "[anonymous]",
+                  "text": "Set \u03b1"
+                }
+              },
+              {
+                "id": "_uniq.156",
+                "is_proof": false,
+                "name": "C",
+                "type": {
+                  "forall": true,
+                  "head": "[anonymous]",
+                  "text": "Set \u03b1"
+                }
+              },
+              {
+                "id": "_uniq.157",
+                "is_proof": false,
+                "name": "D",
+                "type": {
+                  "forall": true,
+                  "head": "[anonymous]",
+                  "text": "Set \u03b1"
+                }
+              },
+              {
+                "id": "_uniq.158",
+                "is_proof": true,
+                "name": "ad",
+                "type": {
+                  "forall": true,
+                  "head": "[anonymous]",
+                  "text": "A \u2286 D"
+                }
+              },
+              {
+                "id": "_uniq.159",
+                "is_proof": true,
+                "name": "bd",
+                "type": {
+                  "forall": true,
+                  "head": "[anonymous]",
+                  "text": "B \u2286 D"
+                }
+              }
+            ],
+            "id": "_uniq.413",
+            "target": {
+              "forall": false,
+              "head": "And",
+              "text": "A \\ C \u2286 D \\ C \u2227 B \\ C \u2286 D \\ C"
+            }
+          }
+        ],
+        "state_id": 1,
+        "status": "accepted"
+      },
+      "audit": null
+    },
+    {
+      "tactic": "grind",
+      "response": {
+        "goals": [],
+        "state_id": 2,
+        "status": "accepted"
+      },
+      "audit": {
+        "verified": true,
+        "axioms": [
+          "Classical.choice",
+          "propext",
+          "Quot.sound"
+        ],
+        "error": null,
+        "elapsed_s": 2.0508729920038604,
+        "source_sha256": "4924cfdfe196a7f065a000d22fdad9be5fa4e7e07f428de9869e67899c8845d5"
+      }
+    },
+    {
+      "tactic": "aesop",
+      "response": {
+        "goals": [
+          {
+            "hypotheses": [
+              {
+                "id": "_uniq.153",
+                "is_proof": false,
+                "name": "\u03b1",
+                "type": {
+                  "forall": false,
+                  "head": "[anonymous]",
+                  "text": "Type"
+                }
+              },
+              {
+                "id": "_uniq.154",
+                "is_proof": false,
+                "name": "A",
+                "type": {
+                  "forall": true,
+                  "head": "[anonymous]",
+                  "text": "Set \u03b1"
+                }
+              },
+              {
+                "id": "_uniq.155",
+                "is_proof": false,
+                "name": "B",
+                "type": {
+                  "forall": true,
+                  "head": "[anonymous]",
+                  "text": "Set \u03b1"
+                }
+              },
+              {
+                "id": "_uniq.156",
+                "is_proof": false,
+                "name": "C",
+                "type": {
+                  "forall": true,
+                  "head": "[anonymous]",
+                  "text": "Set \u03b1"
+                }
+              },
+              {
+                "id": "_uniq.157",
+                "is_proof": false,
+                "name": "D",
+                "type": {
+                  "forall": true,
+                  "head": "[anonymous]",
+                  "text": "Set \u03b1"
+                }
+              },
+              {
+                "id": "_uniq.158",
+                "is_proof": true,
+                "name": "ad",
+                "type": {
+                  "forall": true,
+                  "head": "[anonymous]",
+                  "text": "A \u2286 D"
+                }
+              },
+              {
+                "id": "_uniq.159",
+                "is_proof": true,
+                "name": "bd",
+                "type": {
+                  "forall": true,
+                  "head": "[anonymous]",
+                  "text": "B \u2286 D"
+                }
+              }
+            ],
+            "id": "_uniq.1540",
+            "target": {
+              "forall": true,
+              "head": "[anonymous]",
+              "text": "A \\ C \u2286 D \\ C"
+            }
+          },
+          {
+            "hypotheses": [
+              {
+                "id": "_uniq.153",
+                "is_proof": false,
+                "name": "\u03b1",
+                "type": {
+                  "forall": false,
+                  "head": "[anonymous]",
+                  "text": "Type"
+                }
+              },
+              {
+                "id": "_uniq.154",
+                "is_proof": false,
+                "name": "A",
+                "type": {
+                  "forall": true,
+                  "head": "[anonymous]",
+                  "text": "Set \u03b1"
+                }
+              },
+              {
+                "id": "_uniq.155",
+                "is_proof": false,
+                "name": "B",
+                "type": {
+                  "forall": true,
+                  "head": "[anonymous]",
+                  "text": "Set \u03b1"
+                }
+              },
+              {
+                "id": "_uniq.156",
+                "is_proof": false,
+                "name": "C",
+                "type": {
+                  "forall": true,
+                  "head": "[anonymous]",
+                  "text": "Set \u03b1"
+                }
+              },
+              {
+                "id": "_uniq.157",
+                "is_proof": false,
+                "name": "D",
+                "type": {
+                  "forall": true,
+                  "head": "[anonymous]",
+                  "text": "Set \u03b1"
+                }
+              },
+              {
+                "id": "_uniq.158",
+                "is_proof": true,
+                "name": "ad",
+                "type": {
+                  "forall": true,
+                  "head": "[anonymous]",
+                  "text": "A \u2286 D"
+                }
+              },
+              {
+                "id": "_uniq.159",
+                "is_proof": true,
+                "name": "bd",
+                "type": {
+                  "forall": true,
+                  "head": "[anonymous]",
+                  "text": "B \u2286 D"
+                }
+              }
+            ],
+            "id": "_uniq.1541",
+            "target": {
+              "forall": true,
+              "head": "[anonymous]",
+              "text": "B \\ C \u2286 D \\ C"
+            }
+          }
+        ],
+        "state_id": 3,
+        "status": "accepted"
+      },
+      "audit": null
+    }
+  ]
+}

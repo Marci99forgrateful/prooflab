@@ -1,0 +1,109 @@
+{
+  "task": {
+    "id": "p3_set_join_product",
+    "title": "Set join product",
+    "domain": "sets",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(\u03b1 : Type) (A B C D : Set \u03b1) (ac : A \u2286 C) (bc : B \u2286 C) (ad : A \u2286 D) (bd : B \u2286 D)",
+    "target": "A \u222a B \u2286 C \u2229 D",
+    "display": "A \u222a B \u2286 C \u2229 D",
+    "description": "Phase 3 \u00b7 nested set routes",
+    "origin": "Original Phase 3 statement; no mathematical novelty claimed.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  "source": "experiments/phase3/evaluation-v1/traces/p3_set_join_product--best_first--r0.json.gz",
+  "source_sha256": "dd0df14ee2822376f09f78a84d9cf8443d81ae198eb3c2d62708ec4366bfafa1",
+  "original_metrics": {
+    "attempted_candidates": 427,
+    "accepted_transitions": 100,
+    "rejected_candidates": 327,
+    "expanded_states": 70,
+    "frontier": 27,
+    "max_depth": 10,
+    "proof_length": 0,
+    "elapsed_s": 3.904625691000547,
+    "lean_execution_s": 1.3115566859996761,
+    "initialization_s": 1.7339756960063823,
+    "verification_s": 0.0,
+    "planning_s": 0.803115480033739,
+    "model_inference_s": 0.7784626999782631
+  },
+  "termination": "resource_limit:expansions",
+  "extended": {
+    "status": "verified",
+    "termination": "verified",
+    "metrics": {
+      "attempted_candidates": 418,
+      "accepted_transitions": 102,
+      "rejected_candidates": 316,
+      "expanded_states": 69,
+      "frontier": 33,
+      "max_depth": 13,
+      "proof_length": 13,
+      "elapsed_s": 5.097290454003087,
+      "lean_execution_s": 1.2179978469139314,
+      "initialization_s": 1.848164685005031,
+      "verification_s": 1.9549464770025224,
+      "planning_s": 0.03204418300447287,
+      "model_inference_s": 0
+    }
+  },
+  "probes": [
+    {
+      "tactic": "simp_all",
+      "response": {
+        "goals": [],
+        "state_id": 1,
+        "status": "accepted"
+      },
+      "audit": {
+        "verified": true,
+        "axioms": [
+          "propext"
+        ],
+        "error": null,
+        "elapsed_s": 1.9984300049982267,
+        "source_sha256": "3a24b0f180a2c67ac02dfff4eedd35d7a04b010dda0d559df5739183c83b88a7"
+      }
+    },
+    {
+      "tactic": "grind",
+      "response": {
+        "goals": [],
+        "state_id": 2,
+        "status": "accepted"
+      },
+      "audit": {
+        "verified": true,
+        "axioms": [
+          "Classical.choice",
+          "propext",
+          "Quot.sound"
+        ],
+        "error": null,
+        "elapsed_s": 2.133078316997853,
+        "source_sha256": "684767e7b452ada69ba412e79a4598c36026c8c85bb19b91cb2a9638cdad69bd"
+      }
+    },
+    {
+      "tactic": "aesop",
+      "response": {
+        "goals": [],
+        "state_id": 3,
+        "status": "accepted"
+      },
+      "audit": {
+        "verified": true,
+        "axioms": [
+          "propext"
+        ],
+        "error": null,
+        "elapsed_s": 2.1295349610009,
+        "source_sha256": "224872a72dfeabe8b3d827096341c8c15f451fd9147831256648601d4a79fcf4"
+      }
+    }
+  ]
+}
