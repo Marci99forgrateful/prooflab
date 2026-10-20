@@ -1,0 +1,1210 @@
+{
+  "schema_version": 1,
+  "task": {
+    "id": "p3_pilot_fork",
+    "title": "Pilot fork",
+    "domain": "logic",
+    "difficulty": "challenge",
+    "split": "development",
+    "binders": "(P Q R S T : Prop) (hp : P) (pq : P → Q) (qr : Q → R) (rs : R → S) (pt : P → T) (ts : T → S)",
+    "target": "S",
+    "display": "S",
+    "description": "Phase 3 · development difficulty pilot",
+    "origin": "Original Phase 3 statement; no mathematical novelty claimed.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  "algorithm": "best_first",
+  "budget": {
+    "max_depth": 10,
+    "max_expansions": 70,
+    "max_candidates": 24,
+    "max_attempts": 500,
+    "timeout_s": 12.0,
+    "tactic_timeout_s": 2.0
+  },
+  "status": "verified",
+  "termination": "verified",
+  "nodes": [
+    {
+      "id": 0,
+      "parent": null,
+      "depth": 0,
+      "state": {
+        "state_id": 0,
+        "goals": [
+          {
+            "id": "_uniq.62",
+            "target": {
+              "text": "S",
+              "head": "[anonymous]",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "P",
+                "id": "_uniq.51",
+                "type": {
+                  "text": "Prop",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "Q",
+                "id": "_uniq.52",
+                "type": {
+                  "text": "Prop",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "R",
+                "id": "_uniq.53",
+                "type": {
+                  "text": "Prop",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "S",
+                "id": "_uniq.54",
+                "type": {
+                  "text": "Prop",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "T",
+                "id": "_uniq.55",
+                "type": {
+                  "text": "Prop",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "hp",
+                "id": "_uniq.56",
+                "type": {
+                  "text": "P",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              },
+              {
+                "name": "pq",
+                "id": "_uniq.57",
+                "type": {
+                  "text": "P → Q",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": true
+              },
+              {
+                "name": "qr",
+                "id": "_uniq.58",
+                "type": {
+                  "text": "Q → R",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": true
+              },
+              {
+                "name": "rs",
+                "id": "_uniq.59",
+                "type": {
+                  "text": "R → S",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": true
+              },
+              {
+                "name": "pt",
+                "id": "_uniq.60",
+                "type": {
+                  "text": "P → T",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": true
+              },
+              {
+                "name": "ts",
+                "id": "_uniq.61",
+                "type": {
+                  "text": "T → S",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": true
+              }
+            ]
+          }
+        ]
+      },
+      "tactic": null,
+      "category": null,
+      "lemma": null,
+      "provenance": null,
+      "reason": "Initial Lean goal",
+      "status": "root",
+      "error": null,
+      "elapsed_ms": 0.0,
+      "on_proof_path": true
+    },
+    {
+      "id": 1,
+      "parent": 0,
+      "depth": 1,
+      "state": null,
+      "tactic": "assumption",
+      "category": "goal",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Match the goal against the local context",
+      "status": "rejected",
+      "error": "Tactic `assumption` failed\n\nP Q R S T : Prop\nhp : P\npq : P → Q\nqr : Q → R\nrs : R → S\npt : P → T\nts : T → S\n⊢ S",
+      "elapsed_ms": 4.1922879972844385,
+      "on_proof_path": false
+    },
+    {
+      "id": 2,
+      "parent": 0,
+      "depth": 1,
+      "state": null,
+      "tactic": "apply pq",
+      "category": "hypothesis",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Use implication or function pq",
+      "status": "rejected",
+      "error": "Tactic `apply` failed: could not unify the conclusion of `pq`\n  Q\nwith the goal\n  S\n\nNote: The full type of `pq` is\n  P → Q\n\nP Q R S T : Prop\nhp : P\npq : P → Q\nqr : Q → R\nrs : R → S\npt : P → T\nts : T → S\n⊢ S",
+      "elapsed_ms": 1.4215080009307712,
+      "on_proof_path": false
+    },
+    {
+      "id": 3,
+      "parent": 0,
+      "depth": 1,
+      "state": null,
+      "tactic": "apply qr",
+      "category": "hypothesis",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Use implication or function qr",
+      "status": "rejected",
+      "error": "Tactic `apply` failed: could not unify the conclusion of `qr`\n  R\nwith the goal\n  S\n\nNote: The full type of `qr` is\n  Q → R\n\nP Q R S T : Prop\nhp : P\npq : P → Q\nqr : Q → R\nrs : R → S\npt : P → T\nts : T → S\n⊢ S",
+      "elapsed_ms": 0.9289879963034764,
+      "on_proof_path": false
+    },
+    {
+      "id": 4,
+      "parent": 0,
+      "depth": 1,
+      "state": {
+        "state_id": 1,
+        "goals": [
+          {
+            "id": "_uniq.70",
+            "target": {
+              "text": "R",
+              "head": "[anonymous]",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "P",
+                "id": "_uniq.51",
+                "type": {
+                  "text": "Prop",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "Q",
+                "id": "_uniq.52",
+                "type": {
+                  "text": "Prop",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "R",
+                "id": "_uniq.53",
+                "type": {
+                  "text": "Prop",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "S",
+                "id": "_uniq.54",
+                "type": {
+                  "text": "Prop",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "T",
+                "id": "_uniq.55",
+                "type": {
+                  "text": "Prop",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "hp",
+                "id": "_uniq.56",
+                "type": {
+                  "text": "P",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              },
+              {
+                "name": "pq",
+                "id": "_uniq.57",
+                "type": {
+                  "text": "P → Q",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": true
+              },
+              {
+                "name": "qr",
+                "id": "_uniq.58",
+                "type": {
+                  "text": "Q → R",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": true
+              },
+              {
+                "name": "rs",
+                "id": "_uniq.59",
+                "type": {
+                  "text": "R → S",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": true
+              },
+              {
+                "name": "pt",
+                "id": "_uniq.60",
+                "type": {
+                  "text": "P → T",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": true
+              },
+              {
+                "name": "ts",
+                "id": "_uniq.61",
+                "type": {
+                  "text": "T → S",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": true
+              }
+            ]
+          }
+        ]
+      },
+      "tactic": "apply rs",
+      "category": "hypothesis",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Use implication or function rs",
+      "status": "accepted",
+      "error": null,
+      "elapsed_ms": 1.0629190001054667,
+      "on_proof_path": false
+    },
+    {
+      "id": 5,
+      "parent": 0,
+      "depth": 1,
+      "state": null,
+      "tactic": "apply pt",
+      "category": "hypothesis",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Use implication or function pt",
+      "status": "rejected",
+      "error": "Tactic `apply` failed: could not unify the conclusion of `pt`\n  T\nwith the goal\n  S\n\nNote: The full type of `pt` is\n  P → T\n\nP Q R S T : Prop\nhp : P\npq : P → Q\nqr : Q → R\nrs : R → S\npt : P → T\nts : T → S\n⊢ S",
+      "elapsed_ms": 1.0965390029014088,
+      "on_proof_path": false
+    },
+    {
+      "id": 6,
+      "parent": 0,
+      "depth": 1,
+      "state": {
+        "state_id": 2,
+        "goals": [
+          {
+            "id": "_uniq.75",
+            "target": {
+              "text": "T",
+              "head": "[anonymous]",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "P",
+                "id": "_uniq.51",
+                "type": {
+                  "text": "Prop",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "Q",
+                "id": "_uniq.52",
+                "type": {
+                  "text": "Prop",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "R",
+                "id": "_uniq.53",
+                "type": {
+                  "text": "Prop",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "S",
+                "id": "_uniq.54",
+                "type": {
+                  "text": "Prop",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "T",
+                "id": "_uniq.55",
+                "type": {
+                  "text": "Prop",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "hp",
+                "id": "_uniq.56",
+                "type": {
+                  "text": "P",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              },
+              {
+                "name": "pq",
+                "id": "_uniq.57",
+                "type": {
+                  "text": "P → Q",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": true
+              },
+              {
+                "name": "qr",
+                "id": "_uniq.58",
+                "type": {
+                  "text": "Q → R",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": true
+              },
+              {
+                "name": "rs",
+                "id": "_uniq.59",
+                "type": {
+                  "text": "R → S",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": true
+              },
+              {
+                "name": "pt",
+                "id": "_uniq.60",
+                "type": {
+                  "text": "P → T",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": true
+              },
+              {
+                "name": "ts",
+                "id": "_uniq.61",
+                "type": {
+                  "text": "T → S",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": true
+              }
+            ]
+          }
+        ]
+      },
+      "tactic": "apply ts",
+      "category": "hypothesis",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Use implication or function ts",
+      "status": "accepted",
+      "error": null,
+      "elapsed_ms": 0.8404849941143766,
+      "on_proof_path": true
+    },
+    {
+      "id": 7,
+      "parent": 4,
+      "depth": 2,
+      "state": null,
+      "tactic": "assumption",
+      "category": "goal",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Match the goal against the local context",
+      "status": "rejected",
+      "error": "Tactic `assumption` failed\n\nP Q R S T : Prop\nhp : P\npq : P → Q\nqr : Q → R\nrs : R → S\npt : P → T\nts : T → S\n⊢ R",
+      "elapsed_ms": 0.7026770035736263,
+      "on_proof_path": false
+    },
+    {
+      "id": 8,
+      "parent": 4,
+      "depth": 2,
+      "state": null,
+      "tactic": "apply pq",
+      "category": "hypothesis",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Use implication or function pq",
+      "status": "rejected",
+      "error": "Tactic `apply` failed: could not unify the conclusion of `pq`\n  Q\nwith the goal\n  R\n\nNote: The full type of `pq` is\n  P → Q\n\nP Q R S T : Prop\nhp : P\npq : P → Q\nqr : Q → R\nrs : R → S\npt : P → T\nts : T → S\n⊢ R",
+      "elapsed_ms": 1.0548470017965883,
+      "on_proof_path": false
+    },
+    {
+      "id": 9,
+      "parent": 4,
+      "depth": 2,
+      "state": {
+        "state_id": 3,
+        "goals": [
+          {
+            "id": "_uniq.80",
+            "target": {
+              "text": "Q",
+              "head": "[anonymous]",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "P",
+                "id": "_uniq.51",
+                "type": {
+                  "text": "Prop",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "Q",
+                "id": "_uniq.52",
+                "type": {
+                  "text": "Prop",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "R",
+                "id": "_uniq.53",
+                "type": {
+                  "text": "Prop",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "S",
+                "id": "_uniq.54",
+                "type": {
+                  "text": "Prop",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "T",
+                "id": "_uniq.55",
+                "type": {
+                  "text": "Prop",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "hp",
+                "id": "_uniq.56",
+                "type": {
+                  "text": "P",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              },
+              {
+                "name": "pq",
+                "id": "_uniq.57",
+                "type": {
+                  "text": "P → Q",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": true
+              },
+              {
+                "name": "qr",
+                "id": "_uniq.58",
+                "type": {
+                  "text": "Q → R",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": true
+              },
+              {
+                "name": "rs",
+                "id": "_uniq.59",
+                "type": {
+                  "text": "R → S",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": true
+              },
+              {
+                "name": "pt",
+                "id": "_uniq.60",
+                "type": {
+                  "text": "P → T",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": true
+              },
+              {
+                "name": "ts",
+                "id": "_uniq.61",
+                "type": {
+                  "text": "T → S",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": true
+              }
+            ]
+          }
+        ]
+      },
+      "tactic": "apply qr",
+      "category": "hypothesis",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Use implication or function qr",
+      "status": "accepted",
+      "error": null,
+      "elapsed_ms": 1.096760002837982,
+      "on_proof_path": false
+    },
+    {
+      "id": 10,
+      "parent": 4,
+      "depth": 2,
+      "state": null,
+      "tactic": "apply rs",
+      "category": "hypothesis",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Use implication or function rs",
+      "status": "rejected",
+      "error": "Tactic `apply` failed: could not unify the conclusion of `rs`\n  S\nwith the goal\n  R\n\nNote: The full type of `rs` is\n  R → S\n\nP Q R S T : Prop\nhp : P\npq : P → Q\nqr : Q → R\nrs : R → S\npt : P → T\nts : T → S\n⊢ R",
+      "elapsed_ms": 0.9939459996530786,
+      "on_proof_path": false
+    },
+    {
+      "id": 11,
+      "parent": 4,
+      "depth": 2,
+      "state": null,
+      "tactic": "apply pt",
+      "category": "hypothesis",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Use implication or function pt",
+      "status": "rejected",
+      "error": "Tactic `apply` failed: could not unify the conclusion of `pt`\n  T\nwith the goal\n  R\n\nNote: The full type of `pt` is\n  P → T\n\nP Q R S T : Prop\nhp : P\npq : P → Q\nqr : Q → R\nrs : R → S\npt : P → T\nts : T → S\n⊢ R",
+      "elapsed_ms": 1.113665995944757,
+      "on_proof_path": false
+    },
+    {
+      "id": 12,
+      "parent": 4,
+      "depth": 2,
+      "state": null,
+      "tactic": "apply ts",
+      "category": "hypothesis",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Use implication or function ts",
+      "status": "rejected",
+      "error": "Tactic `apply` failed: could not unify the conclusion of `ts`\n  S\nwith the goal\n  R\n\nNote: The full type of `ts` is\n  T → S\n\nP Q R S T : Prop\nhp : P\npq : P → Q\nqr : Q → R\nrs : R → S\npt : P → T\nts : T → S\n⊢ R",
+      "elapsed_ms": 1.113194004574325,
+      "on_proof_path": false
+    },
+    {
+      "id": 13,
+      "parent": 6,
+      "depth": 2,
+      "state": null,
+      "tactic": "assumption",
+      "category": "goal",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Match the goal against the local context",
+      "status": "rejected",
+      "error": "Tactic `assumption` failed\n\nP Q R S T : Prop\nhp : P\npq : P → Q\nqr : Q → R\nrs : R → S\npt : P → T\nts : T → S\n⊢ T",
+      "elapsed_ms": 0.9619470001780428,
+      "on_proof_path": false
+    },
+    {
+      "id": 14,
+      "parent": 6,
+      "depth": 2,
+      "state": null,
+      "tactic": "apply pq",
+      "category": "hypothesis",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Use implication or function pq",
+      "status": "rejected",
+      "error": "Tactic `apply` failed: could not unify the conclusion of `pq`\n  Q\nwith the goal\n  T\n\nNote: The full type of `pq` is\n  P → Q\n\nP Q R S T : Prop\nhp : P\npq : P → Q\nqr : Q → R\nrs : R → S\npt : P → T\nts : T → S\n⊢ T",
+      "elapsed_ms": 1.1058329982915893,
+      "on_proof_path": false
+    },
+    {
+      "id": 15,
+      "parent": 6,
+      "depth": 2,
+      "state": null,
+      "tactic": "apply qr",
+      "category": "hypothesis",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Use implication or function qr",
+      "status": "rejected",
+      "error": "Tactic `apply` failed: could not unify the conclusion of `qr`\n  R\nwith the goal\n  T\n\nNote: The full type of `qr` is\n  Q → R\n\nP Q R S T : Prop\nhp : P\npq : P → Q\nqr : Q → R\nrs : R → S\npt : P → T\nts : T → S\n⊢ T",
+      "elapsed_ms": 1.01908300712239,
+      "on_proof_path": false
+    },
+    {
+      "id": 16,
+      "parent": 6,
+      "depth": 2,
+      "state": null,
+      "tactic": "apply rs",
+      "category": "hypothesis",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Use implication or function rs",
+      "status": "rejected",
+      "error": "Tactic `apply` failed: could not unify the conclusion of `rs`\n  S\nwith the goal\n  T\n\nNote: The full type of `rs` is\n  R → S\n\nP Q R S T : Prop\nhp : P\npq : P → Q\nqr : Q → R\nrs : R → S\npt : P → T\nts : T → S\n⊢ T",
+      "elapsed_ms": 1.018832997942809,
+      "on_proof_path": false
+    },
+    {
+      "id": 17,
+      "parent": 6,
+      "depth": 2,
+      "state": {
+        "state_id": 4,
+        "goals": [
+          {
+            "id": "_uniq.100",
+            "target": {
+              "text": "P",
+              "head": "[anonymous]",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "P",
+                "id": "_uniq.51",
+                "type": {
+                  "text": "Prop",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "Q",
+                "id": "_uniq.52",
+                "type": {
+                  "text": "Prop",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "R",
+                "id": "_uniq.53",
+                "type": {
+                  "text": "Prop",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "S",
+                "id": "_uniq.54",
+                "type": {
+                  "text": "Prop",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "T",
+                "id": "_uniq.55",
+                "type": {
+                  "text": "Prop",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "hp",
+                "id": "_uniq.56",
+                "type": {
+                  "text": "P",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              },
+              {
+                "name": "pq",
+                "id": "_uniq.57",
+                "type": {
+                  "text": "P → Q",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": true
+              },
+              {
+                "name": "qr",
+                "id": "_uniq.58",
+                "type": {
+                  "text": "Q → R",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": true
+              },
+              {
+                "name": "rs",
+                "id": "_uniq.59",
+                "type": {
+                  "text": "R → S",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": true
+              },
+              {
+                "name": "pt",
+                "id": "_uniq.60",
+                "type": {
+                  "text": "P → T",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": true
+              },
+              {
+                "name": "ts",
+                "id": "_uniq.61",
+                "type": {
+                  "text": "T → S",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": true
+              }
+            ]
+          }
+        ]
+      },
+      "tactic": "apply pt",
+      "category": "hypothesis",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Use implication or function pt",
+      "status": "accepted",
+      "error": null,
+      "elapsed_ms": 1.116620005632285,
+      "on_proof_path": true
+    },
+    {
+      "id": 18,
+      "parent": 6,
+      "depth": 2,
+      "state": null,
+      "tactic": "apply ts",
+      "category": "hypothesis",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Use implication or function ts",
+      "status": "rejected",
+      "error": "Tactic `apply` failed: could not unify the conclusion of `ts`\n  S\nwith the goal\n  T\n\nNote: The full type of `ts` is\n  T → S\n\nP Q R S T : Prop\nhp : P\npq : P → Q\nqr : Q → R\nrs : R → S\npt : P → T\nts : T → S\n⊢ T",
+      "elapsed_ms": 1.0375409983680584,
+      "on_proof_path": false
+    },
+    {
+      "id": 19,
+      "parent": 9,
+      "depth": 3,
+      "state": null,
+      "tactic": "assumption",
+      "category": "goal",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Match the goal against the local context",
+      "status": "rejected",
+      "error": "Tactic `assumption` failed\n\nP Q R S T : Prop\nhp : P\npq : P → Q\nqr : Q → R\nrs : R → S\npt : P → T\nts : T → S\n⊢ Q",
+      "elapsed_ms": 0.860975997056812,
+      "on_proof_path": false
+    },
+    {
+      "id": 20,
+      "parent": 9,
+      "depth": 3,
+      "state": {
+        "state_id": 5,
+        "goals": [
+          {
+            "id": "_uniq.105",
+            "target": {
+              "text": "P",
+              "head": "[anonymous]",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "P",
+                "id": "_uniq.51",
+                "type": {
+                  "text": "Prop",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "Q",
+                "id": "_uniq.52",
+                "type": {
+                  "text": "Prop",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "R",
+                "id": "_uniq.53",
+                "type": {
+                  "text": "Prop",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "S",
+                "id": "_uniq.54",
+                "type": {
+                  "text": "Prop",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "T",
+                "id": "_uniq.55",
+                "type": {
+                  "text": "Prop",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "hp",
+                "id": "_uniq.56",
+                "type": {
+                  "text": "P",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              },
+              {
+                "name": "pq",
+                "id": "_uniq.57",
+                "type": {
+                  "text": "P → Q",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": true
+              },
+              {
+                "name": "qr",
+                "id": "_uniq.58",
+                "type": {
+                  "text": "Q → R",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": true
+              },
+              {
+                "name": "rs",
+                "id": "_uniq.59",
+                "type": {
+                  "text": "R → S",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": true
+              },
+              {
+                "name": "pt",
+                "id": "_uniq.60",
+                "type": {
+                  "text": "P → T",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": true
+              },
+              {
+                "name": "ts",
+                "id": "_uniq.61",
+                "type": {
+                  "text": "T → S",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": true
+              }
+            ]
+          }
+        ]
+      },
+      "tactic": "apply pq",
+      "category": "hypothesis",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Use implication or function pq",
+      "status": "accepted",
+      "error": null,
+      "elapsed_ms": 1.0284279996994883,
+      "on_proof_path": false
+    },
+    {
+      "id": 21,
+      "parent": 9,
+      "depth": 3,
+      "state": null,
+      "tactic": "apply qr",
+      "category": "hypothesis",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Use implication or function qr",
+      "status": "rejected",
+      "error": "Tactic `apply` failed: could not unify the conclusion of `qr`\n  R\nwith the goal\n  Q\n\nNote: The full type of `qr` is\n  Q → R\n\nP Q R S T : Prop\nhp : P\npq : P → Q\nqr : Q → R\nrs : R → S\npt : P → T\nts : T → S\n⊢ Q",
+      "elapsed_ms": 1.1075970032834448,
+      "on_proof_path": false
+    },
+    {
+      "id": 22,
+      "parent": 9,
+      "depth": 3,
+      "state": null,
+      "tactic": "apply rs",
+      "category": "hypothesis",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Use implication or function rs",
+      "status": "rejected",
+      "error": "Tactic `apply` failed: could not unify the conclusion of `rs`\n  S\nwith the goal\n  Q\n\nNote: The full type of `rs` is\n  R → S\n\nP Q R S T : Prop\nhp : P\npq : P → Q\nqr : Q → R\nrs : R → S\npt : P → T\nts : T → S\n⊢ Q",
+      "elapsed_ms": 0.9654520035837777,
+      "on_proof_path": false
+    },
+    {
+      "id": 23,
+      "parent": 9,
+      "depth": 3,
+      "state": null,
+      "tactic": "apply pt",
+      "category": "hypothesis",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Use implication or function pt",
+      "status": "rejected",
+      "error": "Tactic `apply` failed: could not unify the conclusion of `pt`\n  T\nwith the goal\n  Q\n\nNote: The full type of `pt` is\n  P → T\n\nP Q R S T : Prop\nhp : P\npq : P → Q\nqr : Q → R\nrs : R → S\npt : P → T\nts : T → S\n⊢ Q",
+      "elapsed_ms": 1.0226890008198097,
+      "on_proof_path": false
+    },
+    {
+      "id": 24,
+      "parent": 9,
+      "depth": 3,
+      "state": null,
+      "tactic": "apply ts",
+      "category": "hypothesis",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Use implication or function ts",
+      "status": "rejected",
+      "error": "Tactic `apply` failed: could not unify the conclusion of `ts`\n  S\nwith the goal\n  Q\n\nNote: The full type of `ts` is\n  T → S\n\nP Q R S T : Prop\nhp : P\npq : P → Q\nqr : Q → R\nrs : R → S\npt : P → T\nts : T → S\n⊢ Q",
+      "elapsed_ms": 0.999613999738358,
+      "on_proof_path": false
+    },
+    {
+      "id": 25,
+      "parent": 17,
+      "depth": 3,
+      "state": {
+        "state_id": 6,
+        "goals": []
+      },
+      "tactic": "assumption",
+      "category": "goal",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Match the goal against the local context",
+      "status": "solved",
+      "error": null,
+      "elapsed_ms": 0.2549029959482141,
+      "on_proof_path": true
+    }
+  ],
+  "metrics": {
+    "attempted_candidates": 25,
+    "accepted_transitions": 6,
+    "rejected_candidates": 19,
+    "expanded_states": 5,
+    "frontier": 1,
+    "max_depth": 3,
+    "proof_length": 3,
+    "elapsed_s": 4.019953310998972,
+    "lean_execution_s": 0.028117333007685374,
+    "initialization_s": 1.913480018003611,
+    "verification_s": 2.054576379006903,
+    "planning_s": 0.002000059001147747,
+    "model_inference_s": 0.0
+  },
+  "proof": [
+    "apply ts",
+    "apply pt",
+    "assumption"
+  ],
+  "lean_source": "import ProofLab.Bridge\n\nset_option maxHeartbeats 300000\ntheorem prooflab_result (P Q R S T : Prop) (hp : P) (pq : P → Q) (qr : Q → R) (rs : R → S) (pt : P → T) (ts : T → S) : S := by\n  apply ts\n  apply pt\n  assumption\n\n#prooflab_audit prooflab_result\n",
+  "verification": {
+    "verified": true,
+    "axioms": [],
+    "error": null,
+    "elapsed_s": 2.054576379006903,
+    "source_sha256": "dd31820ffced323b351afed90bd1b21edf9d0bc4f5a1467bc440c436ca812a1b"
+  },
+  "metadata": {
+    "code_commit": "4373233f54ccc46e3d321814c8da384f8f2d20df",
+    "lean_version": "leanprover/lean4:v4.24.0",
+    "mathlib_revision": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7",
+    "python": "3.12.14",
+    "platform": "Linux-6.18.55-x86_64-with-glibc2.41",
+    "machine": "x86_64",
+    "processor": "",
+    "seed": "0 (deterministic)",
+    "state_identity": "Exact tactic prefix within one native session; no semantic merging"
+  },
+  "error": null,
+  "proof_origin": "constructed_derivation",
+  "rankings": []
+}
