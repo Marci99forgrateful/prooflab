@@ -176,8 +176,17 @@ Local validation is complete:
   exact isomorphism checks preserve the audit; neither notice is a test failure.
 
 [Machine-readable local validation](../artifacts/phase3-validation.json) retains
-command results, test counts and tested-source hashes. Hosted CI is investigated
-on the separate draft PR and recorded after creation; no hosted pass is assumed.
+command results, test counts and tested-source hashes. The separate [draft PR #2](https://github.com/Marci99forgrateful/prooflab/pull/2)
+targets the existing Phase 2 feature branch. The [observed hosted CI run](https://github.com/Marci99forgrateful/prooflab/actions/runs/39413004917)
+fails **before any step starts**. GitHub states: “The job was not started because
+recent account payments have failed or your spending limit needs to be
+increased. Please check the 'Billing & plans' section in your settings”.
+
+This is account/billing infrastructure, not evidence of a code/test failure;
+hosted CI is **not claimed passing**. No billing settings are changed or paid
+service enabled. [Exact hosted evidence](../artifacts/phase3-hosted-ci.json),
+[full local JUnit](../artifacts/phase3-pytest.xml), and
+[latest browser JUnit](../artifacts/phase3-browser.xml) are retained for review.
 
 ## Remaining limitations
 

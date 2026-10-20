@@ -38,7 +38,7 @@ Prerequisites: Linux, Python 3.12+, [uv](https://docs.astral.sh/uv/), Node.js
 20.19+ (or 22.12+), npm, Git, curl. Allow several GB for Lean and Mathlib.
 
 ```bash
-git clone https://github.com/Marci99forgrateful/prooflab.git
+git clone --branch feature/phase3-outcome-aware https://github.com/Marci99forgrateful/prooflab.git
 cd prooflab
 bash scripts/bootstrap.sh
 uv run --frozen prooflab serve
