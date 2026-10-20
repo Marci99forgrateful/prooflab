@@ -46,6 +46,7 @@ def interval(values: list[float], samples: list[list[int]]) -> dict[str, float]:
 
 
 def summarize(traces: list[Trace], protocol: dict[str, Any]) -> dict[str, Any]:
+    target = protocol.get("target_algorithm", "learned")
     tasks = sorted({t.task.id for t in traces})
     algorithms = protocol["algorithms"]
     rng = random.Random(protocol["uncertainty"]["seed"])
@@ -86,7 +87,8 @@ def summarize(traces: list[Trace], protocol: dict[str, Any]) -> dict[str, Any]:
         }
         groups[algorithm]["success_interval"] = interval(
             [
-                per_task[task]["algorithms"][algorithm]["verified"] / protocol["repetitions"]
+                per_task[task]["algorithms"][algorithm]["verified"]
+                / per_task[task]["algorithms"][algorithm]["runs"]
                 for task in tasks
             ],
             samples,
@@ -106,18 +108,17 @@ def summarize(traces: list[Trace], protocol: dict[str, Any]) -> dict[str, Any]:
             for family in sorted(set(protocol["evaluation_families"].values()))
         }
     differences: dict[str, Any] = {}
-    for baseline in ("bfs", "best_first", "automation"):
+    for baseline in protocol.get("comparison_baselines", ("bfs", "best_first", "automation")):
         differences[baseline] = {
             "interpretation": (
                 "learned minus baseline; lower effort is better; all tasks include failures"
             ),
             "success_rate": interval(
                 [
-                    (
-                        per_task[t]["algorithms"]["learned"]["verified"]
-                        - per_task[t]["algorithms"][baseline]["verified"]
-                    )
-                    / protocol["repetitions"]
+                    per_task[t]["algorithms"][target]["verified"]
+                    / per_task[t]["algorithms"][target]["runs"]
+                    - per_task[t]["algorithms"][baseline]["verified"]
+                    / per_task[t]["algorithms"][baseline]["runs"]
                     for t in tasks
                 ],
                 samples,
@@ -125,7 +126,7 @@ def summarize(traces: list[Trace], protocol: dict[str, Any]) -> dict[str, Any]:
             **{
                 metric: interval(
                     [
-                        per_task[t]["algorithms"]["learned"][metric]
+                        per_task[t]["algorithms"][target][metric]
                         - per_task[t]["algorithms"][baseline][metric]
                         for t in tasks
                     ],
@@ -143,15 +144,15 @@ def summarize(traces: list[Trace], protocol: dict[str, Any]) -> dict[str, Any]:
             t
             for t in tasks
             if all(
-                per_task[t]["algorithms"][a]["verified"] == protocol["repetitions"]
-                for a in ("learned", baseline)
+                per_task[t]["algorithms"][a]["verified"] == per_task[t]["algorithms"][a]["runs"]
+                for a in (target, baseline)
             )
         ]
         differences[baseline]["common_verified_tasks"] = common
         differences[baseline]["common_verified_mean_differences"] = (
             {
                 m: statistics.mean(
-                    per_task[t]["algorithms"]["learned"][m] - per_task[t]["algorithms"][baseline][m]
+                    per_task[t]["algorithms"][target][m] - per_task[t]["algorithms"][baseline][m]
                     for t in common
                 )
                 for m in (

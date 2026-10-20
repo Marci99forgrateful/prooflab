@@ -6,7 +6,15 @@ from typing import Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
-SearchAlgorithm = Literal["bfs", "best_first", "learned", "automation"]
+SearchAlgorithm = Literal[
+    "bfs",
+    "best_first",
+    "learned",
+    "outcome",
+    "automation",
+    "applicability_only",
+    "old_features_outcome",
+]
 
 
 class Model(BaseModel):
@@ -109,6 +117,9 @@ class CandidateRanking(Model):
     heuristic_score: float
     learned_score: float | None = None
     contributions: list[tuple[str, float]] = Field(default_factory=list)
+    outcome_score: float | None = None
+    outcome_contributions: list[tuple[str, float]] = Field(default_factory=list)
+    policy_score: float | None = None
 
 
 class StateRanking(Model):
