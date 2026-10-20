@@ -41,7 +41,13 @@ def outcome_pairs(
 ) -> list[Pair]:
     result = []
     for record in records:
-        if record["task_id"] not in allowed or record.get("split") != "development":
+        if record["task_id"] not in allowed:
+            raise ValueError("Forbidden outcome training theorem/split")
+        if not record["states"]:
+            if get_task(record["task_id"]).split != "development":
+                raise ValueError("Forbidden empty held-out record")
+            continue  # Explicit unsolved source ledger, with no examples or labels.
+        if record.get("split") != "development":
             raise ValueError("Forbidden outcome training theorem/split")
         if not record.get("source_verification", {}).get("verified"):
             if record["states"]:

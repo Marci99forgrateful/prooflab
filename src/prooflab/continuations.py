@@ -185,7 +185,7 @@ def collect_task(ident: str, config: dict[str, Any]) -> tuple[dict[str, Any], di
         raise ValueError("Forbidden held-out collection")
     chosen = demonstration(ident)
     if chosen is None:
-        return {"task_id": ident, "states": []}, {
+        return {"task_id": ident, "split": task.split, "domain": task.domain, "states": []}, {
             "task_id": ident,
             "status": "no_verified_demonstration",
         }
