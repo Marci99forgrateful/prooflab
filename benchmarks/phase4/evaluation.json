@@ -1,0 +1,482 @@
+[
+  {
+    "id": "p4_contra_pair",
+    "title": "Contra pair",
+    "domain": "logic",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(P Q R : Prop) (f : P → Q) (g : Q → R)",
+    "target": "¬ R → ¬ P ∧ ¬ Q",
+    "display": "¬ R → ¬ P ∧ ¬ Q",
+    "description": "Phase 4 · contrapositive obligations",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ],
+    "origin": "Original Phase 4 statement; no benchmark proof imported; no novelty claimed."
+  },
+  {
+    "id": "p4_contra_disj",
+    "title": "Contra disj",
+    "domain": "logic",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(P Q R S : Prop) (f : P → R) (g : Q → S)",
+    "target": "¬ R ∧ ¬ S → ¬ (P ∨ Q)",
+    "display": "¬ R ∧ ¬ S → ¬ (P ∨ Q)",
+    "description": "Phase 4 · contrapositive obligations",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ],
+    "origin": "Original Phase 4 statement; no benchmark proof imported; no novelty claimed."
+  },
+  {
+    "id": "p4_contra_nested",
+    "title": "Contra nested",
+    "domain": "logic",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(P Q R S : Prop) (f : P ∧ Q → R) (g : R → S) (hq : Q)",
+    "target": "¬ S → ¬ P",
+    "display": "¬ S → ¬ P",
+    "description": "Phase 4 · contrapositive obligations",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ],
+    "origin": "Original Phase 4 statement; no benchmark proof imported; no novelty claimed."
+  },
+  {
+    "id": "p4_contra_choice",
+    "title": "Contra choice",
+    "domain": "logic",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(P Q R : Prop) (f : P → R) (g : Q → R)",
+    "target": "¬ R → (¬ P ∧ ¬ Q) ∧ ¬ (P ∨ Q)",
+    "display": "¬ R → (¬ P ∧ ¬ Q) ∧ ¬ (P ∨ Q)",
+    "description": "Phase 4 · contrapositive obligations",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ],
+    "origin": "Original Phase 4 statement; no benchmark proof imported; no novelty claimed."
+  },
+  {
+    "id": "p4_witness_pair",
+    "title": "Witness pair",
+    "domain": "logic",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(α : Type) (P Q : α → Prop) (a : α) (p : P a) (f : ∀ x, P x → Q x)",
+    "target": "∃ x, P x ∧ Q x",
+    "display": "∃ x, P x ∧ Q x",
+    "description": "Phase 4 · quantified witness obligations",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ],
+    "origin": "Original Phase 4 statement; no benchmark proof imported; no novelty claimed."
+  },
+  {
+    "id": "p4_witness_chain",
+    "title": "Witness chain",
+    "domain": "logic",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(α : Type) (P Q R : α → Prop) (a : α) (p : P a) (f : ∀ x, P x → Q x) (g : ∀ x, Q x → R x)",
+    "target": "∃ x, Q x ∧ R x",
+    "display": "∃ x, Q x ∧ R x",
+    "description": "Phase 4 · quantified witness obligations",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ],
+    "origin": "Original Phase 4 statement; no benchmark proof imported; no novelty claimed."
+  },
+  {
+    "id": "p4_witness_transport",
+    "title": "Witness transport",
+    "domain": "logic",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(α β : Type) (f : α → β) (P : α → Prop) (Q : β → Prop) (a : α) (p : P a) (h : ∀ x, P x → Q (f x))",
+    "target": "∃ y, Q y",
+    "display": "∃ y, Q y",
+    "description": "Phase 4 · quantified witness obligations",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ],
+    "origin": "Original Phase 4 statement; no benchmark proof imported; no novelty claimed."
+  },
+  {
+    "id": "p4_witness_exists",
+    "title": "Witness exists",
+    "domain": "logic",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(α : Type) (P Q R : α → Prop) (h : ∃ x, P x ∧ Q x) (f : ∀ x, Q x → R x)",
+    "target": "∃ x, P x ∧ R x",
+    "display": "∃ x, P x ∧ R x",
+    "description": "Phase 4 · quantified witness obligations",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ],
+    "origin": "Original Phase 4 statement; no benchmark proof imported; no novelty claimed."
+  },
+  {
+    "id": "p4_transport_edge",
+    "title": "Transport edge",
+    "domain": "order",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(α : Type) (R : α → α → Prop) (f : α → α) (a b : α) (h : R a b) (m : ∀ x y, R x y → R (f x) (f y))",
+    "target": "R (f (f a)) (f (f b))",
+    "display": "R (f (f a)) (f (f b))",
+    "description": "Phase 4 · function relational transport",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ],
+    "origin": "Original Phase 4 statement; no benchmark proof imported; no novelty claimed."
+  },
+  {
+    "id": "p4_transport_chain",
+    "title": "Transport chain",
+    "domain": "order",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(α : Type) (R : α → α → Prop) (f : α → α) (a b c : α) (ab : R a b) (bc : R b c) (t : ∀ x y z, R x y → R y z → R x z) (m : ∀ x y, R x y → R (f x) (f y))",
+    "target": "R (f a) (f c) ∧ R a c",
+    "display": "R (f a) (f c) ∧ R a c",
+    "description": "Phase 4 · function relational transport",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ],
+    "origin": "Original Phase 4 statement; no benchmark proof imported; no novelty claimed."
+  },
+  {
+    "id": "p4_transport_fixed",
+    "title": "Transport fixed",
+    "domain": "order",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(α : Type) (R : α → α → Prop) (f : α → α) (a b : α) (h : R a b) (k : f a = a) (m : ∀ x y, R x y → R (f x) (f y))",
+    "target": "R a (f b)",
+    "display": "R a (f b)",
+    "description": "Phase 4 · function relational transport",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ],
+    "origin": "Original Phase 4 statement; no benchmark proof imported; no novelty claimed."
+  },
+  {
+    "id": "p4_transport_symmetric",
+    "title": "Transport symmetric",
+    "domain": "order",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(α : Type) (R : α → α → Prop) (f : α → α) (a b : α) (h : R a b) (s : ∀ x y, R x y → R y x) (m : ∀ x y, R x y → R (f x) (f y))",
+    "target": "R (f b) (f a) ∧ R b a",
+    "display": "R (f b) (f a) ∧ R b a",
+    "description": "Phase 4 · function relational transport",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ],
+    "origin": "Original Phase 4 statement; no benchmark proof imported; no novelty claimed."
+  },
+  {
+    "id": "p4_lattice_meet",
+    "title": "Lattice meet",
+    "domain": "order",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(α : Type) [Lattice α] (a b c : α) (h : a ≤ b)",
+    "target": "a ⊓ c ≤ b",
+    "display": "a ⊓ c ≤ b",
+    "description": "Phase 4 · lattice meet join bounds",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ],
+    "origin": "Original Phase 4 statement; no benchmark proof imported; no novelty claimed."
+  },
+  {
+    "id": "p4_lattice_join",
+    "title": "Lattice join",
+    "domain": "order",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(α : Type) [Lattice α] (a b c : α) (h : b ≤ c)",
+    "target": "a ⊓ b ≤ c ⊔ a",
+    "display": "a ⊓ b ≤ c ⊔ a",
+    "description": "Phase 4 · lattice meet join bounds",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ],
+    "origin": "Original Phase 4 statement; no benchmark proof imported; no novelty claimed."
+  },
+  {
+    "id": "p4_lattice_nested",
+    "title": "Lattice nested",
+    "domain": "order",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(α : Type) [Lattice α] (a b c d : α) (h : b ≤ c)",
+    "target": "(a ⊓ b) ⊓ d ≤ c ⊔ d",
+    "display": "(a ⊓ b) ⊓ d ≤ c ⊔ d",
+    "description": "Phase 4 · lattice meet join bounds",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ],
+    "origin": "Original Phase 4 statement; no benchmark proof imported; no novelty claimed."
+  },
+  {
+    "id": "p4_lattice_product",
+    "title": "Lattice product",
+    "domain": "order",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(α : Type) [Lattice α] (a b c : α) (h : a ≤ b) (k : b ≤ c)",
+    "target": "a ⊓ b ≤ c ∧ a ≤ b ⊔ c",
+    "display": "a ⊓ b ≤ c ∧ a ≤ b ⊔ c",
+    "description": "Phase 4 · lattice meet join bounds",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ],
+    "origin": "Original Phase 4 statement; no benchmark proof imported; no novelty claimed."
+  },
+  {
+    "id": "p4_inverse_right",
+    "title": "Inverse right",
+    "domain": "algebra",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(G : Type) [Group G] (a b c : G) (h : a = b)",
+    "target": "(a * c) * c⁻¹ = b",
+    "display": "(a * c) * c⁻¹ = b",
+    "description": "Phase 4 · group inverse context",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ],
+    "origin": "Original Phase 4 statement; no benchmark proof imported; no novelty claimed."
+  },
+  {
+    "id": "p4_inverse_left",
+    "title": "Inverse left",
+    "domain": "algebra",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(G : Type) [Group G] (a b c : G) (h : a = b)",
+    "target": "c⁻¹ * (c * a) = b",
+    "display": "c⁻¹ * (c * a) = b",
+    "description": "Phase 4 · group inverse context",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ],
+    "origin": "Original Phase 4 statement; no benchmark proof imported; no novelty claimed."
+  },
+  {
+    "id": "p4_inverse_chain",
+    "title": "Inverse chain",
+    "domain": "algebra",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(G : Type) [Group G] (a b c d : G) (h : a = b) (k : b = c)",
+    "target": "(a * d) * d⁻¹ = c",
+    "display": "(a * d) * d⁻¹ = c",
+    "description": "Phase 4 · group inverse context",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ],
+    "origin": "Original Phase 4 statement; no benchmark proof imported; no novelty claimed."
+  },
+  {
+    "id": "p4_inverse_product",
+    "title": "Inverse product",
+    "domain": "algebra",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(G : Type) [Group G] (a b c : G) (h : a = b)",
+    "target": "((a * c) * c⁻¹ = b) ∧ (c⁻¹ * (c * a) = b)",
+    "display": "((a * c) * c⁻¹ = b) ∧ (c⁻¹ * (c * a) = b)",
+    "description": "Phase 4 · group inverse context",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ],
+    "origin": "Original Phase 4 statement; no benchmark proof imported; no novelty claimed."
+  },
+  {
+    "id": "p4_cubic_context",
+    "title": "Cubic context",
+    "domain": "algebra",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(K : Type) [CommSemiring K] (a b x : K) (h : a = b)",
+    "target": "(a+x)^3 = b^3 + 3*b^2*x + 3*b*x^2 + x^3",
+    "display": "(a+x)^3 = b^3 + 3*b^2*x + 3*b*x^2 + x^3",
+    "description": "Phase 4 · semiring cubic normalization",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ],
+    "origin": "Original Phase 4 statement; no benchmark proof imported; no novelty claimed."
+  },
+  {
+    "id": "p4_cubic_two_contexts",
+    "title": "Cubic two contexts",
+    "domain": "algebra",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(K : Type) [CommSemiring K] (a b x y : K) (h : a = b) (k : x = y)",
+    "target": "(a+x)^3 = b^3 + 3*b^2*y + 3*b*y^2 + y^3",
+    "display": "(a+x)^3 = b^3 + 3*b^2*y + 3*b*y^2 + y^3",
+    "description": "Phase 4 · semiring cubic normalization",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ],
+    "origin": "Original Phase 4 statement; no benchmark proof imported; no novelty claimed."
+  },
+  {
+    "id": "p4_cubic_factor",
+    "title": "Cubic factor",
+    "domain": "algebra",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(K : Type) [CommSemiring K] (a b x y : K) (h : a = b)",
+    "target": "(a+x)*(a+y)*(x+y) = b^2*x+b^2*y+b*x^2+2*b*x*y+b*y^2+x^2*y+x*y^2",
+    "display": "(a+x)*(a+y)*(x+y) = b^2*x+b^2*y+b*x^2+2*b*x*y+b*y^2+x^2*y+x*y^2",
+    "description": "Phase 4 · semiring cubic normalization",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ],
+    "origin": "Original Phase 4 statement; no benchmark proof imported; no novelty claimed."
+  },
+  {
+    "id": "p4_cubic_pair",
+    "title": "Cubic pair",
+    "domain": "algebra",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(K : Type) [CommSemiring K] (a b x : K) (h : a = b)",
+    "target": "((a+x)^3 = b^3+3*b^2*x+3*b*x^2+x^3) ∧ (a*(x+1)^2 = b*x^2+2*b*x+b)",
+    "display": "((a+x)^3 = b^3+3*b^2*x+3*b*x^2+x^3) ∧ (a*(x+1)^2 = b*x^2+2*b*x+b)",
+    "description": "Phase 4 · semiring cubic normalization",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ],
+    "origin": "Original Phase 4 statement; no benchmark proof imported; no novelty claimed."
+  },
+  {
+    "id": "p4_preimage_chain",
+    "title": "Preimage chain",
+    "domain": "sets",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(α β : Type) (f : α → β) (A B C : Set β) (h : A ⊆ B) (k : B ⊆ C)",
+    "target": "f ⁻¹' A ⊆ f ⁻¹' C",
+    "display": "f ⁻¹' A ⊆ f ⁻¹' C",
+    "description": "Phase 4 · set preimage obligations",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ],
+    "origin": "Original Phase 4 statement; no benchmark proof imported; no novelty claimed."
+  },
+  {
+    "id": "p4_preimage_inter",
+    "title": "Preimage inter",
+    "domain": "sets",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(α β : Type) (f : α → β) (A B C : Set β) (h : A ⊆ C)",
+    "target": "f ⁻¹' (A ∩ B) ⊆ f ⁻¹' (C ∩ B)",
+    "display": "f ⁻¹' (A ∩ B) ⊆ f ⁻¹' (C ∩ B)",
+    "description": "Phase 4 · set preimage obligations",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ],
+    "origin": "Original Phase 4 statement; no benchmark proof imported; no novelty claimed."
+  },
+  {
+    "id": "p4_preimage_union",
+    "title": "Preimage union",
+    "domain": "sets",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(α β : Type) (f : α → β) (A B C : Set β) (h : A ⊆ C) (k : B ⊆ C)",
+    "target": "f ⁻¹' (A ∪ B) ⊆ f ⁻¹' C",
+    "display": "f ⁻¹' (A ∪ B) ⊆ f ⁻¹' C",
+    "description": "Phase 4 · set preimage obligations",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ],
+    "origin": "Original Phase 4 statement; no benchmark proof imported; no novelty claimed."
+  },
+  {
+    "id": "p4_preimage_diff",
+    "title": "Preimage diff",
+    "domain": "sets",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(α β : Type) (f : α → β) (A B C : Set β) (h : A ⊆ B)",
+    "target": "f ⁻¹' (A \\ C) ⊆ f ⁻¹' (B \\ C)",
+    "display": "f ⁻¹' (A \\ C) ⊆ f ⁻¹' (B \\ C)",
+    "description": "Phase 4 · set preimage obligations",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ],
+    "origin": "Original Phase 4 statement; no benchmark proof imported; no novelty claimed."
+  },
+  {
+    "id": "p4_partition_inter",
+    "title": "Partition inter",
+    "domain": "sets",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(α : Type) (A B C : Set α)",
+    "target": "(A ∩ B) ∪ (A \\ B) ⊆ A ∪ C",
+    "display": "(A ∩ B) ∪ (A \\ B) ⊆ A ∪ C",
+    "description": "Phase 4 · set partition obligations",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ],
+    "origin": "Original Phase 4 statement; no benchmark proof imported; no novelty claimed."
+  },
+  {
+    "id": "p4_partition_exclusion",
+    "title": "Partition exclusion",
+    "domain": "sets",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(α : Type) (A B C : Set α) (h : A ⊆ C)",
+    "target": "(A \\ B) ∪ (A ∩ B) ⊆ C",
+    "display": "(A \\ B) ∪ (A ∩ B) ⊆ C",
+    "description": "Phase 4 · set partition obligations",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ],
+    "origin": "Original Phase 4 statement; no benchmark proof imported; no novelty claimed."
+  },
+  {
+    "id": "p4_partition_nested",
+    "title": "Partition nested",
+    "domain": "sets",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(α : Type) (A B C D : Set α) (h : A ⊆ D)",
+    "target": "((A ∩ B) \\ C) ∪ ((A \\ B) ∩ C) ⊆ D",
+    "display": "((A ∩ B) \\ C) ∪ ((A \\ B) ∩ C) ⊆ D",
+    "description": "Phase 4 · set partition obligations",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ],
+    "origin": "Original Phase 4 statement; no benchmark proof imported; no novelty claimed."
+  },
+  {
+    "id": "p4_partition_pair",
+    "title": "Partition pair",
+    "domain": "sets",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(α : Type) (A B C : Set α)",
+    "target": "((A \\ B) ∩ C ⊆ A) ∧ (A ∩ (B \\ C) ⊆ B)",
+    "display": "((A \\ B) ∩ C ⊆ A) ∧ (A ∩ (B \\ C) ⊆ B)",
+    "description": "Phase 4 · set partition obligations",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ],
+    "origin": "Original Phase 4 statement; no benchmark proof imported; no novelty claimed."
+  }
+]

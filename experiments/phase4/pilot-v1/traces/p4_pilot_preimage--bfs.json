@@ -1,0 +1,661 @@
+{
+  "schema_version": 1,
+  "task": {
+    "id": "p4_pilot_preimage",
+    "title": "Pilot preimage",
+    "domain": "sets",
+    "difficulty": "challenge",
+    "split": "development",
+    "binders": "(α β : Type) (f : α → β) (A B : Set β) (h : A ⊆ B)",
+    "target": "f ⁻¹' A ⊆ f ⁻¹' B",
+    "display": "f ⁻¹' A ⊆ f ⁻¹' B",
+    "description": "Phase 4 · difficulty pilot",
+    "origin": "Original Phase 4 statement; no benchmark proof imported; no novelty claimed.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  "algorithm": "bfs",
+  "budget": {
+    "max_depth": 12,
+    "max_expansions": 80,
+    "max_candidates": 24,
+    "max_attempts": 600,
+    "timeout_s": 15.0,
+    "tactic_timeout_s": 2.0
+  },
+  "status": "verified",
+  "termination": "verified",
+  "nodes": [
+    {
+      "id": 0,
+      "parent": null,
+      "depth": 0,
+      "state": {
+        "state_id": 0,
+        "goals": [
+          {
+            "id": "_uniq.75",
+            "target": {
+              "text": "f ⁻¹' A ⊆ f ⁻¹' B",
+              "head": "[anonymous]",
+              "forall": true
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.69",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "β",
+                "id": "_uniq.70",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "f",
+                "id": "_uniq.71",
+                "type": {
+                  "text": "α → β",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "A",
+                "id": "_uniq.72",
+                "type": {
+                  "text": "Set β",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "B",
+                "id": "_uniq.73",
+                "type": {
+                  "text": "Set β",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "h",
+                "id": "_uniq.74",
+                "type": {
+                  "text": "A ⊆ B",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": true
+              }
+            ]
+          }
+        ]
+      },
+      "tactic": null,
+      "category": null,
+      "lemma": null,
+      "provenance": null,
+      "reason": "Initial Lean goal",
+      "status": "root",
+      "error": null,
+      "elapsed_ms": 0.0,
+      "on_proof_path": true
+    },
+    {
+      "id": 1,
+      "parent": 0,
+      "depth": 1,
+      "state": {
+        "state_id": 1,
+        "goals": [
+          {
+            "id": "_uniq.77",
+            "target": {
+              "text": "h0 ∈ f ⁻¹' A → h0 ∈ f ⁻¹' B",
+              "head": "[anonymous]",
+              "forall": true
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.69",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "β",
+                "id": "_uniq.70",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "f",
+                "id": "_uniq.71",
+                "type": {
+                  "text": "α → β",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "A",
+                "id": "_uniq.72",
+                "type": {
+                  "text": "Set β",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "B",
+                "id": "_uniq.73",
+                "type": {
+                  "text": "Set β",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "h",
+                "id": "_uniq.74",
+                "type": {
+                  "text": "A ⊆ B",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": true
+              },
+              {
+                "name": "h0",
+                "id": "_uniq.76",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              }
+            ]
+          }
+        ]
+      },
+      "tactic": "intro h0",
+      "category": "goal",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Introduce a binder or implication premise",
+      "status": "accepted",
+      "error": null,
+      "elapsed_ms": 2.5447590014664456,
+      "on_proof_path": true
+    },
+    {
+      "id": 2,
+      "parent": 0,
+      "depth": 1,
+      "state": null,
+      "tactic": "assumption",
+      "category": "goal",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Match the goal against the local context",
+      "status": "rejected",
+      "error": "Tactic `assumption` failed\n\nα β : Type\nf : α → β\nA B : Set β\nh : A ⊆ B\n⊢ f ⁻¹' A ⊆ f ⁻¹' B",
+      "elapsed_ms": 2.1244769959594123,
+      "on_proof_path": false
+    },
+    {
+      "id": 3,
+      "parent": 0,
+      "depth": 1,
+      "state": null,
+      "tactic": "apply h",
+      "category": "hypothesis",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Use implication or function h",
+      "status": "rejected",
+      "error": "Tactic `apply` failed: could not unify the type of `h`\n  A ⊆ B\nwith the goal\n  f ⁻¹' A ⊆ f ⁻¹' B\n\nα β : Type\nf : α → β\nA B : Set β\nh : A ⊆ B\n⊢ f ⁻¹' A ⊆ f ⁻¹' B",
+      "elapsed_ms": 2.8828180002165027,
+      "on_proof_path": false
+    },
+    {
+      "id": 4,
+      "parent": 0,
+      "depth": 1,
+      "state": {
+        "state_id": 2,
+        "goals": [
+          {
+            "id": "_uniq.114",
+            "target": {
+              "text": "f ⁻¹' A ⊆ ?b",
+              "head": "[anonymous]",
+              "forall": true
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.69",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "β",
+                "id": "_uniq.70",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "f",
+                "id": "_uniq.71",
+                "type": {
+                  "text": "α → β",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "A",
+                "id": "_uniq.72",
+                "type": {
+                  "text": "Set β",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "B",
+                "id": "_uniq.73",
+                "type": {
+                  "text": "Set β",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "h",
+                "id": "_uniq.74",
+                "type": {
+                  "text": "A ⊆ B",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": true
+              }
+            ]
+          },
+          {
+            "id": "_uniq.115",
+            "target": {
+              "text": "?b ⊆ f ⁻¹' B",
+              "head": "[anonymous]",
+              "forall": true
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.69",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "β",
+                "id": "_uniq.70",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "f",
+                "id": "_uniq.71",
+                "type": {
+                  "text": "α → β",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "A",
+                "id": "_uniq.72",
+                "type": {
+                  "text": "Set β",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "B",
+                "id": "_uniq.73",
+                "type": {
+                  "text": "Set β",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "h",
+                "id": "_uniq.74",
+                "type": {
+                  "text": "A ⊆ B",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": true
+              }
+            ]
+          },
+          {
+            "id": "_uniq.112",
+            "target": {
+              "text": "Set α",
+              "head": "[anonymous]",
+              "forall": true
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.69",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "β",
+                "id": "_uniq.70",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "f",
+                "id": "_uniq.71",
+                "type": {
+                  "text": "α → β",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "A",
+                "id": "_uniq.72",
+                "type": {
+                  "text": "Set β",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "B",
+                "id": "_uniq.73",
+                "type": {
+                  "text": "Set β",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "h",
+                "id": "_uniq.74",
+                "type": {
+                  "text": "A ⊆ B",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": true
+              }
+            ]
+          }
+        ]
+      },
+      "tactic": "apply Set.Subset.trans",
+      "category": "lemma",
+      "lemma": "Set.Subset.trans",
+      "provenance": "Mathlib.Data.Set.Basic",
+      "reason": "Goal features: ('⊆',); context features: ()",
+      "status": "accepted",
+      "error": null,
+      "elapsed_ms": 3.7160310021135956,
+      "on_proof_path": false
+    },
+    {
+      "id": 5,
+      "parent": 1,
+      "depth": 2,
+      "state": {
+        "state_id": 3,
+        "goals": [
+          {
+            "id": "_uniq.122",
+            "target": {
+              "text": "h0 ∈ f ⁻¹' B",
+              "head": "[anonymous]",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.69",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "β",
+                "id": "_uniq.70",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "f",
+                "id": "_uniq.71",
+                "type": {
+                  "text": "α → β",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "A",
+                "id": "_uniq.72",
+                "type": {
+                  "text": "Set β",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "B",
+                "id": "_uniq.73",
+                "type": {
+                  "text": "Set β",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "h",
+                "id": "_uniq.74",
+                "type": {
+                  "text": "A ⊆ B",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": true
+              },
+              {
+                "name": "h0",
+                "id": "_uniq.76",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "h1",
+                "id": "_uniq.121",
+                "type": {
+                  "text": "h0 ∈ f ⁻¹' A",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              }
+            ]
+          }
+        ]
+      },
+      "tactic": "intro h1",
+      "category": "goal",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Introduce a binder or implication premise",
+      "status": "accepted",
+      "error": null,
+      "elapsed_ms": 1.8860769996535964,
+      "on_proof_path": false
+    },
+    {
+      "id": 6,
+      "parent": 1,
+      "depth": 2,
+      "state": null,
+      "tactic": "assumption",
+      "category": "goal",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Match the goal against the local context",
+      "status": "rejected",
+      "error": "Tactic `assumption` failed\n\nα β : Type\nf : α → β\nA B : Set β\nh : A ⊆ B\nh0 : α\n⊢ h0 ∈ f ⁻¹' A → h0 ∈ f ⁻¹' B",
+      "elapsed_ms": 1.864165002189111,
+      "on_proof_path": false
+    },
+    {
+      "id": 7,
+      "parent": 1,
+      "depth": 2,
+      "state": {
+        "state_id": 4,
+        "goals": []
+      },
+      "tactic": "apply h",
+      "category": "hypothesis",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Use implication or function h",
+      "status": "solved",
+      "error": null,
+      "elapsed_ms": 0.8662539985380135,
+      "on_proof_path": true
+    }
+  ],
+  "metrics": {
+    "attempted_candidates": 7,
+    "accepted_transitions": 4,
+    "rejected_candidates": 3,
+    "expanded_states": 2,
+    "frontier": 2,
+    "max_depth": 2,
+    "proof_length": 2,
+    "elapsed_s": 3.616510765001294,
+    "lean_execution_s": 0.015884581000136677,
+    "initialization_s": 1.7711500849982258,
+    "verification_s": 1.7632980170019437,
+    "planning_s": 0.0007850809997762553,
+    "model_inference_s": 0.0
+  },
+  "proof": [
+    "intro h0",
+    "apply h"
+  ],
+  "lean_source": "import ProofLab.Bridge\n\nset_option maxHeartbeats 300000\ntheorem prooflab_result (α β : Type) (f : α → β) (A B : Set β) (h : A ⊆ B) : f ⁻¹' A ⊆ f ⁻¹' B := by\n  intro h0\n  apply h\n\n#prooflab_audit prooflab_result\n",
+  "verification": {
+    "verified": true,
+    "axioms": [],
+    "error": null,
+    "elapsed_s": 1.7632980170019437,
+    "source_sha256": "1f4eb5d6b90cc1ebd8bab0559e34111f283f1950107f91ec7388d22a9db6552c"
+  },
+  "metadata": {
+    "code_commit": "98639e1cfb873f4c78ee172706b90f82d2ab212e",
+    "lean_version": "leanprover/lean4:v4.24.0",
+    "mathlib_revision": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7",
+    "python": "3.12.14",
+    "platform": "Linux-6.18.55-x86_64-with-glibc2.41",
+    "machine": "x86_64",
+    "processor": "",
+    "seed": "0 (deterministic)",
+    "state_identity": "Exact tactic prefix within one native session; no semantic merging"
+  },
+  "error": null,
+  "proof_origin": "constructed_derivation",
+  "rankings": []
+}

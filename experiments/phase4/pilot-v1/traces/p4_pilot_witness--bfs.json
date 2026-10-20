@@ -1,0 +1,223 @@
+{
+  "schema_version": 1,
+  "task": {
+    "id": "p4_pilot_witness",
+    "title": "Pilot witness",
+    "domain": "logic",
+    "difficulty": "challenge",
+    "split": "development",
+    "binders": "(α : Type) (P Q : α → Prop) (a : α) (h : P a) (k : Q a)",
+    "target": "∃ x, Q x ∧ P x",
+    "display": "∃ x, Q x ∧ P x",
+    "description": "Phase 4 · difficulty pilot",
+    "origin": "Original Phase 4 statement; no benchmark proof imported; no novelty claimed.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  "algorithm": "bfs",
+  "budget": {
+    "max_depth": 12,
+    "max_expansions": 80,
+    "max_candidates": 24,
+    "max_attempts": 600,
+    "timeout_s": 15.0,
+    "tactic_timeout_s": 2.0
+  },
+  "status": "verified",
+  "termination": "verified",
+  "nodes": [
+    {
+      "id": 0,
+      "parent": null,
+      "depth": 0,
+      "state": {
+        "state_id": 0,
+        "goals": [
+          {
+            "id": "_uniq.32",
+            "target": {
+              "text": "∃ x, Q x ∧ P x",
+              "head": "Exists",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "α",
+                "id": "_uniq.26",
+                "type": {
+                  "text": "Type",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "P",
+                "id": "_uniq.27",
+                "type": {
+                  "text": "α → Prop",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "Q",
+                "id": "_uniq.28",
+                "type": {
+                  "text": "α → Prop",
+                  "head": "[anonymous]",
+                  "forall": true
+                },
+                "is_proof": false
+              },
+              {
+                "name": "a",
+                "id": "_uniq.29",
+                "type": {
+                  "text": "α",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "h",
+                "id": "_uniq.30",
+                "type": {
+                  "text": "P a",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              },
+              {
+                "name": "k",
+                "id": "_uniq.31",
+                "type": {
+                  "text": "Q a",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              }
+            ]
+          }
+        ]
+      },
+      "tactic": null,
+      "category": null,
+      "lemma": null,
+      "provenance": null,
+      "reason": "Initial Lean goal",
+      "status": "root",
+      "error": null,
+      "elapsed_ms": 0.0,
+      "on_proof_path": true
+    },
+    {
+      "id": 1,
+      "parent": 0,
+      "depth": 1,
+      "state": null,
+      "tactic": "assumption",
+      "category": "goal",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Match the goal against the local context",
+      "status": "rejected",
+      "error": "Tactic `assumption` failed\n\nα : Type\nP Q : α → Prop\na : α\nh : P a\nk : Q a\n⊢ ∃ x, Q x ∧ P x",
+      "elapsed_ms": 5.733748999773525,
+      "on_proof_path": false
+    },
+    {
+      "id": 2,
+      "parent": 0,
+      "depth": 1,
+      "state": null,
+      "tactic": "exists P",
+      "category": "goal",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Try a witness from the local context",
+      "status": "rejected",
+      "error": "Application type mismatch: The argument\n  P\nhas type\n  α → Prop\nbut is expected to have type\n  α\nin the application\n  Exists.intro P",
+      "elapsed_ms": 7.838851997803431,
+      "on_proof_path": false
+    },
+    {
+      "id": 3,
+      "parent": 0,
+      "depth": 1,
+      "state": null,
+      "tactic": "exists Q",
+      "category": "goal",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Try a witness from the local context",
+      "status": "rejected",
+      "error": "Application type mismatch: The argument\n  Q\nhas type\n  α → Prop\nbut is expected to have type\n  α\nin the application\n  Exists.intro Q",
+      "elapsed_ms": 5.530556998564862,
+      "on_proof_path": false
+    },
+    {
+      "id": 4,
+      "parent": 0,
+      "depth": 1,
+      "state": {
+        "state_id": 1,
+        "goals": []
+      },
+      "tactic": "exists a",
+      "category": "goal",
+      "lemma": null,
+      "provenance": null,
+      "reason": "Try a witness from the local context",
+      "status": "solved",
+      "error": null,
+      "elapsed_ms": 2.9552779960795306,
+      "on_proof_path": true
+    }
+  ],
+  "metrics": {
+    "attempted_candidates": 4,
+    "accepted_transitions": 1,
+    "rejected_candidates": 3,
+    "expanded_states": 1,
+    "frontier": 0,
+    "max_depth": 1,
+    "proof_length": 1,
+    "elapsed_s": 3.5186999090001336,
+    "lean_execution_s": 0.022058435992221348,
+    "initialization_s": 1.683577788004186,
+    "verification_s": 1.777213278997806,
+    "planning_s": 0.00041028799751074985,
+    "model_inference_s": 0.0
+  },
+  "proof": [
+    "exists a"
+  ],
+  "lean_source": "import ProofLab.Bridge\n\nset_option maxHeartbeats 300000\ntheorem prooflab_result (α : Type) (P Q : α → Prop) (a : α) (h : P a) (k : Q a) : ∃ x, Q x ∧ P x := by\n  exists a\n\n#prooflab_audit prooflab_result\n",
+  "verification": {
+    "verified": true,
+    "axioms": [],
+    "error": null,
+    "elapsed_s": 1.777213278997806,
+    "source_sha256": "2424947ae29f1c99bfffd8447294f3df2a4d7b8da7cd55571146276e55a4f708"
+  },
+  "metadata": {
+    "code_commit": "98639e1cfb873f4c78ee172706b90f82d2ab212e",
+    "lean_version": "leanprover/lean4:v4.24.0",
+    "mathlib_revision": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7",
+    "python": "3.12.14",
+    "platform": "Linux-6.18.55-x86_64-with-glibc2.41",
+    "machine": "x86_64",
+    "processor": "",
+    "seed": "0 (deterministic)",
+    "state_identity": "Exact tactic prefix within one native session; no semantic merging"
+  },
+  "error": null,
+  "proof_origin": "constructed_derivation",
+  "rankings": []
+}
