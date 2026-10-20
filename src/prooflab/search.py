@@ -8,7 +8,6 @@ import subprocess
 import time
 from collections import deque
 from threading import Event
-from typing import Literal
 
 from prooflab.candidates import (
     HeuristicRanking,
@@ -25,7 +24,18 @@ from prooflab.lean import (
     theorem_source,
     verify,
 )
-from prooflab.models import Budget, Candidate, Node, ProofState, Task, Trace
+from prooflab.learning import LearnedRanking
+from prooflab.models import (
+    Budget,
+    Candidate,
+    CandidateRanking,
+    Node,
+    ProofState,
+    SearchAlgorithm,
+    StateRanking,
+    Task,
+    Trace,
+)
 
 
 def metadata() -> dict[str, str]:
@@ -60,16 +70,20 @@ def path_to(nodes: list[Node], node_id: int) -> list[int]:
 
 def search(
     task: Task,
-    algorithm: Literal["bfs", "best_first", "automation"] = "bfs",
+    algorithm: SearchAlgorithm = "bfs",
     budget: Budget | None = None,
     cancel: Event | None = None,
     ranking: RankingPolicy | None = None,
+    comparison_ranker: LearnedRanking | None = None,
 ) -> Trace:
     budget = budget or Budget()
     trace = Trace(task=task, algorithm=algorithm, budget=budget, metadata=metadata())
     start = time.monotonic()
     deadline = start + budget.timeout_s
-    policy = ranking or (HeuristicRanking() if algorithm == "best_first" else UniformRanking())
+    policy: RankingPolicy = ranking or (
+        HeuristicRanking() if algorithm in ("best_first", "learned") else UniformRanking()
+    )
+    use_heap = algorithm in ("best_first", "learned")
     fifo: deque[int] = deque([0])
     priority: list[tuple[float, int]] = [(0, 0)]
     prefixes: dict[int, tuple[str, ...]] = {0: ()}
@@ -79,6 +93,20 @@ def search(
         return max(0.001, deadline - time.monotonic())
 
     try:
+        if algorithm == "learned":
+            if ranking is not None and not isinstance(ranking, LearnedRanking):
+                raise ValueError("A learned run requires a genuinely trained LearnedRanking")
+            policy = ranking if isinstance(ranking, LearnedRanking) else LearnedRanking()
+            comparison_ranker = policy
+        if comparison_ranker is not None:
+            trace.metadata.update(
+                {
+                    "model_sha256": comparison_ranker.model_hash,
+                    "feature_version": comparison_ranker.model.feature_version,
+                    "learned_scores_used_for_scheduling": str(algorithm == "learned").lower(),
+                    "frontier_policy": "handcrafted state score; stable insertion-ID ties",
+                }
+            )
         init_start = time.monotonic()
         with LeanSession(task, timeout=min(20, remaining()), cancel=cancel) as lean:
             trace.metrics.initialization_s = time.monotonic() - init_start
@@ -92,7 +120,7 @@ def search(
                     status="root",
                 )
             )
-            while fifo if algorithm != "best_first" else priority:
+            while priority if use_heap else fifo:
                 if cancel is not None and cancel.is_set():
                     raise Cancelled("Search cancelled")
                 if time.monotonic() >= deadline:
@@ -101,9 +129,7 @@ def search(
                 if trace.metrics.expanded_states >= budget.max_expansions:
                     trace.termination = "resource_limit:expansions"
                     break
-                current = (
-                    heapq.heappop(priority)[1] if algorithm == "best_first" else fifo.popleft()
-                )
+                current = heapq.heappop(priority)[1] if use_heap else fifo.popleft()
                 node = trace.nodes[current]
                 assert node.state is not None
                 if node.depth >= budget.max_depth:
@@ -124,7 +150,34 @@ def search(
                             reason="Native Aesop baseline; not a ProofLab algorithm",
                         )
                     ]
+                availability = sorted(c.model_dump_json() for c in candidates)
+                generated_order = {c.tactic: i for i, c in enumerate(candidates)}
+                ranking_tick = time.monotonic()
                 candidates = policy.rank_candidates(node.state, candidates)
+                if isinstance(policy, LearnedRanking):
+                    trace.metrics.model_inference_s += time.monotonic() - ranking_tick
+                if sorted(c.model_dump_json() for c in candidates) != availability:
+                    raise ValueError("Ranking policy altered candidate availability")
+                if comparison_ranker is not None and algorithm != "automation":
+                    inference_tick = time.monotonic()
+                    trace.rankings.append(
+                        StateRanking(
+                            node_id=current,
+                            candidates=[
+                                CandidateRanking(
+                                    tactic=c.tactic,
+                                    category=c.category,
+                                    generated_order=generated_order[c.tactic],
+                                    actual_rank=i + 1,
+                                    heuristic_score=c.prior,
+                                    learned_score=comparison_ranker.score(node.state, c),
+                                    contributions=comparison_ranker.contributions(node.state, c),
+                                )
+                                for i, c in enumerate(candidates)
+                            ],
+                        )
+                    )
+                    trace.metrics.model_inference_s += time.monotonic() - inference_tick
                 trace.metrics.planning_s += time.monotonic() - plan_start
                 for candidate in candidates:
                     if cancel is not None and cancel.is_set():
@@ -228,7 +281,7 @@ def search(
                             trace.termination = "independent_verification_failed"
                             trace.error = trace.verification.error
                         return trace
-                    if algorithm == "best_first":
+                    if use_heap:
                         assert state is not None
                         heapq.heappush(
                             priority, (policy.state_priority(state, successor.depth), ident)
@@ -250,5 +303,5 @@ def search(
         trace.error = str(error)
     finally:
         trace.metrics.elapsed_s = time.monotonic() - start
-        trace.metrics.frontier = len(priority) if algorithm == "best_first" else len(fifo)
+        trace.metrics.frontier = len(priority) if use_heap else len(fifo)
     return trace

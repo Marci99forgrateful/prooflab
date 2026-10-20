@@ -18,7 +18,7 @@ def main() -> None:
     solve = sub.add_parser("search", help="Search a repository-owned theorem")
     solve.add_argument("task")
     solve.add_argument(
-        "--algorithm", choices=["bfs", "best_first", "automation"], default="best_first"
+        "--algorithm", choices=["bfs", "best_first", "learned", "automation"], default="best_first"
     )
     solve.add_argument("--output", type=Path)
     benchmark = sub.add_parser("benchmark", help="Run real comparative experiments")
@@ -32,6 +32,10 @@ def main() -> None:
         command.add_argument("--attempts", type=int, default=400)
     serve = sub.add_parser("serve", help="Start the loopback-only research application")
     serve.add_argument("--port", type=int, default=8000)
+    sub.add_parser("collect-training", help="Replay permitted development evidence in Lean")
+    sub.add_parser("train", help="Select and refit the deterministic CPU ranking model")
+    evaluate = sub.add_parser("evaluate-phase2", help="Run the frozen Phase 2 protocol")
+    evaluate.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
     if args.command == "tasks":
         print(json.dumps([t.model_dump() for t in load_tasks()], indent=2, ensure_ascii=False))
@@ -39,6 +43,18 @@ def main() -> None:
         import uvicorn
 
         uvicorn.run("prooflab.server:app", host="127.0.0.1", port=args.port)
+    elif args.command == "collect-training":
+        from prooflab.training import collect_data
+
+        collect_data()
+    elif args.command == "train":
+        from prooflab.training import train
+
+        train()
+    elif args.command == "evaluate-phase2":
+        from prooflab.evaluation import run_evaluation
+
+        run_evaluation(args.output)
     else:
         budget = Budget(
             timeout_s=args.timeout,
