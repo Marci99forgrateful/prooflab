@@ -37,6 +37,9 @@ jobs:
       - run: npm --prefix web run format:check
       - run: uv run --frozen playwright install --with-deps chromium
       - run: uv run --frozen pytest -q --junitxml=artifacts/local/pytest.xml
+      - name: Report actual JUnit outcomes
+        if: always()
+        run: python3 scripts/ci_test_summary.py artifacts/local/pytest.xml
       - uses: actions/upload-artifact@v4
         if: always()
         with:

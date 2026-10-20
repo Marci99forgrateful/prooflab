@@ -55,7 +55,7 @@ def main() -> None:
         )
     lines += [
         "",
-        "All-run effort mixes verified and bounded-failure executions. A smaller attempt mean is not automatically a success/efficiency improvement. Full per-run time, native allocation counters, partial CPU/RSS measurements and proof lengths are in `results.csv` and `summary.json`. The first eighteen seconds overlapped a pre-existing regression run; the host was shared with light engineering work. Timing is observational, not a controlled hardware speedup experiment.",
+        "All-run effort mixes verified and bounded-failure executions. A smaller attempt mean is not automatically a success/efficiency improvement. Full per-run time, native allocation counters, partial CPU/RSS measurements and proof lengths are in `results.csv` and `summary.json`. The initial regression log completed 0.350s before campaign start; its duration was not overlap. The host was shared with light engineering work. Timing is observational, not a controlled hardware speedup experiment.",
         "",
         "A reporting-only reproducibility correction preserves the raw frozen `summary.json` and writes `summary-canonical.json`: family identifiers are sorted before the seeded bootstrap. The raw intermediate set was hash-order dependent. All run outcomes, metrics, theorem bootstrap and training/search decisions are unchanged; `statistics-correction.json` links the reports.",
         "",
@@ -214,7 +214,7 @@ def main() -> None:
         "",
         "A type-compatible rule can create irrelevant or underconstrained subgoals. An accepted step may remain unproductive or unknown. The small development corpus mostly follows old source paths, and only eighty preferences compare completed continuation costs. The model learns finite-policy evidence, not optimal mathematical relevance. The index is bounded, some image/preimage declarations are unavailable in the unchanged imports, witness functions/terms/depth are capped, and constructed partial applications are not promoted to a callable bank. No arbitrary-equivalence pruning, complete Mathlib retrieval, GPU/pretrained embedding model or new foundational prover is claimed.",
         "",
-        "All timing is shared-host evidence with documented initial test overlap. External references have a two-second per-call cap and opaque internal work. CPU/RSS coverage is partial. Family-balanced sensitivity and theorem-weighted common-success effort are distinct estimands. The ten small families do not establish broad real-world theorem-proving generalization.",
+        "All timing is shared-host evidence; the initial regression completed before campaign start, and a previous draft overlap assumption is corrected in the timing-note artifact. External references have a two-second per-call cap and opaque internal work. CPU/RSS coverage is partial. Family-balanced sensitivity and theorem-weighted common-success effort are distinct estimands. The ten small families do not establish broad real-world theorem-proving generalization.",
         "",
         "The frozen raw family-bootstrap iteration was hash-order dependent. A separate canonical derived report sorts family IDs; original results are retained, theorem metrics are unchanged, and the correction never feeds model/search selection. This reporting correction and the distinct family-balanced point estimand are documented explicitly.",
         "",

@@ -23,7 +23,7 @@ The outer cap is 24 candidates, 600 attempts, eighty expanded states, depth twel
 | typed_joint | 36/80 | 45.0 [30.000, 60.000] | 365.137 | 27.650 | 5.692 | 1.0456 | 44 | 0 |
 | typed_p3 | 30/80 | 37.5 [22.500, 52.500] | 399.950 | 34.237 | 5.438 | 0.8450 | 50 | 0 |
 
-All-run effort mixes verified and bounded-failure executions. A smaller attempt mean is not automatically a success/efficiency improvement. Full per-run time, native allocation counters, partial CPU/RSS measurements and proof lengths are in `results.csv` and `summary.json`. The first eighteen seconds overlapped a pre-existing regression run; the host was shared with light engineering work. Timing is observational, not a controlled hardware speedup experiment.
+All-run effort mixes verified and bounded-failure executions. A smaller attempt mean is not automatically a success/efficiency improvement. Full per-run time, native allocation counters, partial CPU/RSS measurements and proof lengths are in `results.csv` and `summary.json`. The initial regression log completed 0.350s before campaign start; its duration was not overlap. The host was shared with light engineering work. Timing is observational, not a controlled hardware speedup experiment.
 
 A reporting-only reproducibility correction preserves the raw frozen `summary.json` and writes `summary-canonical.json`: family identifiers are sorted before the seeded bootstrap. The raw intermediate set was hash-order dependent. All run outcomes, metrics, theorem bootstrap and training/search decisions are unchanged; `statistics-correction.json` links the reports.
 
