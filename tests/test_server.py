@@ -61,3 +61,15 @@ def test_phase2_dataset_and_real_model_metadata() -> None:
     assert model["weights"] and len(model["sha256"]) == 64
     assert not model["provenance"]["evaluation_accessed_during_selection"]
     assert client.get("/api/tasks?dataset=unknown").status_code == 422
+
+
+def test_phase3_model_and_finite_continuation_records() -> None:
+    assert len(client.get("/api/tasks?dataset=phase3").json()) == 32
+    model = client.get("/api/model?variant=outcome").json()
+    assert model["variant"] == "outcome" and model["weights"]
+    index = client.get("/api/continuations").json()
+    assert any(e["role"] == "development" for e in index)
+    bundle = client.get("/api/continuations/development/and_swap").json()
+    assert bundle["record"]["source_verification"]["verified"]
+    assert bundle["annotations"]["0"]
+    assert client.get("/api/continuations/development/unknown").status_code == 404

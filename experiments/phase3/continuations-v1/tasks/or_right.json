@@ -1,0 +1,527 @@
+{
+  "task_id": "or_right",
+  "split": "development",
+  "domain": "logic",
+  "demonstration_trace": "experiments/phase1-v3/traces/or_right--best_first.json",
+  "demonstration_sha256": "3b3d3f38468a39299782e9c82e828ed07bb5efc9758f7d1890baffdbfea50272",
+  "source_verification": {
+    "verified": true,
+    "axioms": [],
+    "error": null,
+    "elapsed_s": 2.1643382600013865,
+    "source_sha256": "3415c89112723726addc221e754419569ce8e4754239c011634fb190469f11d9"
+  },
+  "states": [
+    {
+      "task_id": "or_right",
+      "split": "development",
+      "domain": "logic",
+      "depth": 0,
+      "prefix": [],
+      "positive_tactic": "right",
+      "state": {
+        "state_id": 0,
+        "goals": [
+          {
+            "id": "_uniq.12",
+            "target": {
+              "text": "P ∨ Q",
+              "head": "Or",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "P",
+                "id": "_uniq.9",
+                "type": {
+                  "text": "Prop",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "Q",
+                "id": "_uniq.10",
+                "type": {
+                  "text": "Prop",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "hq",
+                "id": "_uniq.11",
+                "type": {
+                  "text": "Q",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              }
+            ]
+          }
+        ]
+      },
+      "observations": [
+        {
+          "candidate": {
+            "tactic": "left",
+            "category": "goal",
+            "reason": "Explore the left alternative",
+            "prior": 6.0,
+            "lemma": null,
+            "provenance": null
+          },
+          "status": "accepted",
+          "successor": {
+            "state_id": 1,
+            "goals": [
+              {
+                "id": "_uniq.18",
+                "target": {
+                  "text": "P",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "hypotheses": [
+                  {
+                    "name": "P",
+                    "id": "_uniq.9",
+                    "type": {
+                      "text": "Prop",
+                      "head": "[anonymous]",
+                      "forall": false
+                    },
+                    "is_proof": false
+                  },
+                  {
+                    "name": "Q",
+                    "id": "_uniq.10",
+                    "type": {
+                      "text": "Prop",
+                      "head": "[anonymous]",
+                      "forall": false
+                    },
+                    "is_proof": false
+                  },
+                  {
+                    "name": "hq",
+                    "id": "_uniq.11",
+                    "type": {
+                      "text": "Q",
+                      "head": "[anonymous]",
+                      "forall": false
+                    },
+                    "is_proof": true
+                  }
+                ]
+              }
+            ]
+          },
+          "elapsed_s": 0.002258238004287705,
+          "error": null,
+          "continuation": {
+            "status": "censored",
+            "termination": "search_exhausted",
+            "first_action": "left",
+            "prefix": [],
+            "nodes": [
+              {
+                "id": 0,
+                "parent": null,
+                "depth": 0,
+                "state": {
+                  "state_id": 1,
+                  "goals": [
+                    {
+                      "id": "_uniq.18",
+                      "target": {
+                        "text": "P",
+                        "head": "[anonymous]",
+                        "forall": false
+                      },
+                      "hypotheses": [
+                        {
+                          "name": "P",
+                          "id": "_uniq.9",
+                          "type": {
+                            "text": "Prop",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "Q",
+                          "id": "_uniq.10",
+                          "type": {
+                            "text": "Prop",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "hq",
+                          "id": "_uniq.11",
+                          "type": {
+                            "text": "Q",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": true
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "tactic": null,
+                "category": null,
+                "lemma": null,
+                "provenance": null,
+                "reason": "Initial Lean goal",
+                "status": "root",
+                "error": null,
+                "elapsed_ms": 0,
+                "on_proof_path": false
+              },
+              {
+                "id": 1,
+                "parent": 0,
+                "depth": 1,
+                "state": null,
+                "tactic": "assumption",
+                "category": "goal",
+                "lemma": null,
+                "provenance": null,
+                "reason": "Initial Lean goal",
+                "status": "rejected",
+                "error": "Tactic `assumption` failed\n\ncase h\nP Q : Prop\nhq : Q\n⊢ P",
+                "elapsed_ms": 0.24477799888700247,
+                "on_proof_path": false
+              }
+            ],
+            "pools": [
+              {
+                "node_id": 0,
+                "generated": [
+                  {
+                    "tactic": "assumption",
+                    "category": "goal",
+                    "reason": "Match the goal against the local context",
+                    "prior": 10.0,
+                    "lemma": null,
+                    "provenance": null
+                  }
+                ],
+                "actual_order": [
+                  "assumption"
+                ]
+              }
+            ],
+            "proof": [],
+            "verification": {
+              "verified": false,
+              "axioms": [],
+              "error": null,
+              "elapsed_s": 0,
+              "source_sha256": null
+            },
+            "metrics": {
+              "attempted_candidates": 2,
+              "expanded_states": 1,
+              "proof_length": 0,
+              "suffix_length": 0,
+              "elapsed_s": 0.0005808140049339272,
+              "lean_execution_s": 0.0025030160031747073,
+              "verification_s": 0,
+              "search_s": 0.0005809340000269003,
+              "initial_action_s": 0.002258238004287705
+            },
+            "label_policy": "Only verified-vs-verified cost differences are preferences; unresolved is censored"
+          },
+          "exploration": "bounded_rollout"
+        },
+        {
+          "candidate": {
+            "tactic": "right",
+            "category": "goal",
+            "reason": "Explore the right alternative",
+            "prior": 6.0,
+            "lemma": null,
+            "provenance": null
+          },
+          "status": "accepted",
+          "successor": {
+            "state_id": 2,
+            "goals": [
+              {
+                "id": "_uniq.24",
+                "target": {
+                  "text": "Q",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "hypotheses": [
+                  {
+                    "name": "P",
+                    "id": "_uniq.9",
+                    "type": {
+                      "text": "Prop",
+                      "head": "[anonymous]",
+                      "forall": false
+                    },
+                    "is_proof": false
+                  },
+                  {
+                    "name": "Q",
+                    "id": "_uniq.10",
+                    "type": {
+                      "text": "Prop",
+                      "head": "[anonymous]",
+                      "forall": false
+                    },
+                    "is_proof": false
+                  },
+                  {
+                    "name": "hq",
+                    "id": "_uniq.11",
+                    "type": {
+                      "text": "Q",
+                      "head": "[anonymous]",
+                      "forall": false
+                    },
+                    "is_proof": true
+                  }
+                ]
+              }
+            ]
+          },
+          "elapsed_s": 0.0005680950052919798,
+          "error": null,
+          "continuation": {
+            "status": "verified",
+            "termination": "verified",
+            "first_action": "right",
+            "prefix": [],
+            "nodes": [
+              {
+                "id": 0,
+                "parent": null,
+                "depth": 0,
+                "state": {
+                  "state_id": 2,
+                  "goals": [
+                    {
+                      "id": "_uniq.24",
+                      "target": {
+                        "text": "Q",
+                        "head": "[anonymous]",
+                        "forall": false
+                      },
+                      "hypotheses": [
+                        {
+                          "name": "P",
+                          "id": "_uniq.9",
+                          "type": {
+                            "text": "Prop",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "Q",
+                          "id": "_uniq.10",
+                          "type": {
+                            "text": "Prop",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "hq",
+                          "id": "_uniq.11",
+                          "type": {
+                            "text": "Q",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": true
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "tactic": null,
+                "category": null,
+                "lemma": null,
+                "provenance": null,
+                "reason": "Initial Lean goal",
+                "status": "root",
+                "error": null,
+                "elapsed_ms": 0,
+                "on_proof_path": true
+              },
+              {
+                "id": 1,
+                "parent": 0,
+                "depth": 1,
+                "state": {
+                  "state_id": 4,
+                  "goals": []
+                },
+                "tactic": "assumption",
+                "category": "goal",
+                "lemma": null,
+                "provenance": null,
+                "reason": "Initial Lean goal",
+                "status": "solved",
+                "error": null,
+                "elapsed_ms": 0.1102860042010434,
+                "on_proof_path": true
+              }
+            ],
+            "pools": [
+              {
+                "node_id": 0,
+                "generated": [
+                  {
+                    "tactic": "assumption",
+                    "category": "goal",
+                    "reason": "Match the goal against the local context",
+                    "prior": 10.0,
+                    "lemma": null,
+                    "provenance": null
+                  }
+                ],
+                "actual_order": [
+                  "assumption"
+                ]
+              }
+            ],
+            "proof": [
+              "right",
+              "assumption"
+            ],
+            "verification": {
+              "verified": true,
+              "axioms": [],
+              "error": null,
+              "elapsed_s": 1.8937420729998848,
+              "source_sha256": "3415c89112723726addc221e754419569ce8e4754239c011634fb190469f11d9"
+            },
+            "metrics": {
+              "attempted_candidates": 2,
+              "expanded_states": 1,
+              "proof_length": 2,
+              "suffix_length": 2,
+              "elapsed_s": 1.8947805049974704,
+              "lean_execution_s": 0.0006783810094930232,
+              "verification_s": 1.8937420729998848,
+              "search_s": 0.0010386319991084747,
+              "initial_action_s": 0.0005680950052919798
+            },
+            "label_policy": "Only verified-vs-verified cost differences are preferences; unresolved is censored"
+          },
+          "exploration": "bounded_rollout"
+        },
+        {
+          "candidate": {
+            "tactic": "assumption",
+            "category": "goal",
+            "reason": "Match the goal against the local context",
+            "prior": 10.0,
+            "lemma": null,
+            "provenance": null
+          },
+          "status": "invalid_candidate",
+          "successor": null,
+          "elapsed_s": 0.0008226380014093593,
+          "error": "Tactic `assumption` failed\n\nP Q : Prop\nhq : Q\n⊢ P ∨ Q",
+          "continuation": null,
+          "exploration": "not_selected"
+        }
+      ]
+    },
+    {
+      "task_id": "or_right",
+      "split": "development",
+      "domain": "logic",
+      "depth": 1,
+      "prefix": [
+        "right"
+      ],
+      "positive_tactic": "assumption",
+      "state": {
+        "state_id": 2,
+        "goals": [
+          {
+            "id": "_uniq.24",
+            "target": {
+              "text": "Q",
+              "head": "[anonymous]",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "P",
+                "id": "_uniq.9",
+                "type": {
+                  "text": "Prop",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "Q",
+                "id": "_uniq.10",
+                "type": {
+                  "text": "Prop",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "hq",
+                "id": "_uniq.11",
+                "type": {
+                  "text": "Q",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": true
+              }
+            ]
+          }
+        ]
+      },
+      "observations": [
+        {
+          "candidate": {
+            "tactic": "assumption",
+            "category": "goal",
+            "reason": "Match the goal against the local context",
+            "prior": 10.0,
+            "lemma": null,
+            "provenance": null
+          },
+          "status": "accepted",
+          "successor": {
+            "state_id": 3,
+            "goals": []
+          },
+          "elapsed_s": 0.0002198309957748279,
+          "error": null,
+          "continuation": null,
+          "exploration": "not_selected"
+        }
+      ]
+    }
+  ]
+}

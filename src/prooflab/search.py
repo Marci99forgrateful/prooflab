@@ -36,6 +36,7 @@ from prooflab.models import (
     Task,
     Trace,
 )
+from prooflab.outcome import MODELS, OutcomeRanking
 
 
 def metadata() -> dict[str, str]:
@@ -75,6 +76,7 @@ def search(
     cancel: Event | None = None,
     ranking: RankingPolicy | None = None,
     comparison_ranker: LearnedRanking | None = None,
+    comparison_outcome: OutcomeRanking | None = None,
 ) -> Trace:
     budget = budget or Budget()
     trace = Trace(task=task, algorithm=algorithm, budget=budget, metadata=metadata())
@@ -83,7 +85,8 @@ def search(
     policy: RankingPolicy = ranking or (
         HeuristicRanking() if algorithm in ("best_first", "learned") else UniformRanking()
     )
-    use_heap = algorithm in ("best_first", "learned")
+    outcome_algorithms = ("outcome", "applicability_only", "old_features_outcome")
+    use_heap = algorithm in ("best_first", "learned", *outcome_algorithms)
     fifo: deque[int] = deque([0])
     priority: list[tuple[float, int]] = [(0, 0)]
     prefixes: dict[int, tuple[str, ...]] = {0: ()}
@@ -93,6 +96,23 @@ def search(
         return max(0.001, deadline - time.monotonic())
 
     try:
+        if algorithm in outcome_algorithms:
+            if ranking is not None and not isinstance(ranking, OutcomeRanking):
+                raise ValueError("An outcome run requires an exported OutcomeRanking")
+            policy = (
+                ranking
+                if isinstance(ranking, OutcomeRanking)
+                else OutcomeRanking(MODELS / f"{algorithm}.json")
+            )
+            if policy.model.variant != algorithm:
+                raise ValueError("Outcome model variant differs from requested algorithm")
+            comparison_ranker = comparison_ranker or LearnedRanking()
+            comparison_outcome = comparison_outcome or policy
+            trace.metadata["policy_model_sha256"] = policy.model_hash
+        if comparison_outcome is not None:
+            trace.metadata["outcome_model_sha256"] = comparison_outcome.model_hash
+            trace.metadata["outcome_feature_version"] = comparison_outcome.model.feature_version
+            trace.metadata["outcome_lookahead_calls"] = "0: pre-execution features only"
         if algorithm == "learned":
             if ranking is not None and not isinstance(ranking, LearnedRanking):
                 raise ValueError("A learned run requires a genuinely trained LearnedRanking")
@@ -154,7 +174,7 @@ def search(
                 generated_order = {c.tactic: i for i, c in enumerate(candidates)}
                 ranking_tick = time.monotonic()
                 candidates = policy.rank_candidates(node.state, candidates)
-                if isinstance(policy, LearnedRanking):
+                if isinstance(policy, (LearnedRanking, OutcomeRanking)):
                     trace.metrics.model_inference_s += time.monotonic() - ranking_tick
                 if sorted(c.model_dump_json() for c in candidates) != availability:
                     raise ValueError("Ranking policy altered candidate availability")
@@ -172,6 +192,21 @@ def search(
                                     heuristic_score=c.prior,
                                     learned_score=comparison_ranker.score(node.state, c),
                                     contributions=comparison_ranker.contributions(node.state, c),
+                                    outcome_score=(
+                                        comparison_outcome.score(node.state, c)
+                                        if comparison_outcome is not None
+                                        else None
+                                    ),
+                                    outcome_contributions=(
+                                        comparison_outcome.contributions(node.state, c)
+                                        if comparison_outcome is not None
+                                        else []
+                                    ),
+                                    policy_score=(
+                                        policy.score(node.state, c)
+                                        if isinstance(policy, (LearnedRanking, OutcomeRanking))
+                                        else None
+                                    ),
                                 )
                                 for i, c in enumerate(candidates)
                             ],

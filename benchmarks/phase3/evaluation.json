@@ -1,0 +1,482 @@
+[
+  {
+    "id": "p3_or_chain",
+    "title": "Or chain",
+    "domain": "logic",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(P Q R S T : Prop) (hp : P) (pq : P → Q) (qr : Q → R) (rs : R → S) (pt : P → T)",
+    "target": "S ∨ T",
+    "display": "S ∨ T",
+    "description": "Phase 3 · disjunctive routes",
+    "origin": "Original Phase 3 statement; no mathematical novelty claimed.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "p3_or_dead_branch",
+    "title": "Or dead branch",
+    "domain": "logic",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(P Q R S T : Prop) (hp : P) (pq : P → Q) (qr : Q → R) (rt : R → T)",
+    "target": "S ∨ T",
+    "display": "S ∨ T",
+    "description": "Phase 3 · disjunctive routes",
+    "origin": "Original Phase 3 statement; no mathematical novelty claimed.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "p3_or_pair_routes",
+    "title": "Or pair routes",
+    "domain": "logic",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(P Q R S : Prop) (hp : P) (pq : P → Q) (qr : Q → R) (ps : P → S)",
+    "target": "(Q ∧ R) ∨ (P ∧ S)",
+    "display": "(Q ∧ R) ∨ (P ∧ S)",
+    "description": "Phase 3 · disjunctive routes",
+    "origin": "Original Phase 3 statement; no mathematical novelty claimed.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "p3_or_both_long",
+    "title": "Or both long",
+    "domain": "logic",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(P Q R S T U : Prop) (hp : P) (pq : P → Q) (qr : Q → R) (rs : R → S) (pt : P → T) (tu : T → U)",
+    "target": "(R ∧ S) ∨ U",
+    "display": "(R ∧ S) ∨ U",
+    "description": "Phase 3 · disjunctive routes",
+    "origin": "Original Phase 3 statement; no mathematical novelty claimed.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "p3_higher_pair",
+    "title": "Higher pair",
+    "domain": "logic",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(P Q R S : Prop) (hp : P) (hq : Q) (f : P ∧ Q → R) (g : R → S)",
+    "target": "S",
+    "display": "S",
+    "description": "Phase 3 · higher order routes",
+    "origin": "Original Phase 3 statement; no mathematical novelty claimed.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "p3_higher_cycle",
+    "title": "Higher cycle",
+    "domain": "logic",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(P Q R S : Prop) (hp : P) (f : P → Q) (g : Q → P) (k : Q ∧ P → R) (r : R → S)",
+    "target": "S ∧ Q",
+    "display": "S ∧ Q",
+    "description": "Phase 3 · higher order routes",
+    "origin": "Original Phase 3 statement; no mathematical novelty claimed.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "p3_higher_discharge",
+    "title": "Higher discharge",
+    "domain": "logic",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(P Q R S : Prop) (f : (P → Q) → R) (g : R → S) (hq : Q)",
+    "target": "S",
+    "display": "S",
+    "description": "Phase 3 · higher order routes",
+    "origin": "Original Phase 3 statement; no mathematical novelty claimed.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "p3_higher_nested",
+    "title": "Higher nested",
+    "domain": "logic",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(P Q R S T : Prop) (hp : P) (hq : Q) (f : P ∧ Q → R) (g : R ∧ Q → S) (h : S → T)",
+    "target": "T",
+    "display": "T",
+    "description": "Phase 3 · higher order routes",
+    "origin": "Original Phase 3 statement; no mathematical novelty claimed.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "p3_relation_shortcut",
+    "title": "Relation shortcut",
+    "domain": "order",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(α : Type) (R : α → α → Prop) (a b c d : α) (ab : R a b) (bc : R b c) (cd : R c d) (ac : R a c) (tr : ∀ x y z, R x y → R y z → R x z)",
+    "target": "R a d",
+    "display": "R a d",
+    "description": "Phase 3 · relational diamonds",
+    "origin": "Original Phase 3 statement; no mathematical novelty claimed.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "p3_relation_fork",
+    "title": "Relation fork",
+    "domain": "order",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(α : Type) (R : α → α → Prop) (a b c d e : α) (ab : R a b) (bc : R b c) (ce : R c e) (ad : R a d) (de : R d e) (tr : ∀ x y z, R x y → R y z → R x z)",
+    "target": "R a e",
+    "display": "R a e",
+    "description": "Phase 3 · relational diamonds",
+    "origin": "Original Phase 3 statement; no mathematical novelty claimed.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "p3_relation_reverse",
+    "title": "Relation reverse",
+    "domain": "order",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(α : Type) (R : α → α → Prop) (a b c : α) (ab : R a b) (bc : R b c) (sym : ∀ x y, R x y → R y x) (tr : ∀ x y z, R x y → R y z → R x z)",
+    "target": "R c a",
+    "display": "R c a",
+    "description": "Phase 3 · relational diamonds",
+    "origin": "Original Phase 3 statement; no mathematical novelty claimed.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "p3_relation_pair",
+    "title": "Relation pair",
+    "domain": "order",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(α : Type) (R : α → α → Prop) (a b c d : α) (ab : R a b) (bc : R b c) (cd : R c d) (tr : ∀ x y z, R x y → R y z → R x z)",
+    "target": "R a c ∧ R a d",
+    "display": "R a c ∧ R a d",
+    "description": "Phase 3 · relational diamonds",
+    "origin": "Original Phase 3 statement; no mathematical novelty claimed.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "p3_order_square",
+    "title": "Order square",
+    "domain": "order",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(α : Type) [PartialOrder α] (a b c d : α) (ab : a ≤ b) (bc : b ≤ c) (cd : c ≤ d) (da : d ≤ a)",
+    "target": "a = d ∧ b = c",
+    "display": "a = d ∧ b = c",
+    "description": "Phase 3 · ordered route products",
+    "origin": "Original Phase 3 statement; no mathematical novelty claimed.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "p3_order_guard",
+    "title": "Order guard",
+    "domain": "order",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(α : Type) [PartialOrder α] (a b c d e : α) (ab : a ≤ b) (bc : b < c) (cd : c ≤ d) (de : d ≤ e)",
+    "target": "a < e",
+    "display": "a < e",
+    "description": "Phase 3 · ordered route products",
+    "origin": "Original Phase 3 statement; no mathematical novelty claimed.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "p3_order_routes",
+    "title": "Order routes",
+    "domain": "order",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(α : Type) [PartialOrder α] (a b c d e : α) (ab : a ≤ b) (bc : b ≤ c) (cd : c ≤ d) (ae : a ≤ e) (ed : e ≤ d)",
+    "target": "a ≤ d ∧ a ≤ c",
+    "display": "a ≤ d ∧ a ≤ c",
+    "description": "Phase 3 · ordered route products",
+    "origin": "Original Phase 3 statement; no mathematical novelty claimed.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "p3_order_cycle_product",
+    "title": "Order cycle product",
+    "domain": "order",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(α : Type) [PartialOrder α] (a b c d : α) (ab : a ≤ b) (bc : b ≤ c) (ca : c ≤ a) (cd : c ≤ d)",
+    "target": "a = b ∧ a ≤ d",
+    "display": "a = b ∧ a ≤ d",
+    "description": "Phase 3 · ordered route products",
+    "origin": "Original Phase 3 statement; no mathematical novelty claimed.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "p3_monoid_chain",
+    "title": "Monoid chain",
+    "domain": "algebra",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(M : Type) [Monoid M] (a b c d : M) (h : a = b) (k : b = c)",
+    "target": "(a * d) * 1 = c * d",
+    "display": "(a * d) * 1 = c * d",
+    "description": "Phase 3 · noncommutative rewrite routes",
+    "origin": "Original Phase 3 statement; no mathematical novelty claimed.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "p3_monoid_reverse",
+    "title": "Monoid reverse",
+    "domain": "algebra",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(M : Type) [Monoid M] (a b c d : M) (h : b = a) (k : c = b)",
+    "target": "a * (d * 1) = c * d",
+    "display": "a * (d * 1) = c * d",
+    "description": "Phase 3 · noncommutative rewrite routes",
+    "origin": "Original Phase 3 statement; no mathematical novelty claimed.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "p3_monoid_three",
+    "title": "Monoid three",
+    "domain": "algebra",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(M : Type) [Monoid M] (a b c d e : M) (h : a = b) (k : b = c) (l : c = d)",
+    "target": "(1 * a) * e = d * e",
+    "display": "(1 * a) * e = d * e",
+    "description": "Phase 3 · noncommutative rewrite routes",
+    "origin": "Original Phase 3 statement; no mathematical novelty claimed.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "p3_monoid_distractor",
+    "title": "Monoid distractor",
+    "domain": "algebra",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(M : Type) [Monoid M] (a b c d : M) (h : a = b) (k : b = c) (decoy : d = a)",
+    "target": "(a * c) * 1 = b * c",
+    "display": "(a * c) * 1 = b * c",
+    "description": "Phase 3 · noncommutative rewrite routes",
+    "origin": "Original Phase 3 statement; no mathematical novelty claimed.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "p3_ring_chain",
+    "title": "Ring chain",
+    "domain": "algebra",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(K : Type) [CommRing K] (a b c x : K) (h : a = b) (k : b = c)",
+    "target": "(a+x)^2 = c^2 + 2*c*x + x^2",
+    "display": "(a+x)^2 = c^2 + 2*c*x + x^2",
+    "description": "Phase 3 · contextual polynomial routes",
+    "origin": "Original Phase 3 statement; no mathematical novelty claimed.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "p3_ring_reverse",
+    "title": "Ring reverse",
+    "domain": "algebra",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(K : Type) [CommRing K] (a b c x : K) (h : b = a) (k : c = b)",
+    "target": "(a-x)*(a+x) = c^2-x^2",
+    "display": "(a-x)*(a+x) = c^2-x^2",
+    "description": "Phase 3 · contextual polynomial routes",
+    "origin": "Original Phase 3 statement; no mathematical novelty claimed.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "p3_ring_two_equalities",
+    "title": "Ring two equalities",
+    "domain": "algebra",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(K : Type) [CommRing K] (a b x y : K) (h : a = b) (k : x = y)",
+    "target": "(a+x)^2 = b^2+2*b*y+y^2",
+    "display": "(a+x)^2 = b^2+2*b*y+y^2",
+    "description": "Phase 3 · contextual polynomial routes",
+    "origin": "Original Phase 3 statement; no mathematical novelty claimed.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "p3_ring_product_pair",
+    "title": "Ring product pair",
+    "domain": "algebra",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(K : Type) [CommRing K] (a b x : K) (h : a = b)",
+    "target": "((a+x)^2 = b^2+2*b*x+x^2) ∧ ((a-x)*(a+x) = b^2-x^2)",
+    "display": "((a+x)^2 = b^2+2*b*x+x^2) ∧ ((a-x)*(a+x) = b^2-x^2)",
+    "description": "Phase 3 · contextual polynomial routes",
+    "origin": "Original Phase 3 statement; no mathematical novelty claimed.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "p3_set_nested_left",
+    "title": "Set nested left",
+    "domain": "sets",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(α : Type) (A B C D : Set α) (ab : A ⊆ B) (bc : B ⊆ C)",
+    "target": "(A ∩ D) ∩ B ⊆ C ∩ D",
+    "display": "(A ∩ D) ∩ B ⊆ C ∩ D",
+    "description": "Phase 3 · nested set routes",
+    "origin": "Original Phase 3 statement; no mathematical novelty claimed.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "p3_set_choice",
+    "title": "Set choice",
+    "domain": "sets",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(α : Type) (A B C D : Set α) (ab : A ⊆ B) (bc : B ⊆ C) (ad : A ⊆ D)",
+    "target": "A ⊆ (C ∩ D) ∪ B",
+    "display": "A ⊆ (C ∩ D) ∪ B",
+    "description": "Phase 3 · nested set routes",
+    "origin": "Original Phase 3 statement; no mathematical novelty claimed.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "p3_set_join_elimination",
+    "title": "Set join elimination",
+    "domain": "sets",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(α : Type) (A B C D : Set α) (ac : A ⊆ C) (bc : B ⊆ C) (cd : C ⊆ D)",
+    "target": "A ∪ B ⊆ D",
+    "display": "A ∪ B ⊆ D",
+    "description": "Phase 3 · nested set routes",
+    "origin": "Original Phase 3 statement; no mathematical novelty claimed.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "p3_set_join_product",
+    "title": "Set join product",
+    "domain": "sets",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(α : Type) (A B C D : Set α) (ac : A ⊆ C) (bc : B ⊆ C) (ad : A ⊆ D) (bd : B ⊆ D)",
+    "target": "A ∪ B ⊆ C ∩ D",
+    "display": "A ∪ B ⊆ C ∩ D",
+    "description": "Phase 3 · nested set routes",
+    "origin": "Original Phase 3 statement; no mathematical novelty claimed.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "p3_set_diff_chain",
+    "title": "Set diff chain",
+    "domain": "sets",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(α : Type) (A B C D : Set α) (ab : A ⊆ B) (bc : B ⊆ C)",
+    "target": "A \\ D ⊆ C \\ D",
+    "display": "A \\ D ⊆ C \\ D",
+    "description": "Phase 3 · set exclusion routes",
+    "origin": "Original Phase 3 statement; no mathematical novelty claimed.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "p3_set_complement_product",
+    "title": "Set complement product",
+    "domain": "sets",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(α : Type) (A B C : Set α)",
+    "target": "A ∩ Bᶜ ∩ Cᶜ ⊆ A \\ (B ∪ C)",
+    "display": "A ∩ Bᶜ ∩ Cᶜ ⊆ A \\ (B ∪ C)",
+    "description": "Phase 3 · set exclusion routes",
+    "origin": "Original Phase 3 statement; no mathematical novelty claimed.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "p3_set_diff_nested",
+    "title": "Set diff nested",
+    "domain": "sets",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(α : Type) (A B C D : Set α) (ab : A ⊆ B)",
+    "target": "(A \\ C) ∩ D ⊆ (B ∩ D) \\ C",
+    "display": "(A \\ C) ∩ D ⊆ (B ∩ D) \\ C",
+    "description": "Phase 3 · set exclusion routes",
+    "origin": "Original Phase 3 statement; no mathematical novelty claimed.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  },
+  {
+    "id": "p3_set_excluded_join",
+    "title": "Set excluded join",
+    "domain": "sets",
+    "difficulty": "challenge",
+    "split": "held_out",
+    "binders": "(α : Type) (A B C D : Set α) (ad : A ⊆ D) (bd : B ⊆ D)",
+    "target": "(A \\ C) ∪ (B \\ C) ⊆ D \\ C",
+    "display": "(A \\ C) ∪ (B \\ C) ⊆ D \\ C",
+    "description": "Phase 3 · set exclusion routes",
+    "origin": "Original Phase 3 statement; no mathematical novelty claimed.",
+    "forbidden_lemmas": [
+      "prooflab_result"
+    ]
+  }
+]

@@ -1,0 +1,2786 @@
+{
+  "task_id": "and_swap",
+  "split": "development",
+  "domain": "logic",
+  "demonstration_trace": "experiments/phase1-v3/traces/and_swap--best_first.json",
+  "demonstration_sha256": "d6a421c0c9543d318ae53117dc905a5f50b53e70733f1840e42038797bb28553",
+  "source_verification": {
+    "verified": true,
+    "axioms": [],
+    "error": null,
+    "elapsed_s": 1.8138384490011958,
+    "source_sha256": "f9c75de7b4bbbab35604953fffdce62322da36496eba9092d05dde053fa86c8d"
+  },
+  "states": [
+    {
+      "task_id": "and_swap",
+      "split": "development",
+      "domain": "logic",
+      "depth": 0,
+      "prefix": [],
+      "positive_tactic": "constructor",
+      "state": {
+        "state_id": 0,
+        "goals": [
+          {
+            "id": "_uniq.12",
+            "target": {
+              "text": "Q ∧ P",
+              "head": "And",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "P",
+                "id": "_uniq.9",
+                "type": {
+                  "text": "Prop",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "Q",
+                "id": "_uniq.10",
+                "type": {
+                  "text": "Prop",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "h",
+                "id": "_uniq.11",
+                "type": {
+                  "text": "P ∧ Q",
+                  "head": "And",
+                  "forall": false
+                },
+                "is_proof": true
+              }
+            ]
+          }
+        ]
+      },
+      "observations": [
+        {
+          "candidate": {
+            "tactic": "constructor",
+            "category": "goal",
+            "reason": "Split the goal into its components",
+            "prior": 8.0,
+            "lemma": null,
+            "provenance": null
+          },
+          "status": "accepted",
+          "successor": {
+            "state_id": 1,
+            "goals": [
+              {
+                "id": "_uniq.19",
+                "target": {
+                  "text": "Q",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "hypotheses": [
+                  {
+                    "name": "P",
+                    "id": "_uniq.9",
+                    "type": {
+                      "text": "Prop",
+                      "head": "[anonymous]",
+                      "forall": false
+                    },
+                    "is_proof": false
+                  },
+                  {
+                    "name": "Q",
+                    "id": "_uniq.10",
+                    "type": {
+                      "text": "Prop",
+                      "head": "[anonymous]",
+                      "forall": false
+                    },
+                    "is_proof": false
+                  },
+                  {
+                    "name": "h",
+                    "id": "_uniq.11",
+                    "type": {
+                      "text": "P ∧ Q",
+                      "head": "And",
+                      "forall": false
+                    },
+                    "is_proof": true
+                  }
+                ]
+              },
+              {
+                "id": "_uniq.20",
+                "target": {
+                  "text": "P",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "hypotheses": [
+                  {
+                    "name": "P",
+                    "id": "_uniq.9",
+                    "type": {
+                      "text": "Prop",
+                      "head": "[anonymous]",
+                      "forall": false
+                    },
+                    "is_proof": false
+                  },
+                  {
+                    "name": "Q",
+                    "id": "_uniq.10",
+                    "type": {
+                      "text": "Prop",
+                      "head": "[anonymous]",
+                      "forall": false
+                    },
+                    "is_proof": false
+                  },
+                  {
+                    "name": "h",
+                    "id": "_uniq.11",
+                    "type": {
+                      "text": "P ∧ Q",
+                      "head": "And",
+                      "forall": false
+                    },
+                    "is_proof": true
+                  }
+                ]
+              }
+            ]
+          },
+          "elapsed_s": 0.0022390439989976585,
+          "error": null,
+          "continuation": {
+            "status": "verified",
+            "termination": "verified",
+            "first_action": "constructor",
+            "prefix": [],
+            "nodes": [
+              {
+                "id": 0,
+                "parent": null,
+                "depth": 0,
+                "state": {
+                  "state_id": 1,
+                  "goals": [
+                    {
+                      "id": "_uniq.19",
+                      "target": {
+                        "text": "Q",
+                        "head": "[anonymous]",
+                        "forall": false
+                      },
+                      "hypotheses": [
+                        {
+                          "name": "P",
+                          "id": "_uniq.9",
+                          "type": {
+                            "text": "Prop",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "Q",
+                          "id": "_uniq.10",
+                          "type": {
+                            "text": "Prop",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "h",
+                          "id": "_uniq.11",
+                          "type": {
+                            "text": "P ∧ Q",
+                            "head": "And",
+                            "forall": false
+                          },
+                          "is_proof": true
+                        }
+                      ]
+                    },
+                    {
+                      "id": "_uniq.20",
+                      "target": {
+                        "text": "P",
+                        "head": "[anonymous]",
+                        "forall": false
+                      },
+                      "hypotheses": [
+                        {
+                          "name": "P",
+                          "id": "_uniq.9",
+                          "type": {
+                            "text": "Prop",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "Q",
+                          "id": "_uniq.10",
+                          "type": {
+                            "text": "Prop",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "h",
+                          "id": "_uniq.11",
+                          "type": {
+                            "text": "P ∧ Q",
+                            "head": "And",
+                            "forall": false
+                          },
+                          "is_proof": true
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "tactic": null,
+                "category": null,
+                "lemma": null,
+                "provenance": null,
+                "reason": "Initial Lean goal",
+                "status": "root",
+                "error": null,
+                "elapsed_ms": 0,
+                "on_proof_path": true
+              },
+              {
+                "id": 1,
+                "parent": 0,
+                "depth": 1,
+                "state": null,
+                "tactic": "assumption",
+                "category": "goal",
+                "lemma": null,
+                "provenance": null,
+                "reason": "Initial Lean goal",
+                "status": "rejected",
+                "error": "Tactic `assumption` failed\n\ncase left\nP Q : Prop\nh : P ∧ Q\n⊢ Q",
+                "elapsed_ms": 0.34658200456760824,
+                "on_proof_path": false
+              },
+              {
+                "id": 2,
+                "parent": 0,
+                "depth": 1,
+                "state": null,
+                "tactic": "exact h.1",
+                "category": "hypothesis",
+                "lemma": null,
+                "provenance": null,
+                "reason": "Initial Lean goal",
+                "status": "rejected",
+                "error": "Type mismatch\n  h.left\nhas type\n  P\nbut is expected to have type\n  Q",
+                "elapsed_ms": 0.400862998503726,
+                "on_proof_path": false
+              },
+              {
+                "id": 3,
+                "parent": 0,
+                "depth": 1,
+                "state": {
+                  "state_id": 9,
+                  "goals": [
+                    {
+                      "id": "_uniq.20",
+                      "target": {
+                        "text": "P",
+                        "head": "[anonymous]",
+                        "forall": false
+                      },
+                      "hypotheses": [
+                        {
+                          "name": "P",
+                          "id": "_uniq.9",
+                          "type": {
+                            "text": "Prop",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "Q",
+                          "id": "_uniq.10",
+                          "type": {
+                            "text": "Prop",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "h",
+                          "id": "_uniq.11",
+                          "type": {
+                            "text": "P ∧ Q",
+                            "head": "And",
+                            "forall": false
+                          },
+                          "is_proof": true
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "tactic": "exact h.2",
+                "category": "hypothesis",
+                "lemma": null,
+                "provenance": null,
+                "reason": "Initial Lean goal",
+                "status": "accepted",
+                "error": null,
+                "elapsed_ms": 0.4102480015717447,
+                "on_proof_path": true
+              },
+              {
+                "id": 4,
+                "parent": 0,
+                "depth": 1,
+                "state": null,
+                "tactic": "apply h.1",
+                "category": "hypothesis",
+                "lemma": null,
+                "provenance": null,
+                "reason": "Initial Lean goal",
+                "status": "rejected",
+                "error": "Tactic `apply` failed: could not unify the type of `h.left`\n  P\nwith the goal\n  Q\n\ncase left\nP Q : Prop\nh : P ∧ Q\n⊢ Q",
+                "elapsed_ms": 0.6101190010667779,
+                "on_proof_path": false
+              },
+              {
+                "id": 5,
+                "parent": 0,
+                "depth": 1,
+                "state": {
+                  "state_id": 10,
+                  "goals": [
+                    {
+                      "id": "_uniq.20",
+                      "target": {
+                        "text": "P",
+                        "head": "[anonymous]",
+                        "forall": false
+                      },
+                      "hypotheses": [
+                        {
+                          "name": "P",
+                          "id": "_uniq.9",
+                          "type": {
+                            "text": "Prop",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "Q",
+                          "id": "_uniq.10",
+                          "type": {
+                            "text": "Prop",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "h",
+                          "id": "_uniq.11",
+                          "type": {
+                            "text": "P ∧ Q",
+                            "head": "And",
+                            "forall": false
+                          },
+                          "is_proof": true
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "tactic": "apply h.2",
+                "category": "hypothesis",
+                "lemma": null,
+                "provenance": null,
+                "reason": "Initial Lean goal",
+                "status": "accepted",
+                "error": null,
+                "elapsed_ms": 0.5618860013782978,
+                "on_proof_path": false
+              },
+              {
+                "id": 6,
+                "parent": 0,
+                "depth": 1,
+                "state": {
+                  "state_id": 11,
+                  "goals": [
+                    {
+                      "id": "_uniq.127",
+                      "target": {
+                        "text": "Q",
+                        "head": "[anonymous]",
+                        "forall": false
+                      },
+                      "hypotheses": [
+                        {
+                          "name": "P",
+                          "id": "_uniq.9",
+                          "type": {
+                            "text": "Prop",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "Q",
+                          "id": "_uniq.10",
+                          "type": {
+                            "text": "Prop",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "h0",
+                          "id": "_uniq.125",
+                          "type": {
+                            "text": "P",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": true
+                        },
+                        {
+                          "name": "h1",
+                          "id": "_uniq.126",
+                          "type": {
+                            "text": "Q",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": true
+                        }
+                      ]
+                    },
+                    {
+                      "id": "_uniq.20",
+                      "target": {
+                        "text": "P",
+                        "head": "[anonymous]",
+                        "forall": false
+                      },
+                      "hypotheses": [
+                        {
+                          "name": "P",
+                          "id": "_uniq.9",
+                          "type": {
+                            "text": "Prop",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "Q",
+                          "id": "_uniq.10",
+                          "type": {
+                            "text": "Prop",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "h",
+                          "id": "_uniq.11",
+                          "type": {
+                            "text": "P ∧ Q",
+                            "head": "And",
+                            "forall": false
+                          },
+                          "is_proof": true
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "tactic": "rcases h with ⟨h0, h1⟩",
+                "category": "hypothesis",
+                "lemma": null,
+                "provenance": null,
+                "reason": "Initial Lean goal",
+                "status": "accepted",
+                "error": null,
+                "elapsed_ms": 0.7183509951573797,
+                "on_proof_path": false
+              },
+              {
+                "id": 7,
+                "parent": 3,
+                "depth": 2,
+                "state": null,
+                "tactic": "assumption",
+                "category": "goal",
+                "lemma": null,
+                "provenance": null,
+                "reason": "Initial Lean goal",
+                "status": "rejected",
+                "error": "Tactic `assumption` failed\n\ncase right\nP Q : Prop\nh : P ∧ Q\n⊢ P",
+                "elapsed_ms": 0.4450900014489889,
+                "on_proof_path": false
+              },
+              {
+                "id": 8,
+                "parent": 3,
+                "depth": 2,
+                "state": {
+                  "state_id": 12,
+                  "goals": []
+                },
+                "tactic": "exact h.1",
+                "category": "hypothesis",
+                "lemma": null,
+                "provenance": null,
+                "reason": "Initial Lean goal",
+                "status": "solved",
+                "error": null,
+                "elapsed_ms": 0.2523299990571104,
+                "on_proof_path": true
+              }
+            ],
+            "pools": [
+              {
+                "node_id": 0,
+                "generated": [
+                  {
+                    "tactic": "assumption",
+                    "category": "goal",
+                    "reason": "Match the goal against the local context",
+                    "prior": 10.0,
+                    "lemma": null,
+                    "provenance": null
+                  },
+                  {
+                    "tactic": "exact h.1",
+                    "category": "hypothesis",
+                    "reason": "Project component 1",
+                    "prior": 8.0,
+                    "lemma": null,
+                    "provenance": null
+                  },
+                  {
+                    "tactic": "apply h.1",
+                    "category": "hypothesis",
+                    "reason": "Apply a conjunction component",
+                    "prior": 5.0,
+                    "lemma": null,
+                    "provenance": null
+                  },
+                  {
+                    "tactic": "exact h.2",
+                    "category": "hypothesis",
+                    "reason": "Project component 2",
+                    "prior": 8.0,
+                    "lemma": null,
+                    "provenance": null
+                  },
+                  {
+                    "tactic": "apply h.2",
+                    "category": "hypothesis",
+                    "reason": "Apply a conjunction component",
+                    "prior": 5.0,
+                    "lemma": null,
+                    "provenance": null
+                  },
+                  {
+                    "tactic": "rcases h with ⟨h0, h1⟩",
+                    "category": "hypothesis",
+                    "reason": "Eliminate a structured hypothesis with fresh explicit names",
+                    "prior": 4.0,
+                    "lemma": null,
+                    "provenance": null
+                  }
+                ],
+                "actual_order": [
+                  "assumption",
+                  "exact h.1",
+                  "exact h.2",
+                  "apply h.1",
+                  "apply h.2",
+                  "rcases h with ⟨h0, h1⟩"
+                ]
+              },
+              {
+                "node_id": 3,
+                "generated": [
+                  {
+                    "tactic": "assumption",
+                    "category": "goal",
+                    "reason": "Match the goal against the local context",
+                    "prior": 10.0,
+                    "lemma": null,
+                    "provenance": null
+                  },
+                  {
+                    "tactic": "exact h.1",
+                    "category": "hypothesis",
+                    "reason": "Project component 1",
+                    "prior": 8.0,
+                    "lemma": null,
+                    "provenance": null
+                  },
+                  {
+                    "tactic": "apply h.1",
+                    "category": "hypothesis",
+                    "reason": "Apply a conjunction component",
+                    "prior": 5.0,
+                    "lemma": null,
+                    "provenance": null
+                  },
+                  {
+                    "tactic": "exact h.2",
+                    "category": "hypothesis",
+                    "reason": "Project component 2",
+                    "prior": 8.0,
+                    "lemma": null,
+                    "provenance": null
+                  },
+                  {
+                    "tactic": "apply h.2",
+                    "category": "hypothesis",
+                    "reason": "Apply a conjunction component",
+                    "prior": 5.0,
+                    "lemma": null,
+                    "provenance": null
+                  },
+                  {
+                    "tactic": "rcases h with ⟨h0, h1⟩",
+                    "category": "hypothesis",
+                    "reason": "Eliminate a structured hypothesis with fresh explicit names",
+                    "prior": 4.0,
+                    "lemma": null,
+                    "provenance": null
+                  }
+                ],
+                "actual_order": [
+                  "assumption",
+                  "exact h.1",
+                  "exact h.2",
+                  "apply h.1",
+                  "apply h.2",
+                  "rcases h with ⟨h0, h1⟩"
+                ]
+              }
+            ],
+            "proof": [
+              "constructor",
+              "exact h.2",
+              "exact h.1"
+            ],
+            "verification": {
+              "verified": true,
+              "axioms": [],
+              "error": null,
+              "elapsed_s": 1.7580832969979383,
+              "source_sha256": "f9c75de7b4bbbab35604953fffdce62322da36496eba9092d05dde053fa86c8d"
+            },
+            "metrics": {
+              "attempted_candidates": 9,
+              "expanded_states": 2,
+              "proof_length": 3,
+              "suffix_length": 3,
+              "elapsed_s": 1.7630143179994775,
+              "lean_execution_s": 0.005984513001749292,
+              "verification_s": 1.7580832969979383,
+              "search_s": 0.004931822004436981,
+              "initial_action_s": 0.0022390439989976585
+            },
+            "label_policy": "Only verified-vs-verified cost differences are preferences; unresolved is censored"
+          },
+          "exploration": "bounded_rollout"
+        },
+        {
+          "candidate": {
+            "tactic": "assumption",
+            "category": "goal",
+            "reason": "Match the goal against the local context",
+            "prior": 10.0,
+            "lemma": null,
+            "provenance": null
+          },
+          "status": "invalid_candidate",
+          "successor": null,
+          "elapsed_s": 0.0008042549961828627,
+          "error": "Tactic `assumption` failed\n\nP Q : Prop\nh : P ∧ Q\n⊢ Q ∧ P",
+          "continuation": null,
+          "exploration": "not_selected"
+        },
+        {
+          "candidate": {
+            "tactic": "exact h.1",
+            "category": "hypothesis",
+            "reason": "Project component 1",
+            "prior": 8.0,
+            "lemma": null,
+            "provenance": null
+          },
+          "status": "invalid_candidate",
+          "successor": null,
+          "elapsed_s": 0.0009115419961744919,
+          "error": "Type mismatch\n  h.left\nhas type\n  P\nbut is expected to have type\n  Q ∧ P",
+          "continuation": null,
+          "exploration": "not_selected"
+        },
+        {
+          "candidate": {
+            "tactic": "apply h.1",
+            "category": "hypothesis",
+            "reason": "Apply a conjunction component",
+            "prior": 5.0,
+            "lemma": null,
+            "provenance": null
+          },
+          "status": "invalid_candidate",
+          "successor": null,
+          "elapsed_s": 0.0007543700048699975,
+          "error": "Tactic `apply` failed: could not unify the type of `h.left`\n  P\nwith the goal\n  Q ∧ P\n\nP Q : Prop\nh : P ∧ Q\n⊢ Q ∧ P",
+          "continuation": null,
+          "exploration": "not_selected"
+        },
+        {
+          "candidate": {
+            "tactic": "exact h.2",
+            "category": "hypothesis",
+            "reason": "Project component 2",
+            "prior": 8.0,
+            "lemma": null,
+            "provenance": null
+          },
+          "status": "invalid_candidate",
+          "successor": null,
+          "elapsed_s": 0.0005375789987738244,
+          "error": "Type mismatch\n  h.right\nhas type\n  Q\nbut is expected to have type\n  Q ∧ P",
+          "continuation": null,
+          "exploration": "not_selected"
+        },
+        {
+          "candidate": {
+            "tactic": "apply h.2",
+            "category": "hypothesis",
+            "reason": "Apply a conjunction component",
+            "prior": 5.0,
+            "lemma": null,
+            "provenance": null
+          },
+          "status": "invalid_candidate",
+          "successor": null,
+          "elapsed_s": 0.0008662839973112568,
+          "error": "Tactic `apply` failed: could not unify the type of `h.right`\n  Q\nwith the goal\n  Q ∧ P\n\nP Q : Prop\nh : P ∧ Q\n⊢ Q ∧ P",
+          "continuation": null,
+          "exploration": "not_selected"
+        },
+        {
+          "candidate": {
+            "tactic": "rcases h with ⟨h0, h1⟩",
+            "category": "hypothesis",
+            "reason": "Eliminate a structured hypothesis with fresh explicit names",
+            "prior": 4.0,
+            "lemma": null,
+            "provenance": null
+          },
+          "status": "accepted",
+          "successor": {
+            "state_id": 2,
+            "goals": [
+              {
+                "id": "_uniq.46",
+                "target": {
+                  "text": "Q ∧ P",
+                  "head": "And",
+                  "forall": false
+                },
+                "hypotheses": [
+                  {
+                    "name": "P",
+                    "id": "_uniq.9",
+                    "type": {
+                      "text": "Prop",
+                      "head": "[anonymous]",
+                      "forall": false
+                    },
+                    "is_proof": false
+                  },
+                  {
+                    "name": "Q",
+                    "id": "_uniq.10",
+                    "type": {
+                      "text": "Prop",
+                      "head": "[anonymous]",
+                      "forall": false
+                    },
+                    "is_proof": false
+                  },
+                  {
+                    "name": "h0",
+                    "id": "_uniq.44",
+                    "type": {
+                      "text": "P",
+                      "head": "[anonymous]",
+                      "forall": false
+                    },
+                    "is_proof": true
+                  },
+                  {
+                    "name": "h1",
+                    "id": "_uniq.45",
+                    "type": {
+                      "text": "Q",
+                      "head": "[anonymous]",
+                      "forall": false
+                    },
+                    "is_proof": true
+                  }
+                ]
+              }
+            ]
+          },
+          "elapsed_s": 0.0011212570025236346,
+          "error": null,
+          "continuation": {
+            "status": "verified",
+            "termination": "verified",
+            "first_action": "rcases h with ⟨h0, h1⟩",
+            "prefix": [],
+            "nodes": [
+              {
+                "id": 0,
+                "parent": null,
+                "depth": 0,
+                "state": {
+                  "state_id": 2,
+                  "goals": [
+                    {
+                      "id": "_uniq.46",
+                      "target": {
+                        "text": "Q ∧ P",
+                        "head": "And",
+                        "forall": false
+                      },
+                      "hypotheses": [
+                        {
+                          "name": "P",
+                          "id": "_uniq.9",
+                          "type": {
+                            "text": "Prop",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "Q",
+                          "id": "_uniq.10",
+                          "type": {
+                            "text": "Prop",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "h0",
+                          "id": "_uniq.44",
+                          "type": {
+                            "text": "P",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": true
+                        },
+                        {
+                          "name": "h1",
+                          "id": "_uniq.45",
+                          "type": {
+                            "text": "Q",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": true
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "tactic": null,
+                "category": null,
+                "lemma": null,
+                "provenance": null,
+                "reason": "Initial Lean goal",
+                "status": "root",
+                "error": null,
+                "elapsed_ms": 0,
+                "on_proof_path": true
+              },
+              {
+                "id": 1,
+                "parent": 0,
+                "depth": 1,
+                "state": null,
+                "tactic": "assumption",
+                "category": "goal",
+                "lemma": null,
+                "provenance": null,
+                "reason": "Initial Lean goal",
+                "status": "rejected",
+                "error": "Tactic `assumption` failed\n\nP Q : Prop\nh0 : P\nh1 : Q\n⊢ Q ∧ P",
+                "elapsed_ms": 1.2066159979440272,
+                "on_proof_path": false
+              },
+              {
+                "id": 2,
+                "parent": 0,
+                "depth": 1,
+                "state": {
+                  "state_id": 13,
+                  "goals": [
+                    {
+                      "id": "_uniq.137",
+                      "target": {
+                        "text": "Q",
+                        "head": "[anonymous]",
+                        "forall": false
+                      },
+                      "hypotheses": [
+                        {
+                          "name": "P",
+                          "id": "_uniq.9",
+                          "type": {
+                            "text": "Prop",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "Q",
+                          "id": "_uniq.10",
+                          "type": {
+                            "text": "Prop",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "h0",
+                          "id": "_uniq.44",
+                          "type": {
+                            "text": "P",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": true
+                        },
+                        {
+                          "name": "h1",
+                          "id": "_uniq.45",
+                          "type": {
+                            "text": "Q",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": true
+                        }
+                      ]
+                    },
+                    {
+                      "id": "_uniq.138",
+                      "target": {
+                        "text": "P",
+                        "head": "[anonymous]",
+                        "forall": false
+                      },
+                      "hypotheses": [
+                        {
+                          "name": "P",
+                          "id": "_uniq.9",
+                          "type": {
+                            "text": "Prop",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "Q",
+                          "id": "_uniq.10",
+                          "type": {
+                            "text": "Prop",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "h0",
+                          "id": "_uniq.44",
+                          "type": {
+                            "text": "P",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": true
+                        },
+                        {
+                          "name": "h1",
+                          "id": "_uniq.45",
+                          "type": {
+                            "text": "Q",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": true
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "tactic": "constructor",
+                "category": "goal",
+                "lemma": null,
+                "provenance": null,
+                "reason": "Initial Lean goal",
+                "status": "accepted",
+                "error": null,
+                "elapsed_ms": 0.5568979977397248,
+                "on_proof_path": true
+              },
+              {
+                "id": 3,
+                "parent": 2,
+                "depth": 2,
+                "state": {
+                  "state_id": 14,
+                  "goals": [
+                    {
+                      "id": "_uniq.138",
+                      "target": {
+                        "text": "P",
+                        "head": "[anonymous]",
+                        "forall": false
+                      },
+                      "hypotheses": [
+                        {
+                          "name": "P",
+                          "id": "_uniq.9",
+                          "type": {
+                            "text": "Prop",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "Q",
+                          "id": "_uniq.10",
+                          "type": {
+                            "text": "Prop",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "h0",
+                          "id": "_uniq.44",
+                          "type": {
+                            "text": "P",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": true
+                        },
+                        {
+                          "name": "h1",
+                          "id": "_uniq.45",
+                          "type": {
+                            "text": "Q",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": true
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "tactic": "assumption",
+                "category": "goal",
+                "lemma": null,
+                "provenance": null,
+                "reason": "Initial Lean goal",
+                "status": "accepted",
+                "error": null,
+                "elapsed_ms": 0.28947599639650434,
+                "on_proof_path": true
+              },
+              {
+                "id": 4,
+                "parent": 3,
+                "depth": 3,
+                "state": {
+                  "state_id": 15,
+                  "goals": []
+                },
+                "tactic": "assumption",
+                "category": "goal",
+                "lemma": null,
+                "provenance": null,
+                "reason": "Initial Lean goal",
+                "status": "solved",
+                "error": null,
+                "elapsed_ms": 0.1608120001037605,
+                "on_proof_path": true
+              }
+            ],
+            "pools": [
+              {
+                "node_id": 0,
+                "generated": [
+                  {
+                    "tactic": "constructor",
+                    "category": "goal",
+                    "reason": "Split the goal into its components",
+                    "prior": 8.0,
+                    "lemma": null,
+                    "provenance": null
+                  },
+                  {
+                    "tactic": "assumption",
+                    "category": "goal",
+                    "reason": "Match the goal against the local context",
+                    "prior": 10.0,
+                    "lemma": null,
+                    "provenance": null
+                  }
+                ],
+                "actual_order": [
+                  "assumption",
+                  "constructor"
+                ]
+              },
+              {
+                "node_id": 2,
+                "generated": [
+                  {
+                    "tactic": "assumption",
+                    "category": "goal",
+                    "reason": "Match the goal against the local context",
+                    "prior": 10.0,
+                    "lemma": null,
+                    "provenance": null
+                  }
+                ],
+                "actual_order": [
+                  "assumption"
+                ]
+              },
+              {
+                "node_id": 3,
+                "generated": [
+                  {
+                    "tactic": "assumption",
+                    "category": "goal",
+                    "reason": "Match the goal against the local context",
+                    "prior": 10.0,
+                    "lemma": null,
+                    "provenance": null
+                  }
+                ],
+                "actual_order": [
+                  "assumption"
+                ]
+              }
+            ],
+            "proof": [
+              "rcases h with ⟨h0, h1⟩",
+              "constructor",
+              "assumption",
+              "assumption"
+            ],
+            "verification": {
+              "verified": true,
+              "axioms": [],
+              "error": null,
+              "elapsed_s": 1.838550046995806,
+              "source_sha256": "25465532e5f6c1130c5ae7f166773cbe2b12736ade995072089e98b0b1133013"
+            },
+            "metrics": {
+              "attempted_candidates": 5,
+              "expanded_states": 3,
+              "proof_length": 4,
+              "suffix_length": 4,
+              "elapsed_s": 1.8421957639948232,
+              "lean_execution_s": 0.0033350589947076514,
+              "verification_s": 1.838550046995806,
+              "search_s": 0.0036465580051299185,
+              "initial_action_s": 0.0011212570025236346
+            },
+            "label_policy": "Only verified-vs-verified cost differences are preferences; unresolved is censored"
+          },
+          "exploration": "bounded_rollout"
+        }
+      ]
+    },
+    {
+      "task_id": "and_swap",
+      "split": "development",
+      "domain": "logic",
+      "depth": 1,
+      "prefix": [
+        "constructor"
+      ],
+      "positive_tactic": "exact h.2",
+      "state": {
+        "state_id": 1,
+        "goals": [
+          {
+            "id": "_uniq.19",
+            "target": {
+              "text": "Q",
+              "head": "[anonymous]",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "P",
+                "id": "_uniq.9",
+                "type": {
+                  "text": "Prop",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "Q",
+                "id": "_uniq.10",
+                "type": {
+                  "text": "Prop",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "h",
+                "id": "_uniq.11",
+                "type": {
+                  "text": "P ∧ Q",
+                  "head": "And",
+                  "forall": false
+                },
+                "is_proof": true
+              }
+            ]
+          },
+          {
+            "id": "_uniq.20",
+            "target": {
+              "text": "P",
+              "head": "[anonymous]",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "P",
+                "id": "_uniq.9",
+                "type": {
+                  "text": "Prop",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "Q",
+                "id": "_uniq.10",
+                "type": {
+                  "text": "Prop",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "h",
+                "id": "_uniq.11",
+                "type": {
+                  "text": "P ∧ Q",
+                  "head": "And",
+                  "forall": false
+                },
+                "is_proof": true
+              }
+            ]
+          }
+        ]
+      },
+      "observations": [
+        {
+          "candidate": {
+            "tactic": "assumption",
+            "category": "goal",
+            "reason": "Match the goal against the local context",
+            "prior": 10.0,
+            "lemma": null,
+            "provenance": null
+          },
+          "status": "invalid_candidate",
+          "successor": null,
+          "elapsed_s": 0.0004264919989509508,
+          "error": "Tactic `assumption` failed\n\ncase left\nP Q : Prop\nh : P ∧ Q\n⊢ Q",
+          "continuation": null,
+          "exploration": "not_selected"
+        },
+        {
+          "candidate": {
+            "tactic": "exact h.1",
+            "category": "hypothesis",
+            "reason": "Project component 1",
+            "prior": 8.0,
+            "lemma": null,
+            "provenance": null
+          },
+          "status": "invalid_candidate",
+          "successor": null,
+          "elapsed_s": 0.0006326319999061525,
+          "error": "Type mismatch\n  h.left\nhas type\n  P\nbut is expected to have type\n  Q",
+          "continuation": null,
+          "exploration": "not_selected"
+        },
+        {
+          "candidate": {
+            "tactic": "apply h.1",
+            "category": "hypothesis",
+            "reason": "Apply a conjunction component",
+            "prior": 5.0,
+            "lemma": null,
+            "provenance": null
+          },
+          "status": "invalid_candidate",
+          "successor": null,
+          "elapsed_s": 0.0006749159947503358,
+          "error": "Tactic `apply` failed: could not unify the type of `h.left`\n  P\nwith the goal\n  Q\n\ncase left\nP Q : Prop\nh : P ∧ Q\n⊢ Q",
+          "continuation": null,
+          "exploration": "not_selected"
+        },
+        {
+          "candidate": {
+            "tactic": "exact h.2",
+            "category": "hypothesis",
+            "reason": "Project component 2",
+            "prior": 8.0,
+            "lemma": null,
+            "provenance": null
+          },
+          "status": "accepted",
+          "successor": {
+            "state_id": 3,
+            "goals": [
+              {
+                "id": "_uniq.20",
+                "target": {
+                  "text": "P",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "hypotheses": [
+                  {
+                    "name": "P",
+                    "id": "_uniq.9",
+                    "type": {
+                      "text": "Prop",
+                      "head": "[anonymous]",
+                      "forall": false
+                    },
+                    "is_proof": false
+                  },
+                  {
+                    "name": "Q",
+                    "id": "_uniq.10",
+                    "type": {
+                      "text": "Prop",
+                      "head": "[anonymous]",
+                      "forall": false
+                    },
+                    "is_proof": false
+                  },
+                  {
+                    "name": "h",
+                    "id": "_uniq.11",
+                    "type": {
+                      "text": "P ∧ Q",
+                      "head": "And",
+                      "forall": false
+                    },
+                    "is_proof": true
+                  }
+                ]
+              }
+            ]
+          },
+          "elapsed_s": 0.0005721109992009588,
+          "error": null,
+          "continuation": {
+            "status": "verified",
+            "termination": "verified",
+            "first_action": "exact h.2",
+            "prefix": [
+              "constructor"
+            ],
+            "nodes": [
+              {
+                "id": 0,
+                "parent": null,
+                "depth": 0,
+                "state": {
+                  "state_id": 3,
+                  "goals": [
+                    {
+                      "id": "_uniq.20",
+                      "target": {
+                        "text": "P",
+                        "head": "[anonymous]",
+                        "forall": false
+                      },
+                      "hypotheses": [
+                        {
+                          "name": "P",
+                          "id": "_uniq.9",
+                          "type": {
+                            "text": "Prop",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "Q",
+                          "id": "_uniq.10",
+                          "type": {
+                            "text": "Prop",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "h",
+                          "id": "_uniq.11",
+                          "type": {
+                            "text": "P ∧ Q",
+                            "head": "And",
+                            "forall": false
+                          },
+                          "is_proof": true
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "tactic": null,
+                "category": null,
+                "lemma": null,
+                "provenance": null,
+                "reason": "Initial Lean goal",
+                "status": "root",
+                "error": null,
+                "elapsed_ms": 0,
+                "on_proof_path": true
+              },
+              {
+                "id": 1,
+                "parent": 0,
+                "depth": 1,
+                "state": null,
+                "tactic": "assumption",
+                "category": "goal",
+                "lemma": null,
+                "provenance": null,
+                "reason": "Initial Lean goal",
+                "status": "rejected",
+                "error": "Tactic `assumption` failed\n\ncase right\nP Q : Prop\nh : P ∧ Q\n⊢ P",
+                "elapsed_ms": 1.2070160009898245,
+                "on_proof_path": false
+              },
+              {
+                "id": 2,
+                "parent": 0,
+                "depth": 1,
+                "state": {
+                  "state_id": 16,
+                  "goals": []
+                },
+                "tactic": "exact h.1",
+                "category": "hypothesis",
+                "lemma": null,
+                "provenance": null,
+                "reason": "Initial Lean goal",
+                "status": "solved",
+                "error": null,
+                "elapsed_ms": 0.4846989977522753,
+                "on_proof_path": true
+              }
+            ],
+            "pools": [
+              {
+                "node_id": 0,
+                "generated": [
+                  {
+                    "tactic": "assumption",
+                    "category": "goal",
+                    "reason": "Match the goal against the local context",
+                    "prior": 10.0,
+                    "lemma": null,
+                    "provenance": null
+                  },
+                  {
+                    "tactic": "exact h.1",
+                    "category": "hypothesis",
+                    "reason": "Project component 1",
+                    "prior": 8.0,
+                    "lemma": null,
+                    "provenance": null
+                  },
+                  {
+                    "tactic": "apply h.1",
+                    "category": "hypothesis",
+                    "reason": "Apply a conjunction component",
+                    "prior": 5.0,
+                    "lemma": null,
+                    "provenance": null
+                  },
+                  {
+                    "tactic": "exact h.2",
+                    "category": "hypothesis",
+                    "reason": "Project component 2",
+                    "prior": 8.0,
+                    "lemma": null,
+                    "provenance": null
+                  },
+                  {
+                    "tactic": "apply h.2",
+                    "category": "hypothesis",
+                    "reason": "Apply a conjunction component",
+                    "prior": 5.0,
+                    "lemma": null,
+                    "provenance": null
+                  },
+                  {
+                    "tactic": "rcases h with ⟨h0, h1⟩",
+                    "category": "hypothesis",
+                    "reason": "Eliminate a structured hypothesis with fresh explicit names",
+                    "prior": 4.0,
+                    "lemma": null,
+                    "provenance": null
+                  }
+                ],
+                "actual_order": [
+                  "assumption",
+                  "exact h.1",
+                  "exact h.2",
+                  "apply h.1",
+                  "apply h.2",
+                  "rcases h with ⟨h0, h1⟩"
+                ]
+              }
+            ],
+            "proof": [
+              "constructor",
+              "exact h.2",
+              "exact h.1"
+            ],
+            "verification": {
+              "verified": true,
+              "axioms": [],
+              "error": null,
+              "elapsed_s": 1.9045960889998241,
+              "source_sha256": "f9c75de7b4bbbab35604953fffdce62322da36496eba9092d05dde053fa86c8d"
+            },
+            "metrics": {
+              "attempted_candidates": 3,
+              "expanded_states": 1,
+              "proof_length": 3,
+              "suffix_length": 2,
+              "elapsed_s": 1.9070380939956522,
+              "lean_execution_s": 0.0022638259979430586,
+              "verification_s": 1.9045960889998241,
+              "search_s": 0.0024424359944532625,
+              "initial_action_s": 0.0005721109992009588
+            },
+            "label_policy": "Only verified-vs-verified cost differences are preferences; unresolved is censored"
+          },
+          "exploration": "bounded_rollout"
+        },
+        {
+          "candidate": {
+            "tactic": "apply h.2",
+            "category": "hypothesis",
+            "reason": "Apply a conjunction component",
+            "prior": 5.0,
+            "lemma": null,
+            "provenance": null
+          },
+          "status": "accepted",
+          "successor": {
+            "state_id": 4,
+            "goals": [
+              {
+                "id": "_uniq.20",
+                "target": {
+                  "text": "P",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "hypotheses": [
+                  {
+                    "name": "P",
+                    "id": "_uniq.9",
+                    "type": {
+                      "text": "Prop",
+                      "head": "[anonymous]",
+                      "forall": false
+                    },
+                    "is_proof": false
+                  },
+                  {
+                    "name": "Q",
+                    "id": "_uniq.10",
+                    "type": {
+                      "text": "Prop",
+                      "head": "[anonymous]",
+                      "forall": false
+                    },
+                    "is_proof": false
+                  },
+                  {
+                    "name": "h",
+                    "id": "_uniq.11",
+                    "type": {
+                      "text": "P ∧ Q",
+                      "head": "And",
+                      "forall": false
+                    },
+                    "is_proof": true
+                  }
+                ]
+              }
+            ]
+          },
+          "elapsed_s": 0.000573623001400847,
+          "error": null,
+          "continuation": {
+            "status": "verified",
+            "termination": "verified",
+            "first_action": "apply h.2",
+            "prefix": [
+              "constructor"
+            ],
+            "nodes": [
+              {
+                "id": 0,
+                "parent": null,
+                "depth": 0,
+                "state": {
+                  "state_id": 4,
+                  "goals": [
+                    {
+                      "id": "_uniq.20",
+                      "target": {
+                        "text": "P",
+                        "head": "[anonymous]",
+                        "forall": false
+                      },
+                      "hypotheses": [
+                        {
+                          "name": "P",
+                          "id": "_uniq.9",
+                          "type": {
+                            "text": "Prop",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "Q",
+                          "id": "_uniq.10",
+                          "type": {
+                            "text": "Prop",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "h",
+                          "id": "_uniq.11",
+                          "type": {
+                            "text": "P ∧ Q",
+                            "head": "And",
+                            "forall": false
+                          },
+                          "is_proof": true
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "tactic": null,
+                "category": null,
+                "lemma": null,
+                "provenance": null,
+                "reason": "Initial Lean goal",
+                "status": "root",
+                "error": null,
+                "elapsed_ms": 0,
+                "on_proof_path": true
+              },
+              {
+                "id": 1,
+                "parent": 0,
+                "depth": 1,
+                "state": null,
+                "tactic": "assumption",
+                "category": "goal",
+                "lemma": null,
+                "provenance": null,
+                "reason": "Initial Lean goal",
+                "status": "rejected",
+                "error": "Tactic `assumption` failed\n\ncase right\nP Q : Prop\nh : P ∧ Q\n⊢ P",
+                "elapsed_ms": 1.1747480020858347,
+                "on_proof_path": false
+              },
+              {
+                "id": 2,
+                "parent": 0,
+                "depth": 1,
+                "state": {
+                  "state_id": 17,
+                  "goals": []
+                },
+                "tactic": "exact h.1",
+                "category": "hypothesis",
+                "lemma": null,
+                "provenance": null,
+                "reason": "Initial Lean goal",
+                "status": "solved",
+                "error": null,
+                "elapsed_ms": 0.7722930022282526,
+                "on_proof_path": true
+              }
+            ],
+            "pools": [
+              {
+                "node_id": 0,
+                "generated": [
+                  {
+                    "tactic": "assumption",
+                    "category": "goal",
+                    "reason": "Match the goal against the local context",
+                    "prior": 10.0,
+                    "lemma": null,
+                    "provenance": null
+                  },
+                  {
+                    "tactic": "exact h.1",
+                    "category": "hypothesis",
+                    "reason": "Project component 1",
+                    "prior": 8.0,
+                    "lemma": null,
+                    "provenance": null
+                  },
+                  {
+                    "tactic": "apply h.1",
+                    "category": "hypothesis",
+                    "reason": "Apply a conjunction component",
+                    "prior": 5.0,
+                    "lemma": null,
+                    "provenance": null
+                  },
+                  {
+                    "tactic": "exact h.2",
+                    "category": "hypothesis",
+                    "reason": "Project component 2",
+                    "prior": 8.0,
+                    "lemma": null,
+                    "provenance": null
+                  },
+                  {
+                    "tactic": "apply h.2",
+                    "category": "hypothesis",
+                    "reason": "Apply a conjunction component",
+                    "prior": 5.0,
+                    "lemma": null,
+                    "provenance": null
+                  },
+                  {
+                    "tactic": "rcases h with ⟨h0, h1⟩",
+                    "category": "hypothesis",
+                    "reason": "Eliminate a structured hypothesis with fresh explicit names",
+                    "prior": 4.0,
+                    "lemma": null,
+                    "provenance": null
+                  }
+                ],
+                "actual_order": [
+                  "assumption",
+                  "exact h.1",
+                  "exact h.2",
+                  "apply h.1",
+                  "apply h.2",
+                  "rcases h with ⟨h0, h1⟩"
+                ]
+              }
+            ],
+            "proof": [
+              "constructor",
+              "apply h.2",
+              "exact h.1"
+            ],
+            "verification": {
+              "verified": true,
+              "axioms": [],
+              "error": null,
+              "elapsed_s": 1.9690665520029142,
+              "source_sha256": "e85b4d69c5691d0591b92ffac441b7ff3954d914414a096d1026f6cbb4b10040"
+            },
+            "metrics": {
+              "attempted_candidates": 3,
+              "expanded_states": 1,
+              "proof_length": 3,
+              "suffix_length": 2,
+              "elapsed_s": 1.9719230609989609,
+              "lean_execution_s": 0.0025206640057149343,
+              "verification_s": 1.9690665520029142,
+              "search_s": 0.0028567789995577186,
+              "initial_action_s": 0.000573623001400847
+            },
+            "label_policy": "Only verified-vs-verified cost differences are preferences; unresolved is censored"
+          },
+          "exploration": "bounded_rollout"
+        },
+        {
+          "candidate": {
+            "tactic": "rcases h with ⟨h0, h1⟩",
+            "category": "hypothesis",
+            "reason": "Eliminate a structured hypothesis with fresh explicit names",
+            "prior": 4.0,
+            "lemma": null,
+            "provenance": null
+          },
+          "status": "accepted",
+          "successor": {
+            "state_id": 5,
+            "goals": [
+              {
+                "id": "_uniq.73",
+                "target": {
+                  "text": "Q",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "hypotheses": [
+                  {
+                    "name": "P",
+                    "id": "_uniq.9",
+                    "type": {
+                      "text": "Prop",
+                      "head": "[anonymous]",
+                      "forall": false
+                    },
+                    "is_proof": false
+                  },
+                  {
+                    "name": "Q",
+                    "id": "_uniq.10",
+                    "type": {
+                      "text": "Prop",
+                      "head": "[anonymous]",
+                      "forall": false
+                    },
+                    "is_proof": false
+                  },
+                  {
+                    "name": "h0",
+                    "id": "_uniq.71",
+                    "type": {
+                      "text": "P",
+                      "head": "[anonymous]",
+                      "forall": false
+                    },
+                    "is_proof": true
+                  },
+                  {
+                    "name": "h1",
+                    "id": "_uniq.72",
+                    "type": {
+                      "text": "Q",
+                      "head": "[anonymous]",
+                      "forall": false
+                    },
+                    "is_proof": true
+                  }
+                ]
+              },
+              {
+                "id": "_uniq.20",
+                "target": {
+                  "text": "P",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "hypotheses": [
+                  {
+                    "name": "P",
+                    "id": "_uniq.9",
+                    "type": {
+                      "text": "Prop",
+                      "head": "[anonymous]",
+                      "forall": false
+                    },
+                    "is_proof": false
+                  },
+                  {
+                    "name": "Q",
+                    "id": "_uniq.10",
+                    "type": {
+                      "text": "Prop",
+                      "head": "[anonymous]",
+                      "forall": false
+                    },
+                    "is_proof": false
+                  },
+                  {
+                    "name": "h",
+                    "id": "_uniq.11",
+                    "type": {
+                      "text": "P ∧ Q",
+                      "head": "And",
+                      "forall": false
+                    },
+                    "is_proof": true
+                  }
+                ]
+              }
+            ]
+          },
+          "elapsed_s": 0.0006917010032339022,
+          "error": null,
+          "continuation": {
+            "status": "verified",
+            "termination": "verified",
+            "first_action": "rcases h with ⟨h0, h1⟩",
+            "prefix": [
+              "constructor"
+            ],
+            "nodes": [
+              {
+                "id": 0,
+                "parent": null,
+                "depth": 0,
+                "state": {
+                  "state_id": 5,
+                  "goals": [
+                    {
+                      "id": "_uniq.73",
+                      "target": {
+                        "text": "Q",
+                        "head": "[anonymous]",
+                        "forall": false
+                      },
+                      "hypotheses": [
+                        {
+                          "name": "P",
+                          "id": "_uniq.9",
+                          "type": {
+                            "text": "Prop",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "Q",
+                          "id": "_uniq.10",
+                          "type": {
+                            "text": "Prop",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "h0",
+                          "id": "_uniq.71",
+                          "type": {
+                            "text": "P",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": true
+                        },
+                        {
+                          "name": "h1",
+                          "id": "_uniq.72",
+                          "type": {
+                            "text": "Q",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": true
+                        }
+                      ]
+                    },
+                    {
+                      "id": "_uniq.20",
+                      "target": {
+                        "text": "P",
+                        "head": "[anonymous]",
+                        "forall": false
+                      },
+                      "hypotheses": [
+                        {
+                          "name": "P",
+                          "id": "_uniq.9",
+                          "type": {
+                            "text": "Prop",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "Q",
+                          "id": "_uniq.10",
+                          "type": {
+                            "text": "Prop",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "h",
+                          "id": "_uniq.11",
+                          "type": {
+                            "text": "P ∧ Q",
+                            "head": "And",
+                            "forall": false
+                          },
+                          "is_proof": true
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "tactic": null,
+                "category": null,
+                "lemma": null,
+                "provenance": null,
+                "reason": "Initial Lean goal",
+                "status": "root",
+                "error": null,
+                "elapsed_ms": 0,
+                "on_proof_path": true
+              },
+              {
+                "id": 1,
+                "parent": 0,
+                "depth": 1,
+                "state": {
+                  "state_id": 18,
+                  "goals": [
+                    {
+                      "id": "_uniq.20",
+                      "target": {
+                        "text": "P",
+                        "head": "[anonymous]",
+                        "forall": false
+                      },
+                      "hypotheses": [
+                        {
+                          "name": "P",
+                          "id": "_uniq.9",
+                          "type": {
+                            "text": "Prop",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "Q",
+                          "id": "_uniq.10",
+                          "type": {
+                            "text": "Prop",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "h",
+                          "id": "_uniq.11",
+                          "type": {
+                            "text": "P ∧ Q",
+                            "head": "And",
+                            "forall": false
+                          },
+                          "is_proof": true
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "tactic": "assumption",
+                "category": "goal",
+                "lemma": null,
+                "provenance": null,
+                "reason": "Initial Lean goal",
+                "status": "accepted",
+                "error": null,
+                "elapsed_ms": 1.3758510031038895,
+                "on_proof_path": true
+              },
+              {
+                "id": 2,
+                "parent": 1,
+                "depth": 2,
+                "state": null,
+                "tactic": "assumption",
+                "category": "goal",
+                "lemma": null,
+                "provenance": null,
+                "reason": "Initial Lean goal",
+                "status": "rejected",
+                "error": "Tactic `assumption` failed\n\ncase right\nP Q : Prop\nh : P ∧ Q\n⊢ P",
+                "elapsed_ms": 0.5652809995808639,
+                "on_proof_path": false
+              },
+              {
+                "id": 3,
+                "parent": 1,
+                "depth": 2,
+                "state": {
+                  "state_id": 19,
+                  "goals": []
+                },
+                "tactic": "exact h.1",
+                "category": "hypothesis",
+                "lemma": null,
+                "provenance": null,
+                "reason": "Initial Lean goal",
+                "status": "solved",
+                "error": null,
+                "elapsed_ms": 0.43713799823308364,
+                "on_proof_path": true
+              }
+            ],
+            "pools": [
+              {
+                "node_id": 0,
+                "generated": [
+                  {
+                    "tactic": "assumption",
+                    "category": "goal",
+                    "reason": "Match the goal against the local context",
+                    "prior": 10.0,
+                    "lemma": null,
+                    "provenance": null
+                  }
+                ],
+                "actual_order": [
+                  "assumption"
+                ]
+              },
+              {
+                "node_id": 1,
+                "generated": [
+                  {
+                    "tactic": "assumption",
+                    "category": "goal",
+                    "reason": "Match the goal against the local context",
+                    "prior": 10.0,
+                    "lemma": null,
+                    "provenance": null
+                  },
+                  {
+                    "tactic": "exact h.1",
+                    "category": "hypothesis",
+                    "reason": "Project component 1",
+                    "prior": 8.0,
+                    "lemma": null,
+                    "provenance": null
+                  },
+                  {
+                    "tactic": "apply h.1",
+                    "category": "hypothesis",
+                    "reason": "Apply a conjunction component",
+                    "prior": 5.0,
+                    "lemma": null,
+                    "provenance": null
+                  },
+                  {
+                    "tactic": "exact h.2",
+                    "category": "hypothesis",
+                    "reason": "Project component 2",
+                    "prior": 8.0,
+                    "lemma": null,
+                    "provenance": null
+                  },
+                  {
+                    "tactic": "apply h.2",
+                    "category": "hypothesis",
+                    "reason": "Apply a conjunction component",
+                    "prior": 5.0,
+                    "lemma": null,
+                    "provenance": null
+                  },
+                  {
+                    "tactic": "rcases h with ⟨h0, h1⟩",
+                    "category": "hypothesis",
+                    "reason": "Eliminate a structured hypothesis with fresh explicit names",
+                    "prior": 4.0,
+                    "lemma": null,
+                    "provenance": null
+                  }
+                ],
+                "actual_order": [
+                  "assumption",
+                  "exact h.1",
+                  "exact h.2",
+                  "apply h.1",
+                  "apply h.2",
+                  "rcases h with ⟨h0, h1⟩"
+                ]
+              }
+            ],
+            "proof": [
+              "constructor",
+              "rcases h with ⟨h0, h1⟩",
+              "assumption",
+              "exact h.1"
+            ],
+            "verification": {
+              "verified": true,
+              "axioms": [],
+              "error": null,
+              "elapsed_s": 2.2593195809968165,
+              "source_sha256": "5c73b3919259700c6169e52a4edcd96ad28af4e6f4192b2174b7eac3df5149fa"
+            },
+            "metrics": {
+              "attempted_candidates": 4,
+              "expanded_states": 2,
+              "proof_length": 4,
+              "suffix_length": 3,
+              "elapsed_s": 2.2630714459955925,
+              "lean_execution_s": 0.003069971004151739,
+              "verification_s": 2.2593195809968165,
+              "search_s": 0.003752215998247266,
+              "initial_action_s": 0.0006917010032339022
+            },
+            "label_policy": "Only verified-vs-verified cost differences are preferences; unresolved is censored"
+          },
+          "exploration": "bounded_rollout"
+        }
+      ]
+    },
+    {
+      "task_id": "and_swap",
+      "split": "development",
+      "domain": "logic",
+      "depth": 2,
+      "prefix": [
+        "constructor",
+        "exact h.2"
+      ],
+      "positive_tactic": "exact h.1",
+      "state": {
+        "state_id": 3,
+        "goals": [
+          {
+            "id": "_uniq.20",
+            "target": {
+              "text": "P",
+              "head": "[anonymous]",
+              "forall": false
+            },
+            "hypotheses": [
+              {
+                "name": "P",
+                "id": "_uniq.9",
+                "type": {
+                  "text": "Prop",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "Q",
+                "id": "_uniq.10",
+                "type": {
+                  "text": "Prop",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "is_proof": false
+              },
+              {
+                "name": "h",
+                "id": "_uniq.11",
+                "type": {
+                  "text": "P ∧ Q",
+                  "head": "And",
+                  "forall": false
+                },
+                "is_proof": true
+              }
+            ]
+          }
+        ]
+      },
+      "observations": [
+        {
+          "candidate": {
+            "tactic": "assumption",
+            "category": "goal",
+            "reason": "Match the goal against the local context",
+            "prior": 10.0,
+            "lemma": null,
+            "provenance": null
+          },
+          "status": "invalid_candidate",
+          "successor": null,
+          "elapsed_s": 0.00041246000182582065,
+          "error": "Tactic `assumption` failed\n\ncase right\nP Q : Prop\nh : P ∧ Q\n⊢ P",
+          "continuation": null,
+          "exploration": "not_selected"
+        },
+        {
+          "candidate": {
+            "tactic": "exact h.1",
+            "category": "hypothesis",
+            "reason": "Project component 1",
+            "prior": 8.0,
+            "lemma": null,
+            "provenance": null
+          },
+          "status": "accepted",
+          "successor": {
+            "state_id": 6,
+            "goals": []
+          },
+          "elapsed_s": 0.00023987099848454818,
+          "error": null,
+          "continuation": {
+            "status": "verified",
+            "termination": "verified",
+            "first_action": "exact h.1",
+            "prefix": [
+              "constructor",
+              "exact h.2"
+            ],
+            "nodes": [
+              {
+                "id": 0,
+                "parent": null,
+                "depth": 0,
+                "state": {
+                  "state_id": 6,
+                  "goals": []
+                },
+                "tactic": null,
+                "category": null,
+                "lemma": null,
+                "provenance": null,
+                "reason": "Initial Lean goal",
+                "status": "root",
+                "error": null,
+                "elapsed_ms": 0,
+                "on_proof_path": true
+              }
+            ],
+            "pools": [],
+            "proof": [
+              "constructor",
+              "exact h.2",
+              "exact h.1"
+            ],
+            "verification": {
+              "verified": true,
+              "axioms": [],
+              "error": null,
+              "elapsed_s": 2.21426983299898,
+              "source_sha256": "f9c75de7b4bbbab35604953fffdce62322da36496eba9092d05dde053fa86c8d"
+            },
+            "metrics": {
+              "attempted_candidates": 1,
+              "expanded_states": 0,
+              "proof_length": 3,
+              "suffix_length": 1,
+              "elapsed_s": 2.214531536999857,
+              "lean_execution_s": 0.00023987099848454818,
+              "verification_s": 2.21426983299898,
+              "search_s": 0.0002621440071379766,
+              "initial_action_s": 0.00023987099848454818
+            },
+            "label_policy": "Only verified-vs-verified cost differences are preferences; unresolved is censored"
+          },
+          "exploration": "bounded_rollout"
+        },
+        {
+          "candidate": {
+            "tactic": "apply h.1",
+            "category": "hypothesis",
+            "reason": "Apply a conjunction component",
+            "prior": 5.0,
+            "lemma": null,
+            "provenance": null
+          },
+          "status": "accepted",
+          "successor": {
+            "state_id": 7,
+            "goals": []
+          },
+          "elapsed_s": 0.00020523900457192212,
+          "error": null,
+          "continuation": {
+            "status": "verified",
+            "termination": "verified",
+            "first_action": "apply h.1",
+            "prefix": [
+              "constructor",
+              "exact h.2"
+            ],
+            "nodes": [
+              {
+                "id": 0,
+                "parent": null,
+                "depth": 0,
+                "state": {
+                  "state_id": 7,
+                  "goals": []
+                },
+                "tactic": null,
+                "category": null,
+                "lemma": null,
+                "provenance": null,
+                "reason": "Initial Lean goal",
+                "status": "root",
+                "error": null,
+                "elapsed_ms": 0,
+                "on_proof_path": true
+              }
+            ],
+            "pools": [],
+            "proof": [
+              "constructor",
+              "exact h.2",
+              "apply h.1"
+            ],
+            "verification": {
+              "verified": true,
+              "axioms": [],
+              "error": null,
+              "elapsed_s": 1.900774169000215,
+              "source_sha256": "9da6b5adc6b8829c1bf899ea29492d285ba8783ff8d02936087aed8107e37440"
+            },
+            "metrics": {
+              "attempted_candidates": 1,
+              "expanded_states": 0,
+              "proof_length": 3,
+              "suffix_length": 1,
+              "elapsed_s": 1.9011285730011878,
+              "lean_execution_s": 0.00020523900457192212,
+              "verification_s": 1.900774169000215,
+              "search_s": 0.00035481499799061567,
+              "initial_action_s": 0.00020523900457192212
+            },
+            "label_policy": "Only verified-vs-verified cost differences are preferences; unresolved is censored"
+          },
+          "exploration": "bounded_rollout"
+        },
+        {
+          "candidate": {
+            "tactic": "exact h.2",
+            "category": "hypothesis",
+            "reason": "Project component 2",
+            "prior": 8.0,
+            "lemma": null,
+            "provenance": null
+          },
+          "status": "invalid_candidate",
+          "successor": null,
+          "elapsed_s": 0.00045211100223241374,
+          "error": "Type mismatch\n  h.right\nhas type\n  Q\nbut is expected to have type\n  P",
+          "continuation": null,
+          "exploration": "not_selected"
+        },
+        {
+          "candidate": {
+            "tactic": "apply h.2",
+            "category": "hypothesis",
+            "reason": "Apply a conjunction component",
+            "prior": 5.0,
+            "lemma": null,
+            "provenance": null
+          },
+          "status": "invalid_candidate",
+          "successor": null,
+          "elapsed_s": 0.0004988209984730929,
+          "error": "Tactic `apply` failed: could not unify the type of `h.right`\n  Q\nwith the goal\n  P\n\ncase right\nP Q : Prop\nh : P ∧ Q\n⊢ P",
+          "continuation": null,
+          "exploration": "not_selected"
+        },
+        {
+          "candidate": {
+            "tactic": "rcases h with ⟨h0, h1⟩",
+            "category": "hypothesis",
+            "reason": "Eliminate a structured hypothesis with fresh explicit names",
+            "prior": 4.0,
+            "lemma": null,
+            "provenance": null
+          },
+          "status": "accepted",
+          "successor": {
+            "state_id": 8,
+            "goals": [
+              {
+                "id": "_uniq.100",
+                "target": {
+                  "text": "P",
+                  "head": "[anonymous]",
+                  "forall": false
+                },
+                "hypotheses": [
+                  {
+                    "name": "P",
+                    "id": "_uniq.9",
+                    "type": {
+                      "text": "Prop",
+                      "head": "[anonymous]",
+                      "forall": false
+                    },
+                    "is_proof": false
+                  },
+                  {
+                    "name": "Q",
+                    "id": "_uniq.10",
+                    "type": {
+                      "text": "Prop",
+                      "head": "[anonymous]",
+                      "forall": false
+                    },
+                    "is_proof": false
+                  },
+                  {
+                    "name": "h0",
+                    "id": "_uniq.98",
+                    "type": {
+                      "text": "P",
+                      "head": "[anonymous]",
+                      "forall": false
+                    },
+                    "is_proof": true
+                  },
+                  {
+                    "name": "h1",
+                    "id": "_uniq.99",
+                    "type": {
+                      "text": "Q",
+                      "head": "[anonymous]",
+                      "forall": false
+                    },
+                    "is_proof": true
+                  }
+                ]
+              }
+            ]
+          },
+          "elapsed_s": 0.000506021999171935,
+          "error": null,
+          "continuation": {
+            "status": "verified",
+            "termination": "verified",
+            "first_action": "rcases h with ⟨h0, h1⟩",
+            "prefix": [
+              "constructor",
+              "exact h.2"
+            ],
+            "nodes": [
+              {
+                "id": 0,
+                "parent": null,
+                "depth": 0,
+                "state": {
+                  "state_id": 8,
+                  "goals": [
+                    {
+                      "id": "_uniq.100",
+                      "target": {
+                        "text": "P",
+                        "head": "[anonymous]",
+                        "forall": false
+                      },
+                      "hypotheses": [
+                        {
+                          "name": "P",
+                          "id": "_uniq.9",
+                          "type": {
+                            "text": "Prop",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "Q",
+                          "id": "_uniq.10",
+                          "type": {
+                            "text": "Prop",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": false
+                        },
+                        {
+                          "name": "h0",
+                          "id": "_uniq.98",
+                          "type": {
+                            "text": "P",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": true
+                        },
+                        {
+                          "name": "h1",
+                          "id": "_uniq.99",
+                          "type": {
+                            "text": "Q",
+                            "head": "[anonymous]",
+                            "forall": false
+                          },
+                          "is_proof": true
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "tactic": null,
+                "category": null,
+                "lemma": null,
+                "provenance": null,
+                "reason": "Initial Lean goal",
+                "status": "root",
+                "error": null,
+                "elapsed_ms": 0,
+                "on_proof_path": true
+              },
+              {
+                "id": 1,
+                "parent": 0,
+                "depth": 1,
+                "state": {
+                  "state_id": 20,
+                  "goals": []
+                },
+                "tactic": "assumption",
+                "category": "goal",
+                "lemma": null,
+                "provenance": null,
+                "reason": "Initial Lean goal",
+                "status": "solved",
+                "error": null,
+                "elapsed_ms": 0.44633099605562165,
+                "on_proof_path": true
+              }
+            ],
+            "pools": [
+              {
+                "node_id": 0,
+                "generated": [
+                  {
+                    "tactic": "assumption",
+                    "category": "goal",
+                    "reason": "Match the goal against the local context",
+                    "prior": 10.0,
+                    "lemma": null,
+                    "provenance": null
+                  }
+                ],
+                "actual_order": [
+                  "assumption"
+                ]
+              }
+            ],
+            "proof": [
+              "constructor",
+              "exact h.2",
+              "rcases h with ⟨h0, h1⟩",
+              "assumption"
+            ],
+            "verification": {
+              "verified": true,
+              "axioms": [],
+              "error": null,
+              "elapsed_s": 1.7352597700009937,
+              "source_sha256": "e38ff608667fb459ca739e48d1485f69d7a183b8b9ad41a110a4f339f8e983f6"
+            },
+            "metrics": {
+              "attempted_candidates": 2,
+              "expanded_states": 1,
+              "proof_length": 4,
+              "suffix_length": 2,
+              "elapsed_s": 1.7362756000002264,
+              "lean_execution_s": 0.0009523529952275567,
+              "verification_s": 1.7352597700009937,
+              "search_s": 0.001016009999148082,
+              "initial_action_s": 0.000506021999171935
+            },
+            "label_policy": "Only verified-vs-verified cost differences are preferences; unresolved is censored"
+          },
+          "exploration": "bounded_rollout"
+        }
+      ]
+    }
+  ]
+}

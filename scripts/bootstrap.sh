@@ -30,5 +30,6 @@ lake exe cache get Mathlib.Data.Set.Basic Mathlib.Algebra.Group.Basic \
   Mathlib.Algebra.Ring.Basic Mathlib.Tactic.Ring
 lake build ProofLab
 npm --prefix web ci --no-audit --no-fund
+uv run --frozen python scripts/export_phase3.py
 npm --prefix web run build
 echo 'ProofLab installed. Start: uv run --frozen prooflab serve'

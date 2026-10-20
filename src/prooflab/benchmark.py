@@ -50,7 +50,15 @@ def trajectory(trace: Trace) -> list[dict[str, Any]]:
 
 def summary(traces: list[Trace]) -> dict[str, Any]:
     groups: dict[str, Any] = {}
-    for algorithm in ("bfs", "best_first", "learned", "automation"):
+    for algorithm in (
+        "bfs",
+        "best_first",
+        "learned",
+        "outcome",
+        "automation",
+        "applicability_only",
+        "old_features_outcome",
+    ):
         subset = [t for t in traces if t.algorithm == algorithm]
         if not subset:
             continue

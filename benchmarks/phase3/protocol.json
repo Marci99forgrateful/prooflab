@@ -1,0 +1,73 @@
+{
+  "version": 1,
+  "objective": "Prefer efficiently verified continuations among actually valid sibling actions; finite unresolved searches are censored, never incorrect labels",
+  "permitted_training": "Phase 1 development only; source replay paths from Phase 1 v3; never Phase 1/2/3 held-out outcomes",
+  "validation": "Whole order-domain development family held apart for selection; refit all allowed development after selection",
+  "collection": {
+    "max_states_per_task": 3,
+    "max_continuations_per_state": 6,
+    "selection": "Prefer states with at least two nonterminal valid actions, then depth; include verified-path action and generated-order alternatives, independent of rollout outcomes",
+    "budget": {
+      "max_depth": 6,
+      "max_expansions": 20,
+      "max_candidates": 24,
+      "max_attempts": 80,
+      "timeout_s": 5,
+      "tactic_timeout_s": 1.5
+    },
+    "audit_timeout_s": 20,
+    "workers": 2,
+    "cost": "1 initial accepted action + downstream attempted candidates; startup/pool observation/fresh verification separately reported",
+    "labels": "Only unequal measured costs of two independently verified valid continuations create outcome preferences. Unresolved, timed-out and unexplored actions are censored/unlabeled. Invalid tactics contribute only separate applicability contrasts."
+  },
+  "representation": "Pre-execution goal/context/action features, trained from scratch; no frozen Phase 2 score input or successor features/hidden Lean lookahead. Actual successors retained for analysis only.",
+  "model": "Regularized multitask linear pairwise ranker, CPU; separate mean applicability loss + outcome_weight * mean valid-success cost-preference loss + L2/2 norm squared",
+  "hyperparameters": {
+    "l2": [
+      0.01,
+      0.1
+    ],
+    "outcome_weight": [
+      0.5,
+      2.0
+    ],
+    "epochs": 200,
+    "learning_rate": 0.15,
+    "seed": 0
+  },
+  "selection_metric": "Minimum order-development valid-success continuation pair loss; report insufficiency if none, no evaluation fallback",
+  "ablations": {
+    "applicability_only": "Identical full features and selected L2, outcome weight zero; isolates new downstream signal",
+    "old_features_outcome": "Same combined objective/hyperparameters, Phase 2 representation only; isolates representation change"
+  },
+  "algorithms": [
+    "bfs",
+    "best_first",
+    "learned",
+    "outcome",
+    "automation"
+  ],
+  "ablation_algorithms": [
+    "applicability_only",
+    "old_features_outcome"
+  ],
+  "repetitions": 2,
+  "ablation_repetitions": 1,
+  "workers": 2,
+  "budget": {
+    "max_depth": 10,
+    "max_expansions": 70,
+    "max_candidates": 24,
+    "max_attempts": 500,
+    "timeout_s": 12,
+    "tactic_timeout_s": 2
+  },
+  "uncertainty": {
+    "bootstrap_samples": 10000,
+    "seed": 2718,
+    "unit": "independent theorem cluster; keep repeated executions together",
+    "interval": 0.95
+  },
+  "pilot": "Eight development-only tasks, BFS and handcrafted only, actual traces preserved in experiments/phase3/pilot-v1; budgets calibrated before final freeze. No model-based task selection/removal.",
+  "constraints": "All final tasks retained including unsolved; unchanged generator/checker and handcrafted frontier, same primary ProofLab budgets; native Aesop separately identified. Freeze final model artifacts before any final search, no later tuning."
+}

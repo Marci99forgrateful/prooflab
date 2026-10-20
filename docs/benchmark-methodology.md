@@ -1,5 +1,12 @@
 # Benchmark methodology
 
+For v0.3.0, see the [Phase 3 frozen benchmark and continuation protocol](phase-3-data.md),
+[valid-alternative model objective](phase-3-model.md), and
+[paired results with family-cluster sensitivity](phase-3-results.md).
+The Phase 3 study uses development-only calibration, actual verified-valid cost
+preferences, explicit censoring, two controlled ablations, and a new frozen
+32-task evaluation. The earlier foundation below remains historical evidence.
+
 > Phase 1 foundation document. Phase 2 implementation and current evidence:
 > [model](phase-2-model.md), [frozen data/protocol](phase-2-data.md),
 > [measured results](phase-2-results.md), [delivery report](phase-2-final-report.md).

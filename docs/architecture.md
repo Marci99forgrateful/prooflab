@@ -1,5 +1,41 @@
 # Architecture — decision record 001
 
+## Current Phase 3 dataflow
+
+```mermaid
+flowchart LR
+  D[Permitted development proof states] --> A[Probe all original candidates in Lean]
+  A --> V[Multiple valid successor states]
+  V --> R[Fixed bounded continuation search]
+  R --> K[Fresh full-proof and axiom audit]
+  K --> P[Compare costs of two verified completions]
+  R --> C[Retain censored or unexplored observations]
+  P --> T[CPU multitask pairwise training]
+  T --> M[Versioned finite JSON weights]
+  G[Current native goal and context] --> F[Pre-action state and candidate features]
+  M --> S[Candidate ordering]
+  F --> S
+  S --> L[Original Lean execution and independent verification]
+```
+
+`continuations.py` retains every actually probed successor and bounded search.
+`outcome_training.py` combines the original applicability contrasts with verified
+valid-cost preferences, with development-family validation and two controlled
+ablations. `outcome_features.py` has no native future-state access; actual
+successors are offline evidence only. `OutcomeRanking` keeps the existing typed
+policy interface, bounded candidate generator and handcrafted frontier score.
+
+`phase3_evaluation.py` freezes model hashes before controlled runs. Canonical
+traces use lossless gzip JSON; `research_io.py` restores byte-exact originals.
+`research.py` adds explicit score annotations to actual stored states for the
+interactive continuation inspector. Build-time export avoids duplicated large
+research files in Git. Held-out diagnostics are separate from training and are
+collected only after final model selection and primary evaluation.
+
+See [Phase 3 model](phase-3-model.md), [data/protocol](phase-3-data.md),
+[measured results](phase-3-results.md), and [delivery](phase-3-final-report.md).
+The original architecture notes below remain as historical foundation.
+
 > Phase 1 foundation document. Phase 2 implementation and current evidence:
 > [model](phase-2-model.md), [frozen data/protocol](phase-2-data.md),
 > [measured results](phase-2-results.md), [delivery report](phase-2-final-report.md).
