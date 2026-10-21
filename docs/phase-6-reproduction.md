@@ -28,7 +28,7 @@ OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 uv run --frozen python scripts/train_ph
   --data experiments/phase6/development-v1 --output /tmp/prooflab-phase6-refit
 ```
 
-This selects the linear/boosted relevance architecture using four whole-family validation groups, then refits only the 160 permitted development tasks. It produces **provisional relevance artifacts**: an unfitted adaptive selector cannot execute normal search. Relevance fingerprints are frozen before the separate matched strategy collection. The recorded experiment already includes the actual equal-budget forced-mode traces, so a saved-data selector refit needs no new Lean searches:
+This selects the linear/boosted relevance architecture using four whole-family validation groups, retains the fitted relevance weights from the 120 training tasks. The forty validation families never train that expert before selector validation. It produces **provisional relevance artifacts**: an unfitted adaptive selector cannot execute normal search. Relevance fingerprints are frozen before the separate matched strategy collection. The recorded experiment already includes the actual equal-budget forced-mode traces, so a saved-data selector refit needs no new Lean searches:
 
 ```bash
 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 uv run --frozen python - <<'PY'

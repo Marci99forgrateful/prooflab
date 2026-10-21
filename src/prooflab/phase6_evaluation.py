@@ -46,7 +46,7 @@ def freeze_execution() -> dict[str, Any]:
         raise ValueError("Execution already frozen")
     for mode in ("learned", "linear", "applicability"):
         model = AdaptiveModel(variant=mode)
-        if set(model.artifact["training_ids"]) != set(check_freeze()["development_ids"]):
+        if set(model.artifact["training_ids"]) != set(check_freeze()["training_ids"]):
             raise ValueError("Training boundary mismatch")
     data = dict(
         **metadata(),

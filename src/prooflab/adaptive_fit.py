@@ -271,17 +271,15 @@ def train(data: Path = DATA, output: Path = MODELS) -> dict[str, Any]:
     # with this fitted relevance model. A provisional artifact cannot run adaptive
     # evaluation; it can only be used under an explicitly forced development mode.
     selected_selector = dict(architecture="unfitted; forced development mode only", bias=0)
-    weights = linear_fit(
-        examples, linear["configuration"]["l2"], config["linear_epochs"], config["linear_rate"]
-    )
-    linear_model = dict(
-        architecture="pairwise logistic linear", weights=weights, l2=linear["configuration"]["l2"]
-    )
+    # Keep the relevance expert trained on the 120 selection-training tasks.
+    # Refitting it on the 40 validation families before mode-cost collection
+    # would contaminate downstream family-level selector validation.
+    linear_model = linear["model"]
     selected = (
         linear_model
         if winner["kind"] == "linear"
         else boosted_pairs(
-            examples,
+            training,
             **winner["configuration"],
             seed=0,
             rate=config["tree_rate"],
@@ -291,7 +289,7 @@ def train(data: Path = DATA, output: Path = MODELS) -> dict[str, Any]:
     app_model = dict(
         architecture="pairwise logistic applicability only",
         weights=linear_fit(
-            applicable,
+            [p for p in applicable if p["task_id"] not in validation],
             linear["configuration"]["l2"],
             config["linear_epochs"],
             config["linear_rate"],
@@ -302,7 +300,9 @@ def train(data: Path = DATA, output: Path = MODELS) -> dict[str, Any]:
         selector_ready=False,
         selector_protocol_sha256=digest(DIRECTORY / "selector-protocol.json"),
         evaluation_accessed=False,
-        training_ids=frozen["development_ids"],
+        training_ids=frozen["training_ids"],
+        permitted_development_ids=frozen["development_ids"],
+        validation_ids=frozen["validation_ids"],
         validation_families=frozen["validation_families"],
         freeze_sha256=digest(DIRECTORY / "frozen.json"),
         collection_sha256=digest(data / "provenance.json"),
@@ -310,7 +310,7 @@ def train(data: Path = DATA, output: Path = MODELS) -> dict[str, Any]:
         training_action_manifest_sha256=digest(data / "action-storage.json"),
         fit_source_sha256=digest(ROOT / "src/prooflab/adaptive_fit.py"),
         selection=(
-            "family-level validation then final refit of permitted development; "
+            "family-level validation; relevance retains 120-task selection-training fit; "
             "seed 0 fixed; seed sensitivity recorded"
         ),
         selector_semantics=(
@@ -336,7 +336,7 @@ def train(data: Path = DATA, output: Path = MODELS) -> dict[str, Any]:
     if winner["kind"] == "boosted":
         for seed in (1, 2):
             m = boosted_pairs(
-                examples,
+                training,
                 **winner["configuration"],
                 seed=seed,
                 rate=config["tree_rate"],
@@ -360,6 +360,9 @@ def train(data: Path = DATA, output: Path = MODELS) -> dict[str, Any]:
         ),
         preferences=len(examples),
         preference_kinds=dict(Counter(p["kind"] for p in examples)),
+        final_relevance_training_tasks=len({p["task_id"] for p in training}),
+        final_relevance_training_pairs=len(training),
+        training_preference_kinds=dict(Counter(p["kind"] for p in training)),
         selection_train_pairs=len(training),
         selection_validation_pairs=len(valid),
         validation_zero_loss=math.log(2),
@@ -445,6 +448,7 @@ def fit_selector(
         model.update(
             selector=selected,
             selector_ready=True,
+            selector_training_ids=frozen["development_ids"],
             selector_collection_sha256=digest(data / "provenance.json"),
             selector_trace_manifest_sha256=digest(data / "trace-storage.json"),
             selector_training_relevance_sha256=fingerprint,

@@ -23,7 +23,10 @@
   "symbolic": "Force symbolic selection in the same learned provider/session, canonical P3 ties; no native query.",
   "hybrid": "Force hybrid selection with already trained selected relevance, new native synthesis and canonical P3 ties.",
   "typed": "Force deterministic Phase 5 selection with new native synthesis in the same learned provider; canonical P3 ties.",
-  "sequence": "Select and refit relevance using frozen family-level rules; freeze relevance coefficients; collect three fixed-mode development counterfactuals with that fitted relevance; select/refit mode regressor using the same whole-family boundary; only then freeze all execution and access final tests.",
+  "sequence": "Select relevance hyperparameters on 120/40 whole-family split and KEEP its 120-task fitted weights (no validation-family refit); freeze those coefficients; collect matched fixed-mode costs on all 160 development tasks; select cost architecture on 120/40 families; refit ONLY the finalized cost selector on permitted 160 development tasks; freeze full execution before final testing.",
   "switching_limit": "Targets are fixed-mode continuation costs from root development states. Final greedy per-state adaptive switching differs from those continuations; this approximation and root-state distribution shift are explicit.",
-  "ablations": "Linear and applicability relevance controls share the finalized selected-model selector, isolating relevance changes; their counterfactual costs may differ from those used to fit that selector."
+  "ablations": "Linear and applicability relevance controls share the finalized selected-model selector, isolating relevance changes; their counterfactual costs may differ from those used to fit that selector.",
+  "validation_guard": "The relevance expert never trains on the 40 selector-validation task labels. The initial all-development relevance refit is preserved as an unused diagnostic, not used by the matched collector. Relevance hyperparameter/model-selection rules and winner are unchanged.",
+  "relevance_refit": false,
+  "selector_refit_all_development": true
 }
