@@ -34,5 +34,6 @@ npm --prefix web ci --no-audit --no-fund
 uv run --frozen python scripts/export_phase3.py
 uv run --frozen python scripts/export_phase4.py
 uv run --frozen python scripts/export_phase5.py
+uv run --frozen python scripts/export_phase6.py
 npm --prefix web run build
 echo 'ProofLab installed. Start: uv run --frozen prooflab serve'

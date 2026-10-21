@@ -460,3 +460,114 @@ def test_phase5_local_typed_computation_is_a_new_audited_run(page: Page) -> None
     assert left["verification"]["verified"] and left["retrievals"]
     assert "repeat" not in left["metadata"]
     expect(page.locator("#arch-dataset")).to_be_enabled()
+
+
+def phase6_witness() -> tuple[dict, int]:
+    from prooflab.phase6_evaluation import EXPERIMENT
+    from prooflab.research_io import read_json
+
+    index = read_json(ROOT / "web/public/phase6/explorer.json")
+    for entry in index["manifest"]:
+        if entry["arm"] != "deterministic" or entry["status"] != "verified":
+            continue
+        trace = read_json(EXPERIMENT / "traces" / Path(entry["url"]).name)
+        if any(t.startswith("exists ") for t in trace["proof"]):
+            return trace, entry["repeat"]
+    raise AssertionError("No actual verified constructed-witness example")
+
+
+def open_phase6(page: Page) -> None:
+    page.locator('[data-view="architecture"]').click()
+    expect(page.locator("#arch-side-1 .arch-state-title")).to_contain_text("State 0")
+    page.locator("#arch-dataset").select_option("phase6")
+    expect(page.locator("#arch-task option")).to_have_count(48)
+    expect(page.locator("#arch-intro")).to_contain_text("1440 actual executions")
+
+
+def test_phase6_actual_witness_selection_and_verbatim_export(page: Page) -> None:
+    expected, repeat = phase6_witness()
+    open_phase6(page)
+    page.locator("#arch-task").select_option(expected["task"]["id"])
+    page.locator("#arch-policy-b").select_option("deterministic")
+    page.locator("#arch-repeat").select_option(str(repeat))
+    expect(page.locator("#arch-side-1 h2")).to_have_text("Deterministic context hybrid")
+    expect(page.locator("#arch-side-1 .pill")).to_have_text("verified")
+    expect(page.locator("#arch-side-1 .adaptive-decision")).to_be_visible()
+    expect(page.locator("#arch-side-1 .premise-table")).to_contain_text("exists (")
+    expect(page.locator("#arch-side-1 .premise-table")).to_contain_text(
+        "On independently verified complete proof path"
+    )
+    with page.expect_download() as download:
+        page.locator("#arch-export").click()
+    actual = json.loads(download.value.path().read_text())["traces"][1]
+    assert actual == expected
+    page.locator("#arch-side-1 .premise-all").check()
+    expect(page.locator("#arch-side-1 .premise-table")).to_contain_text("outcome unknown")
+    page.set_viewport_size({"width": 390, "height": 844})
+    assert page.evaluate("document.documentElement.scrollWidth <= innerWidth + 1")
+    page.locator("#arch-policy-b").select_option("learned_seed1")
+    expect(page.locator("#arch-repeat option")).to_have_count(1)
+    expect(page.locator("#arch-side-1 h2")).to_contain_text("controller-seed1")
+    page.locator("#arch-policy-b").select_option("learned")
+    expect(page.locator("#arch-repeat option")).to_have_count(2)
+
+
+def test_phase6_real_regression_or_unsolved_comparison(page: Page) -> None:
+    from prooflab.research_io import read_json
+
+    index = read_json(ROOT / "web/public/phase6/explorer.json")
+    example = next(
+        (e for e in index["examples"] if "regression" in e["title"].lower()),
+        None,
+    )
+    assert example, "Keep actual policy regressions visible"
+    open_phase6(page)
+    page.locator("#arch-cases summary").click()
+    card = page.locator("#arch-cases article").filter(has_text=example["title"])
+    card.locator("button").click()
+    expect(page.locator("#arch-side-0 .pill")).not_to_have_text("verified")
+    expect(page.locator("#arch-side-1 .pill")).to_have_text("verified")
+    with page.expect_download() as download:
+        page.locator("#arch-export").click()
+    traces = json.loads(download.value.path().read_text())["traces"]
+    assert traces[0]["task"]["id"] == example["task_id"]
+    assert traces[0]["metadata"]["repeat"] == str(example["repeat"])
+    assert not traces[0]["verification"]["verified"]
+    assert traces[1]["verification"]["verified"]
+    page.locator("#arch-dataset").select_option("phase5")
+    expect(page.locator("#arch-task option")).to_have_count(40)
+
+
+def test_phase6_seeded_local_request_uses_registered_weights(page: Page) -> None:
+    import hashlib
+
+    from prooflab.adaptive_model import MODELS
+    from prooflab.phase6_evaluation import EXPERIMENT
+    from prooflab.research_io import read_json
+
+    index = read_json(ROOT / "web/public/phase6/explorer.json")
+    chosen = next(
+        e
+        for e in index["manifest"]
+        if e["arm"] == "learned_seed1"
+        and e["status"] == "verified"
+        and read_json(EXPERIMENT / "traces" / Path(e["url"]).name)["metrics"]["retrieval_queries"]
+        > 0
+    )
+    open_phase6(page)
+    page.locator("#arch-task").select_option(chosen["task_id"])
+    page.locator("#arch-policy-a").select_option("learned_seed1")
+    expect(page.locator("#arch-side-0 h2")).to_contain_text("controller-seed1")
+    page.locator("#arch-local").click()
+    expect(page.locator("#arch-notice")).to_contain_text("Actual local run:", timeout=45000)
+    with page.expect_download() as download:
+        page.locator("#arch-export").click()
+    trace = json.loads(download.value.path().read_text())["traces"][0]
+    assert trace["metadata"]["arm"] == "learned_seed1"
+    assert (
+        trace["metadata"]["adaptive_model_sha256"]
+        == hashlib.sha256((MODELS / "controller-seed1.json").read_bytes()).hexdigest()
+    )
+    assert "repeat" not in trace["metadata"]
+    assert trace["metrics"]["retrieval_queries"] >= 1
+    assert trace["verification"]["verified"] == (trace["status"] == "verified")

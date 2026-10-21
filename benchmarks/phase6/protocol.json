@@ -1,0 +1,249 @@
+{
+  "schema_version": 1,
+  "question": "Can an adaptive hybrid improve independently verified success or common-success search cost over the strongest Phase 4 expanded/P3 baseline?",
+  "primary_baseline": "phase4",
+  "primary_algorithm": "learned",
+  "primary_comparisons": [
+    [
+      "learned",
+      "phase4"
+    ],
+    [
+      "deterministic",
+      "phase4"
+    ],
+    [
+      "learned",
+      "deterministic"
+    ]
+  ],
+  "budgets": {
+    "primary": {
+      "max_depth": 12,
+      "max_expansions": 80,
+      "max_candidates": 24,
+      "max_attempts": 600,
+      "timeout_s": 18.0,
+      "tactic_timeout_s": 2.0
+    },
+    "small": {
+      "max_depth": 12,
+      "max_expansions": 40,
+      "max_candidates": 24,
+      "max_attempts": 240,
+      "timeout_s": 10,
+      "tactic_timeout_s": 2.0
+    }
+  },
+  "workers": 2,
+  "arms": [
+    {
+      "id": "phase4",
+      "mode": "phase4",
+      "repetitions": 2,
+      "budget_level": "primary"
+    },
+    {
+      "id": "typed5",
+      "mode": "typed5",
+      "repetitions": 2,
+      "budget_level": "primary"
+    },
+    {
+      "id": "learned5",
+      "mode": "learned5",
+      "repetitions": 2,
+      "budget_level": "primary"
+    },
+    {
+      "id": "naive",
+      "mode": "naive",
+      "repetitions": 2,
+      "budget_level": "primary"
+    },
+    {
+      "id": "deterministic",
+      "mode": "deterministic",
+      "repetitions": 2,
+      "budget_level": "primary"
+    },
+    {
+      "id": "learned",
+      "mode": "learned",
+      "repetitions": 2,
+      "budget_level": "primary"
+    },
+    {
+      "id": "linear",
+      "mode": "linear",
+      "repetitions": 2,
+      "budget_level": "primary"
+    },
+    {
+      "id": "staged",
+      "mode": "staged",
+      "repetitions": 2,
+      "budget_level": "primary"
+    },
+    {
+      "id": "automation",
+      "mode": "automation",
+      "repetitions": 2,
+      "budget_level": "primary"
+    },
+    {
+      "id": "grind",
+      "mode": "grind",
+      "repetitions": 2,
+      "budget_level": "primary"
+    },
+    {
+      "id": "fixed",
+      "mode": "fixed",
+      "repetitions": 1,
+      "budget_level": "primary"
+    },
+    {
+      "id": "no_synthesis",
+      "mode": "no_synthesis",
+      "repetitions": 1,
+      "budget_level": "primary"
+    },
+    {
+      "id": "applicability",
+      "mode": "applicability",
+      "repetitions": 1,
+      "budget_level": "primary"
+    },
+    {
+      "id": "phase4_canonical",
+      "mode": "phase4_canonical",
+      "repetitions": 1,
+      "budget_level": "primary"
+    },
+    {
+      "id": "phase4_small",
+      "mode": "phase4",
+      "repetitions": 1,
+      "budget_level": "small"
+    },
+    {
+      "id": "deterministic_small",
+      "mode": "deterministic",
+      "repetitions": 1,
+      "budget_level": "small"
+    },
+    {
+      "id": "learned_small",
+      "mode": "learned",
+      "repetitions": 1,
+      "budget_level": "small"
+    },
+    {
+      "id": "staged_small",
+      "mode": "staged",
+      "repetitions": 1,
+      "budget_level": "small"
+    }
+  ],
+  "training": {
+    "modes": [
+      "symbolic",
+      "deterministic",
+      "typed5"
+    ],
+    "budget": {
+      "max_depth": 10,
+      "max_expansions": 28,
+      "max_candidates": 24,
+      "max_attempts": 160,
+      "timeout_s": 8.0,
+      "tactic_timeout_s": 2.0
+    },
+    "max_source_states": 2,
+    "max_executed_per_state": 16,
+    "max_continuations_per_state": 4,
+    "continuation_budget": {
+      "max_depth": 6,
+      "max_expansions": 12,
+      "max_candidates": 24,
+      "max_attempts": 48,
+      "timeout_s": 3,
+      "tactic_timeout_s": 1
+    },
+    "audit_timeout_s": 20,
+    "linear_l2": [
+      0.01,
+      0.1
+    ],
+    "linear_epochs": 200,
+    "linear_rate": 0.15,
+    "tree_depths": [
+      1,
+      2
+    ],
+    "tree_iterations": [
+      24,
+      48
+    ],
+    "tree_rate": 0.1,
+    "min_leaf": 12,
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "validation_families": [
+      "continuation_logic",
+      "lattice_maps",
+      "set_difference",
+      "product_graphs"
+    ],
+    "model_selection": "Whole-family validation pairwise logistic loss for relevance; squared log-cost on independently verified mode completions for selector. Select once before evaluation, then refit development. Include linear and applicability-only controls regardless of winner.",
+    "labels": "Verified alternatives over actual rejected applications; strictly lower attempts among two independently verified continuations. Unknown/censored never mathematical negatives. Selector fits log attempt cost only among verified equal-budget mode searches; it predicts conditional cost, not probability of provability. All censored modes retained and missingness reported."
+  },
+  "selection": {
+    "cap": 24,
+    "baseline_lane": "20 slots; 16 on existential goals; structural and strong symbolic normalizers first, original Phase 4 order within class",
+    "novelty_lane": "4 normally, 8 existential; exclude unresolved-data generic rules; exact eligibility/candidate rows retained",
+    "order": "Explicit P3 scores followed by tactic-string tie rule in all new arms. Historical baselines retain original stable ties. phase4_canonical separately measures tie intervention.",
+    "staged": "First two non-existential expansions use symbolic set, then deterministic structure policy; root existential immediately retrieves. One shared global budget, no restarted search or free fallback.",
+    "naive": "Baseline then typed union truncated to same cap, explicitly no protection/optimization; saturation can leave no novelty."
+  },
+  "native_synthesis": {
+    "depth": 3,
+    "locals": 24,
+    "terms": 64,
+    "functions_per_stage": 24,
+    "application_attempts": 96,
+    "total_with_products": 128,
+    "expression_nodes": 64,
+    "type_nodes": 96
+  },
+  "automation": "simp_all remains visible general symbolic action; ring/omega specialized actions; group simp-only visible structure-gated action. Aesop/grind separate one-call external references, 2 seconds/call under same outer wall, internal work not equated to primitive steps.",
+  "uncertainty": {
+    "samples": 10000,
+    "seed": 2718,
+    "unit": "paired theorem averages over repeats; theorem bootstrap and separate equal-family sensitivity; common-verified effort and all-run resource use separated; secondary contrasts descriptive"
+  },
+  "freezing": "Statements, families, protocol, budgets and selection rules fixed before model selection. Model and exact execution source hashed and committed before first final-test run. No final-test retuning.",
+  "historical": "All Phase 1\u20135 held-out results used for diagnosis only; never training labels or fresh evaluation.",
+  "metrics": [
+    "verified_success",
+    "attempts",
+    "expansions",
+    "proof_length",
+    "wall_time",
+    "retrieval_time",
+    "inference_time",
+    "Lean_time",
+    "verification_time",
+    "native_heartbeats",
+    "partial_live_session_CPU_RSS",
+    "potential_selected_displaced",
+    "actual_accept_reject",
+    "observed_verified_path_availability",
+    "resource_failures",
+    "family_performance"
+  ]
+}

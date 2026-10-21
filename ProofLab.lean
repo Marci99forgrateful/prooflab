@@ -3,3 +3,5 @@ import ProofLab.Structure
 import ProofLab.Inspect
 
 import ProofLab.Retrieval
+
+import ProofLab.Adaptive

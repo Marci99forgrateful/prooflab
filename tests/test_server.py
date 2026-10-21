@@ -98,3 +98,26 @@ def test_phase5_typed_retrieval_metadata_and_finite_generator_choices() -> None:
         ).status_code
         == 422
     )
+
+
+def test_phase6_finite_tasks_and_model_boundary() -> None:
+    tasks = client.get("/api/tasks?dataset=phase6").json()
+    assert len(tasks) == 48 and all(t["id"].startswith("p6_test_") for t in tasks)
+    model = client.get("/api/adaptive-model").json()
+    assert len(model["sha256"]) == 64 and not model["evaluation_accessed"]
+    assert len(model["training_ids"]) == 120 and len(model["selector_training_ids"]) == 160
+    for body, status in [
+        ({"task_id": "p6_dev_curried_construction_02", "phase6_mode": "learned"}, 404),
+        ({"task_id": tasks[0]["id"], "phase6_mode": "run_tac arbitrary"}, 422),
+        ({"task_id": "imp_chain", "phase6_mode": "learned"}, 422),
+        ({"task_id": tasks[0]["id"], "phase6_model": "../../other"}, 422),
+        (
+            {
+                "task_id": tasks[0]["id"],
+                "phase6_mode": "typed5",
+                "phase6_model": "controller-seed1",
+            },
+            422,
+        ),
+    ]:
+        assert client.post("/api/search", json=body).status_code == status

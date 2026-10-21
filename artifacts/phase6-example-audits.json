@@ -1,0 +1,115 @@
+{
+  "examples": [
+    {
+      "task_id": "p6_test_callable_composition_03",
+      "arm": "learned",
+      "source": "examples/phase6/p6_test_callable_composition_03--learned.lean",
+      "trace_files": [
+        "p6_test_callable_composition_03--learned--r0.json.gz",
+        "p6_test_callable_composition_03--learned--r1.json.gz"
+      ],
+      "proof": [
+        "exists ((f a b, b))",
+        "simp_all"
+      ],
+      "verification": {
+        "verified": true,
+        "axioms": [
+          "propext"
+        ],
+        "error": null,
+        "elapsed_s": 2.20263966001221,
+        "source_sha256": "0145356dd8563ac08679718aa5fcdb1863828aca4e566288a25c755f728dedd4"
+      }
+    },
+    {
+      "task_id": "p6_test_conjugation_commutator_words_04",
+      "arm": "phase4",
+      "source": "examples/phase6/p6_test_conjugation_commutator_words_04--phase4.lean",
+      "trace_files": [
+        "p6_test_conjugation_commutator_words_04--phase4--r0.json.gz",
+        "p6_test_conjugation_commutator_words_04--phase4--r1.json.gz"
+      ],
+      "proof": [
+        "simp only [mul_assoc, mul_one, one_mul] at *",
+        "simp_all"
+      ],
+      "verification": {
+        "verified": true,
+        "axioms": [
+          "propext"
+        ],
+        "error": null,
+        "elapsed_s": 1.9450771209958475,
+        "source_sha256": "d2b579beddc8b8ef14d401d8b995dd63f627860ed90b8b14e45e3d5cb3eca740"
+      }
+    },
+    {
+      "task_id": "p6_test_callable_composition_04",
+      "arm": "deterministic",
+      "source": "examples/phase6/p6_test_callable_composition_04--deterministic.lean",
+      "trace_files": [
+        "p6_test_callable_composition_04--deterministic--r0.json.gz",
+        "p6_test_callable_composition_04--deterministic--r1.json.gz"
+      ],
+      "proof": [
+        "exists (g (f a (k a)))",
+        "apply h"
+      ],
+      "verification": {
+        "verified": true,
+        "axioms": [],
+        "error": null,
+        "elapsed_s": 2.006724964012392,
+        "source_sha256": "a716e59d5759c050e3f7879a1b1dc20a09ea567d88ccc01526fa868eca711207"
+      }
+    },
+    {
+      "task_id": "p6_test_lattice_mixed_intervals_01",
+      "arm": "phase4",
+      "source": "examples/phase6/p6_test_lattice_mixed_intervals_01--phase4.lean",
+      "trace_files": [
+        "p6_test_lattice_mixed_intervals_01--phase4--r0.json.gz",
+        "p6_test_lattice_mixed_intervals_01--phase4--r1.json.gz"
+      ],
+      "proof": [
+        "apply le_trans",
+        "simp_all",
+        "assumption",
+        "simp_all"
+      ],
+      "verification": {
+        "verified": true,
+        "axioms": [
+          "propext"
+        ],
+        "error": null,
+        "elapsed_s": 1.941195263992995,
+        "source_sha256": "4cdb0e3b14a0324dec895b93c54b197d72ec786ffc007757ed00dcdb3cad9639"
+      }
+    },
+    {
+      "task_id": "p6_test_dependent_function_graphs_02",
+      "arm": "deterministic",
+      "source": "examples/phase6/p6_test_dependent_function_graphs_02--deterministic.lean",
+      "trace_files": [
+        "p6_test_dependent_function_graphs_02--deterministic--r0.json.gz",
+        "p6_test_dependent_function_graphs_02--deterministic--r1.json.gz"
+      ],
+      "proof": [
+        "exists (f a (g a))",
+        "simp_all"
+      ],
+      "verification": {
+        "verified": true,
+        "axioms": [
+          "propext"
+        ],
+        "error": null,
+        "elapsed_s": 1.9469106369942892,
+        "source_sha256": "f908724f991134d1e04bf093ed004a5aa3a91005a78689955bdc7904851a49c2"
+      }
+    }
+  ],
+  "scope": "Freshly compiled actual complete paths from final experiments, independently audited; examples not training"
+}
