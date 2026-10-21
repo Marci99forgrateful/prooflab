@@ -32,6 +32,7 @@ SOURCES = [
     "benchmarks/phase6/selector-frozen.json",
     "benchmarks/phase6/allocation-semantics.json",
     "benchmarks/phase6/seed-protocol.json",
+    "benchmarks/phase6/linear-control.json",
     "experiments/phase6/development-v1/trace-storage.json",
     "experiments/phase6/development-v1/action-storage.json",
     "experiments/phase6/selector-v1/trace-storage.json",

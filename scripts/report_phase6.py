@@ -45,7 +45,7 @@ def main() -> None:
         )
     lines += [
         "",
-        "Primary arms share 18 seconds, 600 attempts, eighty expansions, depth twelve, 24 candidates and two seconds per tactic/query. Smaller arms share 10 seconds, 240 attempts and forty expansions. Aesop/grind use one two-second external call; their work is not one elementary inference. Retrieval, Python inference and independent-audit wall count inside the shared outer budget. All-run effort mixes successes/failures and does not measure proof efficiency alone. Selected relevance is linear, so the learned and linear controls share identical model coefficients and the same selector; that contrast is repeated-execution variability, not independent architecture evidence.",
+        "Primary arms share 18 seconds, 600 attempts, eighty expansions, depth twelve, 24 candidates and two seconds per tactic/query. Smaller arms share 10 seconds, 240 attempts and forty expansions. Aesop/grind use one two-second external call; their work is not one elementary inference. Retrieval, Python inference and independent-audit wall count inside the shared outer budget. All-run effort mixes successes/failures and does not measure proof efficiency alone. Selected relevance is linear in both learned and fully linear controls; their controllers differ (boosted versus ridge). The applicability relevance ablation holds the selected controller fixed.",
         "",
         "## Paired comparisons",
         "",
@@ -115,7 +115,7 @@ def main() -> None:
         "The development and final-test boundaries are distinct. "
         + f"There are {training['development_tasks']} development tasks, {training['contributing_tasks']} contributing tasks, {training['source_states']} source states and {training['preferences']} pair preferences. Labels: `{training['labels']}`. Preference kinds: `{training['preference_kinds']}`.",
         "",
-        f"Relevance validation winner: `{training['winner']}`. Selected selector: `{training['selector_selected']}` from {training['verified_selector_rows']} verified matched fixed-mode costs. Censored/unknown costs were excluded rather than labelled mathematically wrong. The selector has success-conditioned missingness and root/continuation-policy distribution limitations. The linear and applicability controls share the selected selector while changing relevance.",
+        f"Relevance validation winner: `{training['winner']}`. Selected selector: `{training['selector_selected']}` from {training['verified_selector_rows']} verified matched fixed-mode costs. Censored/unknown costs were excluded rather than labelled mathematically wrong. The selector has success-conditioned missingness and root/continuation-policy distribution limitations. The fully linear control uses the same linear relevance and a ridge controller. The applicability control changes relevance while holding the selected controller fixed.",
         "",
         "## Per-theorem primary outcomes",
         "",

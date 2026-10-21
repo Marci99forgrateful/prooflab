@@ -279,3 +279,41 @@ def test_native_set_witness_constructor_has_real_inferred_type_and_audit(kind) -
             parent = message["state_id"]
         assert not message["goals"]
     assert verify(task, proof).verified
+
+
+@pytest.mark.integration
+def test_staged_policy_counts_nonexistential_expansions_and_keeps_one_budget() -> None:
+    task = Task(
+        id="p6_api_stage_probe",
+        title="Staged query validation",
+        domain="algebra",
+        difficulty="challenge",
+        split="development",
+        binders="(G : Type) [Group G] (a : G)",
+        target="∃ z, z = a ∧ z*a⁻¹=1",
+        display="staged native goal",
+        description="API-only feature check, not training or final evaluation",
+    )
+    provider = HybridProvider("staged")
+    with AdaptiveSession(task) as lean:
+        state = lean.initial
+        _, q = provider.generate(lean, state, 24, frozenset(), 2)
+        assert q["decision"] == "hybrid" and q["nonexistential_stage"] == 0
+        for tactic, expected in [("exists a", 1), ("constructor", 2), ("rfl", 3)]:
+            msg = lean.step(state.state_id, tactic, 2)
+            assert msg["status"] == "accepted"
+            state = ProofState(state_id=msg["state_id"], goals=msg["goals"])
+            _, q = provider.generate(lean, state, 24, frozenset(), 2)
+            assert q["nonexistential_stage"] == expected
+            assert q["decision"] == ("symbolic" if expected <= 2 else "hybrid")
+
+
+@pytest.mark.integration
+def test_fixed_quota_ablation_preserves_the_same_context_gate() -> None:
+    task = next(t for t in read_tasks("development") if t.id == "p6_dev_ring_expansion_02")
+    with AdaptiveSession(task) as lean:
+        det, a = HybridProvider("deterministic").generate(lean, lean.initial, 24, frozenset(), 2)
+        fixed, b = HybridProvider("fixed").generate(lean, lean.initial, 24, frozenset(), 2)
+        assert a["decision"] == b["decision"] == "symbolic"
+        assert [c.model_dump() for c in det] == [c.model_dump() for c in fixed]
+        assert "native" not in a and "native" not in b

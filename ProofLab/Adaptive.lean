@@ -43,7 +43,8 @@ partial def products (expected : Expr) (terms : Array TermRow) (fuel : Nat) : Me
         if found.size < 4 && localAttempts < 4 && max a.depth b.depth < 3 then
           localAttempts := localAttempts + 1
           let term ← mkAppM ``Prod.mk #[a.expr,b.expr]
-          unless found.any (fun r => r.expr == term) do
+          if size term <= 64 && size (← inferType term) <= 96 &&
+              !(found.any (fun r => r.expr == term)) then
             found := found.push ⟨term, max a.depth b.depth + 1,
               "typed pair(" ++ (← ppExpr a.expr).pretty ++ ", " ++
               (← ppExpr b.expr).pretty ++ "); " ++ a.derivation ++ "; " ++ b.derivation⟩
@@ -121,10 +122,12 @@ def witnesses (goal : MVarId) : MetaM (Array Json × Nat) := withoutModifyingSta
   if expected.getAppFn.isConstOf ``Prod then
     let (pairs, count) ← products expected terms 3
     attempts := attempts + count
+    let pairs := pairs.filter fun r => !(terms.any (fun old => old.expr == r.expr))
     terms := terms.extract 0 (64 - pairs.size) ++ pairs
   if expected.isConstOf ``Nat then
-    terms := terms.push ⟨mkNatLit 0, 0, "bounded Nat literal"⟩
-    terms := terms.push ⟨mkNatLit 1, 0, "bounded Nat literal"⟩
+    for n in [0,1] do
+      if terms.size < 64 && !(terms.any (fun r => r.expr == mkNatLit n)) then
+        terms := terms.push ⟨mkNatLit n, 0, "bounded Nat literal"⟩
   let mut rows := #[]
   for r in terms do
     let typ ← inferType r.expr
@@ -136,6 +139,7 @@ def witnesses (goal : MVarId) : MetaM (Array Json × Nat) := withoutModifyingSta
         ("term", toJson text), ("type", toJson (← ppExpr typ).pretty),
         ("expected_type", toJson (← ppExpr expected).pretty), ("compatible", toJson true),
         ("construction_depth", toJson r.depth), ("construction", toJson r.derivation),
+        ("expression_nodes", toJson (size r.expr)), ("type_nodes", toJson (size typ)),
         ("compatibility_kind", toJson "native inferred type unification; not tactic acceptance")]
   return (rows, attempts)
 

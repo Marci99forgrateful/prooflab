@@ -432,6 +432,7 @@ def fit_selector(
         candidates.append(dict(nonlinear=nonlinear, validation_mse=mse(valid, m)))
     winner = min(candidates, key=lambda c: c["validation_mse"])
     selected = regression(rows, winner["nonlinear"])
+    linear_selector = regression(rows, False)
     artifact = read_json(output / "learned.json")
     fingerprint = hashlib.sha256(
         json.dumps(artifact["relevance"], sort_keys=True).encode()
@@ -446,7 +447,7 @@ def fit_selector(
         if model.get("selector_ready"):
             raise ValueError("Do not replace an already finalized selector")
         model.update(
-            selector=selected,
+            selector=linear_selector if name == "linear" else selected,
             selector_ready=True,
             selector_training_ids=frozen["development_ids"],
             selector_collection_sha256=digest(data / "provenance.json"),
@@ -457,7 +458,8 @@ def fit_selector(
                 "mode continuations with canonical P3 ties and fitted selected "
                 "relevance. Greedy adaptive switching is a new rollout policy; "
                 "censored costs excluded, success-conditioned missingness explicit. "
-                "Shared fixed selector isolates linear/applicability relevance ablations."
+                "The fully linear reference uses a ridge controller with the same data; "
+                "the applicability relevance ablation holds the selected controller fixed."
             ),
         )
         path.write_text(json.dumps(model, indent=2, sort_keys=True) + "\n")

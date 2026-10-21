@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "registered_before_final_testing": true,
+  "role": "Clarify the preregistered linear arm as a fully linear adaptive baseline",
+  "relevance": "Same selected linear relevance expert, trained only on 120 tasks.",
+  "selector": "Ridge linear conditional-cost regressor fitted on the same 347 independently verified fixed-mode development completions, using the same 120/40 selection split and final permitted-development refit.",
+  "primary_selection": "Unchanged. The primary still uses the controller chosen by the previously registered validation-MSE rule. This exports the existing linear comparison model as a distinct final baseline, never selected by final-test outcomes.",
+  "applicability_ablation": "Changes only relevance objective while retaining the selected primary controller.",
+  "history": "The initial shared-controller linear-relevance artifact is preserved as a pre-evaluation diagnostic; it was never scored on final tests."
+}
