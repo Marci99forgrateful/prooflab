@@ -28,7 +28,7 @@ OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 uv run --frozen python scripts/train_ph
   --data experiments/phase6/development-v1 --output /tmp/prooflab-phase6-refit
 ```
 
-This selects the linear/boosted relevance architecture using four whole-family validation groups, retains the fitted relevance weights from the 120 training tasks. The forty validation families never train that expert before selector validation. It produces **provisional relevance artifacts**: an unfitted adaptive selector cannot execute normal search. Relevance fingerprints are frozen before the separate matched strategy collection. The recorded experiment already includes the actual equal-budget forced-mode traces, so a saved-data selector refit needs no new Lean searches:
+This selects the linear/boosted relevance architecture using four whole-family validation groups and retains its 120-task training fit. The forty tasks in the four validation families never train that expert before selector validation. It produces **provisional relevance artifacts**: an unfitted adaptive selector cannot execute normal search. Relevance fingerprints are frozen before the separate matched strategy collection. The recorded experiment already includes the actual equal-budget forced-mode traces, so a saved-data selector refit needs no new Lean searches:
 
 ```bash
 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 uv run --frozen python - <<'PY'
@@ -40,11 +40,13 @@ PY
 
 Compare final relevance/selector parameter JSONs with the committed artifacts; wall-time fields in reports are observations and are not expected to match. The selector's target is log attempt cost **conditional on independently verified fixed-mode completion**. Accepted/censored/unexplored actions are never labelled mathematically incorrect. Missing outcome selection bias and root-to-intermediate-state distribution shift remain limitations.
 
-To collect a **new** matched strategy experiment, use `phase6_counterfactuals.collect(destination=<new-dir>)` with the documented relevance model source. The collector refuses existing output; it hashes the exact relevance component and all procedures. Linear/applicability relevance controls share the selected selector, explicitly isolating relevance changes rather than claiming independently trained portfolios.
+To collect a **new** matched strategy experiment, use `phase6_counterfactuals.collect(destination=<new-dir>)` with the documented relevance model source. The collector refuses existing output; it hashes the exact relevance component and all procedures. The fully linear control uses a ridge controller on identical costs; the applicability relevance control holds the selected boosted controller fixed. Controller seeds one/two keep relevance identical and change only the registered stochastic cost model.
 
 ## Frozen final execution
 
-The committed `models/phase6/frozen.json` hashes all executable Phase 6 source, models and the selector registration. `check_execution` also verifies all prior frozen evidence. It is forbidden to tune code/models against final results.
+The committed `models/phase6/frozen.json` hashes nineteen executable/protocol/archive entries and eight model/report artifacts. Source commit `f239b2b` and freeze commit `6c204c2` precede the first final search. The effective protocols include the selector validation guard, precise work-conserving allocation semantics, the fully linear control and the conditional seed supplement. `check_execution` also verifies all prior frozen evidence. It is forbidden to tune code/models against final results.
+
+This is a locally committed research freeze, not external blinded preregistration. The final freeze was pushed to the review branch during the campaign; its public publication did not precede the first run. Statements were visible to the developers for design and native structural auditing. The archived commit/source/model hashes and run provenance make the implemented boundary inspectable.
 
 ```bash
 uv run --frozen python -c 'from prooflab.phase6_evaluation import check_execution; check_execution()'
@@ -52,20 +54,25 @@ uv run --frozen python scripts/evaluate_phase6.py run --output /tmp/prooflab-pha
 uv run --frozen python scripts/evaluate_phase6.py finalize --output /tmp/prooflab-phase6-new-evaluation
 ```
 
-The full preregistered matrix is 1344 genuine searches with two workers. Comparable primary arms share 18 seconds, 600 attempts, eighty expansions, depth twelve and cap 24. The smaller controls share 10 seconds, 240 attempts and forty expansions. Every query/inference/verification consumes the outer wall budget. Aesop/grind use a separate opaque external call capped at two seconds; attempts are not internal inference counts. Use an otherwise idle host for cleaner timing; report any concurrent activity. New execution can legitimately differ under resource limits and does not replace the recorded result.
+The full effective preregistered matrix is **1440 genuine searches with two workers**: 1344 main/ablation runs plus 96 controller-seed robustness runs. The conditional seed supplement was registered before controller selection; seed zero remains primary. Comparable primary arms share 18 seconds, 600 attempts, eighty expansions, depth twelve and cap 24. The smaller controls share 10 seconds, 240 attempts and forty expansions. Every query/inference/verification consumes the engine wall budget. Full-call `runner_wall_s` additionally includes separately measured fixed artifact setup and metadata construction; archive I/O/interpreter startup are outside the call. Failed retrieval round trips are metered, with unavailable interrupted native counters left unknown. Aesop/grind use a separate opaque external call capped at two seconds; attempts are not internal inference counts. Use an otherwise idle host for cleaner timing; report any concurrent activity. New execution can legitimately differ under resource limits and does not replace the recorded result.
 
 ## Inspecting data and replay
 
 ```bash
 gzip -dc experiments/phase6/evaluation-v1/traces/<task>--<arm>--r0.json.gz
 uv run --frozen python scripts/analyze_phase6.py
+uv run --frozen python scripts/sensitivity_phase6.py
 uv run --frozen python scripts/report_phase6.py
 uv run --frozen python scripts/export_phase6.py
+uv run --frozen python scripts/plot_phase6.py
+uv run --frozen python scripts/export_phase6_examples.py
 npm --prefix web run build
 uv run --frozen prooflab serve
 ```
 
 All canonical archives retain exact original JSON bytes. `trace-storage.json` indexes raw and compressed SHA-256 values; the browser decompresses the same gzip files. Analysis/reporting reads recorded evidence and cannot retune frozen execution. `results.csv` contains all per-run measurements; summary files include per-theorem proofs, paired intervals, per-family results and exact-prefix witnessed availability. Native compatibility, actual acceptance and verified complete paths remain distinct.
+
+The inherited generic `metadata.seed` describes deterministic search scheduling. The controller training seed is recorded in its model's `selector.seed`, the effective arm's `model_variant`, and `adaptive_model_file`/`adaptive_model_sha256`; seeded sensitivity arms must be identified from those fields rather than the legacy generic label.
 
 Select **Phase 6 · Adaptive Proof Search** in the existing Search Architecture Explorer. Compare Phase 4, Phase 5 typed, deterministic and learned policies side by side. A small-budget arm has its own recorded budget; do not interpret it as an equal-budget primary comparison. The finite local API accepts only repository-owned evaluation IDs and registered modes; it preserves cancellation, origin restrictions, proof checking and exports.
 

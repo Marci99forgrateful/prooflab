@@ -7,33 +7,47 @@ Mathlib. ProofLab **constructs proof paths** using breadth-first, handcrafted
 best-first, locally learned candidate ranking and learned frontier scheduling, visualizes actual tactic attempts, and
 rechecks every successful proof in a separate Lean process.
 
-**v0.5.0 review candidate:** native type-directed retrieval over 116 declarations,
-bounded typed witness construction, a locally trained CPU retrieval ranker and an
-integrated **Premise & Candidate Explorer**. Candidate availability, actual Lean
-acceptance and independently verified complete proofs are shown separately.
+**v0.6.0 review candidate:** adaptive hybrid search combines the strongest Phase 4
+symbolic generator, native type-directed retrieval, callable expression synthesis
+and locally learned mathematical-context selection. The integrated **Adaptive
+Proof Search Explorer** separates proposed/selected tactics, execution order,
+actual Lean outcomes and independently verified proofs.
 
-The [Phase 5 report](docs/phase-5-final-report.md) links the focused
-[retrieval/source study](docs/phase-5-related-work.md),
-[coverage diagnosis](docs/phase-5-coverage.md), [data boundary](docs/phase-5-data.md),
-[model and allocation policy](docs/phase-5-model.md) and
-[reproduction commands](docs/phase-5-reproduction.md).
+The [Phase 6 final report](docs/phase-6-final-report.md) links the
+[architecture](docs/phase-6-architecture.md), [data boundary](docs/phase-6-data.md),
+[local models and limitations](docs/phase-6-model.md),
+[measured comparisons](docs/phase-6-results.md) and
+[reproduction commands](docs/phase-6-reproduction.md).
 
-**Fresh measured result:** deterministic typed and learned retrieval each solve
-**15/40** theorems in both repetitions, versus **14/40** for the original generator.
-The learned retriever adds no verified success and needs 328 extra attempts on one
-common-success group problem. The broader Phase 4 generator solves **29/40**;
-separate native Aesop solves **31/40**. All **1120 actual searches** and all unsolved
-tasks are retained. No ML search-efficiency improvement is established.
+The frozen study uses **48 new statements**, a **160-task development curriculum**
+and **1440 registered searches**, with Phase 4 expanded generation and Phase 3
+scheduling as its strongest prior baseline. Candidate relevance is selected on
+whole-family development validation; a separate trained cost controller chooses
+symbolic, typed or hybrid generation. The primary model and two controller seeds
+are fixed before final testing. Search, native queries, strong automation and
+independent verification remain separately inspectable.
 
-The earlier [Phase 4 negative result](docs/phase-4-final-report.md) remains intact:
-learned frontier 21/32 versus handcrafted/Phase 3 22/32, with all 640 executions.
-Its separate 30/32 broader-generator result is not an ML scheduling gain. Phase 5
-preserves previous models, datasets, reports and validation evidence. This draft
-targets `feature/phase4-search-architecture`; it is not merged into `main`.
+**Measured Phase 6 finding:** expanded P4 solves **23/48**, deterministic hybrid
+**27/48**, learned hybrid **22/48** and staged hybrid **30/48**, identically in
+both recorded repetitions. The primary learned-minus-P4 success difference is
+−2.083 percentage points (paired 95% interval −14.583 to +10.417): **no ML
+improvement is established**. The staged result is descriptive; its post-hoc
+theorem interval touches zero and family sensitivity crosses zero. New synthesis
+adds six verified tasks over the old-construction control. All 1440 executions,
+seven statements unsolved by every arm, and genuine regressions remain available.
+
+Historical Phase 5 evidence remains unchanged: deterministic typed and learned
+retrieval each solve **15/40**, the expanded Phase 4 generator **29/40**, and
+separate native Aesop **31/40**, with all **1120 actual searches** retained. The
+learned retriever adds no success and costs 328 extra attempts on one group task.
+The [Phase 5 report](docs/phase-5-final-report.md) and earlier
+[Phase 4 negative result](docs/phase-4-final-report.md) remain available; neither
+is presented as a new Phase 6 test. This draft targets
+`feature/phase5-type-directed-retrieval` and is not merged into `main`.
 
 No paid model, API key, external inference service, or GPU is required.
 
-![Actual original-versus-learned retrieval search trees in the Phase 5 Explorer](docs/assets/phase5-tree-comparison.png)
+![Actual baseline-versus-hybrid search trees in the Phase 6 Explorer](docs/assets/phase6-tree-comparison.png)
 
 **Explore:** [animated real trace](docs/assets/proof-search.gif) ·
 [algorithm comparison](docs/assets/algorithm-comparison.png) ·
@@ -54,14 +68,16 @@ The Search Architecture Explorer replays complete actual trees, queue selections
 state/candidate scores, feature contributions, native repeated-shape diagnostics,
 verified proofs and failures side by side. It has a labelled neighborhood view,
 complete-tree mode, zoom/pan and full-data exports. Prior live search and replay
-views remain available. Its Phase 5 experiment selector opens the integrated
+views remain available. The Phase 6 selector adds actual context/strategy decisions,
+nominal and borrowed candidate slots, controller costs/components, real regressions,
+query failures and full-call timing. Its Phase 5 experiment selector retains the integrated
 Premise & Candidate Explorer: actual types, required premises, witness constructions,
 compatibility, deterministic/learned retrieval scores, actual scheduler ranks,
 application outcomes, displaced candidates and resource costs. Static replay,
 local computation and full JSON exports are supported.
-See [reproduction commands](docs/phase-5-reproduction.md).
+See [Phase 6 reproduction commands](docs/phase-6-reproduction.md).
 
-![Actual Phase 5 measurements, including negative ML findings and uncertainty](docs/assets/phase5-results.png)
+![Actual Phase 6 comparisons against the strongest prior baseline](docs/assets/phase6-results.png)
 
 ## Quick start
 
@@ -69,7 +85,7 @@ Prerequisites: Linux, Python 3.12+, [uv](https://docs.astral.sh/uv/), Node.js
 20.19+ (or 22.12+), npm, Git, curl. Allow several GB for Lean and Mathlib.
 
 ```bash
-git clone --branch feature/phase5-type-directed-retrieval https://github.com/Marci99forgrateful/prooflab.git
+git clone --branch feature/phase6-adaptive-hybrid https://github.com/Marci99forgrateful/prooflab.git
 cd prooflab
 bash scripts/bootstrap.sh
 uv run --frozen prooflab serve

@@ -1,0 +1,76 @@
+{
+  "observed_at": "2026-10-21T16:20:29.405519+00:00",
+  "scope": "Full final local regression after complete frozen 1440-run campaign and genuine UI export; no model/generator retuning",
+  "python": {
+    "tests": 131,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 425.382,
+    "junit_sha256": "b9f6b18c22767bd9d4bbfd47e44d0eee5992dd560e350a8720213a4a1da9dfef",
+    "junit_path": "artifacts/local/phase6-final-pytest.xml",
+    "browser_tests": 24,
+    "command": "uv run --frozen pytest -q --junitxml=artifacts/local/phase6-final-pytest.xml"
+  },
+  "node": {
+    "tests": 17,
+    "failures": 0,
+    "command": "npm --prefix web test"
+  },
+  "bootstrap": {
+    "passed": true,
+    "command": "bash scripts/bootstrap.sh",
+    "lean_build_targets": 681,
+    "exports": [
+      "phase3",
+      "phase4",
+      "phase5",
+      "phase6"
+    ],
+    "frontend_build": true
+  },
+  "ruff": {
+    "check": true,
+    "format": true,
+    "formatted_files": 117
+  },
+  "mypy": {
+    "passed": true,
+    "source_files": 44,
+    "strict": true
+  },
+  "prettier": {
+    "passed": true
+  },
+  "evidence": {
+    "final_searches": 1440,
+    "independent_verified_runs": 647,
+    "fresh_exported_example_audits": 5,
+    "execution_freeze_commit": "6c204c2ccd293ff1954c04b97c13981413ab90d2",
+    "frozen_source_or_model_changes": [],
+    "existing_research_changes": []
+  },
+  "ui": {
+    "captures": "docs/assets/phase6-*.png",
+    "actual_execution_data_only": true,
+    "mobile_overflow_check": true,
+    "seeded_model_api_and_live_browser_checked": true
+  },
+  "attempt_history": [
+    {
+      "scope": "Initial new target tests",
+      "passed": 7,
+      "failed": 1,
+      "reason": "Test selected a legitimate symbolic-only learned run while assuming retrieval; corrected fixture chooses a recorded run with retrieval. Solver/model unchanged."
+    },
+    {
+      "scope": "Corrected seeded browser and finite API checks",
+      "passed": 2,
+      "failed": 0
+    }
+  ],
+  "warnings": [
+    "Existing Starlette/httpx deprecation",
+    "Existing NetworkX directed graph hashing version warning"
+  ]
+}

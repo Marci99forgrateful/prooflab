@@ -70,6 +70,20 @@ def main() -> None:
 
     def example(ident: str, a: str, b: str, title: str) -> None:
         left, right = indexed[(ident, a)], indexed[(ident, b)]
+        repeats = sorted(
+            {int(r["repeat"]) for r in recorded.values() if r["task"] == ident and r["arm"] == a}
+            & {int(r["repeat"]) for r in recorded.values() if r["task"] == ident and r["arm"] == b}
+        )
+        # Display an actual differing execution when the theorem-level means differ.
+        repeat = next(
+            (
+                r
+                for r in repeats
+                if (recorded[f"{ident}--{a}--r{r}.json.gz"]["status"] == "verified")
+                != (recorded[f"{ident}--{b}--r{r}.json.gz"]["status"] == "verified")
+            ),
+            repeats[0],
+        )
         examples.append(
             dict(
                 title=title,
@@ -79,6 +93,7 @@ def main() -> None:
                 left_verified=left["verified"],
                 right_verified=right["verified"],
                 repetitions=left["repetitions"],
+                repeat=repeat,
                 family=left["family"],
                 left_attempt_mean=statistics.mean(left["attempts"]),
                 right_attempt_mean=statistics.mean(right["attempts"]),
@@ -102,14 +117,7 @@ def main() -> None:
         regressions = [(v, i) for i, v in effort.items() if v > 0]
         if regressions:
             example(max(regressions)[1], a, b, "More attempts on a common verified theorem")
-    unsolved = [
-        t.id
-        for t in read_tasks()
-        if not any(
-            indexed[(t.id, a)]["verified"]
-            for a in ("phase4", "deterministic", "learned", "automation", "grind")
-        )
-    ]
+    unsolved = [t.id for t in read_tasks() if not any(indexed[(t.id, a)]["verified"] for a in arms)]
     if unsolved:
         example(unsolved[0], "phase4", "learned", "Unsolved across primary methods and references")
     families = read_json(DIRECTORY / "families.json")

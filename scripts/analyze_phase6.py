@@ -37,6 +37,11 @@ def compare_queries(left: Trace, right: Trace) -> dict[str, Any]:
         ao = [c.tactic for c in ar.candidates] if ar else []
         bo = [c.tactic for c in br.candidates] if br else []
         shared = sa & sb
+        if ar and br:
+            scores = {c.tactic: c.policy_score for c in br.candidates}
+            counts["shared_action_score_disagreements"] += sum(
+                c.tactic in shared and c.policy_score != scores.get(c.tactic) for c in ar.candidates
+            )
         arel = [t for t in ao if t in shared]
         brel = [t for t in bo if t in shared]
         counts["shared_relative_order_differs"] += arel != brel
@@ -61,6 +66,31 @@ def compare_queries(left: Trace, right: Trace) -> dict[str, Any]:
     return dict(counts=dict(counts), changes=changes)
 
 
+def path_availability(source: Trace, other: Trace) -> list[dict[str, Any]]:
+    """Positive proof witness at exact prefixes, never labels unvisited branches."""
+    if not source.verification.verified:
+        return []
+    paths = prefixes(other)
+    queries = {paths[q["node_id"]]: q for q in other.retrievals}
+    steps = []
+    for index, tactic in enumerate(source.proof):
+        prefix = tuple(source.proof[:index])
+        q = queries.get(prefix)
+        nodes = [n for n in other.nodes if paths.get(n.id) == (*prefix, tactic)]
+        steps.append(
+            dict(
+                prefix=list(prefix),
+                needed=tactic,
+                queried=q is not None,
+                selected=tactic in q["selected"] if q else None,
+                displaced=tactic in q.get("displaced", []) if q else None,
+                attempted=[dict(id=n.id, status=n.status, error=n.error) for n in nodes],
+                successor_queried=(*prefix, tactic) in queries,
+            )
+        )
+    return steps
+
+
 def main() -> None:
     summary = read_json(EXPERIMENT / "summary.json")
     indexed = {(r["task_id"], r["arm"]): r for r in summary["per_theorem"]}
@@ -74,6 +104,9 @@ def main() -> None:
         "deterministic minus no_synthesis",
         "staged minus deterministic",
         "phase4_canonical minus phase4",
+        "learned minus applicability",
+        "learned minus linear",
+        "deterministic minus fixed",
     ):
         contrast = known[name]
         a, b = name.split(" minus ")
@@ -125,6 +158,8 @@ def main() -> None:
                                 trace_file=rb["trace_files"][repeat],
                             ),
                             matched=matched,
+                            left_proof_in_right=path_availability(left, right),
+                            right_proof_in_left=path_availability(right, left),
                         )
                     )
         result[name] = dict(

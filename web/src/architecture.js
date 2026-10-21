@@ -23,6 +23,7 @@ let base = "",
   epoch = 0;
 let wholeTrees = [false, false];
 let localJob = null;
+let preferredRepeat = null;
 let selected = [0, 0],
   currentStep = 0;
 
@@ -241,8 +242,8 @@ function renderSide(side) {
   );
   container.innerHTML = `<div class="card-top"><h2>${esc(labels[t.metadata.arm] || labels[t.algorithm])}</h2><span class="pill">${esc(t.status)}</span></div>
     <div class="arch-metrics"><span><b>${m.attempted_candidates}</b>attempts</span><span><b>${m.expanded_states}</b>expanded</span><span><b>${t.nodes.length}</b>tree nodes</span><span><b>${Number(t.metadata.runner_wall_s ?? m.elapsed_s).toFixed(3)}s</b>${t.metadata.runner_wall_s ? "full call" : "wall"}</span><span><b>${m.lean_execution_s.toFixed(3)}s</b>Lean</span><span><b>${m.planning_s.toFixed(3)}s</b>planning</span><span><b>${m.model_inference_s.toFixed(3)}s</b>scores/explanations</span><span><b>${t.beam_evictions?.length || 0}</b>beam evictions</span></div>
-    ${t.retrievals?.length ? `<p class="method-note">Retrieval ${m.retrieval_s.toFixed(4)}s · ${m.retrieval_queries} native queries · ${m.declaration_probes} declaration probes · ${m.term_constructions} term construction attempts · ${m.retrieval_heartbeats} retrieval / ${m.tactic_heartbeats} tactic allocation heartbeats. Session CPU ${m.session_cpu_s?.toFixed(3) ?? "unavailable"}s · summed process RSS high-water bound ${m.session_peak_rss_kib ?? "unavailable"} KiB; independent audit resources excluded.</p>` : ""}
-    <p class="method-note">${esc(t.termination)} · ${m.proof_length} proof steps · source ${esc(t.metadata.code_commit.slice(0, 12))}. ${["automation", "grind"].includes(t.algorithm) ? "External tactic reference: internal state/candidate work is not comparable to ProofLab counts." : "Candidate cap and native search budgets are identical across controlled policies."}</p>
+    ${t.retrievals?.length || m.retrieval_queries ? `<p class="method-note">Retrieval ${m.retrieval_s.toFixed(4)}s · ${m.retrieval_queries} native queries${t.metadata.failed_retrieval_queries !== undefined ? ` · ${esc(t.metadata.failed_retrieval_queries)} failed queries` : ""} · ${m.declaration_probes} returned declaration probes · ${m.term_constructions} returned term construction attempts · ${m.retrieval_heartbeats} retrieval / ${m.tactic_heartbeats} tactic allocation heartbeats. Session CPU ${m.session_cpu_s?.toFixed(3) ?? "unavailable"}s · summed process RSS high-water bound ${m.session_peak_rss_kib ?? "unavailable"} KiB; independent audit resources excluded. Interrupted native counters can be unavailable.</p>` : ""}
+    <p class="method-note">${esc(t.termination)} · ${m.proof_length} proof steps · source ${esc(t.metadata.code_commit.slice(0, 12))}. ${["automation", "grind"].includes(t.algorithm) ? "External tactic reference: internal state/candidate work is not comparable to ProofLab counts." : `Recorded budget: ${t.budget.timeout_s}s engine wall, ${t.budget.max_attempts} attempts, ${t.budget.max_expansions} expansions, depth ${t.budget.max_depth}, cap ${t.budget.max_candidates}.`}</p>
     <div class="arch-tree-controls"><button class="text-button arch-zoom-in">Zoom +</button><button class="text-button arch-zoom-out">Zoom −</button><button class="text-button arch-fit">Fit all</button><button class="text-button arch-whole">Complete tree</button><button class="text-button arch-focus">Focus inspected state</button></div>
     <div class="tree-container arch-tree"><svg viewBox="0 0 700 360" aria-label="Actual search architecture tree"><g class="arch-transform">${markup}</g></svg></div>
     <p class="method-note arch-tree-note"></p><div class="arch-decision"></div><div class="arch-queue table-scroll"></div>
@@ -288,9 +289,31 @@ async function loadComparison() {
   const token = ++epoch;
   $("#arch-notice").textContent = "Loading recorded native executions…";
   try {
-    const task = $("#arch-task").value,
-      repeat = Number($("#arch-repeat").value);
+    const task = $("#arch-task").value;
     const policies = [$("#arch-policy-a").value, $("#arch-policy-b").value];
+    const available = manifest
+      .filter((e) => e.task_id === task)
+      .filter((e) =>
+        policies.every((policy) =>
+          manifest.some(
+            (other) =>
+              other.task_id === task &&
+              (dataset === "phase4" ? other.algorithm : other.arm) === policy &&
+              other.repeat === e.repeat,
+          ),
+        ),
+      )
+      .map((e) => e.repeat);
+    const repeats = [...new Set(available)].sort((a, b) => a - b);
+    const previousRepeat = preferredRepeat ?? Number($("#arch-repeat").value);
+    preferredRepeat = null;
+    $("#arch-repeat").innerHTML = repeats
+      .map((r) => `<option value="${r}">Run ${r + 1}</option>`)
+      .join("");
+    const repeat = repeats.includes(previousRepeat)
+      ? previousRepeat
+      : repeats[0];
+    $("#arch-repeat").value = repeat;
     const next = await Promise.all(
       policies.map(async (algorithm) => {
         const e = manifest.find(
@@ -320,7 +343,10 @@ async function loadComparison() {
     );
     $("#arch-step").value = 0;
     renderDecisions();
-    $("#arch-notice").textContent = "";
+    $("#arch-notice").textContent =
+      JSON.stringify(traces[0].budget) === JSON.stringify(traces[1].budget)
+        ? ""
+        : "These recordings use different budgets. This is a descriptive comparison, not an equal-budget result.";
     const limitation = index?.limitations?.[task];
     $("#arch-limitations").textContent =
       limitation ||
@@ -392,7 +418,7 @@ export async function openArchitecture() {
           $("#arch-task").value = example.task_id;
           $("#arch-policy-a").value = example.left;
           $("#arch-policy-b").value = example.right;
-          $("#arch-repeat").value = 0;
+          preferredRepeat = example.repeat ?? 0;
           await loadComparison();
         }),
     );

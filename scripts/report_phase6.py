@@ -33,15 +33,15 @@ def main() -> None:
         ),
         f"The learned-minus-deterministic contrast is **{learning['mean_difference'] * 100:+.3f} pp**, interval **{interval(learning['ci95_theorem'], 100)}**. Symbolic/candidate gains are not attributed automatically to learning.",
         "",
-        "| Policy | Verified runs | Theorem success % [95% interval] | Mean attempts/calls | Mean expansions | Wall s | Lean s | Retrieval s | Inference s | Resource limits |",
-        "|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|",
+        "| Policy | Verified runs | Theorem success % [95% interval] | Mean attempts/calls | Mean expansions | Wall s | Lean s | Retrieval s | Inference s | Resource limits | Execution errors |",
+        "|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|",
     ]
     for name, r in s["results"].items():
         m = r["metrics"]
         ref = name in ("automation", "grind")
         limits = sum(n for t, n in r["terminations"].items() if t.startswith("resource_limit:"))
         lines.append(
-            f"| {name} | {r['verified']}/{r['runs']} | {r['success_rate'] * 100:.2f} {interval(r['success_ci95'], 100)} | {'1 external call' if ref else f'{m["attempted_candidates"]["mean"]:.2f}'} | {'opaque' if ref else f'{m["expanded_states"]["mean"]:.2f}'} | {m['runner_wall_s']['mean']:.3f} | {m['lean_execution_s']['mean']:.3f} | {m['retrieval_s']['mean']:.3f} | {m['model_inference_s']['mean']:.3f} | {limits} |"
+            f"| {name} | {r['verified']}/{r['runs']} | {r['success_rate'] * 100:.2f} {interval(r['success_ci95'], 100)} | {f'{m["attempted_candidates"]["mean"]:.2f} external calls' if ref else f'{m["attempted_candidates"]["mean"]:.2f}'} | {'opaque' if ref else f'{m["expanded_states"]["mean"]:.2f}'} | {m['runner_wall_s']['mean']:.3f} | {m['lean_execution_s']['mean']:.3f} | {m['retrieval_s']['mean']:.3f} | {m['model_inference_s']['mean']:.3f} | {limits} | {r['statuses'].get('execution_error', 0)} |"
         )
     lines += [
         "",
@@ -108,7 +108,7 @@ def main() -> None:
         )
     lines += [
         "",
-        "Native resource rejections are retained separately as `tactic_resource_failures` and probe errors as `retrieval_probe_errors` in summary observations; an exhausted tactic is not evidence of mathematical incompatibility. Potential counts cover the queried universe only; symbolic decisions have no invented typed availability. Compatibility is a proposal annotation, actual acceptance is a native event, and useful availability is witnessed only by complete audited paths at identical prefixes. `summary.json/availability` links those partial recall witnesses. `run-diagnostics.json.gz` retains every observed goal reduction, new metavariable count, actual status and verified-path flag; valid unproductive steps remain unknown as mathematical conclusions.",
+        "Native resource rejections are retained separately as `tactic_resource_failures` and probe errors as `retrieval_probe_errors` in summary observations; an exhausted tactic is not evidence of mathematical incompatibility. Potential occurrences here count the scored candidate pool, not every declaration probe; complete returned native rows, including incompatible proposals, remain in each raw query. Symbolic decisions have no invented typed availability. Compatibility is a proposal annotation, actual acceptance is a native event, and useful availability is witnessed only by complete audited paths at identical prefixes. `summary.json/availability` links those partial recall witnesses. `run-diagnostics.json.gz` retains every observed goal reduction, new metavariable count, actual status and verified-path flag; valid unproductive steps remain unknown as mathematical conclusions.",
         "",
         "## Learning evidence",
         "",
@@ -116,6 +116,12 @@ def main() -> None:
         + f"There are {training['development_tasks']} development tasks, {training['contributing_tasks']} contributing tasks, {training['source_states']} source states and {training['preferences']} pair preferences. Labels: `{training['labels']}`. Preference kinds: `{training['preference_kinds']}`.",
         "",
         f"Relevance validation winner: `{training['winner']}`. Selected selector: `{training['selector_selected']}` from {training['verified_selector_rows']} verified matched fixed-mode costs. Censored/unknown costs were excluded rather than labelled mathematically wrong. The selector has success-conditioned missingness and root/continuation-policy distribution limitations. The fully linear control uses the same linear relevance and a ridge controller. The applicability control changes relevance while holding the selected controller fixed.",
+        "",
+        "## Resource measurement scope",
+        "",
+        "The full-call wall column includes provider/model/index setup and engine metadata work; engine elapsed_s separately measures search, native initialization, retrieval, inference, verification and cleanup. Archive I/O/interpreter startup are outside the solver call. Fixed artifact setup precedes the engine deadline. All comparable arms use the same engine budget and execute every tactic/query/branch within it. Inference timing includes P2/P3/P4 comparison annotations and explanations as well as new controller/relevance work, so it is not isolated new-model overhead.",
+        "",
+        "Failed native queries are metered too. Missing interrupted native probe/heartbeat counts remain unknown; returned native counters are allocation observations, not primitive-inference totals. Session CPU/RSS exclude independent-audit process resources; total CPU is not claimed.",
         "",
         "## Per-theorem primary outcomes",
         "",
