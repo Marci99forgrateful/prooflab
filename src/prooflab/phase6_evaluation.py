@@ -24,7 +24,7 @@ from prooflab.phase6_execution import run_task
 from prooflab.research_io import compact, read_json, trace_paths
 from prooflab.search import metadata
 
-METRICS = [*PREVIOUS_METRICS, "runner_wall_s", "artifact_setup_s"]
+METRICS = [*PREVIOUS_METRICS, "runner_wall_s", "artifact_setup_s", "failed_retrieval_queries"]
 EXPERIMENT = ROOT / "experiments/phase6/evaluation-v1"
 FROZEN = MODELS / "frozen.json"
 SOURCES = [
@@ -69,6 +69,8 @@ def read_protocol() -> dict[str, Any]:
 
 def freeze_execution() -> dict[str, Any]:
     check_freeze()
+    if (EXPERIMENT / "traces").exists() and trace_paths(EXPERIMENT / "traces"):
+        raise ValueError("Final-test execution already exists; cannot preregister retrospectively")
     if FROZEN.exists():
         raise ValueError("Execution already frozen")
     for mode in ("learned", "linear", "applicability"):
@@ -297,7 +299,7 @@ def finalize(destination: Path = EXPERIMENT) -> dict[str, Any]:
                 termination=t.termination,
                 metrics={
                     m: float(t.metadata[m])
-                    if m in ("runner_wall_s", "artifact_setup_s")
+                    if m in ("runner_wall_s", "artifact_setup_s", "failed_retrieval_queries")
                     else getattr(t.metrics, m)
                     for m in METRICS
                 },
@@ -355,6 +357,7 @@ def finalize(destination: Path = EXPERIMENT) -> dict[str, Any]:
             metrics=metrics,
             families=families,
             terminations=dict(Counter(r["termination"] for r in items)),
+            statuses=dict(Counter(r["status"] for r in items)),
             observations=dict(totals),
             repeat_variations=[
                 i

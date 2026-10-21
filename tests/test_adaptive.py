@@ -14,7 +14,7 @@ from prooflab.adaptive_model import predict
 from prooflab.adaptive_native import AdaptiveSession
 from prooflab.adaptive_training import preferences
 from prooflab.lean import verify
-from prooflab.models import Candidate, ProofState, Task
+from prooflab.models import Budget, Candidate, ProofState, Task
 from prooflab.phase6_data import check_freeze, read_tasks
 
 
@@ -317,3 +317,31 @@ def test_fixed_quota_ablation_preserves_the_same_context_gate() -> None:
         assert a["decision"] == b["decision"] == "symbolic"
         assert [c.model_dump() for c in det] == [c.model_dump() for c in fixed]
         assert "native" not in a and "native" not in b
+
+
+@pytest.mark.integration
+def test_failed_native_query_is_metered_without_inventing_results() -> None:
+    from prooflab.lean import LeanTimeout
+    from prooflab.models import Node, Trace
+    from prooflab.phase6_metering import MeteredAdaptive, MeteringProvider, retrieval_metrics
+
+    task = next(t for t in read_tasks("development") if t.id == "p6_dev_curried_construction_02")
+    provider = MeteringProvider(HybridProvider())
+    with MeteredAdaptive(task) as lean:
+        provider.session = lean
+        with pytest.raises(LeanTimeout):
+            lean.retrieve(0, [], timeout=0)
+        trace = Trace(
+            task=task,
+            algorithm="outcome",
+            budget=Budget(),
+        )
+        trace.nodes = [
+            Node(id=0, parent=None, depth=0, state=lean.initial, tactic=None, status="root")
+        ]
+        events = retrieval_metrics(trace, provider)
+        assert len(events) == trace.metrics.retrieval_queries == 1
+        assert events[0]["status"] == "failed" and events[0]["node_id"] == 0
+        assert trace.metrics.retrieval_s > 0
+        assert trace.metrics.lean_execution_s == trace.metrics.retrieval_s
+        assert "native" not in events[0]  # Timed out before any native result.
