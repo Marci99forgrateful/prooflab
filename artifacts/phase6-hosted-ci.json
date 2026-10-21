@@ -172,6 +172,179 @@
         "errors": 0,
         "skipped": 0
       }
+    },
+    {
+      "scope": "Complete Phase 6 delivery code, evidence and integrated UI",
+      "run_id": 39634100413,
+      "url": "https://github.com/Marci99forgrateful/prooflab/actions/runs/39634100413",
+      "head_sha": "d54493473c8a4cf37893116abe0f8392345b7c73",
+      "status": "completed",
+      "conclusion": "success",
+      "actual_pytest_outcomes": {
+        "tests": 131,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "jobs": [
+        {
+          "completedAt": "2026-10-21T16:29:10Z",
+          "conclusion": "success",
+          "databaseId": 119339827339,
+          "name": "verify",
+          "startedAt": "2026-10-21T16:22:00Z",
+          "status": "completed",
+          "steps": [
+            {
+              "conclusion": "success",
+              "name": "Set up job",
+              "number": 1,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run actions/checkout@v4",
+              "number": 2,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run astral-sh/setup-uv@v6",
+              "number": 3,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run actions/setup-node@v4",
+              "number": 4,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Restore pinned Lean and Mathlib",
+              "number": 5,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run bash scripts/bootstrap.sh",
+              "number": 6,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run uv run --frozen ruff check src scripts tests",
+              "number": 7,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run uv run --frozen ruff format --check src scripts tests",
+              "number": 8,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run uv run --frozen mypy src/prooflab",
+              "number": 9,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run npm --prefix web test",
+              "number": 10,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run npm --prefix web run format:check",
+              "number": 11,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run uv run --frozen playwright install --with-deps chromium",
+              "number": 12,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run uv run --frozen pytest -q --junitxml=artifacts/local/pytest.xml",
+              "number": 13,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Report actual JUnit outcomes",
+              "number": 14,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run actions/upload-artifact@v4",
+              "number": 15,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Post Restore pinned Lean and Mathlib",
+              "number": 27,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Post Run actions/setup-node@v4",
+              "number": 28,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Post Run astral-sh/setup-uv@v6",
+              "number": 29,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Post Run actions/checkout@v4",
+              "number": 30,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Complete job",
+              "number": 31,
+              "status": "completed"
+            }
+          ],
+          "url": "https://github.com/Marci99forgrateful/prooflab/actions/runs/39634100413/job/119339827339"
+        }
+      ],
+      "annotations": [
+        {
+          "path": ".github",
+          "blob_href": "https://github.com/Marci99forgrateful/prooflab/blob/d54493473c8a4cf37893116abe0f8392345b7c73/.github",
+          "start_line": 2,
+          "start_column": null,
+          "end_line": 2,
+          "end_column": null,
+          "annotation_level": "warning",
+          "title": "",
+          "message": "Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/cache@v4, actions/checkout@v4, actions/setup-node@v4, actions/upload-artifact@v4, astral-sh/setup-uv@v6. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/",
+          "raw_details": ""
+        },
+        {
+          "path": ".github",
+          "blob_href": "https://github.com/Marci99forgrateful/prooflab/blob/d54493473c8a4cf37893116abe0f8392345b7c73/.github",
+          "start_line": 8,
+          "start_column": null,
+          "end_line": 8,
+          "end_column": null,
+          "annotation_level": "notice",
+          "title": "Actual Pytest outcomes",
+          "message": "{'tests': 131, 'failures': 0, 'errors': 0, 'skipped': 0}",
+          "raw_details": ""
+        }
+      ]
     }
   ]
 }
