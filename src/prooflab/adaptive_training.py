@@ -30,7 +30,8 @@ DATA = ROOT / "experiments/phase6/development-v1"
 
 def save(path: Path, value: dict[str, Any]) -> None:
     raw = (json.dumps(value, ensure_ascii=False, indent=2) + "\n").encode()
-    path.with_suffix(".json.gz").write_bytes(gzip.compress(raw, compresslevel=6, mtime=0))
+    target = path if path.name.endswith(".json.gz") else path.with_suffix(".json.gz")
+    target.write_bytes(gzip.compress(raw, compresslevel=6, mtime=0))
 
 
 def continuation(

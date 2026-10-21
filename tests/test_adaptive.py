@@ -145,3 +145,13 @@ def test_boosted_pairwise_model_is_fitted_and_seed_reproducible() -> None:
     assert predict(model, {"context": -1.0, "choice": -1.0}) > predict(
         model, {"context": -1.0, "choice": 1.0}
     )
+
+
+def test_compressed_collection_save_preserves_requested_path(tmp_path) -> None:
+    from prooflab.adaptive_training import save
+    from prooflab.research_io import read_json
+
+    path = tmp_path / "actual.json.gz"
+    save(path, {"genuine": "data"})
+    assert path.exists() and not (tmp_path / "actual.json.json.gz").exists()
+    assert read_json(path) == {"genuine": "data"}

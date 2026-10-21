@@ -1,0 +1,78 @@
+{
+  "code_commit": "ae15b01391f5895eafe375252e9d9561a55db15d",
+  "lean_version": "leanprover/lean4:v4.24.0",
+  "mathlib_revision": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7",
+  "python": "3.12.14",
+  "platform": "Linux-6.18.55-x86_64-with-glibc2.41",
+  "machine": "x86_64",
+  "processor": "",
+  "seed": "0 (deterministic)",
+  "state_identity": "Exact tactic prefix within one native session; no semantic merging",
+  "freeze_sha256": "b4d7f6f65ca2c0389219427718cbc96c7b60f6468f56bbbd25c59d2da061539b",
+  "configuration": {
+    "modes": [
+      "symbolic",
+      "deterministic",
+      "typed5"
+    ],
+    "budget": {
+      "max_depth": 10,
+      "max_expansions": 28,
+      "max_candidates": 24,
+      "max_attempts": 160,
+      "timeout_s": 8.0,
+      "tactic_timeout_s": 2.0
+    },
+    "max_source_states": 2,
+    "max_executed_per_state": 16,
+    "max_continuations_per_state": 4,
+    "continuation_budget": {
+      "max_depth": 6,
+      "max_expansions": 12,
+      "max_candidates": 24,
+      "max_attempts": 48,
+      "timeout_s": 3,
+      "tactic_timeout_s": 1
+    },
+    "audit_timeout_s": 20,
+    "linear_l2": [
+      0.01,
+      0.1
+    ],
+    "linear_epochs": 200,
+    "linear_rate": 0.15,
+    "tree_depths": [
+      1,
+      2
+    ],
+    "tree_iterations": [
+      24,
+      48
+    ],
+    "tree_rate": 0.1,
+    "min_leaf": 12,
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "validation_families": [
+      "continuation_logic",
+      "lattice_maps",
+      "set_difference",
+      "product_graphs"
+    ],
+    "model_selection": "Whole-family validation pairwise logistic loss for relevance; squared log-cost on independently verified mode completions for selector. Select once before evaluation, then refit development. Include linear and applicability-only controls regardless of winner.",
+    "labels": "Verified alternatives over actual rejected applications; strictly lower attempts among two independently verified continuations. Unknown/censored never mathematical negatives. Selector fits log attempt cost only among verified equal-budget mode searches; it predicts conditional cost, not probability of provability. All censored modes retained and missingness reported."
+  },
+  "evaluation_accessed": false,
+  "source_sha256": {
+    "ProofLab/Adaptive.lean": "6f701dd668725d4d29ae1773febc6ccdb43c5083abc4297ca1d43f8c34f2cdef",
+    "src/prooflab/adaptive.py": "e98d9aea38b5f61d215abeb78bfe7dc4ce9d64f30e4b6158aa98b3196aa0fe76",
+    "src/prooflab/adaptive_fit.py": "48a1c8439b69b17f0caa62e2a46b7389aadfd5318b6df46a62b94d1005cd453c",
+    "src/prooflab/adaptive_model.py": "43798f720f003a925d363d1d669f5f091088f7cabbd25573ba82686c0be63e9c",
+    "src/prooflab/adaptive_native.py": "fef889e02845a93b04456e3d929b2d2082c5db01db5cb3262ac868cad45f1ebb",
+    "src/prooflab/adaptive_training.py": "5052c33e19a67783b9b2ce8f98282c3554930a0acc8d095b6c308d1b0d378a52",
+    "src/prooflab/phase6_execution.py": "1898499769fabc00db85b6b8af670b9aa93a04e4c19d8b9bb8f992e4f291ba4b"
+  }
+}
