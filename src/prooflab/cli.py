@@ -21,7 +21,36 @@ from prooflab.search import search
 def main() -> None:
     parser = argparse.ArgumentParser(description="ProofLab — Lean-verified proof search")
     sub = parser.add_subparsers(dest="command", required=True)
-    sub.add_parser("tasks", help="List benchmark statements")
+    list_tasks = sub.add_parser("tasks", help="List benchmark statements")
+    list_tasks.add_argument("--dataset", choices=("phase1", "phase6"), default="phase1")
+    adaptive = sub.add_parser(
+        "search-adaptive", help="Phase 6 finite task; canonical P3 scheduling"
+    )
+    adaptive.add_argument("task")
+    adaptive.add_argument(
+        "--mode",
+        choices=(
+            "phase4",
+            "typed5",
+            "learned5",
+            "naive",
+            "deterministic",
+            "learned",
+            "linear",
+            "staged",
+            "fixed",
+            "no_synthesis",
+            "applicability",
+            "phase4_canonical",
+            "automation",
+            "grind",
+        ),
+        default="deterministic",
+    )
+    adaptive.add_argument("--model", type=Path)
+    adaptive.add_argument("--output", type=Path)
+    adaptive.add_argument("--tactic-timeout", type=float, default=2)
+
     solve = sub.add_parser("search", help="Search a repository-owned theorem")
     solve.add_argument("task")
     solve.add_argument(
@@ -50,7 +79,7 @@ def main() -> None:
     benchmark.add_argument("--output", type=Path, required=True)
     benchmark.add_argument("--split", choices=["all", "development", "held_out"], default="all")
     benchmark.add_argument("--workers", type=int, choices=range(1, 5), default=2)
-    for command in (solve, benchmark):
+    for command in (solve, benchmark, adaptive):
         command.add_argument("--timeout", type=float, default=15)
         command.add_argument("--depth", type=int, default=7)
         command.add_argument("--expansions", type=int, default=60)
@@ -94,7 +123,10 @@ def main() -> None:
     unpack_parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
     if args.command == "tasks":
-        print(json.dumps([t.model_dump() for t in load_tasks()], indent=2, ensure_ascii=False))
+        from prooflab.phase6_data import read_tasks as phase6_tasks
+
+        tasks = phase6_tasks() if args.dataset == "phase6" else load_tasks()
+        print(json.dumps([t.model_dump() for t in tasks], indent=2, ensure_ascii=False))
     elif args.command == "serve":
         import uvicorn
 
@@ -150,8 +182,24 @@ def main() -> None:
             max_depth=args.depth,
             max_expansions=args.expansions,
             max_attempts=args.attempts,
+            tactic_timeout_s=getattr(args, "tactic_timeout", 3),
         )
-        if args.command == "search":
+        if args.command == "search-adaptive":
+            from prooflab.phase6_data import read_tasks as phase6_tasks
+            from prooflab.phase6_execution import run_task
+
+            task = next((t for t in phase6_tasks() if t.id == args.task), None)
+            if task is None:
+                parser.error("Unknown registered Phase 6 evaluation task")
+            result = run_task(task, args.mode, budget, args.model)
+            data = result.model_dump_json(indent=2)
+            if args.output:
+                args.output.parent.mkdir(parents=True, exist_ok=True)
+                args.output.write_text(data + "\n")
+            print(data)
+            if result.status != "verified":
+                raise SystemExit(2)
+        elif args.command == "search":
             is_outcome = args.algorithm in ("outcome", "applicability_only", "old_features_outcome")
             outcome = (
                 OutcomeRanking(args.model or MODELS / f"{args.algorithm}.json")

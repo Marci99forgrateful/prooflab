@@ -93,7 +93,7 @@ function showState(side, id) {
   container.querySelector(".arch-value").innerHTML = value
     ? `<p>Insertion priority <strong>${value.priority.toFixed(6)}</strong> · predicted log continuation cost <strong>${value.learned_value.toFixed(6)}</strong> · original heuristic ${value.heuristic_priority.toFixed(3)}.</p><p class="method-note">Actual policy: ${esc(labels[trace.metadata.arm] || labels[trace.algorithm])}. Lower priority is selected first; only learned-frontier policies use the model value for scheduling. Their priority is clamped log-cost plus 0.15 × depth. The predicted value is conditional on successful development continuations; it is not a probability or certificate.</p><p class="method-note">Top eight weighted, standardized feature contributions:</p><div class="arch-terms">${value.contributions.map(([n, v]) => `<span><code>${esc(n)}</code> ${v >= 0 ? "+" : ""}${v.toFixed(5)}</span>`).join("")}</div>`
     : "<p>Rejected/closed states are not inserted into the frontier; no state value is recorded for them.</p>";
-  if (dataset === "phase5" && value) {
+  if (dataset !== "phase4" && value) {
     const panel = container.querySelector(".arch-value");
     panel.innerHTML = `<details><summary>Frontier score and contributions</summary>${panel.innerHTML}</details>`;
   }
@@ -296,7 +296,7 @@ async function loadComparison() {
         const e = manifest.find(
           (e) =>
             e.task_id === task &&
-            (dataset === "phase5"
+            (dataset !== "phase4"
               ? e.arm === algorithm
               : e.algorithm === algorithm) &&
             e.repeat === repeat,
@@ -324,8 +324,8 @@ async function loadComparison() {
     const limitation = index?.limitations?.[task];
     $("#arch-limitations").textContent =
       limitation ||
-      (dataset === "phase5"
-        ? "Fixed cap 24; original and novel allocation are recorded in every expanded state. Type probes and construction costs count toward the same wall budget. Learned retrieval selects availability; Phase 3 scores order the selected actions. No Aesop/grind inside ProofLab policies."
+      (dataset !== "phase4"
+        ? "Fixed cap 24; selection and resource costs are recorded per expanded state. Native retrieval and model inference count within the same wall budget. Phase 6 uses explicit P3 score/tactic-string ordering, independent of retrieval input order. Aesop/grind remain separate references."
         : "Original fixed candidate generator: at most 24 tactics from a 24-lemma index and structural/local-context proposals. The separate generator investigation changes candidate availability and is excluded from these primary traces.");
   } catch (error) {
     $("#arch-notice").textContent = error.message;
@@ -338,19 +338,22 @@ export async function openArchitecture() {
     const result = await fetch(base + requestedDataset + "/explorer.json");
     if (!result.ok)
       throw new Error(
-        "Phase 4 assets are not exported. Run the documented Phase 4 export command.",
+        "Recorded assets are unavailable. Run the documented export command for this experiment.",
       );
     const received = await result.json();
     if (requestedDataset !== dataset) return;
     index = received;
     labels = index.policy_names || policyNames;
-    if (dataset === "phase5")
+    if (dataset === "phase6")
+      $("#arch-intro").innerHTML =
+        `<p>${index.tasks.length} frozen held-out statements · ${new Set(Object.values(index.families || {})).size} mathematical families · ${index.summary.runs} actual executions. Compare the strongest Phase 4 symbolic search, Phase 5 retrieval and adaptive hybrid search.</p><p class="method-note">Every selected policy, budget allocation, witness, score and outcome below comes from its real execution. Mode predictions estimate cost conditional on development success; they do not certify a proof or predict mathematical impossibility.</p>`;
+    else if (dataset === "phase5")
       $("#arch-intro").innerHTML =
         `<p>40 original held-out statements · ten families · 1120 actual runs across candidate generation and search scheduling. Inspect native types, typed witnesses, capped selection and actual Lean outcomes in each state below.</p><p class="method-note">Primary arms have two recorded runs, ablations one. Native Aesop/grind are separate references. Compatibility and accepted transitions do not establish useful proof progress; only fresh audited complete paths are verified.</p>`;
     else
       $("#arch-intro").innerHTML =
-        `<p>32 original held-out statements · eight mathematical families · two recorded runs per architecture. Every displayed state, tree, proof and metric derives from genuine execution.</p><p class="method-note">Original fixed candidate set. Learned values do not certify proofs. Select Phase 5 above for the integrated Premise & Candidate Explorer.</p>`;
-    if (dataset === "phase5") {
+        `<p>32 original held-out statements · eight mathematical families · two recorded runs per architecture. Every displayed state, tree, proof and metric derives from genuine execution.</p><p class="method-note">Original fixed candidate set. Learned values do not certify proofs. Select Phase 5 or Phase 6 above for the integrated retrieval and adaptive explorers.</p>`;
+    if (dataset !== "phase4") {
       $("#arch-summary").innerHTML =
         `<table><thead><tr><th>Generator × scheduler</th><th>Verified</th><th>Mean attempts</th><th>Mean wall</th><th>Mean retrieval</th></tr></thead><tbody>${Object.entries(
           index.summary.results,
@@ -361,7 +364,7 @@ export async function openArchitecture() {
           )
           .join(
             "",
-          )}</tbody></table><p class="method-note">All-run effort combines successes and bounded failures. Confidence intervals, paired common-verified comparisons, family analysis and negative results are in the Phase 5 report.</p>`;
+          )}</tbody></table><p class="method-note">All-run effort combines successes and bounded failures. Confidence intervals, paired common-verified comparisons, family analysis and negative results are in the selected experiment report.</p>`;
     } else {
       $("#arch-summary").innerHTML =
         `<table><thead><tr><th>Architecture</th><th>Verified runs</th><th>Mean attempts</th><th>Mean expanded</th><th>Mean wall</th><th>Resource limits</th></tr></thead><tbody>${Object.entries(
@@ -377,9 +380,9 @@ export async function openArchitecture() {
     }
 
     const casePanel = $("#arch-cases");
-    casePanel.hidden = dataset !== "phase5";
+    casePanel.hidden = dataset === "phase4";
     casePanel.innerHTML =
-      dataset === "phase5"
+      dataset !== "phase4"
         ? `<details><summary>Actual gains and regressions · inspect recorded examples</summary><p class="method-note">Examples selected after evaluation for inspection; they never changed the frozen model or search. Each button loads the actual compared executions, including failed trees. Native-reference attempt counts mean external calls with different internal work.</p><div class="arch-examples">${(index.examples || []).map((e, i) => `<article><h3>${esc(e.title)}</h3><p class="method-note">${esc(e.task_id)} · ${esc(e.family)}<br/>${esc(labels[e.left])}: ${e.left_verified}/${e.repetitions} verified<br/>${esc(labels[e.right])}: ${e.right_verified}/${e.repetitions} verified${e.left_attempt_mean !== undefined ? `<br/>Mean attempts/calls ${e.left_attempt_mean.toFixed(2)} / ${e.right_attempt_mean.toFixed(2)}` : ""}</p><button class="text-button arch-example" data-example="${i}">Inspect genuine comparison ↗</button></article>`).join("")}</div></details>`
         : "";
     casePanel.querySelectorAll(".arch-example").forEach(
@@ -405,8 +408,17 @@ export async function openArchitecture() {
         .map(([id, name]) => `<option value="${id}">${esc(name)}</option>`)
         .join("");
     $("#arch-policy-a").value =
-      dataset === "phase5" ? "original_p3" : "best_first";
-    $("#arch-policy-b").value = dataset === "phase5" ? "learned_p3" : "joint";
+      dataset === "phase6"
+        ? "phase4"
+        : dataset === "phase5"
+          ? "original_p3"
+          : "best_first";
+    $("#arch-policy-b").value =
+      dataset === "phase6"
+        ? "learned"
+        : dataset === "phase5"
+          ? "learned_p3"
+          : "joint";
     $("#arch-research").innerHTML = index.research
       .map(
         (r) =>
@@ -452,9 +464,17 @@ export function initializeArchitecture(assetBase) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           task_id: $("#arch-task").value,
-          algorithm: arm?.algorithm || chosen,
+          algorithm:
+            dataset === "phase6"
+              ? ["automation", "grind"].includes(arm?.mode)
+                ? arm.mode
+                : "outcome"
+              : arm?.algorithm || chosen,
+          phase6_mode: dataset === "phase6" ? arm?.mode : undefined,
           generator_mode: arm?.generator || "original",
-          budget: index?.protocol?.budget ||
+          budget: (dataset === "phase6"
+            ? index?.protocol?.budgets?.[arm?.budget_level]
+            : index?.protocol?.budget) ||
             traces[0]?.budget || {
               max_depth: 12,
               max_expansions: 80,

@@ -82,7 +82,8 @@ def witnesses (goal : MVarId) : MetaM (Array Json × Nat) := withoutModifyingSta
         if dataResult then
           branches := branches + 1
           for a in inputs do
-            if attempts < 96 && terms.size < 64 && max f.depth a.depth + 1 == depth then
+            if attempts < (if expected.getAppFn.isConstOf ``Set then 64 else 96) &&
+                terms.size < 64 && max f.depth a.depth + 1 == depth then
               attempts := attempts + 1
               try
                 let term ← withoutModifyingState <| mkAppM' f.expr #[a.expr]
@@ -93,6 +94,30 @@ def witnesses (goal : MVarId) : MetaM (Array Json × Nat) := withoutModifyingSta
                     (← ppExpr a.expr).pretty ++ "); parents: " ++ f.derivation ++ "; " ++ a.derivation
                   terms := terms.push ⟨term, depth, desc⟩
               catch _ => pure ()
+  -- Set witnesses use explicit typed constructors, rather than treating a
+  -- predicate as an ordinary callable or enumerating arbitrary set syntax.
+  if expected.getAppFn.isConstOf ``Set then
+    let inputs := terms
+    for f in inputs do
+      let ft ← whnf (← inferType f.expr)
+      if ft.isForall then
+        let dataResult ← forallTelescopeReducing ft fun _ result => pure (!result.isSort)
+        if dataResult then
+          for a in inputs do
+            if (← inferType a.expr).getAppFn.isConstOf ``Set then
+              for name in [``Set.image, ``Set.preimage] do
+                if attempts < 96 && terms.size < 64 && max f.depth a.depth < 3 then
+                  attempts := attempts + 1
+                  try
+                    let term ← withoutModifyingState <| mkAppM name #[f.expr,a.expr]
+                    let typ ← inferType term
+                    if !term.hasExprMVar && size term <= 64 && size typ <= 96 &&
+                        !(terms.any (fun r => r.expr == term)) then
+                      terms := terms.push ⟨term, max f.depth a.depth + 1,
+                        "native " ++ name.toString ++ "(" ++ (← ppExpr f.expr).pretty ++
+                        ", " ++ (← ppExpr a.expr).pretty ++ "); " ++ f.derivation ++
+                        "; " ++ a.derivation⟩
+                  catch _ => pure ()
   if expected.getAppFn.isConstOf ``Prod then
     let (pairs, count) ← products expected terms 3
     attempts := attempts + count

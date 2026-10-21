@@ -14,7 +14,7 @@ from prooflab.adaptive_model import predict
 from prooflab.adaptive_native import AdaptiveSession
 from prooflab.adaptive_training import preferences
 from prooflab.lean import verify
-from prooflab.models import Candidate, ProofState
+from prooflab.models import Candidate, ProofState, Task
 from prooflab.phase6_data import check_freeze, read_tasks
 
 
@@ -155,3 +155,127 @@ def test_compressed_collection_save_preserves_requested_path(tmp_path) -> None:
     save(path, {"genuine": "data"})
     assert path.exists() and not (tmp_path / "actual.json.json.gz").exists()
     assert read_json(path) == {"genuine": "data"}
+
+
+def test_provisional_ranker_cannot_execute_unfitted_adaptive_selector(tmp_path) -> None:
+    import json
+
+    from prooflab.adaptive_model import VERSION, AdaptiveModel
+
+    path = tmp_path / "relevance-only.json"
+    path.write_text(
+        json.dumps(
+            dict(
+                feature_version=VERSION,
+                evaluation_accessed=False,
+                selector_ready=False,
+                relevance=dict(weights={"x": 1.0}),
+            )
+        )
+    )
+    with pytest.raises(ValueError, match="not finalized"):
+        AdaptiveModel(path)
+    assert AdaptiveModel(path, allow_provisional=True).candidate_score({"x": 2.0}) == 2
+
+
+@pytest.mark.integration
+def test_forced_development_mode_uses_fitted_relevance_without_future_selector(tmp_path) -> None:
+    import json
+
+    from prooflab.adaptive_model import VERSION
+
+    task = next(t for t in read_tasks("development") if t.id == "p6_dev_curried_construction_02")
+    path = tmp_path / "provisional.json"
+    path.write_text(
+        json.dumps(
+            dict(
+                feature_version=VERSION,
+                evaluation_accessed=False,
+                selector_ready=False,
+                relevance=dict(weights={"retrieval:family:witness": 1.0}),
+            )
+        )
+    )
+    with AdaptiveSession(task) as lean:
+        _, query = HybridProvider("learned", path, forced_mode="hybrid").generate(
+            lean, lean.initial, 24, frozenset(), 2
+        )
+        assert query["decision"] == "hybrid" and query["predicted_log_costs"] == {}
+        assert query["decision_source"] == "forced development counterfactual"
+        witness = next(r for r in query["pool"] if r.get("term") == "f a b")
+        assert witness["learned_score"] == 1 and witness["selected"]
+
+
+@pytest.mark.integration
+def test_shared_candidate_schema_and_relative_order_are_mode_independent(tmp_path) -> None:
+    import json
+
+    from prooflab.adaptive_model import VERSION
+
+    task = next(t for t in read_tasks("development") if t.id == "p6_dev_lattice_maps_01")
+    path = tmp_path / "provisional.json"
+    path.write_text(
+        json.dumps(
+            dict(
+                feature_version=VERSION,
+                evaluation_accessed=False,
+                selector_ready=False,
+                relevance=dict(weights={"x": 1.0}),
+            )
+        )
+    )
+    with AdaptiveSession(task) as lean:
+        hybrid, _ = HybridProvider("learned", path, forced_mode="hybrid").generate(
+            lean, lean.initial, 24, frozenset(), 2
+        )
+        typed, _ = HybridProvider("learned", path, forced_mode="typed").generate(
+            lean, lean.initial, 24, frozenset(), 2
+        )
+        a, b = {c.tactic: c for c in hybrid}, {c.tactic: c for c in typed}
+        common = a.keys() & b.keys()
+        assert len(common) > 4
+        assert all(a[t].model_dump() == b[t].model_dump() for t in common)
+        policy = CanonicalOutcomeRanking()
+        left = [
+            c.tactic for c in policy.rank_candidates(lean.initial, hybrid) if c.tactic in common
+        ]
+        right = [
+            c.tactic for c in policy.rank_candidates(lean.initial, typed) if c.tactic in common
+        ]
+        assert left == right
+
+
+@pytest.mark.integration
+@pytest.mark.parametrize("kind", ["image", "preimage"])
+def test_native_set_witness_constructor_has_real_inferred_type_and_audit(kind) -> None:
+    task = Task(
+        id=f"p6_api_set_{kind}",
+        title="Set constructor API validation",
+        domain="sets",
+        difficulty="challenge",
+        split="development",
+        binders="(α β : Type) (f : α → β) " + ("(A : Set α)" if kind == "image" else "(B : Set β)"),
+        target=(
+            "∃ S : Set β, ∀ y, y ∈ S ↔ ∃ x, x ∈ A ∧ f x = y"
+            if kind == "image"
+            else "∃ S : Set α, ∀ x, x ∈ S ↔ f x ∈ B"
+        ),
+        display="native Set witness",
+        description=(
+            "Feature API validation only, excluded from frozen training and final-test datasets"
+        ),
+    )
+    with AdaptiveSession(task) as lean:
+        query = lean.retrieve(0, [])
+        row = next(r for r in query["rows"] if f"Set.{kind}" in r.get("construction", ""))
+        assert row["compatible"] and row["construction_depth"] <= 3
+        assert row["type"] == ("Set β" if kind == "image" else "Set α")
+        assert query["term_constructions"] <= 128
+        proof = [row["tactic"], "intro x", "rfl"]
+        parent = 0
+        for tactic in proof:
+            message = lean.step(parent, tactic, 2)
+            assert message["status"] == "accepted"
+            parent = message["state_id"]
+        assert not message["goals"]
+    assert verify(task, proof).verified

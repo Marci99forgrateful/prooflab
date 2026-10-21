@@ -16,6 +16,7 @@ from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 from starlette.middleware.trustedhost import TrustedHostMiddleware
 
+from prooflab.adaptive_model import AdaptiveModel
 from prooflab.dataset import (
     get_task,
     load_phase2_tasks,
@@ -27,9 +28,11 @@ from prooflab.dataset import (
 from prooflab.frontier import FrontierModel
 from prooflab.lean import ROOT, LeanSession
 from prooflab.learning import LearnedRanking
-from prooflab.models import Budget, Model, SearchAlgorithm, Trace
+from prooflab.models import Budget, Model, SearchAlgorithm, Task, Trace
 from prooflab.native_retrieval import RetrievalSession, declarations
 from prooflab.outcome import MODELS, OutcomeRanking
+from prooflab.phase6_data import read_tasks as phase6_tasks
+from prooflab.phase6_execution import run_task as run_phase6
 from prooflab.retrieval import RetrievalRanker, TypedProvider
 from prooflab.search import search
 
@@ -40,7 +43,7 @@ async def lifespan(_: FastAPI) -> AsyncIterator[None]:
     shutdown()
 
 
-app = FastAPI(title="ProofLab", version="0.5.0", docs_url=None, redoc_url=None, lifespan=lifespan)
+app = FastAPI(title="ProofLab", version="0.6.0", docs_url=None, redoc_url=None, lifespan=lifespan)
 app.add_middleware(TrustedHostMiddleware, allowed_hosts=["127.0.0.1", "localhost", "testserver"])
 pool = ThreadPoolExecutor(max_workers=2, thread_name_prefix="prooflab")
 lock = threading.Lock()
@@ -59,6 +62,25 @@ jobs: dict[str, Job] = {}
 
 class SearchRequest(Model):
     task_id: str
+    phase6_mode: (
+        Literal[
+            "phase4",
+            "typed5",
+            "learned5",
+            "naive",
+            "deterministic",
+            "learned",
+            "linear",
+            "staged",
+            "automation",
+            "grind",
+            "fixed",
+            "no_synthesis",
+            "applicability",
+            "phase4_canonical",
+        ]
+        | None
+    ) = None
     algorithm: SearchAlgorithm = "best_first"
     budget: Budget = Budget()
     generator_mode: Literal[
@@ -103,7 +125,7 @@ def health() -> dict[str, object]:
 
 @app.get("/api/tasks")
 def tasks(
-    dataset: Literal["phase1", "phase2", "phase3", "phase4", "phase5"] = "phase1",
+    dataset: Literal["phase1", "phase2", "phase3", "phase4", "phase5", "phase6"] = "phase1",
 ) -> list[dict[str, object]]:
     loader = {
         "phase1": load_tasks,
@@ -111,6 +133,7 @@ def tasks(
         "phase3": load_phase3_tasks,
         "phase4": load_phase4_tasks,
         "phase5": load_phase5_tasks,
+        "phase6": phase6_tasks,
     }[dataset]
     return [t.model_dump() for t in loader()]
 
@@ -133,6 +156,21 @@ def state_model() -> dict[str, object]:
 def retrieval_model() -> dict[str, object]:
     retriever = RetrievalRanker()
     return {"sha256": retriever.sha256, **retriever.artifact}
+
+
+@app.get("/api/adaptive-model")
+def adaptive_model() -> dict[str, object]:
+    ranker = AdaptiveModel()
+    return {"sha256": ranker.sha256, **ranker.artifact}
+
+
+def owned_task(ident: str) -> Task:
+    if ident.startswith("p6_"):
+        for task in phase6_tasks():
+            if task.id == ident:
+                return task
+        raise KeyError(ident)
+    return get_task(ident)
 
 
 @app.get("/api/declarations")
@@ -161,6 +199,15 @@ def continuation_record(
 
 def execute(job: Job, body: SearchRequest) -> None:
     try:
+        if body.task_id.startswith("p6_"):
+            job.trace = run_phase6(
+                owned_task(body.task_id),
+                body.phase6_mode or "deterministic",
+                body.budget,
+                cancel=job.cancel,
+            )
+            job.state = "completed"
+            return
         job.trace = search(
             get_task(body.task_id),
             body.algorithm,
@@ -190,7 +237,9 @@ def execute(job: Job, body: SearchRequest) -> None:
 @app.post("/api/search", status_code=202)
 def start_search(body: SearchRequest) -> dict[str, str]:
     try:
-        get_task(body.task_id)
+        owned_task(body.task_id)
+        if body.phase6_mode is not None and not body.task_id.startswith("p6_"):
+            raise HTTPException(422, "Phase 6 mode requires a registered Phase 6 evaluation task")
     except KeyError:
         raise HTTPException(404, "Unknown repository-owned task") from None
     with lock:

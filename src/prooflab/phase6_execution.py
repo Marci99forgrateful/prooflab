@@ -3,10 +3,12 @@
 from __future__ import annotations
 
 from pathlib import Path
+from threading import Event
 from typing import Any
 
 from prooflab.adaptive import CanonicalOutcomeRanking, HybridProvider
 from prooflab.adaptive_native import AdaptiveSession
+from prooflab.frontier import FrontierModel
 from prooflab.learning import LearnedRanking
 from prooflab.models import Budget, SearchAlgorithm, Task, Trace
 from prooflab.native_retrieval import RetrievalSession
@@ -15,7 +17,13 @@ from prooflab.retrieval import TypedProvider
 from prooflab.search import search
 
 
-def run_task(task: Task, mode: str, budget: Budget, model_path: Path | None = None) -> Trace:
+def run_task(
+    task: Task,
+    mode: str,
+    budget: Budget,
+    model_path: Path | None = None,
+    cancel: Event | None = None,
+) -> Trace:
     historical = {
         "phase4": "phase4",
         "symbolic": "phase4",
@@ -47,6 +55,8 @@ def run_task(task: Task, mode: str, budget: Budget, model_path: Path | None = No
         algorithm,
         budget,
         ranking=ranking,
+        cancel=cancel,
+        comparison_frontier=FrontierModel(),
         comparison_ranker=LearnedRanking(),
         comparison_outcome=OutcomeRanking(),
         provider=provider,

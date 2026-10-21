@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import json
 from collections import defaultdict
+from pathlib import Path
 from typing import Any
 
 from prooflab.lean import ROOT
@@ -100,3 +101,23 @@ def check_freeze() -> dict[str, Any]:
         if digest(ROOT / name) != sha:
             raise ValueError("Historical evidence changed: " + name)
     return data
+
+
+def check_archive(directory: Path) -> None:
+    """Validate canonical compressed training evidence against its recorded index."""
+    from prooflab.research_io import read_json, trace_paths
+
+    paths = trace_paths(directory / "traces")
+    storage = read_json(directory / "trace-storage.json")["traces"]
+    if {p.name for p in paths} != {r["file"] for r in storage.values()}:
+        raise ValueError("Archive index mismatch")
+    for row in storage.values():
+        if digest(directory / "traces" / row["file"]) != row["gzip_sha256"]:
+            raise ValueError("Changed source search archive")
+    if (directory / "action-storage.json").exists():
+        actions = read_json(directory / "action-storage.json")
+        if {p.name for p in trace_paths(directory / "actions")} != set(actions):
+            raise ValueError("Action archive index mismatch")
+        for name, row in actions.items():
+            if digest(directory / "actions" / name) != row["sha256"]:
+                raise ValueError("Changed executed action archive")

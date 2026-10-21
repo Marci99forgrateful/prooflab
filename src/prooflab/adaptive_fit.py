@@ -22,7 +22,7 @@ from prooflab.adaptive_training import DATA, preferences
 from prooflab.lean import ROOT
 from prooflab.models import Trace
 from prooflab.phase3_data import digest
-from prooflab.phase6_data import DIRECTORY, check_freeze
+from prooflab.phase6_data import DIRECTORY, check_archive, check_freeze
 from prooflab.research_io import read_json, trace_paths
 from prooflab.retrieval_training import fit as linear_fit
 
@@ -219,6 +219,7 @@ def mse(rows: list[dict[str, Any]], model: dict[str, Any]) -> float:
 def train(data: Path = DATA, output: Path = MODELS) -> dict[str, Any]:
     start = time.monotonic()
     frozen = check_freeze()
+    check_archive(data)
     config = read_json(DIRECTORY / "protocol.json")["training"]
     validation = set(frozen["validation_ids"])
     if output.exists():
@@ -233,27 +234,6 @@ def train(data: Path = DATA, output: Path = MODELS) -> dict[str, Any]:
     valid = [p for p in examples if p["task_id"] in validation]
     if len(training) < 50 or len(valid) < 10:
         raise ValueError("Insufficient family-separated preferences; retain deterministic policy")
-    mode_rows = []
-    mode_outcomes: Counter[tuple[str, str]] = Counter()
-    for path in trace_paths(data / "traces"):
-        t = Trace.model_validate(read_json(path))
-        mode = t.metadata["arm"]
-        mode_outcomes[(mode, t.status)] += 1
-        if t.task.id not in frozen["development_ids"] or t.task.split != "development":
-            raise ValueError("Training on forbidden task")
-        if t.verification.verified:
-            mode = {"symbolic": "symbolic", "deterministic": "hybrid", "typed5": "typed"}[mode]
-            initial = t.nodes[0].state
-            assert initial is not None
-            mode_rows.append(
-                dict(
-                    task_id=t.task.id,
-                    features=mode_features(context_features(initial), mode),
-                    target=math.log1p(t.metrics.attempted_candidates),
-                )
-            )
-    mt = [r for r in mode_rows if r["task_id"] not in validation]
-    mv = [r for r in mode_rows if r["task_id"] in validation]
     candidates: list[dict[str, Any]] = []
     for l2 in config["linear_l2"]:
         model = dict(
@@ -287,12 +267,10 @@ def train(data: Path = DATA, output: Path = MODELS) -> dict[str, Any]:
                 )
             )
     winner = min(candidates, key=lambda x: (x["validation_loss"], x["kind"]))
-    selectors: list[dict[str, Any]] = []
-    for nonlinear in (False, True):
-        m = regression(mt, nonlinear)
-        selectors.append(dict(nonlinear=nonlinear, model=m, validation_mse=mse(mv, m)))
-    selector = min(selectors, key=lambda x: x["validation_mse"])
-    selected_selector = regression(mode_rows, selector["nonlinear"])
+    # Selector fitting is a later stage using exactly matched fixed-mode searches
+    # with this fitted relevance model. A provisional artifact cannot run adaptive
+    # evaluation; it can only be used under an explicitly forced development mode.
+    selected_selector = dict(architecture="unfitted; forced development mode only", bias=0)
     weights = linear_fit(
         examples, linear["configuration"]["l2"], config["linear_epochs"], config["linear_rate"]
     )
@@ -321,11 +299,15 @@ def train(data: Path = DATA, output: Path = MODELS) -> dict[str, Any]:
     )
     provenance = dict(
         feature_version=VERSION,
+        selector_ready=False,
+        selector_protocol_sha256=digest(DIRECTORY / "selector-protocol.json"),
         evaluation_accessed=False,
         training_ids=frozen["development_ids"],
         validation_families=frozen["validation_families"],
         freeze_sha256=digest(DIRECTORY / "frozen.json"),
         collection_sha256=digest(data / "provenance.json"),
+        training_trace_manifest_sha256=digest(data / "trace-storage.json"),
+        training_action_manifest_sha256=digest(data / "action-storage.json"),
         fit_source_sha256=digest(ROOT / "src/prooflab/adaptive_fit.py"),
         selection=(
             "family-level validation then final refit of permitted development; "
@@ -383,9 +365,9 @@ def train(data: Path = DATA, output: Path = MODELS) -> dict[str, Any]:
         validation_zero_loss=math.log(2),
         candidates=[{k: v for k, v in c.items() if k != "model"} for c in candidates],
         winner={k: v for k, v in winner.items() if k != "model"},
-        selector_candidates=[{k: v for k, v in c.items() if k != "model"} for c in selectors],
-        mode_outcomes={f"{m}:{s}": n for (m, s), n in sorted(mode_outcomes.items())},
-        verified_selector_rows=len(mode_rows),
+        selector_candidates=[],
+        mode_outcomes={},
+        verified_selector_rows=0,
         training_wall_s=time.monotonic() - start,
         model_hashes={p.name: digest(p) for p in output.glob("*.json")},
     )
@@ -395,4 +377,103 @@ def train(data: Path = DATA, output: Path = MODELS) -> dict[str, Any]:
     (output / "preferences.json.gz").write_bytes(
         __import__("gzip").compress((json.dumps(examples, sort_keys=True) + "\n").encode(), mtime=0)
     )
+    return report
+
+
+def fit_selector(
+    data: Path = ROOT / "experiments/phase6/selector-v1", output: Path = MODELS
+) -> dict[str, Any]:
+    """Finalize adaptive artifacts only after actual fixed-mode counterfactuals."""
+    import hashlib
+
+    frozen = check_freeze()
+    validation = set(frozen["validation_ids"])
+    rows = []
+    outcomes: Counter[tuple[str, str]] = Counter()
+    provenance = read_json(data / "provenance.json")
+    check_archive(data)
+    if provenance["selector_protocol_sha256"] != digest(DIRECTORY / "selector-protocol.json"):
+        raise ValueError("Selector protocol mismatch")
+    expected = {(i, m) for i in frozen["development_ids"] for m in ("symbolic", "hybrid", "typed")}
+    observed = set()
+    for p in trace_paths(data / "traces"):
+        t = Trace.model_validate(read_json(p))
+        mode = t.metadata["arm"]
+        if any(
+            q.get("decision") != mode
+            or q.get("decision_source") != "forced development counterfactual"
+            for q in t.retrievals
+        ):
+            raise ValueError("Counterfactual did not execute its forced strategy")
+        observed.add((t.task.id, mode))
+        outcomes[(mode, t.status)] += 1
+        if t.verification.verified:
+            state = t.nodes[0].state
+            assert state is not None
+            rows.append(
+                dict(
+                    task_id=t.task.id,
+                    features=mode_features(context_features(state), mode),
+                    target=math.log1p(t.metrics.attempted_candidates),
+                )
+            )
+    if observed != expected:
+        raise ValueError("Incomplete or contaminated matched selector matrix")
+    training = [r for r in rows if r["task_id"] not in validation]
+    valid = [r for r in rows if r["task_id"] in validation]
+    if len(training) < 30 or len(valid) < 10:
+        raise ValueError("Insufficient verified family-separated selector costs")
+    candidates: list[dict[str, Any]] = []
+    for nonlinear in (False, True):
+        m = regression(training, nonlinear)
+        candidates.append(dict(nonlinear=nonlinear, validation_mse=mse(valid, m)))
+    winner = min(candidates, key=lambda c: c["validation_mse"])
+    selected = regression(rows, winner["nonlinear"])
+    artifact = read_json(output / "learned.json")
+    fingerprint = hashlib.sha256(
+        json.dumps(artifact["relevance"], sort_keys=True).encode()
+    ).hexdigest()
+    if fingerprint != provenance["relevance_sha256"]:
+        raise ValueError("Relevance changed after matched counterfactuals")
+    for name in ("learned", "linear", "applicability", "learned-seed1", "learned-seed2"):
+        path = output / f"{name}.json"
+        if not path.exists():
+            continue
+        model = read_json(path)
+        if model.get("selector_ready"):
+            raise ValueError("Do not replace an already finalized selector")
+        model.update(
+            selector=selected,
+            selector_ready=True,
+            selector_collection_sha256=digest(data / "provenance.json"),
+            selector_trace_manifest_sha256=digest(data / "trace-storage.json"),
+            selector_training_relevance_sha256=fingerprint,
+            selector_semantics=(
+                "Conditional log attempt cost under fixed symbolic/hybrid/typed "
+                "mode continuations with canonical P3 ties and fitted selected "
+                "relevance. Greedy adaptive switching is a new rollout policy; "
+                "censored costs excluded, success-conditioned missingness explicit. "
+                "Shared fixed selector isolates linear/applicability relevance ablations."
+            ),
+        )
+        path.write_text(json.dumps(model, indent=2, sort_keys=True) + "\n")
+    previous = output / "training-report.json"
+    report = read_json(previous)
+    (output / "relevance-training-report.json").write_text(previous.read_text())
+    report.update(
+        selector_ready=True,
+        selector_candidates=candidates,
+        selector_selected=winner,
+        verified_selector_rows=len(rows),
+        selector_train_rows=len(training),
+        selector_validation_rows=len(valid),
+        selector_mode_outcomes={f"{m}:{s}": v for (m, s), v in sorted(outcomes.items())},
+        selector_collection_sha256=digest(data / "provenance.json"),
+        model_hashes={
+            p.name: digest(p)
+            for p in output.glob("*.json")
+            if p.name not in ("training-report.json", "relevance-training-report.json")
+        },
+    )
+    previous.write_text(json.dumps(report, indent=2, sort_keys=True) + "\n")
     return report

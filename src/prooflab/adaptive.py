@@ -97,17 +97,25 @@ class CanonicalOutcomeRanking(OutcomeRanking):
 
 
 class HybridProvider:
-    def __init__(self, mode: str = "deterministic", model_path: Path | None = None) -> None:
+    def __init__(
+        self,
+        mode: str = "deterministic",
+        model_path: Path | None = None,
+        forced_mode: str | None = None,
+    ) -> None:
         if mode not in MODES:
             raise ValueError("Unknown hybrid policy")
         self.mode = mode
+        if forced_mode not in (None, "symbolic", "hybrid", "typed"):
+            raise ValueError("Unregistered development counterfactual mode")
+        self.forced_mode = forced_mode
         self.calls = 0
         self.typed = TypedProvider("typed")
         self.model = None
         if mode in ("learned", "linear", "applicability"):
             from prooflab.adaptive_model import AdaptiveModel
 
-            self.model = AdaptiveModel(model_path, mode)
+            self.model = AdaptiveModel(model_path, mode, allow_provisional=forced_mode is not None)
 
     def generate(
         self,
@@ -137,7 +145,9 @@ class HybridProvider:
             decision = "symbolic"
         if self.mode == "staged" and not f["head:Exists"] and self.calls <= 2:
             decision = "symbolic"
-        if self.model is not None:
+        if self.forced_mode is not None:
+            decision = self.forced_mode
+        elif self.model is not None:
             tick = time.monotonic()
             predicted = self.model.mode_costs(f)
             decision = min(predicted, key=lambda m: (predicted[m], m))
@@ -148,6 +158,7 @@ class HybridProvider:
             recognized_structures=[k[6:] for k, v in f.items() if k.startswith("class:") and v],
             context_features=f,
             decision=decision,
+            decision_source="forced development counterfactual" if self.forced_mode else "policy",
             predicted_log_costs=predicted,
             stage=self.calls,
             scheduling=(
@@ -258,7 +269,13 @@ class HybridProvider:
             original_lane = [c for _, c in order[:keep]]
             protected = {c.tactic for c in original_lane}
             selected = [*original_lane, *novelty[: limit - len(original_lane)]]
-        selected = sorted(selected, key=lambda c: c.tactic)
+        # A shared tactic has one canonical Candidate schema across all new
+        # modes, including the typed strategy. Otherwise legacy prior/category
+        # differences could silently alter P3 scores despite identical membership.
+        selected = sorted(
+            [Candidate.model_validate(pool[c.tactic]["candidate"]) for c in selected],
+            key=lambda c: c.tactic,
+        )
         chosen = {c.tactic for c in selected}
         for tactic, row in pool.items():
             row["selected"] = tactic in chosen

@@ -38,12 +38,16 @@ def mode_features(features: dict[str, float], mode: str) -> dict[str, float]:
 
 
 class AdaptiveModel:
-    def __init__(self, path: Path | None = None, variant: str = "learned") -> None:
+    def __init__(
+        self, path: Path | None = None, variant: str = "learned", allow_provisional: bool = False
+    ) -> None:
         path = path or MODELS / f"{variant}.json"
         self.artifact = read_json(path)
         self.sha256 = digest(path)
         if self.artifact["feature_version"] != VERSION or self.artifact["evaluation_accessed"]:
             raise ValueError("Invalid adaptive artifact or test-trained model")
+        if not allow_provisional and not self.artifact.get("selector_ready", False):
+            raise ValueError("Relevance fitted, but matched adaptive selector is not finalized")
 
     def candidate_score(self, features: dict[str, float]) -> float:
         return predict(self.artifact["relevance"], features)
