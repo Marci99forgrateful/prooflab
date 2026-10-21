@@ -17,17 +17,21 @@ from prooflab.adaptive_training import save
 from prooflab.lean import ROOT
 from prooflab.models import Budget, Trace
 from prooflab.phase3_data import digest
-from prooflab.phase5_evaluation import METRICS, ci, coverage
+from prooflab.phase5_evaluation import METRICS as PREVIOUS_METRICS
+from prooflab.phase5_evaluation import ci, coverage
 from prooflab.phase6_data import DIRECTORY, check_archive, check_freeze, read_tasks
 from prooflab.phase6_execution import run_task
 from prooflab.research_io import compact, read_json, trace_paths
 from prooflab.search import metadata
 
+METRICS = [*PREVIOUS_METRICS, "runner_wall_s", "artifact_setup_s"]
 EXPERIMENT = ROOT / "experiments/phase6/evaluation-v1"
 FROZEN = MODELS / "frozen.json"
 SOURCES = [
     "benchmarks/phase6/selector-protocol.json",
     "benchmarks/phase6/selector-frozen.json",
+    "benchmarks/phase6/allocation-semantics.json",
+    "benchmarks/phase6/seed-protocol.json",
     "experiments/phase6/development-v1/trace-storage.json",
     "experiments/phase6/development-v1/action-storage.json",
     "experiments/phase6/selector-v1/trace-storage.json",
@@ -38,6 +42,28 @@ SOURCES = [
         for p in sorted((ROOT / "src/prooflab").glob(pattern))
     ],
 ]
+
+
+def read_protocol() -> dict[str, Any]:
+    protocol = read_json(DIRECTORY / "protocol.json")
+    selected = AdaptiveModel()
+    if selected.artifact["selector"]["architecture"].startswith("gradient boosted"):
+        for seed in (1, 2):
+            filename = f"controller-seed{seed}.json"
+            if not (MODELS / filename).exists():
+                raise ValueError("Missing preregistered stochastic controller artifact")
+            protocol["arms"].append(
+                dict(
+                    id=f"learned_seed{seed}",
+                    mode="learned",
+                    repetitions=1,
+                    budget_level="primary",
+                    model_file=filename,
+                    model_variant=f"controller-seed{seed}",
+                )
+            )
+    protocol["seed_robustness"] = read_json(DIRECTORY / "seed-protocol.json")
+    return protocol
 
 
 def freeze_execution() -> dict[str, Any]:
@@ -78,7 +104,7 @@ def check_execution() -> dict[str, Any]:
 
 def run(destination: Path = EXPERIMENT, resume: bool = False) -> None:
     frozen = check_execution()
-    protocol = read_json(DIRECTORY / "protocol.json")
+    protocol = read_protocol()
     families = read_json(DIRECTORY / "families.json")
     destination.mkdir(parents=True, exist_ok=resume)
     (destination / "traces").mkdir(exist_ok=resume)
@@ -116,7 +142,10 @@ def run(destination: Path = EXPERIMENT, resume: bool = False) -> None:
         if path.exists():
             return
         t = run_task(
-            task, arm["mode"], Budget.model_validate(protocol["budgets"][arm["budget_level"]])
+            task,
+            arm["mode"],
+            Budget.model_validate(protocol["budgets"][arm["budget_level"]]),
+            model_path=MODELS / arm["model_file"] if arm.get("model_file") else None,
         )
         t.metadata.update(
             arm=arm["id"],
@@ -184,7 +213,7 @@ def contrast(
 
 def finalize(destination: Path = EXPERIMENT) -> dict[str, Any]:
     check_execution()
-    protocol = read_json(DIRECTORY / "protocol.json")
+    protocol = read_protocol()
     paths = trace_paths(destination / "traces")
     expected = {
         (t.id, a["id"], str(r))
@@ -265,7 +294,12 @@ def finalize(destination: Path = EXPERIMENT) -> dict[str, Any]:
                 status=t.status,
                 verified=t.verification.verified,
                 termination=t.termination,
-                metrics={m: getattr(t.metrics, m) for m in METRICS},
+                metrics={
+                    m: float(t.metadata[m])
+                    if m in ("runner_wall_s", "artifact_setup_s")
+                    else getattr(t.metrics, m)
+                    for m in METRICS
+                },
                 coverage=coverage(t),
                 observations=dict(observations),
                 proof=t.proof,
@@ -357,6 +391,9 @@ def finalize(destination: Path = EXPERIMENT) -> dict[str, Any]:
         ["deterministic_small", "phase4_small"],
         ["staged_small", "phase4_small"],
     ]
+    for seed in (1, 2):
+        if f"learned_seed{seed}" in groups:
+            pairs.extend([[f"learned_seed{seed}", "learned"], [f"learned_seed{seed}", "phase4"]])
     comparisons = {}
     for a, b in pairs:
         left, right = groups[a], groups[b]
@@ -372,6 +409,8 @@ def finalize(destination: Path = EXPERIMENT) -> dict[str, Any]:
                     "elapsed_s",
                     "retrieval_s",
                     "model_inference_s",
+                    "runner_wall_s",
+                    "artifact_setup_s",
                 )
             },
             common_verified={
@@ -382,6 +421,7 @@ def finalize(destination: Path = EXPERIMENT) -> dict[str, Any]:
                     "elapsed_s",
                     "lean_execution_s",
                     "proof_length",
+                    "runner_wall_s",
                 )
             },
             gains=[

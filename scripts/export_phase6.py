@@ -11,7 +11,7 @@ from export_phase4 import RESEARCH
 
 from prooflab.lean import ROOT
 from prooflab.phase6_data import DIRECTORY, read_tasks
-from prooflab.phase6_evaluation import EXPERIMENT
+from prooflab.phase6_evaluation import EXPERIMENT, read_protocol
 from prooflab.research_io import read_json, trace_paths
 
 LABELS = dict(
@@ -21,7 +21,7 @@ LABELS = dict(
     naive="Naive symbolic/typed union",
     deterministic="Deterministic context hybrid",
     learned="Learned adaptive hybrid",
-    linear="Linear learned hybrid",
+    linear="Linear relevance control (same selected relevance)",
     staged="Adaptive staged hybrid",
     fixed="Fixed novelty quota",
     no_synthesis="Hybrid with Phase 5 synthesis",
@@ -37,7 +37,7 @@ def main() -> None:
         print("Phase 6 final evidence not yet available; no fabricated replay exported")
         return
     summary = read_json(EXPERIMENT / "summary.json")
-    protocol = read_json(DIRECTORY / "protocol.json")
+    protocol = read_protocol()
     destination = ROOT / "web/public/phase6"
     (destination / "data/traces").mkdir(parents=True, exist_ok=True)
     paths = trace_paths(EXPERIMENT / "traces")
@@ -119,7 +119,9 @@ def main() -> None:
         families={i: f for i, f in families.items() if i in test_ids},
         manifest=manifest,
         policy_names={
-            a["id"]: LABELS[a["mode"]] + (" · small budget" if a["budget_level"] == "small" else "")
+            a["id"]: LABELS[a["mode"]]
+            + (" · small budget" if a["budget_level"] == "small" else "")
+            + (" · " + a["model_variant"] if a.get("model_variant") else "")
             for a in protocol["arms"]
         },
         summary={k: summary[k] for k in ("results", "comparisons", "uncertainty", "runs")},

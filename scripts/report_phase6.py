@@ -41,11 +41,11 @@ def main() -> None:
         ref = name in ("automation", "grind")
         limits = sum(n for t, n in r["terminations"].items() if t.startswith("resource_limit:"))
         lines.append(
-            f"| {name} | {r['verified']}/{r['runs']} | {r['success_rate'] * 100:.2f} {interval(r['success_ci95'], 100)} | {'1 external call' if ref else f'{m["attempted_candidates"]["mean"]:.2f}'} | {'opaque' if ref else f'{m["expanded_states"]["mean"]:.2f}'} | {m['elapsed_s']['mean']:.3f} | {m['lean_execution_s']['mean']:.3f} | {m['retrieval_s']['mean']:.3f} | {m['model_inference_s']['mean']:.3f} | {limits} |"
+            f"| {name} | {r['verified']}/{r['runs']} | {r['success_rate'] * 100:.2f} {interval(r['success_ci95'], 100)} | {'1 external call' if ref else f'{m["attempted_candidates"]["mean"]:.2f}'} | {'opaque' if ref else f'{m["expanded_states"]["mean"]:.2f}'} | {m['runner_wall_s']['mean']:.3f} | {m['lean_execution_s']['mean']:.3f} | {m['retrieval_s']['mean']:.3f} | {m['model_inference_s']['mean']:.3f} | {limits} |"
         )
     lines += [
         "",
-        "Primary arms share 18 seconds, 600 attempts, eighty expansions, depth twelve, 24 candidates and two seconds per tactic/query. Smaller arms share 10 seconds, 240 attempts and forty expansions. Aesop/grind use one two-second external call; their work is not one elementary inference. Retrieval, Python inference and independent-audit wall count inside the shared outer budget. All-run effort mixes successes/failures and does not measure proof efficiency alone.",
+        "Primary arms share 18 seconds, 600 attempts, eighty expansions, depth twelve, 24 candidates and two seconds per tactic/query. Smaller arms share 10 seconds, 240 attempts and forty expansions. Aesop/grind use one two-second external call; their work is not one elementary inference. Retrieval, Python inference and independent-audit wall count inside the shared outer budget. All-run effort mixes successes/failures and does not measure proof efficiency alone. Selected relevance is linear, so the learned and linear controls share identical model coefficients and the same selector; that contrast is repeated-execution variability, not independent architecture evidence.",
         "",
         "## Paired comparisons",
         "",

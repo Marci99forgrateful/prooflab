@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "registered_before_selector_selection": true,
+  "evaluation_accessed": false,
+  "primary_seed": 0,
+  "conditional_robustness": "If the preregistered validation rule selects a stochastic boosted cost selector, additionally refit that same configuration on all permitted mode costs with seeds 1 and 2. Keep the relevance component identical. Run each added controller once per final theorem under the primary budget. If the selector is deterministic linear, these duplicate fits/runs are unnecessary.",
+  "extra_arms": ["learned_seed1", "learned_seed2"],
+  "selection_rule": "Final test outcomes never select a seed or change the primary seed-zero result. Seed comparisons are descriptive repeated-policy sensitivity on the same theorems, not independent theorem samples.",
+  "runs": "1344 main preregistered runs, plus 96 robustness runs only if a stochastic controller is selected. Same two-worker execution and per-arm budgets."
+}

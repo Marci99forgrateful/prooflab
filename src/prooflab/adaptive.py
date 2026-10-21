@@ -110,6 +110,7 @@ class HybridProvider:
             raise ValueError("Unregistered development counterfactual mode")
         self.forced_mode = forced_mode
         self.calls = 0
+        self.nonexistential_calls = 0
         self.typed = TypedProvider("typed")
         self.model = None
         if mode in ("learned", "linear", "applicability"):
@@ -128,6 +129,8 @@ class HybridProvider:
         self.calls += 1
         baseline = extended_candidates(state, limit, forbidden)
         f = context_features(state)
+        if not f["head:Exists"]:
+            self.nonexistential_calls += 1
         expressive = bool(
             f["head:Exists"]
             or f["class:Group"]
@@ -138,12 +141,13 @@ class HybridProvider:
         )
         decision = "hybrid" if expressive else "symbolic"
         predicted = {}
+        selector_terms: list[tuple[str, float]] = []
         inference_s = 0.0
-        if self.mode in ("naive", "fixed"):
+        if self.mode == "naive":
             decision = "hybrid"
         if self.mode == "symbolic":
             decision = "symbolic"
-        if self.mode == "staged" and not f["head:Exists"] and self.calls <= 2:
+        if self.mode == "staged" and not f["head:Exists"] and self.nonexistential_calls <= 2:
             decision = "symbolic"
         if self.forced_mode is not None:
             decision = self.forced_mode
@@ -151,6 +155,7 @@ class HybridProvider:
             tick = time.monotonic()
             predicted = self.model.mode_costs(f)
             decision = min(predicted, key=lambda m: (predicted[m], m))
+            selector_terms = self.model.mode_explain(f, decision)
             inference_s += time.monotonic() - tick
         record: dict[str, Any] = dict(
             mode=self.mode,
@@ -160,7 +165,12 @@ class HybridProvider:
             decision=decision,
             decision_source="forced development counterfactual" if self.forced_mode else "policy",
             predicted_log_costs=predicted,
+            selector_contributions=selector_terms,
+            selector_bias=self.model.artifact.get("selector", {}).get("bias")
+            if self.model and not self.forced_mode
+            else None,
             stage=self.calls,
+            nonexistential_stage=self.nonexistential_calls,
             scheduling=(
                 "unchanged P3 score; explicit tactic-string tie rule "
                 "independent of retrieval score/order"
@@ -299,7 +309,10 @@ class HybridProvider:
             allocation=dict(
                 baseline=len(chosen & base_map.keys()),
                 novelty=len(chosen - base_map.keys()),
-                novelty_cap=quota,
+                hybrid_novelty_reserve=quota if decision == "hybrid" else None,
+                borrowed_baseline_capacity=(
+                    max(0, len(chosen - base_map.keys()) - quota) if decision == "hybrid" else 0
+                ),
                 cap=limit,
             ),
             model_inference_s=inference_s,

@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "role": "Precise description of unchanged work-conserving allocation; metadata naming clarification before final testing",
+  "total_cap": 24,
+  "baseline_priority": "Protect specialized and goal actions before other expanded-baseline actions, preserving original relative order within each class.",
+  "hybrid_novelty_reserve": "Reserve up to eight slots for existential goals, otherwise four, reduced if fewer eligible novel candidates exist. The fixed ablation always reserves four.",
+  "unused_baseline_capacity": "If fewer baseline actions exist than their reserved capacity, remaining slots are filled by eligible novel actions. Actual novelty can exceed its nominal reserve; total selected candidates never exceed 24.",
+  "historical_phase6_metadata": "Earlier prototype/development/matched records name the nominal reserve novelty_cap. It is not a hard novelty ceiling. Their actual baseline/novelty counts, selected arrays and all execution data remain unchanged.",
+  "final_metadata": "hybrid_novelty_reserve records the nominal reserve; borrowed_baseline_capacity records extra novel slots for hybrid decisions. Typed and naive strategies retain their separately specified selection behavior.",
+  "timing": "Search-engine elapsed_s includes native session initialization, retrieval, inference, tactic execution, independent verification and cleanup. Artifact/provider construction precedes the engine deadline and is measured separately as artifact_setup_s. runner_wall_s measures the full run_task call, including setup and engine metadata construction; result serialization/archive I/O are outside both. All comparable arms use the same engine budget; no tactic, retrieval or branch is executed outside it."
+}

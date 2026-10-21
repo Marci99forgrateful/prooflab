@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import time
 from pathlib import Path
 from threading import Event
 from typing import Any
@@ -24,6 +25,7 @@ def run_task(
     model_path: Path | None = None,
     cancel: Event | None = None,
 ) -> Trace:
+    started = time.monotonic()
     historical = {
         "phase4": "phase4",
         "symbolic": "phase4",
@@ -50,21 +52,27 @@ def run_task(
     if mode in ("automation", "grind"):
         provider = None
         factory = RetrievalSession
+    frontier = FrontierModel()
+    comparison = LearnedRanking()
+    comparison_outcome = OutcomeRanking()
+    artifact_setup_s = time.monotonic() - started
     trace = search(
         task,
         algorithm,
         budget,
         ranking=ranking,
         cancel=cancel,
-        comparison_frontier=FrontierModel(),
-        comparison_ranker=LearnedRanking(),
-        comparison_outcome=OutcomeRanking(),
+        comparison_frontier=frontier,
+        comparison_ranker=comparison,
+        comparison_outcome=comparison_outcome,
         provider=provider,
         session_factory=factory,
     )
     trace.metadata.update(
         generator_mode=mode,
         phase="6",
+        artifact_setup_s=str(artifact_setup_s),
+        runner_wall_s=str(time.monotonic() - started),
         tie_policy="historical stable input ties"
         if mode in ("phase4", "symbolic", "typed5", "learned5")
         else "explicit tactic-string ties after unchanged P3 scores",

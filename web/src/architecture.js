@@ -240,7 +240,7 @@ function renderSide(side) {
     'class="tree-node arch-node ',
   );
   container.innerHTML = `<div class="card-top"><h2>${esc(labels[t.metadata.arm] || labels[t.algorithm])}</h2><span class="pill">${esc(t.status)}</span></div>
-    <div class="arch-metrics"><span><b>${m.attempted_candidates}</b>attempts</span><span><b>${m.expanded_states}</b>expanded</span><span><b>${t.nodes.length}</b>tree nodes</span><span><b>${m.elapsed_s.toFixed(3)}s</b>wall</span><span><b>${m.lean_execution_s.toFixed(3)}s</b>Lean</span><span><b>${m.planning_s.toFixed(3)}s</b>planning</span><span><b>${m.model_inference_s.toFixed(3)}s</b>scores/explanations</span><span><b>${t.beam_evictions?.length || 0}</b>beam evictions</span></div>
+    <div class="arch-metrics"><span><b>${m.attempted_candidates}</b>attempts</span><span><b>${m.expanded_states}</b>expanded</span><span><b>${t.nodes.length}</b>tree nodes</span><span><b>${Number(t.metadata.runner_wall_s ?? m.elapsed_s).toFixed(3)}s</b>${t.metadata.runner_wall_s ? "full call" : "wall"}</span><span><b>${m.lean_execution_s.toFixed(3)}s</b>Lean</span><span><b>${m.planning_s.toFixed(3)}s</b>planning</span><span><b>${m.model_inference_s.toFixed(3)}s</b>scores/explanations</span><span><b>${t.beam_evictions?.length || 0}</b>beam evictions</span></div>
     ${t.retrievals?.length ? `<p class="method-note">Retrieval ${m.retrieval_s.toFixed(4)}s · ${m.retrieval_queries} native queries · ${m.declaration_probes} declaration probes · ${m.term_constructions} term construction attempts · ${m.retrieval_heartbeats} retrieval / ${m.tactic_heartbeats} tactic allocation heartbeats. Session CPU ${m.session_cpu_s?.toFixed(3) ?? "unavailable"}s · summed process RSS high-water bound ${m.session_peak_rss_kib ?? "unavailable"} KiB; independent audit resources excluded.</p>` : ""}
     <p class="method-note">${esc(t.termination)} · ${m.proof_length} proof steps · source ${esc(t.metadata.code_commit.slice(0, 12))}. ${["automation", "grind"].includes(t.algorithm) ? "External tactic reference: internal state/candidate work is not comparable to ProofLab counts." : "Candidate cap and native search budgets are identical across controlled policies."}</p>
     <div class="arch-tree-controls"><button class="text-button arch-zoom-in">Zoom +</button><button class="text-button arch-zoom-out">Zoom −</button><button class="text-button arch-fit">Fit all</button><button class="text-button arch-whole">Complete tree</button><button class="text-button arch-focus">Focus inspected state</button></div>
@@ -360,7 +360,7 @@ export async function openArchitecture() {
         )
           .map(
             ([name, row]) =>
-              `<tr><td>${esc(labels[name])}</td><td>${row.verified}/${row.runs}</td><td>${["automation", "grind"].includes(name) ? "external call" : row.metrics.attempted_candidates.mean.toFixed(2)}</td><td>${row.metrics.elapsed_s.mean.toFixed(3)}s</td><td>${row.metrics.retrieval_s.mean.toFixed(3)}s</td></tr>`,
+              `<tr><td>${esc(labels[name])}</td><td>${row.verified}/${row.runs}</td><td>${["automation", "grind"].includes(name) ? "external call" : row.metrics.attempted_candidates.mean.toFixed(2)}</td><td>${(row.metrics.runner_wall_s?.mean ?? row.metrics.elapsed_s.mean).toFixed(3)}s</td><td>${row.metrics.retrieval_s.mean.toFixed(3)}s</td></tr>`,
           )
           .join(
             "",
@@ -471,6 +471,8 @@ export function initializeArchitecture(assetBase) {
                 : "outcome"
               : arm?.algorithm || chosen,
           phase6_mode: dataset === "phase6" ? arm?.mode : undefined,
+          phase6_model:
+            dataset === "phase6" ? arm?.model_variant || "selected" : undefined,
           generator_mode: arm?.generator || "original",
           budget: (dataset === "phase6"
             ? index?.protocol?.budgets?.[arm?.budget_level]

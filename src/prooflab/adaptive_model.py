@@ -58,6 +58,18 @@ class AdaptiveModel:
             for m in ("symbolic", "hybrid", "typed")
         }
 
+    def mode_explain(self, features: dict[str, float], mode: str) -> list[tuple[str, float]]:
+        model = self.artifact["selector"]
+        f = mode_features(features, mode)
+        if "weights" in model:
+            terms = [(n, w * f.get(n, 0)) for n, w in model["weights"].items()]
+        else:
+            terms = [
+                (f"controller tree {i + 1}", model["rate"] * tree_value(t, f))
+                for i, t in enumerate(model.get("trees", []))
+            ]
+        return sorted(terms, key=lambda x: -abs(x[1]))[:8]
+
     def explain(self, features: dict[str, float]) -> list[tuple[str, float]]:
         model = self.artifact["relevance"]
         if "weights" in model:

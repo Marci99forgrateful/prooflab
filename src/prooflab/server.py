@@ -16,6 +16,7 @@ from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 from starlette.middleware.trustedhost import TrustedHostMiddleware
 
+from prooflab.adaptive_model import MODELS as ADAPTIVE_MODELS
 from prooflab.adaptive_model import AdaptiveModel
 from prooflab.dataset import (
     get_task,
@@ -62,6 +63,7 @@ jobs: dict[str, Job] = {}
 
 class SearchRequest(Model):
     task_id: str
+    phase6_model: Literal["selected", "controller-seed1", "controller-seed2"] = "selected"
     phase6_mode: (
         Literal[
             "phase4",
@@ -205,6 +207,9 @@ def execute(job: Job, body: SearchRequest) -> None:
                 body.phase6_mode or "deterministic",
                 body.budget,
                 cancel=job.cancel,
+                model_path=ADAPTIVE_MODELS / f"{body.phase6_model}.json"
+                if body.phase6_model != "selected"
+                else None,
             )
             job.state = "completed"
             return
@@ -242,6 +247,12 @@ def start_search(body: SearchRequest) -> dict[str, str]:
             raise HTTPException(422, "Phase 6 mode requires a registered Phase 6 evaluation task")
     except KeyError:
         raise HTTPException(404, "Unknown repository-owned task") from None
+    if body.phase6_model != "selected":
+        if (
+            body.phase6_mode != "learned"
+            or not (ADAPTIVE_MODELS / f"{body.phase6_model}.json").is_file()
+        ):
+            raise HTTPException(422, "Unavailable preregistered learned-controller variant")
     with lock:
         if sum(job.state == "running" for job in jobs.values()) >= 2:
             raise HTTPException(429, "Two searches are already running")

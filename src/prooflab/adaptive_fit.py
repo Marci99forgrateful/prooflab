@@ -461,6 +461,22 @@ def fit_selector(
             ),
         )
         path.write_text(json.dumps(model, indent=2, sort_keys=True) + "\n")
+    seed_diagnostics = []
+    # The seed supplement is registered before selector architecture selection.
+    # It never changes the fixed primary seed or chooses a model by final tests.
+    for seed in (1, 2):
+        validation_model = regression(training, True, seed=seed)
+        seed_diagnostics.append(dict(seed=seed, validation_mse=mse(valid, validation_model)))
+        if winner["nonlinear"]:
+            variant = read_json(output / "learned.json")
+            variant.update(
+                selector=regression(rows, True, seed=seed),
+                controller_seed=seed,
+                role="Preregistered controller-seed sensitivity; not primary model",
+            )
+            (output / f"controller-seed{seed}.json").write_text(
+                json.dumps(variant, indent=2, sort_keys=True) + "\n"
+            )
     previous = output / "training-report.json"
     report = read_json(previous)
     (output / "relevance-training-report.json").write_text(previous.read_text())
@@ -468,6 +484,8 @@ def fit_selector(
         selector_ready=True,
         selector_candidates=candidates,
         selector_selected=winner,
+        selector_seed_diagnostics=seed_diagnostics,
+        seed_protocol_sha256=digest(DIRECTORY / "seed-protocol.json"),
         verified_selector_rows=len(rows),
         selector_train_rows=len(training),
         selector_validation_rows=len(valid),

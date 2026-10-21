@@ -1,0 +1,2046 @@
+{
+  "evaluation_accessed": false,
+  "feature_version": "adaptive-hybrid-v1",
+  "fitter_sha256": "d6f96353da551303ab981ac3559378d9661b9da5cfcb32661b5b64fc9515cc5c",
+  "preferences_sha256": "ab24846b0f976d1ea0fc5da8bcdcfa91890264a168adf2fb73fd284f798f5d99",
+  "procedure_sha256": "b95637c310bfe3efbda1ce31d5c5da09501fef65210bda6a0826e49dc9499191",
+  "relevance": {
+    "architecture": "pairwise logistic gradient boosting with histogram CART",
+    "bias": 0,
+    "depth": 2,
+    "feature_names": [
+      "assumption_available",
+      "baseline",
+      "bias",
+      "compatibility_observed",
+      "conjunction_context",
+      "context:bias",
+      "context:class:CommGroup",
+      "context:class:CommMonoid",
+      "context:class:CommRing",
+      "context:class:CommSemiring",
+      "context:class:Group",
+      "context:class:Lattice",
+      "context:class:Monoid",
+      "context:class:PartialOrder",
+      "context:forall",
+      "context:functions",
+      "context:goals",
+      "context:head:And",
+      "context:head:Eq",
+      "context:head:Exists",
+      "context:head:LE.le",
+      "context:head:Not",
+      "context:head:Or",
+      "context:head:Set.Subset",
+      "context:hypotheses",
+      "context:inverse",
+      "context:local_equalities",
+      "context:metavariables",
+      "context:product",
+      "context:proof_hypotheses",
+      "context:sets",
+      "context:target_size",
+      "context_size",
+      "cross:And|assumption",
+      "cross:And|cases",
+      "cross:And|constructor",
+      "cross:And|hyp_apply",
+      "cross:And|lemma_apply",
+      "cross:And|other",
+      "cross:And|projection",
+      "cross:And|rfl",
+      "cross:Eq|assumption",
+      "cross:Eq|hyp_apply",
+      "cross:Eq|lemma_apply",
+      "cross:Eq|other",
+      "cross:Eq|reverse_rewrite",
+      "cross:Eq|rewrite",
+      "cross:Eq|rfl",
+      "cross:Eq|ring",
+      "cross:Exists|assumption",
+      "cross:Exists|cases",
+      "cross:Exists|exists",
+      "cross:Exists|hyp_apply",
+      "cross:Exists|lemma_apply",
+      "cross:Exists|other",
+      "cross:False|assumption",
+      "cross:False|lemma_apply",
+      "cross:False|other",
+      "cross:Iff|assumption",
+      "cross:Iff|constructor",
+      "cross:Iff|hyp_apply",
+      "cross:Iff|lemma_apply",
+      "cross:Iff|other",
+      "cross:Iff|rfl",
+      "cross:Or|assumption",
+      "cross:Or|hyp_apply",
+      "cross:Or|lemma_apply",
+      "cross:Or|other",
+      "cross:forall|assumption",
+      "cross:forall|hyp_apply",
+      "cross:forall|intro",
+      "cross:forall|lemma_apply",
+      "cross:forall|other",
+      "cross:forall|rfl",
+      "cross:order|assumption",
+      "cross:order|lemma_apply",
+      "cross:order|other",
+      "cross:order|reverse_rewrite",
+      "cross:order|rewrite",
+      "cross:other|assumption",
+      "cross:other|cases",
+      "cross:other|hyp_apply",
+      "cross:other|lemma_apply",
+      "cross:other|other",
+      "existential_context",
+      "generic_elimination",
+      "goals",
+      "group_normalizer",
+      "hyp_conclusion_match",
+      "hyp_exact_match",
+      "hyp_is_forall",
+      "hyp_premise_present",
+      "lemma:Eq.symm",
+      "lemma:Eq.trans",
+      "lemma:Set.Subset.antisymm",
+      "lemma:Set.inter_subset_left",
+      "lemma:add_assoc",
+      "lemma:le_antisymm",
+      "lemma:le_refl",
+      "lemma:le_trans",
+      "lemma:lt_of_le_of_lt",
+      "lemma:lt_of_lt_of_le",
+      "lemma:mul_assoc",
+      "lemma:mul_comm",
+      "obligation_load",
+      "op:assumption",
+      "op:cases",
+      "op:constructor",
+      "op:exists",
+      "op:hyp_apply",
+      "op:intro",
+      "op:lemma_apply",
+      "op:other",
+      "op:projection",
+      "op:reverse_rewrite",
+      "op:rewrite",
+      "op:rfl",
+      "op:ring",
+      "p3:action_goals:assumption",
+      "p3:action_goals:cases",
+      "p3:action_goals:constructor",
+      "p3:action_goals:exists",
+      "p3:action_goals:hyp_apply",
+      "p3:action_goals:intro",
+      "p3:action_goals:lemma_apply",
+      "p3:action_goals:other",
+      "p3:action_goals:projection",
+      "p3:action_goals:reverse_rewrite",
+      "p3:action_goals:rewrite",
+      "p3:action_goals:rfl",
+      "p3:action_goals:ring",
+      "p3:apply_conclusion_overlap",
+      "p3:apply_premise_hits",
+      "p3:assumption_exact",
+      "p3:assumption_head_coverage",
+      "p3:cases_target_overlap",
+      "p3:closing_multigoal",
+      "p3:constructor_conjunction",
+      "p3:estimated_goal_delta",
+      "p3:intro_forall",
+      "p3:projection_head",
+      "p3:rewrite_context_gain",
+      "p3:rewrite_occurrences",
+      "p3:rewrite_reflexive_text",
+      "p3:rewrite_size_delta",
+      "proof_context",
+      "retrieval:compatible",
+      "retrieval:family:lemma",
+      "retrieval:family:normalizer",
+      "retrieval:family:original",
+      "retrieval:family:rewrite",
+      "retrieval:family:witness",
+      "retrieval:implicit_parameters",
+      "retrieval:instance_parameters",
+      "retrieval:missing_instances",
+      "retrieval:premise_exact",
+      "retrieval:premise_overlap",
+      "retrieval:premises",
+      "retrieval:repeats_target",
+      "retrieval:rewrite_delta",
+      "retrieval:rewrite_obligations",
+      "retrieval:unresolved_data",
+      "retrieval:witness_depth",
+      "rewrite_occurs",
+      "rewrite_reverse_occurs",
+      "shape:And",
+      "shape:Eq",
+      "shape:Exists",
+      "shape:False",
+      "shape:Iff",
+      "shape:Or",
+      "shape:forall",
+      "shape:order",
+      "shape:other",
+      "simp_all",
+      "target_length",
+      "target_overlap"
+    ],
+    "iterations": 48,
+    "min_leaf": 12,
+    "rate": 0.1,
+    "seed": 0,
+    "trees": [
+      {
+        "feature": "retrieval:compatible",
+        "gain": 4.419405151564501,
+        "left": {
+          "feature": "compatibility_observed",
+          "gain": 4.511796866867224,
+          "left": {
+            "observations": 345,
+            "value": -0.03484002512398128
+          },
+          "observations": 414,
+          "right": {
+            "observations": 69,
+            "value": -0.5
+          },
+          "threshold": 0.0,
+          "value": -0.09858470030421257
+        },
+        "observations": 629,
+        "right": {
+          "feature": "op:other",
+          "gain": 2.5409785011710326,
+          "left": {
+            "observations": 197,
+            "value": 0.1982366589121361
+          },
+          "observations": 215,
+          "right": {
+            "observations": 18,
+            "value": -0.3786813719549145
+          },
+          "threshold": 0.0,
+          "value": 0.15565454607980303
+        },
+        "threshold": 0.0,
+        "value": 4.625929269271485e-18
+      },
+      {
+        "feature": "retrieval:compatible",
+        "gain": 4.149359699778609,
+        "left": {
+          "feature": "compatibility_observed",
+          "gain": 4.266437671672996,
+          "left": {
+            "observations": 345,
+            "value": -0.03353806839258021
+          },
+          "observations": 414,
+          "right": {
+            "observations": 69,
+            "value": -0.4858731504652326
+          },
+          "threshold": 0.0,
+          "value": -0.09552524363703187
+        },
+        "observations": 629,
+        "right": {
+          "feature": "op:other",
+          "gain": 2.387459829868444,
+          "left": {
+            "observations": 197,
+            "value": 0.19209972448130516
+          },
+          "observations": 215,
+          "right": {
+            "observations": 18,
+            "value": -0.36711893458192146
+          },
+          "threshold": 0.0,
+          "value": 0.15082399593042567
+        },
+        "threshold": 0.0,
+        "value": 5.782411586589357e-18
+      },
+      {
+        "feature": "op:assumption",
+        "gain": 4.0047745611662515,
+        "left": {
+          "feature": "cross:Eq|other",
+          "gain": 2.504653106523177,
+          "left": {
+            "observations": 479,
+            "value": 0.07921380454865104
+          },
+          "observations": 541,
+          "right": {
+            "observations": 62,
+            "value": -0.2085962080971813
+          },
+          "threshold": 0.0,
+          "value": 0.04019644685486781
+        },
+        "observations": 629,
+        "right": {
+          "feature": "context:target_size",
+          "gain": 0.848296365381505,
+          "left": {
+            "observations": 25,
+            "value": -0.13264154312714269
+          },
+          "observations": 88,
+          "right": {
+            "observations": 63,
+            "value": -0.47859241219206805
+          },
+          "threshold": 0.015,
+          "value": -0.345937721223928
+        },
+        "threshold": 0.0,
+        "value": 5.011423375044109e-18
+      },
+      {
+        "feature": "retrieval:compatible",
+        "gain": 3.770676069140378,
+        "left": {
+          "feature": "simp_all",
+          "gain": 4.103909437179134,
+          "left": {
+            "observations": 314,
+            "value": -0.18680003272056891
+          },
+          "observations": 414,
+          "right": {
+            "observations": 100,
+            "value": 0.1520473082707806
+          },
+          "threshold": 0.0,
+          "value": -0.09106200829558664
+        },
+        "observations": 629,
+        "right": {
+          "feature": "op:other",
+          "gain": 2.1979357140186044,
+          "left": {
+            "observations": 197,
+            "value": 0.18338058947830685
+          },
+          "observations": 215,
+          "right": {
+            "observations": 18,
+            "value": -0.35318289066359054
+          },
+          "threshold": 0.0,
+          "value": 0.1437770315538417
+        },
+        "threshold": 0.0,
+        "value": 8.288123274111412e-18
+      },
+      {
+        "feature": "op:assumption",
+        "gain": 3.59676208107735,
+        "left": {
+          "feature": "cross:Eq|other",
+          "gain": 2.343567480656784,
+          "left": {
+            "observations": 479,
+            "value": 0.07583563250262494
+          },
+          "observations": 541,
+          "right": {
+            "observations": 62,
+            "value": -0.2025653975270786
+          },
+          "threshold": 0.0,
+          "value": 0.03809381639578375
+        },
+        "observations": 629,
+        "right": {
+          "feature": "context:target_size",
+          "gain": 0.8046895812587742,
+          "left": {
+            "observations": 25,
+            "value": -0.12010051806549923
+          },
+          "observations": 88,
+          "right": {
+            "observations": 63,
+            "value": -0.4570422562901808
+          },
+          "threshold": 0.015,
+          "value": -0.32784211212151654
+        },
+        "threshold": 0.0,
+        "value": 6.5533997981346044e-18
+      },
+      {
+        "feature": "retrieval:compatible",
+        "gain": 3.418654107436808,
+        "left": {
+          "feature": "compatibility_observed",
+          "gain": 4.080237126649523,
+          "left": {
+            "observations": 345,
+            "value": -0.02608777663044244
+          },
+          "observations": 414,
+          "right": {
+            "observations": 69,
+            "value": -0.4684420945251513
+          },
+          "threshold": 0.0,
+          "value": -0.08670720614237896
+        },
+        "observations": 629,
+        "right": {
+          "feature": "op:other",
+          "gain": 2.020693393024291,
+          "left": {
+            "observations": 197,
+            "value": 0.1748744473881939
+          },
+          "observations": 215,
+          "right": {
+            "observations": 18,
+            "value": -0.339600022048259
+          },
+          "threshold": 0.0,
+          "value": 0.1369012714172972
+        },
+        "threshold": 0.0,
+        "value": 5.396917480816733e-18
+      },
+      {
+        "feature": "op:assumption",
+        "gain": 3.3198732069504335,
+        "left": {
+          "feature": "retrieval:instance_parameters",
+          "gain": 2.224600118026799,
+          "left": {
+            "observations": 510,
+            "value": 0.06101715792810363
+          },
+          "observations": 541,
+          "right": {
+            "observations": 31,
+            "value": -0.3164810275652069
+          },
+          "threshold": 0.0,
+          "value": 0.03659817061604482
+        },
+        "observations": 629,
+        "right": {
+          "feature": "context:target_size",
+          "gain": 0.7657345836514127,
+          "left": {
+            "observations": 25,
+            "value": -0.11231948348230958
+          },
+          "observations": 88,
+          "right": {
+            "observations": 63,
+            "value": -0.4410043842896068
+          },
+          "threshold": 0.015,
+          "value": -0.3149703203766093
+        },
+        "threshold": 0.0,
+        "value": 1.927470528863119e-19
+      },
+      {
+        "feature": "op:assumption",
+        "gain": 3.132654155790312,
+        "left": {
+          "feature": "cross:Eq|other",
+          "gain": 2.1850442829222834,
+          "left": {
+            "observations": 479,
+            "value": 0.07199425359198013
+          },
+          "observations": 541,
+          "right": {
+            "observations": 62,
+            "value": -0.19682614931586517
+          },
+          "threshold": 0.0,
+          "value": 0.035551248294074585
+        },
+        "observations": 629,
+        "right": {
+          "feature": "context:target_size",
+          "gain": 0.7249001353338258,
+          "left": {
+            "observations": 25,
+            "value": -0.10878690577457358
+          },
+          "observations": 88,
+          "right": {
+            "observations": 63,
+            "value": -0.4285878290533261
+          },
+          "threshold": 0.015,
+          "value": -0.3059603219638521
+        },
+        "threshold": 0.0,
+        "value": 6.5533997981346044e-18
+      },
+      {
+        "feature": "op:assumption",
+        "gain": 2.946022440692421,
+        "left": {
+          "feature": "retrieval:instance_parameters",
+          "gain": 2.115295266640736,
+          "left": {
+            "observations": 510,
+            "value": 0.058287505477835296
+          },
+          "observations": 541,
+          "right": {
+            "observations": 31,
+            "value": -0.3098197599316311
+          },
+          "threshold": 0.0,
+          "value": 0.034475982697231844
+        },
+        "observations": 629,
+        "right": {
+          "feature": "context:target_size",
+          "gain": 0.6903278852525334,
+          "left": {
+            "observations": 25,
+            "value": -0.1042922585623133
+          },
+          "observations": 88,
+          "right": {
+            "observations": 63,
+            "value": -0.4163739787887263
+          },
+          "threshold": 0.015,
+          "value": -0.296706396321486
+        },
+        "threshold": 0.0,
+        "value": 1.927470528863119e-18
+      },
+      {
+        "feature": "retrieval:compatible",
+        "gain": 2.950763223031764,
+        "left": {
+          "feature": "compatibility_observed",
+          "gain": 3.743875310726571,
+          "left": {
+            "observations": 345,
+            "value": -0.022488365751070744
+          },
+          "observations": 414,
+          "right": {
+            "observations": 69,
+            "value": -0.44621743327194024
+          },
+          "threshold": 0.0,
+          "value": -0.08055542489720496
+        },
+        "observations": 629,
+        "right": {
+          "feature": "op:other",
+          "gain": 1.8380228772512122,
+          "left": {
+            "observations": 197,
+            "value": 0.1634044168430959
+          },
+          "observations": 215,
+          "right": {
+            "observations": 18,
+            "value": -0.32726509495270006
+          },
+          "threshold": 0.0,
+          "value": 0.1271882762532912
+        },
+        "threshold": 0.0,
+        "value": 0.0
+      },
+      {
+        "feature": "retrieval:compatible",
+        "gain": 2.7729287258709734,
+        "left": {
+          "feature": "compatibility_observed",
+          "gain": 3.543606524608828,
+          "left": {
+            "observations": 345,
+            "value": -0.02159763484091698
+          },
+          "observations": 414,
+          "right": {
+            "observations": 69,
+            "value": -0.4338378114934313
+          },
+          "threshold": 0.0,
+          "value": -0.0780902773215167
+        },
+        "observations": 629,
+        "right": {
+          "feature": "obligation_load",
+          "gain": 1.8352722836801572,
+          "left": {
+            "observations": 157,
+            "value": 0.1951113570968825
+          },
+          "observations": 215,
+          "right": {
+            "observations": 58,
+            "value": -0.10553985884329362
+          },
+          "threshold": 0.25,
+          "value": 0.1232960756813015
+        },
+        "threshold": 0.0,
+        "value": -1.1564823173178713e-18
+      },
+      {
+        "feature": "op:assumption",
+        "gain": 2.6943201729818247,
+        "left": {
+          "feature": "cross:Eq|other",
+          "gain": 2.040231918737633,
+          "left": {
+            "observations": 479,
+            "value": 0.06818501206405457
+          },
+          "observations": 541,
+          "right": {
+            "observations": 62,
+            "value": -0.19157474833629387
+          },
+          "threshold": 0.0,
+          "value": 0.032970325150212774
+        },
+        "observations": 629,
+        "right": {
+          "feature": "context:target_size",
+          "gain": 0.650126952837379,
+          "left": {
+            "observations": 25,
+            "value": -0.09702090991667771
+          },
+          "observations": 88,
+          "right": {
+            "observations": 63,
+            "value": -0.3998793690766953
+          },
+          "threshold": 0.015,
+          "value": -0.28374844153906464
+        },
+        "threshold": 0.0,
+        "value": 2.5057116875220546e-18
+      },
+      {
+        "feature": "p3:action_goals:assumption",
+        "gain": 2.5357070597141798,
+        "left": {
+          "feature": "cross:Eq|other",
+          "gain": 1.9282435064955845,
+          "left": {
+            "observations": 479,
+            "value": 0.06621971335147168
+          },
+          "observations": 541,
+          "right": {
+            "observations": 62,
+            "value": -0.1863103251525132
+          },
+          "threshold": 0.0,
+          "value": 0.031985133566856554
+        },
+        "observations": 629,
+        "right": {
+          "feature": "p3:assumption_head_coverage",
+          "gain": 0.5521312990307008,
+          "left": {
+            "observations": 51,
+            "value": -0.4064240406903937
+          },
+          "observations": 88,
+          "right": {
+            "observations": 37,
+            "value": -0.13485331758600894
+          },
+          "threshold": 0.0,
+          "value": -0.2752697087658475
+        },
+        "threshold": 0.0,
+        "value": -1.734723475976807e-18
+      },
+      {
+        "feature": "retrieval:compatible",
+        "gain": 2.4455011637117154,
+        "left": {
+          "feature": "compatibility_observed",
+          "gain": 3.449726118194574,
+          "left": {
+            "observations": 345,
+            "value": -0.017595750134833242
+          },
+          "observations": 414,
+          "right": {
+            "observations": 69,
+            "value": -0.4243385535603201
+          },
+          "threshold": 0.0,
+          "value": -0.07333504260763236
+        },
+        "observations": 629,
+        "right": {
+          "feature": "obligation_load",
+          "gain": 1.7279076613651,
+          "left": {
+            "observations": 157,
+            "value": 0.1854710822503513
+          },
+          "observations": 215,
+          "right": {
+            "observations": 58,
+            "value": -0.10625346653617317
+          },
+          "threshold": 0.25,
+          "value": 0.11578807597537802
+        },
+        "threshold": 0.0,
+        "value": 1.734723475976807e-18
+      },
+      {
+        "feature": "op:assumption",
+        "gain": 2.3564542697345296,
+        "left": {
+          "feature": "cross:Eq|other",
+          "gain": 1.8230774515141628,
+          "left": {
+            "observations": 479,
+            "value": 0.06412179427981995
+          },
+          "observations": 541,
+          "right": {
+            "observations": 62,
+            "value": -0.18142522467904104
+          },
+          "threshold": 0.0,
+          "value": 0.03083387708303512
+        },
+        "observations": 629,
+        "right": {
+          "feature": "context:target_size",
+          "gain": 0.6006135262214349,
+          "left": {
+            "observations": 25,
+            "value": -0.08588560902268705
+          },
+          "observations": 88,
+          "right": {
+            "observations": 63,
+            "value": -0.37698290891767994
+          },
+          "threshold": 0.015,
+          "value": -0.26536179212845384
+        },
+        "threshold": 0.0,
+        "value": 1.1564823173178713e-18
+      },
+      {
+        "feature": "retrieval:compatible",
+        "gain": 2.231780304961746,
+        "left": {
+          "feature": "compatibility_observed",
+          "gain": 3.3119256084003625,
+          "left": {
+            "observations": 345,
+            "value": -0.015442605151468098
+          },
+          "observations": 414,
+          "right": {
+            "observations": 69,
+            "value": -0.4139788788429346
+          },
+          "threshold": 0.0,
+          "value": -0.07005728974631843
+        },
+        "observations": 629,
+        "right": {
+          "feature": "obligation_load",
+          "gain": 1.6281698548624792,
+          "left": {
+            "observations": 157,
+            "value": 0.17825486424318607
+          },
+          "observations": 215,
+          "right": {
+            "observations": 58,
+            "value": -0.10492512862057408
+          },
+          "threshold": 0.25,
+          "value": 0.11061285981896397
+        },
+        "threshold": 0.0,
+        "value": 5.396917480816733e-18
+      },
+      {
+        "feature": "op:assumption",
+        "gain": 2.192512818001404,
+        "left": {
+          "feature": "cross:Eq|other",
+          "gain": 1.7257841832957488,
+          "left": {
+            "observations": 479,
+            "value": 0.062129458779621505
+          },
+          "observations": 541,
+          "right": {
+            "observations": 62,
+            "value": -0.1767756013305481
+          },
+          "threshold": 0.0,
+          "value": 0.02974196781125178
+        },
+        "observations": 629,
+        "right": {
+          "feature": "context:target_size",
+          "gain": 0.5699187176418701,
+          "left": {
+            "observations": 25,
+            "value": -0.08113471933320954
+          },
+          "observations": 88,
+          "right": {
+            "observations": 63,
+            "value": -0.36469610055034485
+          },
+          "threshold": 0.015,
+          "value": -0.2559646280799039
+        },
+        "threshold": 0.0,
+        "value": 2.3129646346357427e-18
+      },
+      {
+        "feature": "op:assumption",
+        "gain": 2.0667546789219564,
+        "left": {
+          "feature": "retrieval:instance_parameters",
+          "gain": 1.6561283992674236,
+          "left": {
+            "observations": 510,
+            "value": 0.049945633408887226
+          },
+          "observations": 541,
+          "right": {
+            "observations": 31,
+            "value": -0.2757679666456263
+          },
+          "threshold": 0.0,
+          "value": 0.02887640295231564
+        },
+        "observations": 629,
+        "right": {
+          "feature": "context:target_size",
+          "gain": 0.5445622482830204,
+          "left": {
+            "observations": 25,
+            "value": -0.07761897614630606
+          },
+          "observations": 88,
+          "right": {
+            "observations": 63,
+            "value": -0.354800570263723
+          },
+          "threshold": 0.015,
+          "value": -0.24851542402579935
+        },
+        "threshold": 0.0,
+        "value": -9.637352644315595e-19
+      },
+      {
+        "feature": "retrieval:compatible",
+        "gain": 1.9876223341342212,
+        "left": {
+          "feature": "simp_all",
+          "gain": 3.143863411861657,
+          "left": {
+            "observations": 314,
+            "value": -0.14990903556179483
+          },
+          "observations": 414,
+          "right": {
+            "observations": 100,
+            "value": 0.14666766716844612
+          },
+          "threshold": 0.0,
+          "value": -0.06611416933442962
+        },
+        "observations": 629,
+        "right": {
+          "feature": "op:other",
+          "gain": 1.5866191855486569,
+          "left": {
+            "observations": 197,
+            "value": 0.13803539540806983
+          },
+          "observations": 215,
+          "right": {
+            "observations": 18,
+            "value": -0.31784400456435885
+          },
+          "threshold": 0.0,
+          "value": 0.10438710048758088
+        },
+        "threshold": 0.0,
+        "value": 0.0
+      },
+      {
+        "feature": "op:assumption",
+        "gain": 1.8661582826458847,
+        "left": {
+          "feature": "cross:Eq|other",
+          "gain": 1.6301303339503737,
+          "left": {
+            "observations": 479,
+            "value": 0.05891642704730872
+          },
+          "observations": 541,
+          "right": {
+            "observations": 62,
+            "value": -0.17327344418403098
+          },
+          "threshold": 0.0,
+          "value": 0.027439289836468064
+        },
+        "observations": 629,
+        "right": {
+          "feature": "context:target_size",
+          "gain": 0.5172387126552229,
+          "left": {
+            "observations": 25,
+            "value": -0.06959348425845356
+          },
+          "observations": 88,
+          "right": {
+            "observations": 63,
+            "value": -0.3397317664677772
+          },
+          "threshold": 0.015,
+          "value": -0.23614737472451838
+        },
+        "threshold": 0.0,
+        "value": -6.1679056923619804e-18
+      },
+      {
+        "feature": "retrieval:family:witness",
+        "gain": 1.810299079929423,
+        "left": {
+          "feature": "op:assumption",
+          "gain": 1.5427695235774257,
+          "left": {
+            "observations": 520,
+            "value": 0.010756378920812734
+          },
+          "observations": 608,
+          "right": {
+            "observations": 88,
+            "value": -0.2294166216387964
+          },
+          "threshold": 0.0,
+          "value": -0.015159657553800951
+        },
+        "observations": 629,
+        "right": {
+          "observations": 21,
+          "value": 0.4146373802898577
+        },
+        "threshold": 0.0,
+        "value": 1.734723475976807e-18
+      },
+      {
+        "feature": "retrieval:compatible",
+        "gain": 1.748691692038716,
+        "left": {
+          "feature": "op:lemma_apply",
+          "gain": 3.1030760337961882,
+          "left": {
+            "observations": 345,
+            "value": -0.00914856438452975
+          },
+          "observations": 414,
+          "right": {
+            "observations": 69,
+            "value": -0.3949144133034751
+          },
+          "threshold": 0.0,
+          "value": -0.06201321324327681
+        },
+        "observations": 629,
+        "right": {
+          "feature": "assumption_available",
+          "gain": 1.5688237357965773,
+          "left": {
+            "observations": 197,
+            "value": 0.13631108629645808
+          },
+          "observations": 215,
+          "right": {
+            "observations": 18,
+            "value": -0.26793139559251716
+          },
+          "threshold": 0.0,
+          "value": 0.09791213574262723
+        },
+        "threshold": 0.0,
+        "value": 1.1564823173178713e-18
+      },
+      {
+        "feature": "retrieval:family:witness",
+        "gain": 1.6771897941087632,
+        "left": {
+          "feature": "simp_all",
+          "gain": 1.4866791953640275,
+          "left": {
+            "observations": 508,
+            "value": -0.048783050522374145
+          },
+          "observations": 608,
+          "right": {
+            "observations": 100,
+            "value": 0.14190432100176878
+          },
+          "threshold": 0.0,
+          "value": -0.014591681151624911
+        },
+        "observations": 629,
+        "right": {
+          "observations": 21,
+          "value": 0.39910244840706705
+        },
+        "threshold": 0.0,
+        "value": 6.1679056923619804e-18
+      },
+      {
+        "feature": "op:assumption",
+        "gain": 1.631157506024134,
+        "left": {
+          "feature": "cross:Eq|other",
+          "gain": 1.5628110129959487,
+          "left": {
+            "observations": 479,
+            "value": 0.05647382787341545
+          },
+          "observations": 541,
+          "right": {
+            "observations": 62,
+            "value": -0.17087113573844878
+          },
+          "threshold": 0.0,
+          "value": 0.02565349718519925
+        },
+        "observations": 629,
+        "right": {
+          "feature": "context:target_size",
+          "gain": 0.47953905773323013,
+          "left": {
+            "observations": 25,
+            "value": -0.06040921673937044
+          },
+          "observations": 88,
+          "right": {
+            "observations": 63,
+            "value": -0.3205165614319202
+          },
+          "threshold": 0.015,
+          "value": -0.22077852775680273
+        },
+        "threshold": 0.0,
+        "value": 2.5057116875220546e-18
+      },
+      {
+        "feature": "retrieval:family:witness",
+        "gain": 1.5795312571870765,
+        "left": {
+          "feature": "simp_all",
+          "gain": 1.4074707192534874,
+          "left": {
+            "observations": 508,
+            "value": -0.04742855727316445
+          },
+          "observations": 608,
+          "right": {
+            "observations": 100,
+            "value": 0.13810949138890913
+          },
+          "threshold": 0.0,
+          "value": -0.014160491834809942
+        },
+        "observations": 629,
+        "right": {
+          "observations": 21,
+          "value": 0.38730883050385084
+        },
+        "threshold": 0.0,
+        "value": 2.8912057932946786e-18
+      },
+      {
+        "feature": "retrieval:compatible",
+        "gain": 1.6146236596106562,
+        "left": {
+          "feature": "op:lemma_apply",
+          "gain": 2.896988832990056,
+          "left": {
+            "observations": 345,
+            "value": -0.008509592049322872
+          },
+          "observations": 414,
+          "right": {
+            "observations": 69,
+            "value": -0.381245282655561
+          },
+          "threshold": 0.0,
+          "value": -0.05958861176099661
+        },
+        "observations": 629,
+        "right": {
+          "feature": "assumption_available",
+          "gain": 1.4905782046206957,
+          "left": {
+            "observations": 197,
+            "value": 0.1315130770467869
+          },
+          "observations": 215,
+          "right": {
+            "observations": 18,
+            "value": -0.26251961811486796
+          },
+          "threshold": 0.0,
+          "value": 0.0940839530531819
+        },
+        "threshold": 0.0,
+        "value": 1.734723475976807e-18
+      },
+      {
+        "feature": "retrieval:compatible",
+        "gain": 1.5282252608852336,
+        "left": {
+          "feature": "compatibility_observed",
+          "gain": 2.754233902668675,
+          "left": {
+            "observations": 345,
+            "value": -0.00816779139756987
+          },
+          "observations": 414,
+          "right": {
+            "observations": 69,
+            "value": -0.37160382084846333
+          },
+          "threshold": 0.0,
+          "value": -0.05797240249360193
+        },
+        "observations": 629,
+        "right": {
+          "feature": "obligation_load",
+          "gain": 1.4695703034049088,
+          "left": {
+            "observations": 157,
+            "value": 0.1557952525507352
+          },
+          "observations": 215,
+          "right": {
+            "observations": 58,
+            "value": -0.11323919752177465
+          },
+          "threshold": 0.25,
+          "value": 0.09153213396654881
+        },
+        "threshold": 0.0,
+        "value": 3.854941057726238e-19
+      },
+      {
+        "feature": "op:assumption",
+        "gain": 1.4920164340866844,
+        "left": {
+          "feature": "cross:Eq|other",
+          "gain": 1.5135006970872191,
+          "left": {
+            "observations": 479,
+            "value": 0.05486517146992467
+          },
+          "observations": 541,
+          "right": {
+            "observations": 62,
+            "value": -0.16886441445659797
+          },
+          "threshold": 0.0,
+          "value": 0.024534964398501034
+        },
+        "observations": 629,
+        "right": {
+          "feature": "context:target_size",
+          "gain": 0.44388942673205123,
+          "left": {
+            "observations": 25,
+            "value": -0.056859078063598086
+          },
+          "observations": 88,
+          "right": {
+            "observations": 63,
+            "value": -0.3071113465935002
+          },
+          "threshold": 0.015,
+          "value": -0.21115223703658792
+        },
+        "threshold": 0.0,
+        "value": -3.854941057726238e-19
+      },
+      {
+        "feature": "retrieval:family:witness",
+        "gain": 1.4134107821341104,
+        "left": {
+          "feature": "simp_all",
+          "gain": 1.3214488629882988,
+          "left": {
+            "observations": 508,
+            "value": -0.04563057455496014
+          },
+          "observations": 608,
+          "right": {
+            "observations": 100,
+            "value": 0.13414822708804897
+          },
+          "threshold": 0.0,
+          "value": -0.013395176044427283
+        },
+        "observations": 629,
+        "right": {
+          "observations": 21,
+          "value": 0.36637639629202623
+        },
+        "threshold": 0.0,
+        "value": -4.625929269271485e-18
+      },
+      {
+        "feature": "retrieval:compatible",
+        "gain": 1.4059594342139192,
+        "left": {
+          "feature": "compatibility_observed",
+          "gain": 2.6117845246965876,
+          "left": {
+            "observations": 345,
+            "value": -0.007105458833941542
+          },
+          "observations": 414,
+          "right": {
+            "observations": 69,
+            "value": -0.3610182354244555
+          },
+          "threshold": 0.0,
+          "value": -0.055605020714580775
+        },
+        "observations": 629,
+        "right": {
+          "feature": "assumption_available",
+          "gain": 1.4133897072885353,
+          "left": {
+            "observations": 197,
+            "value": 0.12424141707876099
+          },
+          "observations": 215,
+          "right": {
+            "observations": 18,
+            "value": -0.25945331629682866
+          },
+          "threshold": 0.0,
+          "value": 0.08779429498064091
+        },
+        "threshold": 0.0,
+        "value": -4.818676322157797e-18
+      },
+      {
+        "feature": "op:assumption",
+        "gain": 1.382056243741366,
+        "left": {
+          "feature": "cross:Eq|other",
+          "gain": 1.462423366232703,
+          "left": {
+            "observations": 479,
+            "value": 0.05342758682632691
+          },
+          "observations": 541,
+          "right": {
+            "observations": 62,
+            "value": -0.1664944073777987
+          },
+          "threshold": 0.0,
+          "value": 0.02361356113031453
+        },
+        "observations": 629,
+        "right": {
+          "feature": "context:target_size",
+          "gain": 0.414165562424474,
+          "left": {
+            "observations": 25,
+            "value": -0.0541847354846015
+          },
+          "observations": 88,
+          "right": {
+            "observations": 63,
+            "value": -0.2959131008365995
+          },
+          "threshold": 0.015,
+          "value": -0.20322247777016345
+        },
+        "threshold": 0.0,
+        "value": 6.938893903907228e-18
+      },
+      {
+        "feature": "op:assumption",
+        "gain": 1.3081285174181068,
+        "left": {
+          "feature": "cross:Eq|other",
+          "gain": 1.386351197807277,
+          "left": {
+            "observations": 479,
+            "value": 0.052001563124248855
+          },
+          "observations": 541,
+          "right": {
+            "observations": 62,
+            "value": -0.16212410801027927
+          },
+          "threshold": 0.0,
+          "value": 0.02297332388658847
+        },
+        "observations": 629,
+        "right": {
+          "feature": "context:target_size",
+          "gain": 0.3980847084340311,
+          "left": {
+            "observations": 25,
+            "value": -0.05159673744631006
+          },
+          "observations": 88,
+          "right": {
+            "observations": 63,
+            "value": -0.2885858368253371
+          },
+          "threshold": 0.015,
+          "value": -0.19771248297045002
+        },
+        "threshold": 0.0,
+        "value": 1.1564823173178713e-18
+      },
+      {
+        "feature": "retrieval:family:witness",
+        "gain": 1.295049625274734,
+        "left": {
+          "feature": "simp_all",
+          "gain": 1.2597913041782745,
+          "left": {
+            "observations": 508,
+            "value": -0.04429642765695682
+          },
+          "observations": 608,
+          "right": {
+            "observations": 100,
+            "value": 0.1312381196340592
+          },
+          "threshold": 0.0,
+          "value": -0.01282204896169806
+        },
+        "observations": 629,
+        "right": {
+          "observations": 21,
+          "value": 0.3507005862473309
+        },
+        "threshold": 0.0,
+        "value": 1.1564823173178713e-18
+      },
+      {
+        "feature": "retrieval:compatible",
+        "gain": 1.2580148364109478,
+        "left": {
+          "feature": "compatibility_observed",
+          "gain": 2.5106927557324914,
+          "left": {
+            "observations": 345,
+            "value": -0.005046466017751433
+          },
+          "observations": 414,
+          "right": {
+            "observations": 69,
+            "value": -0.35204237452233
+          },
+          "threshold": 0.0,
+          "value": -0.052598152902224075
+        },
+        "observations": 629,
+        "right": {
+          "feature": "assumption_available",
+          "gain": 1.3497374916420553,
+          "left": {
+            "observations": 197,
+            "value": 0.11866374403642274
+          },
+          "observations": 215,
+          "right": {
+            "observations": 18,
+            "value": -0.2562915860909171
+          },
+          "threshold": 0.0,
+          "value": 0.08304677692753433
+        },
+        "threshold": 0.0,
+        "value": 9.637352644315595e-19
+      },
+      {
+        "feature": "op:assumption",
+        "gain": 1.2144925222209004,
+        "left": {
+          "feature": "cross:Eq|other",
+          "gain": 1.341681443217703,
+          "left": {
+            "observations": 479,
+            "value": 0.05069259158122198
+          },
+          "observations": 541,
+          "right": {
+            "observations": 62,
+            "value": -0.15995515264649185
+          },
+          "threshold": 0.0,
+          "value": 0.022135842257718953
+        },
+        "observations": 629,
+        "right": {
+          "feature": "context:target_size",
+          "gain": 0.3721556382492959,
+          "left": {
+            "observations": 25,
+            "value": -0.04922793303013456
+          },
+          "observations": 88,
+          "right": {
+            "observations": 63,
+            "value": -0.27836899648597746
+          },
+          "threshold": 0.015,
+          "value": -0.19050496815442494
+        },
+        "threshold": 0.0,
+        "value": 5.782411586589357e-19
+      },
+      {
+        "feature": "retrieval:family:witness",
+        "gain": 1.1974889800161788,
+        "left": {
+          "feature": "simp_all",
+          "gain": 1.188914242718161,
+          "left": {
+            "observations": 508,
+            "value": -0.042905801467411776
+          },
+          "observations": 608,
+          "right": {
+            "observations": 100,
+            "value": 0.12761939763956387
+          },
+          "threshold": 0.0,
+          "value": -0.012329628419953489
+        },
+        "observations": 629,
+        "right": {
+          "observations": 21,
+          "value": 0.33723221054654295
+        },
+        "threshold": 0.0,
+        "value": 4.04768811061255e-18
+      },
+      {
+        "feature": "retrieval:compatible",
+        "gain": 1.163853996795466,
+        "left": {
+          "feature": "compatibility_observed",
+          "gain": 2.386965744511383,
+          "left": {
+            "observations": 345,
+            "value": -0.004226208674498373
+          },
+          "observations": 414,
+          "right": {
+            "observations": 69,
+            "value": -0.34256411885473925
+          },
+          "threshold": 0.0,
+          "value": -0.05059141924822871
+        },
+        "observations": 629,
+        "right": {
+          "feature": "obligation_load",
+          "gain": 1.3222737157835978,
+          "left": {
+            "observations": 157,
+            "value": 0.1408358831017643
+          },
+          "observations": 215,
+          "right": {
+            "observations": 58,
+            "value": -0.1143598415063418
+          },
+          "threshold": 0.25,
+          "value": 0.07987836220342555
+        },
+        "threshold": 0.0,
+        "value": 3.0839528461809902e-18
+      },
+      {
+        "feature": "p3:action_goals:assumption",
+        "gain": 1.1258828818245683,
+        "left": {
+          "feature": "cross:Eq|other",
+          "gain": 1.3018732437146343,
+          "left": {
+            "observations": 479,
+            "value": 0.0494429465700723
+          },
+          "observations": 541,
+          "right": {
+            "observations": 62,
+            "value": -0.1580562678788265
+          },
+          "threshold": 0.0,
+          "value": 0.02131303198890577
+        },
+        "observations": 629,
+        "right": {
+          "feature": "context:target_size",
+          "gain": 0.35244281795437704,
+          "left": {
+            "observations": 25,
+            "value": -0.045939260546543334
+          },
+          "observations": 88,
+          "right": {
+            "observations": 63,
+            "value": -0.2689290386276949
+          },
+          "threshold": 0.015,
+          "value": -0.18342371765433482
+        },
+        "threshold": 0.0,
+        "value": 3.2766998990673022e-18
+      },
+      {
+        "feature": "retrieval:family:witness",
+        "gain": 1.1046551871233696,
+        "left": {
+          "feature": "simp_all",
+          "gain": 1.1250206483215626,
+          "left": {
+            "observations": 508,
+            "value": -0.04158529780904923
+          },
+          "observations": 608,
+          "right": {
+            "observations": 100,
+            "value": 0.12429451902168212
+          },
+          "threshold": 0.0,
+          "value": -0.011842069177395068
+        },
+        "observations": 629,
+        "right": {
+          "observations": 21,
+          "value": 0.3238967980312488
+        },
+        "threshold": 0.0,
+        "value": 2.3129646346357427e-18
+      },
+      {
+        "feature": "retrieval:compatible",
+        "gain": 1.07641007656605,
+        "left": {
+          "feature": "op:lemma_apply",
+          "gain": 2.2693630238059868,
+          "left": {
+            "observations": 345,
+            "value": -0.003445161501394836
+          },
+          "observations": 414,
+          "right": {
+            "observations": 69,
+            "value": -0.3333430656005054
+          },
+          "threshold": 0.0,
+          "value": -0.048653769024090444
+        },
+        "observations": 629,
+        "right": {
+          "feature": "assumption_available",
+          "gain": 1.2717708868890023,
+          "left": {
+            "observations": 197,
+            "value": 0.11139199508222075
+          },
+          "observations": 215,
+          "right": {
+            "observations": 18,
+            "value": -0.25257274750571834
+          },
+          "threshold": 0.0,
+          "value": 0.07681902272002726
+        },
+        "threshold": 0.0,
+        "value": 1.1564823173178713e-18
+      },
+      {
+        "feature": "op:assumption",
+        "gain": 1.0485861997466648,
+        "left": {
+          "feature": "cross:Eq|other",
+          "gain": 1.2607682882036388,
+          "left": {
+            "observations": 479,
+            "value": 0.048250678953118915
+          },
+          "observations": 541,
+          "right": {
+            "observations": 62,
+            "value": -0.15594650310452718
+          },
+          "threshold": 0.0,
+          "value": 0.02056840890572511
+        },
+        "observations": 629,
+        "right": {
+          "feature": "p3:assumption_head_coverage",
+          "gain": 0.3210984012061976,
+          "left": {
+            "observations": 51,
+            "value": -0.2770339037816623
+          },
+          "observations": 88,
+          "right": {
+            "observations": 37,
+            "value": -0.06993355191585793
+          },
+          "threshold": 0.0,
+          "value": -0.1770153598834027
+        },
+        "threshold": 0.0,
+        "value": 4.625929269271485e-18
+      },
+      {
+        "feature": "retrieval:family:witness",
+        "gain": 1.0245619918910718,
+        "left": {
+          "feature": "simp_all",
+          "gain": 1.0633830007976492,
+          "left": {
+            "observations": 508,
+            "value": -0.04032165202916284
+          },
+          "observations": 608,
+          "right": {
+            "observations": 100,
+            "value": 0.1209500454284047
+          },
+          "threshold": 0.0,
+          "value": -0.011404686355212737
+        },
+        "observations": 629,
+        "right": {
+          "observations": 21,
+          "value": 0.31193377928034055
+        },
+        "threshold": 0.0,
+        "value": -1.927470528863119e-18
+      },
+      {
+        "feature": "retrieval:compatible",
+        "gain": 0.997672420606321,
+        "left": {
+          "feature": "compatibility_observed",
+          "gain": 2.162605351250903,
+          "left": {
+            "observations": 345,
+            "value": -0.0027080840654206467
+          },
+          "observations": 414,
+          "right": {
+            "observations": 69,
+            "value": -0.3247528208901162
+          },
+          "threshold": 0.0,
+          "value": -0.04684050785761142
+        },
+        "observations": 629,
+        "right": {
+          "feature": "assumption_available",
+          "gain": 1.219883957353305,
+          "left": {
+            "observations": 197,
+            "value": 0.107816437592716
+          },
+          "observations": 215,
+          "right": {
+            "observations": 18,
+            "value": -0.24864629818212913
+          },
+          "threshold": 0.0,
+          "value": 0.07395608006339308
+        },
+        "threshold": 0.0,
+        "value": -2.6984587404083666e-18
+      },
+      {
+        "feature": "op:assumption",
+        "gain": 0.9775941878531045,
+        "left": {
+          "feature": "retrieval:instance_parameters",
+          "gain": 1.0443253963194392,
+          "left": {
+            "observations": 510,
+            "value": 0.03659085117250233
+          },
+          "observations": 541,
+          "right": {
+            "observations": 31,
+            "value": -0.22205577051073958
+          },
+          "threshold": 0.0,
+          "value": 0.019859940095575096
+        },
+        "observations": 629,
+        "right": {
+          "feature": "context:target_size",
+          "gain": 0.31613313684168054,
+          "left": {
+            "observations": 25,
+            "value": -0.04070816955662453
+          },
+          "observations": 88,
+          "right": {
+            "observations": 63,
+            "value": -0.25189927972371445
+          },
+          "threshold": 0.015,
+          "value": -0.17091815217182496
+        },
+        "threshold": 0.0,
+        "value": -1.1564823173178713e-18
+      },
+      {
+        "feature": "retrieval:family:witness",
+        "gain": 0.9529120333789483,
+        "left": {
+          "feature": "cross:And|other",
+          "gain": 0.8294610384534753,
+          "left": {
+            "observations": 591,
+            "value": -0.020731941404116983
+          },
+          "observations": 608,
+          "right": {
+            "observations": 17,
+            "value": 0.2957199479520307
+          },
+          "threshold": 0.0,
+          "value": -0.0109986816356359
+        },
+        "observations": 629,
+        "right": {
+          "observations": 21,
+          "value": 0.3008289945770442
+        },
+        "threshold": 0.0,
+        "value": -1.0601087908747154e-17
+      },
+      {
+        "feature": "cross:Eq|other",
+        "gain": 0.9525744627874991,
+        "left": {
+          "feature": "simp_all",
+          "gain": 1.95475035755705,
+          "left": {
+            "observations": 499,
+            "value": -0.01234792748113573
+          },
+          "observations": 567,
+          "right": {
+            "observations": 68,
+            "value": 0.2504178647374466
+          },
+          "threshold": 0.0,
+          "value": 0.021383400986836748
+        },
+        "observations": 629,
+        "right": {
+          "feature": "context:functions",
+          "gain": 0.4306165215749288,
+          "left": {
+            "observations": 45,
+            "value": -0.09589302882317197
+          },
+          "observations": 62,
+          "right": {
+            "observations": 17,
+            "value": -0.36409798781717234
+          },
+          "threshold": 0.25,
+          "value": -0.15467839844785317
+        },
+        "threshold": 0.0,
+        "value": -3.662194004839926e-18
+      },
+      {
+        "feature": "retrieval:compatible",
+        "gain": 0.9306239143196942,
+        "left": {
+          "feature": "compatibility_observed",
+          "gain": 1.9879908358545775,
+          "left": {
+            "observations": 345,
+            "value": -0.0029259341532896816
+          },
+          "observations": 414,
+          "right": {
+            "observations": 69,
+            "value": -0.3116956927622292
+          },
+          "threshold": 0.0,
+          "value": -0.04523917912508957
+        },
+        "observations": 629,
+        "right": {
+          "feature": "obligation_load",
+          "gain": 1.1974861535066563,
+          "left": {
+            "observations": 157,
+            "value": 0.1294376219403224
+          },
+          "observations": 215,
+          "right": {
+            "observations": 58,
+            "value": -0.11341788833285925
+          },
+          "threshold": 0.25,
+          "value": 0.07142775572689777
+        },
+        "threshold": 0.0,
+        "value": 1.5419764230904951e-18
+      },
+      {
+        "feature": "cross:Eq|other",
+        "gain": 0.9209684699056641,
+        "left": {
+          "feature": "simp_all",
+          "gain": 1.849799019153545,
+          "left": {
+            "observations": 499,
+            "value": -0.01178764922828817
+          },
+          "observations": 567,
+          "right": {
+            "observations": 68,
+            "value": 0.24382682862531754
+          },
+          "threshold": 0.0,
+          "value": 0.02102566273614303
+        },
+        "observations": 629,
+        "right": {
+          "feature": "context:class:CommRing",
+          "gain": 1.0187970503134234,
+          "left": {
+            "observations": 48,
+            "value": -0.04959942187399178
+          },
+          "observations": 62,
+          "right": {
+            "observations": 14,
+            "value": -0.4362727956344492
+          },
+          "threshold": 0.0,
+          "value": -0.15209067258914152
+        },
+        "threshold": 0.0,
+        "value": -3.2766998990673022e-18
+      }
+    ]
+  },
+  "role": "Non-selected validation-only reference; not an evaluated search policy",
+  "seed": 0,
+  "selected_configuration_by_mean_seed_loss": {
+    "depth": 2,
+    "iterations": 48
+  },
+  "selector_ready": false,
+  "training_ids": [
+    "p6_dev_quantifier_transport_01",
+    "p6_dev_quantifier_transport_02",
+    "p6_dev_quantifier_transport_03",
+    "p6_dev_quantifier_transport_04",
+    "p6_dev_quantifier_transport_05",
+    "p6_dev_quantifier_transport_06",
+    "p6_dev_quantifier_transport_07",
+    "p6_dev_quantifier_transport_08",
+    "p6_dev_quantifier_transport_09",
+    "p6_dev_quantifier_transport_10",
+    "p6_dev_relation_closure_01",
+    "p6_dev_relation_closure_02",
+    "p6_dev_relation_closure_03",
+    "p6_dev_relation_closure_04",
+    "p6_dev_relation_closure_05",
+    "p6_dev_relation_closure_06",
+    "p6_dev_relation_closure_07",
+    "p6_dev_relation_closure_08",
+    "p6_dev_relation_closure_09",
+    "p6_dev_relation_closure_10",
+    "p6_dev_ordered_bounds_01",
+    "p6_dev_ordered_bounds_02",
+    "p6_dev_ordered_bounds_03",
+    "p6_dev_ordered_bounds_04",
+    "p6_dev_ordered_bounds_05",
+    "p6_dev_ordered_bounds_06",
+    "p6_dev_ordered_bounds_07",
+    "p6_dev_ordered_bounds_08",
+    "p6_dev_ordered_bounds_09",
+    "p6_dev_ordered_bounds_10",
+    "p6_dev_monoid_words_01",
+    "p6_dev_monoid_words_02",
+    "p6_dev_monoid_words_03",
+    "p6_dev_monoid_words_04",
+    "p6_dev_monoid_words_05",
+    "p6_dev_monoid_words_06",
+    "p6_dev_monoid_words_07",
+    "p6_dev_monoid_words_08",
+    "p6_dev_monoid_words_09",
+    "p6_dev_monoid_words_10",
+    "p6_dev_group_equations_01",
+    "p6_dev_group_equations_02",
+    "p6_dev_group_equations_03",
+    "p6_dev_group_equations_04",
+    "p6_dev_group_equations_05",
+    "p6_dev_group_equations_06",
+    "p6_dev_group_equations_07",
+    "p6_dev_group_equations_08",
+    "p6_dev_group_equations_09",
+    "p6_dev_group_equations_10",
+    "p6_dev_ring_expansion_01",
+    "p6_dev_ring_expansion_02",
+    "p6_dev_ring_expansion_03",
+    "p6_dev_ring_expansion_04",
+    "p6_dev_ring_expansion_05",
+    "p6_dev_ring_expansion_06",
+    "p6_dev_ring_expansion_07",
+    "p6_dev_ring_expansion_08",
+    "p6_dev_ring_expansion_09",
+    "p6_dev_ring_expansion_10",
+    "p6_dev_set_images_01",
+    "p6_dev_set_images_02",
+    "p6_dev_set_images_03",
+    "p6_dev_set_images_04",
+    "p6_dev_set_images_05",
+    "p6_dev_set_images_06",
+    "p6_dev_set_images_07",
+    "p6_dev_set_images_08",
+    "p6_dev_set_images_09",
+    "p6_dev_set_images_10",
+    "p6_dev_preimage_algebra_01",
+    "p6_dev_preimage_algebra_02",
+    "p6_dev_preimage_algebra_03",
+    "p6_dev_preimage_algebra_04",
+    "p6_dev_preimage_algebra_05",
+    "p6_dev_preimage_algebra_06",
+    "p6_dev_preimage_algebra_07",
+    "p6_dev_preimage_algebra_08",
+    "p6_dev_preimage_algebra_09",
+    "p6_dev_preimage_algebra_10",
+    "p6_dev_function_retractions_01",
+    "p6_dev_function_retractions_02",
+    "p6_dev_function_retractions_03",
+    "p6_dev_function_retractions_04",
+    "p6_dev_function_retractions_05",
+    "p6_dev_function_retractions_06",
+    "p6_dev_function_retractions_07",
+    "p6_dev_function_retractions_08",
+    "p6_dev_function_retractions_09",
+    "p6_dev_function_retractions_10",
+    "p6_dev_curried_construction_01",
+    "p6_dev_curried_construction_02",
+    "p6_dev_curried_construction_03",
+    "p6_dev_curried_construction_04",
+    "p6_dev_curried_construction_05",
+    "p6_dev_curried_construction_06",
+    "p6_dev_curried_construction_07",
+    "p6_dev_curried_construction_08",
+    "p6_dev_curried_construction_09",
+    "p6_dev_curried_construction_10",
+    "p6_dev_dependent_contexts_01",
+    "p6_dev_dependent_contexts_02",
+    "p6_dev_dependent_contexts_03",
+    "p6_dev_dependent_contexts_04",
+    "p6_dev_dependent_contexts_05",
+    "p6_dev_dependent_contexts_06",
+    "p6_dev_dependent_contexts_07",
+    "p6_dev_dependent_contexts_08",
+    "p6_dev_dependent_contexts_09",
+    "p6_dev_dependent_contexts_10",
+    "p6_dev_heterogeneous_transport_01",
+    "p6_dev_heterogeneous_transport_02",
+    "p6_dev_heterogeneous_transport_03",
+    "p6_dev_heterogeneous_transport_04",
+    "p6_dev_heterogeneous_transport_05",
+    "p6_dev_heterogeneous_transport_06",
+    "p6_dev_heterogeneous_transport_07",
+    "p6_dev_heterogeneous_transport_08",
+    "p6_dev_heterogeneous_transport_09",
+    "p6_dev_heterogeneous_transport_10"
+  ],
+  "validation_ids": [
+    "p6_dev_continuation_logic_01",
+    "p6_dev_continuation_logic_02",
+    "p6_dev_continuation_logic_03",
+    "p6_dev_continuation_logic_04",
+    "p6_dev_continuation_logic_05",
+    "p6_dev_continuation_logic_06",
+    "p6_dev_continuation_logic_07",
+    "p6_dev_continuation_logic_08",
+    "p6_dev_continuation_logic_09",
+    "p6_dev_continuation_logic_10",
+    "p6_dev_lattice_maps_01",
+    "p6_dev_lattice_maps_02",
+    "p6_dev_lattice_maps_03",
+    "p6_dev_lattice_maps_04",
+    "p6_dev_lattice_maps_05",
+    "p6_dev_lattice_maps_06",
+    "p6_dev_lattice_maps_07",
+    "p6_dev_lattice_maps_08",
+    "p6_dev_lattice_maps_09",
+    "p6_dev_lattice_maps_10",
+    "p6_dev_set_difference_01",
+    "p6_dev_set_difference_02",
+    "p6_dev_set_difference_03",
+    "p6_dev_set_difference_04",
+    "p6_dev_set_difference_05",
+    "p6_dev_set_difference_06",
+    "p6_dev_set_difference_07",
+    "p6_dev_set_difference_08",
+    "p6_dev_set_difference_09",
+    "p6_dev_set_difference_10",
+    "p6_dev_product_graphs_01",
+    "p6_dev_product_graphs_02",
+    "p6_dev_product_graphs_03",
+    "p6_dev_product_graphs_04",
+    "p6_dev_product_graphs_05",
+    "p6_dev_product_graphs_06",
+    "p6_dev_product_graphs_07",
+    "p6_dev_product_graphs_08",
+    "p6_dev_product_graphs_09",
+    "p6_dev_product_graphs_10"
+  ],
+  "validation_loss": 0.5304621445601162
+}
