@@ -197,7 +197,9 @@ The new module compares real final trajectories and matched initial/intermediate
 
 Final local JUnit outcomes: `{"errors": 0, "failures": 0, "skipped": 0, "tests": 152}`. See `artifacts/phase7-validation.json` for all executed build/lint/type/JS/browser checks and historical preservation evidence.
 
-Hosted CI is not yet verified. GitHub API access is currently blocked by the managed network policy; a successful local run or pushed branch is not a passing hosted run.
+Hosted CI observation: `{"conclusion": "success", "exact_head_verified": true, "head_sha": "82097fa87536952e39a4df54608e643789680a2b", "observed_at": "2026-11-03T15:06:00.008707+00:00", "scope": "Full source/data/Policy Explorer validation before the evidence and static-Pages-export follow-up commit.", "source": "GitHub public workflow run page", "status": "Success", "url": "https://github.com/Marci99forgrateful/prooflab/actions/runs/41658447766"}`.
+
+Draft PR state: **blocked_by_environment_network_policy**. Requested base `feature/phase6-adaptive-hybrid`, head `feature/phase7-budget-aware-learning`. No pull request URL is claimed unless creation is confirmed. The complete proposed title/body and actual API error are retained in `artifacts/phase7-pull-request.json`. The `api.github.com` requirement is saved in the environment draft; applying/publishing that configuration remains outside the agent’s available runtime controls.
 
 ![Actual Policy Learning Explorer](assets/phase7-policy-explorer.png)
 

@@ -384,6 +384,21 @@ def main() -> None:
                 "Hosted CI is not yet verified. GitHub API access is currently blocked by the managed network policy; a successful local run or pushed branch is not a passing hosted run.",
             ]
         )
+    pr_file = ROOT / "artifacts/phase7-pull-request.json"
+    if pr_file.exists():
+        pr = read_json(pr_file)
+        lines.extend(
+            [
+                "",
+                "Draft PR state: **"
+                + pr["status"]
+                + "**. Requested base `"
+                + pr["base"]
+                + "`, head `"
+                + pr["head"]
+                + "`. No pull request URL is claimed unless creation is confirmed. The complete proposed title/body and actual API error are retained in `artifacts/phase7-pull-request.json`. The `api.github.com` requirement is saved in the environment draft; applying/publishing that configuration remains outside the agent’s available runtime controls.",
+            ]
+        )
     lines.extend(
         [
             "",
