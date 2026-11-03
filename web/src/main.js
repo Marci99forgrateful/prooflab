@@ -1,3 +1,4 @@
+import { initializePolicy, openPolicy } from "./policy.js";
 import { initializeArchitecture, openArchitecture } from "./architecture.js";
 import katex from "katex";
 import "./style.css";
@@ -450,14 +451,17 @@ function showView(view) {
     about: "Inside the lab",
     continuations: "Alternative continuations",
     architecture: "Search Architecture Explorer",
+    policy: "Policy Learning Explorer",
   }[view];
   if (view === "continuations") openContinuations();
   if (view === "architecture") openArchitecture();
+  if (view === "policy") openPolicy();
   if (view === "compare") compare();
   if (view === "benchmarks") benchmarks();
-  $("#dataset-select").hidden = view === "architecture";
+  $("#dataset-select").hidden = ["architecture", "policy"].includes(view);
   $("#mode-toggle").hidden =
-    view === "architecture" || !$("#mode-toggle").dataset.available;
+    ["architecture", "policy"].includes(view) ||
+    !$("#mode-toggle").dataset.available;
   location.hash = view;
 }
 
@@ -699,6 +703,7 @@ async function boot() {
       summary: phase3[2],
     };
   initializeArchitecture(base);
+  initializePolicy(base);
   await initializeContinuations(base);
   await chooseDataset("phase1");
   const view = location.hash.slice(1);
@@ -710,6 +715,7 @@ async function boot() {
       "about",
       "continuations",
       "architecture",
+      "policy",
     ].includes(view)
   )
     showView(view);
@@ -718,7 +724,9 @@ async function boot() {
       const r = await fetch("/api/health");
       if (r.ok && (await r.json()).service === "prooflab") {
         $("#mode-toggle").dataset.available = "true";
-        $("#mode-toggle").hidden = location.hash === "#architecture";
+        $("#mode-toggle").hidden = ["#architecture", "#policy"].includes(
+          location.hash,
+        );
       }
     } catch {
       /* Static replay needs no backend. */

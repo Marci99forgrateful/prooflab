@@ -3,6 +3,8 @@
 from __future__ import annotations
 
 import math
+import resource
+import statistics
 import time
 from collections import Counter, defaultdict
 from pathlib import Path
@@ -118,6 +120,7 @@ def fit(
 ) -> dict[str, Any]:
     check_freeze()
     started = time.monotonic()
+    cpu_started = time.process_time()
     rows = cast(list[dict[str, Any]], read_json(data / "rows.json.gz"))
     if digest(data / "rows.json.gz") != read_json(data / "manifest.json")["rows_sha256"]:
         raise ValueError("Collection rows changed")
@@ -161,6 +164,23 @@ def fit(
         )
     winner_c = min(scores, key=lambda n: (scores[n]["completion_brier"], n != "linear"))
     winner_k = min(scores, key=lambda n: (scores[n]["conditional_log_cost_mse"], n != "linear"))
+    # Duan smearing, fitted on successful TRAINING rows only, converts a
+    # log-attempt regression to an arithmetic conditional-attempt estimate.
+    # Architecture selection above still follows the frozen log-MSE rule.
+    successful = [r for r in training if r["completion"] == 1]
+    smearing = {}
+    for name, (_completion, cost_model) in candidates.items():
+        factor = statistics.mean(
+            math.exp(
+                math.log1p(r["conditional_attempts"])
+                - predict(cost_model, mode_features(r["features"], r["mode"]))
+            )
+            for r in successful
+        )
+        cost_model["uncorrected_log_bias"] = cost_model["bias"]
+        cost_model["training_smearing_factor"] = factor
+        cost_model["bias"] += math.log(factor)
+        smearing[name] = factor
     cm, cost = candidates[winner_c][0], candidates[winner_k][1]
     margin, margin_report = select_margin(validation, cm, cost)
     artifact = dict(
@@ -196,9 +216,12 @@ def fit(
         validation_scores=scores,
         selected_completion=winner_c,
         selected_cost=winner_k,
+        training_only_cost_smearing=smearing,
         conservative_margins=margin_report,
         selected_margin=margin,
         wall_s=time.monotonic() - started,
+        trainer_cpu_s=time.process_time() - cpu_started,
+        trainer_process_peak_rss_kib=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,
         root_only_training=root_only,
         evaluation_accessed=False,
     )

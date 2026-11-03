@@ -54,7 +54,8 @@ def main() -> None:
                 "A retained branch can starve under a fixed expansion budget.",
                 "Root-only supervision shifts at intermediate states and budgets.",
             ],
-            limitation="Matched observed runs diagnose mechanisms; they do not label unsearched mathematical alternatives.",
+            limitation="Matched observed runs diagnose mechanisms; they do not label "
+            "unsearched mathematical alternatives.",
         ),
     )
     print(counts)

@@ -33,6 +33,9 @@
           <button class="nav-item" data-view="architecture">
             <span class="nav-icon">⌬</span> Search architectures
           </button>
+          <button class="nav-item" data-view="policy">
+            <span class="nav-icon">◉</span> Policy learning
+          </button>
           <button class="nav-item" data-view="benchmarks">
             <span class="nav-icon">▥</span> Benchmarks
           </button>
@@ -61,7 +64,7 @@
           ></a>
           <div>
             <span class="status-dot"></span> Lean 4 · Mathlib
-            <span class="version">v0.6</span>
+            <span class="version">v0.7</span>
           </div>
         </div>
       </aside>
@@ -98,6 +101,47 @@
           </div>
         </header>
         <main>
+          <section id="policy-view" class="view" hidden>
+            <div class="page-heading">
+              <div>
+                <div class="eyebrow">PHASE 7 · BUDGET-AWARE LEARNING</div>
+                <h1>Policy Learning Explorer</h1>
+                <p>
+                  Can this Lean state be completed within the remaining budget?
+                </p>
+              </div>
+            </div>
+            <div class="card policy-controls">
+              <label
+                >Evidence<select id="policy-source">
+                  <option value="evaluation">
+                    Frozen independent evaluation
+                  </option>
+                  <option value="development">
+                    Matched development continuations
+                  </option>
+                </select></label
+              >
+              <label>Theorem<select id="policy-task"></select></label>
+              <label id="policy-horizon-label" hidden
+                >Source state and budget<select id="policy-horizon"></select
+              ></label>
+              <label>Left strategy<select id="policy-arm-0"></select></label
+              ><label>Right strategy<select id="policy-arm-1"></select></label>
+              <button class="text-button" id="policy-live">
+                Run left strategy locally</button
+              ><button class="text-button" id="policy-cancel" hidden>
+                Cancel computation
+              </button>
+            </div>
+            <p id="policy-notice" role="status">Select a recorded execution.</p>
+            <div class="policy-comparison">
+              <article class="card" id="policy-side-0"></article>
+              <article class="card" id="policy-side-1"></article>
+            </div>
+            <section class="card" id="policy-outcomes"></section>
+            <section class="card" id="policy-results"></section>
+          </section>
           <section id="architecture-view" class="view" hidden>
             <div class="page-heading">
               <div>

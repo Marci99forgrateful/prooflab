@@ -44,7 +44,7 @@ async def lifespan(_: FastAPI) -> AsyncIterator[None]:
     shutdown()
 
 
-app = FastAPI(title="ProofLab", version="0.6.0", docs_url=None, redoc_url=None, lifespan=lifespan)
+app = FastAPI(title="ProofLab", version="0.7.0", docs_url=None, redoc_url=None, lifespan=lifespan)
 app.add_middleware(TrustedHostMiddleware, allowed_hosts=["127.0.0.1", "localhost", "testserver"])
 pool = ThreadPoolExecutor(max_workers=2, thread_name_prefix="prooflab")
 lock = threading.Lock()
@@ -62,6 +62,22 @@ jobs: dict[str, Job] = {}
 
 
 class SearchRequest(Model):
+    phase7_policy: (
+        Literal[
+            "phase4",
+            "phase6_staged",
+            "phase6_learned",
+            "completion",
+            "cost",
+            "joint",
+            "conservative",
+            "root_trained",
+            "staged",
+            "automation",
+            "grind",
+        ]
+        | None
+    ) = None
     task_id: str
     phase6_model: Literal["selected", "controller-seed1", "controller-seed2"] = "selected"
     phase6_mode: (
@@ -127,8 +143,14 @@ def health() -> dict[str, object]:
 
 @app.get("/api/tasks")
 def tasks(
-    dataset: Literal["phase1", "phase2", "phase3", "phase4", "phase5", "phase6"] = "phase1",
+    dataset: Literal[
+        "phase1", "phase2", "phase3", "phase4", "phase5", "phase6", "phase7"
+    ] = "phase1",
 ) -> list[dict[str, object]]:
+    from prooflab.phase7_data import tasks as phase7_tasks
+
+    if dataset == "phase7":
+        return [t.model_dump() for t in phase7_tasks("evaluation")]
     loader = {
         "phase1": load_tasks,
         "phase2": load_phase2_tasks,
@@ -166,7 +188,25 @@ def adaptive_model() -> dict[str, object]:
     return {"sha256": ranker.sha256, **ranker.artifact}
 
 
+@app.get("/api/budget-model")
+def budget_model() -> dict[str, object]:
+    from prooflab.budget_policy import BudgetModel
+
+    try:
+        model = BudgetModel()
+    except FileNotFoundError:
+        raise HTTPException(503, "Phase 7 selected model is not installed") from None
+    return {"sha256": model.sha256, **model.artifact}
+
+
 def owned_task(ident: str) -> Task:
+    if ident.startswith("p7_"):
+        from prooflab.phase7_data import tasks as phase7_tasks
+
+        for task in phase7_tasks("evaluation"):
+            if task.id == ident:
+                return task
+        raise KeyError(ident)
     if ident.startswith("p6_"):
         for task in phase6_tasks():
             if task.id == ident:
@@ -201,6 +241,18 @@ def continuation_record(
 
 def execute(job: Job, body: SearchRequest) -> None:
     try:
+        if body.task_id.startswith("p7_"):
+            from prooflab.phase7_evaluation import execute_task
+
+            job.trace = execute_task(
+                owned_task(body.task_id),
+                body.phase7_policy or "conservative",
+                body.budget,
+                job.cancel,
+            )
+            job.trace.metadata.update(arm=body.phase7_policy or "conservative", phase="7")
+            job.state = "completed"
+            return
         if body.task_id.startswith("p6_"):
             job.trace = run_phase6(
                 owned_task(body.task_id),
@@ -243,6 +295,8 @@ def execute(job: Job, body: SearchRequest) -> None:
 def start_search(body: SearchRequest) -> dict[str, str]:
     try:
         owned_task(body.task_id)
+        if body.phase7_policy is not None and not body.task_id.startswith("p7_"):
+            raise HTTPException(422, "Phase 7 policy requires a registered Phase 7 evaluation task")
         if body.phase6_mode is not None and not body.task_id.startswith("p6_"):
             raise HTTPException(422, "Phase 6 mode requires a registered Phase 6 evaluation task")
     except KeyError:

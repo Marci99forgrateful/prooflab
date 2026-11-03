@@ -571,3 +571,67 @@ def test_phase6_seeded_local_request_uses_registered_weights(page: Page) -> None
     assert "repeat" not in trace["metadata"]
     assert trace["metrics"]["retrieval_queries"] >= 1
     assert trace["verification"]["verified"] == (trace["status"] == "verified")
+
+
+def test_phase7_policy_predictions_full_tree_and_export_are_real(page: Page) -> None:
+    from prooflab.phase7_evaluation import EXPERIMENT
+    from prooflab.research_io import read_json
+
+    summary = read_json(EXPERIMENT / "summary.json")
+    row = min(
+        (r for r in summary["per_run"] if r["arm"] == "conservative" and r["verified"]),
+        key=lambda r: r["wall_s"],
+    )
+    trace = read_json(EXPERIMENT / row["file"])
+    page.locator('[data-view="policy"]').click()
+    page.locator("#policy-task").select_option(row["task_id"])
+    expect(page.locator("#policy-side-0")).to_have_attribute("data-task-id", row["task_id"])
+    expect(page.locator("#policy-side-0 .policy-predictions tbody tr")).to_have_count(3)
+    expect(page.locator("#policy-side-0 .policy-native")).to_contain_text("⊢")
+    page.locator("#policy-side-0 .policy-whole").click()
+    expect(page.locator("#policy-side-0 .tree-node")).to_have_count(len(trace["nodes"]))
+    with page.expect_download() as download:
+        page.locator("#policy-side-0 .policy-export").click()
+    exported = json.loads(download.value.path().read_text())
+    assert exported["nodes"] == trace["nodes"]
+    assert exported["verification"] == trace["verification"]
+    assert exported["metadata"]["execution_freeze_sha256"]
+
+
+def test_phase7_intermediate_continuations_and_mobile_layout(page: Page) -> None:
+    from prooflab.phase7_data import DATA
+    from prooflab.research_io import read_json
+
+    rows = read_json(DATA / "rows.json.gz")
+    row = next(r for r in rows if r["source_state"] == 1 and r["budget_level"] == 1)
+    page.locator('[data-view="policy"]').click()
+    page.locator("#policy-source").select_option("development")
+    page.locator("#policy-task").select_option(row["task_id"])
+    page.locator("#policy-horizon").select_option("1:1")
+    expect(page.locator("#policy-side-0")).to_have_attribute("data-task-id", row["task_id"])
+    expect(page.locator("#policy-side-0")).to_have_attribute("data-source-state", "1")
+    expect(page.locator("#policy-side-0")).to_have_attribute("data-budget-level", "1")
+    expect(page.locator("#policy-notice")).to_contain_text("Recorded development continuations")
+    expect(page.locator("#policy-outcomes tbody tr")).to_have_count(3)
+    expect(page.locator("#policy-side-0")).to_contain_text("Restored source prefix")
+    page.set_viewport_size({"width": 390, "height": 844})
+    assert page.evaluate("document.documentElement.scrollWidth <= innerWidth")
+
+
+def test_phase7_new_local_search_is_independently_verified(page: Page) -> None:
+    from prooflab.phase7_evaluation import EXPERIMENT
+    from prooflab.research_io import read_json
+
+    rows = read_json(EXPERIMENT / "summary.json")["per_run"]
+    task = min(
+        (r for r in rows if r["arm"] == "conservative" and r["verified"]),
+        key=lambda r: r["wall_s"],
+    )["task_id"]
+    page.locator('[data-view="policy"]').click()
+    page.locator("#policy-task").select_option(task)
+    expect(page.locator("#policy-side-0")).to_have_attribute("data-task-id", task)
+    expect(page.locator("#policy-side-0 .policy-predictions tbody tr")).to_have_count(3)
+    page.locator("#policy-live").click()
+    expect(page.locator("#policy-notice")).to_contain_text(
+        "New local computation: Independently verified", timeout=45000
+    )

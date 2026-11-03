@@ -1,0 +1,3603 @@
+{
+  "feature_version": "budget-completion-v1",
+  "evaluation_accessed": false,
+  "root_only_training": false,
+  "training_ids": [
+    "p7_dev_conjunctive_continuations_01",
+    "p7_dev_conjunctive_continuations_02",
+    "p7_dev_conjunctive_continuations_03",
+    "p7_dev_conjunctive_continuations_04",
+    "p7_dev_iterated_predicates_01",
+    "p7_dev_iterated_predicates_02",
+    "p7_dev_iterated_predicates_03",
+    "p7_dev_iterated_predicates_04",
+    "p7_dev_lattice_assumption_pairs_01",
+    "p7_dev_lattice_assumption_pairs_02",
+    "p7_dev_lattice_assumption_pairs_03",
+    "p7_dev_lattice_assumption_pairs_04",
+    "p7_dev_polynomial_distribution_01",
+    "p7_dev_polynomial_distribution_02",
+    "p7_dev_polynomial_distribution_03",
+    "p7_dev_polynomial_distribution_04",
+    "p7_dev_power_cancellation_01",
+    "p7_dev_power_cancellation_02",
+    "p7_dev_power_cancellation_03",
+    "p7_dev_power_cancellation_04",
+    "p7_dev_previous_curried_construction_01",
+    "p7_dev_previous_curried_construction_02",
+    "p7_dev_previous_curried_construction_03",
+    "p7_dev_previous_curried_construction_04",
+    "p7_dev_previous_dependent_contexts_01",
+    "p7_dev_previous_dependent_contexts_02",
+    "p7_dev_previous_dependent_contexts_03",
+    "p7_dev_previous_dependent_contexts_04",
+    "p7_dev_previous_function_retractions_01",
+    "p7_dev_previous_function_retractions_02",
+    "p7_dev_previous_function_retractions_03",
+    "p7_dev_previous_function_retractions_04",
+    "p7_dev_previous_group_equations_01",
+    "p7_dev_previous_group_equations_02",
+    "p7_dev_previous_group_equations_03",
+    "p7_dev_previous_group_equations_04",
+    "p7_dev_previous_heterogeneous_transport_01",
+    "p7_dev_previous_heterogeneous_transport_02",
+    "p7_dev_previous_heterogeneous_transport_03",
+    "p7_dev_previous_heterogeneous_transport_04",
+    "p7_dev_previous_monoid_words_01",
+    "p7_dev_previous_monoid_words_02",
+    "p7_dev_previous_monoid_words_03",
+    "p7_dev_previous_monoid_words_04",
+    "p7_dev_set_transport_rules_01",
+    "p7_dev_set_transport_rules_02",
+    "p7_dev_set_transport_rules_03",
+    "p7_dev_set_transport_rules_04"
+  ],
+  "validation_ids": [
+    "p7_dev_dependent_output_01",
+    "p7_dev_dependent_output_02",
+    "p7_dev_dependent_output_03",
+    "p7_dev_dependent_output_04",
+    "p7_dev_guarded_cases_01",
+    "p7_dev_guarded_cases_02",
+    "p7_dev_guarded_cases_03",
+    "p7_dev_guarded_cases_04",
+    "p7_dev_previous_continuation_logic_01",
+    "p7_dev_previous_continuation_logic_02",
+    "p7_dev_previous_continuation_logic_03",
+    "p7_dev_previous_continuation_logic_04",
+    "p7_dev_previous_lattice_maps_01",
+    "p7_dev_previous_lattice_maps_02",
+    "p7_dev_previous_lattice_maps_03",
+    "p7_dev_previous_lattice_maps_04"
+  ],
+  "completion": {
+    "architecture": "depth-two logistic gradient boosting",
+    "bias": 1.0438040521731167,
+    "rate": 0.15,
+    "trees": [
+      {
+        "value": -3.655670839873617e-16,
+        "observations": 510,
+        "feature": "mode:typed:proof_hypotheses",
+        "threshold": 0.0,
+        "gain": 21.235022332027565,
+        "left": {
+          "value": 0.09802350427350393,
+          "observations": 406,
+          "feature": "functions",
+          "threshold": 0.125,
+          "gain": 11.32489761396011,
+          "left": {
+            "value": 0.2383578431372545,
+            "observations": 218
+          },
+          "right": {
+            "value": -0.09672619047619084,
+            "observations": 188
+          }
+        },
+        "right": {
+          "value": -0.42476851851851904,
+          "observations": 104,
+          "feature": "head:Exists",
+          "threshold": 0.0,
+          "gain": 2.991245251661905,
+          "left": {
+            "value": -0.5344551282051283,
+            "observations": 78
+          },
+          "right": {
+            "value": -0.13958333333333367,
+            "observations": 26
+          }
+        }
+      },
+      {
+        "value": 7.209265446470234e-05,
+        "observations": 510,
+        "feature": "mode:typed:proof_hypotheses",
+        "threshold": 0.0,
+        "gain": 20.01164412443176,
+        "left": {
+          "value": 0.09523008018173756,
+          "observations": 406,
+          "feature": "functions",
+          "threshold": 0.125,
+          "gain": 10.683247792799957,
+          "left": {
+            "value": 0.23153089800504542,
+            "observations": 218
+          },
+          "right": {
+            "value": -0.09392207516489368,
+            "observations": 188
+          }
+        },
+        "right": {
+          "value": -0.4122791866303842,
+          "observations": 104,
+          "feature": "head:Exists",
+          "threshold": 0.0,
+          "gain": 2.816883888448391,
+          "left": {
+            "value": -0.5187209534669679,
+            "observations": 78
+          },
+          "right": {
+            "value": -0.13553059285526617,
+            "observations": 26
+          }
+        }
+      },
+      {
+        "value": 0.00027665552278094164,
+        "observations": 510,
+        "feature": "mode:typed:proof_hypotheses",
+        "threshold": 0.0,
+        "gain": 18.83321559761698,
+        "left": {
+          "value": 0.09259034363292183,
+          "observations": 406,
+          "feature": "functions",
+          "threshold": 0.125,
+          "gain": 10.084052931493009,
+          "left": {
+            "value": 0.22501363228038745,
+            "observations": 218
+          },
+          "right": {
+            "value": -0.09118075081662229,
+            "observations": 188
+          }
+        },
+        "right": {
+          "value": -0.39974932628782955,
+          "observations": 104,
+          "feature": "head:Exists",
+          "threshold": 0.0,
+          "gain": 2.6453949783014785,
+          "left": {
+            "value": -0.5029001889394218,
+            "observations": 78
+          },
+          "right": {
+            "value": -0.13155708339368813,
+            "observations": 26
+          }
+        }
+      },
+      {
+        "value": 0.0005956371440942196,
+        "observations": 510,
+        "feature": "mode:typed:proof_hypotheses",
+        "threshold": 0.0,
+        "gain": 17.70207680402562,
+        "left": {
+          "value": 0.09009418184781541,
+          "observations": 406,
+          "feature": "functions",
+          "threshold": 0.125,
+          "gain": 9.524133506143283,
+          "left": {
+            "value": 0.21878855180578016,
+            "observations": 218
+          },
+          "right": {
+            "value": -0.08850208666527849,
+            "observations": 188
+          }
+        },
+        "right": {
+          "value": -0.3872313899053645,
+          "observations": 104,
+          "feature": "head:Exists",
+          "threshold": 0.0,
+          "gain": 2.4779809615683774,
+          "left": {
+            "value": -0.48706495601086264,
+            "observations": 78
+          },
+          "right": {
+            "value": -0.1276641180310678,
+            "observations": 26
+          }
+        }
+      },
+      {
+        "value": 0.0010119574849188162,
+        "observations": 510,
+        "feature": "mode:typed:proof_hypotheses",
+        "threshold": 0.0,
+        "gain": 16.620055643824635,
+        "left": {
+          "value": 0.08773212335855755,
+          "observations": 406,
+          "feature": "functions",
+          "threshold": 0.125,
+          "gain": 9.00057136047299,
+          "left": {
+            "value": 0.21283919263597417,
+            "observations": 218
+          },
+          "right": {
+            "value": -0.08588585033255132,
+            "observations": 188
+          }
+        },
+        "right": {
+          "value": -0.3747754279675157,
+          "observations": 104,
+          "feature": "mode:typed:target_size",
+          "threshold": 0.028333333333333332,
+          "gain": 2.4541677916124254,
+          "left": {
+            "value": -0.18878811035073026,
+            "observations": 44
+          },
+          "right": {
+            "value": -0.5127660184573888,
+            "observations": 60
+          }
+        }
+      },
+      {
+        "value": 0.0014725732786734988,
+        "observations": 510,
+        "feature": "mode:typed:proof_hypotheses",
+        "threshold": 0.0,
+        "gain": 15.602202708470204,
+        "left": {
+          "value": 0.08549530966637406,
+          "observations": 406,
+          "feature": "functions",
+          "threshold": 0.125,
+          "gain": 8.510687543416207,
+          "left": {
+            "value": 0.20715007741989944,
+            "observations": 218
+          },
+          "right": {
+            "value": -0.08333171497117128,
+            "observations": 188
+          }
+        },
+        "right": {
+          "value": -0.3626259510680287,
+          "observations": 104,
+          "feature": "head:Exists",
+          "threshold": 0.0,
+          "gain": 2.3066531154970313,
+          "left": {
+            "value": -0.458946455007342,
+            "observations": 78
+          },
+          "right": {
+            "value": -0.11219264082581429,
+            "observations": 26
+          }
+        }
+      },
+      {
+        "value": 0.0020327450748333408,
+        "observations": 510,
+        "feature": "mode:typed:proof_hypotheses",
+        "threshold": 0.0,
+        "gain": 14.622770227910861,
+        "left": {
+          "value": 0.08337546516813277,
+          "observations": 406,
+          "feature": "functions",
+          "threshold": 0.125,
+          "gain": 8.052021796709466,
+          "left": {
+            "value": 0.20170666870470982,
+            "observations": 218
+          },
+          "right": {
+            "value": -0.08083926627038229,
+            "observations": 188
+          }
+        },
+        "right": {
+          "value": -0.3504523753294641,
+          "observations": 104,
+          "feature": "mode:typed:target_size",
+          "threshold": 0.028333333333333332,
+          "gain": 2.299263361994239,
+          "left": {
+            "value": -0.17043038277091654,
+            "observations": 44
+          },
+          "right": {
+            "value": -0.4840170794858058,
+            "observations": 60
+          }
+        }
+      },
+      {
+        "value": 0.0026145571229886817,
+        "observations": 510,
+        "feature": "mode:typed:proof_hypotheses",
+        "threshold": 0.0,
+        "gain": 13.705560718440926,
+        "left": {
+          "value": 0.08136486623231784,
+          "observations": 406,
+          "feature": "functions",
+          "threshold": 0.125,
+          "gain": 7.622313659446442,
+          "left": {
+            "value": 0.19649532065411515,
+            "observations": 218
+          },
+          "right": {
+            "value": -0.0784080092918092,
+            "observations": 188
+          }
+        },
+        "right": {
+          "value": -0.33863678235077116,
+          "observations": 104,
+          "feature": "mode:typed:target_size",
+          "threshold": 0.028333333333333332,
+          "gain": 2.144589051038249,
+          "left": {
+            "value": -0.16477535247683012,
+            "observations": 44
+          },
+          "right": {
+            "value": -0.4676307464507916,
+            "observations": 60
+          }
+        }
+      },
+      {
+        "value": 0.003243594274859958,
+        "observations": 510,
+        "feature": "mode:typed:proof_hypotheses",
+        "threshold": 0.0,
+        "gain": 12.836515497370831,
+        "left": {
+          "value": 0.07945631009780489,
+          "observations": 406,
+          "feature": "functions",
+          "threshold": 0.125,
+          "gain": 7.219485126865493,
+          "left": {
+            "value": 0.1915032303202845,
+            "observations": 218
+          },
+          "right": {
+            "value": -0.07603737510890146,
+            "observations": 188
+          }
+        },
+        "right": {
+          "value": -0.3270115076245684,
+          "observations": 104,
+          "feature": "head:Exists",
+          "threshold": 0.0,
+          "gain": 2.1317497675869124,
+          "left": {
+            "value": -0.4196082512686176,
+            "observations": 78
+          },
+          "right": {
+            "value": -0.08625997415003994,
+            "observations": 26
+          }
+        }
+      },
+      {
+        "value": 0.003926663377855527,
+        "observations": 510,
+        "feature": "mode:typed:functions",
+        "threshold": 0.125,
+        "gain": 12.163474423911822,
+        "left": {
+          "value": 0.0695072293165095,
+          "observations": 426,
+          "feature": "mode:typed:class:Lattice",
+          "threshold": 0.0,
+          "gain": 6.803418292370258,
+          "left": {
+            "value": 0.09261025289570465,
+            "observations": 410
+          },
+          "right": {
+            "value": -0.6120319662697454,
+            "observations": 16
+          }
+        },
+        "right": {
+          "value": -0.3597473841001345,
+          "observations": 84,
+          "feature": "head:Exists",
+          "threshold": 0.0,
+          "gain": 3.985999989105178,
+          "left": {
+            "value": -0.5307231035317215,
+            "observations": 56
+          },
+          "right": {
+            "value": -0.060539875094857046,
+            "observations": 28
+          }
+        }
+      },
+      {
+        "value": 0.004354211683590591,
+        "observations": 510,
+        "feature": "mode:typed:functions",
+        "threshold": 0.125,
+        "gain": 11.377174253014802,
+        "left": {
+          "value": 0.0677796594527942,
+          "observations": 426,
+          "feature": "mode:typed:class:Lattice",
+          "threshold": 0.0,
+          "gain": 6.338266699074863,
+          "left": {
+            "value": 0.09007892140824678,
+            "observations": 410
+          },
+          "right": {
+            "value": -0.5900485682330567,
+            "observations": 16
+          }
+        },
+        "right": {
+          "value": -0.34736872594562934,
+          "observations": 84,
+          "feature": "head:Exists",
+          "threshold": 0.0,
+          "gain": 3.713201234118239,
+          "left": {
+            "value": -0.5123900381964143,
+            "observations": 56
+          },
+          "right": {
+            "value": -0.05858142950675576,
+            "observations": 28
+          }
+        }
+      },
+      {
+        "value": 0.004806777128068963,
+        "observations": 510,
+        "feature": "mode:typed:proof_hypotheses",
+        "threshold": 0.0,
+        "gain": 10.651473242586533,
+        "left": {
+          "value": 0.0742306285805175,
+          "observations": 406,
+          "feature": "functions",
+          "threshold": 0.125,
+          "gain": 6.707039234919653,
+          "left": {
+            "value": 0.18222776352200393,
+            "observations": 218
+          },
+          "right": {
+            "value": -0.07564294644032063,
+            "observations": 188
+          }
+        },
+        "right": {
+          "value": -0.29602991249920807,
+          "observations": 104,
+          "feature": "mode:typed:target_size",
+          "threshold": 0.03633333333333333,
+          "gain": 1.85390530212754,
+          "left": {
+            "value": -0.18495634354315604,
+            "observations": 62
+          },
+          "right": {
+            "value": -0.4705740922872898,
+            "observations": 42
+          }
+        }
+      },
+      {
+        "value": 0.00548815293066183,
+        "observations": 510,
+        "feature": "mode:typed:functions",
+        "threshold": 0.125,
+        "gain": 10.099736218800118,
+        "left": {
+          "value": 0.06524688202160837,
+          "observations": 426,
+          "feature": "proof_hypotheses",
+          "threshold": 0.0,
+          "gain": 5.88691627808054,
+          "left": {
+            "value": 0.18785978152901683,
+            "observations": 178
+          },
+          "right": {
+            "value": -0.04587105815698064,
+            "observations": 248
+          }
+        },
+        "right": {
+          "value": -0.32590116293731397,
+          "observations": 84,
+          "feature": "head:Exists",
+          "threshold": 0.0,
+          "gain": 3.457722292012491,
+          "left": {
+            "value": -0.48514434533709433,
+            "observations": 56
+          },
+          "right": {
+            "value": -0.04722559373769864,
+            "observations": 28
+          }
+        }
+      },
+      {
+        "value": 0.005979808503870173,
+        "observations": 510,
+        "feature": "mode:typed:proof_hypotheses",
+        "threshold": 0.0,
+        "gain": 9.496050561282376,
+        "left": {
+          "value": 0.07153021245070966,
+          "observations": 406,
+          "feature": "functions",
+          "threshold": 0.125,
+          "gain": 6.1553609983533075,
+          "left": {
+            "value": 0.17499047472005919,
+            "observations": 218
+          },
+          "right": {
+            "value": -0.07204729437206105,
+            "observations": 188
+          }
+        },
+        "right": {
+          "value": -0.2780719419324344,
+          "observations": 104,
+          "feature": "local_equalities",
+          "threshold": 0.0,
+          "gain": 1.810804513500024,
+          "left": {
+            "value": -0.3436749452385392,
+            "observations": 84
+          },
+          "right": {
+            "value": 0.010581272614427581,
+            "observations": 20
+          }
+        }
+      },
+      {
+        "value": 0.006650825485843234,
+        "observations": 510,
+        "feature": "mode:typed:functions",
+        "threshold": 0.125,
+        "gain": 8.990635990010109,
+        "left": {
+          "value": 0.0630329640096969,
+          "observations": 426,
+          "feature": "target_size",
+          "threshold": 0.015,
+          "gain": 5.51940644052705,
+          "left": {
+            "value": -0.2959944223165208,
+            "observations": 44
+          },
+          "right": {
+            "value": 0.09861225454652926,
+            "observations": 382
+          }
+        },
+        "right": {
+          "value": -0.30601376087370874,
+          "observations": 84,
+          "feature": "head:Exists",
+          "threshold": 0.0,
+          "gain": 3.239918022627644,
+          "left": {
+            "value": -0.4601599541625583,
+            "observations": 56
+          },
+          "right": {
+            "value": -0.03625792261822237,
+            "observations": 28
+          }
+        }
+      },
+      {
+        "value": 0.006977983187934542,
+        "observations": 510,
+        "feature": "mode:typed:proof_hypotheses",
+        "threshold": 0.0,
+        "gain": 8.514120906475,
+        "left": {
+          "value": 0.06904684330792563,
+          "observations": 406,
+          "feature": "functions",
+          "threshold": 0.125,
+          "gain": 5.7604498124218875,
+          "left": {
+            "value": 0.16913322970327632,
+            "observations": 218
+          },
+          "right": {
+            "value": -0.06984855005705073,
+            "observations": 188
+          }
+        },
+        "right": {
+          "value": -0.26198707733202686,
+          "observations": 104,
+          "feature": "mode:typed:target_size",
+          "threshold": 0.021666666666666667,
+          "gain": 1.7182473248178871,
+          "left": {
+            "value": -0.04584277683911234,
+            "observations": 28
+          },
+          "right": {
+            "value": -0.34511950059853225,
+            "observations": 76
+          }
+        }
+      },
+      {
+        "value": 0.007654093074348188,
+        "observations": 510,
+        "feature": "mode:typed:functions",
+        "threshold": 0.125,
+        "gain": 7.968674969980511,
+        "left": {
+          "value": 0.06073512943763917,
+          "observations": 426,
+          "feature": "target_size",
+          "threshold": 0.015,
+          "gain": 5.19378691475854,
+          "left": {
+            "value": -0.2875407948069247,
+            "observations": 44
+          },
+          "right": {
+            "value": 0.09524895976818139,
+            "observations": 382
+          }
+        },
+        "right": {
+          "value": -0.2867043813039016,
+          "observations": 84,
+          "feature": "head:Exists",
+          "threshold": 0.0,
+          "gain": 3.0032119164370092,
+          "left": {
+            "value": -0.43511288366668405,
+            "observations": 56
+          },
+          "right": {
+            "value": -0.026989502169032543,
+            "observations": 28
+          }
+        }
+      },
+      {
+        "value": 0.0079714582842778,
+        "observations": 510,
+        "feature": "mode:typed:proof_hypotheses",
+        "threshold": 0.0,
+        "gain": 7.635712409321334,
+        "left": {
+          "value": 0.06675133144151327,
+          "observations": 406,
+          "feature": "functions",
+          "threshold": 0.125,
+          "gain": 5.396126357468924,
+          "left": {
+            "value": 0.16362101167565007,
+            "observations": 218
+          },
+          "right": {
+            "value": -0.06768006153647232,
+            "observations": 188
+          }
+        },
+        "right": {
+          "value": -0.24674132539707597,
+          "observations": 104,
+          "feature": "local_equalities",
+          "threshold": 0.0,
+          "gain": 1.696873562199463,
+          "left": {
+            "value": -0.31024702128226456,
+            "observations": 84
+          },
+          "right": {
+            "value": 0.03268373649775425,
+            "observations": 20
+          }
+        }
+      },
+      {
+        "value": 0.00861878740585595,
+        "observations": 510,
+        "feature": "mode:typed:proof_hypotheses",
+        "threshold": 0.0,
+        "gain": 7.146580403805585,
+        "left": {
+          "value": 0.06548482990093643,
+          "observations": 406,
+          "feature": "functions",
+          "threshold": 0.125,
+          "gain": 5.1304128541391245,
+          "left": {
+            "value": 0.15993939838780583,
+            "observations": 218
+          },
+          "right": {
+            "value": -0.06559497942778046,
+            "observations": 188
+          }
+        },
+        "right": {
+          "value": -0.23780073007282615,
+          "observations": 104,
+          "feature": "mode:typed:target_size",
+          "threshold": 0.021666666666666667,
+          "gain": 1.6131093084923958,
+          "left": {
+            "value": -0.028373644732744865,
+            "observations": 28
+          },
+          "right": {
+            "value": -0.3183496090497803,
+            "observations": 76
+          }
+        }
+      },
+      {
+        "value": 0.00926422626830008,
+        "observations": 510,
+        "feature": "mode:typed:functions",
+        "threshold": 0.125,
+        "gain": 6.729302282724066,
+        "left": {
+          "value": 0.058043053632583316,
+          "observations": 426,
+          "feature": "target_size",
+          "threshold": 0.015,
+          "gain": 4.825939599972923,
+          "left": {
+            "value": -0.27767317100766276,
+            "observations": 44
+          },
+          "right": {
+            "value": 0.09131222904738234,
+            "observations": 382
+          }
+        },
+        "right": {
+          "value": -0.2612365436609069,
+          "observations": 84,
+          "feature": "head:Exists",
+          "threshold": 0.0,
+          "gain": 2.810781024461237,
+          "left": {
+            "value": -0.4048117006173096,
+            "observations": 56
+          },
+          "right": {
+            "value": -0.009980018987202318,
+            "observations": 28
+          }
+        }
+      },
+      {
+        "value": 0.009541224312878878,
+        "observations": 510,
+        "feature": "mode:typed:proof_hypotheses",
+        "threshold": 0.0,
+        "gain": 6.417682233729985,
+        "left": {
+          "value": 0.06342933629082355,
+          "observations": 406,
+          "feature": "functions",
+          "threshold": 0.125,
+          "gain": 4.813505013082118,
+          "left": {
+            "value": 0.154920157338307,
+            "observations": 218
+          },
+          "right": {
+            "value": -0.06353751740772494,
+            "observations": 188
+          }
+        },
+        "right": {
+          "value": -0.22397392759154802,
+          "observations": 104,
+          "feature": "local_equalities",
+          "threshold": 0.0,
+          "gain": 1.5931436423025254,
+          "left": {
+            "value": -0.2855079641285025,
+            "observations": 84
+          },
+          "right": {
+            "value": 0.04677583317105218,
+            "observations": 20
+          }
+        }
+      },
+      {
+        "value": 0.01015317105651301,
+        "observations": 510,
+        "feature": "mode:typed:proof_hypotheses",
+        "threshold": 0.0,
+        "gain": 6.010286056182488,
+        "left": {
+          "value": 0.06230282542508293,
+          "observations": 406,
+          "feature": "functions",
+          "threshold": 0.125,
+          "gain": 4.581547630612539,
+          "left": {
+            "value": 0.15156200973601464,
+            "observations": 218
+          },
+          "right": {
+            "value": -0.06156706300641404,
+            "observations": 188
+          }
+        },
+        "right": {
+          "value": -0.2158286645406234,
+          "observations": 104,
+          "feature": "mode:typed:target_size",
+          "threshold": 0.03633333333333333,
+          "gain": 1.5371914077883604,
+          "left": {
+            "value": -0.11468680653407971,
+            "observations": 62
+          },
+          "right": {
+            "value": -0.3747658699794777,
+            "observations": 42
+          }
+        }
+      },
+      {
+        "value": 0.01075234461453354,
+        "observations": 510,
+        "feature": "mode:typed:functions",
+        "threshold": 0.125,
+        "gain": 5.679800240635537,
+        "left": {
+          "value": 0.05556625773993208,
+          "observations": 426,
+          "feature": "target_size",
+          "threshold": 0.015,
+          "gain": 4.467974191856431,
+          "left": {
+            "value": -0.2674591753331873,
+            "observations": 44
+          },
+          "right": {
+            "value": 0.08757778714357443,
+            "observations": 382
+          }
+        },
+        "right": {
+          "value": -0.2377611736263127,
+          "observations": 84,
+          "feature": "head:Exists",
+          "threshold": 0.0,
+          "gain": 2.6420449070548306,
+          "left": {
+            "value": -0.37696010165503013,
+            "observations": 56
+          },
+          "right": {
+            "value": 0.00583695042394278,
+            "observations": 28
+          }
+        }
+      },
+      {
+        "value": 0.01097981205570885,
+        "observations": 510,
+        "feature": "mode:typed:proof_hypotheses",
+        "threshold": 0.0,
+        "gain": 5.409029716965468,
+        "left": {
+          "value": 0.06045227670836085,
+          "observations": 406,
+          "feature": "functions",
+          "threshold": 0.125,
+          "gain": 4.305372517830147,
+          "left": {
+            "value": 0.14697938260052767,
+            "observations": 218
+          },
+          "right": {
+            "value": -0.059626155958319514,
+            "observations": 188
+          }
+        },
+        "right": {
+          "value": -0.2034008681057832,
+          "observations": 104,
+          "feature": "local_equalities",
+          "threshold": 0.0,
+          "gain": 1.4984203138761627,
+          "left": {
+            "value": -0.26307756318463743,
+            "observations": 84
+          },
+          "right": {
+            "value": 0.05917659024117559,
+            "observations": 20
+          }
+        }
+      },
+      {
+        "value": 0.011547055313105618,
+        "observations": 510,
+        "feature": "mode:typed:proof_hypotheses",
+        "threshold": 0.0,
+        "gain": 5.070308194244532,
+        "left": {
+          "value": 0.05944545926843707,
+          "observations": 406,
+          "feature": "depth",
+          "threshold": 0.0,
+          "gain": 4.19680600674671,
+          "left": {
+            "value": 0.1361605922968475,
+            "observations": 234
+          },
+          "right": {
+            "value": -0.07257593245487381,
+            "observations": 172
+          }
+        },
+        "right": {
+          "value": -0.19601269515999745,
+          "observations": 104,
+          "feature": "mode:typed:target_size",
+          "threshold": 0.021666666666666667,
+          "gain": 1.484981937868485,
+          "left": {
+            "value": 0.004925055118896469,
+            "observations": 28
+          },
+          "right": {
+            "value": -0.2732964452672642,
+            "observations": 76
+          }
+        }
+      },
+      {
+        "value": 0.011769926792113817,
+        "observations": 510,
+        "feature": "mode:typed:functions",
+        "threshold": 0.125,
+        "gain": 4.830745574576881,
+        "left": {
+          "value": 0.053098786158579915,
+          "observations": 426,
+          "feature": "mode:typed:class:Lattice",
+          "threshold": 0.0,
+          "gain": 4.174329833601624,
+          "left": {
+            "value": 0.07119545401749879,
+            "observations": 410
+          },
+          "right": {
+            "value": -0.48075291567952694,
+            "observations": 16
+          }
+        },
+        "right": {
+          "value": -0.21741738424010712,
+          "observations": 84,
+          "feature": "head:Exists",
+          "threshold": 0.0,
+          "gain": 2.4880356970227493,
+          "left": {
+            "value": -0.35249833128561864,
+            "observations": 56
+          },
+          "right": {
+            "value": 0.018974273089538113,
+            "observations": 28
+          }
+        }
+      },
+      {
+        "value": 0.011994627174828791,
+        "observations": 510,
+        "feature": "mode:typed:functions",
+        "threshold": 0.125,
+        "gain": 4.516809030186573,
+        "left": {
+          "value": 0.05195800615685374,
+          "observations": 426,
+          "feature": "target_size",
+          "threshold": 0.015,
+          "gain": 4.116300676590079,
+          "left": {
+            "value": -0.25809427767868415,
+            "observations": 44
+          },
+          "right": {
+            "value": 0.0826839081585737,
+            "observations": 382
+          }
+        },
+        "right": {
+          "value": -0.20962047445276422,
+          "observations": 84,
+          "feature": "head:Exists",
+          "threshold": 0.0,
+          "gain": 2.3129045512242072,
+          "left": {
+            "value": -0.3398605527396396,
+            "observations": 56
+          },
+          "right": {
+            "value": 0.01829966254926769,
+            "observations": 28
+          }
+        }
+      },
+      {
+        "value": 0.012162302564278044,
+        "observations": 510,
+        "feature": "mode:typed:proof_hypotheses",
+        "threshold": 0.0,
+        "gain": 4.290443185474097,
+        "left": {
+          "value": 0.05622336254927899,
+          "observations": 406,
+          "feature": "functions",
+          "threshold": 0.125,
+          "gain": 4.014577176938019,
+          "left": {
+            "value": 0.13977726070219193,
+            "observations": 218
+          },
+          "right": {
+            "value": -0.05972898590782465,
+            "observations": 188
+          }
+        },
+        "right": {
+          "value": -0.17876895737072615,
+          "observations": 104,
+          "feature": "local_equalities",
+          "threshold": 0.0,
+          "gain": 1.3825285556029208,
+          "left": {
+            "value": -0.2360914401893324,
+            "observations": 84
+          },
+          "right": {
+            "value": 0.07344996703114166,
+            "observations": 20
+          }
+        }
+      },
+      {
+        "value": 0.012665748925645367,
+        "observations": 510,
+        "feature": "mode:typed:functions",
+        "threshold": 0.25,
+        "gain": 4.171758023113812,
+        "left": {
+          "value": 0.03460137357969911,
+          "observations": 478,
+          "feature": "proof_hypotheses",
+          "threshold": 0.0,
+          "gain": 4.55757661858739,
+          "left": {
+            "value": 0.14572670002840707,
+            "observations": 182
+          },
+          "right": {
+            "value": -0.050546603829051136,
+            "observations": 296
+          }
+        },
+        "right": {
+          "value": -0.36023987019326825,
+          "observations": 32,
+          "feature": "hypotheses",
+          "threshold": 0.175,
+          "gain": 0.13502184881745327,
+          "left": {
+            "value": -0.30676757633699214,
+            "observations": 20
+          },
+          "right": {
+            "value": -0.44936035995372864,
+            "observations": 12
+          }
+        }
+      },
+      {
+        "value": 0.012909044283947617,
+        "observations": 510,
+        "feature": "mode:typed:functions",
+        "threshold": 0.25,
+        "gain": 3.890276393166077,
+        "left": {
+          "value": 0.034091713292828466,
+          "observations": 478,
+          "feature": "proof_hypotheses",
+          "threshold": 0.0,
+          "gain": 4.344741930067072,
+          "left": {
+            "value": 0.14259129233182344,
+            "observations": 182
+          },
+          "right": {
+            "value": -0.04904432778899885,
+            "observations": 296
+          }
+        },
+        "right": {
+          "value": -0.34719632886702667,
+          "observations": 32,
+          "feature": "hypotheses",
+          "threshold": 0.175,
+          "gain": 0.12618425204068728,
+          "left": {
+            "value": -0.29550361079147874,
+            "observations": 20
+          },
+          "right": {
+            "value": -0.43335085899294,
+            "observations": 12
+          }
+        }
+      },
+      {
+        "value": 0.013147395702848378,
+        "observations": 510,
+        "feature": "target_size",
+        "threshold": 0.015,
+        "gain": 3.7403748145742965,
+        "left": {
+          "value": -0.2531156194108195,
+          "observations": 54,
+          "feature": "hypotheses",
+          "threshold": 0.1,
+          "gain": 5.8945302621139035,
+          "left": {
+            "value": 0.24344111060866214,
+            "observations": 18
+          },
+          "right": {
+            "value": -0.5013939844205602,
+            "observations": 36
+          }
+        },
+        "right": {
+          "value": 0.040691845542193315,
+          "observations": 456,
+          "feature": "mode:typed:head:And",
+          "threshold": 0.0,
+          "gain": 6.390015341278623,
+          "left": {
+            "value": 0.07269368692681821,
+            "observations": 420
+          },
+          "right": {
+            "value": -0.3913330131502427,
+            "observations": 36
+          }
+        }
+      },
+      {
+        "value": 0.013297553215736098,
+        "observations": 510,
+        "feature": "functions",
+        "threshold": 0.125,
+        "gain": 3.6650039129585745,
+        "left": {
+          "value": 0.09127639847569147,
+          "observations": 258,
+          "feature": "mode:typed:class:Lattice",
+          "threshold": 0.0,
+          "gain": 4.269964997898485,
+          "left": {
+            "value": 0.12018154331861368,
+            "observations": 242
+          },
+          "right": {
+            "value": -0.4434687811183691,
+            "observations": 16
+          }
+        },
+        "right": {
+          "value": -0.07885926390966573,
+          "observations": 252,
+          "feature": "head:Exists",
+          "threshold": 0.0,
+          "gain": 5.030958961005561,
+          "left": {
+            "value": -0.18975901035924259,
+            "observations": 168
+          },
+          "right": {
+            "value": 0.11521529237709383,
+            "observations": 84
+          }
+        }
+      },
+      {
+        "value": 0.013626390576273191,
+        "observations": 510,
+        "feature": "functions",
+        "threshold": 0.125,
+        "gain": 3.491431100342173,
+        "left": {
+          "value": 0.08973631951211565,
+          "observations": 258,
+          "feature": "mode:typed:class:Lattice",
+          "threshold": 0.0,
+          "gain": 3.9906758915133285,
+          "left": {
+            "value": 0.11768016820923505,
+            "observations": 242
+          },
+          "right": {
+            "value": -0.42722488138459275,
+            "observations": 16
+          }
+        },
+        "right": {
+          "value": -0.07632170725699518,
+          "observations": 252,
+          "feature": "head:Exists",
+          "threshold": 0.0,
+          "gain": 4.712907003679092,
+          "left": {
+            "value": -0.18365874386784115,
+            "observations": 168
+          },
+          "right": {
+            "value": 0.11151810681198522,
+            "observations": 84
+          }
+        }
+      },
+      {
+        "value": 0.013950742910336185,
+        "observations": 510,
+        "feature": "target_size",
+        "threshold": 0.015,
+        "gain": 3.4226442842964953,
+        "left": {
+          "value": -0.24075231916994352,
+          "observations": 54,
+          "feature": "hypotheses",
+          "threshold": 0.1,
+          "gain": 5.291530476056991,
+          "left": {
+            "value": 0.22972091669489172,
+            "observations": 18
+          },
+          "right": {
+            "value": -0.475988937102361,
+            "observations": 36
+          }
+        },
+        "right": {
+          "value": 0.040299335539330634,
+          "observations": 456,
+          "feature": "mode:typed:head:And",
+          "threshold": 0.0,
+          "gain": 5.6763755659144195,
+          "left": {
+            "value": 0.0704612968747318,
+            "observations": 420
+          },
+          "right": {
+            "value": -0.36688714248858484,
+            "observations": 36
+          }
+        }
+      },
+      {
+        "value": 0.014069012412416234,
+        "observations": 510,
+        "feature": "mode:typed:functions",
+        "threshold": 0.25,
+        "gain": 3.348755777684277,
+        "left": {
+          "value": 0.033722163333834765,
+          "observations": 478,
+          "feature": "proof_hypotheses",
+          "threshold": 0.0,
+          "gain": 3.8324220009518473,
+          "left": {
+            "value": 0.13562416686705836,
+            "observations": 182
+          },
+          "right": {
+            "value": -0.04435859262019369,
+            "observations": 296
+          }
+        },
+        "right": {
+          "value": -0.3200345532516991,
+          "observations": 32,
+          "feature": "attempts_per_second",
+          "threshold": 0.14090189122710517,
+          "gain": 0.12318315241211986,
+          "left": {
+            "value": -0.3997480656638221,
+            "observations": 13
+          },
+          "right": {
+            "value": -0.26549372896972034,
+            "observations": 19
+          }
+        }
+      },
+      {
+        "value": 0.014266933103770672,
+        "observations": 510,
+        "feature": "target_size",
+        "threshold": 0.015,
+        "gain": 3.166309952993611,
+        "left": {
+          "value": -0.23071270942356276,
+          "observations": 54,
+          "feature": "hypotheses",
+          "threshold": 0.1,
+          "gain": 4.954532754849307,
+          "left": {
+            "value": 0.22453275069769607,
+            "observations": 18
+          },
+          "right": {
+            "value": -0.4583354394841921,
+            "observations": 36
+          }
+        },
+        "right": {
+          "value": 0.039609654744529314,
+          "observations": 456,
+          "feature": "mode:typed:head:And",
+          "threshold": 0.0,
+          "gain": 5.230654475224954,
+          "left": {
+            "value": 0.06856321900552684,
+            "observations": 420
+          },
+          "right": {
+            "value": -0.35126346277893733,
+            "observations": 36
+          }
+        }
+      },
+      {
+        "value": 0.014367975492112075,
+        "observations": 510,
+        "feature": "functions",
+        "threshold": 0.125,
+        "gain": 3.1023993671309014,
+        "left": {
+          "value": 0.08611244520865526,
+          "observations": 258,
+          "feature": "mode:typed:class:Lattice",
+          "threshold": 0.0,
+          "gain": 3.4632009533432098,
+          "left": {
+            "value": 0.11214410372986637,
+            "observations": 242
+          },
+          "right": {
+            "value": -0.3954732374337503,
+            "observations": 16
+          }
+        },
+        "right": {
+          "value": -0.07042094326380256,
+          "observations": 252,
+          "feature": "head:Exists",
+          "threshold": 0.0,
+          "gain": 4.235054794476743,
+          "left": {
+            "value": -0.1721710053169877,
+            "observations": 168
+          },
+          "right": {
+            "value": 0.10764166532927134,
+            "observations": 84
+          }
+        }
+      },
+      {
+        "value": 0.014653219967538956,
+        "observations": 510,
+        "feature": "mode:typed:functions",
+        "threshold": 0.25,
+        "gain": 3.013862244735943,
+        "left": {
+          "value": 0.033297780463057286,
+          "observations": 478,
+          "feature": "proof_hypotheses",
+          "threshold": 0.0,
+          "gain": 3.5297613147609086,
+          "left": {
+            "value": 0.1310932486332398,
+            "observations": 182
+          },
+          "right": {
+            "value": -0.04163640943357605,
+            "observations": 296
+          }
+        },
+        "right": {
+          "value": -0.30230430845627265,
+          "observations": 32,
+          "feature": "mode:typed:target_size",
+          "threshold": 0.045,
+          "gain": 0.12135866790294347,
+          "left": {
+            "value": -0.2516096513268067,
+            "observations": 20
+          },
+          "right": {
+            "value": -0.38679540367204923,
+            "observations": 12
+          }
+        }
+      },
+      {
+        "value": 0.014829959735837856,
+        "observations": 510,
+        "feature": "depth",
+        "threshold": 0.0,
+        "gain": 2.9395064454676816,
+        "left": {
+          "value": 0.07495106784126118,
+          "observations": 288,
+          "feature": "mode:typed:head:And",
+          "threshold": 0.0,
+          "gain": 4.168225494358997,
+          "left": {
+            "value": 0.10317008540526972,
+            "observations": 268
+          },
+          "right": {
+            "value": -0.39630652547768197,
+            "observations": 20
+          }
+        },
+        "right": {
+          "value": -0.08103883427010752,
+          "observations": 222,
+          "feature": "functions",
+          "threshold": 0.0,
+          "gain": 3.9020188658461077,
+          "left": {
+            "value": 0.07178281628914729,
+            "observations": 102
+          },
+          "right": {
+            "value": -0.21093723724547414,
+            "observations": 120
+          }
+        }
+      },
+      {
+        "value": 0.015024249400844241,
+        "observations": 510,
+        "feature": "target_size",
+        "threshold": 0.015,
+        "gain": 2.85396997043154,
+        "left": {
+          "value": -0.21755875868165175,
+          "observations": 54,
+          "feature": "hypotheses",
+          "threshold": 0.1,
+          "gain": 4.461180261791006,
+          "left": {
+            "value": 0.21442672942081556,
+            "observations": 18
+          },
+          "right": {
+            "value": -0.43355150273288534,
+            "observations": 36
+          }
+        },
+        "right": {
+          "value": 0.0390845605817921,
+          "observations": 456,
+          "feature": "mode:typed:head:And",
+          "threshold": 0.0,
+          "gain": 4.472390264422174,
+          "left": {
+            "value": 0.06585736495344635,
+            "observations": 420
+          },
+          "right": {
+            "value": -0.3223482984355401,
+            "observations": 36
+          }
+        }
+      },
+      {
+        "value": 0.015078531989558091,
+        "observations": 510,
+        "feature": "proof_hypotheses",
+        "threshold": 0.0,
+        "gain": 2.7546333954177564,
+        "left": {
+          "value": 0.09841192228437302,
+          "observations": 198,
+          "feature": "mode:typed:functions",
+          "threshold": 0.125,
+          "gain": 2.69919890822242,
+          "left": {
+            "value": 0.13070536403455524,
+            "observations": 178
+          },
+          "right": {
+            "value": -0.2761920020177406,
+            "observations": 20
+          }
+        },
+        "right": {
+          "value": -0.049736327128631304,
+          "observations": 312,
+          "feature": "local_equalities",
+          "threshold": 0.0,
+          "gain": 3.7175139500429144,
+          "left": {
+            "value": -0.10400555139752436,
+            "observations": 252
+          },
+          "right": {
+            "value": 0.189048259654498,
+            "observations": 60
+          }
+        }
+      },
+      {
+        "value": 0.01527408286531506,
+        "observations": 510,
+        "feature": "depth",
+        "threshold": 0.0,
+        "gain": 2.691878022535949,
+        "left": {
+          "value": 0.0728071406343251,
+          "observations": 288,
+          "feature": "mode:typed:head:And",
+          "threshold": 0.0,
+          "gain": 3.67786413676924,
+          "left": {
+            "value": 0.09931435730800757,
+            "observations": 268
+          },
+          "right": {
+            "value": -0.3698633778161726,
+            "observations": 20
+          }
+        },
+        "right": {
+          "value": -0.0764678200636469,
+          "observations": 222,
+          "feature": "functions",
+          "threshold": 0.0,
+          "gain": 3.531942626498455,
+          "left": {
+            "value": 0.06892636034984495,
+            "observations": 102
+          },
+          "right": {
+            "value": -0.200052873415115,
+            "observations": 120
+          }
+        }
+      },
+      {
+        "value": 0.01544058246976221,
+        "observations": 510,
+        "feature": "mode:typed:functions",
+        "threshold": 0.25,
+        "gain": 2.6029020405357683,
+        "left": {
+          "value": 0.03276742239624722,
+          "observations": 478,
+          "feature": "proof_hypotheses",
+          "threshold": 0.0,
+          "gain": 3.0317250022252846,
+          "left": {
+            "value": 0.1234013839696433,
+            "observations": 182
+          },
+          "right": {
+            "value": -0.03667937932882246,
+            "observations": 296
+          }
+        },
+        "right": {
+          "value": -0.2791156962804831,
+          "observations": 32,
+          "feature": "attempts_per_second",
+          "threshold": 0.18770592226526145,
+          "gain": 0.11451729824517942,
+          "left": {
+            "value": -0.33170308268062215,
+            "observations": 19
+          },
+          "right": {
+            "value": -0.20225720846489526,
+            "observations": 13
+          }
+        }
+      },
+      {
+        "value": 0.015584076462077073,
+        "observations": 510,
+        "feature": "target_size",
+        "threshold": 0.015,
+        "gain": 2.5337615542483585,
+        "left": {
+          "value": -0.20356323882943794,
+          "observations": 54,
+          "feature": "hypotheses",
+          "threshold": 0.1,
+          "gain": 4.099774598221519,
+          "left": {
+            "value": 0.2105549078421734,
+            "observations": 18
+          },
+          "right": {
+            "value": -0.41062231216524336,
+            "observations": 36
+          }
+        },
+        "right": {
+          "value": 0.03825448838878553,
+          "observations": 456,
+          "feature": "mode:typed:head:And",
+          "threshold": 0.0,
+          "gain": 3.900516454802651,
+          "left": {
+            "value": 0.06325708275532868,
+            "observations": 420
+          },
+          "right": {
+            "value": -0.2992805355595472,
+            "observations": 36
+          }
+        }
+      },
+      {
+        "value": 0.015600751229178877,
+        "observations": 510,
+        "feature": "depth",
+        "threshold": 0.0,
+        "gain": 2.4669634954006514,
+        "left": {
+          "value": 0.07067785942715693,
+          "observations": 288,
+          "feature": "mode:typed:head:And",
+          "threshold": 0.0,
+          "gain": 3.252081602823874,
+          "left": {
+            "value": 0.0956035388069154,
+            "observations": 268
+          },
+          "right": {
+            "value": -0.34558098621480904,
+            "observations": 20
+          }
+        },
+        "right": {
+          "value": -0.07222490778921856,
+          "observations": 222,
+          "feature": "functions",
+          "threshold": 0.0,
+          "gain": 3.1957795477409654,
+          "left": {
+            "value": 0.06607713984027737,
+            "observations": 102
+          },
+          "right": {
+            "value": -0.18978164827429003,
+            "observations": 120
+          }
+        }
+      },
+      {
+        "value": 0.015738852169588265,
+        "observations": 510,
+        "feature": "mode:typed:functions",
+        "threshold": 0.25,
+        "gain": 2.3812956177755886,
+        "left": {
+          "value": 0.03231169866029606,
+          "observations": 478,
+          "feature": "proof_hypotheses",
+          "threshold": 0.0,
+          "gain": 2.8014026743504843,
+          "left": {
+            "value": 0.11943490097394388,
+            "observations": 182
+          },
+          "right": {
+            "value": -0.03444504077483665,
+            "observations": 296
+          }
+        },
+        "right": {
+          "value": -0.26599953817244437,
+          "observations": 32,
+          "feature": "attempts_per_second",
+          "threshold": 0.14090189122710517,
+          "gain": 0.10817228126727763,
+          "left": {
+            "value": -0.3406984513571871,
+            "observations": 13
+          },
+          "right": {
+            "value": -0.21488975546709416,
+            "observations": 19
+          }
+        }
+      },
+      {
+        "value": 0.01586369350477765,
+        "observations": 510,
+        "feature": "target_size",
+        "threshold": 0.015,
+        "gain": 2.308341613798226,
+        "left": {
+          "value": -0.19330819815740297,
+          "observations": 54,
+          "feature": "hypotheses",
+          "threshold": 0.1,
+          "gain": 3.7748074041521784,
+          "left": {
+            "value": 0.20405868576112865,
+            "observations": 18
+          },
+          "right": {
+            "value": -0.3919916401166686,
+            "observations": 36
+          }
+        },
+        "right": {
+          "value": 0.03750216505603769,
+          "observations": 456,
+          "feature": "mode:typed:head:And",
+          "threshold": 0.0,
+          "gain": 3.442252887613224,
+          "left": {
+            "value": 0.06099013077493119,
+            "observations": 420
+          },
+          "right": {
+            "value": -0.2795853721490243,
+            "observations": 36
+          }
+        }
+      },
+      {
+        "value": 0.01584886905857314,
+        "observations": 510,
+        "feature": "depth",
+        "threshold": 0.0,
+        "gain": 2.262439952500305,
+        "left": {
+          "value": 0.0685935049775841,
+          "observations": 288,
+          "feature": "mode:typed:head:And",
+          "threshold": 0.0,
+          "gain": 2.8860047313025294,
+          "left": {
+            "value": 0.09207440862528271,
+            "observations": 268
+          },
+          "right": {
+            "value": -0.32353758593898263,
+            "observations": 20
+          }
+        },
+        "right": {
+          "value": -0.06825744227174164,
+          "observations": 222,
+          "feature": "functions",
+          "threshold": 0.0,
+          "gain": 2.8951042063685,
+          "left": {
+            "value": 0.06337783839284397,
+            "observations": 102
+          },
+          "right": {
+            "value": -0.1801474308366395,
+            "observations": 120
+          }
+        }
+      }
+    ]
+  },
+  "cost": {
+    "architecture": "gradient boosted conditional log continuation cost",
+    "bias": 2.665704271922225,
+    "rate": 0.1,
+    "depth": 2,
+    "iterations": 48,
+    "seed": 0,
+    "feature_names": [
+      "attempts_per_second",
+      "bias",
+      "class:CommGroup",
+      "class:CommMonoid",
+      "class:CommRing",
+      "class:CommSemiring",
+      "class:Group",
+      "class:Lattice",
+      "class:Monoid",
+      "class:PartialOrder",
+      "depth",
+      "forall",
+      "functions",
+      "goals",
+      "head:And",
+      "head:Eq",
+      "head:Exists",
+      "head:LE.le",
+      "head:Not",
+      "head:Or",
+      "head:Set.Subset",
+      "hypotheses",
+      "inverse",
+      "local_equalities",
+      "metavariables",
+      "mode:hybrid:attempts_per_second",
+      "mode:hybrid:bias",
+      "mode:hybrid:class:CommGroup",
+      "mode:hybrid:class:CommMonoid",
+      "mode:hybrid:class:CommRing",
+      "mode:hybrid:class:CommSemiring",
+      "mode:hybrid:class:Group",
+      "mode:hybrid:class:Lattice",
+      "mode:hybrid:class:Monoid",
+      "mode:hybrid:class:PartialOrder",
+      "mode:hybrid:depth",
+      "mode:hybrid:forall",
+      "mode:hybrid:functions",
+      "mode:hybrid:goals",
+      "mode:hybrid:head:And",
+      "mode:hybrid:head:Eq",
+      "mode:hybrid:head:Exists",
+      "mode:hybrid:head:LE.le",
+      "mode:hybrid:head:Not",
+      "mode:hybrid:head:Or",
+      "mode:hybrid:head:Set.Subset",
+      "mode:hybrid:hypotheses",
+      "mode:hybrid:inverse",
+      "mode:hybrid:local_equalities",
+      "mode:hybrid:metavariables",
+      "mode:hybrid:product",
+      "mode:hybrid:proof_hypotheses",
+      "mode:hybrid:remaining_attempts",
+      "mode:hybrid:remaining_expansions",
+      "mode:hybrid:remaining_seconds",
+      "mode:hybrid:sets",
+      "mode:hybrid:target_size",
+      "mode:symbolic:attempts_per_second",
+      "mode:symbolic:bias",
+      "mode:symbolic:class:CommGroup",
+      "mode:symbolic:class:CommMonoid",
+      "mode:symbolic:class:CommRing",
+      "mode:symbolic:class:CommSemiring",
+      "mode:symbolic:class:Group",
+      "mode:symbolic:class:Lattice",
+      "mode:symbolic:class:Monoid",
+      "mode:symbolic:class:PartialOrder",
+      "mode:symbolic:depth",
+      "mode:symbolic:forall",
+      "mode:symbolic:functions",
+      "mode:symbolic:goals",
+      "mode:symbolic:head:And",
+      "mode:symbolic:head:Eq",
+      "mode:symbolic:head:Exists",
+      "mode:symbolic:head:LE.le",
+      "mode:symbolic:head:Not",
+      "mode:symbolic:head:Or",
+      "mode:symbolic:head:Set.Subset",
+      "mode:symbolic:hypotheses",
+      "mode:symbolic:inverse",
+      "mode:symbolic:local_equalities",
+      "mode:symbolic:metavariables",
+      "mode:symbolic:product",
+      "mode:symbolic:proof_hypotheses",
+      "mode:symbolic:remaining_attempts",
+      "mode:symbolic:remaining_expansions",
+      "mode:symbolic:remaining_seconds",
+      "mode:symbolic:sets",
+      "mode:symbolic:target_size",
+      "mode:typed:attempts_per_second",
+      "mode:typed:bias",
+      "mode:typed:class:CommGroup",
+      "mode:typed:class:CommMonoid",
+      "mode:typed:class:CommRing",
+      "mode:typed:class:CommSemiring",
+      "mode:typed:class:Group",
+      "mode:typed:class:Lattice",
+      "mode:typed:class:Monoid",
+      "mode:typed:class:PartialOrder",
+      "mode:typed:depth",
+      "mode:typed:forall",
+      "mode:typed:functions",
+      "mode:typed:goals",
+      "mode:typed:head:And",
+      "mode:typed:head:Eq",
+      "mode:typed:head:Exists",
+      "mode:typed:head:LE.le",
+      "mode:typed:head:Not",
+      "mode:typed:head:Or",
+      "mode:typed:head:Set.Subset",
+      "mode:typed:hypotheses",
+      "mode:typed:inverse",
+      "mode:typed:local_equalities",
+      "mode:typed:metavariables",
+      "mode:typed:product",
+      "mode:typed:proof_hypotheses",
+      "mode:typed:remaining_attempts",
+      "mode:typed:remaining_expansions",
+      "mode:typed:remaining_seconds",
+      "mode:typed:sets",
+      "mode:typed:target_size",
+      "product",
+      "proof_hypotheses",
+      "remaining_attempts",
+      "remaining_expansions",
+      "remaining_seconds",
+      "sets",
+      "target_size"
+    ],
+    "trees": [
+      {
+        "value": 1.6283271027835628e-16,
+        "observations": 360,
+        "feature": "mode:typed:proof_hypotheses",
+        "threshold": 0.0,
+        "gain": 35.01725539887047,
+        "left": {
+          "value": -0.09403585094176051,
+          "observations": 330,
+          "feature": "mode:symbolic:hypotheses",
+          "threshold": 0.125,
+          "gain": 20.574143818770185,
+          "left": {
+            "value": -0.22945012853627425,
+            "observations": 255
+          },
+          "right": {
+            "value": 0.366372692879586,
+            "observations": 75
+          }
+        },
+        "right": {
+          "value": 1.0343943603593673,
+          "observations": 30,
+          "feature": "mode:typed:head:Exists",
+          "threshold": 0.0,
+          "gain": 9.743946074902816,
+          "left": {
+            "value": 1.5674970026194344,
+            "observations": 16
+          },
+          "right": {
+            "value": 0.4251341977764345,
+            "observations": 14
+          }
+        }
+      },
+      {
+        "value": 2.3438041630975528e-16,
+        "observations": 360,
+        "feature": "mode:typed:proof_hypotheses",
+        "threshold": 0.0,
+        "gain": 28.363976873085097,
+        "left": {
+          "value": -0.08463226584758433,
+          "observations": 330,
+          "feature": "mode:symbolic:class:Group",
+          "threshold": 0.0,
+          "gain": 18.91839816741679,
+          "left": {
+            "value": -0.16034783841703829,
+            "observations": 300
+          },
+          "right": {
+            "value": 0.6725234598469546,
+            "observations": 30
+          }
+        },
+        "right": {
+          "value": 0.9309549243234311,
+          "observations": 30,
+          "feature": "mode:typed:target_size",
+          "threshold": 0.021666666666666667,
+          "gain": 8.979499983527578,
+          "left": {
+            "value": 1.4780533305700458,
+            "observations": 15
+          },
+          "right": {
+            "value": 0.3838565180768158,
+            "observations": 15
+          }
+        }
+      },
+      {
+        "value": 2.565848768022584e-16,
+        "observations": 360,
+        "feature": "mode:typed:proof_hypotheses",
+        "threshold": 0.0,
+        "gain": 22.974821267198916,
+        "left": {
+          "value": -0.07616903926282587,
+          "observations": 330,
+          "feature": "class:CommRing",
+          "threshold": 0.0,
+          "gain": 18.372544369416378,
+          "left": {
+            "value": -0.010088650384762908,
+            "observations": 306
+          },
+          "right": {
+            "value": -0.9186939974581284,
+            "observations": 24
+          }
+        },
+        "right": {
+          "value": 0.8378594318910877,
+          "observations": 30,
+          "feature": "head:Exists",
+          "threshold": 0.0,
+          "gain": 8.119194355969771,
+          "left": {
+            "value": 1.32449054000323,
+            "observations": 16
+          },
+          "right": {
+            "value": 0.2817095940486393,
+            "observations": 14
+          }
+        }
+      },
+      {
+        "value": 6.41462192005646e-17,
+        "observations": 360,
+        "feature": "mode:typed:proof_hypotheses",
+        "threshold": 0.0,
+        "gain": 18.60960522643114,
+        "left": {
+          "value": -0.06855213533654349,
+          "observations": 330,
+          "feature": "target_size",
+          "threshold": 0.028333333333333332,
+          "gain": 16.54043597457541,
+          "left": {
+            "value": -0.3808979866014833,
+            "observations": 112
+          },
+          "right": {
+            "value": 0.09191912769865494,
+            "observations": 218
+          }
+        },
+        "right": {
+          "value": 0.754073488701979,
+          "observations": 30,
+          "feature": "mode:typed:target_size",
+          "threshold": 0.021666666666666667,
+          "gain": 7.480226208486947,
+          "left": {
+            "value": 1.2534139272969635,
+            "observations": 15
+          },
+          "right": {
+            "value": 0.25473305010699493,
+            "observations": 15
+          }
+        }
+      },
+      {
+        "value": 1.30759600678074e-16,
+        "observations": 360,
+        "feature": "class:CommRing",
+        "threshold": 0.0,
+        "gain": 17.972321291969234,
+        "left": {
+          "value": 0.05971546503444167,
+          "observations": 336,
+          "feature": "mode:symbolic:head:Eq",
+          "threshold": 0.0,
+          "gain": 20.884590574955844,
+          "left": {
+            "value": -0.04452715772638548,
+            "observations": 286
+          },
+          "right": {
+            "value": 0.6559832672263728,
+            "observations": 50
+          }
+        },
+        "right": {
+          "value": -0.8360165104821814,
+          "observations": 24,
+          "feature": "attempts_per_second",
+          "threshold": 0.17045472682105434,
+          "gain": -3.552713678800501e-15,
+          "left": {
+            "value": -0.8360165104821813,
+            "observations": 12
+          },
+          "right": {
+            "value": -0.8360165104821813,
+            "observations": 12
+          }
+        }
+      },
+      {
+        "value": 1.5789838572446671e-16,
+        "observations": 360,
+        "feature": "mode:typed:proof_hypotheses",
+        "threshold": 0.0,
+        "gain": 15.272226683420456,
+        "left": {
+          "value": -0.062101714145856184,
+          "observations": 330,
+          "feature": "target_size",
+          "threshold": 0.028333333333333332,
+          "gain": 14.014812873541105,
+          "left": {
+            "value": -0.34961367542686556,
+            "observations": 112
+          },
+          "right": {
+            "value": 0.08561085311778165,
+            "observations": 218
+          }
+        },
+        "right": {
+          "value": 0.6831188556044197,
+          "observations": 30,
+          "feature": "head:Exists",
+          "threshold": 0.0,
+          "gain": 6.7653361531837195,
+          "left": {
+            "value": 1.127328608387785,
+            "observations": 16
+          },
+          "right": {
+            "value": 0.1754505667091449,
+            "observations": 14
+          }
+        }
+      },
+      {
+        "value": 5.181040781584064e-17,
+        "observations": 360,
+        "feature": "class:CommRing",
+        "threshold": 0.0,
+        "gain": 14.89074141810018,
+        "left": {
+          "value": 0.054355424624695864,
+          "observations": 336,
+          "feature": "mode:symbolic:head:Eq",
+          "threshold": 0.0,
+          "gain": 17.328511106013327,
+          "left": {
+            "value": -0.04059851131846297,
+            "observations": 286
+          },
+          "right": {
+            "value": 0.5974919382195644,
+            "observations": 50
+          }
+        },
+        "right": {
+          "value": -0.7609759447457414,
+          "observations": 24,
+          "feature": "attempts_per_second",
+          "threshold": 0.17045472682105434,
+          "gain": 0.0,
+          "left": {
+            "value": -0.7609759447457414,
+            "observations": 12
+          },
+          "right": {
+            "value": -0.7609759447457414,
+            "observations": 12
+          }
+        }
+      },
+      {
+        "value": -9.86864910777917e-18,
+        "observations": 360,
+        "feature": "mode:symbolic:target_size",
+        "threshold": 0.055,
+        "gain": 13.722947163143896,
+        "left": {
+          "value": 0.04981102005095999,
+          "observations": 338,
+          "feature": "forall",
+          "threshold": 0.0,
+          "gain": 16.246403233952204,
+          "left": {
+            "value": -0.023509060035626948,
+            "observations": 304
+          },
+          "right": {
+            "value": 0.7053787949427963,
+            "observations": 34
+          }
+        },
+        "right": {
+          "value": -0.7652783989647495,
+          "observations": 22
+        }
+      },
+      {
+        "value": 2.4671622769447924e-18,
+        "observations": 360,
+        "feature": "functions",
+        "threshold": 0.125,
+        "gain": 11.938117657975912,
+        "left": {
+          "value": -0.1410562397176856,
+          "observations": 225,
+          "feature": "goals",
+          "threshold": 0.125,
+          "gain": 19.468786266206656,
+          "left": {
+            "value": -0.2630070064594649,
+            "observations": 192
+          },
+          "right": {
+            "value": 0.5684754940526667,
+            "observations": 33
+          }
+        },
+        "right": {
+          "value": 0.23509373286280938,
+          "observations": 135,
+          "feature": "target_size",
+          "threshold": 0.043333333333333335,
+          "gain": 16.679183169787297,
+          "left": {
+            "value": 0.5839957255149882,
+            "observations": 68
+          },
+          "right": {
+            "value": -0.11901575221701399,
+            "observations": 67
+          }
+        }
+      },
+      {
+        "value": 5.427757009278543e-17,
+        "observations": 360,
+        "feature": "mode:typed:proof_hypotheses",
+        "threshold": 0.0,
+        "gain": 11.489934672486935,
+        "left": {
+          "value": -0.05386556093338684,
+          "observations": 330,
+          "feature": "target_size",
+          "threshold": 0.028333333333333332,
+          "gain": 12.610753632533209,
+          "left": {
+            "value": -0.3265954816042202,
+            "observations": 112
+          },
+          "right": {
+            "value": 0.08625256344795872,
+            "observations": 218
+          }
+        },
+        "right": {
+          "value": 0.592521170267256,
+          "observations": 30,
+          "feature": "mode:typed:target_size",
+          "threshold": 0.021666666666666667,
+          "gain": 5.751639904067481,
+          "left": {
+            "value": 1.0303811137829684,
+            "observations": 15
+          },
+          "right": {
+            "value": 0.15466122675154376,
+            "observations": 15
+          }
+        }
+      },
+      {
+        "value": 1.7270135938613546e-17,
+        "observations": 360,
+        "feature": "mode:symbolic:target_size",
+        "threshold": 0.055,
+        "gain": 10.717699829409701,
+        "left": {
+          "value": 0.04402025304222096,
+          "observations": 338,
+          "feature": "mode:symbolic:head:Eq",
+          "threshold": 0.0,
+          "gain": 15.567136369797558,
+          "left": {
+            "value": -0.04539976910541579,
+            "observations": 288
+          },
+          "right": {
+            "value": 0.5590795806126089,
+            "observations": 50
+          }
+        },
+        "right": {
+          "value": -0.67631116037594,
+          "observations": 22
+        }
+      },
+      {
+        "value": 4.194175870806147e-17,
+        "observations": 360,
+        "feature": "goals",
+        "threshold": 0.125,
+        "gain": 10.138553811485595,
+        "left": {
+          "value": -0.05331137065141405,
+          "observations": 327,
+          "feature": "hypotheses",
+          "threshold": 0.1,
+          "gain": 18.908261677627056,
+          "left": {
+            "value": -0.9486565608910937,
+            "observations": 22
+          },
+          "right": {
+            "value": 0.011270905365874332,
+            "observations": 305
+          }
+        },
+        "right": {
+          "value": 0.5282672182731033,
+          "observations": 33,
+          "feature": "mode:symbolic:attempts_per_second",
+          "threshold": 0.0,
+          "gain": 4.347678604489165,
+          "left": {
+            "value": 0.8398396066682953,
+            "observations": 19
+          },
+          "right": {
+            "value": 0.10541897687962885,
+            "observations": 14
+          }
+        }
+      },
+      {
+        "value": 2.7138785046392715e-17,
+        "observations": 360,
+        "feature": "class:CommRing",
+        "threshold": 0.0,
+        "gain": 9.74740285006756,
+        "left": {
+          "value": 0.04397736351803658,
+          "observations": 336,
+          "feature": "mode:symbolic:head:Eq",
+          "threshold": 0.0,
+          "gain": 12.32541579845238,
+          "left": {
+            "value": -0.036104309296075984,
+            "observations": 286
+          },
+          "right": {
+            "value": 0.5020445320147604,
+            "observations": 50
+          }
+        },
+        "right": {
+          "value": -0.6156830892525116,
+          "observations": 24,
+          "feature": "attempts_per_second",
+          "threshold": 0.17045472682105434,
+          "gain": -3.552713678800501e-15,
+          "left": {
+            "value": -0.6156830892525115,
+            "observations": 12
+          },
+          "right": {
+            "value": -0.6156830892525115,
+            "observations": 12
+          }
+        }
+      },
+      {
+        "value": 8.881784197001253e-17,
+        "observations": 360,
+        "feature": "functions",
+        "threshold": 0.125,
+        "gain": 9.202143663842435,
+        "left": {
+          "value": -0.1238422630058254,
+          "observations": 225,
+          "feature": "mode:symbolic:hypotheses",
+          "threshold": 0.125,
+          "gain": 10.498812251372325,
+          "left": {
+            "value": -0.22428602194597788,
+            "observations": 185
+          },
+          "right": {
+            "value": 0.3407101220923797,
+            "observations": 40
+          }
+        },
+        "right": {
+          "value": 0.20640377167637597,
+          "observations": 135,
+          "feature": "target_size",
+          "threshold": 0.043333333333333335,
+          "gain": 12.626266842380183,
+          "left": {
+            "value": 0.5099700613146286,
+            "observations": 68
+          },
+          "right": {
+            "value": -0.10169335810573144,
+            "observations": 67
+          }
+        }
+      },
+      {
+        "value": 5.181040781584064e-17,
+        "observations": 360,
+        "feature": "mode:symbolic:target_size",
+        "threshold": 0.055,
+        "gain": 7.952229873356981,
+        "left": {
+          "value": 0.03791806814214821,
+          "observations": 338,
+          "feature": "forall",
+          "threshold": 0.0,
+          "gain": 12.643351790231726,
+          "left": {
+            "value": -0.026762738523308433,
+            "observations": 304
+          },
+          "right": {
+            "value": 0.6162405747979958,
+            "observations": 34
+          }
+        },
+        "right": {
+          "value": -0.5825594105475488,
+          "observations": 22
+        }
+      },
+      {
+        "value": -1.973729821555834e-17,
+        "observations": 360,
+        "feature": "goals",
+        "threshold": 0.125,
+        "gain": 8.861701157288797,
+        "left": {
+          "value": -0.049841418429705985,
+          "observations": 327,
+          "feature": "target_size",
+          "threshold": 0.028333333333333332,
+          "gain": 16.738321637869326,
+          "left": {
+            "value": -0.39071630520510153,
+            "observations": 100
+          },
+          "right": {
+            "value": 0.1003237299294991,
+            "observations": 227
+          }
+        },
+        "right": {
+          "value": 0.49388314625799556,
+          "observations": 33,
+          "feature": "mode:symbolic:attempts_per_second",
+          "threshold": 0.0,
+          "gain": 3.784366029411162,
+          "left": {
+            "value": 0.7845709529780021,
+            "observations": 19
+          },
+          "right": {
+            "value": 0.09937826570941542,
+            "observations": 14
+          }
+        }
+      },
+      {
+        "value": -9.128500424695731e-17,
+        "observations": 360,
+        "feature": "mode:typed:proof_hypotheses",
+        "threshold": 0.0,
+        "gain": 8.871248959891659,
+        "left": {
+          "value": -0.047330903052984666,
+          "observations": 330,
+          "feature": "target_size",
+          "threshold": 0.028333333333333332,
+          "gain": 9.282841665596255,
+          "left": {
+            "value": -0.28132383380585074,
+            "observations": 112
+          },
+          "right": {
+            "value": 0.07288564852646942,
+            "observations": 218
+          }
+        },
+        "right": {
+          "value": 0.5206399335828302,
+          "observations": 30,
+          "feature": "head:Exists",
+          "threshold": 0.0,
+          "gain": 5.698845773502489,
+          "left": {
+            "value": 0.9283363096526811,
+            "observations": 16
+          },
+          "right": {
+            "value": 0.05470121807442901,
+            "observations": 14
+          }
+        }
+      },
+      {
+        "value": -3.824101529264428e-17,
+        "observations": 360,
+        "feature": "goals",
+        "threshold": 0.125,
+        "gain": 7.498118660210641,
+        "left": {
+          "value": -0.045846691203952676,
+          "observations": 327,
+          "feature": "hypotheses",
+          "threshold": 0.1,
+          "gain": 13.012749151408322,
+          "left": {
+            "value": -0.7886079300140589,
+            "observations": 22
+          },
+          "right": {
+            "value": 0.007729529300382855,
+            "observations": 305
+          }
+        },
+        "right": {
+          "value": 0.45429903102098507,
+          "observations": 33,
+          "feature": "mode:symbolic:bias",
+          "threshold": 0.0,
+          "gain": 2.757034591860112,
+          "left": {
+            "value": 0.7024130793908253,
+            "observations": 19
+          },
+          "right": {
+            "value": 0.11757282251905897,
+            "observations": 14
+          }
+        }
+      },
+      {
+        "value": -1.1842378929335003e-16,
+        "observations": 360,
+        "feature": "class:CommRing",
+        "threshold": 0.0,
+        "gain": 7.184414518176385,
+        "left": {
+          "value": 0.037755517094415963,
+          "observations": 336,
+          "feature": "mode:symbolic:head:Eq",
+          "threshold": 0.0,
+          "gain": 10.002783667400163,
+          "left": {
+            "value": -0.034387248180576986,
+            "observations": 286
+          },
+          "right": {
+            "value": 0.45041213446737566,
+            "observations": 50
+          }
+        },
+        "right": {
+          "value": -0.5285772393218249,
+          "observations": 24,
+          "feature": "attempts_per_second",
+          "threshold": 0.17045472682105434,
+          "gain": 7.105427357601002e-15,
+          "left": {
+            "value": -0.5285772393218252,
+            "observations": 12
+          },
+          "right": {
+            "value": -0.5285772393218252,
+            "observations": 12
+          }
+        }
+      },
+      {
+        "value": -1.4556257433974275e-16,
+        "observations": 360,
+        "feature": "mode:typed:proof_hypotheses",
+        "threshold": 0.0,
+        "gain": 6.914967507431438,
+        "left": {
+          "value": -0.04178760481312673,
+          "observations": 330,
+          "feature": "head:And",
+          "threshold": 0.0,
+          "gain": 7.322886837186449,
+          "left": {
+            "value": 0.03269488670886162,
+            "observations": 264
+          },
+          "right": {
+            "value": -0.3397175709010802,
+            "observations": 66
+          }
+        },
+        "right": {
+          "value": 0.4596636529443922,
+          "observations": 30,
+          "feature": "mode:typed:head:Exists",
+          "threshold": 0.0,
+          "gain": 4.3646859579087005,
+          "left": {
+            "value": 0.8164595896351059,
+            "observations": 16
+          },
+          "right": {
+            "value": 0.051896868155005126,
+            "observations": 14
+          }
+        }
+      },
+      {
+        "value": -3.577385301569949e-17,
+        "observations": 360,
+        "feature": "proof_hypotheses",
+        "threshold": 0.0,
+        "gain": 6.408045154343441,
+        "left": {
+          "value": -0.13565957213208982,
+          "observations": 177,
+          "feature": "target_size",
+          "threshold": 0.028333333333333332,
+          "gain": 14.111821549533202,
+          "left": {
+            "value": -0.598551003158143,
+            "observations": 48
+          },
+          "right": {
+            "value": 0.0365790998776044,
+            "observations": 129
+          }
+        },
+        "right": {
+          "value": 0.13121171730808678,
+          "observations": 183,
+          "feature": "local_equalities",
+          "threshold": 0.0,
+          "gain": 9.577859756783463,
+          "left": {
+            "value": 0.2753484641842942,
+            "observations": 131
+          },
+          "right": {
+            "value": -0.231902010399282,
+            "observations": 52
+          }
+        }
+      },
+      {
+        "value": 5.921189464667501e-17,
+        "observations": 360,
+        "feature": "mode:symbolic:target_size",
+        "threshold": 0.055,
+        "gain": 6.410684833356278,
+        "left": {
+          "value": 0.034045048174091166,
+          "observations": 338,
+          "feature": "forall",
+          "threshold": 0.0,
+          "gain": 8.87125797771557,
+          "left": {
+            "value": -0.020134692372365346,
+            "observations": 304
+          },
+          "right": {
+            "value": 0.5184756695306435,
+            "observations": 34
+          }
+        },
+        "right": {
+          "value": -0.5230557401292178,
+          "observations": 22
+        }
+      },
+      {
+        "value": -5.427757009278543e-17,
+        "observations": 360,
+        "feature": "class:CommRing",
+        "threshold": 0.0,
+        "gain": 5.533067042429727,
+        "left": {
+          "value": 0.033133529277558825,
+          "observations": 336,
+          "feature": "mode:symbolic:head:Eq",
+          "threshold": 0.0,
+          "gain": 8.504639047655315,
+          "left": {
+            "value": -0.03338770364515229,
+            "observations": 286
+          },
+          "right": {
+            "value": 0.41363498159546647,
+            "observations": 50
+          }
+        },
+        "right": {
+          "value": -0.4638694098858242,
+          "observations": 24,
+          "feature": "attempts_per_second",
+          "threshold": 0.17045472682105434,
+          "gain": 4.440892098500626e-15,
+          "left": {
+            "value": -0.4638694098858244,
+            "observations": 12
+          },
+          "right": {
+            "value": -0.4638694098858244,
+            "observations": 12
+          }
+        }
+      },
+      {
+        "value": -1.3322676295501878e-16,
+        "observations": 360,
+        "feature": "mode:symbolic:class:Monoid",
+        "threshold": 0.0,
+        "gain": 5.919421846894721,
+        "left": {
+          "value": 0.023811644835650934,
+          "observations": 348,
+          "feature": "mode:symbolic:hypotheses",
+          "threshold": 0.125,
+          "gain": 6.090922564465635,
+          "left": {
+            "value": -0.04078889668698784,
+            "observations": 281
+          },
+          "right": {
+            "value": 0.2947482443559718,
+            "observations": 67
+          }
+        },
+        "right": {
+          "value": -0.690537700233881,
+          "observations": 12
+        }
+      },
+      {
+        "value": -2.7138785046392715e-17,
+        "observations": 360,
+        "feature": "mode:typed:proof_hypotheses",
+        "threshold": 0.0,
+        "gain": 5.563158455274328,
+        "left": {
+          "value": -0.037481168521754295,
+          "observations": 330,
+          "feature": "target_size",
+          "threshold": 0.028333333333333332,
+          "gain": 6.458123159540057,
+          "left": {
+            "value": -0.23265223129500553,
+            "observations": 112
+          },
+          "right": {
+            "value": 0.0627902031782647,
+            "observations": 218
+          }
+        },
+        "right": {
+          "value": 0.412292853739297,
+          "observations": 30,
+          "feature": "target_size",
+          "threshold": 0.021666666666666667,
+          "gain": 3.917316264414545,
+          "left": {
+            "value": 0.773647539351395,
+            "observations": 15
+          },
+          "right": {
+            "value": 0.050938168127199084,
+            "observations": 15
+          }
+        }
+      },
+      {
+        "value": -1.1595662701640525e-16,
+        "observations": 360,
+        "feature": "goals",
+        "threshold": 0.125,
+        "gain": 5.784783558565888,
+        "left": {
+          "value": -0.04026942239245866,
+          "observations": 327,
+          "feature": "target_size",
+          "threshold": 0.028333333333333332,
+          "gain": 9.286879447811247,
+          "left": {
+            "value": -0.29417600269010485,
+            "observations": 100
+          },
+          "right": {
+            "value": 0.07158369668139426,
+            "observations": 227
+          }
+        },
+        "right": {
+          "value": 0.39903336734345274,
+          "observations": 33,
+          "feature": "mode:symbolic:attempts_per_second",
+          "threshold": 0.0,
+          "gain": 1.9198150688150797,
+          "left": {
+            "value": 0.606076078280522,
+            "observations": 19
+          },
+          "right": {
+            "value": 0.11804683107171579,
+            "observations": 14
+          }
+        }
+      },
+      {
+        "value": 0.0,
+        "observations": 360,
+        "feature": "mode:symbolic:target_size",
+        "threshold": 0.055,
+        "gain": 5.385638867140861,
+        "left": {
+          "value": 0.03120472460881087,
+          "observations": 338,
+          "feature": "forall",
+          "threshold": 0.0,
+          "gain": 6.876794685945454,
+          "left": {
+            "value": -0.016497358605800566,
+            "observations": 304
+          },
+          "right": {
+            "value": 0.4577174686453369,
+            "observations": 34
+          }
+        },
+        "right": {
+          "value": -0.4794180417171852,
+          "observations": 22
+        }
+      },
+      {
+        "value": 0.0,
+        "observations": 360,
+        "feature": "mode:symbolic:functions",
+        "threshold": 0.25,
+        "gain": 5.382220587567276,
+        "left": {
+          "value": 0.031194820175362063,
+          "observations": 338,
+          "feature": "functions",
+          "threshold": 0.125,
+          "gain": 8.64031106857301,
+          "left": {
+            "value": -0.08211154340698242,
+            "observations": 225
+          },
+          "right": {
+            "value": 0.25680483615790634,
+            "observations": 113
+          }
+        },
+        "right": {
+          "value": -0.4792658736032899,
+          "observations": 22
+        }
+      },
+      {
+        "value": 1.7270135938613546e-17,
+        "observations": 360,
+        "feature": "head:Exists",
+        "threshold": 0.0,
+        "gain": 4.479650210843593,
+        "left": {
+          "value": 0.057705662005265106,
+          "observations": 284,
+          "feature": "mode:typed:proof_hypotheses",
+          "threshold": 0.0,
+          "gain": 6.7922057906359345,
+          "left": {
+            "value": 0.01991897274919201,
+            "observations": 268
+          },
+          "right": {
+            "value": 0.6906327070444893,
+            "observations": 16
+          }
+        },
+        "right": {
+          "value": -0.215636947493359,
+          "observations": 76,
+          "feature": "hypotheses",
+          "threshold": 0.15,
+          "gain": 4.8175403616129495,
+          "left": {
+            "value": -0.4303480666847742,
+            "observations": 44
+          },
+          "right": {
+            "value": 0.0795908413948373,
+            "observations": 32
+          }
+        }
+      },
+      {
+        "value": 7.894919286223336e-17,
+        "observations": 360,
+        "feature": "mode:symbolic:functions",
+        "threshold": 0.25,
+        "gain": 4.410979528091364,
+        "left": {
+          "value": 0.028240297074326966,
+          "observations": 338,
+          "feature": "mode:symbolic:hypotheses",
+          "threshold": 0.125,
+          "gain": 11.39284152139599,
+          "left": {
+            "value": -0.05791514415770587,
+            "observations": 277
+          },
+          "right": {
+            "value": 0.4194707433247056,
+            "observations": 61
+          }
+        },
+        "right": {
+          "value": -0.43387365505102216,
+          "observations": 22
+        }
+      },
+      {
+        "value": 1.5296406117057712e-16,
+        "observations": 360,
+        "feature": "mode:symbolic:class:Monoid",
+        "threshold": 0.0,
+        "gain": 4.604136714532101,
+        "left": {
+          "value": 0.0210002205665578,
+          "observations": 348,
+          "feature": "mode:symbolic:head:Eq",
+          "threshold": 0.0,
+          "gain": 9.235922231804098,
+          "left": {
+            "value": -0.042580574750432566,
+            "observations": 302
+          },
+          "right": {
+            "value": 0.4384219637346247,
+            "observations": 46
+          }
+        },
+        "right": {
+          "value": -0.6090063964301717,
+          "observations": 12
+        }
+      },
+      {
+        "value": 1.4802973661668754e-17,
+        "observations": 360,
+        "feature": "goals",
+        "threshold": 0.125,
+        "gain": 4.661607111298096,
+        "left": {
+          "value": -0.03614928210834908,
+          "observations": 327,
+          "feature": "hypotheses",
+          "threshold": 0.1,
+          "gain": 7.9833087244135665,
+          "left": {
+            "value": -0.6179257693811435,
+            "observations": 22
+          },
+          "right": {
+            "value": 0.005814923531000042,
+            "observations": 305
+          }
+        },
+        "right": {
+          "value": 0.35820652271000464,
+          "observations": 33,
+          "feature": "mode:symbolic:attempts_per_second",
+          "threshold": 0.0,
+          "gain": 1.5750041860451827,
+          "left": {
+            "value": 0.5457366738408189,
+            "observations": 19
+          },
+          "right": {
+            "value": 0.10370131760389954,
+            "observations": 14
+          }
+        }
+      },
+      {
+        "value": 1.4802973661668754e-17,
+        "observations": 360,
+        "feature": "class:CommRing",
+        "threshold": 0.0,
+        "gain": 4.3248199907447535,
+        "left": {
+          "value": 0.029293330375920867,
+          "observations": 336,
+          "feature": "mode:symbolic:head:Eq",
+          "threshold": 0.0,
+          "gain": 5.840111011941186,
+          "left": {
+            "value": -0.025830945579291872,
+            "observations": 286
+          },
+          "right": {
+            "value": 0.34460418883973787,
+            "observations": 50
+          }
+        },
+        "right": {
+          "value": -0.41010662526289204,
+          "observations": 24,
+          "feature": "attempts_per_second",
+          "threshold": 0.17045472682105434,
+          "gain": -1.7763568394002505e-15,
+          "left": {
+            "value": -0.410106625262892,
+            "observations": 12
+          },
+          "right": {
+            "value": -0.410106625262892,
+            "observations": 12
+          }
+        }
+      },
+      {
+        "value": -6.167905692361981e-17,
+        "observations": 360,
+        "feature": "mode:symbolic:class:Monoid",
+        "threshold": 0.0,
+        "gain": 4.2214494131018805,
+        "left": {
+          "value": 0.020108540276697444,
+          "observations": 348,
+          "feature": "mode:symbolic:head:Eq",
+          "threshold": 0.0,
+          "gain": 6.588449215033804,
+          "left": {
+            "value": -0.03359184773741542,
+            "observations": 302
+          },
+          "right": {
+            "value": 0.3726632615867433,
+            "observations": 46
+          }
+        },
+        "right": {
+          "value": -0.5831476680242287,
+          "observations": 12
+        }
+      },
+      {
+        "value": 1.850371707708594e-17,
+        "observations": 360,
+        "feature": "proof_hypotheses",
+        "threshold": 0.0,
+        "gain": 4.439737918992634,
+        "left": {
+          "value": -0.11291881928411814,
+          "observations": 177,
+          "feature": "target_size",
+          "threshold": 0.028333333333333332,
+          "gain": 8.48062405073731,
+          "left": {
+            "value": -0.4717593653397996,
+            "observations": 48
+          },
+          "right": {
+            "value": 0.020603244364507556,
+            "observations": 129
+          }
+        },
+        "right": {
+          "value": 0.10921656291414711,
+          "observations": 183,
+          "feature": "mode:symbolic:head:Eq",
+          "threshold": 0.0,
+          "gain": 8.18675008225061,
+          "left": {
+            "value": 0.04374812521270284,
+            "observations": 167
+          },
+          "right": {
+            "value": 0.7925433814229716,
+            "observations": 16
+          }
+        }
+      },
+      {
+        "value": 4.9343245538895844e-17,
+        "observations": 360,
+        "feature": "mode:symbolic:target_size",
+        "threshold": 0.055,
+        "gain": 4.253427324811252,
+        "left": {
+          "value": 0.027731365076793777,
+          "observations": 338,
+          "feature": "forall",
+          "threshold": 0.0,
+          "gain": 5.951217100049753,
+          "left": {
+            "value": -0.016644538925921413,
+            "observations": 304
+          },
+          "right": {
+            "value": 0.42450415380695317,
+            "observations": 34
+          }
+        },
+        "right": {
+          "value": -0.42605460890710384,
+          "observations": 22
+        }
+      },
+      {
+        "value": 1.1719020815487764e-16,
+        "observations": 360,
+        "feature": "mode:symbolic:class:Monoid",
+        "threshold": 0.0,
+        "gain": 4.128492732826059,
+        "left": {
+          "value": 0.019885911985157424,
+          "observations": 348,
+          "feature": "mode:symbolic:head:Eq",
+          "threshold": 0.0,
+          "gain": 5.411397292523061,
+          "left": {
+            "value": -0.02878175552940846,
+            "observations": 302
+          },
+          "right": {
+            "value": 0.3393997291460033,
+            "observations": 46
+          }
+        },
+        "right": {
+          "value": -0.576691447569562,
+          "observations": 12
+        }
+      },
+      {
+        "value": 1.936722387401662e-16,
+        "observations": 360,
+        "feature": "proof_hypotheses",
+        "threshold": 0.0,
+        "gain": 4.0045324406860745,
+        "left": {
+          "value": -0.10724167026811451,
+          "observations": 177,
+          "feature": "target_size",
+          "threshold": 0.028333333333333332,
+          "gain": 6.763919135366171,
+          "left": {
+            "value": -0.4277112469576913,
+            "observations": 48
+          },
+          "right": {
+            "value": 0.012002823383821002,
+            "observations": 129
+          }
+        },
+        "right": {
+          "value": 0.10372554993145537,
+          "observations": 183,
+          "feature": "target_size",
+          "threshold": 0.03166666666666667,
+          "gain": 7.551503419836559,
+          "left": {
+            "value": 0.2908425355622248,
+            "observations": 99
+          },
+          "right": {
+            "value": -0.11680518313337988,
+            "observations": 84
+          }
+        }
+      },
+      {
+        "value": 1.4062824978585316e-16,
+        "observations": 360,
+        "feature": "mode:typed:attempts_per_second",
+        "threshold": 0.18618051259308885,
+        "gain": 3.892798693007349,
+        "left": {
+          "value": -0.034662387080071064,
+          "observations": 324,
+          "feature": "head:And",
+          "threshold": 0.0,
+          "gain": 3.9099739431068072,
+          "left": {
+            "value": 0.021954879749076693,
+            "observations": 256
+          },
+          "right": {
+            "value": -0.24780974455450983,
+            "observations": 68
+          }
+        },
+        "right": {
+          "value": 0.3119614837206411,
+          "observations": 36,
+          "feature": "depth",
+          "threshold": 0.0,
+          "gain": 4.162141712654523,
+          "left": {
+            "value": 0.040717659657533684,
+            "observations": 22
+          },
+          "right": {
+            "value": 0.7382017786769526,
+            "observations": 14
+          }
+        }
+      },
+      {
+        "value": 1.9737298215558337e-16,
+        "observations": 360,
+        "feature": "class:CommRing",
+        "threshold": 0.0,
+        "gain": 3.694645748089046,
+        "left": {
+          "value": 0.027075166344038615,
+          "observations": 336,
+          "feature": "mode:typed:target_size",
+          "threshold": 0.034166666666666665,
+          "gain": 4.580276153368819,
+          "left": {
+            "value": -0.01210012003726557,
+            "observations": 302
+          },
+          "right": {
+            "value": 0.3750438865544463,
+            "observations": 34
+          }
+        },
+        "right": {
+          "value": -0.37905232881653755,
+          "observations": 24,
+          "feature": "attempts_per_second",
+          "threshold": 0.17045472682105434,
+          "gain": 1.3201571618104424e-06,
+          "left": {
+            "value": -0.37881779406768185,
+            "observations": 12
+          },
+          "right": {
+            "value": -0.37928686356539326,
+            "observations": 12
+          }
+        }
+      },
+      {
+        "value": 1.1719020815487764e-16,
+        "observations": 360,
+        "feature": "mode:symbolic:class:Monoid",
+        "threshold": 0.0,
+        "gain": 3.61714600980707,
+        "left": {
+          "value": 0.018613702595427568,
+          "observations": 348,
+          "feature": "mode:symbolic:head:Eq",
+          "threshold": 0.0,
+          "gain": 4.636439499072032,
+          "left": {
+            "value": -0.026434567777543144,
+            "observations": 302
+          },
+          "right": {
+            "value": 0.31436539069623515,
+            "observations": 46
+          }
+        },
+        "right": {
+          "value": -0.5397973752673955,
+          "observations": 12
+        }
+      },
+      {
+        "value": 6.5379800339037e-17,
+        "observations": 360,
+        "feature": "proof_hypotheses",
+        "threshold": 0.0,
+        "gain": 3.8335309648145035,
+        "left": {
+          "value": -0.10492697416949351,
+          "observations": 177,
+          "feature": "target_size",
+          "threshold": 0.028333333333333332,
+          "gain": 5.430260130520997,
+          "left": {
+            "value": -0.39206976725369885,
+            "observations": 48
+          },
+          "right": {
+            "value": 0.0019168558153270822,
+            "observations": 129
+          }
+        },
+        "right": {
+          "value": 0.10148674550819874,
+          "observations": 183,
+          "feature": "mode:symbolic:head:Eq",
+          "threshold": 0.0,
+          "gain": 6.450060193748351,
+          "left": {
+            "value": 0.043375779540543606,
+            "observations": 167
+          },
+          "right": {
+            "value": 0.7080199527955995,
+            "observations": 16
+          }
+        }
+      },
+      {
+        "value": -4.194175870806147e-17,
+        "observations": 360,
+        "feature": "mode:symbolic:functions",
+        "threshold": 0.25,
+        "gain": 3.389805746598791,
+        "left": {
+          "value": 0.024756494314144624,
+          "observations": 338,
+          "feature": "forall",
+          "threshold": 0.0,
+          "gain": 9.799545414027957,
+          "left": {
+            "value": -0.022317972708346623,
+            "observations": 314
+          },
+          "right": {
+            "value": 0.6406474378584052,
+            "observations": 24
+          }
+        },
+        "right": {
+          "value": -0.3803497762809499,
+          "observations": 22
+        }
+      },
+      {
+        "value": 2.4671622769447924e-18,
+        "observations": 360,
+        "feature": "goals",
+        "threshold": 0.125,
+        "gain": 3.4278186219981874,
+        "left": {
+          "value": -0.030998505785065345,
+          "observations": 327,
+          "feature": "hypotheses",
+          "threshold": 0.1,
+          "gain": 5.1808328134727955,
+          "left": {
+            "value": -0.4996656319939937,
+            "observations": 22
+          },
+          "right": {
+            "value": 0.002806991843119656,
+            "observations": 305
+          }
+        },
+        "right": {
+          "value": 0.3071670118701929,
+          "observations": 33,
+          "feature": "mode:symbolic:attempts_per_second",
+          "threshold": 0.0,
+          "gain": 1.196681314195037,
+          "left": {
+            "value": 0.4706300258390243,
+            "observations": 19
+          },
+          "right": {
+            "value": 0.08532435005535037,
+            "observations": 14
+          }
+        }
+      },
+      {
+        "value": 3.700743415417188e-17,
+        "observations": 360,
+        "feature": "mode:symbolic:class:Monoid",
+        "threshold": 0.0,
+        "gain": 3.5019428502848844,
+        "left": {
+          "value": 0.018314888449460408,
+          "observations": 348,
+          "feature": "mode:symbolic:head:Eq",
+          "threshold": 0.0,
+          "gain": 3.6568927224146215,
+          "left": {
+            "value": -0.021692659321610182,
+            "observations": 302
+          },
+          "right": {
+            "value": 0.28097313685953235,
+            "observations": 46
+          }
+        },
+        "right": {
+          "value": -0.5311317650343504,
+          "observations": 12
+        }
+      },
+      {
+        "value": 8.141635513917814e-17,
+        "observations": 360,
+        "feature": "mode:symbolic:target_size",
+        "threshold": 0.055,
+        "gain": 3.3281977282918005,
+        "left": {
+          "value": 0.0245304943162701,
+          "observations": 338,
+          "feature": "mode:symbolic:head:And",
+          "threshold": 0.0,
+          "gain": 4.134467996372895,
+          "left": {
+            "value": 0.056457695148035766,
+            "observations": 312
+          },
+          "right": {
+            "value": -0.35859591566491766,
+            "observations": 26
+          }
+        },
+        "right": {
+          "value": -0.3768775944954211,
+          "observations": 22
+        }
+      },
+      {
+        "value": -3.824101529264428e-17,
+        "observations": 360,
+        "feature": "proof_hypotheses",
+        "threshold": 0.0,
+        "gain": 3.433841733663189,
+        "left": {
+          "value": -0.09930652809977966,
+          "observations": 177,
+          "feature": "mode:symbolic:target_size",
+          "threshold": 0.055,
+          "gain": 4.356960069422806,
+          "left": {
+            "value": -0.05332584993743843,
+            "observations": 163
+          },
+          "right": {
+            "value": -0.6346529952756098,
+            "observations": 14
+          }
+        },
+        "right": {
+          "value": 0.09605057635880322,
+          "observations": 183,
+          "feature": "local_equalities",
+          "threshold": 0.0,
+          "gain": 6.042342520213106,
+          "left": {
+            "value": 0.21053414253718064,
+            "observations": 131
+          },
+          "right": {
+            "value": -0.19235994612903237,
+            "observations": 52
+          }
+        }
+      },
+      {
+        "value": -8.388351741612294e-17,
+        "observations": 360,
+        "feature": "mode:hybrid:head:And",
+        "threshold": 0.0,
+        "gain": 2.9504188455470666,
+        "left": {
+          "value": 0.02827669540201399,
+          "observations": 328,
+          "feature": "proof_hypotheses",
+          "threshold": 0.0,
+          "gain": 5.321977137593633,
+          "left": {
+            "value": -0.08937587528980175,
+            "observations": 177
+          },
+          "right": {
+            "value": 0.16618732462354635,
+            "observations": 151
+          }
+        },
+        "right": {
+          "value": -0.2898361278706443,
+          "observations": 32,
+          "feature": "hypotheses",
+          "threshold": 0.125,
+          "gain": 0.31621809206036744,
+          "left": {
+            "value": -0.3775051440864376,
+            "observations": 18
+          },
+          "right": {
+            "value": -0.1771188213074815,
+            "observations": 14
+          }
+        }
+      }
+    ],
+    "uncorrected_log_bias": 2.1129190950867023,
+    "training_smearing_factor": 1.7380871628722465
+  },
+  "conservative_margin": 0.3,
+  "collection_sha256": "96b672b658bcb8a91b4dd8ae5229327c438afd75942a876d92f4f66e9cc797c3",
+  "data_freeze_sha256": "146f27a8bacf83fe069243685cd51c488d05298962a0c718e67c3e4935573b5e",
+  "label_semantics": "1 means independent verification within the stated budget; 0 is observed bounded noncompletion, never mathematical falsity. Errors, unavailable and unrun observations are missing, never zeros.",
+  "selection": "Equal-family validation Brier score for completion, successful conditional log-attempt MSE for cost; ties favor linear. Conservative margin maximizes matched validation completion, ties favor larger margin. No refit on validation."
+}
