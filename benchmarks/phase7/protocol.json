@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "base_commit": "a8af9eb8698819d07bb10f7f1bacd855f9b1213a",
+  "primary": "conservative minus phase6_staged",
+  "workers": 2,
+  "seed": 707,
+  "evaluation_budget": {
+    "max_depth": 12,
+    "max_expansions": 80,
+    "max_candidates": 24,
+    "max_attempts": 600,
+    "timeout_s": 18,
+    "tactic_timeout_s": 2
+  },
+  "collection_budgets": [
+    {
+      "max_depth": 10,
+      "max_expansions": 28,
+      "max_candidates": 24,
+      "max_attempts": 160,
+      "timeout_s": 8,
+      "tactic_timeout_s": 2
+    },
+    {
+      "max_depth": 12,
+      "max_expansions": 80,
+      "max_candidates": 24,
+      "max_attempts": 600,
+      "timeout_s": 18,
+      "tactic_timeout_s": 2
+    }
+  ],
+  "source_budget": {
+    "max_depth": 10,
+    "max_expansions": 28,
+    "max_candidates": 24,
+    "max_attempts": 160,
+    "timeout_s": 8,
+    "tactic_timeout_s": 2
+  },
+  "states_per_task": 2,
+  "source_state_rule": "Root plus first nonterminal nonroot expanded state; if unavailable, first accepted nonterminal successor. No success-conditioned source selection.",
+  "strategies": [
+    "symbolic",
+    "hybrid",
+    "typed"
+  ],
+  "validation_families": [
+    "previous_continuation_logic",
+    "previous_lattice_maps",
+    "guarded_cases",
+    "dependent_output"
+  ],
+  "architectures": [
+    "linear",
+    "boosted"
+  ],
+  "tree_depth": 2,
+  "tree_iterations": 48,
+  "conservative_margins": [
+    0.1,
+    0.2,
+    0.3
+  ],
+  "selection": "Equal-family validation Brier score for completion, successful conditional log-attempt MSE for cost; ties favor linear. Conservative margin maximizes matched validation completion, ties favor larger margin. No refit on validation.",
+  "arms": [
+    "phase4",
+    "phase6_staged",
+    "phase6_learned",
+    "completion",
+    "cost",
+    "joint",
+    "conservative",
+    "root_trained",
+    "staged",
+    "automation",
+    "grind"
+  ],
+  "labels": "1 means independent verification within the stated budget; 0 is observed bounded noncompletion, never mathematical falsity. Errors, unavailable and unrun observations are missing, never zeros.",
+  "joint_rule": "p - .25*p*min(conditional_attempts/remaining_attempts,2)",
+  "automation": "Separate opaque Aesop/grind reference, 2 seconds per call under the same outer 18-second cap; attempts are not primitive work.",
+  "inference": "Current native goals/context and remaining budgets only. No IDs, prefixes, future outcomes or answer scripts.",
+  "uncertainty": "10000 paired theorem bootstrap samples seed707; separate equal-family cluster sensitivity; all regressions retained; no final-result retuning.",
+  "boundary": "Historical evaluation is diagnosis only; old permitted development statements may be recollected. New evaluation families differ from development schemata, but share elementary proof primitives; not externally blinded."
+}
