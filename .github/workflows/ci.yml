@@ -1,7 +1,7 @@
 name: Verify ProofLab
 on:
   push:
-    branches: [main]
+    branches: [main, feature/phase7-budget-aware-learning]
   pull_request:
   workflow_dispatch:
 permissions:
@@ -10,6 +10,9 @@ jobs:
   verify:
     runs-on: ubuntu-24.04
     timeout-minutes: 25
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
     steps:
       - uses: actions/checkout@v4
       - uses: astral-sh/setup-uv@v6

@@ -7,7 +7,36 @@ Mathlib. ProofLab **constructs proof paths** using breadth-first, handcrafted
 best-first, locally learned candidate ranking and learned frontier scheduling, visualizes actual tactic attempts, and
 rechecks every successful proof in a separate Lean process.
 
-**v0.6.0 review candidate:** adaptive hybrid search combines the strongest Phase 4
+**v0.7.0 review candidate — Budget-Aware Policy Learning:** a CPU completion
+classifier estimates whether a native Lean state can be independently proved
+within a given budget. A separate conditional-cost model supports completion-only,
+joint and conservative routing between symbolic, hybrid and typed search. Real
+intermediate-state continuations train the policy; the new **Policy Learning
+Explorer** exposes actual predictions, decisions, native trees and failures.
+
+**Measured Phase 7 finding:** on 48 new statements, Phase 6 staged and Phase 7
+completion/conservative each solve **44/48**; the prior learned controller solves
+**39/48**, and the new cost-only/joint policies each solve **40/48**. Completion,
+conservative and root-trained policies reproduce the staged control's complete
+attempt sequence on all 48 tasks. **No new search benefit over the strongest
+prior algorithm is established.** The joint policy has two gains and six
+regressions versus staged search. These are preserved negative results, not a
+claim that fitting a model improved the proof search.
+
+The study retains **684 actual matched development continuations** (477 verified,
+207 bounded noncompletions), 64 source searches, whole-family validation, selected
+linear/nonlinear CPU models, and all **528 frozen evaluation executions**. All
+Phase 1–6 models and research remain unchanged. The old 30/48 Phase 6 result is
+on a different test set and is not compared numerically as an improvement.
+
+[Detailed v0.7.0 report](docs/phase-7-final-report.md) ·
+[Architecture and limitations](docs/phase-7-architecture.md) ·
+[Reproduction](docs/phase-7-reproduction.md). The separate review branch targets
+`feature/phase6-adaptive-hybrid`; no automatic merge is performed.
+
+![The actual Policy Learning Explorer showing native goals and model decisions](docs/assets/phase7-policy-explorer.png)
+
+**Historical v0.6.0 baseline:** adaptive hybrid search combines the strongest Phase 4
 symbolic generator, native type-directed retrieval, callable expression synthesis
 and locally learned mathematical-context selection. The integrated **Adaptive
 Proof Search Explorer** separates proposed/selected tactics, execution order,
@@ -42,7 +71,7 @@ separate native Aesop **31/40**, with all **1120 actual searches** retained. The
 learned retriever adds no success and costs 328 extra attempts on one group task.
 The [Phase 5 report](docs/phase-5-final-report.md) and earlier
 [Phase 4 negative result](docs/phase-4-final-report.md) remain available; neither
-is presented as a new Phase 6 test. This draft targets
+is presented as a new Phase 6 test. The historical Phase 6 draft targets
 `feature/phase5-type-directed-retrieval` and is not merged into `main`.
 
 No paid model, API key, external inference service, or GPU is required.
@@ -85,7 +114,7 @@ Prerequisites: Linux, Python 3.12+, [uv](https://docs.astral.sh/uv/), Node.js
 20.19+ (or 22.12+), npm, Git, curl. Allow several GB for Lean and Mathlib.
 
 ```bash
-git clone --branch feature/phase6-adaptive-hybrid https://github.com/Marci99forgrateful/prooflab.git
+git clone --branch feature/phase7-budget-aware-learning https://github.com/Marci99forgrateful/prooflab.git
 cd prooflab
 bash scripts/bootstrap.sh
 uv run --frozen prooflab serve

@@ -1,0 +1,1044 @@
+{
+  "calibration": {
+    "validation_rows": 174,
+    "paired_budget_comparisons": 87,
+    "budget_monotonicity_violations": 0,
+    "brier": {
+      "all": 0.16960035013402952,
+      "root": 0.14317794014446752,
+      "budget_0": 0.18792186451081783,
+      "budget_1": 0.15127883575724124,
+      "intermediate": 0.20212023935195203
+    },
+    "empirical_bins": {
+      "3": {
+        "n": 88,
+        "mean_prediction": 0.7260796162794578,
+        "observed_completion": 0.8181818181818182
+      },
+      "2": {
+        "n": 36,
+        "mean_prediction": 0.4692023570459518,
+        "observed_completion": 0.2777777777777778
+      },
+      "1": {
+        "n": 14,
+        "mean_prediction": 0.28860401704875166,
+        "observed_completion": 0.21428571428571427
+      },
+      "4": {
+        "n": 36,
+        "mean_prediction": 0.8576723408696032,
+        "observed_completion": 0.8888888888888888
+      }
+    },
+    "conditional_attempt_mae": 58.454518670350396,
+    "limit": "Validation only; no test-counterfactual calibration is inferred from adaptively selected final trajectories."
+  },
+  "policy_activity": {
+    "completion": {
+      "decisions": 466,
+      "departures_from_staged": 0,
+      "matched_prefixes": 466,
+      "changed_selected_pools": 0,
+      "identical_full_attempt_sequences": 48,
+      "choices": {
+        "hybrid": 221,
+        "symbolic": 245
+      }
+    },
+    "cost": {
+      "decisions": 587,
+      "departures_from_staged": 535,
+      "matched_prefixes": 122,
+      "changed_selected_pools": 85,
+      "identical_full_attempt_sequences": 10,
+      "choices": {
+        "symbolic": 439,
+        "hybrid": 148
+      }
+    },
+    "joint": {
+      "decisions": 587,
+      "departures_from_staged": 533,
+      "matched_prefixes": 122,
+      "changed_selected_pools": 85,
+      "identical_full_attempt_sequences": 10,
+      "choices": {
+        "symbolic": 437,
+        "hybrid": 150
+      }
+    },
+    "conservative": {
+      "decisions": 466,
+      "departures_from_staged": 0,
+      "matched_prefixes": 466,
+      "changed_selected_pools": 0,
+      "identical_full_attempt_sequences": 48,
+      "choices": {
+        "hybrid": 221,
+        "symbolic": 245
+      }
+    },
+    "root_trained": {
+      "decisions": 466,
+      "departures_from_staged": 0,
+      "matched_prefixes": 466,
+      "changed_selected_pools": 0,
+      "identical_full_attempt_sequences": 48,
+      "choices": {
+        "hybrid": 221,
+        "symbolic": 245
+      }
+    }
+  },
+  "cases": [
+    {
+      "task_id": "p7_test_preimage_boolean_transport_02",
+      "left_arm": "joint",
+      "right_arm": "phase6_staged",
+      "left_status": "verified",
+      "right_status": "not_found_within_budget",
+      "left_termination": "verified",
+      "right_termination": "resource_limit:expansions",
+      "left_proof": [
+        "intro h0",
+        "intro h1",
+        "left",
+        "rcases h1 with h2 | h3",
+        "simp_all",
+        "simp_all"
+      ],
+      "right_proof": [],
+      "left_attempts": 195,
+      "right_attempts": 406,
+      "matched_changes": [
+        {
+          "prefix": [
+            "intro h0",
+            "intro h1"
+          ],
+          "left_decision": "symbolic",
+          "right_decision": "hybrid",
+          "predictions": {
+            "symbolic": {
+              "completion_probability": 0.6757062669460346,
+              "conditional_attempts": 13.097185379009467
+            },
+            "hybrid": {
+              "completion_probability": 0.6757062669460346,
+              "conditional_attempts": 17.40022019153066
+            },
+            "typed": {
+              "completion_probability": 0.24811051567906994,
+              "conditional_attempts": 27.386567781872635
+            }
+          },
+          "reason": "maximum development-trained joint decision score",
+          "left_only": [],
+          "right_only": [
+            "apply False.elim",
+            "apply Or.inl",
+            "apply Or.inr",
+            "rw [Set.union_assoc]",
+            "rw [Set.union_comm]",
+            "rw [← Set.union_comm]",
+            "simp only [Set.mem_inter_iff, Set.mem_union, Set.mem_diff] at *"
+          ]
+        },
+        {
+          "prefix": [
+            "intro h0",
+            "intro h1",
+            "left"
+          ],
+          "left_decision": "symbolic",
+          "right_decision": "hybrid",
+          "predictions": {
+            "symbolic": {
+              "completion_probability": 0.6757062669460346,
+              "conditional_attempts": 13.118146812956887
+            },
+            "hybrid": {
+              "completion_probability": 0.6757062669460346,
+              "conditional_attempts": 17.406688036290078
+            },
+            "typed": {
+              "completion_probability": 0.29197782535116973,
+              "conditional_attempts": 27.304876031298637
+            }
+          },
+          "reason": "maximum development-trained joint decision score",
+          "left_only": [],
+          "right_only": [
+            "apply False.elim",
+            "apply Or.inl",
+            "apply Or.inr",
+            "simp only [Set.mem_inter_iff, Set.mem_union, Set.mem_diff] at *"
+          ]
+        },
+        {
+          "prefix": [
+            "intro h0",
+            "intro h1",
+            "left",
+            "left"
+          ],
+          "left_decision": "symbolic",
+          "right_decision": "hybrid",
+          "predictions": {
+            "symbolic": {
+              "completion_probability": 0.6757062669460346,
+              "conditional_attempts": 13.130635961698342
+            },
+            "hybrid": {
+              "completion_probability": 0.6757062669460346,
+              "conditional_attempts": 17.398752572744463
+            },
+            "typed": {
+              "completion_probability": 0.3153783528796806,
+              "conditional_attempts": 27.15434300819131
+            }
+          },
+          "reason": "maximum development-trained joint decision score",
+          "left_only": [],
+          "right_only": [
+            "apply False.elim",
+            "apply Or.inl",
+            "apply Or.inr",
+            "simp only [Set.mem_inter_iff, Set.mem_union, Set.mem_diff] at *"
+          ]
+        },
+        {
+          "prefix": [
+            "intro h0",
+            "intro h1",
+            "left",
+            "left",
+            "left"
+          ],
+          "left_decision": "symbolic",
+          "right_decision": "hybrid",
+          "predictions": {
+            "symbolic": {
+              "completion_probability": 0.4991808107579221,
+              "conditional_attempts": 13.143252364519562
+            },
+            "hybrid": {
+              "completion_probability": 0.4991808107579221,
+              "conditional_attempts": 17.390966265293475
+            },
+            "typed": {
+              "completion_probability": 0.22510696748623862,
+              "conditional_attempts": 27.005584710938933
+            }
+          },
+          "reason": "maximum development-trained joint decision score",
+          "left_only": [],
+          "right_only": [
+            "apply False.elim",
+            "simp only [Set.mem_inter_iff, Set.mem_union, Set.mem_diff] at *"
+          ]
+        },
+        {
+          "prefix": [
+            "intro h0",
+            "intro h1",
+            "left",
+            "left",
+            "right"
+          ],
+          "left_decision": "symbolic",
+          "right_decision": "hybrid",
+          "predictions": {
+            "symbolic": {
+              "completion_probability": 0.4991808107579221,
+              "conditional_attempts": 13.148598084955559
+            },
+            "hybrid": {
+              "completion_probability": 0.4991808107579221,
+              "conditional_attempts": 17.401234456470306
+            },
+            "typed": {
+              "completion_probability": 0.22510696748623862,
+              "conditional_attempts": 27.07794829756847
+            }
+          },
+          "reason": "maximum development-trained joint decision score",
+          "left_only": [],
+          "right_only": [
+            "apply False.elim",
+            "simp only [Set.mem_inter_iff, Set.mem_union, Set.mem_diff] at *"
+          ]
+        },
+        {
+          "prefix": [
+            "intro h0",
+            "intro h1",
+            "left",
+            "right"
+          ],
+          "left_decision": "symbolic",
+          "right_decision": "hybrid",
+          "predictions": {
+            "symbolic": {
+              "completion_probability": 0.4991808107579221,
+              "conditional_attempts": 13.138558454028885
+            },
+            "hybrid": {
+              "completion_probability": 0.4991808107579221,
+              "conditional_attempts": 17.412658731482946
+            },
+            "typed": {
+              "completion_probability": 0.22510696748623862,
+              "conditional_attempts": 27.23009691287445
+            }
+          },
+          "reason": "maximum development-trained joint decision score",
+          "left_only": [],
+          "right_only": [
+            "apply False.elim",
+            "simp only [Set.mem_inter_iff, Set.mem_union, Set.mem_diff] at *"
+          ]
+        },
+        {
+          "prefix": [
+            "intro h0",
+            "intro h1",
+            "left",
+            "right",
+            "simp_all"
+          ],
+          "left_decision": "symbolic",
+          "right_decision": "hybrid",
+          "predictions": {
+            "symbolic": {
+              "completion_probability": 0.4991808107579221,
+              "conditional_attempts": 13.153666678172685
+            },
+            "hybrid": {
+              "completion_probability": 0.4991808107579221,
+              "conditional_attempts": 17.411157351432053
+            },
+            "typed": {
+              "completion_probability": 0.22510696748623862,
+              "conditional_attempts": 27.148062671760616
+            }
+          },
+          "reason": "maximum development-trained joint decision score",
+          "left_only": [],
+          "right_only": [
+            "apply False.elim",
+            "simp only [Set.mem_inter_iff, Set.mem_union, Set.mem_diff] at *"
+          ]
+        },
+        {
+          "prefix": [
+            "intro h0",
+            "intro h1",
+            "right"
+          ],
+          "left_decision": "symbolic",
+          "right_decision": "hybrid",
+          "predictions": {
+            "symbolic": {
+              "completion_probability": 0.4991808107579221,
+              "conditional_attempts": 13.128966065648715
+            },
+            "hybrid": {
+              "completion_probability": 0.4991808107579221,
+              "conditional_attempts": 17.424644526368514
+            },
+            "typed": {
+              "completion_probability": 0.22851199583071485,
+              "conditional_attempts": 27.38690817795789
+            }
+          },
+          "reason": "maximum development-trained joint decision score",
+          "left_only": [],
+          "right_only": [
+            "apply False.elim",
+            "simp only [Set.mem_inter_iff, Set.mem_union, Set.mem_diff] at *"
+          ]
+        },
+        {
+          "prefix": [
+            "intro h0",
+            "intro h1",
+            "right",
+            "simp_all"
+          ],
+          "left_decision": "symbolic",
+          "right_decision": "hybrid",
+          "predictions": {
+            "symbolic": {
+              "completion_probability": 0.4991808107579221,
+              "conditional_attempts": 13.143641415347968
+            },
+            "hybrid": {
+              "completion_probability": 0.4991808107579221,
+              "conditional_attempts": 17.42261033174786
+            },
+            "typed": {
+              "completion_probability": 0.22510696748623862,
+              "conditional_attempts": 27.30074097985416
+            }
+          },
+          "reason": "maximum development-trained joint decision score",
+          "left_only": [],
+          "right_only": [
+            "apply False.elim",
+            "simp only [Set.mem_inter_iff, Set.mem_union, Set.mem_diff] at *"
+          ]
+        }
+      ],
+      "witnessed_right_path_in_left": [],
+      "source_sha256": {
+        "experiments/phase7/evaluation-v1/traces/p7_test_preimage_boolean_transport_02--joint.json.gz": "4036d1462cc6abb318b04065a0eadb4aa555d4874b061517d5329e02b124b516",
+        "experiments/phase7/evaluation-v1/traces/p7_test_preimage_boolean_transport_02--phase6_staged.json.gz": "e75b4a5e3a13a2ca46b11858a4f33bad28d026f075bb81f10c9e016164bf1549"
+      }
+    },
+    {
+      "task_id": "p7_test_lattice_guard_export_03",
+      "left_arm": "joint",
+      "right_arm": "phase6_staged",
+      "left_status": "verified",
+      "right_status": "not_found_within_budget",
+      "left_termination": "verified",
+      "right_termination": "resource_limit:attempts",
+      "left_proof": [
+        "simp_all",
+        "apply le_trans",
+        "apply inf_le_left",
+        "simp_all"
+      ],
+      "right_proof": [],
+      "left_attempts": 234,
+      "right_attempts": 600,
+      "matched_changes": [
+        {
+          "prefix": [
+            "simp_all",
+            "rcases h with ⟨h0, h1⟩"
+          ],
+          "left_decision": "symbolic",
+          "right_decision": "hybrid",
+          "predictions": {
+            "symbolic": {
+              "completion_probability": 0.7309054640265021,
+              "conditional_attempts": 18.399004164808616
+            },
+            "hybrid": {
+              "completion_probability": 0.7309054640265021,
+              "conditional_attempts": 19.097061006156494
+            },
+            "typed": {
+              "completion_probability": 0.3066581082862419,
+              "conditional_attempts": 30.97115142904835
+            }
+          },
+          "reason": "maximum development-trained joint decision score",
+          "left_only": [],
+          "right_only": [
+            "apply False.elim",
+            "apply le_of_lt",
+            "rw [inf_comm]",
+            "rw [← inf_comm]"
+          ]
+        },
+        {
+          "prefix": [
+            "simp_all",
+            "rcases h with ⟨h0, h1⟩",
+            "rcases h0 with ⟨h2, h3⟩"
+          ],
+          "left_decision": "symbolic",
+          "right_decision": "hybrid",
+          "predictions": {
+            "symbolic": {
+              "completion_probability": 0.7309054640265021,
+              "conditional_attempts": 18.4469488511764
+            },
+            "hybrid": {
+              "completion_probability": 0.7309054640265021,
+              "conditional_attempts": 19.11462215994363
+            },
+            "typed": {
+              "completion_probability": 0.3066581082862419,
+              "conditional_attempts": 30.929400835094118
+            }
+          },
+          "reason": "maximum development-trained joint decision score",
+          "left_only": [],
+          "right_only": [
+            "apply False.elim",
+            "apply le_of_lt",
+            "rw [inf_comm]",
+            "rw [← inf_comm]"
+          ]
+        },
+        {
+          "prefix": [
+            "simp_all",
+            "rcases h with ⟨h0, h1⟩",
+            "rcases h0 with ⟨h2, h3⟩",
+            "rcases h1 with ⟨h0, h4⟩"
+          ],
+          "left_decision": "symbolic",
+          "right_decision": "hybrid",
+          "predictions": {
+            "symbolic": {
+              "completion_probability": 0.7309054640265021,
+              "conditional_attempts": 18.483750833895193
+            },
+            "hybrid": {
+              "completion_probability": 0.7309054640265021,
+              "conditional_attempts": 19.115685215953377
+            },
+            "typed": {
+              "completion_probability": 0.3066581082862419,
+              "conditional_attempts": 30.770780825087037
+            }
+          },
+          "reason": "maximum development-trained joint decision score",
+          "left_only": [],
+          "right_only": [
+            "apply False.elim",
+            "apply le_of_lt",
+            "rw [inf_comm]",
+            "rw [← inf_comm]"
+          ]
+        },
+        {
+          "prefix": [
+            "simp_all",
+            "rcases h with ⟨h0, h1⟩",
+            "rcases h1 with ⟨h2, h3⟩"
+          ],
+          "left_decision": "symbolic",
+          "right_decision": "hybrid",
+          "predictions": {
+            "symbolic": {
+              "completion_probability": 0.7309054640265021,
+              "conditional_attempts": 18.43177208663258
+            },
+            "hybrid": {
+              "completion_probability": 0.7309054640265021,
+              "conditional_attempts": 19.09186817815808
+            },
+            "typed": {
+              "completion_probability": 0.3066581082862419,
+              "conditional_attempts": 30.77290795776772
+            }
+          },
+          "reason": "maximum development-trained joint decision score",
+          "left_only": [],
+          "right_only": [
+            "apply False.elim",
+            "apply le_of_lt",
+            "rw [inf_comm]",
+            "rw [← inf_comm]"
+          ]
+        },
+        {
+          "prefix": [
+            "simp_all",
+            "rcases h with ⟨h0, h1⟩",
+            "rcases h1 with ⟨h2, h3⟩",
+            "rcases h0 with ⟨h1, h4⟩"
+          ],
+          "left_decision": "symbolic",
+          "right_decision": "hybrid",
+          "predictions": {
+            "symbolic": {
+              "completion_probability": 0.7309054640265021,
+              "conditional_attempts": 18.473413167843542
+            },
+            "hybrid": {
+              "completion_probability": 0.7309054640265021,
+              "conditional_attempts": 19.100101045580537
+            },
+            "typed": {
+              "completion_probability": 0.3066581082862419,
+              "conditional_attempts": 30.66090251614604
+            }
+          },
+          "reason": "maximum development-trained joint decision score",
+          "left_only": [],
+          "right_only": [
+            "apply False.elim",
+            "apply le_of_lt",
+            "rw [inf_comm]",
+            "rw [← inf_comm]"
+          ]
+        }
+      ],
+      "witnessed_right_path_in_left": [],
+      "source_sha256": {
+        "experiments/phase7/evaluation-v1/traces/p7_test_lattice_guard_export_03--joint.json.gz": "5f2090ce3e976fc244fc74729ab00a1ebb759f230932f271431f7f2121987631",
+        "experiments/phase7/evaluation-v1/traces/p7_test_lattice_guard_export_03--phase6_staged.json.gz": "0c2e6ae641beb246d8e258cc2ae6c90f9b7257b31c2c1de0740068bdaaf8d772"
+      }
+    },
+    {
+      "task_id": "p7_test_image_preimage_roundtrip_01",
+      "left_arm": "joint",
+      "right_arm": "phase6_staged",
+      "left_status": "not_found_within_budget",
+      "right_status": "verified",
+      "left_termination": "resource_limit:attempts",
+      "right_termination": "verified",
+      "left_proof": [],
+      "right_proof": [
+        "intro h0",
+        "intro h1",
+        "exists (h0)"
+      ],
+      "left_attempts": 600,
+      "right_attempts": 21,
+      "matched_changes": [
+        {
+          "prefix": [
+            "intro h0",
+            "intro h1"
+          ],
+          "left_decision": "symbolic",
+          "right_decision": "hybrid",
+          "predictions": {
+            "symbolic": {
+              "completion_probability": 0.7039342398717752,
+              "conditional_attempts": 9.318561816486934
+            },
+            "hybrid": {
+              "completion_probability": 0.7039342398717752,
+              "conditional_attempts": 13.655715836653833
+            },
+            "typed": {
+              "completion_probability": 0.46682396971863965,
+              "conditional_attempts": 19.41944101692637
+            }
+          },
+          "reason": "maximum development-trained joint decision score",
+          "left_only": [],
+          "right_only": [
+            "apply False.elim",
+            "exists (h0)",
+            "rw [Set.inter_comm]",
+            "rw [Set.inter_union_distrib_right]",
+            "rw [Set.union_comm]",
+            "rw [Set.union_inter_distrib_left]",
+            "rw [← Set.inter_comm]",
+            "rw [← Set.union_comm]",
+            "simp only [Set.mem_inter_iff, Set.mem_union, Set.mem_diff] at *"
+          ]
+        }
+      ],
+      "witnessed_right_path_in_left": [
+        {
+          "prefix": [],
+          "tactic": "intro h0",
+          "expanded": true,
+          "selected": true
+        },
+        {
+          "prefix": [
+            "intro h0"
+          ],
+          "tactic": "intro h1",
+          "expanded": true,
+          "selected": true
+        },
+        {
+          "prefix": [
+            "intro h0",
+            "intro h1"
+          ],
+          "tactic": "exists (h0)",
+          "expanded": true,
+          "selected": false
+        }
+      ],
+      "source_sha256": {
+        "experiments/phase7/evaluation-v1/traces/p7_test_image_preimage_roundtrip_01--joint.json.gz": "048583eea15dfc22dc6bdc8cba4b002bf031583d517b1e4d889da45f8772d70b",
+        "experiments/phase7/evaluation-v1/traces/p7_test_image_preimage_roundtrip_01--phase6_staged.json.gz": "ec580a590c922067d40d7fd227592a1d19f75b0ec3cd697e66107d6f9a67f007"
+      }
+    },
+    {
+      "task_id": "p7_test_image_preimage_roundtrip_02",
+      "left_arm": "joint",
+      "right_arm": "phase6_staged",
+      "left_status": "not_found_within_budget",
+      "right_status": "verified",
+      "left_termination": "resource_limit:attempts",
+      "right_termination": "verified",
+      "left_proof": [],
+      "right_proof": [
+        "intro h0",
+        "intro h1",
+        "exists (h0)"
+      ],
+      "left_attempts": 600,
+      "right_attempts": 19,
+      "matched_changes": [
+        {
+          "prefix": [
+            "intro h0",
+            "intro h1"
+          ],
+          "left_decision": "symbolic",
+          "right_decision": "hybrid",
+          "predictions": {
+            "symbolic": {
+              "completion_probability": 0.7039342398717752,
+              "conditional_attempts": 9.318383121541984
+            },
+            "hybrid": {
+              "completion_probability": 0.7039342398717752,
+              "conditional_attempts": 13.656451237889137
+            },
+            "typed": {
+              "completion_probability": 0.471659782010471,
+              "conditional_attempts": 19.406611435101034
+            }
+          },
+          "reason": "maximum development-trained joint decision score",
+          "left_only": [],
+          "right_only": [
+            "apply False.elim",
+            "exists (h0)",
+            "rw [Set.inter_comm]",
+            "rw [← Set.inter_comm]",
+            "simp only [Set.mem_inter_iff, Set.mem_union, Set.mem_diff] at *"
+          ]
+        }
+      ],
+      "witnessed_right_path_in_left": [
+        {
+          "prefix": [],
+          "tactic": "intro h0",
+          "expanded": true,
+          "selected": true
+        },
+        {
+          "prefix": [
+            "intro h0"
+          ],
+          "tactic": "intro h1",
+          "expanded": true,
+          "selected": true
+        },
+        {
+          "prefix": [
+            "intro h0",
+            "intro h1"
+          ],
+          "tactic": "exists (h0)",
+          "expanded": true,
+          "selected": false
+        }
+      ],
+      "source_sha256": {
+        "experiments/phase7/evaluation-v1/traces/p7_test_image_preimage_roundtrip_02--joint.json.gz": "d73fa5f2a93e1373bded0c064f9d56a3f98c7554d58867b9960f87e761394472",
+        "experiments/phase7/evaluation-v1/traces/p7_test_image_preimage_roundtrip_02--phase6_staged.json.gz": "fa7a680ba950fed02bb6b67640bbca4e1f5315627049897531a18d5123ceceba"
+      }
+    },
+    {
+      "task_id": "p7_test_set_conjunction_witness_02",
+      "left_arm": "joint",
+      "right_arm": "phase6_staged",
+      "left_status": "not_found_within_budget",
+      "right_status": "verified",
+      "left_termination": "search_exhausted",
+      "right_termination": "verified",
+      "left_proof": [],
+      "right_proof": [
+        "exists (x)",
+        "simp_all"
+      ],
+      "left_attempts": 67,
+      "right_attempts": 52,
+      "matched_changes": [
+        {
+          "prefix": [],
+          "left_decision": "symbolic",
+          "right_decision": "hybrid",
+          "predictions": {
+            "symbolic": {
+              "completion_probability": 0.745181458250919,
+              "conditional_attempts": 9.055129188852252
+            },
+            "hybrid": {
+              "completion_probability": 0.745181458250919,
+              "conditional_attempts": 13.223452256258028
+            },
+            "typed": {
+              "completion_probability": 0.526037858982488,
+              "conditional_attempts": 18.96696990014263
+            }
+          },
+          "reason": "maximum development-trained joint decision score",
+          "left_only": [],
+          "right_only": [
+            "apply False.elim",
+            "exists (x)",
+            "rw [Set.inter_comm]",
+            "rw [Set.inter_union_distrib_left]",
+            "rw [Set.union_assoc]",
+            "rw [Set.union_comm]",
+            "rw [← Set.inter_comm]",
+            "rw [← Set.union_comm]",
+            "simp only [Set.mem_inter_iff, Set.mem_union, Set.mem_diff] at *"
+          ]
+        }
+      ],
+      "witnessed_right_path_in_left": [
+        {
+          "prefix": [],
+          "tactic": "exists (x)",
+          "expanded": true,
+          "selected": false
+        },
+        {
+          "prefix": [
+            "exists (x)"
+          ],
+          "tactic": "simp_all",
+          "expanded": false,
+          "selected": null
+        }
+      ],
+      "source_sha256": {
+        "experiments/phase7/evaluation-v1/traces/p7_test_set_conjunction_witness_02--joint.json.gz": "be475f8bdd21fafb500db8039bbacf8618cc8f1663fbbc04e8e479d7c2015fa3",
+        "experiments/phase7/evaluation-v1/traces/p7_test_set_conjunction_witness_02--phase6_staged.json.gz": "cd659243c9d58e4d450fe4bed2db641431e35f59373a7dfeac9cd031afb5a56b"
+      }
+    },
+    {
+      "task_id": "p7_test_image_preimage_roundtrip_03",
+      "left_arm": "joint",
+      "right_arm": "phase6_staged",
+      "left_status": "not_found_within_budget",
+      "right_status": "verified",
+      "left_termination": "resource_limit:attempts",
+      "right_termination": "verified",
+      "left_proof": [],
+      "right_proof": [
+        "intro h0",
+        "intro h1",
+        "exists (h0)"
+      ],
+      "left_attempts": 600,
+      "right_attempts": 19,
+      "matched_changes": [
+        {
+          "prefix": [
+            "intro h0",
+            "intro h1"
+          ],
+          "left_decision": "symbolic",
+          "right_decision": "hybrid",
+          "predictions": {
+            "symbolic": {
+              "completion_probability": 0.7039342398717752,
+              "conditional_attempts": 9.316262193651724
+            },
+            "hybrid": {
+              "completion_probability": 0.7039342398717752,
+              "conditional_attempts": 13.652927868424674
+            },
+            "typed": {
+              "completion_probability": 0.471659782010471,
+              "conditional_attempts": 19.41652577600185
+            }
+          },
+          "reason": "maximum development-trained joint decision score",
+          "left_only": [],
+          "right_only": [
+            "apply False.elim",
+            "exists (h0)",
+            "rw [Set.union_comm]",
+            "rw [← Set.union_comm]",
+            "simp only [Set.mem_inter_iff, Set.mem_union, Set.mem_diff] at *"
+          ]
+        }
+      ],
+      "witnessed_right_path_in_left": [
+        {
+          "prefix": [],
+          "tactic": "intro h0",
+          "expanded": true,
+          "selected": true
+        },
+        {
+          "prefix": [
+            "intro h0"
+          ],
+          "tactic": "intro h1",
+          "expanded": true,
+          "selected": true
+        },
+        {
+          "prefix": [
+            "intro h0",
+            "intro h1"
+          ],
+          "tactic": "exists (h0)",
+          "expanded": true,
+          "selected": false
+        }
+      ],
+      "source_sha256": {
+        "experiments/phase7/evaluation-v1/traces/p7_test_image_preimage_roundtrip_03--joint.json.gz": "2f755c76447d0fccad64e32d36171fa6672c8006f360077a66c1272d5842c6d5",
+        "experiments/phase7/evaluation-v1/traces/p7_test_image_preimage_roundtrip_03--phase6_staged.json.gz": "adb960eae740ba6641b80a1e3b6ac690e535854219f0e160c11b08feef9256f4"
+      }
+    },
+    {
+      "task_id": "p7_test_image_preimage_roundtrip_04",
+      "left_arm": "joint",
+      "right_arm": "phase6_staged",
+      "left_status": "not_found_within_budget",
+      "right_status": "verified",
+      "left_termination": "resource_limit:attempts",
+      "right_termination": "verified",
+      "left_proof": [],
+      "right_proof": [
+        "intro h0",
+        "intro h1",
+        "exists (h0)"
+      ],
+      "left_attempts": 600,
+      "right_attempts": 19,
+      "matched_changes": [
+        {
+          "prefix": [
+            "intro h0",
+            "intro h1"
+          ],
+          "left_decision": "symbolic",
+          "right_decision": "hybrid",
+          "predictions": {
+            "symbolic": {
+              "completion_probability": 0.7039342398717752,
+              "conditional_attempts": 9.311439462382396
+            },
+            "hybrid": {
+              "completion_probability": 0.7039342398717752,
+              "conditional_attempts": 13.64630697723573
+            },
+            "typed": {
+              "completion_probability": 0.471659782010471,
+              "conditional_attempts": 19.374790961587834
+            }
+          },
+          "reason": "maximum development-trained joint decision score",
+          "left_only": [],
+          "right_only": [
+            "apply False.elim",
+            "exists (h0)",
+            "rw [Set.inter_comm]",
+            "rw [← Set.inter_comm]",
+            "simp only [Set.mem_inter_iff, Set.mem_union, Set.mem_diff] at *"
+          ]
+        }
+      ],
+      "witnessed_right_path_in_left": [
+        {
+          "prefix": [],
+          "tactic": "intro h0",
+          "expanded": true,
+          "selected": true
+        },
+        {
+          "prefix": [
+            "intro h0"
+          ],
+          "tactic": "intro h1",
+          "expanded": true,
+          "selected": true
+        },
+        {
+          "prefix": [
+            "intro h0",
+            "intro h1"
+          ],
+          "tactic": "exists (h0)",
+          "expanded": true,
+          "selected": false
+        }
+      ],
+      "source_sha256": {
+        "experiments/phase7/evaluation-v1/traces/p7_test_image_preimage_roundtrip_04--joint.json.gz": "be748c43261fbc18aae07ad3e0767a1895942987133b66e52be932615d1fdd33",
+        "experiments/phase7/evaluation-v1/traces/p7_test_image_preimage_roundtrip_04--phase6_staged.json.gz": "d80ac577314f553ddd34217f6e119b3695de4790365b704206d6e3b40cc1635b"
+      }
+    },
+    {
+      "task_id": "p7_test_set_conjunction_witness_04",
+      "left_arm": "joint",
+      "right_arm": "phase6_staged",
+      "left_status": "not_found_within_budget",
+      "right_status": "verified",
+      "left_termination": "search_exhausted",
+      "right_termination": "verified",
+      "left_proof": [],
+      "right_proof": [
+        "exists (x)",
+        "simp_all"
+      ],
+      "left_attempts": 86,
+      "right_attempts": 130,
+      "matched_changes": [
+        {
+          "prefix": [],
+          "left_decision": "symbolic",
+          "right_decision": "hybrid",
+          "predictions": {
+            "symbolic": {
+              "completion_probability": 0.745181458250919,
+              "conditional_attempts": 9.052124759785762
+            },
+            "hybrid": {
+              "completion_probability": 0.745181458250919,
+              "conditional_attempts": 13.219344538418822
+            },
+            "typed": {
+              "completion_probability": 0.526037858982488,
+              "conditional_attempts": 18.940873917785016
+            }
+          },
+          "reason": "maximum development-trained joint decision score",
+          "left_only": [],
+          "right_only": [
+            "apply False.elim",
+            "exists (x)",
+            "rw [Set.inter_comm]",
+            "rw [Set.union_assoc]",
+            "rw [Set.union_comm]",
+            "rw [← Set.inter_comm]",
+            "rw [← Set.union_comm]",
+            "simp only [Set.mem_inter_iff, Set.mem_union, Set.mem_diff] at *"
+          ]
+        }
+      ],
+      "witnessed_right_path_in_left": [
+        {
+          "prefix": [],
+          "tactic": "exists (x)",
+          "expanded": true,
+          "selected": false
+        },
+        {
+          "prefix": [
+            "exists (x)"
+          ],
+          "tactic": "simp_all",
+          "expanded": false,
+          "selected": null
+        }
+      ],
+      "source_sha256": {
+        "experiments/phase7/evaluation-v1/traces/p7_test_set_conjunction_witness_04--joint.json.gz": "60484fa31ec909f4e5df15e875da0334906a6f0cb3556b5d4b84b4cef2f57afb",
+        "experiments/phase7/evaluation-v1/traces/p7_test_set_conjunction_witness_04--phase6_staged.json.gz": "bf2f6ebf6639d5d378535f4eb07501ad0fe07472f72a554b3f642b49203eb34f"
+      }
+    }
+  ],
+  "diagnostic_only": true,
+  "no_retuning": true
+}

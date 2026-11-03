@@ -106,3 +106,21 @@ def test_phase7_web_assets_are_exact_canonical_archives() -> None:
         assert (ROOT / "web/public" / row["url"]).read_bytes() == (
             source / "traces" / row["url"].split("/")[-1]
         ).read_bytes()
+
+
+def test_selected_model_refits_from_frozen_development_only(tmp_path) -> None:
+    import pytest
+
+    from prooflab.phase7_training import fit
+
+    fit(tmp_path)
+    original = BudgetModel()
+    reproduced = BudgetModel(tmp_path / "selected.json")
+    rows = cast(list[dict[str, Any]], read_json(DATA / "rows.json.gz"))
+    for row in rows[::41]:
+        left = original.predictions(row["features"])
+        right = reproduced.predictions(row["features"])
+        for mode in left:
+            assert left[mode] == pytest.approx(right[mode], abs=1e-8, rel=1e-8)
+    assert original.artifact["training_ids"] == reproduced.artifact["training_ids"]
+    assert original.artifact["conservative_margin"] == reproduced.artifact["conservative_margin"]

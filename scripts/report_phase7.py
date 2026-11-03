@@ -6,7 +6,7 @@ from __future__ import annotations
 
 import json
 import statistics
-from collections import defaultdict
+from collections import Counter, defaultdict
 from typing import Any, cast
 from xml.etree import ElementTree as ET
 
@@ -119,8 +119,15 @@ def calibration() -> dict[str, Any]:
         bins[min(4, int(p * 5))].append((p, y))
         if row["completion"] == 1:
             costs.append(abs(pred["conditional_attempts"] - row["conditional_attempts"]))
+    paired: dict[tuple[str, int, str], list[tuple[int, float]]] = defaultdict(list)
+    for row in selected:
+        p = model.predictions(row["features"])[row["mode"]]["completion_probability"]
+        paired[(row["task_id"], row["source_state"], row["mode"])].append((row["budget_level"], p))
+    monotone_pairs = [sorted(v) for v in paired.values() if len(v) == 2]
     return dict(
         validation_rows=len(selected),
+        paired_budget_comparisons=len(monotone_pairs),
+        budget_monotonicity_violations=sum(v[1][1] + 1e-9 < v[0][1] for v in monotone_pairs),
         brier={k: statistics.mean((p - y) ** 2 for p, y in v) for k, v in groups.items()},
         empirical_bins={
             str(k): dict(
@@ -133,6 +140,33 @@ def calibration() -> dict[str, Any]:
         conditional_attempt_mae=statistics.mean(costs) if costs else None,
         limit="Validation only; no test-counterfactual calibration is inferred from adaptively selected final trajectories.",
     )
+
+
+def policy_activity(summary: dict[str, Any]) -> dict[str, Any]:
+    activity = {}
+    for arm in ("completion", "cost", "joint", "conservative", "root_trained"):
+        totals = Counter()
+        choices = Counter()
+        for row in (r for r in summary["per_run"] if r["arm"] == arm):
+            trace = read_json(EXPERIMENT / row["file"])
+            staged = read_json(EXPERIMENT / "traces" / f"{row['task_id']}--staged.json.gz")
+            paths, staged_paths = prefixes(trace), prefixes(staged)
+            own_queries = {paths[q["node_id"]]: q for q in trace["retrievals"]}
+            base_queries = {staged_paths[q["node_id"]]: q for q in staged["retrievals"]}
+            for q in trace["retrievals"]:
+                choices[q["decision"]] += 1
+                totals["decisions"] += 1
+                totals["departures_from_staged"] += q["decision"] != q["baseline_decision"]
+            for prefix in own_queries.keys() & base_queries.keys():
+                totals["matched_prefixes"] += 1
+                totals["changed_selected_pools"] += set(own_queries[prefix]["selected"]) != set(
+                    base_queries[prefix]["selected"]
+                )
+            attempts = [(paths[n["id"]], n["status"]) for n in trace["nodes"][1:]]
+            baseline_attempts = [(staged_paths[n["id"]], n["status"]) for n in staged["nodes"][1:]]
+            totals["identical_full_attempt_sequences"] += attempts == baseline_attempts
+        activity[arm] = dict(**totals, choices=dict(choices))
+    return activity
 
 
 def main() -> None:
@@ -152,9 +186,16 @@ def main() -> None:
         c = comparisons[a + " minus " + b]
         cases.extend(inspect_pair(t, a, b) for t in c["gains"] + c["regressions"])
     cal = calibration()
+    activity = policy_activity(summary)
     save(
         EXPERIMENT / "analysis.json",
-        dict(calibration=cal, cases=cases, diagnostic_only=True, no_retuning=True),
+        dict(
+            calibration=cal,
+            policy_activity=activity,
+            cases=cases,
+            diagnostic_only=True,
+            no_retuning=True,
+        ),
     )
     robust = primary["theorem_interval"]["lower"] > 0 and primary["family_interval"]["lower"] > 0
     finding = (
@@ -205,9 +246,11 @@ def main() -> None:
             "",
             "## Independent new mathematical evaluation",
             "",
-            "**528 actual runs: 48 theorems × 11 arms**, one registered repetition per arm, two workers. The common outer budget is 18 seconds, 600 attempts, eighty expansions, depth twelve and cap 24; tactic/query calls are capped at two seconds. Initialization, retrieval, predictions and fresh verification consume the wall budget. Aesop/grind are separately identified opaque references; their single external attempt is not equal to one primitive inference or one ProofLab attempt.",
+            "**528 actual runs: 48 theorems × 11 arms**, one registered repetition per arm, two workers. The common engine budget is 18 seconds, 600 attempts, eighty expansions, depth twelve and cap 24; tactic/query calls are capped at two seconds. Initialization, retrieval, predictions and fresh verification consume the engine wall budget. The preserved historical wrapper has small fixed artifact setup outside that clock, while Phase 7 includes model setup; complete `runner_wall_s` is retained per run, so no identical setup-clock scope is claimed. Aesop/grind are separately identified opaque references; their single external attempt is not equal to one primitive inference or one ProofLab attempt.",
             "",
-            "| Method | Verified / 48 | Mean attempts (all runs) | Mean expanded states | Mean wall seconds | Mean strategy switches | Errors |",
+            "![Actual frozen new-family results](assets/phase7-results.svg)",
+            "",
+            "| Method | Verified / 48 | Mean attempts (all runs) | Mean expanded states | Mean engine wall seconds | Mean strategy switches | Errors |",
             "|---|---:|---:|---:|---:|---:|---:|",
         ]
     )
@@ -234,6 +277,25 @@ def main() -> None:
             if effort is not None
             else f"| {name} | {100 * t['estimate']:.2f} | [{100 * t['lower']:.2f}, {100 * t['upper']:.2f}] | [{100 * f['lower']:.2f}, {100 * f['upper']:.2f}] | {len(c['gains'])} / {len(c['regressions'])} | unavailable |"
         )
+    lines.extend(
+        [
+            "",
+            "### Did the learned decision change actual search?",
+            "",
+            "| Policy | Decisions | Departures from staged | Changed pools at shared prefixes | Identical full action sequences / 48 |",
+            "|---|---:|---:|---:|---:|",
+        ]
+    )
+    for arm, a in activity.items():
+        lines.append(
+            f"| {NAMES[arm]} | {a['decisions']} | {a['departures_from_staged']} | {a['changed_selected_pools']} | {a['identical_full_attempt_sequences']}/48 |"
+        )
+    lines.extend(
+        [
+            "",
+            "A fitted coefficient or probability difference is not evidence of a downstream algorithmic contribution. Identical action sequences or nonbinding guards provide no measured learning benefit. These controls are reported even when they defeat the intended learning hypothesis.",
+        ]
+    )
     lines.extend(
         [
             "",
@@ -325,9 +387,13 @@ def main() -> None:
     lines.extend(
         [
             "",
+            "![Actual Policy Learning Explorer](assets/phase7-policy-explorer.png)",
+            "",
+            "![Actual completion estimates and policy reasons](assets/phase7-policy-decisions.png)",
+            "",
             "## Scope and limits",
             "",
-            "This improves the learning target and implements measurable bounded strategy decisions; it does not establish a general theorem prover or novel mathematics. Success probabilities are finite-budget empirical predictions, conditional costs remain selection-sensitive, and intermediate states can shift away from the sampled curriculum. Smearing and a validation-selected conservative margin are approximations, not confidence certificates. Native work per candidate differs; process CPU/RSS counters omit some startup/audit/aggregate work. The benchmark is elementary, internally frozen rather than externally blinded, and a single registered repetition cannot eliminate runtime noise. Failed methods and negative findings are retained rather than repaired using the test set.",
+            "This improves the learning target and implements measurable bounded strategy decisions; it does not establish a general theorem prover or novel mathematics. Success probabilities are finite-budget empirical predictions without enforced budget monotonicity, conditional costs remain selection-sensitive, and intermediate states can shift away from the sampled curriculum. Smearing and a validation-selected conservative margin are approximations, not confidence certificates. Native work per candidate differs; process CPU/RSS counters omit some startup/audit/aggregate work. The benchmark is elementary, internally frozen rather than externally blinded, and a single registered repetition cannot eliminate runtime noise. Failed methods and negative findings are retained rather than repaired using the test set.",
         ]
     )
     (ROOT / "docs/phase-7-final-report.md").write_text("\n".join(lines) + "\n")

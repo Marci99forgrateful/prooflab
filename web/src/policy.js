@@ -140,11 +140,11 @@ function renderSide(side) {
   const visible = whole[side] ? trace.nodes : neighborhood(trace, node.id);
   const tree = treeMarkup(visible, node.id);
   const positions = [...tree.positions.values()];
-  const minX = Math.min(...positions.map((p) => p.x)) - 65;
+  const minX = Math.min(...positions.map((p) => p.x)) - 100;
   const minY = Math.min(...positions.map((p) => p.y)) - 45;
   const width = Math.max(
     480,
-    Math.max(...positions.map((p) => p.x)) - minX + 65,
+    Math.max(...positions.map((p) => p.x)) - minX + 100,
   );
   const height = Math.max(
     360,
@@ -155,7 +155,7 @@ function renderSide(side) {
   <div class="policy-tree" tabindex="0" aria-label="Scrollable actual proof search tree"><svg viewBox="${minX} ${minY} ${width} ${height}" role="img" aria-label="Actual recorded Lean states"><g class="policy-tree-transform">${tree.markup}</g></svg></div>
   <label>Inspect actual state<select class="policy-node">${trace.nodes.map((n) => `<option value="${n.id}" ${n.id === node.id ? "selected" : ""}>${n.id} · ${esc(n.tactic || "initial state")} · ${n.status}</option>`).join("")}</select></label>
   <pre class="policy-native">${esc((state?.goals || []).map((g, i) => `GOAL ${i + 1}\n${g.hypotheses.map((h) => `${h.name} : ${h.type.text}`).join("\n")}\n⊢ ${g.target.text}`).join("\n\n") || "No remaining Lean goals")}</pre>
-  <h3>Policy decision at this state</h3>
+  <h3>${node.state ? "Policy decision at this state" : "Parent decision for this rejected/error attempt"}</h3>
   ${q ? `<p class="policy-reason">${esc(q.decision_reason || q.decision_source || "Historical strategy decision")} · selected <strong>${esc(q.decision || "unrecorded")}</strong>${q.baseline_decision ? ` · staged fallback ${esc(q.baseline_decision)}` : ""}.</p>` : "<p>No policy decision was executed at this unexpanded state.</p>"}
   ${rows.length ? `<div class="policy-table-scroll"><table class="policy-predictions"><thead><tr><th>Strategy</th><th>Completion estimate</th><th>Attempts if completed</th><th>Actual selection</th></tr></thead><tbody>${rows.map((r) => `<tr><td>${esc(r.mode)}</td><td>${(100 * r.probability).toFixed(1)}%</td><td>${r.cost.toFixed(1)}</td><td>${r.selected ? "Selected" : "Alternative estimate"}</td></tr>`).join("")}</tbody></table></div><p class="method-note">Completion within the recorded budget is an operational prediction. These estimates are not proof certificates or mathematical truth labels. Conditional cost describes successful fixed-expert continuations.</p>` : q?.predicted_log_costs && Object.keys(q.predicted_log_costs).length ? `<p>Historical success-conditioned log-costs: ${esc(JSON.stringify(q.predicted_log_costs))}. No completion probabilities were estimated by this controller.</p>` : "<p>No learned completion estimates were executed in this deterministic/fixed strategy run.</p>"}
   ${q?.budget_features ? `<p>Remaining: ${(600 * q.budget_features.remaining_attempts).toFixed(0)} attempts · ${(80 * q.budget_features.remaining_expansions).toFixed(0)} expansions · ${(18 * q.budget_features.remaining_seconds).toFixed(2)} seconds. The frontier retains ${q.retained_frontier} earlier branches.</p>` : ""}
@@ -180,8 +180,10 @@ function renderSide(side) {
     renderSide(side);
   };
   container.querySelector(".policy-zoom").oninput = (e) => {
-    container.querySelector("svg").style.width =
-      `${100 * Number(e.target.value)}%`;
+    const svg = container.querySelector("svg");
+    const zoom = Number(e.target.value);
+    svg.style.width = `${100 * zoom}%`;
+    svg.style.height = `${340 * zoom}px`;
   };
   container.querySelector(".policy-export").onclick = () =>
     download(

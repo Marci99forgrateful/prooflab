@@ -588,6 +588,13 @@ def test_phase7_policy_predictions_full_tree_and_export_are_real(page: Page) -> 
     expect(page.locator("#policy-side-0")).to_have_attribute("data-task-id", row["task_id"])
     expect(page.locator("#policy-side-0 .policy-predictions tbody tr")).to_have_count(3)
     expect(page.locator("#policy-side-0 .policy-native")).to_contain_text("⊢")
+    root_box = page.locator('#policy-side-0 .tree-node[data-node="0"] circle').bounding_box()
+    tree_box = page.locator("#policy-side-0 .policy-tree").bounding_box()
+    assert root_box and tree_box
+    assert tree_box["x"] <= root_box["x"]
+    assert root_box["x"] + root_box["width"] <= tree_box["x"] + tree_box["width"]
+    assert tree_box["y"] <= root_box["y"]
+    assert root_box["y"] + root_box["height"] <= tree_box["y"] + tree_box["height"]
     page.locator("#policy-side-0 .policy-whole").click()
     expect(page.locator("#policy-side-0 .tree-node")).to_have_count(len(trace["nodes"]))
     with page.expect_download() as download:

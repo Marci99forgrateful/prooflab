@@ -49,7 +49,7 @@ uv run --frozen python -c 'from prooflab.phase7_evaluation import check_executio
 uv run --frozen python -m prooflab.phase7 evaluate --output /tmp/prooflab-phase7-new-evaluation
 ```
 
-The registered final matrix is **48 statements × 11 arms = 528 actual searches**, one repeat per arm, two workers. All arms receive the same 600-attempt, eighty-expansion, depth-twelve, cap-24, eighteen-second outer budget and two-second tactic cap. Aesop/grind are external opaque references. Initialization, queries, prediction and independent verification consume the wall budget; archive serialization lies outside the measured call. Session CPU/RSS counters are partial native-process observations, not a complete aggregate machine resource bill.
+The registered final matrix is **48 statements × 11 arms = 528 actual searches**, one repeat per arm, two workers. All arms receive the same 600-attempt, eighty-expansion, depth-twelve, cap-24, eighteen-second engine budget and two-second tactic cap. Aesop/grind are external opaque references. Initialization, queries, prediction and independent verification consume the engine wall budget; archive serialization lies outside the measured call. The preserved Phase 6 wrapper performs small fixed artifact setup before starting its engine clock, while the new engine includes its model setup. Per-run `runner_wall_s` includes both and is retained alongside engine time; nominal clock scopes are not claimed identical at the setup boundary. Session CPU/RSS counters are partial native-process observations, not a complete aggregate machine resource bill.
 
 The final summary includes every outcome, attempt/expansion/state/wall/query/model/verification cost, native heartbeat counter, strategy switch, family result and regression. Paired theorem bootstrap intervals and separate equal-family sensitivity are descriptive at this sample size. Common-success effort is reported separately from all-run effort.
 
@@ -64,6 +64,15 @@ uv run --frozen python scripts/export_phase7.py
 npm --prefix web ci --no-audit --no-fund
 npm --prefix web run build
 uv run --frozen prooflab serve
+```
+
+For a single registered theorem, retain a new complete trace with a fresh output
+filename (existing research output is never overwritten):
+
+```bash
+uv run --frozen python -m prooflab.phase7 search \
+  --task p7_test_high_degree_factorization_01 --policy conservative \
+  --output /tmp/prooflab-p7-proof.json
 ```
 
 The Policy Learning Explorer supports frozen evaluation, matched root/intermediate development continuations, native state and full-tree inspection, actual prediction/decision records, observed success/failure, full JSON export and cancellable local computation. Recorded development is explicitly separated from new evaluation. All previous explorers and interactions remain available. Static subdirectory replay requires no backend or CDN. The backend continues to bind only to loopback and accepts finite registered theorem IDs, never arbitrary Lean text.
